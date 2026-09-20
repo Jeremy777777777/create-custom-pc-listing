@@ -1,12 +1,12 @@
 ---
 name: create-custom-pc-listing
 description: >-
-  Research, create, update, or compliance-check an Amazon Custom PC listing
-  from a seller ERP product-detail page for a customized laptop or desktop,
-  with one Excel workbook as the only final output. Use when the user provides
-  an ERP product URL and wants a MegaPC listing, RAM or SSD customization,
-  inactive-listing rebuild, Seller Central attribute completion, image planning,
-  or listing QA.
+  Research competing Amazon listings, create, update, or compliance-check an
+  Amazon Custom PC listing from a seller ERP product-detail page for a
+  customized laptop or desktop, with one Excel workbook as the only final
+  output. Use when the user provides an ERP product URL and wants a MegaPC
+  listing, RAM or SSD customization, inactive-listing rebuild, Seller Central
+  attribute completion, image planning, or listing QA.
 ---
 
 # Create or Update an Amazon Custom PC Listing Workbook
@@ -196,6 +196,48 @@ Before offering RAM customization, verify that the machine has replaceable
 SO-DIMM memory. `LPDDR`, `onboard`, or `soldered` memory is not upgradeable.
 When RAM is soldered, offer storage-only customization if the SSD is serviceable.
 
+### 3A. Research the relevant Amazon listing market
+
+Amazon research is required for every listing. When the user provides a target
+or example Amazon listing, treat it as a mandatory benchmark for completeness
+and market positioning, not as copy to reproduce.
+
+Systematically review all materially relevant and accessible Amazon listings
+found for the product. Continue through search results and meaningful variants
+until additional pages no longer reveal a distinct product, configuration,
+seller approach, or presentation pattern. Include, when available:
+
+- the exact OEM model and GPU/CPU configuration
+- the OEM or manufacturer listing
+- the same model with different RAM or SSD tiers
+- seller-customized or upgraded versions of the same model
+- close competing models only when they help explain category conventions
+
+Amazon results can vary by location, account state, indexing, and availability.
+Do not claim exhaustive coverage when Amazon hides, blocks, or personalizes the
+remaining results. If only one relevant listing is accessible, record the
+research limitation in the workbook and do not imply a broad market comparison.
+
+For each useful listing, record its URL and research role in the Source cells
+that it informed. Study market signals such as:
+
+- title keyword order and commonly surfaced specifications
+- bullet order, benefit framing, and customer vocabulary
+- RAM/SSD option presentation and variation structure
+- gallery sequence, infographic topics, and A+ content coverage
+- Product Details coverage and recurring buyer-facing distinctions
+
+Amazon listings are secondary market references, not automatic proof of a
+technical specification. Verify factual hardware claims using the source
+priority in Step 3. Never copy a competitor's title, bullets, description,
+images, A+ content, branded phrases, or distinctive layout. Write original
+MegaPC content that reaches a comparable level of clarity and completeness
+while following the Custom PC rules.
+
+If Amazon requires authentication or blocks access, ask the user to open the
+page in an accessible browser session or provide the relevant URL or export. Do
+not bypass access controls.
+
 ### 4. Establish the customization
 
 Separate factory specifications from MegaPC changes:
@@ -211,6 +253,9 @@ Attributes.
 ### 5. Write the listing content into Product Details
 
 Fill the applicable Product Details attributes directly in the workbook.
+Use the Amazon market research to inform coverage, customer vocabulary, and
+keyword order, but write original copy and let the compliance rules override
+any conflicting pattern found on an OEM or competitor listing.
 
 - `Item Name`: start with the seller brand, include `Custom` or `Customized`,
   and reference the OEM product with `Created Using ...`. Keep it under 200
@@ -260,7 +305,9 @@ For each slot:
 
 Follow the original page image requirements preserved in the sheet and the
 rules in `references/image-spec.md`. Do not create a separate shot-list or
-sources file.
+sources file. Amazon listing research may inform which benefits customers
+expect to see, but it is never permission to reuse or closely recreate another
+seller's images.
 
 ### 9. Handle Variations
 
@@ -283,6 +330,8 @@ Before delivery, check:
 - software is not described as a customization
 - OS edition is consistent everywhere
 - technical claims agree across listing text and attributes
+- relevant Amazon listings were researched and their URLs and roles are recorded
+- title, bullets, description, and image briefs are original rather than copied
 - image briefs match the verified configuration
 - required commercial inputs are present or clearly awaiting the user
 - safety and regulatory claims have evidence
@@ -303,6 +352,8 @@ claim the listing is ready to publish while a material blocker remains.
 
 `references/compliance-rules.md` owns policy rules.
 `references/image-spec.md` owns image-production rules.
+This file owns the Amazon market-research workflow; the compliance and image
+references own the originality and asset-use boundaries.
 The Excel template owns Amazon Attribute names, field order, and definitions.
 Keep each rule in its owning resource instead of duplicating detailed reference
 content in this file.
