@@ -36,6 +36,24 @@ Status cell as `VERIFIED` only when the file and source are ready; otherwise use
 `NOT VERIFIED` and state `TO SOURCE` or `TO PRODUCE` in the Value cell. Do not
 create a separate shot-list or sources file.
 
+## Amazon competitor research boundary
+
+Relevant Amazon listings may be reviewed to understand expected image coverage,
+the order in which benefits are explained, common infographic topics, and the
+overall level of visual polish. A user-provided target listing is a benchmark
+for quality and completeness, not a production template.
+
+- Record a competitor or OEM Amazon URL as a research reference only. It is not
+  licensed asset provenance.
+- Do not download, crop, recolor, trace, composite, or lightly edit another
+  seller's gallery or A+ image.
+- Do not reproduce a distinctive competitor layout one-for-one. Use an original
+  composition, original copy, and the fixed MegaPC slot roles below.
+- Do not lift screenshots, ratings, review excerpts, badges, or comparison
+  graphics from an Amazon detail page.
+- Final product photography must still come from a licensed OEM source or the
+  seller, and original infographic files must be produced from verified facts.
+
 ## Main gallery — 9 images, fixed order
 
 | Slot | Role (match this exactly) | Background | What it shows |

@@ -34,6 +34,20 @@ Program & fulfillment
 - [ ] Each shipped unit will include documentation of the customizations.
 - [ ] New ASIN + own UPC (reviews from OEM/old listings cannot transfer).
 
+Amazon market research & originality
+- [ ] Research covers the relevant accessible exact-model, OEM, configuration,
+      and seller-customized Amazon listings, not only one example page.
+- [ ] Any user-provided target listing is used as a benchmark for completeness
+      and positioning, not as text or artwork to reproduce.
+- [ ] Title, bullets, description, image copy, and A+ content are original to
+      MegaPC; no competitor wording, images, or distinctive presentation is
+      copied or lightly modified.
+- [ ] Amazon listing claims are treated as market references unless separately
+      verified by an authoritative product source.
+- [ ] OEM or competitor listing conventions do not override the MegaPC
+      brand-first title, warranty-first bullet, customization disclosure, or
+      MFN requirements.
+
 ## Why each rule exists (intent)
 
 The whole policy answers three customer questions up front:
@@ -47,6 +61,35 @@ The whole policy answers three customer questions up front:
 
 Frame every element against these three and compliance is natural rather than a
 checklist chore.
+
+## MegaPC competitive-research rule
+
+This section is an internal originality and quality-control rule, not quoted
+Amazon policy. It operationalizes the user's requirement to achieve the same
+level of listing quality as strong Amazon examples without making the result a
+copy.
+
+You may learn from relevant Amazon listings:
+
+- which verified specifications customers expect to see in the title
+- the sequence in which competitors explain performance, display, cooling,
+  design, warranty, and configuration choices
+- recurring customer vocabulary and legitimate search terms
+- the coverage and pacing of gallery images and A+ modules
+- how RAM and SSD choices are presented to buyers
+
+You must not:
+
+- copy or closely paraphrase a competitor's title, bullets, description, A+
+  text, comparison copy, or branded phrases
+- download, crop, recolor, trace, or lightly edit a competitor's images
+- reproduce a distinctive infographic or A+ layout one-for-one
+- use competitor reviews, ratings, badges, or claims as MegaPC evidence
+- let an OEM-branded listing determine the brand field or disclosure order for
+  a MegaPC-customized product
+
+The intended outcome is comparable clarity, completeness, and conversion
+quality with independently written MegaPC content and properly licensed assets.
 
 ## Key policy text (verbatim essentials)
 
