@@ -1,11 +1,16 @@
 ---
 name: create-custom-pc-listing
-description: Create verified, original MegaPC Amazon Custom PC listing workbooks from the Listing Status Tracker Google Sheet using the repository Excel template, style guide, and compliance rules. Use for product research, attribute validation, listing drafting, and pre-publication QA; do not publish to Seller Central.
+description: Create verified, original MegaPC Amazon Custom PC listing workbooks and route separate Amazon product-image production tasks. Use for product research, attribute validation, listing drafting, pre-publication QA, or a dedicated MAIN/PT01-PT08 image workflow; do not publish to Seller Central.
 ---
 
 # Amazon Listing Automation Workflow
 
 适用范围：根据输入表中的产品记录，为 MegaPC 定制 PC 生成经过事实核验、原创且符合项目合规规则的 Amazon Listing 工作簿。本文件是逐产品执行的工作流程，不授权直接发布到 Seller Central。若产品不是“全新电脑、仅定制 RAM/存储”的适用情形，应停止套用本流程并提交人工判断。
+
+## 工作流路由
+
+- Listing 研究、文案、合规检查和 Excel 输出继续执行本文件。
+- 独立的产品图片规划、制作、检查或 GitHub 交付任务，执行 [references/amazon-product-image-workflow.md](references/amazon-product-image-workflow.md)，并同时遵守 [references/image-spec.md](references/image-spec.md)。图片任务不修改 Listing Excel，除非用户另行明确要求。
 
 ## 固定输入与规则文件
 
@@ -35,7 +40,7 @@ description: Create verified, original MegaPC Amazon Custom PC listing workbooks
 
 1. **匹配度**：同一 OEM 型号和代际优先；其次同系列、相同核心平台的高度相关商品。明确记录 RAM/SSD、CPU、屏幕等配置差异。
 2. **信息质量**：标题、要点、描述和规格较完整，关键字段不自相矛盾，商品页可访问。销量、评分或评论数只能作为辅助线索，不能单独证明质量或规格真实性。
-3. **适用性与原创性**：优先能帮助判断客户关心的信息组织方式的页面；竞品文本、图片、A+ 布局和独有措辞不得复制或轻微改写。
+3. **适用性与原创性**：优先能帮助判断客户关心的信息组织方式的页面；竞品文本、图片布局和独有措辞不得复制或轻微改写。
 
 不要为了凑满 3 个而选明显错误型号、不可访问或低质量页面。少于 3 个合格页面时，记录实际数量、搜索范围及原因，继续以官方/卖家证据核验事实，并将研究覆盖不足列为人工复核项。Amazon listing 仅用于市场对标、信息覆盖、常用搜索词和表达顺序；**不是产品规格的最终证据**。
 
