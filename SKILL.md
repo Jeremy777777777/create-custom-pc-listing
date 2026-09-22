@@ -1,9 +1,9 @@
 ---
-name: create-custom-pc-listing
-description: Create verified, original MegaPC Amazon Custom PC listing workbooks and route separate Amazon product-image production tasks. Use for product research, attribute validation, listing drafting, pre-publication QA, or a dedicated MAIN/PT01-PT08 image workflow; do not publish to Seller Central.
+name: amazon-custom-pc-listing-workflow
+description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and verify product facts, create the listing workbook, perform compliance QA, and route a separate MAIN/PT01-PT08 image-production task. Use for listing creation, revision, validation, workbook output, or product-image delivery; do not publish to Seller Central.
 ---
 
-# Amazon Listing Automation Workflow
+# MegaPC Amazon Custom PC Workflow
 
 适用范围：根据输入表中的产品记录，为 MegaPC 定制 PC 生成经过事实核验、原创且符合项目合规规则的 Amazon Listing 工作簿。本文件是逐产品执行的工作流程，不授权直接发布到 Seller Central。若产品不是“全新电脑、仅定制 RAM/存储”的适用情形，应停止套用本流程并提交人工判断。
 
@@ -15,13 +15,16 @@ description: Create verified, original MegaPC Amazon Custom PC listing workbooks
 ## 固定输入与规则文件
 
 - 输入 Google Sheet：[Listing Status Tracker](https://docs.google.com/spreadsheets/d/11qeinso-6eRYgSVLQlRdteOZL8vsZE9IBfZcVMBXEkE/edit?gid=621896540#gid=621896540)，使用 `gid=621896540` 的工作表。已核对第 3 行表头：`Product Name`、`VL-`、`Quantity`。按表头名称读取，不依赖固定列号；忽略标题行和空行。
-- 合规规则：[references/compliance-rules.md](https://github.com/Jeremy777777777/create-custom-pc-listing/blob/main/references/compliance-rules.md)。每次批次运行前读取当前版本，以其最新内容作为项目合规检查依据；规则文件不可访问时，不得将任何记录标为发布就绪。
+- 合规规则：[references/compliance-rules.md](references/compliance-rules.md)。每次批次运行前读取当前版本，以其最新内容作为项目合规检查依据；规则文件不可访问时，不得将任何记录标为发布就绪。
 - 文案风格：[listing-style-guide.md](references/listing-style-guide.md)。进入 `Generate Listing` 前读取它，用于 Title、Bullet Points 和 Description 的结构、信息顺序及用途表达。它借鉴 MegaPC 的示例 listing，但不提供任何可直接套用的产品事实；如果与合规规则冲突，以合规规则为准。文件缺失时先继续 Research/Validate，不将未经风格检查的文案标为最终版。
-- 输出模板：[assets/listing-workbook-template.xlsx](https://github.com/Jeremy777777777/create-custom-pc-listing/blob/main/assets/listing-workbook-template.xlsx)。以仓库当前模板副本为基础，不覆盖原模板。
+- Seller Central 字段参考：[assets/amazon_sellercentral_attributes_definitions.md](assets/amazon_sellercentral_attributes_definitions.md)。仅用于理解 NOTEBOOK_COMPUTER 字段定义和页面来源；实际输出结构以当前 Excel 模板为准，合规判断仍以 `compliance-rules.md` 为准。
+- 输出模板：[assets/listing-workbook-template.xlsx](assets/listing-workbook-template.xlsx)。以仓库当前模板副本为基础，不覆盖原模板。
 
 ## 总体流程与逐产品逻辑
 
 `Input → Research → Validate → Generate Listing → Compliance Check → Output → Human Review`
+
+图片是同一整体 workflow 的后续独立分支：`Verified Listing → Image Plan → MAIN/PT Production → Image QA → Human Review`。只有 Listing 的相关事实已验证时才进入图片分支；图片状态不回写 Listing Excel。
 
 对输入表中每条有效产品记录依次执行。为每条记录保留来源行号、原始 `Product Name`、原始 `VL-`、原始 `Quantity`，不要在清洗时丢失原值。空白产品名、无效数量、重复 `VL-` 或产品配置无法识别时，标记 `BLOCKED` 并记录原因；不要将两条看似相同的记录自动合并。每条记录独立研究、核验、生成和导出，避免把相邻型号的规格混在一起。输入的 `Quantity` 是库存承诺，不是商品包装内件数。
 
