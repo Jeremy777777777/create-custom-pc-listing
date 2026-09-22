@@ -1,359 +1,105 @@
 ---
 name: create-custom-pc-listing
-description: >-
-  Research competing Amazon listings, create, update, or compliance-check an
-  Amazon Custom PC listing from a seller ERP product-detail page for a
-  customized laptop or desktop, with one Excel workbook as the only final
-  output. Use when the user provides an ERP product URL and wants a MegaPC
-  listing, RAM or SSD customization, inactive-listing rebuild, Seller Central
-  attribute completion, image planning, or listing QA.
+description: Create verified, original MegaPC Amazon Custom PC listing workbooks from the Listing Status Tracker Google Sheet using the repository Excel template, style guide, and compliance rules. Use for product research, attribute validation, listing drafting, and pre-publication QA; do not publish to Seller Central.
 ---
 
-# Create or Update an Amazon Custom PC Listing Workbook
+# Amazon Listing Automation Workflow
 
-Use one Excel workbook as the listing's structured record and final deliverable.
-Do not generate separate Markdown, text, research, source, image-shot-list, or
-checklist files unless the user explicitly requests one.
+适用范围：根据输入表中的产品记录，为 MegaPC 定制 PC 生成经过事实核验、原创且符合项目合规规则的 Amazon Listing 工作簿。本文件是逐产品执行的工作流程，不授权直接发布到 Seller Central。若产品不是“全新电脑、仅定制 RAM/存储”的适用情形，应停止套用本流程并提交人工判断。
 
-## Required resources
+## 固定输入与规则文件
 
-- Use [assets/listing-workbook-template.xlsx](assets/listing-workbook-template.xlsx)
-  when the user does not provide an existing workbook.
-- Read [references/compliance-rules.md](references/compliance-rules.md) before
-  writing or approving listing claims.
-- Read [references/image-spec.md](references/image-spec.md) when planning or
-  producing listing images.
+- 输入 Google Sheet：[Listing Status Tracker](https://docs.google.com/spreadsheets/d/11qeinso-6eRYgSVLQlRdteOZL8vsZE9IBfZcVMBXEkE/edit?gid=621896540#gid=621896540)，使用 `gid=621896540` 的工作表。已核对第 3 行表头：`Product Name`、`VL-`、`Quantity`。按表头名称读取，不依赖固定列号；忽略标题行和空行。
+- 合规规则：[references/compliance-rules.md](https://github.com/Jeremy777777777/create-custom-pc-listing/blob/main/references/compliance-rules.md)。每次批次运行前读取当前版本，以其最新内容作为项目合规检查依据；规则文件不可访问时，不得将任何记录标为发布就绪。
+- 文案风格：[listing-style-guide.md](references/listing-style-guide.md)。进入 `Generate Listing` 前读取它，用于 Title、Bullet Points 和 Description 的结构、信息顺序及用途表达。它借鉴 MegaPC 的示例 listing，但不提供任何可直接套用的产品事实；如果与合规规则冲突，以合规规则为准。文件缺失时先继续 Research/Validate，不将未经风格检查的文案标为最终版。
+- 输出模板：[assets/listing-workbook-template.xlsx](https://github.com/Jeremy777777777/create-custom-pc-listing/blob/main/assets/listing-workbook-template.xlsx)。以仓库当前模板副本为基础，不覆盖原模板。
 
-The workbook's Amazon Attribute names, order, and Definition cells are the
-authoritative schema. Do not add presumed Amazon fields or rewrite definitions.
+## 总体流程与逐产品逻辑
 
-## Final output contract
+`Input → Research → Validate → Generate Listing → Compliance Check → Output → Human Review`
 
-The final output is exactly one `.xlsx` workbook. It contains the listing text,
-attributes, offer data, safety and compliance data, image plan, verification
-status, and evidence sources.
+对输入表中每条有效产品记录依次执行。为每条记录保留来源行号、原始 `Product Name`、原始 `VL-`、原始 `Quantity`，不要在清洗时丢失原值。空白产品名、无效数量、重复 `VL-` 或产品配置无法识别时，标记 `BLOCKED` 并记录原因；不要将两条看似相同的记录自动合并。每条记录独立研究、核验、生成和导出，避免把相邻型号的规格混在一起。输入的 `Quantity` 是库存承诺，不是商品包装内件数。
 
-Do not create these former outputs:
+### 1. Input：读取并规范化
 
-- listing overview
-- title file
-- bullet-points file
-- description file
-- customization-config file
-- image shot-list or image-source log
-- compliance-checklist file
-- Product Details Markdown or text file
-- Safety & Compliance Markdown or text file
-- separate verified-specs or research file
+1. 仅以指定工作表的 `Product Name`、`VL-`、`Quantity` 三列作为本流程的初始输入；其他列可以辅助定位现有 listing，但不能替代产品事实证据。
+2. 从 `Product Name` 提取品牌、系列、具体型号、可能的基础规格与配置线索，并保留原文。所有从名称解析出的规格先标为 `INPUT_UNVERIFIED`，不能直接用于发布文案。
+3. `VL-` 作为源记录追踪标识，并按原样保留。该列实际可能包含 `VA-190 - > VA-215` 这样的编号范围，而非单个 `VL-` 编号或 Amazon SKU；未确认业务含义、范围边界与拆分规则前，不自动展开为多个产品。只有确认某个具体编号就是待提交的卖家 SKU，才映射到模板的 `Offer > SKU`；否则 `SKU` 保持待确认，不擅自生成或改写。
+4. `Quantity` 必须是非负整数；写入模板 `Offer > Quantity` 前确认它表示当前可售、可履约数量。缺失或冲突时不猜测为 0。
 
-Finished image files may exist outside the workbook when the user asks to
-create images. Record their paths in the `Images` sheet; they are production
-assets, not additional listing-data outputs.
+### 2. Research：官方资料与 3 个 Amazon 参考 listing
 
-## Workbook modes
+使用完整型号、厂商料号、配置关键词搜索官方产品页/规格表，以及 Amazon 上的同款或高度相关商品。记录检索日期、页面 URL、商品 ASIN（如有）、页面标题和与目标配置的差异。优先寻找同型号、同代际、同机身/屏幕/CPU 平台的页面，不把系列页的所有可选配置误认为本机配置。
 
-### Update an existing workbook
+从可访问的候选中选出最多 **3 个高质量 Amazon listing**，并按以下顺序判断：
 
-When the user provides an existing workbook, update it directly unless they ask
-for a copy. Identify the product by SKU, ASIN, part number, or another stable
-identifier. Never overwrite another product's records.
+1. **匹配度**：同一 OEM 型号和代际优先；其次同系列、相同核心平台的高度相关商品。明确记录 RAM/SSD、CPU、屏幕等配置差异。
+2. **信息质量**：标题、要点、描述和规格较完整，关键字段不自相矛盾，商品页可访问。销量、评分或评论数只能作为辅助线索，不能单独证明质量或规格真实性。
+3. **适用性与原创性**：优先能帮助判断客户关心的信息组织方式的页面；竞品文本、图片、A+ 布局和独有措辞不得复制或轻微改写。
 
-If the workbook already stores multiple products, update the matching product
-block or append a new product block using the workbook's existing pattern.
-Preserve prior products, formulas, formatting, definitions, data validation,
-freeze panes, and source records.
+不要为了凑满 3 个而选明显错误型号、不可访问或低质量页面。少于 3 个合格页面时，记录实际数量、搜索范围及原因，继续以官方/卖家证据核验事实，并将研究覆盖不足列为人工复核项。Amazon listing 仅用于市场对标、信息覆盖、常用搜索词和表达顺序；**不是产品规格的最终证据**。
 
-### Create a new workbook
+### 3. Validate：逐属性交叉核验
 
-When no workbook is provided, copy the workbook template and create one workbook
-for the requested SKU. Name it clearly, for example:
+必须核验 CPU、已安装 RAM、RAM 类型、存储容量及类型、屏幕尺寸、分辨率、触控、显卡、操作系统、连接能力与接口。模板要求的其他字段也按同一标准处理，包括品牌、型号、保修、定制状态、库存等。区分“该型号可选/支持”与“本次实际销售配置”，并区分 OEM 原厂配置与 MegaPC 升级后的 RAM/SSD。
 
-`MegaPC_Lenovo_ThinkCentre_M70q_Gen5_<SKU>.xlsx`
+**来源优先级（针对实际销售配置）：**
 
-Do not alter the original template asset.
+1. 可识别该 `VL-`/具体机器的卖家 ERP、采购/装配记录、配置单和已确认的卖家政策，用于实际 RAM、SSD、库存、SKU、升级内容及保修承诺。
+2. 与准确型号/料号相匹配的 OEM 官方配置页、规格表、产品手册，用于原厂机身、CPU 平台、显示屏、接口等事实。
+3. 适用时，部件制造商的官方资料，用于补充 CPU、内存、SSD 等部件规格；不得用部件能力反推整机实际配置。
+4. Amazon 同款或竞品 listing、其他经销商页面，仅作交叉参考和发现待核问题，不能单独支持具体商品的事实主张。
 
-## Workbook data model
+来源“优先级”不是盲目覆盖：证据必须匹配**确切型号、料号和销售配置**。若较低级来源显示差异，先检查是否为地区版、代际、配置选项或升级后状态不同。不能解释的冲突保持 `CONFLICT`，记录各来源原值与差异，不按多数投票、不根据常识补全、不选更有利于销售的数字。官方只写“可选触控”时，不得写“触控屏”；未证实接口数量时不得猜测。缺失字段标为 `TBD`，不把缺失当作“无”或“0”。
 
-The workbook contains these Seller Central sections:
+每个字段至少保存：`attribute`、候选值、最终值、来源 URL/文档位置、来源日期、适用配置、状态、冲突/处理说明。使用以下状态：
 
-- `Product Details`
-- `Images`
-- `Variations`
-- `Offer`
-- `Safety&Compliance`
+| 状态 | 含义 | 可进入发布文案/商品属性？ |
+| --- | --- | --- |
+| `VERIFIED` | 有与目标配置匹配的权威证据，且冲突已解决 | 可以 |
+| `INPUT_UNVERIFIED` | 只来自输入名称或未经核实的卖家输入 | 不可以 |
+| `CONFLICT` | 来源之间存在未解决的实质差异 | 不可以 |
+| `TBD` | 信息缺失或证据不足 | 不可以 |
+| `NOT_APPLICABLE` | 确认该字段不适用于此商品 | 不填写或按模板允许值处理 |
 
-Each Amazon Attribute is a column. Use the worksheet's auxiliary rows as
-follows:
+关键配置字段仍为 `CONFLICT`/`TBD` 时，该产品不得标为发布就绪。非关键字段若模板允许留空，可留空并说明；不能用虚构值让工作簿看起来完整。
 
-- `Definition`: fixed Amazon definition; do not edit.
-- `Value`: final Seller Central value or listing content.
-- `Status`: verification state.
-- `Source`: evidence supporting the value.
+### 4. Generate Listing：生成原创内容
 
-Use only these statuses unless the workbook already defines an equivalent set:
+先读取 `listing-style-guide.md`，再仅使用 `VERIFIED` 的实际销售配置生成英文 Title、Bullet Points、Description 和适用的 Amazon 商品属性。文案风格参考该文件，事实只取自第 3 步的验证结果；不能复制或近似改写 Amazon 参考 listing。不要承诺未核实的性能、兼容性、附件、软件、售后或保修。RAM/存储选项只列实际可售且有履约证据的选项。
 
-- `VERIFIED`
-- `NOT VERIFIED`
-- `USER CONFIRMATION REQUIRED`
-- `CONFLICT`
-- `NOT APPLICABLE`
+- **Title**：依风格指南将产品身份、真实用途/形态及最有价值的配置按优先级呈现；同时满足合规规则的 MegaPC 品牌开头、`Custom/Customized`、OEM 型号引用、RAM/存储选项和长度要求。Business、Gaming 或 Student 用途仅在目标产品确实适用时使用。
+- **Bullet Points**：借鉴风格指南的分主题结构，覆盖商品总览、处理器、内存/存储、显示或设计、连接及整体用途等实际卖点；按目标类目允许的数量精简。**第 1 条固定为保修披露**，第 2 条或其他显著位置清楚说明 MegaPC 仅定制 RAM/SSD；其余主题只写该产品已核实的特征，不为凑齐示例主题而虚构内容。
+- **Description**：根据风格指南用连贯短段落解释产品身份、重要配置与实际用途、定制范围及经确认的交付信息；不机械重复 bullets，且与标题、要点、属性值一致。
+- **Attributes**：按模板字段语义填写准确值及单位；例如 `RAM Memory Installed` 与 `Hard Disk Size` 应反映实际销售配置，`Brand Name` 为符合规则的自有品牌。不要把 `Number of Items` 填成库存数量。
 
-The `Definition source` line is template provenance. Leave it unchanged. The
-`Source` row is product-specific evidence and must be updated for each listing.
+### 5. Compliance Check：硬性闸门
 
-For a multi-product workbook, keep the Definition row once and store each
-product as a labeled `Value / Status / Source` block. Include a stable SKU or
-ASIN in every block label. Never create a second Definition row for each SKU.
+先按 `listing-style-guide.md` 检查信息顺序、分主题表达、用途定位和跨字段一致性，再对最终文案和属性逐条执行 `references/compliance-rules.md`；发现问题后修正并重查两者。至少覆盖：品牌优先标题、`Custom/Customized`、OEM 型号引用、RAM/存储规格、标题长度、第一条保修披露、仅 RAM/存储可定制、无软件定制、所有定制内容公开说明、文案/图片原创性。风格检查不能替代合规检查，风格与合规冲突时必须遵守合规规则。
 
-## Workflow
+另须单独核实 Seller Central 的 Amazon Custom 设置、MFN 履约、新 ASIN/自有 UPC、随货定制文档及卖家账户/项目要求。这些未必全部有模板列，不得因 Excel 某些单元格已填而视为完成。任何必需项未满足、规则文件不可读取、关键事实未验证或保修政策不明确时，结果为 `COMPLIANCE_BLOCKED`；只有全部通过且完成必要人工复核，才可标为 `READY_FOR_SELLER_REVIEW`。本流程不自动提交或发布。
 
-### 1. Read the ERP product page
+### 6. Output：严格映射到现有 Excel 模板
 
-Treat the user-provided ERP product-detail URL as the primary input for the
-entire workflow. A typical URL has this form:
-
-`https://<erp-host>/products/<product-id>`
-
-If the user has not supplied the product URL, ask for it before beginning
-product research or writing listing content.
-
-Open the exact URL in the user's authenticated browser session and read it in
-place. Use the ERP in read-only mode. Do not edit the product, inventory,
-pricing, images, notes, serial numbers, or any other ERP data.
-
-If the URL redirects to a login page, asks for authentication, returns an access
-error, or does not expose the product record, stop and ask the user to sign in
-or provide an accessible export or screenshot. Never request, store, or reuse
-the user's ERP password in the skill or workbook.
-
-Extract every relevant field the page actually provides, including when
-available:
-
-- ERP product ID from the URL and page
-- product name and internal description
-- seller SKU or internal product code
-- OEM brand and model family
-- exact model, machine type, MPN, part number, or MTM
-- UPC, EAN, GTIN, or ASIN
-- category and laptop/desktop form factor
-- CPU, GPU, memory, storage, display, networking, ports, operating system, and
-  included accessories
-- condition, customization notes, supplier notes, or stocked configuration
-- inventory quantity and offer information that is explicitly intended for the
-  Amazon listing
-- product images, documents, source links, and other attached evidence
-
-Do not ask the user to re-enter information that is already clear on the ERP
-page. Do not copy internal-only notes, costs, supplier terms, serial numbers, or
-other operational data into customer-facing listing fields. Serial numbers may
-help identify the exact unit, but they are never public listing content unless
-the user explicitly requests that use.
-
-Treat ERP values as seller-provided operational data, not automatic proof of an
-OEM technical claim. Use them to establish product identity and the stocked
-configuration, then verify technical specifications under Step 3. If an ERP
-value conflicts with a higher-priority source, preserve both values, set the
-affected workbook field to `CONFLICT`, and do not choose silently.
-
-Record the exact ERP product URL in the workbook Source cells for values taken
-from the page. Carry the extracted ERP facts forward as the starting dataset for
-all remaining steps.
-
-### 2. Identify the exact product
-
-Establish as many of these identifiers as are available:
-
-- seller brand
-- OEM brand and model family
-- exact model or machine type
-- OEM part number or MTM
-- seller SKU
-- UPC, EAN, or ASIN
-- laptop or desktop form factor
-
-Family-level specifications are not automatically SKU-level facts. If an exact
-SKU cannot be established, mark affected fields `USER CONFIRMATION REQUIRED`
-instead of presenting an inferred value as verified.
-
-Default seller brand is MegaPC unless the user specifies another brand. Preserve
-the user's existing rule that MegaPC listings use Windows 11 Pro unless the user
-explicitly specifies another edition. Treat the OS as a fixed specification,
-not a MegaPC customization.
-
-### 3. Research and verify the base product
-
-Use this source priority:
-
-1. Exact-SKU OEM specification, PSREF, service manual, or product documentation
-2. Regulatory or certification documentation
-3. Authorized distributor or retailer specification
-4. Other retailer sources
-
-Prefer the higher-priority source when sources conflict. Record a conflict in
-the workbook instead of choosing silently.
-
-Before offering RAM customization, verify that the machine has replaceable
-SO-DIMM memory. `LPDDR`, `onboard`, or `soldered` memory is not upgradeable.
-When RAM is soldered, offer storage-only customization if the SSD is serviceable.
-
-### 3A. Research the relevant Amazon listing market
-
-Amazon research is required for every listing. When the user provides a target
-or example Amazon listing, treat it as a mandatory benchmark for completeness
-and market positioning, not as copy to reproduce.
-
-Systematically review all materially relevant and accessible Amazon listings
-found for the product. Continue through search results and meaningful variants
-until additional pages no longer reveal a distinct product, configuration,
-seller approach, or presentation pattern. Include, when available:
-
-- the exact OEM model and GPU/CPU configuration
-- the OEM or manufacturer listing
-- the same model with different RAM or SSD tiers
-- seller-customized or upgraded versions of the same model
-- close competing models only when they help explain category conventions
-
-Amazon results can vary by location, account state, indexing, and availability.
-Do not claim exhaustive coverage when Amazon hides, blocks, or personalizes the
-remaining results. If only one relevant listing is accessible, record the
-research limitation in the workbook and do not imply a broad market comparison.
-
-For each useful listing, record its URL and research role in the Source cells
-that it informed. Study market signals such as:
-
-- title keyword order and commonly surfaced specifications
-- bullet order, benefit framing, and customer vocabulary
-- RAM/SSD option presentation and variation structure
-- gallery sequence, infographic topics, and A+ content coverage
-- Product Details coverage and recurring buyer-facing distinctions
-
-Amazon listings are secondary market references, not automatic proof of a
-technical specification. Verify factual hardware claims using the source
-priority in Step 3. Never copy a competitor's title, bullets, description,
-images, A+ content, branded phrases, or distinctive layout. Write original
-MegaPC content that reaches a comparable level of clarity and completeness
-while following the Custom PC rules.
-
-If Amazon requires authentication or blocks access, ask the user to open the
-page in an accessible browser session or provide the relevant URL or export. Do
-not bypass access controls.
-
-### 4. Establish the customization
-
-Separate factory specifications from MegaPC changes:
-
-- Factory: CPU, GPU, display, ports, Wi-Fi, camera, chassis, and other OEM facts
-- Customization: RAM and storage only
-
-Do not describe CPU, GPU, operating system, Office software, cleanup, or setup
-as a customization. Record offered RAM and SSD tiers in the relevant
-`Customizations` or Product Details value cells without inventing new Amazon
-Attributes.
-
-### 5. Write the listing content into Product Details
-
-Fill the applicable Product Details attributes directly in the workbook.
-Use the Amazon market research to inform coverage, customer vocabulary, and
-keyword order, but write original copy and let the compliance rules override
-any conflicting pattern found on an OEM or competitor listing.
-
-- `Item Name`: start with the seller brand, include `Custom` or `Customized`,
-  and reference the OEM product with `Created Using ...`. Keep it under 200
-  characters.
-- `Bullet Point`: place the complete ordered bullet set in the cell, separated
-  by Excel line breaks. Bullet 1 must disclose the warranty. The closing bullet
-  must disclose that the unit was resealed and that only RAM and/or storage was
-  modified.
-- `Product Description`: enter the ready-to-paste description. When HTML is
-  appropriate, use only `<p>`, `<strong>`, and `<br>`.
-- Other attributes: enter only values supported by the exact SKU or an explicit
-  seller-provided configuration.
-
-Keep title, bullets, description, OS, customization tiers, warranty, and
-technical attributes consistent across the workbook.
-
-### 6. Fill Offer
-
-Complete every applicable Offer attribute provided by the workbook. Do not
-invent commercial inputs such as SKU, quantity, price, handling time, shipping
-template, tax code, or sale dates. Use `USER CONFIRMATION REQUIRED` when seller
-input is needed.
-
-Custom PC offers must follow the fulfillment restrictions in
-`references/compliance-rules.md`.
-
-### 7. Fill Safety & Compliance
-
-Complete the provided Safety & Compliance attributes using verified evidence
-and the compliance reference. Do not guess country of origin, FCC identifiers,
-battery energy, regulatory contacts, or certification numbers.
-
-For a customized PC, ensure `Modified Product` reflects the hardware change.
-Apply any OEM-sourcing, battery, dangerous-goods, or contact rules from the
-compliance reference only when the evidence and product configuration support
-them.
-
-### 8. Plan or record images in Images
-
-Use `MAIN` and `PT01` through `PT08` exactly as provided.
-
-For each slot:
-
-- `Value`: production brief, final image filename, or final image path
-- `Status`: image readiness or verification status
-- `Source`: licensed OEM media source or seller-owned photograph source
-
-Follow the original page image requirements preserved in the sheet and the
-rules in `references/image-spec.md`. Do not create a separate shot-list or
-sources file. Amazon listing research may inform which benefits customers
-expect to see, but it is never permission to reuse or closely recreate another
-seller's images.
-
-### 9. Handle Variations
-
-The template currently contains no Variation attributes. Preserve its note and
-do not invent variation fields. If Seller Central later exposes fields, update
-the workbook schema from the newly captured official definitions before using
-them.
-
-### 10. Validate the workbook
-
-Before delivery, check:
-
-- exact product identity is clear
-- ERP product ID, seller SKU, and exact product URL are retained where available
-- customer-facing fields do not expose internal notes, costs, or serial numbers
-- RAM customization is physically feasible
-- title begins with the seller brand and uses compliant OEM framing
-- warranty disclosure is the first bullet
-- closing disclosure identifies the RAM and/or SSD modification
-- software is not described as a customization
-- OS edition is consistent everywhere
-- technical claims agree across listing text and attributes
-- relevant Amazon listings were researched and their URLs and roles are recorded
-- title, bullets, description, and image briefs are original rather than copied
-- image briefs match the verified configuration
-- required commercial inputs are present or clearly awaiting the user
-- safety and regulatory claims have evidence
-- every populated value has an appropriate Status and Source
-- no unresolved `CONFLICT` is presented as publish-ready
-- Amazon Attribute names and Definitions remain unchanged
-
-Use the workbook's status cells as the validation record. Do not create a
-separate checklist file.
-
-### 11. Deliver
-
-Save and return only the completed workbook. Tell the user which fields still
-have `NOT VERIFIED`, `USER CONFIRMATION REQUIRED`, or `CONFLICT` status. Do not
-claim the listing is ready to publish while a material blocker remains.
-
-## Maintenance boundary
-
-`references/compliance-rules.md` owns policy rules.
-`references/image-spec.md` owns image-production rules.
-This file owns the Amazon market-research workflow; the compliance and image
-references own the originality and asset-use boundaries.
-The Excel template owns Amazon Attribute names, field order, and definitions.
-Keep each rule in its owning resource instead of duplicating detailed reference
-content in this file.
+每条产品记录使用一份独立的模板副本。模板当前有 `Product Details`、`Offer`、`Safety&Compliance` 三个工作表；每张表第 1 行是字段名，第 2 行是 `Definition`，第 3 行是 `Value`，第 4 行是 `Status`，第 5 行是 `Source`。按**工作表名 + 第 1 行字段名**匹配目标列，将结果写入同一列的既有 `Value / Status / Source` 行。不要依赖列顺序，也不要新增、删除或改名工作表、字段列及这些行。
+
+最小映射：
+
+| 数据 | 模板位置 | 规则 |
+| --- | --- | --- |
+| Title | `Product Details > Item Name` | 仅合规版本 |
+| Bullet Points | `Product Details > Bullet Point` | 保修披露必须排第 1 条；沿用模板允许的存储方式，不新增列 |
+| Description | `Product Details > Product Description` | 与属性一致 |
+| 自有品牌及 OEM 信息 | `Product Details > Brand Name / Model Number / Model Name / Manufacturer` | 按各字段定义区分，不能把 OEM 当成自有品牌 |
+| CPU、RAM、存储、屏幕、显卡、OS、连接能力 | `Product Details` 中同名或语义对应的现有列 | 仅填已核实的实际配置；单位列成对填写 |
+| `VL-` | `Offer > SKU` | 仅在确认它就是卖家 SKU 后填写 |
+| `Quantity` | `Offer > Quantity` | 已核实的非负整数库存承诺 |
+| 保修与修改状态 | `Safety&Compliance > Warranty Description / Modified Product` | 与第一条 bullet 和实际定制一致 |
+
+`Source` 行写入可追溯的具体来源（URL、文档标识或输入表行号）；`Status` 行写入上述验证状态。生成的文案可标记为基于已验证属性的已审草稿，并在来源中指向这些属性证据与合规规则。若模板字段没有对应来源或状态的表达能力，不改模板结构，应在单独的运行日志/人工复核记录中保存详细证据和阻断原因。不得把 `TBD`、`CONFLICT` 或内部备注写进面向客户的文案字段。
+
+导出前核对：输入行与输出工作簿一一对应；所有已填写属性均有来源与状态；单位与数值配对；标题、要点、描述、Warranty Description 及定制设置互相一致；未填写字段没有被伪装为已验证。输出工作簿是**待人工审阅的结构化结果**，并非自动获得 Amazon 发布资格。
+
+## 执行者最终报告
+
+按产品列出：源表行号、`VL-`、产品名、参考 Amazon listing 数量及 URL、官方来源、关键属性验证结果、未解决的 `TBD/CONFLICT`、合规结果、输出工作簿路径和下一步人工动作。若某项被阻断，写明具体原因及需要谁提供什么资料；不要仅写“失败”。
