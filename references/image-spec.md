@@ -1,169 +1,226 @@
-# Product Image Spec (modeled on the ImageSample set)
+# Product Image Spec
 
-Amazon listings live or die on images. This spec mirrors the seller's reference
-set in the **`ImageSample/`** folder so every new machine ships with the same
-count, order, and style. There are two image sets, both in `ImageSample/`:
+This reference governs the Amazon product-image gallery for customized PCs.
+It covers only the nine-image product gallery. Image production is a separate
+task from the listing workbook and must not add,
+remove, rename, or populate workbook sheets unless the user explicitly asks.
 
-- **Main gallery** — `SampleImage1 … SampleImage9` (the listing's photo carousel).
-- **`ProductDescription/`** — `PD1 … PD4` (the wide A+ / "from the manufacturer"
-  banners shown lower on the detail page).
+Amazon's current requirements override this internal production standard:
 
-**Strict positional mapping.** When you build a new listing, image *N* must match
-the role and style of `SampleImage`*N*, and `PD`*N* must match `ProductDescription/PD`*N*.
-First listing image ↔ SampleImage1, second ↔ SampleImage2, and so on. Don't
-reorder, add, or drop slots — match the set.
+- Product image guide: https://sellercentral.amazon.com/help/hub/reference/G1881
+- Technical image file requirements:
+  https://sellercentral.amazon.com/help/hub/reference/G9FUUH87RBNXGKB7
+- Reviewed against the US Seller Central guide on 2026-09-20.
 
-## Record real image files in the workbook — lawfully
+## Scope and internal gallery standard
 
-The workbook should point to **actual `.jpg`/`.png` files** when they exist, not
-just describe them. Record each file path and its provenance in the `Images`
-sheet. Respect copyright — only use images you have the right to use commercially:
+The standard gallery contains `MAIN` plus `PT01` through `PT08`. Amazon supports
+more PT variants, but these nine slots are the current MegaPC production
+standard. Their order is an internal workflow convention, not a promise that
+Amazon will display images in that order.
 
-1. **Dell/OEM official photos via the reseller media kit** (Dell TechDirect /
-   partner portal) for the clean product shots (hero, angles, back/ports).
-2. **Your own photography** of the unit you stock.
-3. **Compose the infographic slides** (the spec/feature/use-case cards and the
-   A+ banners) in your design tool from the briefs below.
+Amazon may select, arrange, or modify submitted images, including images
+contributed by multiple selling partners. Uploading an image does not guarantee
+that it will appear. A selected image can take up to 24 hours to display.
 
-**Do NOT** download third-party editorial/review or random web images and reuse —
-or lightly edit — them for a commercial listing. Reference photos online are for
-*identifying the right shot/angle* only.
+Amazon requires at least one compliant main image and recommends at least six
+additional images plus one product video. The nine-slot gallery satisfies the
+image-count recommendation. A video is recommended but is not a required
+workbook output.
 
-If the environment running this skill has no licensed image source and no image
-editor, **don't fabricate files**. Put the production brief in the corresponding
-`Images` Value cell, put the licensed-image location in Source, and use the
-Status cell as `VERIFIED` only when the file and source are ready; otherwise use
-`NOT VERIFIED` and state `TO SOURCE` or `TO PRODUCE` in the Value cell. Do not
-create a separate shot-list or sources file.
+## Technical file requirements
+
+Apply these checks before marking an image `VERIFIED`:
+
+- Supported formats: JPEG, TIFF, PNG, or non-animated GIF. Prefer JPEG for final
+  Amazon uploads; PNG remains appropriate for production masters when needed.
+- Longest side: minimum 500 pixels and maximum 10,000 pixels.
+- Use at least 1,000 pixels on the longest side to enable zoom. Internal targets
+  are 2,000 × 2,000 pixels for `MAIN` and 1,500–2,000 pixels square for PT images.
+- Do not artificially enlarge a small source image to meet the minimum.
+- Resolution: at least 72 dpi.
+- Prefer RGB color mode.
+- Images must be clear, professionally finished, non-pixelated, and free of
+  jagged edges.
+
+### File naming and variant codes
+
+For bulk upload, name files with exactly three components separated by periods:
+
+`ProductIdentifier.VARIANT.extension`
+
+Examples:
+
+- `B0XXXXXXXX.MAIN.jpg`
+- `B0XXXXXXXX.PT01.jpg`
+- `012345678905.PT08.jpg`
+
+Do not insert spaces, dashes, or extra filename components. The product
+identifier may be an ASIN, UPC, EAN, GTIN, ISBN, or JAN. Use:
+
+- `MAIN` for the primary image
+- `PT01`–`PT08` for this workflow's supporting gallery images
+- `PS01`–`PS06` only for warning or safety images intended for Amazon's Safety
+  and Product Resources section, not as ordinary gallery slots
+
+## Use and record real image files lawfully
+
+Final delivery must point to actual image files, not only describe them. Record
+each file path, readiness, and provenance in the product folder's
+`image-manifest.md`. Use only assets that the seller has the right to use
+commercially:
+
+1. Official OEM images obtained through an authorized reseller media library
+2. Seller-owned photography of the stocked unit
+3. Original infographics composed from verified product facts and licensed
+   assets
+
+Do not download, crop, recolor, trace, composite, or lightly edit third-party
+editorial, review, retailer, or competitor images for a commercial listing.
+Online reference images may help identify a needed angle, but they are not
+licensed production assets.
+
+If no licensed source or image-production capability is available, do not
+fabricate a file or a final path. Keep the slot in `image-manifest.md`, record
+the expected licensed source, and set its status to `TO SOURCE` or `TO PRODUCE`.
 
 ## Amazon competitor research boundary
 
 Relevant Amazon listings may be reviewed to understand expected image coverage,
-the order in which benefits are explained, common infographic topics, and the
-overall level of visual polish. A user-provided target listing is a benchmark
-for quality and completeness, not a production template.
+benefit order, common infographic topics, and overall visual quality. A target
+listing is a benchmark for completeness, not a production template.
 
-- Record a competitor or OEM Amazon URL as a research reference only. It is not
-  licensed asset provenance.
-- Do not download, crop, recolor, trace, composite, or lightly edit another
-  seller's gallery or A+ image.
-- Do not reproduce a distinctive competitor layout one-for-one. Use an original
-  composition, original copy, and the fixed MegaPC slot roles below.
-- Do not lift screenshots, ratings, review excerpts, badges, or comparison
-  graphics from an Amazon detail page.
-- Final product photography must still come from a licensed OEM source or the
-  seller, and original infographic files must be produced from verified facts.
+- Record competitor and OEM Amazon URLs only as research references. They are
+  not asset provenance.
+- Do not reproduce another seller's wording, composition, distinctive layout,
+  screenshots, ratings, review excerpts, badges, or comparison graphics.
+- Use original composition and copy within the fixed internal slot roles below.
+- Final product photography still requires an authorized OEM source or
+  seller-owned photography. Infographics must use verified facts.
 
-## Main gallery — 9 images, fixed order
+## AI-generated people disclosure
 
-| Slot | Role (match this exactly) | Background | What it shows |
-|---|---|---|---|
-| **1** | **Hero / main image** | **pure white** | Product shown **completely front-on — a straight 0° head-on view with NO rotation, tilt, yaw, or 3/4 angle** (display/chassis centered and squared to the camera), screen on with a vivid abstract wallpaper. Include only accessories actually bundled with the SKU: show the included keyboard + mouse for an AIO/desktop when confirmed; show the laptop alone unless external accessories are included. **NO text/badges/logos overlay** — Amazon main-image rule. |
-| **2** | **Display infographic** | dark navy, **orange** accents | Headline "[size] Full HD [Touch] Display" + product 3/4 view + 4 feature cards (resolution/IPS, panel/touch, webcam, audio). |
-| **3** | **Use-case / "Ideal for…"** | dark navy | Big product left + 4 real-setting scene thumbnails (Business Office, Remote Work, Reception/Front Desk, Education/Study) + bottom row of 4 benefit icons. |
-| **4** | **Full spec infographic** | dark navy, orange | Product + 6–7 spec cards (CPU, display, **RAM tiers**, **SSD tiers**, OS/AI, connectivity, collaboration) + bottom use-case icon row. Footer: "Configuration varies by selected option." |
-| **5** | **Design / form-factor** | dark navy, **blue** accents | Side-profile shots showing thinness + 4 cards (Compact Footprint, Integrated Build, Adjustable Stand, Ready to Deploy / accessories included). |
-| **6** | **Performance infographic** | dark navy, blue | Headline "[gen] Performance…" + product + 5 spec cards (CPU, **RAM tiers**, **SSD tiers**, Windows 11 Pro, AI-Ready). |
-| **7** | **What's Included** | **white** | Product centered + 4 checkmark cards (the unit, keyboard, mouse, power cable/adapter). |
-| **8** | **Spec recap (light)** | **white / light** | Product + 4 "+" spec cards (CPU, **RAM tiers**, **SSD tiers**, Windows 11 Pro). Footer: "Product configuration varies by selected variation." |
-| **9** | **Connectivity / back** | **white** | Rear/back view showing the port cluster + 4 cards (USB, Gigabit Ethernet, Audio I/O, DisplayPort/video out). Footer: "Port availability may vary; verify final SKU specifications." |
+If an image contains a photorealistic person who was generated entirely by AI,
+add the keyword `contains-synthetic-performer` to the image file's `dc:subject`
+XMP field with an IPTC-compatible metadata editor before uploading it to Amazon.
+Record that metadata check in the image's Source or production note.
 
-**Slot 1 angle is invariant across form factors.** Do not adapt a laptop hero to
-a 3/4 view; use the same centered straight-on 0° camera axis. Reserve 3/4
-product views for slot 2 and later supporting images.
+Do not add this tag when the image:
 
-## ProductDescription (A+ banners) — 4 wide images, fixed order
+- contains only real people, even if AI tools altered the image
+- contains no people
+- contains only non-photorealistic people
+- contains characters from movies, video games, or other expressive works
 
-Wide A+ format (1959 × 803 px). When A+ content is in scope, record the PD1–PD4
-briefs and final file paths in a clearly labeled notes block below the Amazon
-image requirements on the `Images` sheet. These notes are production metadata,
-not additional Amazon image-slot attributes.
+This rule is especially relevant when producing the use-case scenes in `PT02`.
 
-| Slot | Role | What it shows |
-|---|---|---|
-| **PD1** | **Overview hero banner** | Product title line + dense icon rows of all key specs + 6 short feature blurbs. The densest "everything at a glance" banner. |
-| **PD2** | **Performance banner** | "[gen] Performance for Business Productivity" — product (with a port close-up zoom) + 5 spec cards + 3 use-case blurbs. |
-| **PD3** | **Display banner** | "[size] Full HD [Touch] Display" — product + 4 feature cards (IPS resolution, touch, webcam, audio). |
-| **PD4** | **Design + use-case banner** | "Clean All-in-One Design" — product + 3 design callouts + 3 real-setting use-case scenes. |
+## MAIN image requirements
 
-## Style (match the samples)
+`MAIN` appears first on the detail page and in search results. It must:
 
-- **Two themes, used as mapped above:** (a) **dark navy** background (deep blue,
-  ~#0A1A3A) with a subtle tech/mesh pattern and **orange or blue** accent icons
-  and headline words; (b) **white / very light** background with navy text and
-  blue/orange accents. Slots 1, 7, 8, 9 are light; 2–6 are dark.
-- **Headlines:** bold sans-serif, two-tone (white + orange, or navy + orange/blue).
-- **Feature cards:** rounded outline cards, line icons, short bold title + one
-  sentence. Spec cards must name the **RAM and SSD tiers** you actually offer.
-- **Same on-screen wallpaper** across shots for a consistent look.
-- **Disclaimers** belong on the relevant slides: "Configuration varies by
-  selected option" (spec slides), "Port availability may vary; verify final SKU"
-  (connectivity slide).
-- **Dimensions:** main gallery square 1:1 (hero ≥ 2000×2000 for zoom; others
-  1500–2000 px). ProductDescription banners 1959×803.
+- accurately represent the real product's scale, quantity, color, and included
+  components in a realistic, professional-quality image
+- show the complete product within the frame without cropping any part
+- show the product only once; do not combine front and back views
+- show one selling unit and only accessories actually included with it
+- fill approximately 85% of the image area
+- use a pure white background with RGB values `255, 255, 255`
+- contain no added text, graphics, borders, badges, watermarks, or logo overlays
+- exclude props and accessories that are not included
+- exclude packaging unless the packaging is an important product feature
+- never be a placeholder or temporary image
 
-## Logos — none on the gallery; OEM brand logo on the A+ banners
+The internal `MAIN` composition is a centered, straight-on 0° view with no
+rotation, tilt, yaw, or three-quarter angle. Use a neutral, non-promotional
+screen image and keep the chassis square to the camera. Show the included
+keyboard and mouse for a desktop or all-in-one only when the exact SKU includes
+them. Show a laptop alone unless external accessories are included.
 
-Two rules, by image set:
+A trademark physically present on the genuine product may remain visible as
+part of an accurate photograph. Do not add or enlarge an OEM, seller, or other
+logo as a separate graphic.
 
-**1. Main gallery (slots 1–9, incl. the customization/warranty slide): NO logo of
-any kind** — no company logo, no OEM logo, no watermark or wordmark. Keep them
-clean: product photo + spec/feature callouts only. (Amazon's main image must be
-logo/text-free anyway; we extend "no logo" to the whole gallery so the carousel
-reads as clean product imagery.) The "Customized by [Brand]" disclosure stays as
-**plain TEXT** on the relevant slide — that's fine; just no logo graphic.
+## Supporting gallery — fixed internal order
 
-**2. ProductDescription A+ banners: use the machine's ORIGINAL OEM brand logo**
-(Dell, Lenovo, ASUS, Acer, HP, LG, …) — **not** the MegaPC company logo. The A+
-section is "from the manufacturer" content describing the actual OEM hardware you
-customized, so the OEM's own brand logo belongs there. The company asset
-`assets/logo.jpg` is **not** used on any listing image now (gallery = no logo;
-A+ = OEM logo).
+| Slot | Variant | Role | Background | Required content |
+|---|---|---|---|---|
+| **1** | `MAIN` | Hero | Pure white | Centered straight-on complete product; included accessories only; no overlay |
+| **2** | `PT01` | Display | Dark navy, orange accents | Product three-quarter view plus verified display, webcam, and audio facts |
+| **3** | `PT02` | Use cases | Dark navy | Product plus business, remote work, reception, or study scenes; apply the AI-person metadata rule when required |
+| **4** | `PT03` | Full specifications | Dark navy, orange accents | CPU, display, offered RAM tiers, offered SSD tiers, OS, connectivity, and collaboration facts |
+| **5** | `PT04` | Design and form factor | Dark navy, blue accents | Side/profile views and verified chassis, footprint, stand, and included-accessory facts |
+| **6** | `PT05` | Performance | Dark navy, blue accents | CPU, offered RAM tiers, offered SSD tiers, and preinstalled OS; do not present software as a customization |
+| **7** | `PT06` | What's included | White | Show only the exact unit, power equipment, and accessories included with the SKU |
+| **8** | `PT07` | Specification recap | White or light | CPU, offered RAM tiers, offered SSD tiers, and preinstalled OS |
+| **9** | `PT08` | Connectivity | White | Verified rear/side ports and connectivity; do not show unavailable ports |
 
-> ⚠️ **IP caution.** Showing an OEM trademark/logo on A+ content carries some risk
-> under Amazon's Customization Computer & IP policies. It is only defensible
-> because you are referencing the genuine OEM machine you resell ("Created
-> Using …"). **The listing brand field, title, and all headlines must still be
-> MegaPC** — the OEM logo may appear in the A+ imagery but must never make the
-> listing read as an OEM-brand listing. Confirm you're comfortable with this
-> before publishing.
+Reserve three-quarter views and multiple angles for PT images. Every displayed
+RAM or SSD option must be genuinely offered for the listing. Use a brief factual
+footer such as `Configuration varies by selected option` when several selectable
+configurations exist.
 
-- **Accent palette:** style the gallery/infographic slides with **orange**
-  (~#F1511B) + **blue** (~#1F8FFF) accents on navy/white — the look comes from
-  color and layout, not a pasted company logo.
+## Requirements for every gallery image
 
-## Brand & compliance traps — read this
+Every image must:
 
-- **Physical OEM logo on the chassis is fine** in photos (you can't remove it).
-- **Logos by set:** the **main gallery (1–9) carries NO logo** (product +
-  callouts only). The **A+ ProductDescription banners use the machine's original
-  OEM brand logo** (Dell/Lenovo/ASUS/Acer/HP/LG) — never the MegaPC logo, never on
-  the gallery. (See "Logos" above for the IP caution.)
-- **Headlines must use MegaPC framing — NOT the OEM as the brand.** The
-  reference samples headline things like "Dell Pro 24 All-in-One QC24251"; in our
-  listings that must read **"MegaPC Customized — Created Using Dell Pro 24
-  (QC24251)"** (or similar). Presenting the OEM name as the product's brand is an
-  IP-policy violation. Never paste an OEM logo in as a graphic element.
-- **The customization is documented visually** by the spec slides (4, 6, 8 and
-  PD1/PD2) showing the **RAM and SSD tiers** + "configuration varies" footer — keep
-  those. The **warranty** disclosure still lives in **bullet 1** (text); if you add
-  a warranty line to a slide, frame it as MegaPC's.
-- **No software as a customization.** Showing "Windows 11 Pro" as a preinstalled
-  spec is fine; never present an OS/Office bundle as something we customize.
-- **Don't overclaim.** Only show "Touch", "Pop-Up Webcam", etc. if the units you
-  stock actually have them — the samples are a touch/webcam SKU; adjust per model.
+- accurately represent the product being sold and match the listing title,
+  selected configuration, quantity, color, and included accessories
+- use only verified technical claims and correctly licensed assets
+- remain readable, unclipped, and free of pixelation or jagged edges
+- avoid customer reviews, star ratings, testimonials, and review excerpts
+- avoid prices, coupons, free-shipping claims, time-limited promotions, and
+  seller- or store-specific information
+- avoid Amazon names, logos, trademarks, and confusingly similar designs,
+  including Amazon, Prime, Alexa, and the Amazon Smile
+- avoid Amazon badges and similar graphics, including Amazon's Choice,
+  Premium Choice, Best Seller, Top Seller, and Works with Alexa
+- avoid nudity or sexually suggestive photographs, illustrations, and scenes
 
-## Workbook output format
+Supporting PT images may contain concise factual specification text. Do not add
+seller logos, OEM logo overlays, watermarks, merchant names, store contact
+information, warranty advertisements, or sales claims. A genuine trademark
+already printed on the photographed chassis does not need to be removed.
 
-Use the `Images` sheet as the complete image-production record:
+## Internal visual style
 
-- `MAIN` and `PT01`–`PT08`: put the production brief or final file path in
-  Value, readiness in Status, and licensed provenance in Source.
-- `PD1`–`PD4`, when requested: add a labeled notes block below the preserved
-  Amazon page requirements and record the role, brief, status, source, and final
-  file path there. Do not present these notes as Amazon Attribute columns.
+- Use dark navy (`#0A1A3A`) and white/light themes with restrained orange
+  (`#F1511B`) and blue (`#1F8FFF`) accents.
+- Use bold, legible sans-serif headings and short factual feature cards.
+- Keep one consistent, non-promotional on-screen wallpaper across product views.
+- Do not let internal styling override Amazon requirements or accurate product
+  representation.
+- Do not use logos as decorative elements. The visual system comes from color,
+  typography, layout, and the genuine product photography.
 
-Do not create a separate shot-list, source log, or image-output folder unless
-the user explicitly requests one. Actual image files may remain in the user's
-chosen production folder; the workbook is the listing-data output and records
-their locations.
+## Brand and configuration safeguards
+
+- Do not visually present the OEM as the listing seller or imply OEM approval of
+  the customization.
+- Do not place `Customized by MegaPC`, seller warranty claims, merchant contact
+  information, or other seller-specific copy on gallery images.
+- Document customization and warranty in the listing title, bullet points, and
+  product description rather than as gallery advertising.
+- Display RAM and SSD tiers only when physically supported and actually offered.
+- Windows or other software may be shown only as a preinstalled specification,
+  never as a hardware customization.
+- Show Touch, AI-ready, webcam, cellular, or other features only when verified
+  for the exact SKU.
+- Show a port or accessory only when it is present or included with the exact
+  shipped configuration.
+
+## Separate image-task output format
+
+Deliver each product under `product generated photo/VL-<internal-model>/` with
+`MAIN` and `PT01`–`PT08` image files plus one `image-manifest.md`. The manifest
+is the production record and must include, for every slot:
+
+- final repository-relative file path, or a production brief when not ready
+- status: `VERIFIED`, `TO SOURCE`, `TO PRODUCE`, or `BLOCKED`
+- licensed asset provenance and the verified product facts used in the image
+- any required AI-person metadata note
+
+Use the internal filenames `MAIN.jpg` and `PT01.jpg`–`PT08.jpg` in the GitHub
+product folder (or the matching real extension). Before Amazon bulk upload,
+export or rename copies to `ProductIdentifier.VARIANT.extension` as described
+above. Do not put production records in the listing workbook, and do not claim
+an Amazon-ready file path for an image that does not exist.
