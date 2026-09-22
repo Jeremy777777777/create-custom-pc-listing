@@ -1,6 +1,6 @@
 # Amazon Product Image Generation Workflow
 
-本流程接续仓库根目录的 [Amazon Listing Automation Workflow](../SKILL.md)。先完成产品研究、属性验证、Listing 文案与合规检查，再以同一产品的**已验证 Listing 详情**制作图片；不重新建立第二套产品事实，也不把输入表中的产品名称直接当作图片规格证据。本流程只负责独立的图片生产与 GitHub 交付，不修改 Listing Excel，也不自动发布到 Seller Central。
+本流程接续仓库根目录的 [MegaPC Amazon Custom PC Workflow](../SKILL.md)。先完成产品研究、属性验证、Listing 文案与合规检查，再以同一产品的**已验证 Listing 详情**制作图片；不重新建立第二套产品事实，也不把输入表中的产品名称直接当作图片规格证据。本流程只负责独立的图片生产与 GitHub 交付，不修改 Listing Excel，也不自动发布到 Seller Central。
 
 ## 输入、规则与执行前检查
 

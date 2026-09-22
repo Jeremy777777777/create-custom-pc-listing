@@ -39,7 +39,7 @@ Amazon market research & originality
       and seller-customized Amazon listings, not only one example page.
 - [ ] Any user-provided target listing is used as a benchmark for completeness
       and positioning, not as text or artwork to reproduce.
-- [ ] Title, bullets, description, image copy, and A+ content are original to
+- [ ] Title, bullets, description, and image copy are original to
       MegaPC; no competitor wording, images, or distinctive presentation is
       copied or lightly modified.
 - [ ] Amazon listing claims are treated as market references unless separately
@@ -75,15 +75,15 @@ You may learn from relevant Amazon listings:
 - the sequence in which competitors explain performance, display, cooling,
   design, warranty, and configuration choices
 - recurring customer vocabulary and legitimate search terms
-- the coverage and pacing of gallery images and A+ modules
+- the coverage and pacing of gallery images
 - how RAM and SSD choices are presented to buyers
 
 You must not:
 
-- copy or closely paraphrase a competitor's title, bullets, description, A+
-  text, comparison copy, or branded phrases
+- copy or closely paraphrase a competitor's title, bullets, description,
+  comparison copy, or branded phrases
 - download, crop, recolor, trace, or lightly edit a competitor's images
-- reproduce a distinctive infographic or A+ layout one-for-one
+- reproduce a distinctive infographic layout one-for-one
 - use competitor reviews, ratings, badges, or claims as MegaPC evidence
 - let an OEM-branded listing determine the brand field or disclosure order for
   a MegaPC-customized product

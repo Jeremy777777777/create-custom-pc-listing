@@ -1,6 +1,6 @@
 # MegaPC Amazon Listing Style Guide
 
-本指南以 [MegaPC Amazon listing（ASIN B0H35FKDST）](https://www.amazon.com/dp/B0H35FKDST) 为主要写作参考，提炼其**高信息密度标题**和**按产品能力分主题展开的 bullet**。它规定表达方式，不提供产品事实。每条规格、配置选项、随箱配件及用途主张都必须先在 `amazon-listing-workflow.md` 中验证；所有硬性要求以仓库最新的 [`references/compliance-rules.md`](https://github.com/Jeremy777777777/create-custom-pc-listing/blob/main/references/compliance-rules.md) 为准。
+本指南以 [MegaPC Amazon listing（ASIN B0H35FKDST）](https://www.amazon.com/dp/B0H35FKDST) 为主要写作参考，提炼其**高信息密度标题**和**按产品能力分主题展开的 bullet**。它规定表达方式，不提供产品事实。每条规格、配置选项、随箱配件及用途主张都必须先在主工作流 [`SKILL.md`](../SKILL.md) 中验证；所有硬性要求以仓库最新的 [compliance-rules.md](compliance-rules.md) 为准。
 
 ## 从参考 listing 借鉴什么
 
@@ -59,4 +59,4 @@
 - 声称 `genuine OS`、`tested before shipping`、包含键盘鼠标、OEM 保修继续有效等，而卖家资料尚未确认。
 - 让标题写 Business、bullet 写 Gaming，或让文案、属性、图片中的 RAM/SSD 档位彼此冲突。
 
-完成文案后逐条运行 `compliance-rules.md` 检查；任何硬性规则失败或关键事实仍为 `TBD`/`CONFLICT` 时，不能标为发布就绪。
+完成文案后逐条运行 [compliance-rules.md](compliance-rules.md) 检查；任何硬性规则失败或关键事实仍为 `TBD`/`CONFLICT` 时，不能标为发布就绪。

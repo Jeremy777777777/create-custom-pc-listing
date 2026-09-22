@@ -1,6 +1,8 @@
 # Product Image Spec
 
 This reference governs the Amazon product-image gallery for customized PCs.
+Use it through the [dedicated image workflow](amazon-product-image-workflow.md),
+after the relevant listing facts have been verified in the main workflow.
 It covers only the nine-image product gallery. Image production is a separate
 task from the listing workbook and must not add,
 remove, rename, or populate workbook sheets unless the user explicitly asks.
