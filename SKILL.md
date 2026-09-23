@@ -24,7 +24,7 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 
 `Input → Research → Validate → Generate Listing → Compliance Check → Output → Human Review`
 
-图片是同一整体 workflow 的后续独立分支：`Verified Listing → Image Plan → MAIN/PT Production → Image QA → Human Review`。只有 Listing 的相关事实已验证时才进入图片分支；图片状态不回写 Listing Excel。
+图片是同一整体 workflow 的后续独立分支：`Verified Listing → Image Plan → Unbranded MAIN/PT Production → Approved Brand Badge Composition → Image QA → Human Review`。只有 Listing 的相关事实已验证时才进入图片分支；图片状态不回写 Listing Excel。`MAIN` 永远不添加卖家 Logo；当用户明确提供并授权卖家 Logo 时，PT 图先生成无品牌底图，再用仓库脚本确定性合成，禁止让生成模型重绘 Logo 或品牌文字。
 
 对输入表中每条有效产品记录依次执行。为每条记录保留来源行号、原始 `Product Name`、原始 `VL-`、原始 `Quantity`，不要在清洗时丢失原值。空白产品名、无效数量、重复 `VL-` 或产品配置无法识别时，标记 `BLOCKED` 并记录原因；不要将两条看似相同的记录自动合并。每条记录独立研究、核验、生成和导出，避免把相邻型号的规格混在一起。输入的 `Quantity` 是库存承诺，不是商品包装内件数。
 
