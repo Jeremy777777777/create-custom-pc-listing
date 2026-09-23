@@ -178,10 +178,14 @@ Every image must:
   Premium Choice, Best Seller, Top Seller, and Works with Alexa
 - avoid nudity or sexually suggestive photographs, illustrations, and scenes
 
-Supporting PT images may contain concise factual specification text. Do not add
-seller logos, OEM logo overlays, watermarks, merchant names, store contact
-information, warranty advertisements, or sales claims. A genuine trademark
-already printed on the photographed chassis does not need to be removed.
+Supporting PT images may contain concise factual specification text. An
+approved seller logo may appear on `PT01`–`PT08` only when the seller supplies
+the source artwork, confirms the right to use it, and explicitly authorizes its
+use for the listing. Apply that logo as a deterministic post-production badge;
+do not ask a generative model to redraw its lettering or trademark. Do not add
+OEM logo overlays, watermarks, store contact information, warranty
+advertisements, or sales claims. A genuine trademark already printed on the
+photographed chassis does not need to be removed.
 
 ## Internal visual style
 
@@ -191,15 +195,21 @@ already printed on the photographed chassis does not need to be removed.
 - Keep one consistent, non-promotional on-screen wallpaper across product views.
 - Do not let internal styling override Amazon requirements or accurate product
   representation.
-- Do not use logos as decorative elements. The visual system comes from color,
-  typography, layout, and the genuine product photography.
+- Keep any approved seller logo subordinate to the content: normally one white
+  rounded badge per PT image, about 12%–17% of canvas width, placed in clear
+  negative space without covering the product, title, facts, footers, or ports.
+- Preserve the supplied logo's color, proportions, registration marks, and
+  legibility. Keep an unbranded master and rerun the badge step from that master
+  so revisions do not stack logos or degrade the image.
 
 ## Brand and configuration safeguards
 
 - Do not visually present the OEM as the listing seller or imply OEM approval of
   the customization.
 - Do not place `Customized by MegaPC`, seller warranty claims, merchant contact
-  information, or other seller-specific copy on gallery images.
+  information, or other seller-specific copy on gallery images. An approved
+  seller logo on PT images is the sole seller-brand exception and must not imply
+  OEM endorsement.
 - Document customization and warranty in the listing title, bullet points, and
   product description rather than as gallery advertising.
 - Display RAM and SSD tiers only when physically supported and actually offered.
