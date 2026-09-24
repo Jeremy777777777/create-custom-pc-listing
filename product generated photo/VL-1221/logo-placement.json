@@ -1,0 +1,16 @@
+{
+  "brand": "HP",
+  "logoRole": "OEM base-product identifier",
+  "source": "HP official visual identity",
+  "sourceUrl": "https://www.hp.com/us-en/hp-information/brandcentral/our-visual-identity.html",
+  "placements": {
+    "PT01.png": { "x": 33, "y": 1153, "width": 70, "height": 70, "style": "circle-keyline" },
+    "PT02.png": { "x": 1159, "y": 1167, "width": 62, "height": 62, "style": "circle-keyline" },
+    "PT03.png": { "x": 1155, "y": 33, "width": 66, "height": 66, "style": "circle-keyline" },
+    "PT04.png": { "x": 850, "y": 1165, "width": 60, "height": 60, "style": "circle-keyline" },
+    "PT05.png": { "x": 1159, "y": 33, "width": 62, "height": 62, "style": "circle-keyline" },
+    "PT06.png": { "x": 1153, "y": 259, "width": 66, "height": 66, "style": "circle-keyline" },
+    "PT07.png": { "x": 1153, "y": 1159, "width": 66, "height": 66, "style": "circle-keyline" },
+    "PT08.png": { "x": 35, "y": 1157, "width": 66, "height": 66, "style": "circle-keyline" }
+  }
+}
