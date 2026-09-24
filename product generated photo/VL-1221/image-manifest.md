@@ -17,6 +17,7 @@
 - Unbranded production masters are retained in `unbranded/`; repeat runs rebuild from those masters.
 - Per-image coordinates and styles are recorded in `logo-placement.json`. The circular mark uses the official blue treatment and a white keyline on dark imagery.
 - Placement was selected independently for every image and approved only after checking that the mark and its clear space do not cover text, products, cards, ports, callout leaders, or decorative lines.
+- PT04 was corrected after review: the HP mark was reduced and moved into a dedicated lower-right safe area, with a 16 px minimum-clearance check against the feature-card border, decorative line, and canvas edge.
 
 ## Slot record
 
