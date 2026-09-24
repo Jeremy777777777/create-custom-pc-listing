@@ -12,6 +12,7 @@ Nothing in this repository authorizes automatic publishing to Seller Central.
 ```text
 SKILL.md                                      Main workflow and task router
 references/
+  input-source-cross-validation.md           MyStore/Checking List input and conflict rules
   compliance-rules.md                        Listing and customization gates
   listing-style-guide.md                     Title, bullets, and description style
   amazon-product-image-workflow.md            Separate image-production workflow
@@ -36,7 +37,8 @@ and their `image-manifest.md` are delivered under
 back into the listing workbook.
 
 ```text
-Source row
+MyStore product and/or Checking List row
+  -> source mapping and field-level cross-validation
   -> research and fact validation
   -> listing copy and workbook
   -> compliance and human review

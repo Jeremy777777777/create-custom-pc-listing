@@ -5,16 +5,18 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 
 # MegaPC Amazon Custom PC Workflow
 
-适用范围：根据输入表中的产品记录，为 MegaPC 定制 PC 生成经过事实核验、原创且符合项目合规规则的 Amazon Listing 工作簿。本文件是逐产品执行的工作流程，不授权直接发布到 Seller Central。若产品不是“全新电脑、仅定制 RAM/存储”的适用情形，应停止套用本流程并提交人工判断。
+适用范围：根据 MyStore ERP 和/或 Checking List 中的产品记录，为 MegaPC 定制 PC 生成经过事实核验、原创且符合项目合规规则的 Amazon Listing 工作簿。本文件是逐产品执行的工作流程，不授权直接发布到 Seller Central。若产品不是“全新电脑、仅定制 RAM/存储”的适用情形，应停止套用本流程并提交人工判断。
 
 ## 工作流路由
 
 - Listing 研究、文案、合规检查和 Excel 输出继续执行本文件。
 - 独立的产品图片规划、制作、检查或 GitHub 交付任务，执行 [references/amazon-product-image-workflow.md](references/amazon-product-image-workflow.md)，并同时遵守 [references/image-spec.md](references/image-spec.md)。图片任务不修改 Listing Excel，除非用户另行明确要求。
 
-## 固定输入与规则文件
+## 输入与规则文件
 
-- 输入 Google Sheet：[Listing Status Tracker](https://docs.google.com/spreadsheets/d/11qeinso-6eRYgSVLQlRdteOZL8vsZE9IBfZcVMBXEkE/edit?gid=621896540#gid=621896540)，使用 `gid=621896540` 的工作表。已核对第 3 行表头：`Product Name`、`VL-`、`Quantity`。按表头名称读取，不依赖固定列号；忽略标题行和空行。
+- 可选输入 1：[MyStore ERP 产品入口](https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products?s=categoryId,status,id)。使用用户指定的产品详情 URL/产品 ID，或先在列表中唯一定位目标产品；不要默认处理整个目录。页面字段按实际界面读取，不硬编码未核对的列名。
+- 可选输入 2：[Listing Status Tracker](https://docs.google.com/spreadsheets/d/11qeinso-6eRYgSVLQlRdteOZL8vsZE9IBfZcVMBXEkE/edit?gid=621896540#gid=621896540)，使用 `gid=621896540` 的 `Listing Status Tracker` 页签。已核对第 3 行表头包含 `Product Name`、`VL-`、`Quantity` 以及 listing 状态、链接、Owner、Due Date 和 Notes；按表头名称读取，不依赖固定列号。
+- 两个来源可以单独作为输入，也可以共同使用。执行前读取 [references/input-source-cross-validation.md](references/input-source-cross-validation.md)，按字段职责建立映射和证据账本；它们相互一致只能增强可信度，不能取代准确 OEM 资料。
 - 合规规则：[references/compliance-rules.md](references/compliance-rules.md)。每次批次运行前读取当前版本，以其最新内容作为项目合规检查依据；规则文件不可访问时，不得将任何记录标为发布就绪。
 - 文案风格：[listing-style-guide.md](references/listing-style-guide.md)。进入 `Generate Listing` 前读取它，用于 Title、Bullet Points 和 Description 的结构、信息顺序及用途表达。它借鉴 MegaPC 的示例 listing，但不提供任何可直接套用的产品事实；如果与合规规则冲突，以合规规则为准。文件缺失时先继续 Research/Validate，不将未经风格检查的文案标为最终版。
 - Seller Central 字段参考：[assets/amazon_sellercentral_attributes_definitions.md](assets/amazon_sellercentral_attributes_definitions.md)。仅用于理解 NOTEBOOK_COMPUTER 字段定义和页面来源；实际输出结构以当前 Excel 模板为准，合规判断仍以 `compliance-rules.md` 为准。
@@ -22,18 +24,19 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 
 ## 总体流程与逐产品逻辑
 
-`Input → Research → Validate → Generate Listing → Compliance Check → Output → Human Review`
+`MyStore and/or Checking List → Source Mapping → Research → Field-level Validation → Generate Listing → Compliance Check → Output → Human Review`
 
 图片是同一整体 workflow 的后续独立分支：`Verified Listing → Image Plan → Unbranded MAIN/PT Production → Approved Brand Badge Composition → Image QA → Human Review`。只有 Listing 的相关事实已验证时才进入图片分支；图片状态不回写 Listing Excel。`MAIN` 永远不添加卖家 Logo；当用户明确提供并授权卖家 Logo 时，PT 图先生成无品牌底图，再用仓库脚本确定性合成，禁止让生成模型重绘 Logo 或品牌文字。
 
-对输入表中每条有效产品记录依次执行。为每条记录保留来源行号、原始 `Product Name`、原始 `VL-`、原始 `Quantity`，不要在清洗时丢失原值。空白产品名、无效数量、重复 `VL-` 或产品配置无法识别时，标记 `BLOCKED` 并记录原因；不要将两条看似相同的记录自动合并。每条记录独立研究、核验、生成和导出，避免把相邻型号的规格混在一起。输入的 `Quantity` 是库存承诺，不是商品包装内件数。
+对每个用户指定的目标产品依次执行。保留 MyStore URL/产品 ID、Checking List 页签/行号、原始 `Product Name`、原始 `VL-`、原始 `Quantity`、读取时间和映射依据，不要在清洗时丢失原值。空白产品名、无效数量、重复/范围 `VL-`、一对多匹配或产品配置无法识别时，标记 `BLOCKED`/`CONFLICT` 并记录原因；不要将两条看似相同的记录自动合并。每条记录独立研究、核验、生成和导出，避免把相邻型号的规格混在一起。`Quantity` 必须先确认业务口径，不能自动当作包装内件数或直接等同于 MyStore 的当前库存。
 
 ### 1. Input：读取并规范化
 
-1. 仅以指定工作表的 `Product Name`、`VL-`、`Quantity` 三列作为本流程的初始输入；其他列可以辅助定位现有 listing，但不能替代产品事实证据。
-2. 从 `Product Name` 提取品牌、系列、具体型号、可能的基础规格与配置线索，并保留原文。所有从名称解析出的规格先标为 `INPUT_UNVERIFIED`，不能直接用于发布文案。
-3. `VL-` 作为源记录追踪标识，并按原样保留。该列实际可能包含 `VA-190 - > VA-215` 这样的编号范围，而非单个 `VL-` 编号或 Amazon SKU；未确认业务含义、范围边界与拆分规则前，不自动展开为多个产品。只有确认某个具体编号就是待提交的卖家 SKU，才映射到模板的 `Offer > SKU`；否则 `SKU` 保持待确认，不擅自生成或改写。
-4. `Quantity` 必须是非负整数；写入模板 `Offer > Quantity` 前确认它表示当前可售、可履约数量。缺失或冲突时不猜测为 0。
+1. 接受 `MYSTORE_ONLY`、`CHECKLIST_ONLY` 或 `MYSTORE_AND_CHECKLIST` 三种模式。若用户只给列表入口而未指定具体产品，用产品 ID、明确 URL、Checking List 行号或可唯一识别的 `VL-` 缩小范围；不猜测目标产品。
+2. 分别读取并保存两个来源的原始记录，再按 [input-source-cross-validation.md](references/input-source-cross-validation.md) 建立 `source_mapping`。只有强匹配或用户明确确认时才合并；模糊匹配保持 `AMBIGUOUS`。
+3. 从 Checking List 的 `Product Name` 或 MyStore 的标题/摘要提取品牌、系列、具体型号和可能规格时，保留原文并标为 `INPUT_UNVERIFIED`。只有与确切产品绑定的卖家配置字段或更高等级证据才能提升状态。
+4. `VL-`/`VA-` 作为追踪标识按原样保留；范围或多值未确认前不展开、不当作 SKU。`Quantity` 必须是非负整数，并在写入 `Offer > Quantity` 前确认它代表 Amazon 当前可售、可履约数量，而不是仓库库存、计划数量或包装件数。
+5. 任一来源不可访问时记录 `SOURCE_UNAVAILABLE`，继续使用可用来源完成安全范围内的研究；缺少该来源会导致关键字段证据不足时，不得标为发布就绪。
 
 ### 2. Research：官方资料与 3 个 Amazon 参考 listing
 
@@ -53,7 +56,7 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 
 **来源优先级（针对实际销售配置）：**
 
-1. 可识别该 `VL-`/具体机器的卖家 ERP、采购/装配记录、配置单和已确认的卖家政策，用于实际 RAM、SSD、库存、SKU、升级内容及保修承诺。
+1. 可识别该 MyStore 产品 ID、`VL-`/具体机器的卖家 ERP、采购/装配记录、配置单和已确认的卖家政策，用于实际 RAM、SSD、库存、SKU、升级内容及保修承诺。Checking List 的工作状态和链接可证明流程状态；其产品名称中的规格仍须单独核验。
 2. 与准确型号/料号相匹配的 OEM 官方配置页、规格表、产品手册，用于原厂机身、CPU 平台、显示屏、接口等事实。
 3. 适用时，部件制造商的官方资料，用于补充 CPU、内存、SSD 等部件规格；不得用部件能力反推整机实际配置。
 4. Amazon 同款或竞品 listing、其他经销商页面，仅作交叉参考和发现待核问题，不能单独支持具体商品的事实主张。
@@ -68,6 +71,7 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 | `INPUT_UNVERIFIED` | 只来自输入名称或未经核实的卖家输入 | 不可以 |
 | `CONFLICT` | 来源之间存在未解决的实质差异 | 不可以 |
 | `TBD` | 信息缺失或证据不足 | 不可以 |
+| `SOURCE_UNAVAILABLE` | 某个预期来源当前无法访问；不是字段值 | 不可以，除非该字段由其他权威来源独立验证 |
 | `NOT_APPLICABLE` | 确认该字段不适用于此商品 | 不填写或按模板允许值处理 |
 
 关键配置字段仍为 `CONFLICT`/`TBD` 时，该产品不得标为发布就绪。非关键字段若模板允许留空，可留空并说明；不能用虚构值让工作簿看起来完整。
@@ -110,4 +114,4 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 
 ## 执行者最终报告
 
-按产品列出：源表行号、`VL-`、产品名、参考 Amazon listing 数量及 URL、官方来源、关键属性验证结果、未解决的 `TBD/CONFLICT`、合规结果、输出工作簿路径和下一步人工动作。若某项被阻断，写明具体原因及需要谁提供什么资料；不要仅写“失败”。
+按产品列出：输入模式、MyStore URL/产品 ID、Checking List 页签/行号、映射状态、`VL-`、产品名、参考 Amazon listing 数量及 URL、官方来源、关键属性验证结果、未解决的 `TBD/CONFLICT/SOURCE_UNAVAILABLE`、合规结果、输出工作簿路径和下一步人工动作。若某项被阻断，写明具体原因及需要谁提供什么资料；不要仅写“失败”。
