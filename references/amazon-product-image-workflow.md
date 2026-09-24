@@ -1,10 +1,10 @@
 # Amazon Product Image Generation Workflow
 
-本流程接续仓库根目录的 [MegaPC Amazon Custom PC Workflow](../SKILL.md)。先完成产品研究、属性验证、Listing 文案与合规检查，再以同一产品的**已验证 Listing 详情**制作图片；不重新建立第二套产品事实，也不把输入表中的产品名称直接当作图片规格证据。本流程只负责独立的图片生产与 GitHub 交付，不修改 Listing Excel，也不自动发布到 Seller Central。
+本流程接续仓库根目录的 [MegaPC Amazon Custom PC Workflow](../SKILL.md)。先完成产品研究、属性验证、Listing 文案与合规检查，再以同一产品的**已验证 Listing 详情**制作图片；不重新建立第二套产品事实，也不把 MyStore/Checking List 的标题或摘要直接当作图片规格证据。本流程只负责独立的图片生产与 GitHub 交付，不修改 Listing Excel，也不自动发布到 Seller Central。
 
 ## 输入、规则与执行前检查
 
-- 共同源记录：Listing 流程使用的 Google Sheet 中 `Product Name`、`VL-`、`Quantity`。图片流程只继承行号和追踪标识，不重新解析并覆盖已核实属性。
+- 共同源记录：Listing 流程可以使用 MyStore ERP、Checking List 或两者，并按照 [input-source-cross-validation.md](input-source-cross-validation.md) 建立字段级证据账本。图片流程只继承 MyStore 产品 ID/URL、Checking List 行号、`VL-` 和映射状态等追踪信息，不重新解析标题或覆盖已核实属性。
 - 直接事实输入：该产品的最终 Listing 工作簿、Title、Bullets、Description、已验证 attributes、实际可售 RAM/SSD 选项、保修与定制披露、已确认随箱配件，以及每项事实的证据。只有 `VERIFIED` 信息可进入图片文案或视觉元素。
 - 图片规范：[image-spec.md](image-spec.md)。每批制作前读取当前版本，并同时遵守 [compliance-rules.md](compliance-rules.md)。
 - GitHub 交付根目录：[`product generated photo/`](../product%20generated%20photo/)。每个产品使用一个 `VL-<内部型号>/` 子目录，不把不同产品图片混放。
@@ -16,11 +16,11 @@
 
 对每条已完成 Listing 的源记录单独执行。若 Listing 仍存在关键属性 `TBD`/`CONFLICT`、定制选项不清、保修未确认，或实物外观与照片素材无法对应，则停止该产品的成品图制作，先返回属性核验阶段。不同机型、代际、屏幕或接口版本不得混用产品照片。
 
-先核实单一内部型号，再创建 `product generated photo/VL-<内部型号>/`。这里的 `VL-` 是目录前缀；若源表单元格包含 `VA-` 编号、编号范围或多个型号，不能自行猜测映射，也不能把整段范围当作目录名。必须先取得明确映射。同一内部型号如对应不同外观或不可共用的 SKU 配置，应确认是否分别交付，避免覆盖旧图。Git 不保存空目录，因此只在有真实图片或 manifest 可提交时创建目录。
+先核实 MyStore 记录、Checking List 记录与单一内部型号之间的映射，再创建 `product generated photo/VL-<内部型号>/`。这里的 `VL-` 是目录前缀；若任一来源包含 `VA-` 编号、编号范围、多值或一对多候选，不能自行猜测映射，也不能把整段范围当作目录名。必须先取得明确映射。同一内部型号如对应不同外观或不可共用的 SKU 配置，应确认是否分别交付，避免覆盖旧图。Git 不保存空目录，因此只在有真实图片或 manifest 可提交时创建目录。
 
 ### 1. 锁定图片事实清单
 
-从已验证 Listing 提取：机型与机身形态、CPU、屏幕尺寸/分辨率/触控、显卡、RAM/SSD 可售档位、OS、无线与实体接口、随箱配件、保修及定制说明。逐项标注证据与适用 SKU/选项。`Quantity` 不作为图片卖点；`VL-` 只用于追踪，未确认为 SKU 时不印在图片上。
+从已验证 Listing 的字段级证据账本提取：机型与机身形态、CPU、屏幕尺寸/分辨率/触控、显卡、RAM/SSD 可售档位、OS、无线与实体接口、随箱配件、保修及定制说明。逐项标注最终值、状态、来源与适用 SKU/选项；不得重新从 MyStore 标题、列表摘要或 Checking List 的 `Product Name` 推断。`Quantity` 不作为图片卖点；`VL-` 只用于追踪，未确认为 SKU 时不印在图片上。
 
 在 `image-manifest.md` 为每张图片建立：`slot → 目标信息 → 所需实物角度/素材 → 允许文字 → 事实来源 → 素材来源 → 状态 → 最终路径`。未核实的规格、接口、附件或场景能力必须删除或保持待核，不能由 AI 猜测。
 
