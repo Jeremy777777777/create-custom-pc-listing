@@ -58,6 +58,41 @@ function Get-FittedRectangle {
     )
 }
 
+function Get-BadgeRenderRectangle {
+    param(
+        [float]$X,
+        [float]$Y,
+        [float]$Width,
+        [float]$Height,
+        [string]$Style
+    )
+
+    if ($Style -eq 'circle-keyline') {
+        $renderWidth = [float][Math]::Ceiling($Width * 1.08)
+        $renderHeight = [float][Math]::Ceiling($Height * 1.08)
+        return [System.Drawing.RectangleF]::new(
+            $X - [float][Math]::Round(($renderWidth - $Width) / 2),
+            $Y - [float][Math]::Round(($renderHeight - $Height) / 2),
+            $renderWidth,
+            $renderHeight
+        )
+    }
+
+    return [System.Drawing.RectangleF]::new($X, $Y, $Width, $Height)
+}
+
+function Test-RectangleIntersection {
+    param(
+        [System.Drawing.RectangleF]$First,
+        [System.Drawing.RectangleF]$Second
+    )
+
+    return ($First.Left -lt $Second.Right -and
+        $First.Right -gt $Second.Left -and
+        $First.Top -lt $Second.Bottom -and
+        $First.Bottom -gt $Second.Top)
+}
+
 $resolvedProduct = (Resolve-Path -LiteralPath $ImageDirectory).Path
 $resolvedLogo = (Resolve-Path -LiteralPath $LogoPath).Path
 $resolvedPlan = (Resolve-Path -LiteralPath $PlacementPlanPath).Path
@@ -76,6 +111,10 @@ if ($ExpectedBrand -and $plan.brand -ne $ExpectedBrand) {
 }
 if ($plan.logoRole -ne 'OEM base-product identifier') {
     throw "Unsupported logoRole '$($plan.logoRole)'. Expected 'OEM base-product identifier'."
+}
+$minimumClearance = [int]$plan.minimumClearancePx
+if ($minimumClearance -lt 16) {
+    throw 'Placement plan minimumClearancePx must be at least 16.'
 }
 
 $requiredFiles = 1..8 | ForEach-Object { 'PT{0:d2}.png' -f $_ }
@@ -113,6 +152,9 @@ try {
         if ($style -notin @('circle-keyline', 'rounded-badge', 'transparent')) {
             throw "Unsupported badge style '$style' for $fileName."
         }
+        if ($null -eq $placement.PSObject.Properties['protectedZones']) {
+            throw "Placement plan must declare protectedZones for $fileName (use an empty array after review when none apply)."
+        }
 
         $sourcePath = Join-Path $sourceDirectory $fileName
         $destinationPath = Join-Path $resolvedOutput $fileName
@@ -122,6 +164,36 @@ try {
         try {
             if ($x -lt 0 -or $y -lt 0 -or ($x + $width) -gt $source.Width -or ($y + $height) -gt $source.Height) {
                 throw "Placement for $fileName is outside the canvas."
+            }
+
+            $renderBounds = Get-BadgeRenderRectangle -X $x -Y $y -Width $width -Height $height -Style $style
+            if (($renderBounds.Left - $minimumClearance) -lt 0 -or
+                ($renderBounds.Top - $minimumClearance) -lt 0 -or
+                ($renderBounds.Right + $minimumClearance) -gt $source.Width -or
+                ($renderBounds.Bottom + $minimumClearance) -gt $source.Height) {
+                throw "Placement for $fileName violates the $minimumClearance px canvas clearance."
+            }
+
+            $clearanceBounds = [System.Drawing.RectangleF]::new(
+                $renderBounds.X - $minimumClearance,
+                $renderBounds.Y - $minimumClearance,
+                $renderBounds.Width + (2 * $minimumClearance),
+                $renderBounds.Height + (2 * $minimumClearance)
+            )
+            foreach ($zone in $placement.protectedZones) {
+                $zoneBounds = [System.Drawing.RectangleF]::new(
+                    [float]$zone.x,
+                    [float]$zone.y,
+                    [float]$zone.width,
+                    [float]$zone.height
+                )
+                if ($zoneBounds.Width -le 0 -or $zoneBounds.Height -le 0) {
+                    throw "Invalid protected zone for $fileName."
+                }
+                if (Test-RectangleIntersection -First $clearanceBounds -Second $zoneBounds) {
+                    $zoneLabel = if ($zone.label) { [string]$zone.label } else { 'unnamed protected zone' }
+                    throw "Placement for $fileName violates the $minimumClearance px clearance around '$zoneLabel'."
+                }
             }
 
             $graphics.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
