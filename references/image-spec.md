@@ -203,14 +203,25 @@ does not need to be removed.
   badge, and protected clear space must not cover or touch the product, title,
   body copy, feature cards, footers, ports, callout leaders, borders, or
   decorative lines.
+- Measure clearance from the final rendered outer edge, including a white
+  keyline or badge background. `logo-placement.json` must declare a
+  `minimumClearancePx` of at least 16 pixels for the production canvas and a
+  `protectedZones` array for every PT image. Keep the rendered logo at least
+  that distance from the canvas edge and every recorded protected zone; use a
+  larger value when the OEM identity standard requires it. A placement that
+  merely avoids pixel overlap but visually touches a card border or decorative
+  line is a blocking defect.
 - Follow the OEM's approved logo treatment. Circular marks may use the OEM's
   specified white keyline on dark photography; wordmarks may require a neutral
   badge. Preserve source colors, proportions, registration marks, and
   legibility. Do not stretch a circular logo into a rectangle.
 - Keep an unbranded master and a per-image `logo-placement.json`. Generate a
   separate review set from those masters, inspect every image at 100%, and
-  replace final files only after human approval. If no safe placement exists,
-  omit the overlay and flag the slot instead of covering content.
+  also inspect a gallery-size thumbnail before approval. The composition script
+  must reject insufficient canvas clearance or intersection with a declared
+  protected zone. Replace final files only after human approval. If no safe
+  placement exists, omit the overlay and flag the slot instead of covering
+  content.
 
 ## Brand and configuration safeguards
 
