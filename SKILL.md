@@ -82,7 +82,7 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 
 - **Title**：依风格指南将产品身份、真实用途/形态及最有价值的配置按优先级呈现；同时满足合规规则的 MegaPC 品牌开头、`Custom/Customized`、OEM 型号引用、RAM/存储选项和长度要求。Business、Gaming 或 Student 用途仅在目标产品确实适用时使用。
 - **Bullet Points**：借鉴风格指南的分主题结构，覆盖商品总览、处理器、内存/存储、显示或设计、连接及整体用途等实际卖点；按目标类目允许的数量精简。**第 1 条固定为保修披露**，第 2 条或其他显著位置清楚说明 MegaPC 仅定制 RAM/SSD；其余主题只写该产品已核实的特征，不为凑齐示例主题而虚构内容。
-- **Description**：根据风格指南用连贯短段落解释产品身份、重要配置与实际用途、定制范围及经确认的交付信息；不机械重复 bullets，且与标题、要点、属性值一致。
+- **Description**：严格使用风格指南规定的分节式 Markdown 文本：第一行为加粗的 MegaPC 定制身份，随后每节使用 `**加粗标题**\` 加真实换行和完整说明段，`Warranty` 固定在最后。主题和段落必须由本产品的 `VERIFIED` 研究结果决定，不能机械复制示例；不机械重复 bullets，且与标题、要点、属性值一致。
 - **Attributes**：按模板字段语义填写准确值及单位；例如 `RAM Memory Installed` 与 `Hard Disk Size` 应反映实际销售配置，`Brand Name` 为符合规则的自有品牌。不要把 `Number of Items` 填成库存数量。
 
 ### 5. Compliance Check：硬性闸门
@@ -110,7 +110,7 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 
 `Source` 行写入可追溯的具体来源（URL、文档标识或输入表行号）；`Status` 行写入上述验证状态。生成的文案可标记为基于已验证属性的已审草稿，并在来源中指向这些属性证据与合规规则。若模板字段没有对应来源或状态的表达能力，不改模板结构，应在单独的运行日志/人工复核记录中保存详细证据和阻断原因。不得把 `TBD`、`CONFLICT` 或内部备注写进面向客户的文案字段。
 
-导出前核对：输入行与输出工作簿一一对应；所有已填写属性均有来源与状态；单位与数值配对；标题、要点、描述、Warranty Description 及定制设置互相一致；未填写字段没有被伪装为已验证。输出工作簿是**待人工审阅的结构化结果**，并非自动获得 Amazon 发布资格。
+导出前核对：输入行与输出工作簿一一对应；所有已填写属性均有来源与状态；单位与数值配对；标题、要点、描述、Warranty Description 及定制设置互相一致；Product Description 保留开头身份行、各节 `**...**\`、真实换行及最后的 Warranty 段；未填写字段没有被伪装为已验证。输出工作簿是**待人工审阅的结构化结果**，并非自动获得 Amazon 发布资格。
 
 ## 执行者最终报告
 

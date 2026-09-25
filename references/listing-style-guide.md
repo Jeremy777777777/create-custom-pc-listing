@@ -46,9 +46,67 @@
 - **Student / general laptop**：侧重真实的显示、便携性、摄像头、连接与学习任务；电池续航、重量及软件包含情况需单独核实。
 - **特征缺失时**：删除该主张，改用这台机器确有的另一项购买理由。不要为维持参考页面的主题顺序而虚构屏幕、摄像头或配件。
 
-## Product Description：承接 bullet，不再重复一遍
+## Product Description：加粗分节标题 + 事实说明
 
-以短段落说明：这是什么 MegaPC 定制商品、基于哪款 OEM 机器、关键已验证配置如何服务于目标用途、RAM/SSD 具体怎么选，以及确有证据的交付/保修信息。描述可以比 bullet 更连贯，但不能加入未经核实的新卖点，也不能与标题、bullet、Excel attributes 或图片文案相矛盾。保修事实与第 1 条 bullet 保持一致。
+Product Description 使用固定的**分节式 Markdown 文本结构**，让买家能快速扫描，同时保留足够完整的说明。它不是把 bullets 原样重复一遍，而是把已验证的事实按购买决策主题重新组织。
+
+### 输出格式
+
+1. 第一行是加粗的产品身份：`**MegaPC Customized [product type] — Created Using [OEM model]**`。
+2. 随后使用 5–8 个能力分节。每节由一行加粗标题和一段正文组成；标题行末保留一个反斜杠以明确换行：
+
+   ```text
+   **[Verified capability heading]**\
+   [One complete paragraph explaining the verified specification and practical buyer value.]
+   ```
+
+3. 工作簿的 `Product Details > Product Description` 单元格必须保留 `**...**`、标题行末的 `\` 和真实换行符。不要改写为一整段，也不要在研究完成后丢失这些格式字符。若后续渠道需要 HTML，应在发布阶段另行转换，不能在 Listing 工作簿中静默改变本格式。
+4. 不使用项目符号、编号、表格或无标题的游离段落。每个正文段只解释对应标题，不连续堆叠多个不相关主题。
+
+### 主题选择与顺序
+
+分节标题必须依据当前产品的 `VERIFIED` 事实重新写，不能机械复用其他机型的标题。通常按下列顺序选择适用主题：
+
+1. 屏幕、机身形态或最重要的购买差异点。
+2. CPU 与适用任务。
+3. 独立显卡、NPU 或其他关键处理能力；不存在或未验证时删除该节。
+4. MegaPC 定制范围。RAM 与存储都可定制时可合并为 `Memory & Storage, Customized by MegaPC`；若内存固定或不可升级，应单独说明固定内存，并仅把实际改动的存储写成 MegaPC 定制。
+5. 连接、安全、便携性、构造或其他经验证的整机能力。
+6. 预装操作系统，明确它是固定系统规格，不是 MegaPC 软件定制。
+7. `Warranty` 固定放在最后，并与第 1 条 bullet 及 `Safety&Compliance > Warranty Description` 完全一致。
+
+产品不需要硬凑固定节数。应优先覆盖对该机型最有购买价值的已验证主题，并删除证据不足或不适用的部分。Gaming、Business、Student 或 General 的用途表达必须与实际产品定位一致。
+
+### 内容要求
+
+- 正文用完整英文句子，通常每节 1–3 句。先给出准确规格，再解释适用的真实场景；不要写无法证明的性能保证、跑分、FPS、续航推断或兼容性承诺。
+- MegaPC 只定制 RAM 与存储。描述必须准确区分原厂固定配置、固定不可升级部件及 MegaPC 实际提供的选项，并明确其他硬件和软件保持原厂配置。
+- 不因示例中出现就声称 `Genuine Windows`、`tested`、`documentation included`、OEM 保修继续有效或某项安全能力。只有卖家政策或匹配目标商品的证据明确支持时才能写入。
+- OS 段只写已验证的预装版本及其适用能力；不得把 Windows、Office 或其他软件描述成 MegaPC 定制。
+- 显卡技术（例如 ray tracing、DLSS）、操作系统功能（例如 BitLocker、Remote Desktop）和认证名称必须由对应厂商资料支持，不能只凭产品系列或竞品 listing 推断。
+- Description、Title、Bullets、Attributes 和图片文字中的型号、颜色、RAM/SSD 档位、OS、接口及保修必须一致。
+
+### 格式模板（不可直接发布）
+
+```text
+**MegaPC Customized [Product Type] — Created Using [OEM Model]**
+**[Primary Display / Design Benefit]**\
+[Verified specifications and practical value.]
+**[Processor Heading]**\
+[Verified processor facts and appropriate workloads.]
+**[Graphics / Platform Heading, when applicable]**\
+[Verified graphics or platform facts and appropriate workloads.]
+**[Memory and/or Storage Customization Heading]**\
+[Actual selectable configurations, exactly what MegaPC changes, and what remains factory configured.]
+**[Connectivity / Security / Mobility Heading]**\
+[Verified ports, wireless, security, design, battery or other relevant capabilities.]
+**[Verified Operating System]**\
+[Verified fixed operating-system specification and relevant use cases.]
+**Warranty**\
+[Verified OEM and MegaPC warranty language, consistent with the first bullet.]
+```
+
+生成后逐节检查：标题是否对应正文、每个数字是否有权威来源、每项用途是否由规格支持、定制范围是否准确、Warranty 是否最后且跨字段一致、Markdown 标记和换行是否完整。
 
 ## 必须拦截的写作错误
 
