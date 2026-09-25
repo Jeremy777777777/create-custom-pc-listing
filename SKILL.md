@@ -17,6 +17,7 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 - 可选输入 1：[MyStore ERP 产品入口](https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products?s=categoryId,status,id)。使用用户指定的产品详情 URL/产品 ID，或先在列表中唯一定位目标产品；不要默认处理整个目录。页面字段按实际界面读取，不硬编码未核对的列名。
 - 可选输入 2：[Listing Status Tracker](https://docs.google.com/spreadsheets/d/11qeinso-6eRYgSVLQlRdteOZL8vsZE9IBfZcVMBXEkE/edit?gid=621896540#gid=621896540)，使用 `gid=621896540` 的 `Listing Status Tracker` 页签。已核对第 3 行表头包含 `Product Name`、`VL-`、`Quantity` 以及 listing 状态、链接、Owner、Due Date 和 Notes；按表头名称读取，不依赖固定列号。
 - 两个来源可以单独作为输入，也可以共同使用。执行前读取 [references/input-source-cross-validation.md](references/input-source-cross-validation.md)，按字段职责建立映射和证据账本；它们相互一致只能增强可信度，不能取代准确 OEM 资料。
+- 属性研究覆盖：[references/research-attribute-coverage.md](references/research-attribute-coverage.md)。进入 Research 前读取它，并从当前 Excel 模板动态枚举全部字段；该文件规定最低产品属性族、来源检索、语义一致性和 research completeness gate。Amazon 页面或截图只用于发现需研究的字段，不能直接作为产品事实。
 - 合规规则：[references/compliance-rules.md](references/compliance-rules.md)。每次批次运行前读取当前版本，以其最新内容作为项目合规检查依据；规则文件不可访问时，不得将任何记录标为发布就绪。
 - 文案风格：[listing-style-guide.md](references/listing-style-guide.md)。进入 `Generate Listing` 前读取它，用于 Title、Bullet Points 和 Description 的结构、信息顺序及用途表达。它借鉴 MegaPC 的示例 listing，但不提供任何可直接套用的产品事实；如果与合规规则冲突，以合规规则为准。文件缺失时先继续 Research/Validate，不将未经风格检查的文案标为最终版。
 - Seller Central 字段参考：[assets/amazon_sellercentral_attributes_definitions.md](assets/amazon_sellercentral_attributes_definitions.md)。仅用于理解 NOTEBOOK_COMPUTER 字段定义和页面来源；实际输出结构以当前 Excel 模板为准，合规判断仍以 `compliance-rules.md` 为准。
@@ -42,6 +43,8 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 
 使用完整型号、厂商料号、配置关键词搜索官方产品页/规格表，以及 Amazon 上的同款或高度相关商品。记录检索日期、页面 URL、商品 ASIN（如有）、页面标题和与目标配置的差异。优先寻找同型号、同代际、同机身/屏幕/CPU 平台的页面，不把系列页的所有可选配置误认为本机配置。
 
+开始检索前执行 [research-attribute-coverage.md](references/research-attribute-coverage.md)：从当前模板三个工作表的字段名和 Definition 生成完整 research coverage ledger。每个模板字段都必须被主动研究或明确判断为卖家输入、合规输入或不适用；不允许因旧模板、旧 ASIN、核心规格已经足够，或字段未出现在 MyStore/Checking List 中而静默跳过。产品研究至少覆盖身份、显示、CPU/平台、内存/存储、图形、连接与端口、输入设备、摄像头/音频/安全、尺寸重量、电源/电池、OS/软件、随箱物品和保修。
+
 从可访问的候选中选出最多 **3 个高质量 Amazon listing**，并按以下顺序判断：
 
 1. **匹配度**：同一 OEM 型号和代际优先；其次同系列、相同核心平台的高度相关商品。明确记录 RAM/SSD、CPU、屏幕等配置差异。
@@ -52,7 +55,7 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 
 ### 3. Validate：逐属性交叉核验
 
-必须核验 CPU、已安装 RAM、RAM 类型、存储容量及类型、屏幕尺寸、分辨率、触控、显卡、操作系统、连接能力与接口。模板要求的其他字段也按同一标准处理，包括品牌、型号、保修、定制状态、库存等。区分“该型号可选/支持”与“本次实际销售配置”，并区分 OEM 原厂配置与 MegaPC 升级后的 RAM/SSD。
+必须逐项处理当前模板的全部字段，并按 [research-attribute-coverage.md](references/research-attribute-coverage.md) 完成最低属性族。不能只核验 CPU、RAM、SSD、屏幕和显卡后停止；显示亮度/色域/表面、CPU 缓存、内存速度与插槽、尺寸重量、无线版本、端口类型与数量、键盘/输入设备、摄像头/音频/安全、电池/适配器、随箱物品、保修，以及适用的 Offer 和 Safety&Compliance 字段都必须有研究结论。区分“该型号可选/支持”与“本次实际销售配置”，并区分 OEM 原厂配置与 MegaPC 升级后的 RAM/SSD。
 
 **来源优先级（针对实际销售配置）：**
 
@@ -74,7 +77,7 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 | `SOURCE_UNAVAILABLE` | 某个预期来源当前无法访问；不是字段值 | 不可以，除非该字段由其他权威来源独立验证 |
 | `NOT_APPLICABLE` | 确认该字段不适用于此商品 | 不填写或按模板允许值处理 |
 
-关键配置字段仍为 `CONFLICT`/`TBD` 时，该产品不得标为发布就绪。非关键字段若模板允许留空，可留空并说明；不能用虚构值让工作簿看起来完整。
+关键配置字段仍为 `CONFLICT`/`TBD` 时，该产品不得标为发布就绪。非关键字段若模板允许留空，也必须有 Status、Source/检索记录和具体原因；不能静默空白，也不能用虚构值让工作簿看起来完整。卖家运营、账户、法务或物流才能决定的字段使用主状态 `TBD`，并在原因中标记 `SELLER_INPUT_REQUIRED` 及所需责任人/资料。
 
 ### 4. Generate Listing：生成原创内容
 
@@ -110,7 +113,7 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 
 `Source` 行写入可追溯的具体来源（URL、文档标识或输入表行号）；`Status` 行写入上述验证状态。生成的文案可标记为基于已验证属性的已审草稿，并在来源中指向这些属性证据与合规规则。若模板字段没有对应来源或状态的表达能力，不改模板结构，应在单独的运行日志/人工复核记录中保存详细证据和阻断原因。不得把 `TBD`、`CONFLICT` 或内部备注写进面向客户的文案字段。
 
-导出前核对：输入行与输出工作簿一一对应；所有已填写属性均有来源与状态；单位与数值配对；标题、要点、描述、Warranty Description 及定制设置互相一致；Product Description 保留开头身份行、各节 `**...**\`、真实换行及最后的 Warranty 段；未填写字段没有被伪装为已验证。输出工作簿是**待人工审阅的结构化结果**，并非自动获得 Amazon 发布资格。
+导出前核对：输入行与输出工作簿一一对应；当前模板的**每个字段**都有 Status 和可追溯来源或明确处置原因；所有已填写属性均有来源与状态；单位与数值配对；重复/汇总字段一致；标题、要点、描述、Warranty Description 及定制设置互相一致；Product Description 保留开头身份行、各节 `**...**\`、真实换行及最后的 Warranty 段；未填写字段没有被伪装为已验证。按 `research-attribute-coverage.md` 输出三张表的状态数量和所有未解决字段清单；未通过 Research Completeness Gate 时不得标为 `READY_FOR_SELLER_REVIEW`。输出工作簿是**待人工审阅的结构化结果**，并非自动获得 Amazon 发布资格。
 
 ## 执行者最终报告
 
