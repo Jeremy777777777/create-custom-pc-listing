@@ -2,6 +2,8 @@
 
 本文件规定电脑屏幕内 feature callout、Windows 11 Pro 规格卡及第一张辅助图的可选视觉风格。它借鉴优秀 Amazon PC listing 的信息层级与缩略图可读性，但不复制 PCOnline 或其他卖家的图片、图标、壁纸、措辞、方框位置或独特构图。
 
+当产品被验证为 Gaming laptop/desktop，先用本文件确定产品居中、信息层级和 Windows 11 Pro treatment，再读取 [gaming-hero-styles.md](gaming-hero-styles.md) 选择一个 3D 游戏题材 add-on。Gaming add-on 不改变本文件的 `MAIN` 闸门，也不得把具体游戏人物、Logo、截图、地图或 UI 带入未授权 Listing。
+
 ## 先区分两个不同的“主图”
 
 - `MAIN` 是 Amazon 变体代码，也是搜索结果使用的正式主图。默认必须是纯白背景、真实商品、无新增文字/徽章/包装/图形覆盖层。

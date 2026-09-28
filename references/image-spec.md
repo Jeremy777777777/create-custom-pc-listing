@@ -11,6 +11,10 @@ The selectable visual systems are defined in
 styling and information hierarchy; it never changes the requirements below.
 For centered screen features and Windows 11 Pro package-style treatments, also
 read [conversion-hero-styles.md](conversion-hero-styles.md).
+For a product verified as Gaming, additionally read
+[gaming-hero-styles.md](gaming-hero-styles.md). Its 3D characters, vehicles,
+environments, and effects are PT01 add-ons or separately gated enhanced-main
+candidates; they are never permitted on the default strict `MAIN`.
 
 Amazon's current requirements override this internal production standard:
 
@@ -160,7 +164,7 @@ human approval are recorded.
 | Slot | Variant | Role | Background | Required content |
 |---|---|---|---|---|
 | **1** | `MAIN` | Hero | Pure white | Centered straight-on complete product; included accessories only; no overlay |
-| **2** | `PT01` | Conversion Hero / display | Selected profile + conversion hero style | Centered product plus one hero attribute, up to three verified supporting feature cards, and a compliant Windows 11 Pro treatment |
+| **2** | `PT01` | Conversion Hero / display | Selected profile + conversion hero style; verified Gaming products may add one G01–G06 treatment | Centered product plus one hero attribute, verified supporting cards, and a compliant Windows 11 Pro treatment; Gaming 3D mode permits no more than two feature cards |
 | **3** | `PT02` | Use cases | Selected profile | Product plus business, remote work, reception, study, creation, or gaming scenes; apply the AI-person metadata rule when required |
 | **4** | `PT03` | Full specifications / configuration | Selected profile | CPU, display, offered RAM tiers, offered SSD tiers, OS, connectivity, and collaboration facts |
 | **5** | `PT04` | Design and form factor | Selected profile | Side/profile views and verified chassis, footprint, dimensions, stand, and included-accessory facts |
@@ -226,6 +230,18 @@ placement, asset source, rights status, and product center offset.
   use approximately 78%–86% of canvas width, and anchor the Windows visual
   inside the screen's lower-right corner. Never shift the product left to create
   a separate OS column.
+- A verified Gaming product may add one G01–G06 treatment from
+  `gaming-hero-styles.md`. Keep the screen environment, rear subject,
+  frame-break subject, depth effects, and contact light as separate layers.
+  Default to original genre imagery; do not use unlicensed game characters,
+  logos, screenshots, maps, HUD, skins, signature props, vehicles, or trade
+  dress. Keep at least 25% of the screen quiet and use no more than two feature
+  cards when this add-on is active.
+- A Gaming frame-break subject may cross no more than two screen edges and its
+  out-of-screen area must remain at or below 12% of the computer's visual
+  bounding box. It must stay visually connected to the screen and cannot cover
+  the webcam, bezel geometry, hinge, keyboard, touchpad, OEM mark, Windows tile,
+  or verified specification text.
 - Do not let internal styling override Amazon requirements or accurate product
   representation.
 - Keep the OEM logo subordinate to the content. Select its location separately
