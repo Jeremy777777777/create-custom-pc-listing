@@ -1,14 +1,12 @@
-# MegaPC Gaming PC Hero Style Library
-
-本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 Gaming 专用 add-on。它把第一张辅助图 `PT01 Conversion Hero` 的准确产品、Windows 11 Pro 规格卡与已验证性能信息，扩展为原创的 3D 游戏氛围画面。当前只定义 `Gaming`；`Business/Work` 与 `Student/Study` 后续使用独立 style family，不能混用本文件的人物、场景和光效。
+# MegaPC Gaming PC Hero Style Library本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 Gaming 专用 add-on。它把第一张辅助图 `PT01 Conversion Hero` 的准确产品、Windows 11 Pro 规格卡与已验证性能信息，扩展为原创的 3D 游戏氛围画面。核心配置和 Windows 的组合版式另从 [gaming-core-badge-styles.md](gaming-core-badge-styles.md) 选择 C01–C06。当前只定义 `Gaming`；`Business/Work` 与 `Student/Study` 后续使用独立 style family，不能混用本文件的人物、场景和光效。
 
 ## 使用范围与主图闸门
 
 - `STRICT_MAIN`：Amazon 搜索结果正式主图。继续使用纯白背景、完整真实产品、无新增人物、游戏画面、文字、徽章、Windows package、粒子或 3D 出屏效果。
 - `PT01_GAMING_HERO`：默认使用位置。允许在屏幕及紧邻屏幕的产品范围内制作原创游戏场景、3D 出屏角色和克制光效，同时继承 `Centered Performance + Screen Package` 的产品居中与 Windows 11 Pro 规则。
-- `MAIN_ENHANCED_CANDIDATE`：仅供内部审核。只有当前账户/类目的可审计书面依据和人工批准都已记录，才能替换 `MAIN.jpg`；看到其他卖家使用类似图片不构成许可。
+- `MAIN_ENHANCED_CANDIDATE`：仅供内部审核。只有当前账户/类目的可审计书面依据和人工批准都已记录，才能替换 `MAIN.jpg`；看到其他卖家使用类似图片不构成许可。本库的 Gaming 效果是现有 Conversion Hero 的 add-on，而不是第二套无关版式：电脑主体、准确机型外观、屏幕层、性能信息、Windows 11 Pro 和 3D 场景必须在同一视觉层级中协作。
 
-本库的 Gaming 效果是现有 Conversion Hero 的 add-on，而不是第二套无关版式：电脑主体、准确机型外观、屏幕层、性能信息、Windows 11 Pro 和 3D 场景必须在同一视觉层级中协作。
+每个 Gaming hero 必须选择一个 `gaming_style_id`（G01–G06）和一个 `gaming_core_badge.style_id`（C01–C06）。一个最多含四个 micro cells 的 `CORE_SPEC_CLUSTER` 计为一张 feature card，因此仍遵守两张 feature-card 上限；Windows tile 另计，但不得成为第一视觉焦点。
 
 ## 研究依据（2026-09-28）
 
