@@ -2,6 +2,7 @@
 
 ## Product lock
 
+- Image style profile: `navy-technical-v1` (existing gallery retained; the new profile is optional for future per-model runs)
 - Product: HP Victus 15.6-inch gaming laptop
 - Reference configuration: AMD Ryzen 7 7445HS, 16 GB memory, NVIDIA GeForce RTX 4050, 512 GB SSD, Mica Silver
 - Product reference: https://www.bestbuy.com/product/hp-victus-15-6-144hz-full-hd-gaming-laptop-amd-ryzen-7-7445hs-2023-16gb-memory-nvidia-geforce-rtx-4050-512gb-ssd-mica-silver/6623881
