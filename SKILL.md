@@ -1,6 +1,6 @@
 ---
 name: amazon-custom-pc-listing-workflow
-description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and verify product facts, create the listing workbook, perform compliance QA, and route a separate MAIN/PT01-PT08 image-production task. Use for listing creation, revision, validation, workbook output, or product-image delivery; do not publish to Seller Central.
+description: "Run the end-to-end MegaPC Amazon Custom PC workflow: research and verify product facts, create the listing workbook, perform compliance QA, and route a separate MAIN/PT01-PT08 image-production task. Use for listing creation, revision, validation, workbook output, or product-image delivery; do not publish to Seller Central."
 ---
 
 # MegaPC Amazon Custom PC Workflow
