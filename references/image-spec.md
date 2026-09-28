@@ -14,7 +14,11 @@ read [conversion-hero-styles.md](conversion-hero-styles.md).
 For a product verified as Gaming, additionally read
 [gaming-hero-styles.md](gaming-hero-styles.md). Its 3D characters, vehicles,
 environments, and effects are PT01 add-ons or separately gated enhanced-main
-candidates; they are never permitted on the default strict `MAIN`.
+candidates; they are never permitted on the default strict `MAIN`. Also read
+[gaming-core-badge-styles.md](gaming-core-badge-styles.md) for the six approved
+Windows 11 Pro and core-configuration compositions. One four-cell
+`CORE_SPEC_CLUSTER` counts as one feature card; all values must match the
+selected verified SKU.
 
 Amazon's current requirements override this internal production standard:
 
