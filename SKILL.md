@@ -84,13 +84,13 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 先读取 `listing-style-guide.md`，再仅使用 `VERIFIED` 的实际销售配置生成英文 Title、Bullet Points、Description 和适用的 Amazon 商品属性。文案风格参考该文件，事实只取自第 3 步的验证结果；不能复制或近似改写 Amazon 参考 listing。不要承诺未核实的性能、兼容性、附件、软件、售后或保修。RAM/存储选项只列实际可售且有履约证据的选项。
 
 - **Title**：依风格指南将产品身份、真实用途/形态及最有价值的配置按优先级呈现；同时满足合规规则的 MegaPC 品牌开头、`Custom/Customized`、OEM 型号引用、RAM/存储选项和长度要求。容量选项后只加入该准确销售配置**实际存在且已验证**的高意向功能词；`Webcam`、`Backlit Keyboard`、`FP Reader`、`Wi-Fi 6` 只是候选示例，不是固定套装，也没有最低数量要求。不存在、不可用或证据不足的功能必须完全省略。按当前 MegaPC 业务规则，每个最终标题以已核验的 `Win 11 Pro` 收尾，并与 Description、属性和图片一致。Business、Gaming 或 Student 用途仅在目标产品确实适用时使用。
-- **Bullet Points**：借鉴风格指南的分主题结构，覆盖商品总览、处理器、内存/存储、显示或设计、连接及整体用途等实际卖点；按目标类目允许的数量精简。**第 1 条固定为保修披露**，第 2 条或其他显著位置清楚说明 MegaPC 仅定制 RAM/SSD；其余主题只写该产品已核实的特征，不为凑齐示例主题而虚构内容。
+- **Bullet Points**：先从风格指南选择适合该产品的 bullet profile；默认使用新增的 `Decision-First Benefit Blocks`，以买家最重要的已验证差异点开场，再依次组织性能、RAM/SSD 定制、体验与连接，最后或其他显著位置完整披露定制与保修。顺序必须由产品类型、主要购买任务和事实强度决定，不能机械套用；无论 warranty 位于哪一条，MegaPC 仅定制 RAM/SSD、OEM 剩余部件保修状态及 MegaPC 升级部件覆盖都不得省略。若当前 Amazon Custom 规则、账户通知或人工合规要求 warranty 为第 1 条，则切换到 `Compliance-First` 顺序并覆盖风格偏好。
 - **Description**：严格使用风格指南规定的分节式 Markdown 文本：第一行为加粗的 MegaPC 定制身份，随后每节使用 `**加粗标题**\` 加真实换行和完整说明段，`Warranty` 固定在最后。主题和段落必须由本产品的 `VERIFIED` 研究结果决定，不能机械复制示例；不机械重复 bullets，且与标题、要点、属性值一致。
 - **Attributes**：按模板字段语义填写准确值及单位；例如 `RAM Memory Installed` 与 `Hard Disk Size` 应反映实际销售配置，`Brand Name` 为符合规则的自有品牌。不要把 `Number of Items` 填成库存数量。
 
 ### 5. Compliance Check：硬性闸门
 
-先按 `listing-style-guide.md` 检查信息顺序、分主题表达、用途定位和跨字段一致性，再对最终文案和属性逐条执行 `references/compliance-rules.md`；发现问题后修正并重查两者。至少覆盖：品牌优先标题、`Custom/Customized`、OEM 型号引用、RAM/存储规格、已验证的高意向功能词、固定交付的 `Win 11 Pro` 及其授权/激活证据、标题长度、第一条保修披露、仅 RAM/存储可由买家定制、无软件定制选项、所有定制内容公开说明、文案/图片原创性。风格检查不能替代合规检查，风格与合规冲突时必须遵守合规规则。
+先按 `listing-style-guide.md` 检查信息顺序、分主题表达、用途定位和跨字段一致性，再对最终文案和属性逐条执行 `references/compliance-rules.md`；发现问题后修正并重查两者。至少覆盖：品牌优先标题、`Custom/Customized`、OEM 型号引用、RAM/存储规格、已验证的高意向功能词、固定交付的 `Win 11 Pro` 及其授权/激活证据、标题长度、完整且显著的保修披露、仅 RAM/存储可由买家定制、无软件定制选项、所有定制内容公开说明、文案/图片原创性。若 warranty 不在第 1 条，运行记录必须保存所用 `Decision-First` profile、顺序理由和允许该顺序的当前规则/账户依据；缺少依据时不得标为 `READY_FOR_SELLER_REVIEW`。风格检查不能替代合规检查，风格与合规冲突时必须遵守合规规则。
 
 另须单独核实 Seller Central 的 Amazon Custom 设置、MFN 履约、新 ASIN/自有 UPC、随货定制文档及卖家账户/项目要求。这些未必全部有模板列，不得因 Excel 某些单元格已填而视为完成。任何必需项未满足、规则文件不可读取、关键事实未验证或保修政策不明确时，结果为 `COMPLIANCE_BLOCKED`；只有全部通过且完成必要人工复核，才可标为 `READY_FOR_SELLER_REVIEW`。本流程不自动提交或发布。
 
@@ -103,13 +103,13 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 | 数据 | 模板位置 | 规则 |
 | --- | --- | --- |
 | Title | `Product Details > Item Name` | 仅合规版本 |
-| Bullet Points | `Product Details > Bullet Point` | 保修披露必须排第 1 条；沿用模板允许的存储方式，不新增列 |
+| Bullet Points | `Product Details > Bullet Point` | 按选定 profile 写入；保修与定制披露必须完整、显著并符合当前适用规则，沿用模板允许的存储方式，不新增列 |
 | Description | `Product Details > Product Description` | 与属性一致 |
 | 自有品牌及 OEM 信息 | `Product Details > Brand Name / Model Number / Model Name / Manufacturer` | 按各字段定义区分，不能把 OEM 当成自有品牌 |
 | CPU、RAM、存储、屏幕、显卡、OS、连接能力 | `Product Details` 中同名或语义对应的现有列 | 仅填已核实的实际配置；单位列成对填写 |
 | `VL-` | `Offer > SKU` | 仅在确认它就是卖家 SKU 后填写 |
 | `Quantity` | `Offer > Quantity` | 已核实的非负整数库存承诺 |
-| 保修与修改状态 | `Safety&Compliance > Warranty Description / Modified Product` | 与第一条 bullet 和实际定制一致 |
+| 保修与修改状态 | `Safety&Compliance > Warranty Description / Modified Product` | 与对应的 warranty/customization bullet 和实际定制一致 |
 
 `Source` 行写入可追溯的具体来源（URL、文档标识或输入表行号）；`Status` 行写入上述验证状态。生成的文案可标记为基于已验证属性的已审草稿，并在来源中指向这些属性证据与合规规则。若模板字段没有对应来源或状态的表达能力，不改模板结构，应在单独的运行日志/人工复核记录中保存详细证据和阻断原因。不得把 `TBD`、`CONFLICT` 或内部备注写进面向客户的文案字段。
 
