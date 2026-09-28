@@ -7,6 +7,11 @@
 - Exact configuration / selectable tiers: `<verified values>`
 - `image_style_profile`: `<navy-technical-v1 | feature-led-studio-v1>`
 - Profile reason: `<why this profile fits the verified product and licensed assets>`
+- `audience_style_family`: `<GAMING | BUSINESS_WORK | STUDENT_STUDY | GENERAL | HYBRID_MANUAL_REVIEW>`
+- Audience evidence / confidence / reason: `<verified evidence ledger>`
+- `hero_style_id`: `<G01-G06 | B01-B06 | NEUTRAL>`
+- `supporting_gallery_pack`: `<GG01-GG06 | BG01-BG06 | NEUTRAL>`
+- Gallery story reason: `<why the continuation pack fits verified buyer tasks>`
 - Benchmark references: `<information coverage only; no wording or assets reused>`
 - Final canvas / format: `<dimensions, encoding, RGB>`
 
@@ -33,29 +38,43 @@ Delete or mark `BLOCKED` for any claim that is not `VERIFIED`. Do not treat a be
 - Unbranded master location: `<path>`
 - Deterministic logo plan: `<required logo-placement.json path>`
 
+## People and scene asset ledger
+
+Add one row for every slot containing a person or character. `PT02` is the
+primary people scene; `PT05` permits at most one secondary person when needed;
+`PT06` must always be `NONE`.
+
+| Slot | Asset mode | Role / count | Source / license | Identity/IP review | Synthetic metadata | Included-item ambiguity review |
+| --- | --- | --- | --- | --- | --- | --- |
+| PT02 | `NONE / SELLER_OWNED / LICENSED_STOCK / ORIGINAL_SYNTHETIC` |  |  |  |  |  |
+| PT05 | `NONE / SELLER_OWNED / LICENSED_STOCK / ORIGINAL_SYNTHETIC` |  |  |  |  |  |
+| PT06 | `NONE` | None | N/A | PASS | NOT_REQUIRED | PASS |
+
 ## Slot plan and record
 
-| Slot | Role | Verified copy / facts | Required asset or angle | Fact source | Asset source | Status | Final path |
-| --- | --- | --- | --- | --- | --- | --- | --- |
-| MAIN | White-background hero | No overlay copy | Straight-on complete product |  |  | TO SOURCE |  |
-| PT01 | Display / feature overview |  |  |  |  | TO PRODUCE |  |
-| PT02 | Use cases |  |  |  |  | TO PRODUCE |  |
-| PT03 | Full specifications / configuration |  |  |  |  | TO PRODUCE |  |
-| PT04 | Design and form factor |  |  |  |  | TO PRODUCE |  |
-| PT05 | Performance / platform |  |  |  |  | TO PRODUCE |  |
-| PT06 | What's included |  |  |  |  | TO SOURCE |  |
-| PT07 | Specification recap |  |  |  |  | TO PRODUCE |  |
-| PT08 | Connectivity / collaboration |  |  |  |  | TO SOURCE |  |
+| Slot | Role | Continuation treatment | Verified copy / facts | Required asset or angle | Fact source | Asset source | Status | Final path |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| MAIN | White-background hero | None | No overlay copy | Straight-on complete product |  |  | TO SOURCE |  |
+| PT01 | Display / feature overview | Hero family |  |  |  |  | TO PRODUCE |  |
+| PT02 | Use cases | Pack use scene |  |  |  |  | TO PRODUCE |  |
+| PT03 | Full specifications / configuration | Pack loadout/work grid |  |  |  |  | TO PRODUCE |  |
+| PT04 | Design and form factor | Pack design treatment |  |  |  |  | TO PRODUCE |  |
+| PT05 | Performance / platform | Pack pipeline/workflow |  |  |  |  | TO PRODUCE |  |
+| PT06 | What's included | Clean white factual layout |  |  |  |  | TO SOURCE |  |
+| PT07 | Specification recap | Pack recap cards |  |  |  |  | TO PRODUCE |  |
+| PT08 | Connectivity / collaboration | Pack ecosystem |  |  |  |  | TO SOURCE |  |
 
 ## QA record
 
 - [ ] `MAIN` follows the profile-independent Amazon main-image rules.
 - [ ] PT01–PT08 consistently use the selected profile.
+- [ ] PT02–PT08 use the continuation pack matching the PT01 Gaming/Business hero family.
 - [ ] Title, Description, attributes and image copy agree on model, RAM/SSD, color, features and Win 11 Pro.
 - [ ] Every claim is `VERIFIED`; configuration options are clearly distinguished from installed values.
 - [ ] Competitor wording, images, icons, layouts and A+ assets were not reused.
 - [ ] Every PT01–PT08 image contains the correct verified OEM logo and passed provenance and placement checks; MAIN has no added overlay.
 - [ ] 100% and thumbnail reviews passed; no text, product, port, card, border or callout collision.
 - [ ] Synthetic-performer metadata was added when required.
+- [ ] People/characters passed source, identity/IP, anatomy/contact-point and included-item ambiguity review; PT06 contains none.
 
 Delivery state: `<BLOCKED | IN PRODUCTION | IMAGE_READY_FOR_REVIEW>`

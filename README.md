@@ -22,6 +22,7 @@ references/
   gaming-hero-styles.md                       Six original 3D gaming hero add-ons
   gaming-core-badge-styles.md                 Six Gaming core-config + Windows compositions
   business-work-hero-styles.md                 Six Business/Work Office and Copilot treatments
+  supporting-gallery-styles.md                 Gaming/Business PT02-PT08 continuation packs
 assets/
   listing-workbook-template.xlsx              Listing workbook template
   amazon_sellercentral_attributes_definitions.md  Captured field-definition reference
@@ -56,6 +57,11 @@ after the workflow verifies the exact Office/Copilot entitlement. The workflow
 records the audience evidence, confidence, and routing reason so Gaming,
 Business/Work, Student/Study, and General products do not silently share the
 wrong visual language.
+The selected hero family then continues through PT02–PT08 using the matching
+Gaming or Business story pack in
+[`references/supporting-gallery-styles.md`](references/supporting-gallery-styles.md),
+including controlled use of licensed or original synthetic people where a real
+use case benefits from them.
 Text-only OS treatments are the default; official lockup/package assets require
 recorded commercial-use rights.
 Finished image files and their `image-manifest.md` are delivered under

@@ -23,6 +23,9 @@ For a product verified as Business/Work, also read
 [business-work-hero-styles.md](business-work-hero-styles.md). Its B01–B06
 layouts may display Office or Copilot only after the exact SKU entitlement and
 approved brand assets pass the documented gates.
+For PT02–PT08 audience-specific scenes and narrative continuity, also read
+[supporting-gallery-styles.md](supporting-gallery-styles.md). The selected
+Gaming or Business continuation pack must match the PT01 hero family.
 
 Amazon's current requirements override this internal production standard:
 
@@ -173,13 +176,13 @@ human approval are recorded.
 |---|---|---|---|---|
 | **1** | `MAIN` | Hero | Pure white | Centered straight-on complete product; included accessories only; no overlay |
 | **2** | `PT01` | Conversion Hero / display | Selected profile + conversion hero style; Gaming requires G01–G06 + C01–C06, while Business/Work requires B01–B06 | Centered product plus one hero attribute, verified supporting cards, and a compliant Windows 11 Pro treatment; Gaming requires a layered 3D frame-break subject and no more than two feature cards; Business software visuals require verified entitlement |
-| **3** | `PT02` | Use cases | Selected profile | Product plus business, remote work, reception, study, creation, or gaming scenes; apply the AI-person metadata rule when required |
-| **4** | `PT03` | Full specifications / configuration | Selected profile | CPU, display, offered RAM tiers, offered SSD tiers, OS, connectivity, and collaboration facts |
-| **5** | `PT04` | Design and form factor | Selected profile | Side/profile views and verified chassis, footprint, dimensions, stand, and included-accessory facts |
-| **6** | `PT05` | Performance / platform | Selected profile | CPU, offered RAM tiers, offered SSD tiers, and preinstalled OS; do not present software as a customization |
+| **3** | `PT02` | Use cases | Selected profile + matching continuation pack | Product in one verified use story; 1–3 licensed or original synthetic people/characters only when they clarify the use case; apply metadata and IP review |
+| **4** | `PT03` | Full specifications / configuration | Selected profile + matching continuation pack | Audience-appropriate loadout/work grid with verified CPU, display, RAM/SSD tiers and OS; no people |
+| **5** | `PT04` | Design and form factor | Selected profile + matching continuation pack | Accurate product angles and verified design facts; narrative effects remain peripheral and may not invent internals or geometry |
+| **6** | `PT05` | Performance / platform | Selected profile + matching continuation pack | Gaming pipeline or Business workflow grounded in verified hardware; at most one secondary person; no invented FPS, benchmark, battery or AI claims |
 | **7** | `PT06` | What's included | White | Show only the exact unit, power equipment, and accessories included with the SKU |
-| **8** | `PT07` | Specification recap | White or light | CPU, offered RAM tiers, offered SSD tiers, and preinstalled OS |
-| **9** | `PT08` | Connectivity | White | Verified rear/side ports and connectivity; do not show unavailable ports |
+| **8** | `PT07` | Specification recap | White or light + continuation accents | 4–6 verified facts in the selected family; no people |
+| **9** | `PT08` | Connectivity | White/light + continuation ecosystem | Verified rear/side ports and connectivity remain primary; contextual peripherals may not imply inclusion |
 
 Reserve three-quarter views and multiple angles for PT images. Every displayed
 RAM or SSD option must be genuinely offered for the listing. Use a brief factual
@@ -250,6 +253,14 @@ placement, asset source, rights status, and product center offset.
   package visuals require exact-SKU entitlement evidence; unresolved elements
   are removed rather than inferred. `Lifetime Office` requires seller-approved
   wording and auditable evidence for that SKU.
+- PT02–PT08 must use the matching GG01–GG06 or BG01–BG06 pack from
+  `supporting-gallery-styles.md`. Keep typography, card geometry, colors,
+  lighting, and story world consistent; do not treat each slot as a random
+  campaign. PT02 is the primary people scene, PT05 permits at most one
+  secondary person when needed, and PT06 never permits people or scene props.
+- Every person/character must record asset mode, source, role, count, identity
+  and IP review, and synthetic-performer metadata status. People, characters,
+  and contextual peripherals cannot cover the product or imply inclusion.
 - A Gaming frame-break subject may cross no more than two screen edges and its
   out-of-screen area must remain at or below 12% of the computer's visual
   bounding box. It must stay visually connected to the screen and cannot cover

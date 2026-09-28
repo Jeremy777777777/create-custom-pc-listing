@@ -4,6 +4,8 @@
 
 一旦 `audience_style_family = GAMING`，PT01 必须选择 G01–G06 之一和 C01–C06 之一，并包含与屏幕相连的真实分层 `FRAME_BREAK_SUBJECT`；仅放一张游戏壁纸、霓虹背景或平面人物不算完成。若准确机身几何、素材权利或遮挡安全无法实现，标记 `BLOCKED` 交人工处理，不得自动退化为普通 Business/General 风格。
 
+PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 使用同编号 continuation pack：G01→GG01，G02→GG02，依此类推。这样人物、原创世界观、色彩和功能叙事在整套图库中连续，而不是只在 PT01 出现。
+
 ## 使用范围与主图闸门
 
 - `STRICT_MAIN`：Amazon 搜索结果正式主图。继续使用纯白背景、完整真实产品、无新增人物、游戏画面、文字、徽章、Windows package、粒子或 3D 出屏效果。

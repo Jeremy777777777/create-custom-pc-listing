@@ -2,7 +2,7 @@
 
 本文件为同一套 `MAIN`、`PT01`–`PT08` 图片规范提供**可选择的视觉风格**。它只改变辅助图的视觉语言和信息层级，不改变槽位、事实、版权、品牌或 Amazon 合规要求。`MAIN` 在所有 profile 下都保持纯白背景、完整产品、无叠加文字或图形 Logo。
 
-每个具体电脑型号必须在 `image-manifest.md` 顶部记录一个 `image_style_profile`。同一型号的 PT01–PT08 使用同一 profile；没有明确选择时使用 `navy-technical-v1`。不得在一套图库中逐张随机混用 profile。
+每个具体电脑型号必须在 `image-manifest.md` 顶部记录一个 `image_style_profile`。同一型号的 PT01–PT08 使用同一 profile；没有明确选择时使用 `navy-technical-v1`。不得在一套图库中逐张随机混用 profile。若受众被验证为 Gaming 或 Business/Work，还必须从 [supporting-gallery-styles.md](supporting-gallery-styles.md) 选择与 PT01 hero 同编号的 GG01–GG06 或 BG01–BG06 continuation pack；profile 控制基础排版，continuation pack 控制人物、场景和叙事。
 
 ## 可用 profiles
 
@@ -52,6 +52,8 @@
      - "https://www.amazon.com/dp/B0GR6R97PM — information coverage only; no assets or wording reused"
    ```
 
+6. 同时记录 `audience_style_family`、`hero_style_id`、`supporting_gallery_pack` 和选择理由。Gaming/Business 不得只有 PT01 有主题、PT02–PT08 又退回互不相关的随机模板。
+
 ## 跨 profile 的强制规则
 
 - 所有文字和图标都必须对应 `VERIFIED` 属性；竞品页面只能提示“哪些字段值得研究”，不能证明本产品有该功能。
@@ -61,4 +63,5 @@
 - `PT01`–`PT08` 必须在生成后通过确定性后处理加入与已验证底机生产商一致的官方或已授权 OEM Logo。Logo 不得由生成模型重画；没有正确资产或没有安全位置时必须重做布局或将槽位标为 `BLOCKED`，不能无 Logo 交付。
 - `MAIN` 不额外叠加 Logo，以免违反 Amazon 主图规则；真实机身上原有的 OEM 标识可以自然保留。
 - 不复制竞争对手的图片、截图、人物、图标、标题、描述、A+ 模块、配色组合或独特布局。本阶段不制作 A+ Content。
+- 人物与虚拟人物只按 `supporting-gallery-styles.md` 使用：PT02 是主要场景，PT05 最多一位次级人物，PT06 禁止人物。人物和外设不得遮挡产品或暗示未随箱提供的内容。
 - 风格选择不得改变 `image-spec.md`、`compliance-rules.md` 或 Amazon 当前图片要求的优先级。

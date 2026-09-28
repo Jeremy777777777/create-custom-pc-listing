@@ -2,6 +2,8 @@
 
 本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 `Business/Work` 专用 style family。它让 `PT01 Conversion Hero` 以工作效率、Office、Windows 11 Pro、协作与连接能力为视觉核心，同时保持电脑居中、事实可验证和软件权益不夸大。正式 Amazon `MAIN.jpg` 仍执行 [image-spec.md](image-spec.md) 的纯白主图规则；本文件仅用于 `PT01`，或通过独立 MAIN exception gate 的内部候选。
 
+PT01 选定 B01–B06 后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 使用同编号 BG01–BG06 continuation pack，使 Office、Copilot、会议、移动办公或学习到工作的主题贯穿整套辅助图库。
+
 ## 使用前提与自动路由
 
 只有 `audience_style_family = BUSINESS_WORK` 时使用 B01–B06。分类器必须先保存证据、置信度和理由；页面标题中的 “Business” 只能作为线索，不能单独定案。
