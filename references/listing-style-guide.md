@@ -1,27 +1,41 @@
 # MegaPC Amazon Listing Style Guide
 
-本指南以 [MegaPC Amazon listing（ASIN B0H35FKDST）](https://www.amazon.com/dp/B0H35FKDST) 为主要写作参考，提炼其**高信息密度标题**和**按产品能力分主题展开的 bullet**。它规定表达方式，不提供产品事实。每条规格、配置选项、随箱配件及用途主张都必须先在主工作流 [`SKILL.md`](../SKILL.md) 中验证；所有硬性要求以仓库最新的 [compliance-rules.md](compliance-rules.md) 为准。
+本指南以 [MegaPC Amazon listing（ASIN B0H35FKDST）](https://www.amazon.com/dp/B0H35FKDST) 为主要写作参考，并把用户指定的 [PCOnline 页面（ASIN B0GR6R97PM）](https://www.amazon.com/dp/B0GR6R97PM) 作为市场信息覆盖参考，提炼**高信息密度标题**、**高意向功能词**和**按产品能力分主题展开的 bullet**。它规定表达方式，不提供产品事实。每条规格、配置选项、随箱配件及用途主张都必须先在主工作流 [`SKILL.md`](../SKILL.md) 中验证；所有硬性要求以仓库最新的 [compliance-rules.md](compliance-rules.md) 为准。
 
 ## 从参考 listing 借鉴什么
 
-该页面的标题在一行中让买家看到 MegaPC 定制身份、OEM 机型、产品形态、屏幕、CPU、RAM/SSD 选项和系统。其 bullet 先概括商品，再按处理器、内存与存储、显示、连接与沟通、整机用途等主题展开。每条通常采用“**简短卖点标题：具体规格 + 实际使用价值**”的写法，而不是纯参数罗列。
+参考页面的共同优点是让买家在一行中看到定制身份、OEM 机型、产品形态、屏幕、CPU、RAM/SSD 选项、系统，以及少量真正影响点击的功能词。PCOnline 样例把 `Webcam`、`Backlit Keyboard`、`FP Reader`、`Wi-Fi 6`、`Win 11 Pro` 放在容量选项之后；本流程借鉴这种**字段覆盖与顺序**，但每个词仍须针对目标产品独立验证。bullet 先概括商品，再按处理器、内存与存储、显示、连接与沟通、整机用途等主题展开。每条通常采用“**简短卖点标题：具体规格 + 实际使用价值**”的写法，而不是纯参数罗列。
 
-借鉴的是**信息顺序、主题覆盖和规格到用途的转换**，不是逐字复制。参考页面是 Dell 一体机；不能将它的触控屏、摄像头、端口、配件或任何其他规格套用到新商品。参考页面目前把保修信息放在最后，但项目合规规则要求**保修披露必须是第 1 条 bullet**，所以本指南在保留其余信息结构的同时调整此顺序。
+借鉴的是**信息顺序、主题覆盖和规格到用途的转换**，不是逐字复制。主参考和竞品样例都只代表各自的准确机型；不能将它们的触控屏、摄像头、键盘、指纹读取器、无线、端口、配件或任何其他规格套用到新商品。竞品样例目前把保修信息放在最后，但项目合规规则要求**保修披露必须是第 1 条 bullet**，所以本指南在保留其余信息结构的同时调整此顺序。
 
 ## Title：像参考页面一样，让核心配置一眼可见
 
 推荐的信息顺序：
 
-`MegaPC Customized [product type], Created Using [OEM model], [verified product role or form factor], [key display/GPU feature if relevant], [CPU], [actual RAM options], [actual SSD options], [preinstalled OS if relevant]`
+`MegaPC Customized [product type], Created Using [OEM model], [verified role/form factor or display], [CPU], [actual RAM options], [actual SSD options], [verified high-intent features], Win 11 Pro`
 
 1. **先确定身份。** `MegaPC` 放在最前，包含 `Custom` 或 `Customized`；OEM 品牌和型号用于识别基础机器，按合规规则以 `Created Using …` 表述，不能让 OEM 成为这件定制商品的 Listing 品牌。
 2. **再突出这款商品的用途或形态。** 商务机可使用准确的 `Business Desktop`、`Business Laptop` 等表达；游戏本只有在真实产品定位及硬件支持时才使用 `Gaming Laptop`；学习用途只有证据充分时才加 `for School`/`Student`。不要把 Business、Gaming、Student 全部堆在同一个标题里。
 3. **再放买家最关心的差异规格。** 一体机优先真实的尺寸/屏幕；游戏本可前置已验证的 GPU 与刷新率；商务小主机可前置机身形态和 CPU。RAM、SSD 只写实际可售的档位，不把多个选项描述为一台机器同时拥有的容量。
-4. **控制长度与可读性。** 遵守当前合规文件约 200 字符的标题要求。过长时先删重复形容词、次要接口和次要场景；不可删自有品牌、定制身份、OEM 型号及 RAM/存储关键信息。
+4. **容量后加入适用于本机型的高意向功能词。** 从准确销售配置的已验证字段中选择真正影响购买决策的项目，不设最低数量；若没有合适项目，可以不加。候选 token 包括 `Webcam`、`Backlit Keyboard`、`FP Reader`、`Wi-Fi 6`，以及适用时的 `Touchscreen`、`Numeric Keypad`、`HDMI`、已验证 GPU 或颜色。它们不是固定套装：没有、不可用或证据不足的 token 必须完全删除，不得因为竞品标题出现就套用。
+5. **固定以 `Win 11 Pro` 收尾。** MegaPC 当前业务规则是所有销售配置交付 Windows 11 Pro，因此每个最终标题、Description OS 段和 OS 属性都应一致显示 Windows 11 Pro。生成前仍须核验目标销售配置的实际预装版本、授权/激活和交付流程；未完成核验时将 listing 标记为阻断，不得退回写 `Win 11 Home` 或把 Pro 当作买家可选软件定制。
+6. **控制长度与可读性。** 遵守当前合规文件约 200 字符的标题要求。过长时依次删除重复场景、营销形容词、低优先级接口和次要 feature token；不可删自有品牌、定制身份、OEM 型号、RAM/存储关键信息或已核验的 `Win 11 Pro`。
 
 标题结构示意（方括号必须用目标商品的已验证值替换，不能直接发布）：
 
-`MegaPC Customized [Business/Gaming] [Desktop/Laptop], Created Using [OEM Model], [Display or GPU Differentiator], [CPU], [RAM Options], [SSD Options], [OS]`
+`MegaPC Customized [Business/Gaming] [Desktop/Laptop], Created Using [OEM Model], [Display/GPU Differentiator], [CPU], [RAM Options], [SSD Options], [Verified Feature(s), if any], Win 11 Pro`
+
+高意向功能词核验表：
+
+下表是候选字段库，不是每个产品都要通过的必填清单。逐型号独立核验，最终标题只使用状态为 `VERIFIED` 且适合当前产品的项目。
+
+| 标题 token | 最低证据要求 |
+| --- | --- |
+| `Webcam` | 准确机型/配置存在摄像头；分辨率、隐私快门等附加描述需另行核验 |
+| `Backlit Keyboard` | 准确销售配置的键盘确有背光；同系列可选背光不够 |
+| `FP Reader` | 准确销售配置包含指纹读取器；不得由 Windows Hello 能力反推 |
+| `Wi-Fi 6` | 准确无线模块或 OEM 配置明确为 Wi-Fi 6/802.11ax；不要把 Wi-Fi 6E/7 降写或混写 |
+| `Win 11 Pro` | 该销售配置实际预装、已授权并按 Pro 版交付；它是固定规格，不是买家可选定制 |
 
 ## Bullet Points：按参考页面的产品主题展开
 
@@ -75,6 +89,8 @@ Product Description 使用固定的**分节式 Markdown 文本结构**，让买�
 6. 预装操作系统，明确它是固定系统规格，不是 MegaPC 软件定制。
 7. `Warranty` 固定放在最后，并与第 1 条 bullet 及 `Safety&Compliance > Warranty Description` 完全一致。
 
+当准确机型具备多项高意向功能时，可在第 5 项使用类似 `Everyday Productivity & Collaboration` 的原创分节，把该机型实际具备且经验证的 Webcam、Backlit Keyboard、FP Reader、Wi-Fi、麦克风或数字键盘组织成一段实际用途说明。没有的功能不出现，单项或零项都可以；不要照抄竞品的标题或把未验证功能凑进同一段。
+
 产品不需要硬凑固定节数。应优先覆盖对该机型最有购买价值的已验证主题，并删除证据不足或不适用的部分。Gaming、Business、Student 或 General 的用途表达必须与实际产品定位一致。
 
 ### 内容要求
@@ -82,7 +98,7 @@ Product Description 使用固定的**分节式 Markdown 文本结构**，让买�
 - 正文用完整英文句子，通常每节 1–3 句。先给出准确规格，再解释适用的真实场景；不要写无法证明的性能保证、跑分、FPS、续航推断或兼容性承诺。
 - MegaPC 只定制 RAM 与存储。描述必须准确区分原厂固定配置、固定不可升级部件及 MegaPC 实际提供的选项，并明确其他硬件和软件保持原厂配置。
 - 不因示例中出现就声称 `Genuine Windows`、`tested`、`documentation included`、OEM 保修继续有效或某项安全能力。只有卖家政策或匹配目标商品的证据明确支持时才能写入。
-- OS 段只写已验证的预装版本及其适用能力；不得把 Windows、Office 或其他软件描述成 MegaPC 定制。
+- OS 段固定写已验证的 `Windows 11 Pro` 预装版本及其适用能力；不得把 Windows、Office 或其他软件描述成 MegaPC 定制。若目标配置的 Pro 授权/安装证据缺失，保持阻断而不是改写为 Home。
 - 显卡技术（例如 ray tracing、DLSS）、操作系统功能（例如 BitLocker、Remote Desktop）和认证名称必须由对应厂商资料支持，不能只凭产品系列或竞品 listing 推断。
 - Description、Title、Bullets、Attributes 和图片文字中的型号、颜色、RAM/SSD 档位、OS、接口及保修必须一致。
 

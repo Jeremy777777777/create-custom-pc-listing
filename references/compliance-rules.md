@@ -12,6 +12,13 @@ Title & brand
 - [ ] Title references the **OEM model name** for customer reference (via
       "Created Using …"), without presenting the OEM as the brand.
 - [ ] Title includes key specs: **RAM options** and **storage options**.
+- [ ] MegaPC business rule: title ends with **Win 11 Pro**, and the same fixed
+      preinstalled OS is verified in attributes, bullets/description, and image
+      copy. It is not presented as a buyer-selectable customization.
+- [ ] High-intent title features such as **Webcam, Backlit Keyboard, FP Reader,
+      and Wi-Fi 6** appear only when verified for the exact sold configuration.
+- [ ] High-intent features are optional per-model facts, not a required bundle;
+      missing or unverified features are omitted from title, copy, and images.
 - [ ] Title ≤ ~200 characters.
 
 Warranty (the single most-failed item)
@@ -24,6 +31,12 @@ Customization scope
 - [ ] **Only RAM (memory) and storage (Hard Disk Size)** are customized.
 - [ ] **No software customizations** of any kind (no OS tweaks, no bundled
       software presented as a customization).
+- [ ] Windows 11 Pro licensing/activation and the fixed fulfillment configuration
+      are documented. If the exact shipped OS is not verified, the listing is
+      blocked rather than silently changed to another edition.
+- [ ] If MegaPC changes an OEM Windows Home unit to Pro after acquisition, obtain
+      human compliance approval that this fixed sold configuration is permitted
+      and is not being offered as an Amazon Custom software option.
 - [ ] No customization of any component other than RAM and storage.
 - [ ] **All customizations are documented** on the product detail page.
 
@@ -44,6 +57,8 @@ Amazon market research & originality
       copied or lightly modified.
 - [ ] Amazon listing claims are treated as market references unless separately
       verified by an authoritative product source.
+- [ ] PT01–PT08 each use the official or authorized logo of the verified base
+      computer manufacturer; `MAIN` has no added logo overlay.
 - [ ] OEM or competitor listing conventions do not override the MegaPC
       brand-first title, warranty-first bullet, customization disclosure, or
       MFN requirements.

@@ -6,6 +6,9 @@ after the relevant listing facts have been verified in the main workflow.
 It covers only the nine-image product gallery. Image production is a separate
 task from the listing workbook and must not add,
 remove, rename, or populate workbook sheets unless the user explicitly asks.
+The selectable visual systems are defined in
+[image-style-profiles.md](image-style-profiles.md). A profile changes PT-image
+styling and information hierarchy; it never changes the requirements below.
 
 Amazon's current requirements override this internal production standard:
 
@@ -147,11 +150,11 @@ logo as a separate graphic.
 | Slot | Variant | Role | Background | Required content |
 |---|---|---|---|---|
 | **1** | `MAIN` | Hero | Pure white | Centered straight-on complete product; included accessories only; no overlay |
-| **2** | `PT01` | Display | Dark navy, orange accents | Product three-quarter view plus verified display, webcam, and audio facts |
-| **3** | `PT02` | Use cases | Dark navy | Product plus business, remote work, reception, or study scenes; apply the AI-person metadata rule when required |
-| **4** | `PT03` | Full specifications | Dark navy, orange accents | CPU, display, offered RAM tiers, offered SSD tiers, OS, connectivity, and collaboration facts |
-| **5** | `PT04` | Design and form factor | Dark navy, blue accents | Side/profile views and verified chassis, footprint, stand, and included-accessory facts |
-| **6** | `PT05` | Performance | Dark navy, blue accents | CPU, offered RAM tiers, offered SSD tiers, and preinstalled OS; do not present software as a customization |
+| **2** | `PT01` | Display / feature overview | Selected profile | Product three-quarter view plus verified display, webcam, audio, keyboard, security, wireless, or OS facts selected for this model |
+| **3** | `PT02` | Use cases | Selected profile | Product plus business, remote work, reception, study, creation, or gaming scenes; apply the AI-person metadata rule when required |
+| **4** | `PT03` | Full specifications / configuration | Selected profile | CPU, display, offered RAM tiers, offered SSD tiers, OS, connectivity, and collaboration facts |
+| **5** | `PT04` | Design and form factor | Selected profile | Side/profile views and verified chassis, footprint, dimensions, stand, and included-accessory facts |
+| **6** | `PT05` | Performance / platform | Selected profile | CPU, offered RAM tiers, offered SSD tiers, and preinstalled OS; do not present software as a customization |
 | **7** | `PT06` | What's included | White | Show only the exact unit, power equipment, and accessories included with the SKU |
 | **8** | `PT07` | Specification recap | White or light | CPU, offered RAM tiers, offered SSD tiers, and preinstalled OS |
 | **9** | `PT08` | Connectivity | White | Verified rear/side ports and connectivity; do not show unavailable ports |
@@ -178,10 +181,9 @@ Every image must:
   Premium Choice, Best Seller, Top Seller, and Works with Alexa
 - avoid nudity or sexually suggestive photographs, illustrations, and scenes
 
-Supporting PT images may contain concise factual specification text. For a
-customized laptop or desktop program that permits base-product brand
-identification, `PT01`–`PT08` may use one OEM logo matching the verified
-manufacturer of the physical computer. The logo identifies the base product;
+Supporting PT images may contain concise factual specification text. For this
+customized laptop and desktop workflow, `PT01`–`PT08` must use one OEM logo
+matching the verified manufacturer of the physical computer. The logo identifies the base product;
 it must not imply that the OEM performed, approved, or warrants the seller's
 customization. Use official or otherwise approved source artwork and apply it
 through deterministic post-production. Never ask a generative model to redraw
@@ -192,8 +194,12 @@ does not need to be removed.
 
 ## Internal visual style
 
-- Use dark navy (`#0A1A3A`) and white/light themes with restrained orange
-  (`#F1511B`) and blue (`#1F8FFF`) accents.
+- Select exactly one `image_style_profile` from
+  [image-style-profiles.md](image-style-profiles.md) for each product. The
+  existing `navy-technical-v1` remains the default; the new
+  `feature-led-studio-v1` is an additional option, not a replacement.
+- Record the selected profile and reason in `image-manifest.md`; use it
+  consistently across PT01–PT08. `MAIN` is profile-independent.
 - Use bold, legible sans-serif headings and short factual feature cards.
 - Keep one consistent, non-promotional on-screen wallpaper across product views.
 - Do not let internal styling override Amazon requirements or accurate product
@@ -220,13 +226,18 @@ does not need to be removed.
   also inspect a gallery-size thumbnail before approval. The composition script
   must reject insufficient canvas clearance or intersection with a declared
   protected zone. Replace final files only after human approval. If no safe
-  placement exists, omit the overlay and flag the slot instead of covering
-  content.
+  placement exists, redesign or regenerate that PT composition and keep the slot
+  `BLOCKED` until the correct OEM logo can be placed safely. Do not omit the logo
+  and mark the PT image complete.
 
 ## Brand and configuration safeguards
 
 - The overlay brand must match the verified physical OEM exactly. A mismatch is
   a blocking defect.
+- Every final PT01–PT08 file must contain that verified OEM logo. Missing logo,
+  unlicensed logo artwork, or an unsafe placement is a blocking defect. `MAIN`
+  remains exempt from added overlays and may show only the OEM mark physically
+  present on the genuine product.
 - Do not visually present the OEM as the listing seller or imply OEM approval of
   the customization.
 - Do not place `Customized by MegaPC`, seller warranty claims, merchant contact
@@ -236,8 +247,9 @@ does not need to be removed.
 - Document customization and warranty in the listing title, bullet points, and
   product description rather than as gallery advertising.
 - Display RAM and SSD tiers only when physically supported and actually offered.
-- Windows or other software may be shown only as a preinstalled specification,
-  never as a hardware customization.
+- Show `Win 11 Pro` consistently in the relevant PT images after verifying the
+  exact sold configuration, license/activation, and fulfillment process. It is
+  a fixed preinstalled specification, never a buyer-selectable customization.
 - Show Touch, AI-ready, webcam, cellular, or other features only when verified
   for the exact SKU.
 - Show a port or accessory only when it is present or included with the exact
