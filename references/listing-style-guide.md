@@ -1,12 +1,12 @@
 # MegaPC Amazon Listing Style Guide
 
-本指南以 [MegaPC Amazon listing（ASIN B0H35FKDST）](https://www.amazon.com/dp/B0H35FKDST) 为主要写作参考，并把用户指定的 [PCOnline 页面（ASIN B0GR6R97PM）](https://www.amazon.com/dp/B0GR6R97PM) 作为市场信息覆盖参考，提炼**高信息密度标题**、**高意向功能词**和**按产品能力分主题展开的 bullet**。它规定表达方式，不提供产品事实。每条规格、配置选项、随箱配件及用途主张都必须先在主工作流 [`SKILL.md`](../SKILL.md) 中验证；所有硬性要求以仓库最新的 [compliance-rules.md](compliance-rules.md) 为准。
+本指南以 [MegaPC Amazon listing（ASIN B0H35FKDST）](https://www.amazon.com/dp/B0H35FKDST) 为主要写作参考，并把用户指定的 [PCOnline Customized Laptop（ASIN B0GR8CS9BG）](https://www.amazon.com/dp/B0GR8CS9BG) 作为当前市场信息覆盖与 bullet pacing 参考，提炼**高信息密度标题**、**高意向功能词**和**按购买决策展开的 bullet**。它规定表达方式，不提供产品事实。每条规格、配置选项、随箱配件及用途主张都必须先在主工作流 [`SKILL.md`](../SKILL.md) 中验证；所有硬性要求以仓库最新的 [compliance-rules.md](compliance-rules.md) 为准。
 
 ## 从参考 listing 借鉴什么
 
-参考页面的共同优点是让买家在一行中看到定制身份、OEM 机型、产品形态、屏幕、CPU、RAM/SSD 选项、系统，以及少量真正影响点击的功能词。PCOnline 样例把 `Webcam`、`Backlit Keyboard`、`FP Reader`、`Wi-Fi 6`、`Win 11 Pro` 放在容量选项之后；本流程借鉴这种**字段覆盖与顺序**，但每个词仍须针对目标产品独立验证。bullet 先概括商品，再按处理器、内存与存储、显示、连接与沟通、整机用途等主题展开。每条通常采用“**简短卖点标题：具体规格 + 实际使用价值**”的写法，而不是纯参数罗列。
+参考页面的共同优点是让买家在一行中看到定制身份、OEM 机型、产品形态、屏幕、CPU、RAM/SSD 选项、系统，以及少量真正影响点击的功能词。PCOnline 样例把 `Backlit Keyboard`、`FP Reader`、`Wi-Fi 6`、`Win 11 Pro` 放在容量选项之后；本流程借鉴这种**字段覆盖与顺序**，但每个词仍须针对目标产品独立验证。该样例的五条 bullet 依次说明 CPU 与用途、RAM/SSD、触屏体验、商务功能与系统、升级/保修，呈现出“先回答为什么买，再回答如何定制和谁负责保修”的决策路径。
 
-借鉴的是**信息顺序、主题覆盖和规格到用途的转换**，不是逐字复制。主参考和竞品样例都只代表各自的准确机型；不能将它们的触控屏、摄像头、键盘、指纹读取器、无线、端口、配件或任何其他规格套用到新商品。竞品样例目前把保修信息放在最后，但项目合规规则要求**保修披露必须是第 1 条 bullet**，所以本指南在保留其余信息结构的同时调整此顺序。
+借鉴的是**决策顺序、主题覆盖和规格到用途的转换**，不是逐字复制。主参考和竞品样例都只代表各自的准确机型；不能将它们的触控屏、摄像头、键盘、指纹读取器、无线、端口、配件或任何其他规格套用到新商品。新风格不复用 PCOnline 的方括号标题或原句，而采用 MegaPC 自己的 `Benefit Heading — verified fact + practical value` 结构。Warranty 不再作为风格层面的固定第一条；其位置由选定 profile、当前适用规则和本产品的购买决策路径共同决定，但任何顺序都不能弱化或遗漏披露。
 
 ## Title：像参考页面一样，让核心配置一眼可见
 
@@ -37,21 +37,49 @@
 | `Wi-Fi 6` | 准确无线模块或 OEM 配置明确为 Wi-Fi 6/802.11ax；不要把 Wi-Fi 6E/7 降写或混写 |
 | `Win 11 Pro` | 该销售配置实际预装、已授权并按 Pro 版交付；它是固定规格，不是买家可选定制 |
 
-## Bullet Points：按参考页面的产品主题展开
+## Bullet Points：Decision-First Benefit Blocks
 
-参考页面按多个不同主题覆盖产品，不要求每台机器硬套相同功能。**先写完整的信息方案，再按目标类目和 Seller Central 实际允许的 bullet 数量精简。** 若允许七条，采用下表的七段顺序；若只能用五条，合并第 2 条与第 7 条、以及第 5 条与第 6 条，但保修始终单独排第一。不得通过合并遗漏定制范围或关键购买信息。
+这是默认新增风格。它参考 PCOnline “先核心价值、后升级与保修”的节奏，但用原创标题、不同句型和按产品动态排序的方式形成 MegaPC 自己的声音。**先写完整的信息方案，再按目标类目和 Seller Central 实际允许的 bullet 数量精简。** 每条使用：
 
-| 顺序 | 信息主题 | 写作任务 |
+`Benefit-led heading — verified specification, followed by the concrete buyer value it supports.`
+
+- Heading 使用 3–8 个英文词，采用 Title Case，不加方括号，不复用参考页面的标题。
+- 正文通常 1–2 句，先写准确事实，再写它支持的实际任务或体验；不以空泛形容词开场。
+- 五条之间各自回答一个购买问题，不重复堆叠同一组 CPU、RAM、SSD 数字。
+- RAM/SSD 定制范围和 warranty 必须各有清楚位置；可以合并在最后一条，也可以在信息较多时分开。
+
+### 动态排序方法
+
+先为当前产品选出一个 `hero decision`：最能区分这台机器、且证据最强的购买理由。第 1 条写 hero；随后按“使 hero 成立的性能 → MegaPC 可选配置 → 实际体验/连接 → 定制与售后责任”排序。不要先决定顺序再硬塞事实。
+
+默认五条结构：
+
+| 顺序 | 信息角色 | 写作任务 |
 | --- | --- | --- |
-| 1 | **保修** | 直接说明 OEM 对原厂部件的保修是否仍有效，以及 MegaPC 对升级 RAM/SSD 的实际覆盖范围与期限。依据卖家已确认的政策，不沿用示例的保修年限。 |
-| 2 | **产品总览与定制身份** | 概括 OEM 机型、产品类型、最重要的真实差异点，并明确 MegaPC 只升级买家所选的 RAM/SSD。避免把其他硬件或软件说成定制项目。 |
-| 3 | **处理器与性能用途** | 用准确 CPU 及可证实的关键能力连接到商务多任务、游戏、创作或日常学习等**适用**场景。用途不是性能保证，不虚构跑分、FPS 或速度提升。 |
-| 4 | **内存与存储** | 描述已安装配置或可选 RAM/SSD 档位、技术类型及其对响应和文件空间的实际意义。清楚区分“可选”与“本台固定配置”。 |
-| 5 | **显示或设计特征** | 有屏幕的产品写已核实的尺寸、分辨率、面板/触控/刷新率；无屏幕的小主机改写机身形态、尺寸或摆放方式。缺少证据时不强行保留示例主题。 |
-| 6 | **连接、沟通与扩展** | 只写已核实的 Wi-Fi、Bluetooth、摄像头、音频、USB、显示输出等；选择最有价值的组合，不把所有接口堆成难读的长串。 |
-| 7 | **完整使用方案** | 汇总预装 OS、确认随箱配件及适用场景，给买家一个清晰的“拿到后能做什么”的结尾。只能说实际包含的项目；`ready to use` 不代表保证零设置。 |
+| 1 | **Hero benefit** | 用产品类型最重要的已验证差异点开场。商务机可为处理器/工作流，游戏机可为 GPU+显示，AIO 可为屏幕+一体化设计，小主机可为紧凑形态+部署。 |
+| 2 | **Supporting performance** | 写 CPU、GPU、NPU、平台或其他支撑 hero 的真实能力，并连接到适用任务；不虚构跑分、FPS 或速度保证。 |
+| 3 | **MegaPC memory & storage choices** | 写实际可售 RAM/SSD 档位、技术类型及买家价值，明确只有 RAM/存储由 MegaPC 定制；若这正是主要差异点，可前移到第 2 条。 |
+| 4 | **Experience & connectivity** | 从显示、键盘、摄像头、安全、无线、端口、机身或随箱物品中选择最有购买价值且已验证的组合；不做接口清单倾倒。 |
+| 5 | **Customization & warranty close** | 明确开封/升级范围、OEM 原厂部件保修状态、MegaPC 对升级 RAM/SSD 的覆盖与期限，并在适用时确认固定 OS；不得沿用参考页面的年限或措辞。 |
 
-每条建议采用 `短标题：一到两句具体说明`。标题可随产品重新写，不要求复用参考页面的原句。正文以明确名词与数字支撑卖点：例如“某项已验证的配置 → 适用的工作/娱乐任务”，避免连续堆叠 `powerful`、`immersive`、`ultimate` 等空泛形容词。不要让七条反复重复同一组 CPU、RAM、SSD 数字。
+Warranty **不要求在风格上固定第一**。在 `Decision-First` profile 中通常作为第 5 条收尾；当 warranty 本身是重要差异点、风险需要更早消除，或允许的 bullet 数较少时，可放第 3 或第 4 条。若当前 Amazon Custom 规则、账户通知或人工合规流程明确要求第一条，则改用以下 `Compliance-First` profile：
+
+1. Warranty & customization disclosure
+2. Hero benefit
+3. Supporting performance
+4. MegaPC memory & storage choices
+5. Experience, connectivity & fixed OS
+
+任何 profile 都必须在运行记录中写明：`bullet_profile`、`hero_decision`、最终主题顺序、合并理由和 warranty 位置依据。若允许七条，可拆出独立的 Display/Design 与 Connectivity/Collaboration；若只能用五条，优先合并相邻的体验主题，不能删除定制范围、关键购买信息或 warranty。
+
+### 产品类型排序示例（结构示意，不可直接发布）
+
+- **Business laptop / desktop**：Productivity hero → processor/platform → MegaPC RAM/SSD → collaboration/connectivity/security → customization & warranty。
+- **Gaming laptop / desktop**：GPU + display hero → CPU/platform → MegaPC RAM/SSD → cooling/design/connectivity → customization & warranty。
+- **Student / general laptop**：display/mobility hero → everyday processor capability → MegaPC RAM/SSD → camera/keyboard/wireless → customization & warranty。
+- **AIO / Tiny / Mini PC**：screen or compact-form hero → processor → MegaPC RAM/SSD → ports/deployment/collaboration → customization & warranty。
+
+这些只是排序起点。若当前机型最强且已验证的差异点不同，应重排，而不是为保持示例顺序牺牲相关性。
 
 ### 不同产品如何替换主题
 
@@ -87,7 +115,7 @@ Product Description 使用固定的**分节式 Markdown 文本结构**，让买�
 4. MegaPC 定制范围。RAM 与存储都可定制时可合并为 `Memory & Storage, Customized by MegaPC`；若内存固定或不可升级，应单独说明固定内存，并仅把实际改动的存储写成 MegaPC 定制。
 5. 连接、安全、便携性、构造或其他经验证的整机能力。
 6. 预装操作系统，明确它是固定系统规格，不是 MegaPC 软件定制。
-7. `Warranty` 固定放在最后，并与第 1 条 bullet 及 `Safety&Compliance > Warranty Description` 完全一致。
+7. `Warranty` 固定放在 Description 最后，并与对应的 warranty/customization bullet 及 `Safety&Compliance > Warranty Description` 完全一致。
 
 当准确机型具备多项高意向功能时，可在第 5 项使用类似 `Everyday Productivity & Collaboration` 的原创分节，把该机型实际具备且经验证的 Webcam、Backlit Keyboard、FP Reader、Wi-Fi、麦克风或数字键盘组织成一段实际用途说明。没有的功能不出现，单项或零项都可以；不要照抄竞品的标题或把未验证功能凑进同一段。
 
@@ -119,7 +147,7 @@ Product Description 使用固定的**分节式 Markdown 文本结构**，让买�
 **[Verified Operating System]**\
 [Verified fixed operating-system specification and relevant use cases.]
 **Warranty**\
-[Verified OEM and MegaPC warranty language, consistent with the first bullet.]
+[Verified OEM and MegaPC warranty language, consistent with the warranty/customization bullet.]
 ```
 
 生成后逐节检查：标题是否对应正文、每个数字是否有权威来源、每项用途是否由规格支持、定制范围是否准确、Warranty 是否最后且跨字段一致、Markdown 标记和换行是否完整。
@@ -127,7 +155,7 @@ Product Description 使用固定的**分节式 Markdown 文本结构**，让买�
 ## 必须拦截的写作错误
 
 - 把参考 ASIN 的 Dell AIO 规格或其当前 bullet 顺序直接复制到新商品。
-- 把 OEM 当作 Listing 品牌，遗漏 `Custom/Customized`、RAM/SSD 选项或第一条保修披露。
+- 把 OEM 当作 Listing 品牌，遗漏 `Custom/Customized`、RAM/SSD 选项或完整的保修披露。
 - 把 Windows、Office、CPU、显卡、屏幕等写成 MegaPC 提供的“定制”；本项目只定制 RAM 与存储。
 - 用产品系列的可选规格代替实际销售配置，或用未经验证的竞品页面填补事实空白。
 - 声称 `genuine OS`、`tested before shipping`、包含键盘鼠标、OEM 保修继续有效等，而卖家资料尚未确认。

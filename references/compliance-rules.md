@@ -22,7 +22,13 @@ Title & brand
 - [ ] Title ≤ ~200 characters.
 
 Warranty (the single most-failed item)
-- [ ] **Bullet point #1 is the warranty disclosure.**
+- [ ] A dedicated or clearly combined bullet gives the complete warranty and
+      customization disclosure; its position matches the selected bullet
+      profile and the current rule/account evidence recorded for this run.
+- [ ] If the applicable Amazon Custom policy, account notice, or human
+      compliance instruction requires warranty in bullet #1, use the
+      `Compliance-First` profile. A competitor listing is not evidence that the
+      requirement has been waived.
 - [ ] It states whether the **OEM warranty still applies**.
 - [ ] It states the **seller warranty** (if any) on upgraded components.
 - [ ] Coverage is unambiguous — a customer understands it before buying.
@@ -60,8 +66,8 @@ Amazon market research & originality
 - [ ] PT01–PT08 each use the official or authorized logo of the verified base
       computer manufacturer; `MAIN` has no added logo overlay.
 - [ ] OEM or competitor listing conventions do not override the MegaPC
-      brand-first title, warranty-first bullet, customization disclosure, or
-      MFN requirements.
+      brand-first title, required warranty/customization disclosure, or MFN
+      requirements.
 
 ## Why each rule exists (intent)
 
@@ -71,8 +77,10 @@ The whole policy answers three customer questions up front:
    under "HP" implies HP made/blessed it. It's our build, so it's our brand.
 2. **What was changed?** → Customization disclosure + documentation. The buyer
    must know the machine left the OEM line and we altered it.
-3. **What about my warranty?** → Warranty bullet #1. Modifying hardware usually
-   affects OEM coverage; the buyer must understand coverage before purchase.
+3. **What about my warranty?** → A prominent warranty/customization bullet.
+   Modifying hardware usually affects OEM coverage; the buyer must understand
+   coverage before purchase. Placement follows the verified compliance mode,
+   not a competitor's example alone.
 
 Frame every element against these three and compliance is natural rather than a
 checklist chore.
@@ -100,8 +108,8 @@ You must not:
 - download, crop, recolor, trace, or lightly edit a competitor's images
 - reproduce a distinctive infographic layout one-for-one
 - use competitor reviews, ratings, badges, or claims as MegaPC evidence
-- let an OEM-branded listing determine the brand field or disclosure order for
-  a MegaPC-customized product
+- let an OEM-branded listing determine the brand field or prove that a required
+  disclosure order has changed for a MegaPC-customized product
 
 The intended outcome is comparable clarity, completeness, and conversion
 quality with independently written MegaPC content and properly licensed assets.
@@ -137,6 +145,14 @@ forfeiture of payments.
 Required listing elements: brand-first title; the word Custom/Customized; OEM
 model for reference; key specs incl. RAM and storage; documentation of all
 customizations on the detail page; warranty disclosure in bullet #1.
+
+The source guide summarized above requires warranty in bullet #1. The
+`Decision-First Benefit Blocks` profile may draft warranty later for market
+comparison or for an operating mode supported by newer account-specific Amazon
+guidance, but such a draft must not be marked `READY_FOR_SELLER_REVIEW` until
+that newer requirement or human compliance approval is recorded. The observed
+PCOnline ASIN B0GR8CS9BG places warranty last; this is a style benchmark, not
+policy evidence.
 
 Prohibited: listing under an OEM brand name; software customizations of any
 kind; customizing components other than RAM and storage; omitting customization
