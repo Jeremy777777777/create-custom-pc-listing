@@ -6,7 +6,7 @@
 
 - 共同源记录：Listing 流程可以使用 MyStore ERP、Checking List 或两者，并按照 [input-source-cross-validation.md](input-source-cross-validation.md) 建立字段级证据账本。图片流程只继承 MyStore 产品 ID/URL、Checking List 行号、`VL-` 和映射状态等追踪信息，不重新解析标题或覆盖已核实属性。
 - 直接事实输入：该产品的最终 Listing 工作簿、Title、Bullets、Description、已验证 attributes、实际可售 RAM/SSD 选项、保修与定制披露、已确认随箱配件，以及每项事实的证据。只有 `VERIFIED` 信息可进入图片文案或视觉元素。
-- 图片规范：[image-spec.md](image-spec.md)。每批制作前读取当前版本，并同时读取 [image-style-profiles.md](image-style-profiles.md)、遵守 [compliance-rules.md](compliance-rules.md)。
+- 图片规范：[image-spec.md](image-spec.md)。每批制作前读取当前版本，并同时读取 [image-style-profiles.md](image-style-profiles.md)、[conversion-hero-styles.md](conversion-hero-styles.md)，并遵守 [compliance-rules.md](compliance-rules.md)。
 - GitHub 交付根目录：[`product generated photo/`](../product%20generated%20photo/)。每个产品使用一个 `VL-<内部型号>/` 子目录，不把不同产品图片混放。
 - 照片素材：有商业使用权的 OEM/经销商媒体包图片，或卖家自行拍摄的实际机型照片。Amazon 竞品图片和网页图片只能作为研究参考，不能下载后裁剪、换色、描摹、拼贴或轻改用于自己的 Listing。
 
@@ -35,7 +35,7 @@
 | Student/Study | 书桌、图书馆、远程学习等整洁场景 | 不暗示未包含的软件、配件或未经证实的课程适用性 |
 | General | 产品本体与通用工作/学习场景 | 不为凑主题改变硬件外观或用途 |
 
-用途只影响辅助图片的场景、图标、文案语气与光效。随后按 [image-style-profiles.md](image-style-profiles.md) 为该具体型号选择 `navy-technical-v1` 或 `feature-led-studio-v1`；新增 profile 是可选项，不替代现有深海军蓝风格。仍须遵守 `image-spec.md` 的固定槽位。主图永远不因用途或 profile 改成倾斜、三分之四角度或场景背景，也永远不添加 Logo 覆盖层，只保留真实机身上自然存在的生产商标识。PT01–PT08 必须使用与已验证底机制造商一致的官方或已授权 OEM Logo（例如 HP 机型使用 HP Logo），不能用卖家 Logo 替代、混用或猜测品牌；具体合成按第 4 节执行。
+用途只影响辅助图片的场景、图标、文案语气与光效。随后按 [image-style-profiles.md](image-style-profiles.md) 为该具体型号选择 `navy-technical-v1` 或 `feature-led-studio-v1`；新增 profile 是可选项，不替代现有深海军蓝风格。PT01 再从 [conversion-hero-styles.md](conversion-hero-styles.md) 选择信息结构；gaming/creator laptop 当前优先使用 `Centered Performance + Screen Package`。严格 `MAIN` 仍遵守纯白背景和无新增 overlay 的默认规则。卖家明确确认账户/类目允许 package-style enhanced main 时，可制作待审候选并记录确认日期与确认人，但取得可审计的当前规则依据和人工批准前不得替换 `MAIN.jpg`。PT01–PT08 必须使用与已验证底机制造商一致的官方或已授权 OEM Logo（例如 HP 机型使用 HP Logo），不能用卖家 Logo 替代、混用或猜测品牌；具体合成按第 4 节执行。
 
 ### 3. 制作 9 张主图库图片
 
@@ -44,7 +44,7 @@
 | 顺序 / 槽位 | 固定角色 | 制作要点 |
 | --- | --- | --- |
 | 1 / `MAIN` | 主图 | 纯白背景，真实产品完整正面、居中、0°；无文字、徽章、水印或图形 logo。只展示确认随箱附带的配件。 |
-| 2 / `PT01` | 屏幕/卖点总览 | 按所选 profile 排版；产品三分之四视角与已验证的屏幕、摄像头、音频、键盘、安全、无线或 OS 信息。 |
+| 2 / `PT01` | Conversion Hero / 屏幕卖点 | 按所选 profile 与 conversion hero style 排版；主体居中，1 个 hero、最多 3 个 supporting feature cards，加 Windows 11 Pro treatment。 |
 | 3 / `PT02` | 使用场景 | 按所选 profile 和真实用途选择办公、远程工作、前台、学习、创作或游戏场景。 |
 | 4 / `PT03` | 完整规格/配置图 | 按所选 profile 展示 CPU、显示、实际可售 RAM/SSD 档位与固定 OS；选项存在差异时加简短事实说明。 |
 | 5 / `PT04` | 机身设计 | 按所选 profile 使用真实侧面/形态照片，只写该机型可验证的设计特征。 |
@@ -60,12 +60,13 @@
 3. 图中文字只来自已验证属性，并逐字校对型号、容量、单位、拼写和免责声明，特别区分实际配置与可选档位。
 4. 同一产品各图保持屏幕壁纸和机身颜色一致，不混用同系列其他尺寸、颜色或代际。
 5. `MAIN` 不添加任何图形 Logo、水印或卖家标识。实拍中机身原有 OEM 标识可自然保留，但不得在主图另加放大的 Logo 覆盖层。
-6. 对 customized laptop/desktop 的 PT01–PT08，先从产品事实账本确认底机制造商，再选择同一 OEM 的官方或已获准 Logo 资产。若产品是 HP，只能使用 HP Logo；品牌字段冲突、来源不明或资产未获准时停止合成。该 Logo 仅识别底机来源，不得暗示 OEM 完成、认可或为卖家升级提供保修。
-7. 先完成并保存无品牌 PT01–PT08 母版，再用原始 Logo 文件进行确定性后处理；禁止让 ImageGen 重画 Logo、品牌文字或商标。每张图单独选择负空间位置，不设固定右下角。Logo 的可见像素、白色 keyline、背景牌及其安全留白都不得覆盖或接触产品、标题、正文、规格卡、脚注、接口标注、引导线、边框或装饰线。没有合格安全区时必须重新排版或重做该 PT 图；在正确 OEM Logo 安全合成前，槽位保持 `BLOCKED`，不能省略 Logo 后标记完成。
-8. 在产品目录保存 `logo-placement.json`，除逐图记录 `x`、`y`、`width`、`height` 与样式外，还必须设置 `minimumClearancePx`，并为每张图记录 `protectedZones`（即使复核后为空数组）。安全距离从 Logo 的最终可见外缘计算，包含白色 keyline 或背景牌，不是只按原始 Logo 图片框计算。内部生产底线为 **16 px**；OEM 规范要求更大留白时使用更大的值。受保护区应覆盖相邻文字、产品、信息卡及其边框、接口、引导线和装饰线。脚本必须在合成前验证画布边缘距离和受保护区碰撞；验证失败即停止，不得生成可交付文件。
-9. 先输出到独立 review 目录并以 100% 尺寸逐张检查，同时检查缩略图状态下 Logo 是否仍与边框/线条视觉分离。只有用户批准后，才用 `scripts/add-brand-badge.ps1` 从 `unbranded/` 重建并替换最终文件。不得在已带 Logo 的图上再次叠加。
-10. Amazon 竞品页面只用于研究视觉层级、留白、信息密度和应覆盖的购买问题，不得复刻其独特构图、配色组合、图标、文案、人物场景或使用其图片资产。最终图必须保持原创布局并准确对应本机型。
-11. 若出现完全由 AI 生成的写实人物，按 `image-spec.md` 添加并记录所需元数据。
+6. `Centered Performance + Screen Package` 必须以电脑视觉包围框独立测量居中，水平偏差不超过画布宽度 2%，主体约占画布宽度 78%–86%。屏幕上半区放一个大号 hero 和一行 supporting fact，下半区最多三张 CPU、GPU、RAM+SSD cards；Windows 11 Pro Screen Package Mini 固定在屏幕右下角，不能占用外部白色空间或把电脑推向左侧。正式 Windows logo/package artwork 必须来自有当前商业使用权的官方资产；AI 近似图仅限 review preview，且不得暗示实体零售盒随箱交付。
+7. 对 customized laptop/desktop 的 PT01–PT08，先从产品事实账本确认底机制造商，再选择同一 OEM 的官方或已获准 Logo 资产。若产品是 HP，只能使用 HP Logo；品牌字段冲突、来源不明或资产未获准时停止合成。该 Logo 仅识别底机来源，不得暗示 OEM 完成、认可或为卖家升级提供保修。
+8. 先完成并保存无品牌 PT01–PT08 母版，再用原始 Logo 文件进行确定性后处理；禁止让 ImageGen 重画 Logo、品牌文字或商标。每张图单独选择负空间位置，不设固定右下角。Logo 的可见像素、白色 keyline、背景牌及其安全留白都不得覆盖或接触产品、标题、正文、规格卡、脚注、接口标注、引导线、边框或装饰线。没有合格安全区时必须重新排版或重做该 PT 图；在正确 OEM Logo 安全合成前，槽位保持 `BLOCKED`，不能省略 Logo 后标记完成。
+9. 在产品目录保存 `logo-placement.json`，除逐图记录 `x`、`y`、`width`、`height` 与样式外，还必须设置 `minimumClearancePx`，并为每张图记录 `protectedZones`（即使复核后为空数组）。安全距离从 Logo 的最终可见外缘计算，包含白色 keyline 或背景牌，不是只按原始 Logo 图片框计算。内部生产底线为 **16 px**；OEM 规范要求更大留白时使用更大的值。受保护区应覆盖相邻文字、产品、信息卡及其边框、接口、引导线和装饰线。脚本必须在合成前验证画布边缘距离和受保护区碰撞；验证失败即停止，不得生成可交付文件。
+10. 先输出到独立 review 目录并以 100% 尺寸逐张检查，同时检查缩略图状态下 Logo 是否仍与边框/线条视觉分离。只有用户批准后，才用 `scripts/add-brand-badge.ps1` 从 `unbranded/` 重建并替换最终文件。不得在已带 Logo 的图上再次叠加。
+11. Amazon 竞品页面只用于研究视觉层级、留白、信息密度和应覆盖的购买问题，不得复刻其独特构图、配色组合、图标、文案、人物场景或使用其图片资产。最终图必须保持原创布局并准确对应本机型。
+12. 若出现完全由 AI 生成的写实人物，按 `image-spec.md` 添加并记录所需元数据。
 
 ### 5. 尺寸、文件与质量检查
 

@@ -9,6 +9,8 @@ remove, rename, or populate workbook sheets unless the user explicitly asks.
 The selectable visual systems are defined in
 [image-style-profiles.md](image-style-profiles.md). A profile changes PT-image
 styling and information hierarchy; it never changes the requirements below.
+For centered screen features and Windows 11 Pro package-style treatments, also
+read [conversion-hero-styles.md](conversion-hero-styles.md).
 
 Amazon's current requirements override this internal production standard:
 
@@ -145,12 +147,20 @@ A trademark physically present on the genuine product may remain visible as
 part of an accurate photograph. Do not add or enlarge an OEM, seller, or other
 logo as a separate graphic.
 
+A Windows 11 Pro package, card, badge, feature label, or screen callout is not
+permitted in the default strict `MAIN`. An enhanced-main concept may be kept as
+an internal candidate. When the seller confirms that its current account or
+category permits this treatment, record that confirmation and date in the
+manifest and produce the candidate for review; do not replace `MAIN.jpg` or
+mark the candidate Amazon-ready until auditable account/category evidence and
+human approval are recorded.
+
 ## Supporting gallery — fixed internal order
 
 | Slot | Variant | Role | Background | Required content |
 |---|---|---|---|---|
 | **1** | `MAIN` | Hero | Pure white | Centered straight-on complete product; included accessories only; no overlay |
-| **2** | `PT01` | Display / feature overview | Selected profile | Product three-quarter view plus verified display, webcam, audio, keyboard, security, wireless, or OS facts selected for this model |
+| **2** | `PT01` | Conversion Hero / display | Selected profile + conversion hero style | Centered product plus one hero attribute, up to three verified supporting feature cards, and a compliant Windows 11 Pro treatment |
 | **3** | `PT02` | Use cases | Selected profile | Product plus business, remote work, reception, study, creation, or gaming scenes; apply the AI-person metadata rule when required |
 | **4** | `PT03` | Full specifications / configuration | Selected profile | CPU, display, offered RAM tiers, offered SSD tiers, OS, connectivity, and collaboration facts |
 | **5** | `PT04` | Design and form factor | Selected profile | Side/profile views and verified chassis, footprint, dimensions, stand, and included-accessory facts |
@@ -192,6 +202,15 @@ OEM logo. Do not add store contact information, warranty advertisements, or
 sales claims. A genuine trademark already printed on the photographed chassis
 does not need to be removed.
 
+The default Windows treatment is an original text-only OS Proof Tile. Where the
+seller has confirmed permission for package-style treatment, PT01 or an
+enhanced-main candidate may use a style from `conversion-hero-styles.md`.
+Official Windows logo or package artwork requires current commercial-use
+rights and the official source asset; an AI approximation is review-only. A
+package-style visual must communicate a preinstalled OS and must not imply that
+physical retail media is included. Record the OS evidence, visual style,
+placement, asset source, rights status, and product center offset.
+
 ## Internal visual style
 
 - Select exactly one `image_style_profile` from
@@ -202,6 +221,11 @@ does not need to be removed.
   consistently across PT01–PT08. `MAIN` is profile-independent.
 - Use bold, legible sans-serif headings and short factual feature cards.
 - Keep one consistent, non-promotional on-screen wallpaper across product views.
+- For `Centered Performance + Screen Package`, measure the computer separately
+  from all overlays. Keep its horizontal center within 2% of the canvas center,
+  use approximately 78%–86% of canvas width, and anchor the Windows visual
+  inside the screen's lower-right corner. Never shift the product left to create
+  a separate OS column.
 - Do not let internal styling override Amazon requirements or accurate product
   representation.
 - Keep the OEM logo subordinate to the content. Select its location separately
