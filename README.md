@@ -18,6 +18,7 @@ references/
   amazon-product-image-workflow.md            Separate image-production workflow
   image-spec.md                               MAIN and PT01-PT08 requirements
   image-style-profiles.md                     Selectable per-model PT visual styles
+  conversion-hero-styles.md                   Centered hero and Windows 11 Pro treatments
 assets/
   listing-workbook-template.xlsx              Listing workbook template
   amazon_sellercentral_attributes_definitions.md  Captured field-definition reference
@@ -37,7 +38,10 @@ and [`references/image-spec.md`](references/image-spec.md). Image production
 selects one per-model profile from
 [`references/image-style-profiles.md`](references/image-style-profiles.md); the
 existing navy style remains available and the feature-led studio style is an
-additional option. Finished image files and their `image-manifest.md` are delivered under
+additional option. PT01 and approved enhanced-main candidates also follow
+[`references/conversion-hero-styles.md`](references/conversion-hero-styles.md),
+including the preferred `Centered Performance + Screen Package` preset.
+Finished image files and their `image-manifest.md` are delivered under
 [`product generated photo/`](product%20generated%20photo/); they are not written
 back into the listing workbook.
 
