@@ -9,8 +9,7 @@ description: "Run the end-to-end MegaPC Amazon Custom PC workflow: research and 
 
 ## 工作流路由
 
-- Listing 研究、文案、合规检查和 Excel 输出继续执行本文件。
-- 独立的产品图片规划、制作、检查或 GitHub 交付任务，执行 [references/amazon-product-image-workflow.md](references/amazon-product-image-workflow.md)，并同时遵守 [references/image-spec.md](references/image-spec.md)、可选的 [references/image-style-profiles.md](references/image-style-profiles.md)、[references/conversion-hero-styles.md](references/conversion-hero-styles.md) 以及 Gaming 产品专用的 [references/gaming-hero-styles.md](references/gaming-hero-styles.md)。Conversion Hero 规则负责居中构图、PT01 feature callout 与 Windows 11 Pro treatment；Gaming add-on 只为已验证 Gaming 产品提供原创 3D genre treatment。图片任务不修改 Listing Excel，除非用户另行明确要求。
+- Listing 研究、文案、合规检查和 Excel 输出继续执行本文件。- 独立的产品图片规划、制作、检查或 GitHub 交付任务，执行 [references/amazon-product-image-workflow.md](references/amazon-product-image-workflow.md)，并同时遵守 [references/image-spec.md](references/image-spec.md)、可选的 [references/image-style-profiles.md](references/image-style-profiles.md)、[references/conversion-hero-styles.md](references/conversion-hero-styles.md) 以及 Gaming 产品专用的 [references/gaming-hero-styles.md](references/gaming-hero-styles.md) 和 [references/gaming-core-badge-styles.md](references/gaming-core-badge-styles.md)。Conversion Hero 规则负责居中构图与基础信息层；Gaming add-on 提供原创 3D genre treatment，Gaming Core Badge 模块提供六套 Windows 11 Pro + CPU/GPU/RAM/SSD 组合版式。图片任务不修改 Listing Excel，除非用户另行明确要求。
 
 ## 输入与规则文件
 
