@@ -19,6 +19,7 @@ references/
   image-spec.md                               MAIN and PT01-PT08 requirements
   image-style-profiles.md                     Selectable per-model PT visual styles
   conversion-hero-styles.md                   Centered hero and Windows 11 Pro treatments
+  gaming-hero-styles.md                       Six original 3D gaming hero add-ons
 assets/
   listing-workbook-template.xlsx              Listing workbook template
   amazon_sellercentral_attributes_definitions.md  Captured field-definition reference
@@ -40,7 +41,11 @@ selects one per-model profile from
 existing navy style remains available and the feature-led studio style is an
 additional option. PT01 and approved enhanced-main candidates also follow
 [`references/conversion-hero-styles.md`](references/conversion-hero-styles.md),
-including the preferred `Centered Performance + Screen Package` preset.
+including the preferred `Centered Performance + Screen Package` base preset.
+Verified gaming models then select one of six original 3D genre treatments
+from [`references/gaming-hero-styles.md`](references/gaming-hero-styles.md).
+These treatments are for `PT01` or a separately gated enhanced-main candidate,
+never the default strict Amazon `MAIN`.
 Finished image files and their `image-manifest.md` are delivered under
 [`product generated photo/`](product%20generated%20photo/); they are not written
 back into the listing workbook.

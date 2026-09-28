@@ -10,7 +10,7 @@ description: "Run the end-to-end MegaPC Amazon Custom PC workflow: research and 
 ## 工作流路由
 
 - Listing 研究、文案、合规检查和 Excel 输出继续执行本文件。
-- 独立的产品图片规划、制作、检查或 GitHub 交付任务，执行 [references/amazon-product-image-workflow.md](references/amazon-product-image-workflow.md)，并同时遵守 [references/image-spec.md](references/image-spec.md)、可选的 [references/image-style-profiles.md](references/image-style-profiles.md) 与 [references/conversion-hero-styles.md](references/conversion-hero-styles.md)。后者规定居中产品构图、PT01 屏幕 feature callout 与 Windows 11 Pro treatment。图片任务不修改 Listing Excel，除非用户另行明确要求。
+- 独立的产品图片规划、制作、检查或 GitHub 交付任务，执行 [references/amazon-product-image-workflow.md](references/amazon-product-image-workflow.md)，并同时遵守 [references/image-spec.md](references/image-spec.md)、可选的 [references/image-style-profiles.md](references/image-style-profiles.md)、[references/conversion-hero-styles.md](references/conversion-hero-styles.md) 以及 Gaming 产品专用的 [references/gaming-hero-styles.md](references/gaming-hero-styles.md)。Conversion Hero 规则负责居中构图、PT01 feature callout 与 Windows 11 Pro treatment；Gaming add-on 只为已验证 Gaming 产品提供原创 3D genre treatment。图片任务不修改 Listing Excel，除非用户另行明确要求。
 
 ## 输入与规则文件
 
@@ -27,7 +27,7 @@ description: "Run the end-to-end MegaPC Amazon Custom PC workflow: research and 
 
 `MyStore and/or Checking List → Source Mapping → Research → Field-level Validation → Generate Listing → Compliance Check → Output → Human Review`
 
-图片是同一整体 workflow 的后续独立分支：`Verified Listing → Image Plan → Strict MAIN + PT01 Conversion Hero → Unbranded PT Production → Verified OEM Logo Composition → Image QA → Human Review`。只有 Listing 的相关事实已验证时才进入图片分支；图片状态不回写 Listing Excel。`MAIN` 保持纯白背景、准确机型和居中产品构图。PT01 的当前优先预设为 `Centered Performance + Screen Package`：电脑主体独立水平居中，屏幕上方为一个 hero attribute，下方最多三张 CPU/GPU/RAM+SSD feature cards，Windows 11 Pro package-style visual 收在屏幕右下角，不占用外部白色空间或把电脑推向左侧。卖家确认允许 package-style treatment 时可制作 review candidate；正式 Windows logo/package artwork 必须使用具备当前商业使用权的官方原始资产，AI 近似图只能用于版式预览，预装数字许可不得伪装成随箱零售盒。Enhanced-main 取得可审计的当前类目/账户依据与人工批准前不得替换严格 `MAIN.jpg`。`PT01`–`PT08` 必须使用与准确底机生产商一致的官方或已授权 OEM Logo：先生成无品牌底图，再用仓库脚本确定性合成，禁止让生成模型重绘 Logo 或品牌文字。无法取得正确 Logo 或无法安全放置时，该图片保持阻断，不能省略 Logo 后标记完成。
+图片是同一整体 workflow 的后续独立分支：`Verified Listing → Audience Style Family → Image Plan → Strict MAIN + PT01 Conversion Hero → Unbranded PT Production → Verified OEM Logo Composition → Image QA → Human Review`。只有 Listing 的相关事实已验证时才进入图片分支；图片状态不回写 Listing Excel。`MAIN` 保持纯白背景、准确机型和居中产品构图，不新增人物、游戏画面或 overlay。PT01 的当前优先 base preset 为 `Centered Performance + Screen Package`：电脑主体独立水平居中，屏幕上方为一个 hero attribute，下方最多三张 CPU/GPU/RAM+SSD feature cards，Windows 11 Pro package-style visual 收在屏幕右下角。已验证 Gaming 产品可在此基础上从 `gaming-hero-styles.md` 选择 G01–G06 之一，加入原创的屏幕环境、跨框主体和景深效果，同时把 feature cards 降为最多两张；默认 `ORIGINAL_GENRE`，不得使用未授权游戏人物、Logo、截图、地图、HUD、皮肤或标志性资产。卖家确认允许 package-style treatment 时可制作 review candidate；正式 Windows logo/package artwork 必须使用具备当前商业使用权的官方原始资产，AI 近似图只能用于版式预览，预装数字许可不得伪装成随箱零售盒。Enhanced-main 取得可审计的当前类目/账户依据与人工批准前不得替换严格 `MAIN.jpg`。`PT01`–`PT08` 必须使用与准确底机生产商一致的官方或已授权 OEM Logo：先生成无品牌底图，再用仓库脚本确定性合成，禁止让生成模型重绘 Logo 或品牌文字。无法取得正确 Logo 或无法安全放置时，该图片保持阻断，不能省略 Logo 后标记完成。
 
 对每个用户指定的目标产品依次执行。保留 MyStore URL/产品 ID、Checking List 页签/行号、原始 `Product Name`、原始 `VL-`、原始 `Quantity`、读取时间和映射依据，不要在清洗时丢失原值。空白产品名、无效数量、重复/范围 `VL-`、一对多匹配或产品配置无法识别时，标记 `BLOCKED`/`CONFLICT` 并记录原因；不要将两条看似相同的记录自动合并。每条记录独立研究、核验、生成和导出，避免把相邻型号的规格混在一起。`Quantity` 必须先确认业务口径，不能自动当作包装内件数或直接等同于 MyStore 的当前库存。
 
