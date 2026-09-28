@@ -17,11 +17,13 @@ references/
   listing-style-guide.md                     Title, bullets, and description style
   amazon-product-image-workflow.md            Separate image-production workflow
   image-spec.md                               MAIN and PT01-PT08 requirements
+  image-style-profiles.md                     Selectable per-model PT visual styles
 assets/
   listing-workbook-template.xlsx              Listing workbook template
   amazon_sellercentral_attributes_definitions.md  Captured field-definition reference
 product generated photo/
   README.md                                   Image-delivery folder convention
+  image-manifest-template.md                  New-model style and slot template
   VL-<internal-model>/                        Per-product images and manifest
 ```
 
@@ -31,8 +33,11 @@ Start with [`SKILL.md`](SKILL.md). It routes listing work through the compliance
 rules, writing guide, Seller Central field reference, and Excel template. After
 the relevant listing facts are verified, a separate image task follows
 [`references/amazon-product-image-workflow.md`](references/amazon-product-image-workflow.md)
-and [`references/image-spec.md`](references/image-spec.md). Finished image files
-and their `image-manifest.md` are delivered under
+and [`references/image-spec.md`](references/image-spec.md). Image production
+selects one per-model profile from
+[`references/image-style-profiles.md`](references/image-style-profiles.md); the
+existing navy style remains available and the feature-led studio style is an
+additional option. Finished image files and their `image-manifest.md` are delivered under
 [`product generated photo/`](product%20generated%20photo/); they are not written
 back into the listing workbook.
 

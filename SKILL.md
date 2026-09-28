@@ -10,7 +10,7 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 ## 工作流路由
 
 - Listing 研究、文案、合规检查和 Excel 输出继续执行本文件。
-- 独立的产品图片规划、制作、检查或 GitHub 交付任务，执行 [references/amazon-product-image-workflow.md](references/amazon-product-image-workflow.md)，并同时遵守 [references/image-spec.md](references/image-spec.md)。图片任务不修改 Listing Excel，除非用户另行明确要求。
+- 独立的产品图片规划、制作、检查或 GitHub 交付任务，执行 [references/amazon-product-image-workflow.md](references/amazon-product-image-workflow.md)，并同时遵守 [references/image-spec.md](references/image-spec.md) 与可选的 [references/image-style-profiles.md](references/image-style-profiles.md)。图片任务不修改 Listing Excel，除非用户另行明确要求。
 
 ## 输入与规则文件
 
@@ -27,7 +27,7 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 
 `MyStore and/or Checking List → Source Mapping → Research → Field-level Validation → Generate Listing → Compliance Check → Output → Human Review`
 
-图片是同一整体 workflow 的后续独立分支：`Verified Listing → Image Plan → Unbranded MAIN/PT Production → Approved Brand Badge Composition → Image QA → Human Review`。只有 Listing 的相关事实已验证时才进入图片分支；图片状态不回写 Listing Excel。`MAIN` 永远不添加卖家 Logo；当用户明确提供并授权卖家 Logo 时，PT 图先生成无品牌底图，再用仓库脚本确定性合成，禁止让生成模型重绘 Logo 或品牌文字。
+图片是同一整体 workflow 的后续独立分支：`Verified Listing → Image Plan → Unbranded MAIN/PT Production → Verified OEM Logo Composition → Image QA → Human Review`。只有 Listing 的相关事实已验证时才进入图片分支；图片状态不回写 Listing Excel。`MAIN` 不添加任何 Logo 覆盖层，只保留真实机身上自然存在的生产商标识。`PT01`–`PT08` 必须使用与准确底机生产商一致的官方或已授权 OEM Logo：先生成无品牌底图，再用仓库脚本确定性合成，禁止让生成模型重绘 Logo 或品牌文字。无法取得正确 Logo 或无法安全放置时，该图片保持阻断，不能省略 Logo 后标记完成。
 
 对每个用户指定的目标产品依次执行。保留 MyStore URL/产品 ID、Checking List 页签/行号、原始 `Product Name`、原始 `VL-`、原始 `Quantity`、读取时间和映射依据，不要在清洗时丢失原值。空白产品名、无效数量、重复/范围 `VL-`、一对多匹配或产品配置无法识别时，标记 `BLOCKED`/`CONFLICT` 并记录原因；不要将两条看似相同的记录自动合并。每条记录独立研究、核验、生成和导出，避免把相邻型号的规格混在一起。`Quantity` 必须先确认业务口径，不能自动当作包装内件数或直接等同于 MyStore 的当前库存。
 
@@ -83,14 +83,14 @@ description: Run the end-to-end MegaPC Amazon Custom PC workflow: research and v
 
 先读取 `listing-style-guide.md`，再仅使用 `VERIFIED` 的实际销售配置生成英文 Title、Bullet Points、Description 和适用的 Amazon 商品属性。文案风格参考该文件，事实只取自第 3 步的验证结果；不能复制或近似改写 Amazon 参考 listing。不要承诺未核实的性能、兼容性、附件、软件、售后或保修。RAM/存储选项只列实际可售且有履约证据的选项。
 
-- **Title**：依风格指南将产品身份、真实用途/形态及最有价值的配置按优先级呈现；同时满足合规规则的 MegaPC 品牌开头、`Custom/Customized`、OEM 型号引用、RAM/存储选项和长度要求。Business、Gaming 或 Student 用途仅在目标产品确实适用时使用。
+- **Title**：依风格指南将产品身份、真实用途/形态及最有价值的配置按优先级呈现；同时满足合规规则的 MegaPC 品牌开头、`Custom/Customized`、OEM 型号引用、RAM/存储选项和长度要求。容量选项后只加入该准确销售配置**实际存在且已验证**的高意向功能词；`Webcam`、`Backlit Keyboard`、`FP Reader`、`Wi-Fi 6` 只是候选示例，不是固定套装，也没有最低数量要求。不存在、不可用或证据不足的功能必须完全省略。按当前 MegaPC 业务规则，每个最终标题以已核验的 `Win 11 Pro` 收尾，并与 Description、属性和图片一致。Business、Gaming 或 Student 用途仅在目标产品确实适用时使用。
 - **Bullet Points**：借鉴风格指南的分主题结构，覆盖商品总览、处理器、内存/存储、显示或设计、连接及整体用途等实际卖点；按目标类目允许的数量精简。**第 1 条固定为保修披露**，第 2 条或其他显著位置清楚说明 MegaPC 仅定制 RAM/SSD；其余主题只写该产品已核实的特征，不为凑齐示例主题而虚构内容。
 - **Description**：严格使用风格指南规定的分节式 Markdown 文本：第一行为加粗的 MegaPC 定制身份，随后每节使用 `**加粗标题**\` 加真实换行和完整说明段，`Warranty` 固定在最后。主题和段落必须由本产品的 `VERIFIED` 研究结果决定，不能机械复制示例；不机械重复 bullets，且与标题、要点、属性值一致。
 - **Attributes**：按模板字段语义填写准确值及单位；例如 `RAM Memory Installed` 与 `Hard Disk Size` 应反映实际销售配置，`Brand Name` 为符合规则的自有品牌。不要把 `Number of Items` 填成库存数量。
 
 ### 5. Compliance Check：硬性闸门
 
-先按 `listing-style-guide.md` 检查信息顺序、分主题表达、用途定位和跨字段一致性，再对最终文案和属性逐条执行 `references/compliance-rules.md`；发现问题后修正并重查两者。至少覆盖：品牌优先标题、`Custom/Customized`、OEM 型号引用、RAM/存储规格、标题长度、第一条保修披露、仅 RAM/存储可定制、无软件定制、所有定制内容公开说明、文案/图片原创性。风格检查不能替代合规检查，风格与合规冲突时必须遵守合规规则。
+先按 `listing-style-guide.md` 检查信息顺序、分主题表达、用途定位和跨字段一致性，再对最终文案和属性逐条执行 `references/compliance-rules.md`；发现问题后修正并重查两者。至少覆盖：品牌优先标题、`Custom/Customized`、OEM 型号引用、RAM/存储规格、已验证的高意向功能词、固定交付的 `Win 11 Pro` 及其授权/激活证据、标题长度、第一条保修披露、仅 RAM/存储可由买家定制、无软件定制选项、所有定制内容公开说明、文案/图片原创性。风格检查不能替代合规检查，风格与合规冲突时必须遵守合规规则。
 
 另须单独核实 Seller Central 的 Amazon Custom 设置、MFN 履约、新 ASIN/自有 UPC、随货定制文档及卖家账户/项目要求。这些未必全部有模板列，不得因 Excel 某些单元格已填而视为完成。任何必需项未满足、规则文件不可读取、关键事实未验证或保修政策不明确时，结果为 `COMPLIANCE_BLOCKED`；只有全部通过且完成必要人工复核，才可标为 `READY_FOR_SELLER_REVIEW`。本流程不自动提交或发布。
 
