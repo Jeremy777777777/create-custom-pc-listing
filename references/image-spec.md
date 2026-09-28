@@ -19,6 +19,10 @@ candidates; they are never permitted on the default strict `MAIN`. Also read
 Windows 11 Pro and core-configuration compositions. One four-cell
 `CORE_SPEC_CLUSTER` counts as one feature card; all values must match the
 selected verified SKU.
+For a product verified as Business/Work, also read
+[business-work-hero-styles.md](business-work-hero-styles.md). Its B01–B06
+layouts may display Office or Copilot only after the exact SKU entitlement and
+approved brand assets pass the documented gates.
 
 Amazon's current requirements override this internal production standard:
 
@@ -168,7 +172,7 @@ human approval are recorded.
 | Slot | Variant | Role | Background | Required content |
 |---|---|---|---|---|
 | **1** | `MAIN` | Hero | Pure white | Centered straight-on complete product; included accessories only; no overlay |
-| **2** | `PT01` | Conversion Hero / display | Selected profile + conversion hero style; verified Gaming products may add one G01–G06 treatment | Centered product plus one hero attribute, verified supporting cards, and a compliant Windows 11 Pro treatment; Gaming 3D mode permits no more than two feature cards |
+| **2** | `PT01` | Conversion Hero / display | Selected profile + conversion hero style; Gaming requires G01–G06 + C01–C06, while Business/Work requires B01–B06 | Centered product plus one hero attribute, verified supporting cards, and a compliant Windows 11 Pro treatment; Gaming requires a layered 3D frame-break subject and no more than two feature cards; Business software visuals require verified entitlement |
 | **3** | `PT02` | Use cases | Selected profile | Product plus business, remote work, reception, study, creation, or gaming scenes; apply the AI-person metadata rule when required |
 | **4** | `PT03` | Full specifications / configuration | Selected profile | CPU, display, offered RAM tiers, offered SSD tiers, OS, connectivity, and collaboration facts |
 | **5** | `PT04` | Design and form factor | Selected profile | Side/profile views and verified chassis, footprint, dimensions, stand, and included-accessory facts |
@@ -234,13 +238,18 @@ placement, asset source, rights status, and product center offset.
   use approximately 78%–86% of canvas width, and anchor the Windows visual
   inside the screen's lower-right corner. Never shift the product left to create
   a separate OS column.
-- A verified Gaming product may add one G01–G06 treatment from
+- A verified Gaming product must add one G01–G06 treatment from
   `gaming-hero-styles.md`. Keep the screen environment, rear subject,
   frame-break subject, depth effects, and contact light as separate layers.
   Default to original genre imagery; do not use unlicensed game characters,
   logos, screenshots, maps, HUD, skins, signature props, vehicles, or trade
   dress. Keep at least 25% of the screen quiet and use no more than two feature
   cards when this add-on is active.
+- A verified Business/Work product must select one B01–B06 treatment from
+  `business-work-hero-styles.md`. Office and Copilot claims, icons, logos, and
+  package visuals require exact-SKU entitlement evidence; unresolved elements
+  are removed rather than inferred. `Lifetime Office` requires seller-approved
+  wording and auditable evidence for that SKU.
 - A Gaming frame-break subject may cross no more than two screen edges and its
   out-of-screen area must remain at or below 12% of the computer's visual
   bounding box. It must stay visually connected to the screen and cannot cover

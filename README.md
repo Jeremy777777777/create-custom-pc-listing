@@ -21,6 +21,7 @@ references/
   conversion-hero-styles.md                   Centered hero and Windows 11 Pro treatments
   gaming-hero-styles.md                       Six original 3D gaming hero add-ons
   gaming-core-badge-styles.md                 Six Gaming core-config + Windows compositions
+  business-work-hero-styles.md                 Six Business/Work Office and Copilot treatments
 assets/
   listing-workbook-template.xlsx              Listing workbook template
   amazon_sellercentral_attributes_definitions.md  Captured field-definition reference
@@ -49,6 +50,12 @@ These treatments are for `PT01` or a separately gated enhanced-main candidate,
 never the default strict Amazon `MAIN`. Each Gaming hero also selects one of
 six Windows 11 Pro and core-configuration compositions from
 [`references/gaming-core-badge-styles.md`](references/gaming-core-badge-styles.md).
+Business/Work models instead select one of six productivity treatments from
+[`references/business-work-hero-styles.md`](references/business-work-hero-styles.md)
+after the workflow verifies the exact Office/Copilot entitlement. The workflow
+records the audience evidence, confidence, and routing reason so Gaming,
+Business/Work, Student/Study, and General products do not silently share the
+wrong visual language.
 Text-only OS treatments are the default; official lockup/package assets require
 recorded commercial-use rights.
 Finished image files and their `image-manifest.md` are delivered under

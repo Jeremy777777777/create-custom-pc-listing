@@ -1,6 +1,8 @@
 # MegaPC Gaming PC Hero Style Library
 
-本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 Gaming 专用 add-on。它把第一张辅助图 `PT01 Conversion Hero` 的准确产品、Windows 11 Pro 规格卡与已验证性能信息，扩展为原创的 3D 游戏氛围画面。核心配置和 Windows 的组合版式另从 [gaming-core-badge-styles.md](gaming-core-badge-styles.md) 选择 C01–C06。当前只定义 `Gaming`；`Business/Work` 与 `Student/Study` 后续使用独立 style family，不能混用本文件的人物、场景和光效。
+本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 Gaming 专用 add-on。它把第一张辅助图 `PT01 Conversion Hero` 的准确产品、Windows 11 Pro 规格卡与已验证性能信息，扩展为原创的 3D 游戏氛围画面。核心配置和 Windows 的组合版式另从 [gaming-core-badge-styles.md](gaming-core-badge-styles.md) 选择 C01–C06。Business/Work 改用 [business-work-hero-styles.md](business-work-hero-styles.md)，不能混用本文件的人物、场景和光效。
+
+一旦 `audience_style_family = GAMING`，PT01 必须选择 G01–G06 之一和 C01–C06 之一，并包含与屏幕相连的真实分层 `FRAME_BREAK_SUBJECT`；仅放一张游戏壁纸、霓虹背景或平面人物不算完成。若准确机身几何、素材权利或遮挡安全无法实现，标记 `BLOCKED` 交人工处理，不得自动退化为普通 Business/General 风格。
 
 ## 使用范围与主图闸门
 
