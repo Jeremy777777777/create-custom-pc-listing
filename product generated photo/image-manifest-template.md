@@ -11,8 +11,16 @@
 - Audience evidence / confidence / reason: `<verified evidence ledger>`
 - `hero_style_id`: `<G01-G06 | B01-B06 | NEUTRAL>`
 - `hero_composition_variant`: `<FRONT_SCREEN_CARD | THREE_QUARTER_SIDE_CARD>`
-- Product-view source / exact-model match: `<required; angled source mandatory for THREE_QUARTER_SIDE_CARD>`
-- Windows card zone / relative size / non-overlap review: `<record>`
+- `product_view_angle`: `<FRONT | THREE_QUARTER_LEFT | THREE_QUARTER_RIGHT>`
+- `product_view_source`: `<path/source and commercial-use basis; exact-model angled source required for THREE_QUARTER_SIDE_CARD>`
+- `exact_model_visual_match`: `<PASS | BLOCKED>`
+- `windows_card_zone`: `<screen safe zone | canvas side safe zone>`
+- `windows_card_width_pct`: `<relative to screen or canvas, as applicable>`
+- `windows_card_height_pct`: `<relative to screen or canvas, as applicable>`
+- `product_to_card_gap_pct`: `<required for THREE_QUARTER_SIDE_CARD>`
+- `outer_clear_space_review`: `<PASS | BLOCKED>`
+- `windows_card_non_overlap_review`: `<PASS | BLOCKED>`
+- `thumbnail_hierarchy_review`: `<PASS | BLOCKED>`
 - `supporting_gallery_pack`: `<GG01-GG06 | BG01-BG06 | NEUTRAL>`
 - Gallery story reason: `<why the continuation pack fits verified buyer tasks>`
 - Benchmark references: `<information coverage only; no wording or assets reused>`
