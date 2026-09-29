@@ -132,7 +132,13 @@ listing is a benchmark for completeness, not a production template.
   screenshots, ratings, review excerpts, badges, or comparison graphics.
 - Use original composition and copy within the fixed internal slot roles below.
 - Final product photography still requires an authorized OEM source or
-  seller-owned photography. Infographics must use verified facts.
+  seller-owned photography. For MegaPC / J-Tech Digital catalog work, apply
+  [brand-authorization-policy.md](brand-authorization-policy.md): the seller has
+  confirmed catalog-wide OEM reseller/partner/brand-asset authorization. Record
+  `USER_CONFIRMED_CATALOG_WIDE` in the manifest and do not block solely because a
+  public OEM page does not expose the seller's private authorization record. Exact
+  model matching, official/approved asset provenance, and all non-OEM third-party
+  rights remain mandatory. Infographics must use verified facts.
 
 ## AI-generated people disclosure
 

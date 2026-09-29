@@ -15,6 +15,7 @@ description: "Run the MegaPC Amazon Custom PC workflow for complete listing prod
 - 每个产品固定交付三份主图供人工选择：`MAIN-STRICT` 严格遵守 Amazon 纯白背景、仅产品、无新增文字/Logo/package；`MAIN-ENHANCED-FRONT-CANDIDATE` 使用正面酷炫构图；`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` 使用准确三分之四侧向构图。两个增强版都必须确定性合成仓库固定素材 [`assets/branding/windows-11-pro-package.png`](assets/branding/windows-11-pro-package.png)。版面拥挤时减少次要信息、扩大留白或重构对应构图，不能省略 package。PT01 不放 Windows package、Windows 文字卡或占位图。
 - 每个 `product generated photo/VL-XXXX/` 固定包含恰好 11 张最终图片：上述 3 张 MAIN 选择版和 `PT01`–`PT08`。Manifest、Logo placement 和其他生产记录不计入 11 张图片。用户要求更新某个现有 `VL-XXXX` 时，在内部复核完成后替换该 canonical folder 的同槽文件，不把 review 目录当作 GitHub 最终交付。
 - 图片请求中的“生成/制作/给我审核”默认交付完成文件，不交底稿、prompt、production brief、空模板或缺少后处理的候选。`CANDIDATE` 只表示已完成主图之间等待选择。完整图库若在 preflight 发现关键事实或素材不足，应先阻断并说明，不得用 `TO PRODUCE`/`TO SOURCE` 的缺图集合冒充成品。
+- MegaPC / J-Tech Digital 已确认其目录内销售的各 OEM 品牌均具有适用于商品销售与图片制作的经销商、合作伙伴或书面品牌素材授权。按 [`references/brand-authorization-policy.md`](references/brand-authorization-policy.md) 记录为 `USER_CONFIRMED_CATALOG_WIDE`；常规 OEM 产品图片与正确 OEM Logo 不得再仅因公开网页未展示授权证明而阻断。仍须核验品牌与准确机型匹配、使用官方/品牌提供的原始资产、遵守 Logo 规范，并对游戏、软件、人物及其他第三方 IP 另行执行授权闸门。
 
 ## 输入与规则文件
 

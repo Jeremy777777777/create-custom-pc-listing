@@ -10,6 +10,8 @@
 
 三种模式遵守同一事实、版权、品牌和 QA 闸门。独立调用减少无关工作，不降低图片准确性，也不授权猜测缺失机型素材。
 
+OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy.md) 执行。MegaPC / J-Tech Digital 已直接确认目录内销售品牌具有相应经销商、合作伙伴或书面品牌素材授权，因此常规 OEM 图片与 Logo 使用记录为 `USER_CONFIRMED_CATALOG_WIDE`，不得仅因公开网页没有展示其私有授权文件而阻断；仍须确保资产来自正确品牌且与准确机型匹配。
+
 ## 输入、规则与执行前检查
 
 - 共同源记录：Listing 流程可以使用 MyStore ERP、Checking List 或两者，并按照 [input-source-cross-validation.md](input-source-cross-validation.md) 建立字段级证据账本。图片流程只继承 MyStore 产品 ID/URL、Checking List 行号、`VL-` 和映射状态等追踪信息，不重新解析标题或覆盖已核实属性。
