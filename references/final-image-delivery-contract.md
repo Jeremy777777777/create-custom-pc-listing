@@ -18,6 +18,8 @@
 3. `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE`；
 4. `PT01`–`PT08`。
 
+因此完整图库固定为 **11 张最终图片**。三张 MAIN 必须是三种明确不同的选择：严格白底、正面增强、三分之四增强；PT01–PT08 为八张附图。Manifest、Logo placement、contact sheet 和内部中间层不计入 11 张。
+
 用户可见交付不得用下列内容代替任何槽位：
 
 - 空白底稿、wireframe、文字说明图或未渲染模板；
@@ -76,3 +78,5 @@
 ## 6. 最终报告
 
 完成后只把最终单张文件、额外 contact sheet、事实/权利警告和上传资格状态交给用户。不要把中间母版当作主要结果。除非用户要求提交，否则审核阶段不自动 commit/push；用户明确要求更新 GitHub 时，先同步远端最新版本、在其上修改并完成检查后再提交。
+
+用户指定 `VL-XXXX` 并要求上传/替换时，11 张正式图片写入 `product generated photo/VL-XXXX/`。临时 review 文件夹仅用于内部检查；批准后的 GitHub 交付不得留在 review 文件夹中，也不得把同一产品拆成多个并列最终目录。

@@ -1,6 +1,6 @@
 ---
 name: amazon-custom-pc-listing-workflow
-description: "Run the end-to-end MegaPC Amazon Custom PC workflow: research and verify product facts, create the listing workbook, perform compliance QA, and route a separate MAIN/PT01-PT08 image-production task. Use for listing creation, revision, validation, workbook output, or product-image delivery; do not publish to Seller Central."
+description: "Run the MegaPC Amazon Custom PC workflow for complete listing production or its independently callable image child workflow. Use for listing research, revision, validation, workbook output, or standalone generation/adjustment of the fixed 3 MAIN + PT01-PT08 image set; do not publish to Seller Central."
 ---
 
 # MegaPC Amazon Custom PC Workflow
@@ -10,8 +10,10 @@ description: "Run the end-to-end MegaPC Amazon Custom PC workflow: research and 
 ## 工作流路由
 
 - Listing 研究、文案、合规检查和 Excel 输出继续执行本文件。
+- 本 workflow 支持三种入口：`FULL_LISTING_WORKFLOW` 从事实研究到 Listing、Excel 和图片完整执行；`IMAGE_ONLY_WORKFLOW` 只生成某个已识别产品的 11 张图片；`IMAGE_ADJUSTMENT_WORKFLOW` 只修改现有图片槽位。后两种是整体 workflow 的附属子流程，但可以被单独调用，不要求重新执行 Title、Bullets、Description 或 Excel。它们只复用已经验证的产品事实；缺少图片所需事实时只补充对应事实核验，不自动扩展成完整 Listing 任务。
 - 独立的产品图片规划、制作、检查或 GitHub 交付任务，先执行 [references/final-image-delivery-contract.md](references/final-image-delivery-contract.md) 判定是成品交付还是用户明确要求的概念设计，再执行 [references/amazon-product-image-workflow.md](references/amazon-product-image-workflow.md)，并同时遵守 [references/image-spec.md](references/image-spec.md)、可选的 [references/image-style-profiles.md](references/image-style-profiles.md)、[references/conversion-hero-styles.md](references/conversion-hero-styles.md)、[references/hero-composition-variants.md](references/hero-composition-variants.md)、Gaming 产品专用的 [references/gaming-hero-styles.md](references/gaming-hero-styles.md) 和 [references/gaming-core-badge-styles.md](references/gaming-core-badge-styles.md)，Business/Work 产品专用的 [references/business-work-hero-styles.md](references/business-work-hero-styles.md)，Business laptop 完整图库专用的 [references/business-laptop-gallery-styles.md](references/business-laptop-gallery-styles.md)，以及 PT02–PT08 使用的 [references/supporting-gallery-styles.md](references/supporting-gallery-styles.md)。Conversion Hero 规则负责 PT01；Gaming 延伸为 GG01–GG06，Business 延伸为 BG01–BG11。图片任务不修改 Listing Excel，除非用户另行明确要求。
 - 每个产品固定交付三份主图供人工选择：`MAIN-STRICT` 严格遵守 Amazon 纯白背景、仅产品、无新增文字/Logo/package；`MAIN-ENHANCED-FRONT-CANDIDATE` 使用正面酷炫构图；`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` 使用准确三分之四侧向构图。两个增强版都必须确定性合成仓库固定素材 [`assets/branding/windows-11-pro-package.png`](assets/branding/windows-11-pro-package.png)。版面拥挤时减少次要信息、扩大留白或重构对应构图，不能省略 package。PT01 不放 Windows package、Windows 文字卡或占位图。
+- 每个 `product generated photo/VL-XXXX/` 固定包含恰好 11 张最终图片：上述 3 张 MAIN 选择版和 `PT01`–`PT08`。Manifest、Logo placement 和其他生产记录不计入 11 张图片。用户要求更新某个现有 `VL-XXXX` 时，在内部复核完成后替换该 canonical folder 的同槽文件，不把 review 目录当作 GitHub 最终交付。
 - 图片请求中的“生成/制作/给我审核”默认交付完成文件，不交底稿、prompt、production brief、空模板或缺少后处理的候选。`CANDIDATE` 只表示已完成主图之间等待选择。完整图库若在 preflight 发现关键事实或素材不足，应先阻断并说明，不得用 `TO PRODUCE`/`TO SOURCE` 的缺图集合冒充成品。
 
 ## 输入与规则文件

@@ -3,7 +3,7 @@
 This repository contains one end-to-end workflow with two coordinated outputs:
 
 1. a verified Amazon listing workbook for human Seller Central review
-2. a separate image package with three alternative MAIN files and PT01–PT08 for human review
+2. an independently callable image child workflow that delivers exactly 11 final images per `VL-XXXX`: three alternative MAIN files and PT01–PT08
 
 Nothing in this repository authorizes automatic publishing to Seller Central.
 
@@ -84,6 +84,8 @@ All branded assets require recorded commercial-use rights.
 Finished image files and their `image-manifest.md` are delivered under
 [`product generated photo/`](product%20generated%20photo/); they are not written
 back into the listing workbook.
+The image branch may be invoked by itself for generation or adjustment when the
+user does not need the listing copy and workbook rebuilt.
 
 ```text
 MyStore product and/or Checking List row

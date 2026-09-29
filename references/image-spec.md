@@ -355,14 +355,20 @@ Deliver each product under `product generated photo/VL-<internal-model>/` with
 `image-manifest.md`. The manifest
 is the production record and must include, for every slot:
 
+The canonical folder therefore contains exactly 11 final image files: three
+different MAIN choices and eight PT images. Non-image production records do not
+count toward 11. A standalone image-only or image-adjustment request uses this
+same output contract without rerunning unrelated listing-copy or workbook work.
+
 - final repository-relative file path; a production brief is permitted only when the user explicitly requested planning rather than image generation
 - status: `VERIFIED`, `TO SOURCE`, `TO PRODUCE`, or `BLOCKED`
 - licensed asset provenance and the verified product facts used in the image
 - any required AI-person metadata note
 
-Use internal filenames `MAIN-STRICT.jpg`, `MAIN-ENHANCED-FRONT-CANDIDATE.jpg`,
-`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.jpg`, and `PT01.jpg`–`PT08.jpg` in the
-GitHub product folder (or matching real extensions).
+Use internal filenames `MAIN-STRICT.jpg`, `MAIN-ENHANCED-FRONT-CANDIDATE.png`,
+`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png`, and `PT01.png`–`PT08.png` in the
+GitHub product folder. A format change is allowed only when the real extension
+and manifest are updated together; do not keep duplicate old-slot files.
 Before Amazon bulk upload, copy the approved main variant to the required
 `ProductIdentifier.MAIN.extension` name and export PT files as described above.
 Do not put production records in the listing workbook, and do not claim an

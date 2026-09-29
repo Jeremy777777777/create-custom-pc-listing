@@ -1,6 +1,14 @@
 # Amazon Product Image Generation Workflow
 
-本流程接续仓库根目录的 [MegaPC Amazon Custom PC Workflow](../SKILL.md)。开始前必须读取 [final-image-delivery-contract.md](final-image-delivery-contract.md)，先判断用户要求的是默认 `FINAL_ASSET_DELIVERY` 还是明确指定的 `CONCEPT_ONLY`。先完成产品研究、属性验证、Listing 文案与合规检查，再以同一产品的**已验证 Listing 详情**制作图片；不重新建立第二套产品事实，也不把 MyStore/Checking List 的标题或摘要直接当作图片规格证据。本流程只负责独立的图片生产与 GitHub 交付，不修改 Listing Excel，也不自动发布到 Seller Central。
+本流程是仓库根目录 [MegaPC Amazon Custom PC Workflow](../SKILL.md) 下可独立调用的图片子流程。它既可以由完整 Listing 流程在事实验证后接续执行，也可以通过 `IMAGE_ONLY_WORKFLOW` 或 `IMAGE_ADJUSTMENT_WORKFLOW` 单独启动；单独启动时不要求重新生成 Title、Bullets、Description、Listing Excel 或重跑无关步骤。开始前必须读取 [final-image-delivery-contract.md](final-image-delivery-contract.md)，先判断用户要求的是默认 `FINAL_ASSET_DELIVERY` 还是明确指定的 `CONCEPT_ONLY`。图片事实优先复用该产品已有的已验证 Listing/manifest/ERP 记录；只对图片必需但仍缺失的字段补充核验，不重新建立相互冲突的第二套产品事实。本流程不自动发布到 Seller Central。
+
+## 调用模式
+
+- `FULL_LISTING_WORKFLOW`：由完整流程路由到图片生产，继承已验证事实账本。
+- `IMAGE_ONLY_WORKFLOW`：用户只要求生成整套图片时，直接锁定一个明确的 ERP 产品、`VL-XXXX` 或准确 SKU，完成 3 MAIN + PT01–PT08，不修改 Listing 文案或 Excel。
+- `IMAGE_ADJUSTMENT_WORKFLOW`：用户只要求修改一张或多张现有图片时，只读取相关槽位、共同风格和必要产品事实；未被点名的 Listing 输出保持不变。
+
+三种模式遵守同一事实、版权、品牌和 QA 闸门。独立调用减少无关工作，不降低图片准确性，也不授权猜测缺失机型素材。
 
 ## 输入、规则与执行前检查
 
@@ -40,11 +48,13 @@
 | Student/Study | 书桌、图书馆、远程学习等整洁场景 | 不暗示未包含的软件、配件或未经证实的课程适用性 |
 | General | 产品本体与通用工作/学习场景 | 不为凑主题改变硬件外观或用途 |
 
-用途决定整个图库的场景、图标、人物、文案语气与光效。每个型号固定制作三份主图：`MAIN-STRICT.jpg` 保持纯白背景和无新增 overlay；`MAIN-ENHANCED-FRONT-CANDIDATE.jpg` 固定采用 `FRONT_SCREEN_CARD`；`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.jpg` 固定采用 `THREE_QUARTER_SIDE_CARD`。两个增强版都必须是完成的选择版并合成固定 Windows package；`CANDIDATE` 不表示底稿。Gaming 的两个增强版都必须使用真实分层 3D 出屏，其中至少一张执行 `GAMING_WHITE_CATALOG_FRAME_BREAK`，默认由三分之四增强版承担。再为 PT01 选择 hero family：Gaming 使用 G01–G06 + C01–C06，Business/Work 使用 B01–B11；PT01 可延续增强主图题材但不得出现 Windows package。PT02–PT08 随后必须选择同编号 continuation pack；B07–B11/BG07–BG11 必须保持简约、工具导向并避免跨槽重复。取得可审计依据和人工批准前，两个增强版均不得替换严格 `MAIN.jpg`，但这不允许把它们交付成未完成文件。
+用途决定整个图库的场景、图标、人物、文案语气与光效。每个型号固定制作三份主图：`MAIN-STRICT.jpg` 保持纯白背景和无新增 overlay；`MAIN-ENHANCED-FRONT-CANDIDATE.png` 固定采用 `FRONT_SCREEN_CARD`；`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png` 固定采用 `THREE_QUARTER_SIDE_CARD`。两个增强版都必须是完成的选择版并合成固定 Windows package；`CANDIDATE` 不表示底稿。Gaming 的两个增强版都必须使用真实分层 3D 出屏，其中至少一张执行 `GAMING_WHITE_CATALOG_FRAME_BREAK`，默认由三分之四增强版承担。再为 PT01 选择 hero family：Gaming 使用 G01–G06 + C01–C06，Business/Work 使用 B01–B11；PT01 可延续增强主图题材但不得出现 Windows package。PT02–PT08 随后必须选择同编号 continuation pack；B07–B11/BG07–BG11 必须保持简约、工具导向并避免跨槽重复。取得可审计依据和人工批准前，两个增强版均不得替换严格 `MAIN-STRICT.jpg`，但这不允许把它们交付成未完成文件。
 
-### 3. 制作三种主图 + 8 张附图（Amazon 仍为 9 个实际槽位）
+### 3. 制作固定 11 张图片（3 MAIN + 8 张附图；Amazon 仍为 9 个实际槽位）
 
 生产交付固定包含 `MAIN-STRICT`、`MAIN-ENHANCED-FRONT-CANDIDATE`、`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE`、`PT01`–`PT08`。Amazon 实际 gallery 仍使用一个 `MAIN` 槽；三份主图是供人工选择的完成版替代方案，不能同时占用多个 MAIN 槽位。默认上传严格版；两个增强版只有通过 exception gate 后才可选用。`FINAL_ASSET_DELIVERY` 必须在生产前解决全部必需事实和素材；无法解决时使用 `BLOCKED_BEFORE_PRODUCTION`，不能把 `TO SOURCE`、`TO PRODUCE`、production brief 或缺少内容的图片作为完成交付。规划模式仍可在 manifest 中使用待制作状态，但不得声称图片已经生成完成。
+
+这里的固定交付数量是 **11 个最终图片文件**，不是 9 个：三个 MAIN 都保存在仓库供选择，PT01–PT08 共八张；Amazon 上传时再从三个 MAIN 中选择一个，因此实际 gallery 仍是一个 MAIN + 八个 PT。Manifest、Logo placement、版权记录或审核 contact sheet 不计入 11 张正式图片。
 
 | 顺序 / 槽位 | 固定角色 | 制作要点 |
 | --- | --- | --- |
@@ -93,21 +103,23 @@ create-custom-pc-listing/
     └── VL-<内部型号>/
         ├── image-manifest.md
         ├── MAIN-STRICT.jpg
-        ├── MAIN-ENHANCED-FRONT-CANDIDATE.jpg
-        ├── MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.jpg
-        ├── PT01.jpg
-        ├── PT02.jpg
-        ├── PT03.jpg
-        ├── PT04.jpg
-        ├── PT05.jpg
-        ├── PT06.jpg
-        ├── PT07.jpg
-        └── PT08.jpg
+        ├── MAIN-ENHANCED-FRONT-CANDIDATE.png
+        ├── MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png
+        ├── PT01.png
+        ├── PT02.png
+        ├── PT03.png
+        ├── PT04.png
+        ├── PT05.png
+        ├── PT06.png
+        ├── PT07.png
+        └── PT08.png
 ```
 
 内部仓库保留固定英文槽位名。提交 Amazon 批量图片前，按 `image-spec.md` 另行导出或重命名为 `ProductIdentifier.VARIANT.extension`；不要把内部型号误当 ASIN/UPC。新产品建立新目录，不复用或覆盖其他型号。重生成图片先作为待审版本处理，审核通过后才替换最终槽位文件；Git 历史保留旧版本。
 
+每个已识别产品的 GitHub canonical output 必须是 `product generated photo/VL-XXXX/`。内部可以使用临时 review 目录，但用户批准后必须把 11 张完成图片写回准确的 `VL-XXXX` 目录并替换同槽旧图；不得把 `VL-XXXX-review-*` 作为最终 GitHub 目录，也不得同时保留旧的单一 `MAIN.png` 与新的三 MAIN 结构。替换其他产品目录或跨型号复制图片均属阻断错误。
+
 `image-manifest.md` 必须记录该型号的 `image_style_profile`、选择原因和 benchmark 研究边界，并逐槽位记录实际路径、状态、授权素材来源、产品事实来源及必要元数据说明。PT 图还必须记录核实后的制造商、Logo 文件路径与来源、允许使用的 listing 类型、合成脚本、`logo-placement.json` 和逐图验收结果。只有文件存在、PT01–PT08 均含正确 OEM Logo，并通过事实、版权、尺寸、内容和合规检查时，状态才可为 `VERIFIED`。缺图、缺正确 Logo 或 Logo 安全区失败时不得伪造路径或标记完成。成品请求还必须记录 `delivery_mode: FINAL_ASSET_DELIVERY` 和整体 `delivery_state: FINAL_ASSET_QA_PASS`；否则不能向用户报告完成。
 
-最终按产品报告：源记录、`VL-<内部型号>` 目录链接、九个槽位状态、实际文件路径、缺失素材或权限、未解决事实问题、审核结果和下一步人工动作。只有九个槽位全部通过时才可标为 `IMAGE_READY_FOR_REVIEW`；这不等同于 Amazon 已批准或已发布。
+最终按产品报告：源记录、`VL-<内部型号>` 目录链接、11 张最终图片状态、实际文件路径、缺失素材或权限、未解决事实问题、审核结果和下一步人工动作。只有三张 MAIN 与 PT01–PT08 全部通过时才可标为 `FINAL_ASSET_QA_PASS`；这不等同于 Amazon 已批准或已发布。
 
