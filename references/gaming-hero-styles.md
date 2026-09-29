@@ -6,6 +6,8 @@
 
 PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 使用同编号 continuation pack：G01→GG01，G02→GG02，依此类推。这样人物、原创世界观、色彩和功能叙事在整套图库中连续，而不是只在 PT01 出现。
 
+每个 G01–G06 都可映射到 [hero-composition-variants.md](hero-composition-variants.md) 的两种 PT01 构图。`FRONT_SCREEN_CARD` 保留正向产品与屏幕内小型 Windows 卡；`THREE_QUARTER_SIDE_CARD` 使用准确三分之四产品素材并把较小 Windows 卡放在独立白色安全区。选择构图不改变 G 编号、原创 genre、C01–C06 核心配置或 GG01–GG06 continuation pack。
+
 ## 使用范围与主图闸门
 
 - `STRICT_MAIN`：Amazon 搜索结果正式主图。继续使用纯白背景、完整真实产品、无新增人物、游戏画面、文字、徽章、Windows package、粒子或 3D 出屏效果。
@@ -133,6 +135,8 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 4. 同一 parent listing 的变体共用一个 Gaming style family。RAM/SSD 变化只更新已验证数字，不更换人物与世界观。
 5. 若 200 px 缩略图中电脑轮廓、角色剪影、hero attribute 或 Windows 11 Pro 任一无法辨认，先删除粒子和第二 feature card，再缩小角色；不能把电脑继续缩小。
 
+6. G01–G06 不与构图绑定：两种 `hero_composition_variant` 均可使用。若侧视素材不能准确证明端口、机身和键盘，则自动回退正向构图并将侧向候选标为 `BLOCKED`。
+
 ## 生成与合成顺序
 
 1. 锁定真实产品照片、准确屏幕四角、产品 mask、键盘/Logo/接口 protected zones。
@@ -165,4 +169,5 @@ license_evidence: NONE_REQUIRED_ORIGINAL|<licensed campaign evidence>
 ```
 
 任何产品事实未验证、角色/场景疑似特定游戏 IP、授权范围不清、产品主体被改形、主图例外证据缺失或 3D 层遮挡关键硬件时，对应候选必须标记 `BLOCKED`。
+
 
