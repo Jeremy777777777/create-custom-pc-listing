@@ -10,6 +10,9 @@
 - `audience_style_family`: `<GAMING | BUSINESS_WORK | STUDENT_STUDY | GENERAL | HYBRID_MANUAL_REVIEW>`
 - Audience evidence / confidence / reason: `<verified evidence ledger>`
 - `hero_style_id`: `<G01-G06 | B01-B06 | NEUTRAL>`
+- `hero_composition_variant`: `<FRONT_SCREEN_CARD | THREE_QUARTER_SIDE_CARD>`
+- Product-view source / exact-model match: `<required; angled source mandatory for THREE_QUARTER_SIDE_CARD>`
+- Windows card zone / relative size / non-overlap review: `<record>`
 - `supporting_gallery_pack`: `<GG01-GG06 | BG01-BG06 | NEUTRAL>`
 - Gallery story reason: `<why the continuation pack fits verified buyer tasks>`
 - Benchmark references: `<information coverage only; no wording or assets reused>`
@@ -69,6 +72,8 @@ primary people scene; `PT05` permits at most one secondary person when needed;
 - [ ] `MAIN` follows the profile-independent Amazon main-image rules.
 - [ ] PT01–PT08 consistently use the selected profile.
 - [ ] PT02–PT08 use the continuation pack matching the PT01 Gaming/Business hero family.
+- [ ] PT01 uses one approved composition variant; the Windows 11 Pro card is subordinate, fully visible, and clear of product, hero art, headline, specs, and canvas edges.
+- [ ] `THREE_QUARTER_SIDE_CARD` uses a verified exact-model angled asset and does not invent ports, chassis, keyboard, or included accessories.
 - [ ] Title, Description, attributes and image copy agree on model, RAM/SSD, color, features and Win 11 Pro.
 - [ ] Every claim is `VERIFIED`; configuration options are clearly distinguished from installed values.
 - [ ] Competitor wording, images, icons, layouts and A+ assets were not reused.
@@ -78,3 +83,4 @@ primary people scene; `PT05` permits at most one secondary person when needed;
 - [ ] People/characters passed source, identity/IP, anatomy/contact-point and included-item ambiguity review; PT06 contains none.
 
 Delivery state: `<BLOCKED | IN PRODUCTION | IMAGE_READY_FOR_REVIEW>`
+
