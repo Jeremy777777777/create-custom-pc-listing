@@ -16,14 +16,16 @@
 1. 先按 [business-work-hero-styles.md](business-work-hero-styles.md) 的分类器确定 `audience_style_family`。
 2. `GAMING`：PT01 选择 G01–G06；PT02–PT08 选择同编号的 `GG01`–`GG06` continuation pack，不能把 tactical hero 接到 fantasy/racing 辅助图。
 3. `BUSINESS_WORK`：PT01 选择 B01–B06；PT02–PT08 选择同编号的 `BG01`–`BG06` continuation pack。
-4. `STUDENT_STUDY` 或 `GENERAL`：继续使用中性 `image_style_profile`，不得借用未验证的 Gaming、Office、Copilot 或企业安全语义。
-5. `HYBRID_MANUAL_REVIEW`：阻断自动选择，等待人工确认主要受众后再出图。
+4. PT01 的 `FRONT_SCREEN_CARD`/`THREE_QUARTER_SIDE_CARD` 是独立构图层，不改变 G→GG 或 B→BG 的编号映射；两种构图都继续进入同一个对应 continuation pack。
+5. `STUDENT_STUDY` 或 `GENERAL`：继续使用中性 `image_style_profile`，不得借用未验证的 Gaming、Office、Copilot 或企业安全语义。
+6. `HYBRID_MANUAL_REVIEW`：阻断自动选择，等待人工确认主要受众后再出图。
 
 manifest 至少记录：
 
 ```yaml
 audience_style_family: GAMING|BUSINESS_WORK|STUDENT_STUDY|GENERAL|HYBRID_MANUAL_REVIEW
 hero_style_id: G01|G02|G03|G04|G05|G06|B01|B02|B03|B04|B05|B06
+hero_composition_variant: FRONT_SCREEN_CARD|THREE_QUARTER_SIDE_CARD
 supporting_gallery_pack: GG01|GG02|GG03|GG04|GG05|GG06|BG01|BG02|BG03|BG04|BG05|BG06|NEUTRAL
 gallery_story_reason: <why this pack fits verified buyer tasks and available assets>
 gallery_consistency_review: PASS|BLOCKED
@@ -218,3 +220,4 @@ identity_ip_review: PASS|BLOCKED
 - 虚拟人物、外设和环境不得降低产品可见性或制造随箱误解。
 - 任何人物身份/IP、产品外观、软件权益、接口、配置或资产授权不清时，对应槽位标记 `BLOCKED`。
 - `PT06` 永远回归白底事实图，不延续人物和戏剧环境；风格只通过字号、标签与轻量色彩保持一致。
+
