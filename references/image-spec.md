@@ -3,6 +3,10 @@
 This reference governs the Amazon product-image gallery for customized PCs.
 Use it through the [dedicated image workflow](amazon-product-image-workflow.md),
 after the relevant listing facts have been verified in the main workflow.
+Image generation and review requests also follow
+[final-image-delivery-contract.md](final-image-delivery-contract.md): review files
+are fully rendered final-choice assets, not drafts waiting for copy, logos,
+packages, or product information.
 It covers the nine-slot Amazon gallery plus two internal enhanced MAIN candidates.
 Image production is a separate
 task from the listing workbook and must not add,
@@ -351,7 +355,7 @@ Deliver each product under `product generated photo/VL-<internal-model>/` with
 `image-manifest.md`. The manifest
 is the production record and must include, for every slot:
 
-- final repository-relative file path, or a production brief when not ready
+- final repository-relative file path; a production brief is permitted only when the user explicitly requested planning rather than image generation
 - status: `VERIFIED`, `TO SOURCE`, `TO PRODUCE`, or `BLOCKED`
 - licensed asset provenance and the verified product facts used in the image
 - any required AI-person metadata note

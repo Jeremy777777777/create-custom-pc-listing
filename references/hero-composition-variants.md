@@ -1,6 +1,6 @@
 # Enhanced MAIN and PT01 Composition Variants
 
-本文件控制两份增强主图的产品角度、留白和 Windows 11 Pro package 位置：`MAIN-ENHANCED-FRONT-CANDIDATE` 固定使用 `FRONT_SCREEN_CARD`，`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` 固定使用 `THREE_QUARTER_SIDE_CARD`。PT01 可复用任一准确产品角度，但不复用 package。本文件不改变 audience 分类、Gaming/Business 题材、核心规格、软件权益、图片 profile、品牌资产或 PT02–PT08 continuation pack。
+本文件控制两份增强主图的产品角度、留白和 Windows 11 Pro package 位置：`MAIN-ENHANCED-FRONT-CANDIDATE` 固定使用 `FRONT_SCREEN_CARD`，`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` 固定使用 `THREE_QUARTER_SIDE_CARD`。PT01 可复用任一准确产品角度，但不复用 package。本文件不改变 audience 分类、Gaming/Business 题材、核心规格、软件权益、图片 profile、品牌资产或 PT02–PT08 continuation pack。所有增强构图都受 [final-image-delivery-contract.md](final-image-delivery-contract.md) 的成品交付定义约束。
 
 `MAIN-STRICT` 不使用本文件；它继续遵守纯白背景、无新增文字/卡片/人物/场景的规则。PT01 使用构图时必须删除 Windows package，并以不同卖点避免与增强主图重复。
 
@@ -28,6 +28,8 @@
 - 屏幕 hero 可以随透视角度自然变化，但文字必须保持可读，不能被强制透视到无法核对。
 - 侧向素材必须来自卖家实拍或获商业使用权且与准确机型匹配的 OEM/经销商素材。不得让生成模型凭正面图猜测或重画端口、散热口、键盘、铰链、厚度和机身结构。
 - 缺少准确侧视素材时，将侧向候选标为 `BLOCKED` 并使用 `FRONT_SCREEN_CARD`。
+
+当 audience 为 `GAMING` 时，本构图默认同时启用 `GAMING_WHITE_CATALOG_FRAME_BREAK`：外部为白色/近白电商背景，产品保持三分之四角度且视觉居中，原创 3D 主体从屏幕内部小幅跨越边框；已验证 display 信息位于屏幕上方，GPU/CPU/RAM/SSD 位于屏幕下方，固定 Windows 11 Pro package 位于产品右侧独立安全区。不能以全画布赛博海报、普通屏幕壁纸或外置信息卡集合替代这张固定识别构图。
 
 ## 增强主图的 Windows package 共同规则
 

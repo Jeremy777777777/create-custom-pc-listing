@@ -2,6 +2,9 @@
 
 ## Product and style lock
 
+- `delivery_mode`: `<FINAL_ASSET_DELIVERY | CONCEPT_ONLY>`
+- `delivery_state`: `<BLOCKED_BEFORE_PRODUCTION | IN_PRODUCTION | FINAL_ASSET_QA_PASS>`
+- `candidate_semantics`: `COMPLETED_SELECTION_OPTION_NOT_DRAFT`
 - Internal model: `VL-<internal-model>`
 - Exact sold product: `<brand, model, form factor, color>`
 - Exact configuration / selectable tiers: `<verified values>`
@@ -30,6 +33,8 @@
 - `outer_clear_space_review`: `<PASS | BLOCKED>`
 - `windows_package_non_overlap_review`: `<PASS | BLOCKED>`
 - `thumbnail_hierarchy_review`: `<PASS | BLOCKED>`
+- `gaming_signature_main`: `<GAMING_WHITE_CATALOG_FRAME_BREAK | NOT_APPLICABLE>`
+- `gaming_signature_required_information_review`: `<display + GPU + CPU + RAM/SSD + fixed package: PASS | BLOCKED | NOT_APPLICABLE>`
 - `supporting_gallery_pack`: `<GG01-GG06 | BG01-BG11 | NEUTRAL>`
 - Gallery story reason: `<why the continuation pack fits verified buyer tasks>`
 - Business primary task: `<collaboration | mobility | executive workflow | verified AI workflow | secure hybrid work | other verified task>`
@@ -109,5 +114,12 @@ primary people scene; `PT05` permits at most one secondary person when needed;
 - [ ] Synthetic-performer metadata was added when required.
 - [ ] People/characters passed source, identity/IP, anatomy/contact-point and included-item ambiguity review; PT06 contains none.
 
-Delivery state: `<BLOCKED | IN PRODUCTION | IMAGE_READY_FOR_REVIEW>`
+Delivery state: `<BLOCKED_BEFORE_PRODUCTION | IN_PRODUCTION | FINAL_ASSET_QA_PASS>`
+
+For `FINAL_ASSET_DELIVERY`, `TO SOURCE`, `TO PRODUCE`, a production brief, an
+unbranded master, or a missing deterministic overlay cannot satisfy a requested
+slot. `IMAGE_READY_FOR_REVIEW` means the same practical condition as
+`FINAL_ASSET_QA_PASS`: the files shown to the user are already complete and the
+review decides selection/approval, not whether required content will be added
+later.
 

@@ -17,6 +17,7 @@ references/
   listing-style-guide.md                     Title, bullets, and description style
   amazon-product-image-workflow.md            Separate image-production workflow
   image-spec.md                               Three MAIN variants and PT01-PT08 requirements
+  final-image-delivery-contract.md             No-draft final-asset delivery and Gaming signature MAIN
   image-style-profiles.md                     Selectable per-model PT visual styles
   conversion-hero-styles.md                   Centered hero and Windows 11 Pro treatments
   hero-composition-variants.md                Front-facing and three-quarter enhanced-MAIN composition layer
@@ -39,6 +40,7 @@ product generated photo/
 Start with [`SKILL.md`](SKILL.md). It routes listing work through the compliance
 rules, writing guide, Seller Central field reference, and Excel template. After
 the relevant listing facts are verified, a separate image task follows
+[`references/final-image-delivery-contract.md`](references/final-image-delivery-contract.md),
 [`references/amazon-product-image-workflow.md`](references/amazon-product-image-workflow.md)
 and [`references/image-spec.md`](references/image-spec.md). Image production
 selects one per-model profile from
@@ -49,8 +51,9 @@ additional option. Enhanced-main candidates and PT01 also follow
 including the preferred `Centered Performance + Screen Package` base preset.
 Verified gaming models then select one of six original 3D genre treatments
 from [`references/gaming-hero-styles.md`](references/gaming-hero-styles.md).
-These treatments are for `PT01` or a separately gated enhanced-main candidate,
-never the default strict Amazon `MAIN`. Each Gaming hero also selects one of
+The selected treatment is required across both completed enhanced-MAIN choices
+and `PT01`; at least one enhanced choice uses the white-catalog 3D frame-break
+signature, while the default strict Amazon `MAIN` never uses it. Each Gaming hero also selects one of
 six core-configuration compositions from
 [`references/gaming-core-badge-styles.md`](references/gaming-core-badge-styles.md).
 Business/Work models instead select one of eleven productivity treatments from

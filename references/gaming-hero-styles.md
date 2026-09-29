@@ -2,7 +2,7 @@
 
 本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 Gaming 专用 add-on。它把准确产品与已验证性能信息扩展为原创的 3D 游戏氛围画面，可用于增强主图和 `PT01 Conversion Hero`。核心配置版式另从 [gaming-core-badge-styles.md](gaming-core-badge-styles.md) 选择 C01–C06；固定 Windows 11 Pro package 只出现在增强主图，PT01 不重复。Business/Work 改用 [business-work-hero-styles.md](business-work-hero-styles.md)，不能混用本文件的人物、场景和光效。
 
-一旦 `audience_style_family = GAMING`，PT01 必须选择 G01–G06 之一和 C01–C06 之一，并包含与屏幕相连的真实分层 `FRAME_BREAK_SUBJECT`；仅放一张游戏壁纸、霓虹背景或平面人物不算完成。若准确机身几何、素材权利或遮挡安全无法实现，标记 `BLOCKED` 交人工处理，不得自动退化为普通 Business/General 风格。
+一旦 `audience_style_family = GAMING`，两个增强 MAIN 和 PT01 都必须选择同一 G01–G06 与 C01–C06 family，并包含与屏幕相连的真实分层 `FRAME_BREAK_SUBJECT`；仅放一张游戏壁纸、霓虹背景、平面人物或画布背景中的独立角色不算完成。至少一张增强 MAIN 必须执行 [final-image-delivery-contract.md](final-image-delivery-contract.md) 的 `GAMING_WHITE_CATALOG_FRAME_BREAK`，默认使用准确三分之四产品角度。若准确机身几何、素材权利或遮挡安全无法实现，应在成品生产前标记 `BLOCKED_BEFORE_PRODUCTION` 交人工处理，不得自动退化为普通 Business/General 风格或交付半成品。
 
 PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 使用同编号 continuation pack：G01→GG01，G02→GG02，依此类推。这样人物、原创世界观、色彩和功能叙事在整套图库中连续，而不是只在 PT01 出现。
 
@@ -11,7 +11,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 ## 使用范围与主图闸门
 
 - `STRICT_MAIN`：Amazon 搜索结果正式主图。继续使用纯白背景、完整真实产品、无新增人物、游戏画面、文字、徽章、Windows package、粒子或 3D 出屏效果。
-- `MAIN_ENHANCED_FRONT_CANDIDATE` 与 `MAIN_ENHANCED_THREE_QUARTER_CANDIDATE`：分别输出正面和准确三分之四侧向的原创游戏场景、3D 出屏角色、已验证性能信息和固定 Windows 11 Pro package。只有当前账户/类目的可审计书面依据和人工批准都已记录，才能选择其中一份替换 `MAIN.jpg`；看到其他卖家使用类似图片不构成许可。
+- `MAIN_ENHANCED_FRONT_CANDIDATE` 与 `MAIN_ENHANCED_THREE_QUARTER_CANDIDATE`：分别输出正面和准确三分之四侧向的完整原创游戏成品、3D 出屏角色、已验证性能信息和固定 Windows 11 Pro package。至少一张使用白底电商型 `GAMING_WHITE_CATALOG_FRAME_BREAK`；默认三分之四增强版使用“白底大产品 + 屏幕上方显示规格 + 屏幕下方 GPU/CPU/RAM/SSD + 出屏主体 + 右侧 package”。文件名中的 candidate 仅代表供人选择，不代表后续还要补信息。只有当前账户/类目的可审计书面依据和人工批准都已记录，才能选择其中一份替换 `MAIN.jpg`；看到其他卖家使用类似图片不构成许可。
 - `PT01_GAMING_HERO`：允许延续相同视觉世界、准确产品与克制光效，但必须使用不同信息焦点，且不得出现 Windows package、Windows 文字卡或占位图。
 
 本库的 Gaming 效果是同一产品图库的连续视觉语言，而不是互不相关的版式：电脑主体、准确机型外观、屏幕层、性能信息和 3D 场景必须协作；Windows 11 Pro package 只在增强主图加入。
@@ -138,6 +138,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 5. 增强主图若在 200 px 缩略图中电脑轮廓、角色剪影、hero attribute 或 Windows 11 Pro package 任一无法辨认，先删除粒子和第二 feature card，再缩小角色；不能把电脑继续缩小。PT01 只检查自身 hero 和不同卖点，不为 package 预留区域。
 
 6. G01–G06 不与构图绑定：正面与三分之四侧向两个增强候选都使用同一 G/C family。若侧视素材不能准确证明端口、机身和键盘，正面版照常完成，侧向候选标为 `TO SOURCE` 或 `BLOCKED`，不得用第二张正面图冒充侧向版。
+7. 在 `FINAL_ASSET_DELIVERY` 中，第 6 条的素材缺口必须在生成前解决或将整套请求标记为 `BLOCKED_BEFORE_PRODUCTION`；不得把待找素材的侧向槽位留在用户收到的“成品图库”里。
 
 ## 生成与合成顺序
 
