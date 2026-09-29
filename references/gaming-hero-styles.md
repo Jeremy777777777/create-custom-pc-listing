@@ -62,7 +62,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 - 不遮挡摄像头位置、准确屏幕比例、铰链、键盘布局、数字键盘、触控板、接口和机身原生 Logo。
 - 画面最多一个主角或一个主载具；远景可有最多两个弱化剪影，不能形成“多人随箱内容”或喧宾夺主。
 - 屏幕环境至少保留 `25%` 的安静区域；3D add-on 启用后，feature cards 从最多三张降为最多两张，Windows 11 Pro 卡另计。
-- `Windows 11 Pro` 默认使用 `Screen Package Mini` 或 `Glass OS Chip`，固定在不与角色和 feature cards 冲突的屏幕右下区域；仍须遵守授权资产和“Preinstalled — no retail media included”规则。
+- `Windows 11 Pro` 必须使用固定 package 素材；可等比放在屏幕安全区，也可在切换为准确侧向构图后放进独立侧边安全区。不得用 Glass OS Chip、文字卡或占位盒替代。
 - 所有场景保持 PG-13 以内：无血液、伤口、尸体、恐怖特写、赌博、毒品、性暗示、仇恨符号或武器直指观众。
 
 ## 六种 Gaming add-on style
@@ -84,7 +84,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 - 屏幕内：原创浮空竞技场、远山和环形能量结构，紫蓝为主、金色点亮。
 - 主体：原创守护者或法术使用者；头肩与披风越过上边框，手部能量弧轻微越过侧边框。
 - 3D 重点：披风前后遮挡、能量环穿过屏幕边缘、前景粒子形成三段景深。
-- 信息区：底部两张玻璃卡分别展示 CPU/GPU 或 GPU/display；Windows 卡使用深蓝 Glass OS Chip。
+- 信息区：底部两张玻璃卡分别展示 CPU/GPU 或 GPU/display；Windows package 放在不与角色冲突的安全区。
 - 禁止：复刻具体英雄、武器、召唤物、技能图标、队伍色、地图兵线或游戏 UI。
 
 ### G03 — Skyline Battle Drop
@@ -114,7 +114,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 - 屏幕内：原创低多边形峡谷、晶体森林或天空岛；避免草地方块、像素纹理和已知怪物。
 - 主体：原创探索者或小型机器人伙伴从发光入口跨出，头部与一只手/前轮越过下方或侧边框。
 - 3D 重点：多边形碎片、柔和体积光、近景晶体与远景地形形成景深。
-- 信息区：优先展示 RAM/SSD 与 display，减少攻击性卖点；Windows 卡使用 Flat Blue OS Tile 或 Glass OS Chip。
+- 信息区：优先展示 RAM/SSD 与 display，减少攻击性卖点；Windows package 使用固定素材并保持完整可读。
 - 禁止：方块人物、像素镐、爬行怪物、特定建造纹理、游戏 Logo 或儿童误导性角色。
 
 ### G06 — Velocity Rift Racing

@@ -14,12 +14,13 @@
 - `product_view_angle`: `<FRONT | THREE_QUARTER_LEFT | THREE_QUARTER_RIGHT>`
 - `product_view_source`: `<path/source and commercial-use basis; exact-model angled source required for THREE_QUARTER_SIDE_CARD>`
 - `exact_model_visual_match`: `<PASS | BLOCKED>`
-- `windows_card_zone`: `<screen safe zone | canvas side safe zone>`
-- `windows_card_width_pct`: `<relative to screen or canvas, as applicable>`
-- `windows_card_height_pct`: `<relative to screen or canvas, as applicable>`
+- `windows_package_asset`: `assets/branding/windows-11-pro-package.png`
+- `windows_package_placement`: `<SCREEN_SAFE_ZONE | CANVAS_SIDE_SAFE_ZONE>`
+- `windows_package_width_pct`: `<relative to screen or canvas, as applicable>`
+- `windows_package_height_pct`: `<relative to screen or canvas, as applicable; preserve aspect ratio>`
 - `product_to_card_gap_pct`: `<required for THREE_QUARTER_SIDE_CARD>`
 - `outer_clear_space_review`: `<PASS | BLOCKED>`
-- `windows_card_non_overlap_review`: `<PASS | BLOCKED>`
+- `windows_package_non_overlap_review`: `<PASS | BLOCKED>`
 - `thumbnail_hierarchy_review`: `<PASS | BLOCKED>`
 - `supporting_gallery_pack`: `<GG01-GG06 | BG01-BG06 | NEUTRAL>`
 - Gallery story reason: `<why the continuation pack fits verified buyer tasks>`
@@ -48,6 +49,7 @@ Delete or mark `BLOCKED` for any claim that is not `VERIFIED`. Do not treat a be
 - `MAIN` overlay: `None`
 - Unbranded master location: `<path>`
 - Deterministic logo plan: `<required logo-placement.json path>`
+- Fixed Windows package asset: `assets/branding/windows-11-pro-package.png` (required for PT01; deterministic composition only)
 
 ## People and scene asset ledger
 
@@ -80,7 +82,8 @@ primary people scene; `PT05` permits at most one secondary person when needed;
 - [ ] `MAIN` follows the profile-independent Amazon main-image rules.
 - [ ] PT01–PT08 consistently use the selected profile.
 - [ ] PT02–PT08 use the continuation pack matching the PT01 Gaming/Business hero family.
-- [ ] PT01 uses one approved composition variant; the Windows 11 Pro card is subordinate, fully visible, and clear of product, hero art, headline, specs, and canvas edges.
+- [ ] PT01 uses one approved composition variant and the fixed Windows 11 Pro package asset; it is fully visible, proportionally scaled, and clear of product, hero art, headline, specs, and canvas edges.
+- [ ] If the package initially caused crowding, the layout was restructured, secondary content reduced, whitespace expanded, or an accurate alternate product angle used; the package was not omitted or replaced with text.
 - [ ] `THREE_QUARTER_SIDE_CARD` uses a verified exact-model angled asset and does not invent ports, chassis, keyboard, or included accessories.
 - [ ] Title, Description, attributes and image copy agree on model, RAM/SSD, color, features and Win 11 Pro.
 - [ ] Every claim is `VERIFIED`; configuration options are clearly distinguished from installed values.

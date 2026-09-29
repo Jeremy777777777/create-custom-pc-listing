@@ -29,13 +29,14 @@
 - 侧向素材必须来自卖家实拍或获商业使用权且与准确机型匹配的 OEM/经销商素材。不得让生成模型凭正面图猜测或重画端口、散热口、键盘、铰链、厚度和机身结构。
 - 缺少准确侧视素材时，将侧向候选标为 `BLOCKED` 并使用 `FRONT_SCREEN_CARD`。
 
-## Windows 卡共同规则
+## Windows package 共同规则
 
-- 每张 PT01 只出现一个 Windows 11 Pro 卡。
+- 每张 PT01 必须且只出现一个 Windows 11 Pro package，固定引用 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)。
 - 卡片表达固定预装 OS，不得伪装成随箱零售盒、光盘、USB 或额外赠品。
-- 默认使用 `TEXT_ONLY` 或有权使用的官方原始资产；不得让生成模型重画 Windows Logo、edition lockup 或 package artwork。
+- 不允许文字卡、占位盒或现场生成的近似图。package 必须作为完整单元整体等比缩放，不裁切、不改色、不拆出 Logo 或壁纸。
 - 必须逐字显示 `Windows 11 Pro`，并与已验证 Listing、属性和交付配置一致。
-- Windows 卡属于 supporting information。缩略图中应可辨认，但不得大于 hero attribute，也不得覆盖或压缩核心硬件信息。
+- Windows package 属于 supporting information。缩略图中应可辨认，但不得大于 hero attribute，也不得覆盖或压缩核心硬件信息。
+- 屏幕内安全区与产品旁独立安全区都是允许位置；屏幕内放置只是 option。若当前版面无法同时容纳产品、hero、规格和 package，先删除次要装饰/卡片、扩大留白，或在准确侧视素材可用时切换另一构图，package 不能被省略。
 - 卡片及其 keyline、阴影和背景牌全部计入 protected zone。100% 和 200 px 两种尺寸都要检查 non-overlap、可读性和视觉优先级。
 
 ## 与 Gaming/Business 的组合矩阵
@@ -59,7 +60,7 @@
 1. 先确定 `audience_style_family`、`hero_style_id` 和适用的 Gaming core/Business 权益层。
 2. 若只有准确正向素材，或屏幕内信息层是首要购买理由，选择 `FRONT_SCREEN_CARD`。
 3. 若有准确授权的三分之四素材，且独立 Windows 区能提升可读性而不缩小产品，选择 `THREE_QUARTER_SIDE_CARD`。
-4. 如果 Windows 卡、hero、标题、规格或产品无法同时满足安全区，优先删除次要装饰、减少 feature card 或扩大留白，不得叠压。
+4. 如果 Windows package、hero、标题、规格或产品无法同时满足安全区，优先删除次要装饰、减少 feature card、扩大留白或切换构图，不得叠压，也不得把 package 标为待处理后省略。
 5. 同一 parent listing 的 RAM/SSD 变体应共用构图；只有机身、屏幕尺寸、颜色或可用素材发生实质变化时才重新选择。
 6. 人工批准前，两种构图均保持 `PT01_CONVERSION_HERO`，不得替换严格 `MAIN`。
 
@@ -70,12 +71,13 @@ hero_composition_variant: FRONT_SCREEN_CARD|THREE_QUARTER_SIDE_CARD
 product_view_angle: FRONT|THREE_QUARTER_LEFT|THREE_QUARTER_RIGHT
 product_view_source: <path/source and commercial-use basis>
 exact_model_visual_match: PASS|BLOCKED
-windows_card_zone: <screen safe zone or canvas side safe zone>
-windows_card_width_pct: <relative to screen or canvas, as applicable>
-windows_card_height_pct: <relative to screen or canvas, as applicable>
+windows_package_asset: assets/branding/windows-11-pro-package.png
+windows_package_placement: SCREEN_SAFE_ZONE|CANVAS_SIDE_SAFE_ZONE
+windows_package_width_pct: <relative to screen or canvas, as applicable>
+windows_package_height_pct: <relative to screen or canvas; preserve aspect ratio>
 product_to_card_gap_pct: <required for side-card mode>
 outer_clear_space_review: PASS|BLOCKED
-windows_card_non_overlap_review: PASS|BLOCKED
+windows_package_non_overlap_review: PASS|BLOCKED
 thumbnail_hierarchy_review: PASS|BLOCKED
 ```
 

@@ -14,24 +14,16 @@ PT01 的内容 style 与产品构图分开选择。完成本文件的信息层�
 
 ## Windows 11 Pro 的正确表达
 
-所有机型都升级为 Windows 11 Pro 仍不等于随箱包含零售软件盒。按以下优先级制作：
+所有机型的 PT01 都必须使用仓库固定素材 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)。该素材表示预装系统视觉标签，不表示随箱附送实体零售盒；manifest 固定记录 `retail_media_included: false`。不得让生成模型重画、拼写或改造它，也不得以纯文字卡、edition lockup、占位盒或临时近似图替代。
 
-1. 默认使用原创的 **OS Proof Tile**，以纯文字写 `Windows 11 Pro`，并仅在证据支持时增加 `Preinstalled`、`Activated` 或 `Ready for Business`。不得把 OS 写成买家可选硬件定制。
-2. 若使用官方 Windows 11 logo、edition lockup 或 package artwork，必须取得适用于商业 listing 的当前授权/许可和官方原始资产，记录来源、版本与使用范围；不得让生成模型重画、拼写或改造微软商标。AI 草图中的近似图形只能用于版式预览，正式交付必须替换为授权原始资产。
-3. 当卖家明确确认当前账户/类目允许 package-style OS visual 时，可在 PT01 或 `MAIN-ENHANCED-CANDIDATE` 中把它作为“预装系统的视觉标签”使用，但必须同时显示或在 manifest 中锁定 `Preinstalled — no retail media included` 的语义，不能暗示零售盒随箱交付。正式 `MAIN.jpg` 仍须通过 MAIN exception gate。
-4. package 若确实是随箱物，才可按商品组成部分表达；若只是视觉标签，应保持小尺寸、从属于电脑主体，并且不能独立摆在产品旁形成第二件随箱商品的观感。
-5. OS visual 可以放在屏幕内部、屏幕右下角 dock，或键盘/掌托右下区域的轻量覆盖层。不得遮挡接口、键帽布局、触控板、OEM 标识或已验证规格；也不得为了容纳 OS visual 把整台电脑向左推移。
+1. package 必须整体等比缩放，保持完整、清晰、无遮挡，不裁切、不改色、不拆出 Windows 图形或背景。
+2. 可放在电脑屏幕的安静安全区，也可放在产品旁独立安全区；屏幕内放置是 option，不是强制。
+3. 若版面拥挤，先减少次要装饰/feature cards、扩大留白或使用准确的侧向产品构图。不得删除 package，也不得把它标记为待处理后继续交付。
+4. package 必须从属于电脑主体，不得造成“第二件随箱商品”的观感；严格 `MAIN.jpg` 仍不添加任何 package，除非独立 MAIN exception gate 已通过。
 
 ### Windows 视觉样式库
 
-每个产品从以下样式中选择一种；同一批变体保持一致。样式借鉴的是信息层级，不复制竞品的素材、包装渲染、壁纸或排布。
-
-1. **Screen Package Mini**：授权 package artwork 作为屏幕右下角小型立体卡，保留屏幕中心 hero；适合 gaming/creator 机型。
-2. **Keyboard Package Stand**：小型 package-style 卡位于右下键盘/掌托附近，整体仍落在产品的视觉包围框内；不可造成“随箱实体盒”误解。
-3. **Flat Blue OS Tile**：原创蓝色方卡写 `Windows 11 Pro`，可位于屏幕角落或掌托右下区域；不使用 Microsoft 图形时按 `TEXT_ONLY` 记录。
-4. **Glass OS Chip**：半透明深蓝胶囊卡，仅写系统版本与 `Preinstalled`；适合更现代、轻量的构图。
-5. **Screen Dock Lockup**：把 OS 卡与 1–2 个 supporting attributes 组成屏幕底部 dock，不占用产品外部留白。
-6. **Edge Ribbon**：沿屏幕右下边缘设置窄条系统标识，适合信息较少、希望电脑轮廓最大化的版本。
+所有产品统一使用 **Fixed Windows 11 Pro Package**。允许两种 placement：`SCREEN_SAFE_ZONE`（等比放入屏幕安静区域）和 `CANVAS_SIDE_SAFE_ZONE`（配合正向或三分之四侧向产品放在独立留白区）。placement 可以随型号和信息密度改变，但素材文件不变。
 
 ## 屏幕内信息架构
 
@@ -39,7 +31,7 @@ PT01 的内容 style 与产品构图分开选择。完成本文件的信息层�
 
 - `hero_attribute`：屏幕尺寸/分辨率、触控、GPU、刷新率、紧凑形态或其他对该准确产品最有区分度且已验证的购买理由。
 - `supporting_attributes`：从 Wi-Fi 版本、触控、背光键盘、指纹读取器、摄像头/隐私快门、数字键盘、CPU/GPU、屏幕面板/亮度/刷新率、端口或安全能力中选择。
-- Windows 11 Pro 使用独立 OS Proof Tile，通常不占 supporting attribute 名额。
+- Windows 11 Pro 固定 package 通常不占 supporting attribute 名额。
 - 每个 feature 只出现一次；屏幕尺寸不在中央、角标和外部卡片中重复三遍。
 - 优先写买家能立即理解的事实。缩略图下无法读清的长句移到 PT03/PT05，不缩小成装饰性小字。
 
@@ -148,10 +140,10 @@ product_center_offset_pct: 0 (maximum absolute value 2)
 - `visual_style`
 - `hero_composition_variant`: `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD`
 - `product_view_source` 与准确机型匹配状态
-- `windows_card_zone`、相对尺寸与 non-overlap review
+- `windows_package_asset`、`windows_package_placement`、相对尺寸与 non-overlap review
 - `hero_attribute` 与 `supporting_attributes`
 - `windows_11_pro_evidence`
-- `windows_asset_treatment`: `TEXT_ONLY`、`LICENSED_LOGO`、`LICENSED_PACKAGE_ARTWORK` 或 `PACKAGE_STYLE_PREVIEW`
+- `windows_asset_treatment`: `FIXED_WINDOWS_11_PRO_PACKAGE`
 - `windows_visual_style` 与 `windows_placement`
 - `windows_asset_source_and_rights`
 - `product_center_offset_pct`（绝对值必须 `<= 2`）

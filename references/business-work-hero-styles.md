@@ -138,8 +138,8 @@ office_evidence: <source/reference>
 2. 检查 Office 和 Copilot 权益状态；任何 `TBD`/`CONFLICT` 元素从画面删除，不用占位猜测。
 3. 从 B01–B06 中选择最能表达已验证购买理由的一种，不按轮换随机选。
 4. 从 [hero-composition-variants.md](hero-composition-variants.md) 选择正向或侧向构图；没有准确、获授权的侧视产品素材时必须使用正向。
-5. 再从 [conversion-hero-styles.md](conversion-hero-styles.md) 选择 Windows 11 Pro treatment；正式商标或 package 使用权未记录时使用文字型 tile。
-6. 生成无品牌母版，再后期合成获准的 OEM、Windows、Office 或 Copilot 原始资产。
+5. 固定使用 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)；按版面选择屏幕安全区或产品旁独立安全区，不使用文字型 tile。
+6. 生成无品牌母版，再后期确定性合成固定 Windows package 以及获准的 OEM、Office 或 Copilot 原始资产。若拥挤则减少次要信息、扩大留白或切换准确侧向构图，不能省略 package。
 7. 在 100% 与缩略图尺寸下复核权益准确性、文字拼写、产品构图和视觉层级。
 
 ## manifest 追加字段

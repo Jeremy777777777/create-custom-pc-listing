@@ -11,6 +11,7 @@ description: "Run the end-to-end MegaPC Amazon Custom PC workflow: research and 
 
 - Listing 研究、文案、合规检查和 Excel 输出继续执行本文件。
 - 独立的产品图片规划、制作、检查或 GitHub 交付任务，执行 [references/amazon-product-image-workflow.md](references/amazon-product-image-workflow.md)，并同时遵守 [references/image-spec.md](references/image-spec.md)、可选的 [references/image-style-profiles.md](references/image-style-profiles.md)、[references/conversion-hero-styles.md](references/conversion-hero-styles.md)、[references/hero-composition-variants.md](references/hero-composition-variants.md)、Gaming 产品专用的 [references/gaming-hero-styles.md](references/gaming-hero-styles.md) 和 [references/gaming-core-badge-styles.md](references/gaming-core-badge-styles.md)，Business/Work 产品专用的 [references/business-work-hero-styles.md](references/business-work-hero-styles.md)，以及 PT02–PT08 使用的 [references/supporting-gallery-styles.md](references/supporting-gallery-styles.md)。Conversion Hero 规则负责 PT01；Gaming 与 Business 分别把同一 hero family 延伸为 GG01–GG06 或 BG01–BG06 continuation pack。图片任务不修改 Listing Excel，除非用户另行明确要求。
+- PT01 的 Windows 11 Pro 视觉必须使用仓库固定素材 [`assets/branding/windows-11-pro-package.png`](assets/branding/windows-11-pro-package.png)，不再生成文字卡、临时占位或重新绘制 package。版面拥挤时必须减少次要信息、扩大留白或在准确侧视素材可用时切换 `FRONT_SCREEN_CARD` / `THREE_QUARTER_SIDE_CARD`；package 仍必须保留。它可以等比放在屏幕安全区，也可以放在产品旁独立安全区，屏幕内放置只是选项而不是强制。
 
 ## 输入与规则文件
 

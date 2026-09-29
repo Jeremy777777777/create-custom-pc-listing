@@ -49,7 +49,7 @@
 | 顺序 / 槽位 | 固定角色 | 制作要点 |
 | --- | --- | --- |
 | 1 / `MAIN` | 主图 | 纯白背景，真实产品完整正面、居中、0°；无文字、徽章、水印或图形 logo。只展示确认随箱附带的配件。 |
-| 2 / `PT01` | Conversion Hero / 屏幕卖点 | 先选 audience hero family，再选 `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD`。正向模式使用屏幕内小型 Windows 11 Pro 卡；侧向模式把较小卡片放在产品旁的独立白色安全区。两种模式都必须保持产品第一视觉主体、Windows 卡次要且不遮挡。`GAMING` 继续选 G01–G06 + C01–C06；`BUSINESS_WORK` 继续选 B01–B06。 |
+| 2 / `PT01` | Conversion Hero / 屏幕卖点 | 先选 audience hero family，再选 `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD`。两种模式都必须合成固定的 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)：可等比放在屏幕安全区，也可放在产品旁独立安全区。若拥挤，先重组版面、减少次要信息或切换准确的侧向构图，不得删除 package 或降级为文字卡。`GAMING` 继续选 G01–G06 + C01–C06；`BUSINESS_WORK` 继续选 B01–B06。 |
 | 3 / `PT02` | 使用场景 | 按 continuation pack 展示真实用途；可按需求加入 1–3 位授权或原创虚拟人物，并记录来源、角色和 synthetic-performer 元数据。 |
 | 4 / `PT03` | 完整规格/配置图 | 按 continuation pack 的 loadout/work grid 展示 CPU、显示、实际可售 RAM/SSD 档位与固定 OS；不使用人物。 |
 | 5 / `PT04` | 机身设计 | 使用准确机型的真实侧面/形态素材；genre/work 元素仅作边缘氛围，不得虚构内部结构或硬件外观。 |
@@ -65,7 +65,7 @@
 3. 图中文字只来自已验证属性，并逐字校对型号、容量、单位、拼写和免责声明，特别区分实际配置与可选档位。
 4. 同一产品各图保持屏幕壁纸和机身颜色一致，不混用同系列其他尺寸、颜色或代际。
 5. `MAIN` 不添加任何图形 Logo、水印或卖家标识。实拍中机身原有 OEM 标识可自然保留，但不得在主图另加放大的 Logo 覆盖层。
-6. `Centered Performance + Screen Package` 必须以电脑视觉包围框独立测量居中，水平偏差不超过画布宽度 2%，主体约占画布宽度 78%–86%。屏幕上半区放一个大号 hero 和一行 supporting fact，下半区最多三张 CPU、GPU、RAM+SSD cards；Windows 11 Pro Screen Package Mini 固定在屏幕右下角，不能占用外部白色空间或把电脑推向左侧。正式 Windows logo/package artwork 必须来自有当前商业使用权的官方资产；AI 近似图仅限 review preview，且不得暗示实体零售盒随箱交付。
+6. `Centered Performance + Screen Package` 必须以电脑视觉包围框独立测量居中，水平偏差不超过画布宽度 2%，主体约占画布宽度 78%–86%。Windows 11 Pro 必须从固定仓库素材确定性合成并整体等比缩放，不得由生成模型重画。优先尝试屏幕右下安全区；若会压住 hero、角色或规格，可改用侧向产品构图和独立侧边安全区。屏幕内放置是可选方案，不是强制位置；任何方案都不得把 package 删除、裁切或改成文字卡。
 7. Gaming 图默认使用 `ORIGINAL_GENRE`：可研究 tactical、fantasy arena、battle royale、mech、sandbox 或 racing 等题材，但不得在提示或成品中复制游戏名称、人物、Logo、截图、地图、HUD、皮肤、标志性道具/载具或作品特有配色。只有书面授权覆盖该 Listing、渠道、地区和期限时，才可切换为 `LICENSED_GAME_CAMPAIGN` 并使用批准原始资产。
 8. Gaming 3D 出屏元素仍须与屏幕相连，越过屏幕的面积不得超过电脑视觉包围框的 12%，最多跨越两条屏幕边，且不得遮挡摄像头、铰链、键盘、触控板、OEM Logo、Windows 卡或已验证规格。电脑中心偏差仍须 `<= 2%`。
 9. Business/Work 的 Office 与 Copilot 必须执行 `business-work-hero-styles.md` 的权益账本。`Lifetime Office` 只在卖家对准确 SKU 提供可审计依据并批准准确措辞时使用；否则展示准确 Office 产品名与许可模式。物理 Copilot key、Windows Copilot、Microsoft 365 Copilot 许可和 Copilot+ PC 是四种不同事实，不能互相推断。

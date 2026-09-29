@@ -179,7 +179,7 @@ human approval are recorded.
 | Slot | Variant | Role | Background | Required content |
 |---|---|---|---|---|
 | **1** | `MAIN` | Hero | Pure white | Centered straight-on complete product; included accessories only; no overlay |
-| **2** | `PT01` | Conversion Hero / display | Selected profile + audience family + `FRONT_SCREEN_CARD` or `THREE_QUARTER_SIDE_CARD` | Product remains primary; use one hero attribute, verified supporting cards, and one subordinate Windows 11 Pro card in the variant's protected zone. Gaming 3D mode permits no more than two feature cards. |
+| **2** | `PT01` | Conversion Hero / display | Selected profile + audience family + `FRONT_SCREEN_CARD` or `THREE_QUARTER_SIDE_CARD` | Product remains primary; use one hero attribute, verified supporting cards, and the required fixed Windows 11 Pro package in a protected screen or side zone. If crowded, restructure the composition rather than omitting it. Gaming 3D mode permits no more than two feature cards. |
 | **3** | `PT02` | Use cases | Selected profile + matching continuation pack | Product in one verified use story; 1–3 licensed or original synthetic people/characters only when they clarify the use case; apply metadata and IP review |
 | **4** | `PT03` | Full specifications / configuration | Selected profile + matching continuation pack | Audience-appropriate loadout/work grid with verified CPU, display, RAM/SSD tiers and OS; no people |
 | **5** | `PT04` | Design and form factor | Selected profile + matching continuation pack | Accurate product angles and verified design facts; narrative effects remain peripheral and may not invent internals or geometry |
@@ -221,14 +221,17 @@ OEM logo. Do not add store contact information, warranty advertisements, or
 sales claims. A genuine trademark already printed on the photographed chassis
 does not need to be removed.
 
-The default Windows treatment is an original text-only OS Proof Tile. Where the
-seller has confirmed permission for package-style treatment, PT01 or an
-enhanced-main candidate may use a style from `conversion-hero-styles.md`.
-Official Windows logo or package artwork requires current commercial-use
-rights and the official source asset; an AI approximation is review-only. A
-package-style visual must communicate a preinstalled OS and must not imply that
-physical retail media is included. Record the OS evidence, visual style,
-placement, asset source, rights status, and product center offset.
+PT01 always uses the repository asset
+`assets/branding/windows-11-pro-package.png`. Composite it deterministically as
+one intact, proportionally scaled unit; do not crop, recolor, redraw, or replace
+it with a text-only tile, edition lockup, or placeholder. It may be placed in a
+protected screen zone or an independent side zone. Screen placement is optional.
+If the first layout is crowded, reduce secondary cards/decorations, increase
+whitespace, or switch to an accurate authorized three-quarter product view.
+Never omit the package or mark it pending merely to preserve the first layout.
+The package is a preinstalled-OS visual label and must not imply that physical
+retail media is included. Record the OS evidence, placement, fixed asset path,
+package scale, non-overlap review, and product center offset.
 
 ## Internal visual style
 
@@ -241,10 +244,11 @@ placement, asset source, rights status, and product center offset.
 - Use bold, legible sans-serif headings and short factual feature cards.
 - Keep one consistent, non-promotional on-screen wallpaper across product views.
 - For `Centered Performance + Screen Package`, measure the computer separately
-  from all overlays. Keep its horizontal center within 2% of the canvas center,
-  use approximately 78%–86% of canvas width, and anchor the Windows visual
-  inside the screen's lower-right corner. Never shift the product left to create
-  a separate OS column.
+  from all overlays. Keep its horizontal center within 2% of the canvas center
+  and use approximately 78%–86% of canvas width. Place the fixed package inside
+  a clear screen zone when that layout works; otherwise change the overall
+  composition and use the protected side zone. Do not overlap content or omit
+  the package to preserve a crowded front view.
 - A verified Gaming product must add one G01–G06 treatment from
   `gaming-hero-styles.md`. Keep the screen environment, rear subject,
   frame-break subject, depth effects, and contact light as separate layers.
