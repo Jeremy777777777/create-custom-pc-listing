@@ -2,6 +2,8 @@
 
 本文件为同一套 `MAIN`、`PT01`–`PT08` 图片规范提供**可选择的视觉风格**。它只改变辅助图的视觉语言和信息层级，不改变槽位、事实、版权、品牌或 Amazon 合规要求。`MAIN` 在所有 profile 下都保持纯白背景、完整产品、无叠加文字或图形 Logo。
 
+基础 profile 与 PT01 构图是两个独立维度；`navy-technical-v1` 和 `feature-led-studio-v1` 都可以组合 `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD`，具体执行 [hero-composition-variants.md](hero-composition-variants.md)。
+
 每个具体电脑型号必须在 `image-manifest.md` 顶部记录一个 `image_style_profile`。同一型号的 PT01–PT08 使用同一 profile；没有明确选择时使用 `navy-technical-v1`。不得在一套图库中逐张随机混用 profile。若受众被验证为 Gaming 或 Business/Work，还必须从 [supporting-gallery-styles.md](supporting-gallery-styles.md) 选择与 PT01 hero 同编号的 GG01–GG06 或 BG01–BG06 continuation pack；profile 控制基础排版，continuation pack 控制人物、场景和叙事。
 
 ## 可用 profiles
@@ -65,3 +67,4 @@
 - 不复制竞争对手的图片、截图、人物、图标、标题、描述、A+ 模块、配色组合或独特布局。本阶段不制作 A+ Content。
 - 人物与虚拟人物只按 `supporting-gallery-styles.md` 使用：PT02 是主要场景，PT05 最多一位次级人物，PT06 禁止人物。人物和外设不得遮挡产品或暗示未随箱提供的内容。
 - 风格选择不得改变 `image-spec.md`、`compliance-rules.md` 或 Amazon 当前图片要求的优先级。
+
