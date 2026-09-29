@@ -10,7 +10,11 @@ The selectable visual systems are defined in
 [image-style-profiles.md](image-style-profiles.md). A profile changes PT-image
 styling and information hierarchy; it never changes the requirements below.
 For centered screen features and Windows 11 Pro package-style treatments, also
-read [conversion-hero-styles.md](conversion-hero-styles.md).
+read [conversion-hero-styles.md](conversion-hero-styles.md) and
+[hero-composition-variants.md](hero-composition-variants.md). The latter is an
+independent PT01 composition layer: every Gaming G/C and Business B family may
+use either the approved front-facing or three-quarter variant when the exact
+product-view evidence supports it.
 For a product verified as Gaming, additionally read
 [gaming-hero-styles.md](gaming-hero-styles.md). Its 3D characters, vehicles,
 environments, and effects are PT01 add-ons or separately gated enhanced-main
@@ -175,7 +179,7 @@ human approval are recorded.
 | Slot | Variant | Role | Background | Required content |
 |---|---|---|---|---|
 | **1** | `MAIN` | Hero | Pure white | Centered straight-on complete product; included accessories only; no overlay |
-| **2** | `PT01` | Conversion Hero / display | Selected profile + conversion hero style; Gaming requires G01–G06 + C01–C06, while Business/Work requires B01–B06 | Centered product plus one hero attribute, verified supporting cards, and a compliant Windows 11 Pro treatment; Gaming requires a layered 3D frame-break subject and no more than two feature cards; Business software visuals require verified entitlement |
+| **2** | `PT01` | Conversion Hero / display | Selected profile + audience family + `FRONT_SCREEN_CARD` or `THREE_QUARTER_SIDE_CARD` | Product remains primary; use one hero attribute, verified supporting cards, and one subordinate Windows 11 Pro card in the variant's protected zone. Gaming 3D mode permits no more than two feature cards. |
 | **3** | `PT02` | Use cases | Selected profile + matching continuation pack | Product in one verified use story; 1–3 licensed or original synthetic people/characters only when they clarify the use case; apply metadata and IP review |
 | **4** | `PT03` | Full specifications / configuration | Selected profile + matching continuation pack | Audience-appropriate loadout/work grid with verified CPU, display, RAM/SSD tiers and OS; no people |
 | **5** | `PT04` | Design and form factor | Selected profile + matching continuation pack | Accurate product angles and verified design facts; narrative effects remain peripheral and may not invent internals or geometry |
@@ -335,3 +339,4 @@ product folder (or the matching real extension). Before Amazon bulk upload,
 export or rename copies to `ProductIdentifier.VARIANT.extension` as described
 above. Do not put production records in the listing workbook, and do not claim
 an Amazon-ready file path for an image that does not exist.
+
