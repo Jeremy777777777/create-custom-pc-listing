@@ -24,7 +24,7 @@
 
 - 空白底稿、wireframe、文字说明图或未渲染模板；
 - prompt、production brief、manifest 路径或状态表；
-- 缺少应有文字、产品信息、OEM Logo、固定 Windows package 或确定性后处理的图片；
+- 缺少应有文字、产品信息、OEM Logo、audience 对应 Windows asset（固定 package 或获准 logo lockup）或确定性后处理的图片；
 - `TO SOURCE`、`TO PRODUCE`、placeholder、低清预览或只供内部合成的无品牌母版；
 - contact sheet 代替单张完整图片。Contact sheet 只能作为额外审核入口。
 

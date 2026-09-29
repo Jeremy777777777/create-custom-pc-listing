@@ -29,10 +29,10 @@ core-configuration compositions and enhanced-main Windows 11 Pro treatment. One 
 `CORE_SPEC_CLUSTER` counts as one feature card; all values must match the
 selected verified SKU.
 For a product verified as Business/Work, also read
-[business-work-hero-styles.md](business-work-hero-styles.md). Its B01–B11
+[business-work-hero-styles.md](business-work-hero-styles.md). Its B01–B16
 layouts may display Office or Copilot only after the exact SKU entitlement and
-approved brand assets pass the documented gates. B07–B11 and their complete
-BG07–BG11 continuation systems are defined in
+approved brand assets pass the documented gates. B07–B16 and their complete
+BG07–BG16 continuation systems are defined in
 [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md).
 For PT02–PT08 audience-specific scenes and narrative continuity, also read
 [supporting-gallery-styles.md](supporting-gallery-styles.md). The selected
@@ -187,7 +187,13 @@ A Windows 11 Pro package, card, badge, feature label, or screen callout is not
 permitted in `MAIN-STRICT`. Two separate enhanced candidates must be produced:
 `MAIN-ENHANCED-FRONT-CANDIDATE` and
 `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE`. Both use the selected Gaming/Business
-visual family and the repository-fixed Windows 11 Pro package. When the seller
+visual family and an audience-approved Windows treatment. Gaming, Student, and
+General use the repository-fixed Windows 11 Pro package on both candidates.
+Business uses the fixed package on one candidate and an approved, deterministic
+Windows logo + exact `Windows 11 Pro` word lockup on the other. The lockup may
+be a fixed approved file or a reproducible mark-plus-full-text identity crop
+derived from the approved package source; plain text, logo-only crops, retyped
+wording, and AI-redrawn marks are prohibited. When the seller
 confirms that its current account or
 category permits this treatment, record that confirmation and date in the
 manifest and produce the candidate for review; do not replace `MAIN.jpg` or
@@ -199,11 +205,11 @@ human approval are recorded.
 | Slot | Variant | Role | Background | Required content |
 |---|---|---|---|---|
 | **1A** | `MAIN-STRICT` | Default Amazon hero | Pure white | Centered straight-on complete product; included accessories only; no overlay, added logo, text, or Windows package |
-| **1B** | `MAIN-ENHANCED-FRONT-CANDIDATE` | Front enhanced hero candidate | Selected profile + audience family + `FRONT_SCREEN_CARD` | Accurate front view remains primary; use verified hero content and the fixed Windows 11 Pro package in a protected screen zone. If crowded, restructure rather than omit it. |
-| **1C** | `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | Three-quarter enhanced hero candidate | Selected profile + audience family + `THREE_QUARTER_SIDE_CARD` | Use an authorized exact-model angled source and the fixed Windows package in a protected screen or side zone; do not invent chassis geometry. |
-| **2** | `PT01` | Conversion Hero / display | Selected profile + audience family; may reuse an accurate approved product angle | Use a different verified purchase focus from the enhanced main. No Windows package, Windows text tile, or placeholder. Gaming 3D mode permits no more than two feature cards. |
+| **1B** | `MAIN-ENHANCED-FRONT-CANDIDATE` | Front enhanced hero candidate | Selected profile + audience family + `FRONT_SCREEN_CARD` | Accurate front view remains primary; use verified hero content and the audience-approved Windows asset in a protected screen zone. Business defaults to the approved logo lockup. If crowded, restructure rather than omit it. |
+| **1C** | `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | Three-quarter enhanced hero candidate | Selected profile + audience family + `THREE_QUARTER_SIDE_CARD` | Use an authorized exact-model angled source and the audience-approved Windows asset in a protected screen or side zone. Business defaults to the fixed package and must differ from 1B; do not invent chassis geometry. |
+| **2** | `PT01` | Conversion Hero / display | Selected profile + audience family; may reuse an accurate approved product angle | Use a different verified purchase focus from the enhanced main. No Windows package, logo lockup, Windows text tile, or placeholder. Gaming 3D mode permits no more than two feature cards. |
 | **3** | `PT02` | Use cases | Selected profile + matching continuation pack | Product in one verified use story; 1–3 licensed or original synthetic people/characters only when they clarify the use case; apply metadata and IP review |
-| **4** | `PT03` | Sole full configuration page | Selected profile + matching continuation pack | Verified sold CPU/GPU, RAM/SSD tiers and OS; no people; other PT slots may not repeat the full models/capacities |
+| **4** | `PT03` | Sole full configuration page | Selected profile + matching continuation pack | Verified sold CPU/GPU, RAM/SSD tiers and OS; no people; Business may use the approved Windows logo lockup once on the OS line; other PT slots may not repeat the full models/capacities or Windows treatment |
 | **5** | `PT04` | Display, design and form factor | Selected profile + matching continuation pack | Own the verified display size/resolution/refresh and accurate product-angle/design facts; narrative effects remain peripheral and may not invent internals or geometry |
 | **6** | `PT05` | Performance relationship | Selected profile + matching continuation pack | Explain a Gaming pipeline or Business workflow with category-level component labels; do not repeat full models/capacities or create a second specification grid; at most one secondary person; no invented FPS, benchmark, battery or AI claims |
 | **7** | `PT06` | What's included | White | Show only the exact unit, power equipment, and accessories included with the SKU |
@@ -245,18 +251,21 @@ OEM logo. Do not add store contact information, warranty advertisements, or
 sales claims. A genuine trademark already printed on the photographed chassis
 does not need to be removed.
 
-Both enhanced MAIN candidates always use the repository asset
-`assets/branding/windows-11-pro-package.png`. Composite it deterministically as
-one intact, proportionally scaled unit; do not crop, recolor, redraw, or replace
-it with a text-only tile, edition lockup, or placeholder. It may be placed in a
-protected screen zone or an independent side zone. Screen placement is optional.
-If the first layout is crowded, reduce secondary cards/decorations, increase
-whitespace, or switch to an accurate authorized three-quarter product view.
-Never omit the package or mark it pending merely to preserve the first layout.
-The package is a preinstalled-OS visual label and must not imply that physical
-retail media is included. Record the OS evidence, placement, fixed asset path,
-package scale, non-overlap review, and product center offset. `MAIN-STRICT` and
-PT01 must not contain the package, a Windows text substitute, or a placeholder.
+Gaming, Student, and General enhanced MAIN candidates use the repository asset
+`assets/branding/windows-11-pro-package.png` on both variants. Business enhanced
+MAIN candidates use that package on one variant and an approved deterministic
+Windows logo + exact `Windows 11 Pro` lockup on the other. Each asset is
+composited as one intact, proportionally scaled unit; do not recolor, redraw,
+approximate, or replace it with plain text or a placeholder. It may be placed in
+a protected screen zone or an independent side zone. If the first layout is
+crowded, reduce secondary cards/decorations, increase whitespace, or switch to
+an accurate authorized three-quarter product view. Never omit the required
+asset or mark it pending merely to preserve the first layout. The Windows asset
+is a preinstalled-OS visual label and must not imply that physical retail media
+is included. Record the OS evidence, placement, asset path and rights, scale,
+non-overlap review, and product center offset. `MAIN-STRICT` and PT01 must not
+contain a Windows asset, text substitute, or placeholder. Business PT03 may use
+the approved logo lockup once on the OS line; other PT slots may not repeat it.
 
 ## Internal visual style
 
@@ -269,13 +278,13 @@ PT01 must not contain the package, a Windows text substitute, or a placeholder.
   profile-independent.
 - Use bold, legible sans-serif headings and short factual feature cards.
 - Keep one consistent, non-promotional on-screen wallpaper across product views.
-- For enhanced-main `Centered Performance + Screen Package`, measure the computer separately
+- For enhanced-main `Centered Performance + Windows Asset`, measure the computer separately
   from all overlays. Keep its horizontal center within 2% of the canvas center
-  and use approximately 78%–86% of canvas width. Place the fixed package inside
+  and use approximately 78%–86% of canvas width. Place the required Windows asset inside
   a clear screen zone when that layout works; otherwise change the overall
   composition and use the protected side zone. Do not overlap content or omit
-  the package to preserve a crowded front view. The paired PT01 must remove the
-  package and use a distinct verified information focus.
+  the asset to preserve a crowded front view. The paired PT01 must remove the
+  Windows asset and use a distinct verified information focus.
 - A verified Gaming product must add one G01–G06 treatment from
   `gaming-hero-styles.md`. Keep the screen environment, rear subject,
   frame-break subject, depth effects, and contact light as separate layers.
@@ -283,12 +292,12 @@ PT01 must not contain the package, a Windows text substitute, or a placeholder.
   logos, screenshots, maps, HUD, skins, signature props, vehicles, or trade
   dress. Keep at least 25% of the screen quiet and use no more than two feature
   cards when this add-on is active.
-- A verified Business/Work product must select one B01–B11 treatment from
+- A verified Business/Work product must select one B01–B16 treatment from
   `business-work-hero-styles.md`. Office and Copilot claims, icons, logos, and
   package visuals require exact-SKU entitlement evidence; unresolved elements
   are removed rather than inferred. `Lifetime Office` requires seller-approved
   wording and auditable evidence for that SKU.
-- PT02–PT08 must use the matching GG01–GG06 or BG01–BG11 pack from
+- PT02–PT08 must use the matching GG01–GG06 or BG01–BG16 pack from
   `supporting-gallery-styles.md`. Keep typography, card geometry, colors,
   lighting, and story world consistent; do not treat each slot as a random
   campaign. PT02 is the primary people scene, PT05 permits at most one

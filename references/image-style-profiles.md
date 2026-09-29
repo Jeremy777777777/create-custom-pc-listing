@@ -1,10 +1,10 @@
 # MegaPC Image Style Profiles
 
-本文件为同一套三种 MAIN 与 `PT01`–`PT08` 图片规范提供**可选择的视觉风格**。它只改变增强主图和辅助图的视觉语言与信息层级，不改变事实、版权、品牌或 Amazon 合规要求。`MAIN-STRICT` 在所有 profile 下都保持纯白背景、完整产品、无叠加文字或图形 Logo；正面与三分之四侧向两个增强主图使用同一 profile 视觉语言和固定 Windows package。
+本文件为同一套三种 MAIN 与 `PT01`–`PT08` 图片规范提供**可选择的视觉风格**。它只改变增强主图和辅助图的视觉语言与信息层级，不改变事实、版权、品牌或 Amazon 合规要求。`MAIN-STRICT` 在所有 profile 下都保持纯白背景、完整产品、无叠加文字或图形 Logo；正面与三分之四侧向两个增强主图使用同一 profile 视觉语言。Business/Work 两张增强主图分别使用固定 Windows package 与获准的 Windows 标志 + `Windows 11 Pro` 文字锁定组合，其他 audience 继续使用固定 package。
 
 基础 profile 与增强主图构图是两个独立维度；`navy-technical-v1` 和 `feature-led-studio-v1` 都可以组合 `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD`，具体执行 [hero-composition-variants.md](hero-composition-variants.md)。PT01 可复用准确角度，但不复用 Windows package。
 
-每个具体电脑型号必须在 `image-manifest.md` 顶部记录一个 `image_style_profile`。同一型号的 PT01–PT08 使用同一 profile；没有明确选择时使用 `navy-technical-v1`。不得在一套图库中逐张随机混用 profile。若受众被验证为 Gaming 或 Business/Work，还必须从 [supporting-gallery-styles.md](supporting-gallery-styles.md) 选择与 PT01 hero 同编号的 GG01–GG06 或 BG01–BG11 continuation pack；profile 控制基础排版，continuation pack 控制人物、场景和叙事。Business laptop 采用 B07–B11 时还必须读取 [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md) 的完整逐槽设计。
+每个具体电脑型号必须在 `image-manifest.md` 顶部记录一个 `image_style_profile`。同一型号的 PT01–PT08 使用同一 profile；没有明确选择时使用 `navy-technical-v1`。不得在一套图库中逐张随机混用 profile。若受众被验证为 Gaming 或 Business/Work，还必须从 [supporting-gallery-styles.md](supporting-gallery-styles.md) 选择与 PT01 hero 同编号的 GG01–GG06 或 BG01–BG16 continuation pack；profile 控制基础排版，continuation pack 控制人物、场景和叙事。Business laptop 采用 B07–B16 时还必须读取 [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md) 的完整逐槽设计。
 
 ## 可用 profiles
 
@@ -30,8 +30,8 @@
 | 槽位 | 原创信息任务 | 推荐表达 |
 | --- | --- | --- |
 | `MAIN-STRICT` | 默认合规主图 | 与所有 profile 相同；纯白、单一完整产品、无文字/叠加 Logo/package |
-| `MAIN-ENHANCED-FRONT-CANDIDATE` | 正面增强主图候选 | 正面 profile hero + 固定 Windows package；未经 exception gate 不替换严格主图 |
-| `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 侧向增强主图候选 | 准确三分之四产品角度 + 同一 profile hero + 固定 Windows package；未经 exception gate 不替换严格主图 |
+| `MAIN-ENHANCED-FRONT-CANDIDATE` | 正面增强主图候选 | 正面 profile hero + audience 对应 Windows asset；Business 默认用 logo lockup，未经 exception gate 不替换严格主图 |
+| `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 侧向增强主图候选 | 准确三分之四产品角度 + 同一 profile hero + audience 对应 Windows asset；Business 默认用 package，未经 exception gate 不替换严格主图 |
 | `PT01` | 购买理由总览 | 大产品视图 + 仅属于该准确机型的已验证 feature chips；`Webcam`、`Backlit Keyboard`、`FP Reader`、`Wi-Fi 6` 只是候选示例，缺少或未验证就完全删除，不补猜测 |
 | `PT02` | 真实用途 | 一个主要生活/工作场景 + 最多 3 个简短用途说明；不出现客户评价或性能保证 |
 | `PT03` | 唯一完整配置页 | 集中列出实际销售配置的 CPU、GPU、RAM、SSD 与 OS；存在可售档位时清楚区分并使用事实脚注。其他 PT 不再重列这组完整型号和容量。 |

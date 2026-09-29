@@ -1,8 +1,8 @@
 # Enhanced MAIN and PT01 Composition Variants
 
-本文件控制两份增强主图的产品角度、留白和 Windows 11 Pro package 位置：`MAIN-ENHANCED-FRONT-CANDIDATE` 固定使用 `FRONT_SCREEN_CARD`，`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` 固定使用 `THREE_QUARTER_SIDE_CARD`。PT01 可复用任一准确产品角度，但不复用 package。本文件不改变 audience 分类、Gaming/Business 题材、核心规格、软件权益、图片 profile、品牌资产或 PT02–PT08 continuation pack。所有增强构图都受 [final-image-delivery-contract.md](final-image-delivery-contract.md) 的成品交付定义约束。
+本文件控制两份增强主图的产品角度、留白和 Windows 11 Pro 资产位置：`MAIN-ENHANCED-FRONT-CANDIDATE` 固定使用 `FRONT_SCREEN_CARD`，`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` 固定使用 `THREE_QUARTER_SIDE_CARD`。PT01 可复用任一准确产品角度，但不复用 Windows asset。本文件不改变 audience 分类、Gaming/Business 题材、核心规格、软件权益、图片 profile、品牌资产或 PT02–PT08 continuation pack。所有增强构图都受 [final-image-delivery-contract.md](final-image-delivery-contract.md) 的成品交付定义约束。
 
-`MAIN-STRICT` 不使用本文件；它继续遵守纯白背景、无新增文字/卡片/人物/场景的规则。PT01 使用构图时必须删除 Windows package，并以不同卖点避免与增强主图重复。
+`MAIN-STRICT` 不使用本文件；它继续遵守纯白背景、无新增文字/卡片/人物/场景的规则。PT01 使用构图时必须删除 Windows asset，并以不同卖点避免与增强主图重复。
 
 ## 两种已批准构图
 
@@ -31,14 +31,16 @@
 
 当 audience 为 `GAMING` 时，本构图默认同时启用 `GAMING_WHITE_CATALOG_FRAME_BREAK`：外部为白色/近白电商背景，产品保持三分之四角度且视觉居中，原创 3D 主体从屏幕内部小幅跨越边框；已验证 display 信息位于屏幕上方，GPU/CPU/RAM/SSD 位于屏幕下方，固定 Windows 11 Pro package 位于产品右侧独立安全区。不能以全画布赛博海报、普通屏幕壁纸或外置信息卡集合替代这张固定识别构图。
 
-## 增强主图的 Windows package 共同规则
+## 增强主图的 Windows 资产共同规则
 
-- 两份增强主图都必须且只出现一个 Windows 11 Pro package，固定引用 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)。`MAIN-STRICT` 和 PT01 均不得出现 package、文字替代卡或占位盒。
-- 卡片表达固定预装 OS，不得伪装成随箱零售盒、光盘、USB 或额外赠品。
-- 不允许文字卡、占位盒或现场生成的近似图。package 必须作为完整单元整体等比缩放，不裁切、不改色、不拆出 Logo 或壁纸。
+- Gaming、Student/Study 和 General 的两份增强主图继续各出现一个固定 Windows 11 Pro package，引用 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)。
+- Business/Work 的两个增强主图必须使用不同形态：一张为固定 package，另一张为 `WINDOWS_11_PRO_LOGO_LOCKUP`。Logo lockup 必须由获准 Windows 标志和准确文字 `Windows 11 Pro` 组成一个不可拆分的固定单元；标志与文字必须相邻，禁止裸文字。允许从固定 package 的身份区按记录过的 crop recipe 确定性导出完整 lockup，但禁止只抠 Logo 或重新排字。
+- `MAIN-STRICT` 和 PT01 均不得出现 package、logo lockup、文字替代卡或占位盒。PT03 作为唯一完整配置所有者，可在 OS 行出现一次 Business logo lockup；其他 PT 默认不得重复。
+- Windows asset 表达固定预装 OS，不得伪装成随箱零售盒、光盘、USB 或额外赠品。
+- 不允许现场生成、重画、近似模仿或从竞品图抠取 Windows/Microsoft 标志。package 必须作为完整单元整体等比缩放；logo lockup 也必须作为完整固定单元合成，均不得裁切、改色或拆解。
 - 必须逐字显示 `Windows 11 Pro`，并与已验证 Listing、属性和交付配置一致。
-- Windows package 属于 supporting information。缩略图中应可辨认，但不得大于 hero attribute，也不得覆盖或压缩核心硬件信息。
-- 屏幕内安全区与产品旁独立安全区都是允许位置；屏幕内放置只是 option。若当前版面无法同时容纳产品、hero、规格和 package，先删除次要装饰/卡片、扩大留白，或在准确侧视素材可用时切换另一构图，package 不能被省略。
+- Windows asset 属于 supporting information。缩略图中应可辨认，但不得大于 hero attribute，也不得覆盖或压缩核心硬件信息。
+- 屏幕内安全区与产品旁独立安全区都是允许位置；屏幕内放置只是 option。若当前版面无法同时容纳产品、hero、规格和 Windows asset，先删除次要装饰/卡片、扩大留白，或在准确侧视素材可用时切换另一构图，Windows asset 不能被省略。
 - 卡片及其 keyline、阴影和背景牌全部计入 protected zone。100% 和 200 px 两种尺寸都要检查 non-overlap、可读性和视觉优先级。
 
 ## 与 Gaming/Business 的组合矩阵
@@ -48,13 +50,13 @@
 | Audience layer | Content/style layer | Allowed composition | Continuation mapping |
 | --- | --- | --- | --- |
 | Gaming | `G01–G06` + `C01–C06` | `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD` | 继续按 G 编号映射 `GG01–GG06` |
-| Business/Work | `B01–B11` | `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD` | 继续按 B 编号映射 `BG01–BG11` |
+| Business/Work | `B01–B16` | `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD` | 继续按 B 编号映射 `BG01–BG16` |
 | Student/Study | 中性学习 hero | 两种均可，按准确素材选择 | `NEUTRAL` |
 | General | 通用 Conversion Hero | 两种均可，按准确素材选择 | `NEUTRAL` |
 
 - `G01–G06` 的原创 genre、出屏主体和 IP 闸门不因侧向构图放宽。
 - `C01–C06` 的核心配置内容不因卡片移到画布侧面而改变。
-- `B01–B11` 的 Office/Copilot、AI 与安全权益闸门不因出现独立白色信息区而放宽。
+- `B01–B16` 的 Office/Copilot、AI 与安全权益闸门不因出现独立白色信息区而放宽。
 - PT02–PT08 的 `GG/BG` continuation pack 只跟 hero family 编号，不跟正向或侧向构图编号。
 
 ## 选择逻辑
@@ -62,9 +64,9 @@
 1. 先确定 `audience_style_family`、`hero_style_id` 和适用的 Gaming core/Business 权益层。
 2. 正面增强版固定使用 `FRONT_SCREEN_CARD`。
 3. 侧向增强版固定使用 `THREE_QUARTER_SIDE_CARD`；缺少准确授权的三分之四素材时将该候选标记为 `TO SOURCE` 或 `BLOCKED`，不能以正向图替代或由模型猜测机身。
-4. 如果 Windows package、hero、标题、规格或产品无法同时满足安全区，优先删除次要装饰、减少 feature card、扩大留白或切换构图，不得叠压，也不得把 package 标为待处理后省略。
+4. 如果 Windows asset、hero、标题、规格或产品无法同时满足安全区，优先删除次要装饰、减少 feature card、扩大留白或切换构图，不得叠压，也不得把 Windows asset 标为待处理后省略。
 5. 同一 parent listing 的 RAM/SSD 变体应共用构图；只有机身、屏幕尺寸、颜色或可用素材发生实质变化时才重新选择。
-6. 人工批准前，两种增强构图分别保持 `MAIN_ENHANCED_FRONT_CANDIDATE` 与 `MAIN_ENHANCED_THREE_QUARTER_CANDIDATE`，不得替换严格 `MAIN`；PT01 可复用角度但必须移除 package。
+6. 人工批准前，两种增强构图分别保持 `MAIN_ENHANCED_FRONT_CANDIDATE` 与 `MAIN_ENHANCED_THREE_QUARTER_CANDIDATE`，不得替换严格 `MAIN`；PT01 可复用角度但必须移除 Windows asset。
 
 ## Manifest 必填字段
 
@@ -77,14 +79,22 @@ enhanced_front_exact_model_visual_match: PASS|BLOCKED
 enhanced_three_quarter_product_view_angle: THREE_QUARTER_LEFT|THREE_QUARTER_RIGHT
 enhanced_three_quarter_product_view_source: <path/source and commercial-use basis>
 enhanced_three_quarter_exact_model_visual_match: PASS|TO_SOURCE|BLOCKED
-windows_package_asset: assets/branding/windows-11-pro-package.png # enhanced main only
-enhanced_front_windows_package_placement: SCREEN_SAFE_ZONE|CANVAS_SIDE_SAFE_ZONE
-enhanced_three_quarter_windows_package_placement: SCREEN_SAFE_ZONE|CANVAS_SIDE_SAFE_ZONE
-enhanced_front_windows_package_size_pct: <preserve aspect ratio>
-enhanced_three_quarter_windows_package_size_pct: <preserve aspect ratio>
+windows_package_asset: assets/branding/windows-11-pro-package.png
+windows_logo_lockup_asset_mode: FIXED_ASSET|DETERMINISTIC_DERIVATIVE
+windows_logo_lockup_asset: <approved fixed lockup path or generated derivative path>
+windows_logo_lockup_source_asset: assets/branding/windows-11-pro-package.png
+windows_logo_lockup_crop_recipe: <fixed coordinates/percentages preserving mark + full Windows 11 Pro text>
+windows_logo_lockup_asset_rights: <evidence reference>
+enhanced_front_windows_asset_mode: WINDOWS_11_PRO_PACKAGE|WINDOWS_11_PRO_LOGO_LOCKUP
+enhanced_three_quarter_windows_asset_mode: WINDOWS_11_PRO_PACKAGE|WINDOWS_11_PRO_LOGO_LOCKUP
+enhanced_front_windows_asset_placement: SCREEN_SAFE_ZONE|CANVAS_SIDE_SAFE_ZONE
+enhanced_three_quarter_windows_asset_placement: SCREEN_SAFE_ZONE|CANVAS_SIDE_SAFE_ZONE
+enhanced_front_windows_asset_size_pct: <preserve aspect ratio>
+enhanced_three_quarter_windows_asset_size_pct: <preserve aspect ratio>
 product_to_card_gap_pct: <required for side-card mode>
 outer_clear_space_review: PASS|BLOCKED
-windows_package_non_overlap_review: PASS|BLOCKED
+windows_asset_non_overlap_review: PASS|BLOCKED
+business_windows_mode_diversity_review: PASS|BLOCKED|NOT_APPLICABLE
 thumbnail_hierarchy_review: PASS|BLOCKED
 ```
 

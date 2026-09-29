@@ -15,7 +15,7 @@
 
 1. 先按 [business-work-hero-styles.md](business-work-hero-styles.md) 的分类器确定 `audience_style_family`。
 2. `GAMING`：PT01 选择 G01–G06；PT02–PT08 选择同编号的 `GG01`–`GG06` continuation pack，不能把 tactical hero 接到 fantasy/racing 辅助图。
-3. `BUSINESS_WORK`：PT01 选择 B01–B11；PT02–PT08 选择同编号的 `BG01`–`BG11` continuation pack。
+3. `BUSINESS_WORK`：PT01 选择 B01–B16；PT02–PT08 选择同编号的 `BG01`–`BG16` continuation pack。
 4. PT01 的 `FRONT_SCREEN_CARD`/`THREE_QUARTER_SIDE_CARD` 是独立构图层，不改变 G→GG 或 B→BG 的编号映射；两种构图都继续进入同一个对应 continuation pack。
 5. `STUDENT_STUDY` 或 `GENERAL`：继续使用中性 `image_style_profile`，不得借用未验证的 Gaming、Office、Copilot 或企业安全语义。
 6. `HYBRID_MANUAL_REVIEW`：阻断自动选择，等待人工确认主要受众后再出图。
@@ -231,17 +231,22 @@ identity_ip_review: PASS|BLOCKED
 - `PT07`：明亮蓝绿 `Distinct Value Module`；选择一个未使用的学习、家庭或支持价值，不重排核心规格。
 - `PT08`：学习、会议和家庭办公连接场景；外设保持非随箱语义。
 
-### BG07–BG11 — End-to-End Business Laptop Packs
+### BG07–BG16 — End-to-End Business Laptop Packs
 
-以下五套新增 pack 在 [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md) 中按 MAIN、PT01–PT08 完整定义；本文件不重复维护逐槽内容：
+以下十套 pack 在 [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md) 中按 MAIN、PT01–PT08 完整定义；本文件不重复维护逐槽内容：
 
 - `BG07 — Clear Collaboration Suite`
 - `BG08 — Connected Mobility Blueprint`
 - `BG09 — Executive Workflow Studio`
 - `BG10 — AI Focus Workspace`
 - `BG11 — Secure Hybrid Office`
+- `BG12 — Metropolitan Horizon`
+- `BG13 — Scenic Mobility Vista`
+- `BG14 — Digital City Network`
+- `BG15 — Architectural Precision`
+- `BG16 — Editorial Innovation`
 
-它们分别与 B07–B11 一一对应。不得把不同编号的 hero 和 continuation pack 混搭，也不得让 PT03、PT05、PT07 重复同一组 CPU/RAM/SSD/OS 信息。
+它们分别与 B07–B16 一一对应。不得把不同编号的 hero 和 continuation pack 混搭，也不得让 PT03、PT05、PT07 重复同一组 CPU/RAM/SSD/OS 信息。B12–B16 的城市、风景、建筑、科技与 editorial 元素只改变视觉语境，不改变任何槽位的信息所有权。
 
 ## 生成顺序
 
