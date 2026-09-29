@@ -2,6 +2,8 @@
 
 本文件为 [gaming-hero-styles.md](gaming-hero-styles.md) 提供可组合的信息层。它专门解决 Gaming PC 主视觉中的两类内容：Windows 11 Pro 视觉证明，以及 CPU、GPU、RAM、SSD 等核心配置的缩略图级表达。它不是新的 MAIN 合规例外；默认输出仍是 `PT01_GAMING_HERO`。
 
+C01–C06 是信息组合层，不锁定产品角度。每个 C style 都必须支持 [hero-composition-variants.md](hero-composition-variants.md) 的 `FRONT_SCREEN_CARD` 与 `THREE_QUARTER_SIDE_CARD`：正向模式把 Windows 卡缩小后放在屏幕安全区；侧向模式把同一 OS 信息移到产品旁的独立白色安全区。不得同时出现两个 Windows 卡。
+
 ## 1. 使用边界
 
 - Amazon 严格 `MAIN` 继续保持纯白背景、仅展示实际售卖产品，不添加规格字、Windows 卡、package、人物或装饰。以下样式默认用于 `PT01`；只有通过 `enhanced_main_candidate` 闸门后才可制作内部候选。
@@ -119,6 +121,8 @@ GeForce RTX 4060
 | 竞速/飞船动势 | C06 | C03 | 规格压住速度方向 |
 | 200 px 缩略图可读性 | C01 | C05 | 细小环绕文字 |
 
+无论选择 C01–C06 中哪一套，manifest 都要另外记录 `hero_composition_variant`。构图改变位置，不改变核心规格内容、Windows 授权模式或 G01–G06/GG01–GG06 的映射。
+
 ## 7. Production sequence
 
 1. 核验准确底机外观、GPU、CPU、显示、RAM、SSD 和 Windows 11 Pro 交付证据。
@@ -152,3 +156,4 @@ gaming_core_badge:
 ```
 
 任何字段未通过时，只阻断依赖该字段的视觉元素；不能用竞品图、系列常见规格或 AI 推测补齐。
+
