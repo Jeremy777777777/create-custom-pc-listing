@@ -19,6 +19,7 @@ references/
   image-spec.md                               MAIN and PT01-PT08 requirements
   image-style-profiles.md                     Selectable per-model PT visual styles
   conversion-hero-styles.md                   Centered hero and Windows 11 Pro treatments
+  hero-composition-variants.md                Front-facing and three-quarter PT01 composition layer
   gaming-hero-styles.md                       Six original 3D gaming hero add-ons
   gaming-core-badge-styles.md                 Six Gaming core-config + Windows compositions
   business-work-hero-styles.md                 Six Business/Work Office and Copilot treatments
@@ -57,6 +58,10 @@ after the workflow verifies the exact Office/Copilot entitlement. The workflow
 records the audience evidence, confidence, and routing reason so Gaming,
 Business/Work, Student/Study, and General products do not silently share the
 wrong visual language.
+PT01 then independently selects `FRONT_SCREEN_CARD` or `THREE_QUARTER_SIDE_CARD`
+from [`references/hero-composition-variants.md`](references/hero-composition-variants.md).
+Both composition variants map to every Gaming G/C family and every Business B
+family; the angled variant requires a verified, licensed exact-model product view.
 The selected hero family then continues through PT02–PT08 using the matching
 Gaming or Business story pack in
 [`references/supporting-gallery-styles.md`](references/supporting-gallery-styles.md),
@@ -77,3 +82,4 @@ MyStore product and/or Checking List row
   -> separate image plan and production
   -> image QA and human review
 ```
+
