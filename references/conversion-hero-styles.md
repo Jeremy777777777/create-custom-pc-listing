@@ -2,6 +2,8 @@
 
 本文件规定电脑屏幕内 feature callout、Windows 11 Pro 规格卡及第一张辅助图的可选视觉风格。它借鉴优秀 Amazon PC listing 的信息层级与缩略图可读性，但不复制 PCOnline 或其他卖家的图片、图标、壁纸、措辞、方框位置或独特构图。当产品被验证为 Gaming laptop/desktop，先用本文件确定产品居中和基础信息层级，再读取 [gaming-hero-styles.md](gaming-hero-styles.md) 选择一个 3D 游戏题材 add-on，并从 [gaming-core-badge-styles.md](gaming-core-badge-styles.md) 选择一套 Windows 11 Pro + 核心配置组合。Gaming add-on 不改变本文件的 `MAIN` 闸门，也不得把具体游戏人物、Logo、截图、地图或 UI 带入未授权 Listing。当产品被验证为 Business/Work，改读 [business-work-hero-styles.md](business-work-hero-styles.md) 并从 B01–B06 选择工作效率版式；Office/Copilot 元素必须通过准确 SKU 的权益闸门。
 
+PT01 的内容 style 与产品构图分开选择。完成本文件的信息层级后，必须读取 [hero-composition-variants.md](hero-composition-variants.md)，从 `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD` 中选择一个。两种构图都能承载 Gaming 与 Business/Work family；构图选择不能改变 audience、事实、权益或 continuation-pack 路由。
+
 ## 先区分两个不同的“主图”
 
 - `MAIN` 是 Amazon 变体代码，也是搜索结果使用的正式主图。默认必须是纯白背景、真实商品、无新增文字/徽章/包装/图形覆盖层。
@@ -136,12 +138,17 @@ product_center_offset_pct: 0 (maximum absolute value 2)
 3. 同一父体的不同 RAM/SSD 变体可以共用 PT01，只要图中没有与所选变体冲突的容量；显示可选档位时必须与 listing 完全一致并添加适当说明。
 4. 每个产品只选一个主 style，可在配色、卡片圆角、线条和壁纸上形成变体，但信息层级保持一致。
 
+5. 再按可用产品角度与信息密度选择 `hero_composition_variant`。缺少准确、获授权的侧视素材时使用 `FRONT_SCREEN_CARD`，不得让生成模型猜测机身角度、接口或键盘。
+
 ## Manifest 必填记录
 
 为 `MAIN`、`PT01` 和任何 enhanced-main 候选记录：
 
 - `hero_image_mode`: `STRICT_MAIN`、`PT01_CONVERSION_HERO` 或 `ENHANCED_MAIN_CANDIDATE`
 - `visual_style`
+- `hero_composition_variant`: `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD`
+- `product_view_source` 与准确机型匹配状态
+- `windows_card_zone`、相对尺寸与 non-overlap review
 - `hero_attribute` 与 `supporting_attributes`
 - `windows_11_pro_evidence`
 - `windows_asset_treatment`: `TEXT_ONLY`、`LICENSED_LOGO`、`LICENSED_PACKAGE_ARTWORK` 或 `PACKAGE_STYLE_PREVIEW`
@@ -153,3 +160,4 @@ product_center_offset_pct: 0 (maximum absolute value 2)
 - 缩略图检查、100% 检查、知识产权检查和人工批准结果
 
 只要 OS 版本/授权未验证、Windows 图形使用权不明、属性仍为 `TBD`/`CONFLICT`、MAIN exception 缺乏书面依据，或画面暗示未包含的 package/配件，对应候选必须保持 `BLOCKED`，不得标为 Amazon-ready。
+
