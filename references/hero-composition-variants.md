@@ -46,13 +46,13 @@
 | Audience layer | Content/style layer | Allowed composition | Continuation mapping |
 | --- | --- | --- | --- |
 | Gaming | `G01–G06` + `C01–C06` | `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD` | 继续按 G 编号映射 `GG01–GG06` |
-| Business/Work | `B01–B06` | `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD` | 继续按 B 编号映射 `BG01–BG06` |
+| Business/Work | `B01–B11` | `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD` | 继续按 B 编号映射 `BG01–BG11` |
 | Student/Study | 中性学习 hero | 两种均可，按准确素材选择 | `NEUTRAL` |
 | General | 通用 Conversion Hero | 两种均可，按准确素材选择 | `NEUTRAL` |
 
 - `G01–G06` 的原创 genre、出屏主体和 IP 闸门不因侧向构图放宽。
 - `C01–C06` 的核心配置内容不因卡片移到画布侧面而改变。
-- `B01–B06` 的 Office/Copilot 权益闸门不因出现独立白色信息区而放宽。
+- `B01–B11` 的 Office/Copilot、AI 与安全权益闸门不因出现独立白色信息区而放宽。
 - PT02–PT08 的 `GG/BG` continuation pack 只跟 hero family 编号，不跟正向或侧向构图编号。
 
 ## 选择逻辑

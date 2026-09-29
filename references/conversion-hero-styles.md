@@ -1,6 +1,6 @@
 # MegaPC Conversion Hero Image Styles
 
-本文件规定两份增强主图与第一张辅助图的 feature callout、信息层级和可选视觉风格。它借鉴优秀 Amazon PC listing 的信息层级与缩略图可读性，但不复制 PCOnline 或其他卖家的图片、图标、壁纸、措辞、方框位置或独特构图。当产品被验证为 Gaming laptop/desktop，先用本文件确定产品居中和基础信息层级，再读取 [gaming-hero-styles.md](gaming-hero-styles.md) 选择一个 3D 游戏题材 add-on，并从 [gaming-core-badge-styles.md](gaming-core-badge-styles.md) 选择一套核心配置组合。Windows 11 Pro 固定 package 只确定性合成到正面与三分之四侧向两个增强主图；PT01 不重复 package。当产品被验证为 Business/Work，改读 [business-work-hero-styles.md](business-work-hero-styles.md) 并从 B01–B06 选择工作效率版式；Office/Copilot 元素必须通过准确 SKU 的权益闸门。
+本文件规定两份增强主图与第一张辅助图的 feature callout、信息层级和可选视觉风格。它借鉴优秀 Amazon PC listing 的信息层级与缩略图可读性，但不复制 PCOnline、IST Computers 或其他卖家的图片、图标、壁纸、措辞、方框位置或独特构图。当产品被验证为 Gaming laptop/desktop，先用本文件确定产品居中和基础信息层级，再读取 [gaming-hero-styles.md](gaming-hero-styles.md) 选择一个 3D 游戏题材 add-on，并从 [gaming-core-badge-styles.md](gaming-core-badge-styles.md) 选择一套核心配置组合。Windows 11 Pro 固定 package 只确定性合成到正面与三分之四侧向两个增强主图；PT01 不重复 package。当产品被验证为 Business/Work，改读 [business-work-hero-styles.md](business-work-hero-styles.md) 并从 B01–B11 选择工作效率版式；B07–B11 还须读取 [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md)。Office/Copilot/AI 元素必须通过准确 SKU 的权益闸门。
 
 增强主图的内容 style 与产品构图分开。完成本文件的信息层级后，必须读取 [hero-composition-variants.md](hero-composition-variants.md)，分别制作 `FRONT_SCREEN_CARD` 正面增强版和 `THREE_QUARTER_SIDE_CARD` 三分之四侧向增强版。PT01 可以延续其中一个准确产品角度和视觉世界，但要使用不同信息焦点并删除 Windows package。构图不能改变 audience、事实、权益或 continuation-pack 路由。
 

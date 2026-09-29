@@ -25,9 +25,11 @@ core-configuration compositions and enhanced-main Windows 11 Pro treatment. One 
 `CORE_SPEC_CLUSTER` counts as one feature card; all values must match the
 selected verified SKU.
 For a product verified as Business/Work, also read
-[business-work-hero-styles.md](business-work-hero-styles.md). Its B01–B06
+[business-work-hero-styles.md](business-work-hero-styles.md). Its B01–B11
 layouts may display Office or Copilot only after the exact SKU entitlement and
-approved brand assets pass the documented gates.
+approved brand assets pass the documented gates. B07–B11 and their complete
+BG07–BG11 continuation systems are defined in
+[business-laptop-gallery-styles.md](business-laptop-gallery-styles.md).
 For PT02–PT08 audience-specific scenes and narrative continuity, also read
 [supporting-gallery-styles.md](supporting-gallery-styles.md). The selected
 Gaming or Business continuation pack must match the PT01 hero family.
@@ -269,12 +271,12 @@ PT01 must not contain the package, a Windows text substitute, or a placeholder.
   logos, screenshots, maps, HUD, skins, signature props, vehicles, or trade
   dress. Keep at least 25% of the screen quiet and use no more than two feature
   cards when this add-on is active.
-- A verified Business/Work product must select one B01–B06 treatment from
+- A verified Business/Work product must select one B01–B11 treatment from
   `business-work-hero-styles.md`. Office and Copilot claims, icons, logos, and
   package visuals require exact-SKU entitlement evidence; unresolved elements
   are removed rather than inferred. `Lifetime Office` requires seller-approved
   wording and auditable evidence for that SKU.
-- PT02–PT08 must use the matching GG01–GG06 or BG01–BG06 pack from
+- PT02–PT08 must use the matching GG01–GG06 or BG01–BG11 pack from
   `supporting-gallery-styles.md`. Keep typography, card geometry, colors,
   lighting, and story world consistent; do not treat each slot as a random
   campaign. PT02 is the primary people scene, PT05 permits at most one

@@ -22,7 +22,8 @@ references/
   hero-composition-variants.md                Front-facing and three-quarter enhanced-MAIN composition layer
   gaming-hero-styles.md                       Six original 3D gaming hero add-ons
   gaming-core-badge-styles.md                 Six Gaming core-config compositions + enhanced-MAIN Windows rules
-  business-work-hero-styles.md                 Six Business/Work Office and Copilot treatments
+  business-work-hero-styles.md                 Business/Work hero routing and entitlement gates
+  business-laptop-gallery-styles.md            Five end-to-end minimalist Business laptop galleries
   supporting-gallery-styles.md                 Gaming/Business PT02-PT08 continuation packs
 assets/
   listing-workbook-template.xlsx              Listing workbook template
@@ -52,12 +53,17 @@ These treatments are for `PT01` or a separately gated enhanced-main candidate,
 never the default strict Amazon `MAIN`. Each Gaming hero also selects one of
 six core-configuration compositions from
 [`references/gaming-core-badge-styles.md`](references/gaming-core-badge-styles.md).
-Business/Work models instead select one of six productivity treatments from
+Business/Work models instead select one of eleven productivity treatments from
 [`references/business-work-hero-styles.md`](references/business-work-hero-styles.md)
 after the workflow verifies the exact Office/Copilot entitlement. The workflow
 records the audience evidence, confidence, and routing reason so Gaming,
 Business/Work, Student/Study, and General products do not silently share the
 wrong visual language.
+Business laptops may additionally select one of five complete B07–B11/BG07–BG11
+systems from
+[`references/business-laptop-gallery-styles.md`](references/business-laptop-gallery-styles.md),
+which emphasize collaboration tools, mobility, executive workflows, verified AI
+tools, or secure hybrid work across all three MAIN variants and PT01–PT08.
 Production creates both enhanced compositions from
 [`references/hero-composition-variants.md`](references/hero-composition-variants.md).
 The front and three-quarter variants map to every Gaming G/C family and every

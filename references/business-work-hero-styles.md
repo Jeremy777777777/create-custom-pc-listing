@@ -2,20 +2,20 @@
 
 本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 `Business/Work` 专用 style family。它让正面和三分之四侧向增强主图与 `PT01 Conversion Hero` 以工作效率、Office、协作与连接能力为视觉核心，同时保持电脑居中、事实可验证和软件权益不夸大。`MAIN-STRICT` 仍执行 [image-spec.md](image-spec.md) 的纯白主图规则；Windows 11 Pro 固定 package 只用于两个增强主图，PT01 不重复。
 
-B01–B06 全部支持 [hero-composition-variants.md](hero-composition-variants.md) 的 `FRONT_SCREEN_CARD` 与 `THREE_QUARTER_SIDE_CARD`。正向模式适合屏幕内工作信息层；侧向模式适合展示准确机身角度，并为增强主图在旁侧留出较小 Windows 11 Pro package。PT01 可复用角度但不放 package。构图不得改变 Office/Copilot 权益闸门或 BG continuation pack。
+B01–B11 全部支持 [hero-composition-variants.md](hero-composition-variants.md) 的 `FRONT_SCREEN_CARD` 与 `THREE_QUARTER_SIDE_CARD`。正向模式适合屏幕内工作信息层；侧向模式适合展示准确机身角度，并为增强主图在旁侧留出较小 Windows 11 Pro package。PT01 可复用角度但不放 package。构图不得改变 Office/Copilot 权益闸门或 BG continuation pack。
 
-PT01 选定 B01–B06 后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 使用同编号 BG01–BG06 continuation pack，使 Office、Copilot、会议、移动办公或学习到工作的主题贯穿整套辅助图库。
+PT01 选定 B01–B11 后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 使用同编号 BG01–BG11 continuation pack，使 Office、Copilot、会议、移动办公或学习到工作的主题贯穿整套辅助图库。
 
-B01–B06 内提到的 Windows package/tile placement 只适用于两个增强主图；同 style 的 PT01 必须删除它，并使用不同的已验证工作卖点或留白。
+B01–B11 内提到的 Windows package/tile placement 只适用于两个增强主图；同 style 的 PT01 必须删除它，并使用不同的已验证工作卖点或留白。
 
 ## 使用前提与自动路由
 
-只有 `audience_style_family = BUSINESS_WORK` 时使用 B01–B06。分类器必须先保存证据、置信度和理由；页面标题中的 “Business” 只能作为线索，不能单独定案。
+只有 `audience_style_family = BUSINESS_WORK` 时使用 B01–B11。分类器必须先保存证据、置信度和理由；页面标题中的 “Business” 只能作为线索，不能单独定案。
 
 | 分类 | 必须满足的证据 | 路由 |
 | --- | --- | --- |
 | `GAMING` | 已验证 OEM gaming 系列；或已验证独显与 `>=120 Hz` 显示组合；或准确 SKU 有其他强 gaming 定位证据 | 必须选 G01–G06 + C01–C06，并使用真实分层的 3D 出屏主体 |
-| `BUSINESS_WORK` | 已验证 business/pro 系列，或准确 SKU 有 Office 权益、Windows Pro、企业协作/安全/扩展能力等强工作证据；同时没有压倒性的 Gaming 证据 | 选 B01–B06 |
+| `BUSINESS_WORK` | 已验证 business/pro 系列，或准确 SKU 有 Office 权益、Windows Pro、企业协作/安全/扩展能力等强工作证据；同时没有压倒性的 Gaming 证据 | 选 B01–B11 |
 | `STUDENT_STUDY` | 准确 SKU 以学习/家庭作业为主要用途，且没有强 Gaming 或 Business 证据 | 使用中性学习风格；不得自动添加企业或 Gaming 元素 |
 | `GENERAL` | 证据不足以支持上述任一类 | 使用通用 Conversion Hero，不加 Office/Copilot/Gaming 专属视觉 |
 | `HYBRID_MANUAL_REVIEW` | Gaming 与 Business 强证据冲突、得分接近，或主要用途无法解释 | 阻断自动选型，等待人工决定 |
@@ -134,11 +134,23 @@ office_evidence: <source/reference>
 - 视觉：明亮蓝绿、柔和几何形、易读大字号，避免儿童化或企业安全暗示。
 - 禁止：未经验证的课程适用性、教育折扣、终身云服务或学校软件。
 
+## 五套完整 Business Laptop 图库扩展
+
+B07–B11 不只是单张 hero，而是从三种 MAIN 候选一直定义到 PT08 的完整图库系统。完整逐槽规则见 [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md)：
+
+- `B07 / BG07 — Clear Collaboration Suite`：摄像头、音频、无线与会议协作。
+- `B08 / BG08 — Connected Mobility Blueprint`：轻便移动、端口、续航与随处工作。
+- `B09 / BG09 — Executive Workflow Studio`：多任务、显示效率、键盘与专业连接。
+- `B10 / BG10 — AI Focus Workspace`：仅在证据充分时表达 NPU、AI PC 或 Copilot 能力。
+- `B11 / BG11 — Secure Hybrid Office`：仅用已验证的生物识别、隐私、管理或企业安全事实。
+
+这五套使用简约、工具导向的视觉语言；每个槽位回答不同购买问题，不允许用同一 CPU、RAM、SSD 或 OS 信息换版重复。
+
 ## 风格选择顺序
 
 1. 先完成 audience 分类；`HYBRID_MANUAL_REVIEW` 不自动出图。
 2. 检查 Office 和 Copilot 权益状态；任何 `TBD`/`CONFLICT` 元素从画面删除，不用占位猜测。
-3. 从 B01–B06 中选择最能表达已验证购买理由的一种，不按轮换随机选。
+3. 从 B01–B11 中选择最能表达已验证购买理由的一种，不按轮换随机选。
 4. 从 [hero-composition-variants.md](hero-composition-variants.md) 选择正向或侧向构图；没有准确、获授权的侧视产品素材时必须使用正向。
 5. 增强主图固定使用 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)；按版面选择屏幕安全区或产品旁独立安全区，不使用文字型 tile。PT01 的 Windows asset mode 固定为 `NONE`。
 6. 生成无品牌母版，再为增强主图后期确定性合成固定 Windows package 和获准的 OEM、Office 或 Copilot 原始资产；PT01 只合成适用的品牌资产，不合成 Windows package。增强主图若拥挤则减少次要信息、扩大留白或切换准确侧向构图，不能省略 package。
@@ -147,7 +159,7 @@ office_evidence: <source/reference>
 ## manifest 追加字段
 
 ```yaml
-business_style_id: B01|B02|B03|B04|B05|B06
+business_style_id: B01|B02|B03|B04|B05|B06|B07|B08|B09|B10|B11
 enhanced_front_main_composition_variant: FRONT_SCREEN_CARD
 enhanced_three_quarter_main_composition_variant: THREE_QUARTER_SIDE_CARD
 pt01_composition_variant: FRONT_SCREEN_CARD|THREE_QUARTER_SIDE_CARD
@@ -173,6 +185,7 @@ product_center_offset_pct: <number>
 ## 研究参考与边界
 
 - Amazon 示例 [B0HHW35XTL](https://www.amazon.com/dp/B0HHW35XTL) 与 [B0FJ7L453K](https://www.amazon.com/dp/B0FJ7L453K) 仅用于研究 Business 主图中 Office、Copilot 与工作卖点的视觉层级；不得复制图片、文案、独特构图或未经独立验证的规格。
+- [IST Computers Store](https://www.amazon.com/stores/ISTComputers/page/C7DDE592-B3BF-4748-883A-1988837CDED0) 及五个完整图库样本只用于研究购买问题覆盖、信息节奏与工作场景。对应 ASIN、逐图观察和原创化边界记录在 [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md)。
 - Office 当前产品名、一次性购买含义、设备数量与升级政策以 [Microsoft Office Home & Business 官方产品页](https://www.microsoft.com/en-us/microsoft-365/p/office-home-business-2021/CFQ7TTC0HPN4) 和 [Office 2024 / LTSC 2024 FAQ](https://support.microsoft.com/en-us/office/lifecycle/office-2024-and-office-ltsc-2024-faq) 为准。
 - Microsoft、Windows、Office、Copilot 与应用图标均按 [Microsoft Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks) 及适用的当前品牌资产指南使用；本文件不授予任何商标权。
 

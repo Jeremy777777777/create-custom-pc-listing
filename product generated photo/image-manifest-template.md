@@ -9,7 +9,7 @@
 - Profile reason: `<why this profile fits the verified product and licensed assets>`
 - `audience_style_family`: `<GAMING | BUSINESS_WORK | STUDENT_STUDY | GENERAL | HYBRID_MANUAL_REVIEW>`
 - Audience evidence / confidence / reason: `<verified evidence ledger>`
-- `hero_style_id`: `<G01-G06 | B01-B06 | NEUTRAL>`
+- `hero_style_id`: `<G01-G06 | B01-B11 | NEUTRAL>`
 - `enhanced_front_main_composition_variant`: `FRONT_SCREEN_CARD`
 - `enhanced_three_quarter_main_composition_variant`: `THREE_QUARTER_SIDE_CARD`
 - `pt01_composition_variant`: `<FRONT_SCREEN_CARD | THREE_QUARTER_SIDE_CARD>`
@@ -30,9 +30,13 @@
 - `outer_clear_space_review`: `<PASS | BLOCKED>`
 - `windows_package_non_overlap_review`: `<PASS | BLOCKED>`
 - `thumbnail_hierarchy_review`: `<PASS | BLOCKED>`
-- `supporting_gallery_pack`: `<GG01-GG06 | BG01-BG06 | NEUTRAL>`
+- `supporting_gallery_pack`: `<GG01-GG06 | BG01-BG11 | NEUTRAL>`
 - Gallery story reason: `<why the continuation pack fits verified buyer tasks>`
+- Business primary task: `<collaboration | mobility | executive workflow | verified AI workflow | secure hybrid work | other verified task>`
 - Benchmark references: `<information coverage only; no wording or assets reused>`
+- Benchmark store / ASINs: `<research inputs only; never product evidence>`
+- Originality review: `<PASS | BLOCKED>`
+- Slot distinctness review: `<PASS | BLOCKED>`
 - Final canvas / format: `<dimensions, encoding, RGB>`
 
 ## High-intent feature gate

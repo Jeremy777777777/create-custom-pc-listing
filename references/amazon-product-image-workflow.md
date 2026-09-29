@@ -6,7 +6,7 @@
 
 - 共同源记录：Listing 流程可以使用 MyStore ERP、Checking List 或两者，并按照 [input-source-cross-validation.md](input-source-cross-validation.md) 建立字段级证据账本。图片流程只继承 MyStore 产品 ID/URL、Checking List 行号、`VL-` 和映射状态等追踪信息，不重新解析标题或覆盖已核实属性。
 - 直接事实输入：该产品的最终 Listing 工作簿、Title、Bullets、Description、已验证 attributes、实际可售 RAM/SSD 选项、保修与定制披露、已确认随箱配件，以及每项事实的证据。只有 `VERIFIED` 信息可进入图片文案或视觉元素。
-- 图片规范：[image-spec.md](image-spec.md)。每批制作前读取当前版本，并同时读取 [image-style-profiles.md](image-style-profiles.md)、[conversion-hero-styles.md](conversion-hero-styles.md)、[hero-composition-variants.md](hero-composition-variants.md) 与 [supporting-gallery-styles.md](supporting-gallery-styles.md)；已验证 Gaming 产品还须读取 [gaming-hero-styles.md](gaming-hero-styles.md) 和 [gaming-core-badge-styles.md](gaming-core-badge-styles.md)，Business/Work 产品须读取 [business-work-hero-styles.md](business-work-hero-styles.md)。所有图片同时遵守 [compliance-rules.md](compliance-rules.md)。
+- 图片规范：[image-spec.md](image-spec.md)。每批制作前读取当前版本，并同时读取 [image-style-profiles.md](image-style-profiles.md)、[conversion-hero-styles.md](conversion-hero-styles.md)、[hero-composition-variants.md](hero-composition-variants.md) 与 [supporting-gallery-styles.md](supporting-gallery-styles.md)；已验证 Gaming 产品还须读取 [gaming-hero-styles.md](gaming-hero-styles.md) 和 [gaming-core-badge-styles.md](gaming-core-badge-styles.md)，Business/Work 产品须读取 [business-work-hero-styles.md](business-work-hero-styles.md)，选择 B07–B11 时还须读取 [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md)。所有图片同时遵守 [compliance-rules.md](compliance-rules.md)。
 - GitHub 交付根目录：[`product generated photo/`](../product%20generated%20photo/)。每个产品使用一个 `VL-<内部型号>/` 子目录，不把不同产品图片混放。
 - 照片素材：有商业使用权的 OEM/经销商媒体包图片，或卖家自行拍摄的实际机型照片。Amazon 竞品图片和网页图片只能作为研究参考，不能下载后裁剪、换色、描摹、拼贴或轻改用于自己的 Listing。
 
@@ -36,11 +36,11 @@
 | 用途 | 可调整的场景与视觉语气 | 不可越过的边界 |
 | --- | --- | --- |
 | Gaming laptop | 必须选择 G01–G06 和 C01–C06；PT01 必须具有与屏幕相连的真实分层 3D 出屏主体、遮挡、景深和 contact light | 不虚构 RGB、独显、刷新率、FPS、散热结构或游戏性能；不使用游戏人物、Logo、截图、地图、HUD 或标志性资产 |
-| Business/Work | 从 `business-work-hero-styles.md` 选择 B01–B06，按已验证权益突出 Office、Copilot、协作、连接或移动办公 | 不臆造软件权益、企业安全、续航、摄像头、扩展坞或认证；Office/Copilot 未验证时不得展示 |
+| Business/Work | 从 B01–B11 选择；B07–B11 提供简约、工具导向的完整 laptop gallery，按已验证事实突出协作、连接、移动办公、AI 或安全 | 不臆造软件权益、企业安全、续航、摄像头、扩展坞或认证；Office/Copilot/AI 未验证时不得展示 |
 | Student/Study | 书桌、图书馆、远程学习等整洁场景 | 不暗示未包含的软件、配件或未经证实的课程适用性 |
 | General | 产品本体与通用工作/学习场景 | 不为凑主题改变硬件外观或用途 |
 
-用途决定整个图库的场景、图标、人物、文案语气与光效。每个型号固定制作三份主图：`MAIN-STRICT.jpg` 保持纯白背景和无新增 overlay；`MAIN-ENHANCED-FRONT-CANDIDATE.jpg` 固定采用 `FRONT_SCREEN_CARD`；`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.jpg` 固定采用 `THREE_QUARTER_SIDE_CARD`。两个增强版都必须合成固定 Windows package，并保持同一 audience/style family。再按 [image-style-profiles.md](image-style-profiles.md) 为 PT01 选择 hero family：Gaming 使用 G01–G06 + C01–C06，Business/Work 使用 B01–B06；PT01 可延续增强主图题材但不得出现 Windows package。PT02–PT08 随后必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 选择同编号 continuation pack。取得可审计依据和人工批准前，两个增强版均不得替换严格 `MAIN.jpg`。PT01–PT08 必须使用与已验证底机制造商一致的官方或已授权 OEM Logo；具体合成按第 4 节执行。
+用途决定整个图库的场景、图标、人物、文案语气与光效。每个型号固定制作三份主图：`MAIN-STRICT.jpg` 保持纯白背景和无新增 overlay；`MAIN-ENHANCED-FRONT-CANDIDATE.jpg` 固定采用 `FRONT_SCREEN_CARD`；`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.jpg` 固定采用 `THREE_QUARTER_SIDE_CARD`。两个增强版都必须合成固定 Windows package，并保持同一 audience/style family。再为 PT01 选择 hero family：Gaming 使用 G01–G06 + C01–C06，Business/Work 使用 B01–B11；PT01 可延续增强主图题材但不得出现 Windows package。PT02–PT08 随后必须选择同编号 continuation pack；B07–B11/BG07–BG11 必须保持简约、工具导向并避免跨槽重复。取得可审计依据和人工批准前，两个增强版均不得替换严格 `MAIN.jpg`。
 
 ### 3. 制作三种主图 + 8 张附图（Amazon 仍为 9 个实际槽位）
 
@@ -51,7 +51,7 @@
 | 1A / `MAIN-STRICT` | Amazon 严格主图 | 纯白背景，真实产品完整正面、居中、0°；无文字、徽章、水印、图形 Logo、Windows package 或场景。只展示确认随箱附带的配件。 |
 | 1B / `MAIN-ENHANCED-FRONT-CANDIDATE` | 正面增强主图候选 | 固定使用正向产品构图，允许原创 Gaming/Business hero 和已验证卖点；必须确定性合成固定 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)，优先放屏幕安全区。拥挤时重构正面版面，不能省略 package。 |
 | 1C / `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 三分之四侧向增强主图候选 | 使用准确机型的授权三分之四产品素材，在独立侧边安全区或屏幕安全区确定性合成同一固定 Windows package；不得猜测接口、键盘、铰链或机身结构。 |
-| 2 / `PT01` | Conversion Hero / 屏幕卖点 | 选择 Gaming G01–G06 + C01–C06 或 Business B01–B06，可延续增强主图的题材、色彩和产品角度，但不得出现 Windows package、Windows 文字卡或占位图；用不同的视觉焦点避免与增强主图完全重复。 |
+| 2 / `PT01` | Conversion Hero / 屏幕卖点 | 选择 Gaming G01–G06 + C01–C06 或 Business B01–B11，可延续增强主图的题材、色彩和产品角度，但不得出现 Windows package、Windows 文字卡或占位图；用不同的视觉焦点避免与增强主图完全重复。 |
 | 3 / `PT02` | 使用场景 | 按 continuation pack 展示真实用途；可按需求加入 1–3 位授权或原创虚拟人物，并记录来源、角色和 synthetic-performer 元数据。 |
 | 4 / `PT03` | 完整规格/配置图 | 按 continuation pack 的 loadout/work grid 展示 CPU、显示、实际可售 RAM/SSD 档位与固定 OS；不使用人物。 |
 | 5 / `PT04` | 机身设计 | 使用准确机型的真实侧面/形态素材；genre/work 元素仅作边缘氛围，不得虚构内部结构或硬件外观。 |
