@@ -210,6 +210,8 @@ human approval are recorded.
 | **8** | `PT07` | Distinct unaddressed value | White or light + continuation accents | One verified theme not already owned by PT01–PT06; never a specification recap or reordered core-spec card set; use a restrained product scene if no additional claims are available |
 | **9** | `PT08` | Connectivity | White/light + continuation ecosystem | Verified rear/side ports and connectivity remain primary; contextual peripherals may not imply inclusion |
 
+`UNIVERSAL_GALLERY_DEDUP_RULE` applies to this slot map for every PC type and every audience/style family. Gaming, Business/Work, Student/Study, General, Hybrid and future profiles may change visual treatment only; they may not move full-configuration ownership away from PT03, turn PT05 into another configuration page, turn PT07 into a specification recap, or bypass the pairwise overlap gate.
+
 Reserve three-quarter views and multiple angles for PT images. Every displayed
 RAM or SSD option must be genuinely offered for the listing. Use a brief factual
 footer such as `Configuration varies by selected option` when several selectable

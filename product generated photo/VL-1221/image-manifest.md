@@ -4,9 +4,10 @@
 
 - `delivery_mode`: `FINAL_ASSET_DELIVERY`
 - `workflow_invocation_mode`: `IMAGE_ONLY_WORKFLOW`
-- `delivery_state`: `REWORK_REQUIRED`
+- `delivery_state`: `FINAL_ASSET_QA_PASS`
 - `candidate_semantics`: `COMPLETED_SELECTION_OPTION_NOT_DRAFT`
 - `final_image_count`: `11` (`3 MAIN + PT01-PT08`)
+- `universal_gallery_dedup_rule`: `PASS`
 - Product: HP Victus Gaming Laptop 15, 15.6-inch, black / Mica Silver chassis family
 - ERP source: `https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/31221`
 - Internal model: `VL-1221`
@@ -36,9 +37,9 @@
 | PT02 | `PT02.png` | Play/create/stream use case | Lower left | VERIFIED |
 | PT03 | `PT03.png` | Sole full core-system configuration grid | Upper left | VERIFIED; PRIMARY_CONFIGURATION_OWNER |
 | PT04 | `PT04.png` | Victus chassis and design | Lower right | VERIFIED |
-| PT05 | `PT05.png` | CPU → GPU → display pipeline | Upper left | REWORK_REQUIRED; repeats exact CPU/GPU/display facts from PT03 |
+| PT05 | `PT05.png` | Category-level Processing → Graphics → High-Refresh Display relationship | Upper left | VERIFIED; no full models or capacities repeated |
 | PT06 | `PT06.png` | What's included | Upper right | VERIFIED |
-| PT07 | `PT07.png` | Legacy light specification recap | Upper right | REWORK_REQUIRED; duplicates PT03 core configuration |
+| PT07 | `PT07.png` | MegaPC customization: memory options, storage options and upgrade service | Upper right | VERIFIED; DISTINCT_VALUE_OWNER |
 | PT08 | `PT08.png` | Connectivity overview | Lower right | VERIFIED |
 
 ## QA record
@@ -48,6 +49,6 @@
 - Both enhanced MAIN choices contain complete core information, real layered Gaming frame-break treatment and the fixed Windows 11 Pro package.
 - PT01 contains no Windows package; PT01–PT08 all contain the verified HP OEM Logo applied through deterministic compositing.
 - Product identity, configuration text, 1:1 dimensions, legibility and cross-slot style consistency were reviewed.
-- Cross-gallery duplicate QA: `FAIL`. PT03 correctly owns the complete configuration, but PT05 repeats the exact CPU/GPU/display details and PT07 repeats the same core configuration as a second recap. PT05 must be regenerated as a category-level performance relationship without full models/capacities; PT07 must be regenerated as one unused verified value or a restrained product scene.
-- Until PT05 and PT07 are replaced and pairwise semantic overlap is at or below 20%, this gallery must remain `REWORK_REQUIRED` and cannot be used as a compliant reference set for future generation.
+- Cross-gallery duplicate QA: `PASS`. PT03 is the sole complete-configuration owner; PT05 uses only category-level relationship labels and contains no full CPU/GPU models or RAM/SSD capacities; PT07 contributes a separate MegaPC customization/upgrade value and contains no core-spec recap.
+- Pairwise primary-information overlap for PT03/PT05/PT07 is below the universal 20% failure threshold. The set may be used as a compliant reference only together with `UNIVERSAL_GALLERY_DEDUP_RULE`; its Gaming visual treatment is not universal.
 - Enhanced MAIN production completion does not equal Amazon MAIN approval; account/category exception evidence and human approval remain required before selecting either enhanced file as the live MAIN.

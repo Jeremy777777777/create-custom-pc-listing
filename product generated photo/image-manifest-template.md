@@ -7,6 +7,7 @@
 - `delivery_state`: `<BLOCKED_BEFORE_PRODUCTION | IN_PRODUCTION | REWORK_REQUIRED | FINAL_ASSET_QA_PASS>`
 - `candidate_semantics`: `COMPLETED_SELECTION_OPTION_NOT_DRAFT`
 - `final_image_count`: `11` (`3 MAIN + PT01-PT08`; production records excluded)
+- `universal_gallery_dedup_rule`: `<REQUIRED | PASS | FAIL>` (mandatory for every PC audience/style family)
 - Internal model: `VL-<internal-model>`
 - Exact sold product: `<brand, model, form factor, color>`
 - Exact configuration / selectable tiers: `<verified values>`

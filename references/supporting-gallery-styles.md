@@ -56,6 +56,8 @@ identity_ip_review: PASS|BLOCKED
 
 ### 全图库信息归属与去重闸门
 
+本节是 `UNIVERSAL_GALLERY_DEDUP_RULE`，适用于 Gaming、Business/Work、Student/Study、General、Hybrid 以及未来新增的所有 PC 分类。受众判断只决定场景、人物、色彩、语气和视觉 treatment；不能改变下表的信息主槽、禁止重复项、20% 阈值或失败处置。本文和其他文件中的任何 style/pack 示例若与本节冲突，一律以本节为准。
+
 生成任何 PT 图片前，先在 manifest 建立 `Gallery Content Ownership Matrix`。每个客户可见事实或卖点只能有一个 `PRIMARY OWNER`；其他槽位可以承接视觉语言，但不能把同一组事实换标题、换图标或换卡片后再次呈现。
 
 | 内容 | 默认主槽 | 其他槽位规则 |

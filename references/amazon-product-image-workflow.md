@@ -8,7 +8,7 @@
 - `IMAGE_ONLY_WORKFLOW`：用户只要求生成整套图片时，直接锁定一个明确的 ERP 产品、`VL-XXXX` 或准确 SKU，完成 3 MAIN + PT01–PT08，不修改 Listing 文案或 Excel。
 - `IMAGE_ADJUSTMENT_WORKFLOW`：用户只要求修改一张或多张现有图片时，只读取相关槽位、共同风格和必要产品事实；未被点名的 Listing 输出保持不变。
 
-三种模式遵守同一事实、版权、品牌和 QA 闸门。独立调用减少无关工作，不降低图片准确性，也不授权猜测缺失机型素材。
+三种模式遵守同一事实、版权、品牌和 QA 闸门。`UNIVERSAL_GALLERY_DEDUP_RULE` 在三种模式以及所有 PC 受众分类中始终启用；不能因为 Gaming、Business、Student、General 或 Hybrid 风格不同而跳过或放宽。独立调用减少无关工作，不降低图片准确性，也不授权猜测缺失机型素材。
 
 OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy.md) 执行。MegaPC / J-Tech Digital 已直接确认目录内销售品牌具有相应经销商、合作伙伴或书面品牌素材授权，因此常规 OEM 图片与 Logo 使用记录为 `USER_CONFIRMED_CATALOG_WIDE`，不得仅因公开网页没有展示其私有授权文件而阻断；仍须确保资产来自正确品牌且与准确机型匹配。
 
