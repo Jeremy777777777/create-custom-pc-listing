@@ -2,7 +2,7 @@
 
 本文件把已确定的 Gaming 与 Business/Work 视觉语言从 `PT01 Conversion Hero` 延伸到 `PT02`–`PT08`。目标不是让每张图都像另一张主图，而是让整套图库形成连续的购买故事：先让客户感受真实用途，再解释配置、设计、性能、内含物、核心规格与连接能力。
 
-正式 `MAIN.jpg` 不使用本文件；它始终执行 [image-spec.md](image-spec.md) 的纯白主图规则。PT01 继续由 [gaming-hero-styles.md](gaming-hero-styles.md) 或 [business-work-hero-styles.md](business-work-hero-styles.md) 控制。本文件只负责后续辅助图。
+`MAIN-STRICT` 不使用本文件；它始终执行 [image-spec.md](image-spec.md) 的纯白主图规则。正面和三分之四侧向增强主图与 PT01 由 [gaming-hero-styles.md](gaming-hero-styles.md) 或 [business-work-hero-styles.md](business-work-hero-styles.md) 控制，其中 package 只在两个增强主图出现。本文件只负责后续辅助图。
 
 ## 研究结论与使用边界
 
@@ -25,7 +25,7 @@ manifest 至少记录：
 ```yaml
 audience_style_family: GAMING|BUSINESS_WORK|STUDENT_STUDY|GENERAL|HYBRID_MANUAL_REVIEW
 hero_style_id: G01|G02|G03|G04|G05|G06|B01|B02|B03|B04|B05|B06
-hero_composition_variant: FRONT_SCREEN_CARD|THREE_QUARTER_SIDE_CARD
+pt01_composition_variant: FRONT_SCREEN_CARD|THREE_QUARTER_SIDE_CARD
 supporting_gallery_pack: GG01|GG02|GG03|GG04|GG05|GG06|BG01|BG02|BG03|BG04|BG05|BG06|NEUTRAL
 gallery_story_reason: <why this pack fits verified buyer tasks and available assets>
 gallery_consistency_review: PASS|BLOCKED

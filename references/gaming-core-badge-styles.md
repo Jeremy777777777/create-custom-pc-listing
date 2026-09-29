@@ -1,12 +1,12 @@
 # Gaming Core Badge + Windows 11 Pro Styles
 
-本文件为 [gaming-hero-styles.md](gaming-hero-styles.md) 提供可组合的信息层。它专门解决 Gaming PC 主视觉中的两类内容：Windows 11 Pro 视觉证明，以及 CPU、GPU、RAM、SSD 等核心配置的缩略图级表达。它不是新的 MAIN 合规例外；默认输出仍是 `PT01_GAMING_HERO`。
+本文件为 [gaming-hero-styles.md](gaming-hero-styles.md) 提供可组合的信息层。它专门解决 Gaming PC 主视觉中的核心配置表达，并规定 Windows 11 Pro 固定 package 只用于增强主图。它不是新的 MAIN 合规例外；默认生产同时保留 `MAIN-STRICT`、正面增强主图、三分之四侧向增强主图和不含 package 的 `PT01_GAMING_HERO`。
 
-C01–C06 是信息组合层，不锁定产品角度。每个 C style 都必须支持 [hero-composition-variants.md](hero-composition-variants.md) 的 `FRONT_SCREEN_CARD` 与 `THREE_QUARTER_SIDE_CARD`。两种构图都必须合成同一个固定 Windows package；可等比放在屏幕安全区，也可放在产品旁独立安全区，但不得同时出现两个 package。
+C01–C06 是信息组合层，不锁定产品角度。每个 C style 都必须支持 [hero-composition-variants.md](hero-composition-variants.md) 的 `FRONT_SCREEN_CARD` 与 `THREE_QUARTER_SIDE_CARD`。增强主图必须合成同一个固定 Windows package；PT01 保留核心配置层但删除 package，并改用不同的 hero attribute 或信息重心。
 
 ## 1. 使用边界
 
-- Amazon 严格 `MAIN` 继续保持纯白背景、仅展示实际售卖产品，不添加规格字、Windows 卡、package、人物或装饰。以下样式默认用于 `PT01`；只有通过 `enhanced_main_candidate` 闸门后才可制作内部候选。
+- Amazon `MAIN-STRICT` 继续保持纯白背景、仅展示实际售卖产品，不添加规格字、Windows 卡、package、人物或装饰。以下样式可同时指导增强主图和 PT01；package 仅在增强主图出现，且增强版只有通过 `enhanced_main_candidate` 闸门后才可替换正式主图。
 - 电脑主体必须水平居中，中心偏差不超过画布宽度的 `2%`。信息层不能为了腾位置把产品推向一侧。
 - 优先把信息限制在屏幕可视区；若 package 与 hero/规格冲突，可重组整体结构并使用准确的侧向产品构图，在产品旁建立独立安全区。
 - 本模块叠加在 G01–G06 的原创场景上，不复制竞品的图标、卡片形状、配色、人物、壁纸或具体排版。
@@ -21,7 +21,7 @@ Windows 资产使用必须遵守 Microsoft 当前规则：准确的 `Windows 11 
 
 ## 3. Windows 11 Pro fixed package mode
 
-每张 PT01 固定使用 `FIXED_WINDOWS_11_PRO_PACKAGE`，资产路径为 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)。不得让生成模型临场发明 Windows 标志或盒装图，也不得改用文字卡、edition lockup 或 placeholder。
+正面与三分之四侧向两个增强主图都固定使用 `FIXED_WINDOWS_11_PRO_PACKAGE`，资产路径为 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)。不得让生成模型临场发明 Windows 标志或盒装图，也不得改用文字卡、edition lockup 或 placeholder。PT01 的 `os_asset_mode` 固定为 `NONE`。
 
 额外规则：
 
@@ -54,6 +54,8 @@ GeForce RTX 4060
 顶部标签只说明类别，第二行才显示事实。不得加入未经证实的 `Ultra Fast`、`Best Gaming`、FPS、benchmark、散热提升百分比或竞品比较。
 
 ## 5. 六套可组合设计
+
+以下 C01–C06 中的 Windows package placement 只适用于正面与三分之四侧向两个增强主图；PT01 保留 core configuration 结构，但完全删除 package 与其文字替代物。
 
 ### C01 — Command Deck + Box Rise
 
@@ -114,16 +116,16 @@ GeForce RTX 4060
 | 竞速/飞船动势 | C06 | C03 | 规格压住速度方向 |
 | 200 px 缩略图可读性 | C01 | C05 | 细小环绕文字 |
 
-无论选择 C01–C06 中哪一套，manifest 都要另外记录 `hero_composition_variant`。构图改变位置，不改变核心规格内容、Windows 授权模式或 G01–G06/GG01–GG06 的映射。
+无论选择 C01–C06 中哪一套，manifest 都要分别记录正面增强版、三分之四侧向增强版与 PT01 的 composition variant。构图改变位置，不改变核心规格内容或 G01–G06/GG01–GG06 的映射；两个增强主图记录固定 Windows 模式，PT01 记录 `NONE`。
 
 ## 7. Production sequence
 
 1. 核验准确底机外观、GPU、CPU、显示、RAM、SSD 和 Windows 11 Pro 交付证据。
 2. 先选 G01–G06，再选 C01–C06；两者必须使用上面的适配关系或记录偏离理由。
-3. 锁定 `os_asset_mode: FIXED_WINDOWS_11_PRO_PACKAGE` 和固定资产路径；选择屏幕或侧边安全区。
+3. 为增强主图锁定 `os_asset_mode: FIXED_WINDOWS_11_PRO_PACKAGE` 和固定资产路径，并选择屏幕或侧边安全区；为 PT01 锁定 `os_asset_mode: NONE`。
 4. 生成无品牌、无 Microsoft 商标的 base art；预留明确的 `CORE_SPEC_CLUSTER`、OEM Logo 和 package protected zones。若初稿拥挤，先重构版面再继续。
 5. 用确定性排版写入规格；逐字对照 evidence map，不让生成模型渲染最终文字。
-6. 最后合成获准的 OEM Logo 与固定 Windows package。不得让生成模型重画任何 Logo。
+6. 最后为增强主图合成获准的 OEM Logo 与固定 Windows package；为 PT01 只合成 OEM Logo，不合成 Windows package。不得让生成模型重画任何 Logo。
 7. 在 100% 和 200 px 两种尺寸检查产品居中、信息顺序、文字准确性、Windows 权利、遮挡和跨图一致性。
 
 ## 8. Manifest fields
@@ -137,8 +139,10 @@ gaming_core_badge:
     ram: <verified value>
     ssd: <verified value>
   display_callout: <verified value or null>
-  os_asset_mode: FIXED_WINDOWS_11_PRO_PACKAGE
-  windows_asset_source: assets/branding/windows-11-pro-package.png
+  enhanced_front_main_os_asset_mode: FIXED_WINDOWS_11_PRO_PACKAGE
+  enhanced_three_quarter_main_os_asset_mode: FIXED_WINDOWS_11_PRO_PACKAGE
+  enhanced_main_windows_asset_source: assets/branding/windows-11-pro-package.png
+  pt01_os_asset_mode: NONE
   windows_asset_rights_verified: true
   windows_preinstalled_verified: false
   windows_activated_verified: false

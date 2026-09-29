@@ -1,8 +1,8 @@
-# PT01 Hero Composition Variants
+# Enhanced MAIN and PT01 Composition Variants
 
-本文件只控制 `PT01 Conversion Hero` 的产品角度、留白和 Windows 11 Pro 卡片位置。它不改变 audience 分类、Gaming/Business 题材、核心规格、软件权益、图片 profile、品牌资产或 PT02–PT08 continuation pack。
+本文件控制两份增强主图的产品角度、留白和 Windows 11 Pro package 位置：`MAIN-ENHANCED-FRONT-CANDIDATE` 固定使用 `FRONT_SCREEN_CARD`，`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` 固定使用 `THREE_QUARTER_SIDE_CARD`。PT01 可复用任一准确产品角度，但不复用 package。本文件不改变 audience 分类、Gaming/Business 题材、核心规格、软件权益、图片 profile、品牌资产或 PT02–PT08 continuation pack。
 
-正式 Amazon `MAIN.jpg` 不使用本文件；MAIN 继续遵守纯白背景、无新增文字/卡片/人物/场景的规则。
+`MAIN-STRICT` 不使用本文件；它继续遵守纯白背景、无新增文字/卡片/人物/场景的规则。PT01 使用构图时必须删除 Windows package，并以不同卖点避免与增强主图重复。
 
 ## 两种已批准构图
 
@@ -29,9 +29,9 @@
 - 侧向素材必须来自卖家实拍或获商业使用权且与准确机型匹配的 OEM/经销商素材。不得让生成模型凭正面图猜测或重画端口、散热口、键盘、铰链、厚度和机身结构。
 - 缺少准确侧视素材时，将侧向候选标为 `BLOCKED` 并使用 `FRONT_SCREEN_CARD`。
 
-## Windows package 共同规则
+## 增强主图的 Windows package 共同规则
 
-- 每张 PT01 必须且只出现一个 Windows 11 Pro package，固定引用 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)。
+- 两份增强主图都必须且只出现一个 Windows 11 Pro package，固定引用 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)。`MAIN-STRICT` 和 PT01 均不得出现 package、文字替代卡或占位盒。
 - 卡片表达固定预装 OS，不得伪装成随箱零售盒、光盘、USB 或额外赠品。
 - 不允许文字卡、占位盒或现场生成的近似图。package 必须作为完整单元整体等比缩放，不裁切、不改色、不拆出 Logo 或壁纸。
 - 必须逐字显示 `Windows 11 Pro`，并与已验证 Listing、属性和交付配置一致。
@@ -58,23 +58,28 @@
 ## 选择逻辑
 
 1. 先确定 `audience_style_family`、`hero_style_id` 和适用的 Gaming core/Business 权益层。
-2. 若只有准确正向素材，或屏幕内信息层是首要购买理由，选择 `FRONT_SCREEN_CARD`。
-3. 若有准确授权的三分之四素材，且独立 Windows 区能提升可读性而不缩小产品，选择 `THREE_QUARTER_SIDE_CARD`。
+2. 正面增强版固定使用 `FRONT_SCREEN_CARD`。
+3. 侧向增强版固定使用 `THREE_QUARTER_SIDE_CARD`；缺少准确授权的三分之四素材时将该候选标记为 `TO SOURCE` 或 `BLOCKED`，不能以正向图替代或由模型猜测机身。
 4. 如果 Windows package、hero、标题、规格或产品无法同时满足安全区，优先删除次要装饰、减少 feature card、扩大留白或切换构图，不得叠压，也不得把 package 标为待处理后省略。
 5. 同一 parent listing 的 RAM/SSD 变体应共用构图；只有机身、屏幕尺寸、颜色或可用素材发生实质变化时才重新选择。
-6. 人工批准前，两种构图均保持 `PT01_CONVERSION_HERO`，不得替换严格 `MAIN`。
+6. 人工批准前，两种增强构图分别保持 `MAIN_ENHANCED_FRONT_CANDIDATE` 与 `MAIN_ENHANCED_THREE_QUARTER_CANDIDATE`，不得替换严格 `MAIN`；PT01 可复用角度但必须移除 package。
 
 ## Manifest 必填字段
 
 ```yaml
-hero_composition_variant: FRONT_SCREEN_CARD|THREE_QUARTER_SIDE_CARD
-product_view_angle: FRONT|THREE_QUARTER_LEFT|THREE_QUARTER_RIGHT
-product_view_source: <path/source and commercial-use basis>
-exact_model_visual_match: PASS|BLOCKED
-windows_package_asset: assets/branding/windows-11-pro-package.png
-windows_package_placement: SCREEN_SAFE_ZONE|CANVAS_SIDE_SAFE_ZONE
-windows_package_width_pct: <relative to screen or canvas, as applicable>
-windows_package_height_pct: <relative to screen or canvas; preserve aspect ratio>
+enhanced_front_main_composition_variant: FRONT_SCREEN_CARD
+enhanced_three_quarter_main_composition_variant: THREE_QUARTER_SIDE_CARD
+pt01_composition_variant: FRONT_SCREEN_CARD|THREE_QUARTER_SIDE_CARD
+enhanced_front_product_view_source: <path/source and commercial-use basis>
+enhanced_front_exact_model_visual_match: PASS|BLOCKED
+enhanced_three_quarter_product_view_angle: THREE_QUARTER_LEFT|THREE_QUARTER_RIGHT
+enhanced_three_quarter_product_view_source: <path/source and commercial-use basis>
+enhanced_three_quarter_exact_model_visual_match: PASS|TO_SOURCE|BLOCKED
+windows_package_asset: assets/branding/windows-11-pro-package.png # enhanced main only
+enhanced_front_windows_package_placement: SCREEN_SAFE_ZONE|CANVAS_SIDE_SAFE_ZONE
+enhanced_three_quarter_windows_package_placement: SCREEN_SAFE_ZONE|CANVAS_SIDE_SAFE_ZONE
+enhanced_front_windows_package_size_pct: <preserve aspect ratio>
+enhanced_three_quarter_windows_package_size_pct: <preserve aspect ratio>
 product_to_card_gap_pct: <required for side-card mode>
 outer_clear_space_review: PASS|BLOCKED
 windows_package_non_overlap_review: PASS|BLOCKED

@@ -1,10 +1,12 @@
 # Business / Work Conversion Hero Styles
 
-本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 `Business/Work` 专用 style family。它让 `PT01 Conversion Hero` 以工作效率、Office、Windows 11 Pro、协作与连接能力为视觉核心，同时保持电脑居中、事实可验证和软件权益不夸大。正式 Amazon `MAIN.jpg` 仍执行 [image-spec.md](image-spec.md) 的纯白主图规则；本文件仅用于 `PT01`，或通过独立 MAIN exception gate 的内部候选。
+本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 `Business/Work` 专用 style family。它让正面和三分之四侧向增强主图与 `PT01 Conversion Hero` 以工作效率、Office、协作与连接能力为视觉核心，同时保持电脑居中、事实可验证和软件权益不夸大。`MAIN-STRICT` 仍执行 [image-spec.md](image-spec.md) 的纯白主图规则；Windows 11 Pro 固定 package 只用于两个增强主图，PT01 不重复。
 
-B01–B06 全部支持 [hero-composition-variants.md](hero-composition-variants.md) 的 `FRONT_SCREEN_CARD` 与 `THREE_QUARTER_SIDE_CARD`。正向模式适合屏幕内工作信息层；侧向模式适合展示准确机身角度并在旁侧留出较小 Windows 11 Pro 卡。构图不得改变 Office/Copilot 权益闸门或 BG continuation pack。
+B01–B06 全部支持 [hero-composition-variants.md](hero-composition-variants.md) 的 `FRONT_SCREEN_CARD` 与 `THREE_QUARTER_SIDE_CARD`。正向模式适合屏幕内工作信息层；侧向模式适合展示准确机身角度，并为增强主图在旁侧留出较小 Windows 11 Pro package。PT01 可复用角度但不放 package。构图不得改变 Office/Copilot 权益闸门或 BG continuation pack。
 
 PT01 选定 B01–B06 后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 使用同编号 BG01–BG06 continuation pack，使 Office、Copilot、会议、移动办公或学习到工作的主题贯穿整套辅助图库。
+
+B01–B06 内提到的 Windows package/tile placement 只适用于两个增强主图；同 style 的 PT01 必须删除它，并使用不同的已验证工作卖点或留白。
 
 ## 使用前提与自动路由
 
@@ -83,7 +85,7 @@ office_evidence: <source/reference>
 适合 Office 权益已验证、以日常文档和商务工作为主的机型。
 
 - 屏幕：整洁的多窗口 productivity canvas，中心是准确 Office 产品名或 `One-time purchase`。
-- 信息层：底部使用最多四个已验证应用图标的细窄 dock；Windows 11 Pro package/tile 放右下。
+- 信息层：底部使用最多四个已验证应用图标的细窄 dock；增强主图把固定 Windows 11 Pro package 放右下安全区，PT01 留空或用于不同的已验证卖点。
 - 视觉：白底、海军蓝标题、克制的蓝色卡片阴影，强调“开机即可工作”的清晰感。
 - 禁止：未验证的应用、云存储容量、订阅权益或“永久免费升级”。
 
@@ -138,15 +140,17 @@ office_evidence: <source/reference>
 2. 检查 Office 和 Copilot 权益状态；任何 `TBD`/`CONFLICT` 元素从画面删除，不用占位猜测。
 3. 从 B01–B06 中选择最能表达已验证购买理由的一种，不按轮换随机选。
 4. 从 [hero-composition-variants.md](hero-composition-variants.md) 选择正向或侧向构图；没有准确、获授权的侧视产品素材时必须使用正向。
-5. 固定使用 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)；按版面选择屏幕安全区或产品旁独立安全区，不使用文字型 tile。
-6. 生成无品牌母版，再后期确定性合成固定 Windows package 以及获准的 OEM、Office 或 Copilot 原始资产。若拥挤则减少次要信息、扩大留白或切换准确侧向构图，不能省略 package。
+5. 增强主图固定使用 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)；按版面选择屏幕安全区或产品旁独立安全区，不使用文字型 tile。PT01 的 Windows asset mode 固定为 `NONE`。
+6. 生成无品牌母版，再为增强主图后期确定性合成固定 Windows package 和获准的 OEM、Office 或 Copilot 原始资产；PT01 只合成适用的品牌资产，不合成 Windows package。增强主图若拥挤则减少次要信息、扩大留白或切换准确侧向构图，不能省略 package。
 7. 在 100% 与缩略图尺寸下复核权益准确性、文字拼写、产品构图和视觉层级。
 
 ## manifest 追加字段
 
 ```yaml
 business_style_id: B01|B02|B03|B04|B05|B06
-hero_composition_variant: FRONT_SCREEN_CARD|THREE_QUARTER_SIDE_CARD
+enhanced_front_main_composition_variant: FRONT_SCREEN_CARD
+enhanced_three_quarter_main_composition_variant: THREE_QUARTER_SIDE_CARD
+pt01_composition_variant: FRONT_SCREEN_CARD|THREE_QUARTER_SIDE_CARD
 business_primary_task: <verified buyer task>
 hero_attribute: <verified claim>
 supporting_attributes:

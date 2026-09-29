@@ -1,22 +1,22 @@
 # MegaPC Gaming PC Hero Style Library
 
-本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 Gaming 专用 add-on。它把第一张辅助图 `PT01 Conversion Hero` 的准确产品、Windows 11 Pro 规格卡与已验证性能信息，扩展为原创的 3D 游戏氛围画面。核心配置和 Windows 的组合版式另从 [gaming-core-badge-styles.md](gaming-core-badge-styles.md) 选择 C01–C06。Business/Work 改用 [business-work-hero-styles.md](business-work-hero-styles.md)，不能混用本文件的人物、场景和光效。
+本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 Gaming 专用 add-on。它把准确产品与已验证性能信息扩展为原创的 3D 游戏氛围画面，可用于增强主图和 `PT01 Conversion Hero`。核心配置版式另从 [gaming-core-badge-styles.md](gaming-core-badge-styles.md) 选择 C01–C06；固定 Windows 11 Pro package 只出现在增强主图，PT01 不重复。Business/Work 改用 [business-work-hero-styles.md](business-work-hero-styles.md)，不能混用本文件的人物、场景和光效。
 
 一旦 `audience_style_family = GAMING`，PT01 必须选择 G01–G06 之一和 C01–C06 之一，并包含与屏幕相连的真实分层 `FRAME_BREAK_SUBJECT`；仅放一张游戏壁纸、霓虹背景或平面人物不算完成。若准确机身几何、素材权利或遮挡安全无法实现，标记 `BLOCKED` 交人工处理，不得自动退化为普通 Business/General 风格。
 
 PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 使用同编号 continuation pack：G01→GG01，G02→GG02，依此类推。这样人物、原创世界观、色彩和功能叙事在整套图库中连续，而不是只在 PT01 出现。
 
-每个 G01–G06 都可映射到 [hero-composition-variants.md](hero-composition-variants.md) 的两种 PT01 构图。`FRONT_SCREEN_CARD` 保留正向产品与屏幕内小型 Windows 卡；`THREE_QUARTER_SIDE_CARD` 使用准确三分之四产品素材并把较小 Windows 卡放在独立白色安全区。选择构图不改变 G 编号、原创 genre、C01–C06 核心配置或 GG01–GG06 continuation pack。
+每个 G01–G06 都可映射到 [hero-composition-variants.md](hero-composition-variants.md) 的两种构图。增强主图的 `FRONT_SCREEN_CARD` 将固定 Windows package 放入屏幕安全区；`THREE_QUARTER_SIDE_CARD` 使用准确三分之四产品素材并把 package 放在独立白色安全区。PT01 可延续相同角度和世界观，但不放 package。选择构图不改变 G 编号、原创 genre、C01–C06 核心配置或 GG01–GG06 continuation pack。
 
 ## 使用范围与主图闸门
 
 - `STRICT_MAIN`：Amazon 搜索结果正式主图。继续使用纯白背景、完整真实产品、无新增人物、游戏画面、文字、徽章、Windows package、粒子或 3D 出屏效果。
-- `PT01_GAMING_HERO`：默认使用位置。允许在屏幕及紧邻屏幕的产品范围内制作原创游戏场景、3D 出屏角色和克制光效，同时继承 `Centered Performance + Screen Package` 的产品居中与 Windows 11 Pro 规则。
-- `MAIN_ENHANCED_CANDIDATE`：仅供内部审核。只有当前账户/类目的可审计书面依据和人工批准都已记录，才能替换 `MAIN.jpg`；看到其他卖家使用类似图片不构成许可。
+- `MAIN_ENHANCED_FRONT_CANDIDATE` 与 `MAIN_ENHANCED_THREE_QUARTER_CANDIDATE`：分别输出正面和准确三分之四侧向的原创游戏场景、3D 出屏角色、已验证性能信息和固定 Windows 11 Pro package。只有当前账户/类目的可审计书面依据和人工批准都已记录，才能选择其中一份替换 `MAIN.jpg`；看到其他卖家使用类似图片不构成许可。
+- `PT01_GAMING_HERO`：允许延续相同视觉世界、准确产品与克制光效，但必须使用不同信息焦点，且不得出现 Windows package、Windows 文字卡或占位图。
 
-本库的 Gaming 效果是现有 Conversion Hero 的 add-on，而不是第二套无关版式：电脑主体、准确机型外观、屏幕层、性能信息、Windows 11 Pro 和 3D 场景必须在同一视觉层级中协作。
+本库的 Gaming 效果是同一产品图库的连续视觉语言，而不是互不相关的版式：电脑主体、准确机型外观、屏幕层、性能信息和 3D 场景必须协作；Windows 11 Pro package 只在增强主图加入。
 
-每个 Gaming hero 必须选择一个 `gaming_style_id`（G01–G06）和一个 `gaming_core_badge.style_id`（C01–C06）。一个最多含四个 micro cells 的 `CORE_SPEC_CLUSTER` 计为一张 feature card，因此仍遵守两张 feature-card 上限；Windows tile 另计，但不得成为第一视觉焦点。
+每个 Gaming hero 必须选择一个 `gaming_style_id`（G01–G06）和一个 `gaming_core_badge.style_id`（C01–C06）。一个最多含四个 micro cells 的 `CORE_SPEC_CLUSTER` 计为一张 feature card，因此仍遵守两张 feature-card 上限；增强主图的 Windows package 另计，但不得成为第一视觉焦点。
 
 ## 研究依据（2026-09-28）
 
@@ -61,11 +61,13 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 - 角色或载具最多跨越两条屏幕边；越过上边框的最高点不超过画布高度的 `6%`，不得触碰画布边缘。
 - 不遮挡摄像头位置、准确屏幕比例、铰链、键盘布局、数字键盘、触控板、接口和机身原生 Logo。
 - 画面最多一个主角或一个主载具；远景可有最多两个弱化剪影，不能形成“多人随箱内容”或喧宾夺主。
-- 屏幕环境至少保留 `25%` 的安静区域；3D add-on 启用后，feature cards 从最多三张降为最多两张，Windows 11 Pro 卡另计。
-- `Windows 11 Pro` 必须使用固定 package 素材；可等比放在屏幕安全区，也可在切换为准确侧向构图后放进独立侧边安全区。不得用 Glass OS Chip、文字卡或占位盒替代。
+- 屏幕环境至少保留 `25%` 的安静区域；3D add-on 启用后，feature cards 从最多三张降为最多两张；增强主图的 Windows 11 Pro package 另计。
+- 增强主图的 `Windows 11 Pro` 必须使用固定 package 素材；可等比放在屏幕安全区，也可在切换为准确侧向构图后放进独立侧边安全区。不得用 Glass OS Chip、文字卡或占位盒替代。PT01 禁止任何 Windows package。
 - 所有场景保持 PG-13 以内：无血液、伤口、尸体、恐怖特写、赌博、毒品、性暗示、仇恨符号或武器直指观众。
 
 ## 六种 Gaming add-on style
+
+以下 G01–G06 中的 Windows package/Windows 卡 placement 只适用于正面和三分之四侧向两个增强主图。PT01 复用题材时必须删除该元素，并把释放出的空间用于不同的已验证卖点或留白。
 
 ### G01 — Neon Tactical Breach
 
@@ -133,16 +135,16 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 2. Tactical/team play → `G01`；fantasy/MOBA/RPG → `G02`；battle royale/open map → `G03`；hero/mech/sci-fi → `G04`；sandbox/family/light gaming → `G05`；racing/high-refresh motion → `G06`。
 3. 无法确认目标玩家偏好时，默认 `G04 Cyber Mech Breakthrough`；它的原创空间最大，且不依赖具体游戏世界观。
 4. 同一 parent listing 的变体共用一个 Gaming style family。RAM/SSD 变化只更新已验证数字，不更换人物与世界观。
-5. 若 200 px 缩略图中电脑轮廓、角色剪影、hero attribute 或 Windows 11 Pro 任一无法辨认，先删除粒子和第二 feature card，再缩小角色；不能把电脑继续缩小。
+5. 增强主图若在 200 px 缩略图中电脑轮廓、角色剪影、hero attribute 或 Windows 11 Pro package 任一无法辨认，先删除粒子和第二 feature card，再缩小角色；不能把电脑继续缩小。PT01 只检查自身 hero 和不同卖点，不为 package 预留区域。
 
-6. G01–G06 不与构图绑定：两种 `hero_composition_variant` 均可使用。若侧视素材不能准确证明端口、机身和键盘，则自动回退正向构图并将侧向候选标为 `BLOCKED`。
+6. G01–G06 不与构图绑定：正面与三分之四侧向两个增强候选都使用同一 G/C family。若侧视素材不能准确证明端口、机身和键盘，正面版照常完成，侧向候选标为 `TO SOURCE` 或 `BLOCKED`，不得用第二张正面图冒充侧向版。
 
 ## 生成与合成顺序
 
 1. 锁定真实产品照片、准确屏幕四角、产品 mask、键盘/Logo/接口 protected zones。
 2. 先生成不含任何品牌、文字、产品机身和游戏 IP 的原创 `SCREEN_ENVIRONMENT` 与 `SUBJECT` 透明层。
 3. 用屏幕 mask 合成环境，用前后两个 subject mask 建立跨框遮挡；不得让生成模型重画真实电脑。
-4. 添加 feature cards 与 Windows 11 Pro treatment，并逐字校对规格。
+4. 添加 feature cards 并逐字校对规格；仅增强主图加入固定 Windows 11 Pro package，PT01 明确不加入。
 5. 最后按已有 OEM Logo 流程使用官方原始资产确定性合成；任何 Logo 不得由生成模型绘制。
 6. 以 100% 和 200 px 两种尺寸检查产品准确性、IP 相似性、文字、人物手部/面部、边缘遮挡、光影和压缩伪影。
 
@@ -151,7 +153,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 ```yaml
 audience_style_family: GAMING
 gaming_style_id: G01|G02|G03|G04|G05|G06
-hero_image_mode: PT01_GAMING_HERO|MAIN_ENHANCED_CANDIDATE
+hero_image_mode: PT01_GAMING_HERO|MAIN_ENHANCED_FRONT_CANDIDATE|MAIN_ENHANCED_THREE_QUARTER_CANDIDATE
 game_asset_mode: ORIGINAL_GENRE|LICENSED_GAME_CAMPAIGN
 genre_reference: <tactical / fantasy arena / battle royale / mech / sandbox / racing>
 popularity_research_date: YYYY-MM-DD
@@ -163,8 +165,11 @@ frame_edges_crossed: <TOP / LEFT / RIGHT / BOTTOM; maximum two>
 frame_break_area_pct: <must be <= 12>
 product_center_offset_pct: <absolute value must be <= 2>
 feature_cards: <maximum two when 3D add-on is enabled>
-windows_visual_style: <approved conversion-hero style>
-windows_placement: <screen anchor>
+enhanced_front_main_windows_visual_style: FIXED_WINDOWS_11_PRO_PACKAGE
+enhanced_front_main_windows_placement: <screen or canvas-side safe zone>
+enhanced_three_quarter_main_windows_visual_style: FIXED_WINDOWS_11_PRO_PACKAGE
+enhanced_three_quarter_main_windows_placement: <screen or canvas-side safe zone>
+pt01_windows_asset_mode: NONE
 license_evidence: NONE_REQUIRED_ORIGINAL|<licensed campaign evidence>
 ```
 

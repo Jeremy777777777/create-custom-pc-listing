@@ -40,16 +40,18 @@
 | Student/Study | 书桌、图书馆、远程学习等整洁场景 | 不暗示未包含的软件、配件或未经证实的课程适用性 |
 | General | 产品本体与通用工作/学习场景 | 不为凑主题改变硬件外观或用途 |
 
-用途决定整个辅助图库的场景、图标、人物、文案语气与光效。先按 [image-style-profiles.md](image-style-profiles.md) 选择基础排版，再为 PT01 选择 hero family：Gaming 使用 G01–G06 + C01–C06，Business/Work 使用 B01–B06。随后按 [hero-composition-variants.md](hero-composition-variants.md) 独立选择 `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD`；两种构图均可与所有 Gaming G/C 和 Business B 风格组合，侧向模式必须有准确机型的授权侧视素材。PT02–PT08 随后必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 选择同编号 continuation pack：G01 对应 GG01，以此类推；B01 对应 BG01，以此类推。PT02 是人物主要使用场景；PT05 只有在解释直播、多任务、会议或 AI 工作流时才加入最多一位次级人物；PT06 禁止人物与场景道具。严格 `MAIN` 仍遵守纯白背景和无新增 overlay、游戏人物或场景的默认规则。卖家明确确认账户/类目允许 package-style 或 3D enhanced main 时，可制作待审候选并记录确认日期与确认人，但取得可审计的当前规则依据和人工批准前不得替换 `MAIN.jpg`。PT01–PT08 必须使用与已验证底机制造商一致的官方或已授权 OEM Logo；具体合成按第 4 节执行。
+用途决定整个图库的场景、图标、人物、文案语气与光效。每个型号固定制作三份主图：`MAIN-STRICT.jpg` 保持纯白背景和无新增 overlay；`MAIN-ENHANCED-FRONT-CANDIDATE.jpg` 固定采用 `FRONT_SCREEN_CARD`；`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.jpg` 固定采用 `THREE_QUARTER_SIDE_CARD`。两个增强版都必须合成固定 Windows package，并保持同一 audience/style family。再按 [image-style-profiles.md](image-style-profiles.md) 为 PT01 选择 hero family：Gaming 使用 G01–G06 + C01–C06，Business/Work 使用 B01–B06；PT01 可延续增强主图题材但不得出现 Windows package。PT02–PT08 随后必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 选择同编号 continuation pack。取得可审计依据和人工批准前，两个增强版均不得替换严格 `MAIN.jpg`。PT01–PT08 必须使用与已验证底机制造商一致的官方或已授权 OEM Logo；具体合成按第 4 节执行。
 
-### 3. 制作 9 张主图库图片
+### 3. 制作三种主图 + 8 张附图（Amazon 仍为 9 个实际槽位）
 
-固定为 `MAIN`、`PT01`–`PT08`，不得换序、加槽或省略。某槽位所需事实或素材缺失时，在 manifest 中标为 `TO SOURCE`、`TO PRODUCE` 或 `BLOCKED`，不能用虚构内容填满。
+生产交付固定包含 `MAIN-STRICT`、`MAIN-ENHANCED-FRONT-CANDIDATE`、`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE`、`PT01`–`PT08`。Amazon 实际 gallery 仍使用一个 `MAIN` 槽；三份主图是供人工选择的替代方案，不能同时占用多个 MAIN 槽位。默认上传严格版；两个增强版只有通过 exception gate 后才可选用。某槽位所需事实或素材缺失时，在 manifest 中标为 `TO SOURCE`、`TO PRODUCE` 或 `BLOCKED`，不能用虚构内容填满。
 
 | 顺序 / 槽位 | 固定角色 | 制作要点 |
 | --- | --- | --- |
-| 1 / `MAIN` | 主图 | 纯白背景，真实产品完整正面、居中、0°；无文字、徽章、水印或图形 logo。只展示确认随箱附带的配件。 |
-| 2 / `PT01` | Conversion Hero / 屏幕卖点 | 先选 audience hero family，再选 `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD`。两种模式都必须合成固定的 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)：可等比放在屏幕安全区，也可放在产品旁独立安全区。若拥挤，先重组版面、减少次要信息或切换准确的侧向构图，不得删除 package 或降级为文字卡。`GAMING` 继续选 G01–G06 + C01–C06；`BUSINESS_WORK` 继续选 B01–B06。 |
+| 1A / `MAIN-STRICT` | Amazon 严格主图 | 纯白背景，真实产品完整正面、居中、0°；无文字、徽章、水印、图形 Logo、Windows package 或场景。只展示确认随箱附带的配件。 |
+| 1B / `MAIN-ENHANCED-FRONT-CANDIDATE` | 正面增强主图候选 | 固定使用正向产品构图，允许原创 Gaming/Business hero 和已验证卖点；必须确定性合成固定 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)，优先放屏幕安全区。拥挤时重构正面版面，不能省略 package。 |
+| 1C / `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 三分之四侧向增强主图候选 | 使用准确机型的授权三分之四产品素材，在独立侧边安全区或屏幕安全区确定性合成同一固定 Windows package；不得猜测接口、键盘、铰链或机身结构。 |
+| 2 / `PT01` | Conversion Hero / 屏幕卖点 | 选择 Gaming G01–G06 + C01–C06 或 Business B01–B06，可延续增强主图的题材、色彩和产品角度，但不得出现 Windows package、Windows 文字卡或占位图；用不同的视觉焦点避免与增强主图完全重复。 |
 | 3 / `PT02` | 使用场景 | 按 continuation pack 展示真实用途；可按需求加入 1–3 位授权或原创虚拟人物，并记录来源、角色和 synthetic-performer 元数据。 |
 | 4 / `PT03` | 完整规格/配置图 | 按 continuation pack 的 loadout/work grid 展示 CPU、显示、实际可售 RAM/SSD 档位与固定 OS；不使用人物。 |
 | 5 / `PT04` | 机身设计 | 使用准确机型的真实侧面/形态素材；genre/work 元素仅作边缘氛围，不得虚构内部结构或硬件外观。 |
@@ -64,7 +66,7 @@
 2. 生活场景中的产品本体应使用真实照片合成或严格参照许可素材。生成环境不得遮挡关键事实，也不得暗示额外随箱物品。
 3. 图中文字只来自已验证属性，并逐字校对型号、容量、单位、拼写和免责声明，特别区分实际配置与可选档位。
 4. 同一产品各图保持屏幕壁纸和机身颜色一致，不混用同系列其他尺寸、颜色或代际。
-5. `MAIN` 不添加任何图形 Logo、水印或卖家标识。实拍中机身原有 OEM 标识可自然保留，但不得在主图另加放大的 Logo 覆盖层。
+5. `MAIN-STRICT` 不添加任何图形 Logo、水印或卖家标识。实拍中机身原有 OEM 标识可自然保留，但不得在严格主图另加放大的 Logo 覆盖层。增强主图只可确定性合成获准的 OEM 与 Windows package 素材。
 6. `Centered Performance + Screen Package` 必须以电脑视觉包围框独立测量居中，水平偏差不超过画布宽度 2%，主体约占画布宽度 78%–86%。Windows 11 Pro 必须从固定仓库素材确定性合成并整体等比缩放，不得由生成模型重画。优先尝试屏幕右下安全区；若会压住 hero、角色或规格，可改用侧向产品构图和独立侧边安全区。屏幕内放置是可选方案，不是强制位置；任何方案都不得把 package 删除、裁切或改成文字卡。
 7. Gaming 图默认使用 `ORIGINAL_GENRE`：可研究 tactical、fantasy arena、battle royale、mech、sandbox 或 racing 等题材，但不得在提示或成品中复制游戏名称、人物、Logo、截图、地图、HUD、皮肤、标志性道具/载具或作品特有配色。只有书面授权覆盖该 Listing、渠道、地区和期限时，才可切换为 `LICENSED_GAME_CAMPAIGN` 并使用批准原始资产。
 8. Gaming 3D 出屏元素仍须与屏幕相连，越过屏幕的面积不得超过电脑视觉包围框的 12%，最多跨越两条屏幕边，且不得遮挡摄像头、铰链、键盘、触控板、OEM Logo、Windows 卡或已验证规格。电脑中心偏差仍须 `<= 2%`。
@@ -79,8 +81,8 @@
 
 ### 5. 尺寸、文件与质量检查
 
-- 图片为 1:1 方图：`MAIN` 内部目标至少 `2000 × 2000 px`；PT 图约 `1500–2000 px`。最终优先 JPG；生产中间件可保留 PNG，扩展名必须与真实编码一致。
-- 逐张检查分辨率、比例、清晰度、裁切、颜色/角度、文字、Logo/版权、配件、接口、跨图规格一致性和 Amazon 主图限制。PT01–PT08 每张都必须有与底机 OEM 相符的官方或已获准 Logo，不能拼错、变形、擅自改色、重绘，也不能覆盖或接触文字、线条、接口、产品和信息卡。检查应同时包含 100% 尺寸与缩略图视觉复核，并确认 Logo 最终外缘到画布边缘及 `protectedZones` 的距离不小于 `minimumClearancePx`。MAIN 不添加覆盖层，只核对机身自带标识是否真实自然。
+- 图片为 1:1 方图：三份 MAIN 内部目标至少 `2000 × 2000 px`；PT 图约 `1500–2000 px`。最终优先 JPG；生产中间件可保留 PNG，扩展名必须与真实编码一致。
+- 逐张检查分辨率、比例、清晰度、裁切、颜色/角度、文字、Logo/版权、配件、接口、跨图规格一致性和 Amazon 主图限制。PT01–PT08 每张都必须有与底机 OEM 相符的官方或已获准 Logo，不能拼错、变形、擅自改色、重绘，也不能覆盖或接触文字、线条、接口、产品和信息卡。检查应同时包含 100% 尺寸与缩略图视觉复核，并确认 Logo 最终外缘到画布边缘及 `protectedZones` 的距离不小于 `minimumClearancePx`。`MAIN-STRICT` 不添加覆盖层，只核对机身自带标识是否真实自然；增强主图的品牌资产按固定素材规则复核。
 - 对照最终 Listing 复查 RAM/SSD、OS、屏幕、接口和随箱配件。任何不一致都必须返回修改，不能用免责声明掩盖错误。
 
 ### 6. GitHub 目录、命名与交付闸门
@@ -90,7 +92,9 @@ create-custom-pc-listing/
 └── product generated photo/
     └── VL-<内部型号>/
         ├── image-manifest.md
-        ├── MAIN.jpg
+        ├── MAIN-STRICT.jpg
+        ├── MAIN-ENHANCED-FRONT-CANDIDATE.jpg
+        ├── MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.jpg
         ├── PT01.jpg
         ├── PT02.jpg
         ├── PT03.jpg

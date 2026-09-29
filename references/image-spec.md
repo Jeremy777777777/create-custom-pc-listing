@@ -3,7 +3,8 @@
 This reference governs the Amazon product-image gallery for customized PCs.
 Use it through the [dedicated image workflow](amazon-product-image-workflow.md),
 after the relevant listing facts have been verified in the main workflow.
-It covers only the nine-image product gallery. Image production is a separate
+It covers the nine-slot Amazon gallery plus two internal enhanced MAIN candidates.
+Image production is a separate
 task from the listing workbook and must not add,
 remove, rename, or populate workbook sheets unless the user explicitly asks.
 The selectable visual systems are defined in
@@ -12,15 +13,15 @@ styling and information hierarchy; it never changes the requirements below.
 For centered screen features and Windows 11 Pro package-style treatments, also
 read [conversion-hero-styles.md](conversion-hero-styles.md) and
 [hero-composition-variants.md](hero-composition-variants.md). The latter is an
-independent PT01 composition layer: every Gaming G/C and Business B family may
-use either the approved front-facing or three-quarter variant when the exact
-product-view evidence supports it.
+enhanced-main composition layer that PT01 may reuse without the Windows package:
+every Gaming G/C and Business B family produces the front-facing candidate and,
+when exact product-view evidence supports it, the three-quarter candidate.
 For a product verified as Gaming, additionally read
 [gaming-hero-styles.md](gaming-hero-styles.md). Its 3D characters, vehicles,
 environments, and effects are PT01 add-ons or separately gated enhanced-main
 candidates; they are never permitted on the default strict `MAIN`. Also read
 [gaming-core-badge-styles.md](gaming-core-badge-styles.md) for the six approved
-Windows 11 Pro and core-configuration compositions. One four-cell
+core-configuration compositions and enhanced-main Windows 11 Pro treatment. One four-cell
 `CORE_SPEC_CLUSTER` counts as one feature card; all values must match the
 selected verified SKU.
 For a product verified as Business/Work, also read
@@ -40,10 +41,13 @@ Amazon's current requirements override this internal production standard:
 
 ## Scope and internal gallery standard
 
-The standard gallery contains `MAIN` plus `PT01` through `PT08`. Amazon supports
-more PT variants, but these nine slots are the current MegaPC production
-standard. Their order is an internal workflow convention, not a promise that
-Amazon will display images in that order.
+The Amazon gallery contains one approved `MAIN` plus `PT01` through `PT08`.
+Production creates `MAIN-STRICT`, `MAIN-ENHANCED-FRONT-CANDIDATE`, and
+`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE`, but they are alternatives for the same
+MAIN slot and are never uploaded as multiple MAIN slots.
+Amazon supports more PT variants, but these nine live slots are the current
+MegaPC standard. Their order is an internal workflow convention, not a promise
+that Amazon will display images in that order.
 
 Amazon may select, arrange, or modify submitted images, including images
 contributed by multiple selling partners. Uploading an image does not guarantee
@@ -140,9 +144,10 @@ Do not add this tag when the image:
 
 This rule is especially relevant when producing the use-case scenes in `PT02`.
 
-## MAIN image requirements
+## Three MAIN variant requirements
 
-`MAIN` appears first on the detail page and in search results. It must:
+`MAIN-STRICT` is the default image that appears first on the detail page and in
+search results. It must:
 
 - accurately represent the real product's scale, quantity, color, and included
   components in a realistic, professional-quality image
@@ -167,8 +172,11 @@ part of an accurate photograph. Do not add or enlarge an OEM, seller, or other
 logo as a separate graphic.
 
 A Windows 11 Pro package, card, badge, feature label, or screen callout is not
-permitted in the default strict `MAIN`. An enhanced-main concept may be kept as
-an internal candidate. When the seller confirms that its current account or
+permitted in `MAIN-STRICT`. Two separate enhanced candidates must be produced:
+`MAIN-ENHANCED-FRONT-CANDIDATE` and
+`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE`. Both use the selected Gaming/Business
+visual family and the repository-fixed Windows 11 Pro package. When the seller
+confirms that its current account or
 category permits this treatment, record that confirmation and date in the
 manifest and produce the candidate for review; do not replace `MAIN.jpg` or
 mark the candidate Amazon-ready until auditable account/category evidence and
@@ -178,8 +186,10 @@ human approval are recorded.
 
 | Slot | Variant | Role | Background | Required content |
 |---|---|---|---|---|
-| **1** | `MAIN` | Hero | Pure white | Centered straight-on complete product; included accessories only; no overlay |
-| **2** | `PT01` | Conversion Hero / display | Selected profile + audience family + `FRONT_SCREEN_CARD` or `THREE_QUARTER_SIDE_CARD` | Product remains primary; use one hero attribute, verified supporting cards, and the required fixed Windows 11 Pro package in a protected screen or side zone. If crowded, restructure the composition rather than omitting it. Gaming 3D mode permits no more than two feature cards. |
+| **1A** | `MAIN-STRICT` | Default Amazon hero | Pure white | Centered straight-on complete product; included accessories only; no overlay, added logo, text, or Windows package |
+| **1B** | `MAIN-ENHANCED-FRONT-CANDIDATE` | Front enhanced hero candidate | Selected profile + audience family + `FRONT_SCREEN_CARD` | Accurate front view remains primary; use verified hero content and the fixed Windows 11 Pro package in a protected screen zone. If crowded, restructure rather than omit it. |
+| **1C** | `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | Three-quarter enhanced hero candidate | Selected profile + audience family + `THREE_QUARTER_SIDE_CARD` | Use an authorized exact-model angled source and the fixed Windows package in a protected screen or side zone; do not invent chassis geometry. |
+| **2** | `PT01` | Conversion Hero / display | Selected profile + audience family; may reuse an accurate approved product angle | Use a different verified purchase focus from the enhanced main. No Windows package, Windows text tile, or placeholder. Gaming 3D mode permits no more than two feature cards. |
 | **3** | `PT02` | Use cases | Selected profile + matching continuation pack | Product in one verified use story; 1–3 licensed or original synthetic people/characters only when they clarify the use case; apply metadata and IP review |
 | **4** | `PT03` | Full specifications / configuration | Selected profile + matching continuation pack | Audience-appropriate loadout/work grid with verified CPU, display, RAM/SSD tiers and OS; no people |
 | **5** | `PT04` | Design and form factor | Selected profile + matching continuation pack | Accurate product angles and verified design facts; narrative effects remain peripheral and may not invent internals or geometry |
@@ -221,7 +231,7 @@ OEM logo. Do not add store contact information, warranty advertisements, or
 sales claims. A genuine trademark already printed on the photographed chassis
 does not need to be removed.
 
-PT01 always uses the repository asset
+Both enhanced MAIN candidates always use the repository asset
 `assets/branding/windows-11-pro-package.png`. Composite it deterministically as
 one intact, proportionally scaled unit; do not crop, recolor, redraw, or replace
 it with a text-only tile, edition lockup, or placeholder. It may be placed in a
@@ -231,7 +241,8 @@ whitespace, or switch to an accurate authorized three-quarter product view.
 Never omit the package or mark it pending merely to preserve the first layout.
 The package is a preinstalled-OS visual label and must not imply that physical
 retail media is included. Record the OS evidence, placement, fixed asset path,
-package scale, non-overlap review, and product center offset.
+package scale, non-overlap review, and product center offset. `MAIN-STRICT` and
+PT01 must not contain the package, a Windows text substitute, or a placeholder.
 
 ## Internal visual style
 
@@ -240,15 +251,17 @@ package scale, non-overlap review, and product center offset.
   existing `navy-technical-v1` remains the default; the new
   `feature-led-studio-v1` is an additional option, not a replacement.
 - Record the selected profile and reason in `image-manifest.md`; use it
-  consistently across PT01–PT08. `MAIN` is profile-independent.
+  consistently across both enhanced MAIN candidates and PT01–PT08. `MAIN-STRICT` is
+  profile-independent.
 - Use bold, legible sans-serif headings and short factual feature cards.
 - Keep one consistent, non-promotional on-screen wallpaper across product views.
-- For `Centered Performance + Screen Package`, measure the computer separately
+- For enhanced-main `Centered Performance + Screen Package`, measure the computer separately
   from all overlays. Keep its horizontal center within 2% of the canvas center
   and use approximately 78%–86% of canvas width. Place the fixed package inside
   a clear screen zone when that layout works; otherwise change the overall
   composition and use the protected side zone. Do not overlap content or omit
-  the package to preserve a crowded front view.
+  the package to preserve a crowded front view. The paired PT01 must remove the
+  package and use a distinct verified information focus.
 - A verified Gaming product must add one G01–G06 treatment from
   `gaming-hero-styles.md`. Keep the screen environment, rear subject,
   frame-break subject, depth effects, and contact light as separate layers.
@@ -307,9 +320,10 @@ package scale, non-overlap review, and product center offset.
 - The overlay brand must match the verified physical OEM exactly. A mismatch is
   a blocking defect.
 - Every final PT01–PT08 file must contain that verified OEM logo. Missing logo,
-  unlicensed logo artwork, or an unsafe placement is a blocking defect. `MAIN`
-  remains exempt from added overlays and may show only the OEM mark physically
-  present on the genuine product.
+  unlicensed logo artwork, or an unsafe placement is a blocking defect.
+  `MAIN-STRICT` remains exempt from added overlays and may show only the OEM mark
+  physically present on the genuine product; the enhanced main uses only
+  approved deterministic brand assets.
 - Do not visually present the OEM as the listing seller or imply OEM approval of
   the customization.
 - Do not place `Customized by MegaPC`, seller warranty claims, merchant contact
@@ -330,7 +344,9 @@ package scale, non-overlap review, and product center offset.
 ## Separate image-task output format
 
 Deliver each product under `product generated photo/VL-<internal-model>/` with
-`MAIN` and `PT01`–`PT08` image files plus one `image-manifest.md`. The manifest
+`MAIN-STRICT`, `MAIN-ENHANCED-FRONT-CANDIDATE`,
+`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE`, and `PT01`–`PT08` image files plus one
+`image-manifest.md`. The manifest
 is the production record and must include, for every slot:
 
 - final repository-relative file path, or a production brief when not ready
@@ -338,9 +354,11 @@ is the production record and must include, for every slot:
 - licensed asset provenance and the verified product facts used in the image
 - any required AI-person metadata note
 
-Use the internal filenames `MAIN.jpg` and `PT01.jpg`–`PT08.jpg` in the GitHub
-product folder (or the matching real extension). Before Amazon bulk upload,
-export or rename copies to `ProductIdentifier.VARIANT.extension` as described
-above. Do not put production records in the listing workbook, and do not claim
-an Amazon-ready file path for an image that does not exist.
+Use internal filenames `MAIN-STRICT.jpg`, `MAIN-ENHANCED-FRONT-CANDIDATE.jpg`,
+`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.jpg`, and `PT01.jpg`–`PT08.jpg` in the
+GitHub product folder (or matching real extensions).
+Before Amazon bulk upload, copy the approved main variant to the required
+`ProductIdentifier.MAIN.extension` name and export PT files as described above.
+Do not put production records in the listing workbook, and do not claim an
+Amazon-ready file path for an image that does not exist.
 

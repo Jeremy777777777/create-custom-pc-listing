@@ -1,8 +1,8 @@
 # MegaPC Image Style Profiles
 
-本文件为同一套 `MAIN`、`PT01`–`PT08` 图片规范提供**可选择的视觉风格**。它只改变辅助图的视觉语言和信息层级，不改变槽位、事实、版权、品牌或 Amazon 合规要求。`MAIN` 在所有 profile 下都保持纯白背景、完整产品、无叠加文字或图形 Logo。
+本文件为同一套三种 MAIN 与 `PT01`–`PT08` 图片规范提供**可选择的视觉风格**。它只改变增强主图和辅助图的视觉语言与信息层级，不改变事实、版权、品牌或 Amazon 合规要求。`MAIN-STRICT` 在所有 profile 下都保持纯白背景、完整产品、无叠加文字或图形 Logo；正面与三分之四侧向两个增强主图使用同一 profile 视觉语言和固定 Windows package。
 
-基础 profile 与 PT01 构图是两个独立维度；`navy-technical-v1` 和 `feature-led-studio-v1` 都可以组合 `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD`，具体执行 [hero-composition-variants.md](hero-composition-variants.md)。
+基础 profile 与增强主图构图是两个独立维度；`navy-technical-v1` 和 `feature-led-studio-v1` 都可以组合 `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD`，具体执行 [hero-composition-variants.md](hero-composition-variants.md)。PT01 可复用准确角度，但不复用 Windows package。
 
 每个具体电脑型号必须在 `image-manifest.md` 顶部记录一个 `image_style_profile`。同一型号的 PT01–PT08 使用同一 profile；没有明确选择时使用 `navy-technical-v1`。不得在一套图库中逐张随机混用 profile。若受众被验证为 Gaming 或 Business/Work，还必须从 [supporting-gallery-styles.md](supporting-gallery-styles.md) 选择与 PT01 hero 同编号的 GG01–GG06 或 BG01–BG06 continuation pack；profile 控制基础排版，continuation pack 控制人物、场景和叙事。
 
@@ -25,11 +25,13 @@
 - 场景：商务、学习、创作或会议场景按产品事实选择。人物和道具只是使用语境，不能暗示未随箱提供的附件。
 - 卖点顺序：先回答“它是什么和为什么值得点击”，再展示 RAM/SSD 选项、核心平台、设计/显示、协作和连接。
 
-#### `feature-led-studio-v1` 的九图映射
+#### `feature-led-studio-v1` 的三种主图 + 八张附图映射
 
 | 槽位 | 原创信息任务 | 推荐表达 |
 | --- | --- | --- |
-| `MAIN` | 合规主图 | 与所有 profile 相同；纯白、单一完整产品、无文字/叠加 Logo |
+| `MAIN-STRICT` | 默认合规主图 | 与所有 profile 相同；纯白、单一完整产品、无文字/叠加 Logo/package |
+| `MAIN-ENHANCED-FRONT-CANDIDATE` | 正面增强主图候选 | 正面 profile hero + 固定 Windows package；未经 exception gate 不替换严格主图 |
+| `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 侧向增强主图候选 | 准确三分之四产品角度 + 同一 profile hero + 固定 Windows package；未经 exception gate 不替换严格主图 |
 | `PT01` | 购买理由总览 | 大产品视图 + 仅属于该准确机型的已验证 feature chips；`Webcam`、`Backlit Keyboard`、`FP Reader`、`Wi-Fi 6` 只是候选示例，缺少或未验证就完全删除，不补猜测 |
 | `PT02` | 真实用途 | 一个主要生活/工作场景 + 最多 3 个简短用途说明；不出现客户评价或性能保证 |
 | `PT03` | 配置选择 | 清楚分开实际可售 RAM 与 SSD 档位，再列 CPU、显示和固定 OS；使用 `Configuration varies by selected option` 等事实脚注 |
@@ -60,11 +62,11 @@
 
 - 所有文字和图标都必须对应 `VERIFIED` 属性；竞品页面只能提示“哪些字段值得研究”，不能证明本产品有该功能。
 - `Win 11 Pro` 是 MegaPC 当前全品类的固定展示字段，但必须先核验该销售配置实际预装、已正确授权并交付 Windows 11 Pro。它是固定 OS 规格，不是 RAM/SSD 之外的买家可选定制项。
-- PT01 必须确定性合成 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)，不得改成纯文字卡或占位图。若构图拥挤，调整信息密度、留白或产品角度；package 可等比放在屏幕内，也可放在产品旁独立安全区，但不能省略。
+- 两份增强主图都必须确定性合成 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)，不得改成纯文字卡或占位图。若构图拥挤，调整信息密度与留白；正面版保持正向，侧向版保持准确三分之四角度。package 可等比放在屏幕内，也可放在产品旁独立安全区，但不能省略。`MAIN-STRICT` 与 PT01 均不放 package。
 - `Webcam`、`Backlit Keyboard`、`FP Reader`、`Wi-Fi 6` 仅在准确机型和销售配置均已验证时出现。不存在或证据不足时删除相应 chip、标题词和图片文案。
 - 上述高意向功能没有最低数量，也不要求不同型号使用相同组合；每个型号都从自己的事实账本重新选择。
 - `PT01`–`PT08` 必须在生成后通过确定性后处理加入与已验证底机生产商一致的官方或已授权 OEM Logo。Logo 不得由生成模型重画；没有正确资产或没有安全位置时必须重做布局或将槽位标为 `BLOCKED`，不能无 Logo 交付。
-- `MAIN` 不额外叠加 Logo，以免违反 Amazon 主图规则；真实机身上原有的 OEM 标识可以自然保留。
+- `MAIN-STRICT` 不额外叠加 Logo，以免违反 Amazon 主图规则；真实机身上原有的 OEM 标识可以自然保留。增强主图的 OEM Logo 只能来自获准素材并确定性合成。
 - 不复制竞争对手的图片、截图、人物、图标、标题、描述、A+ 模块、配色组合或独特布局。本阶段不制作 A+ Content。
 - 人物与虚拟人物只按 `supporting-gallery-styles.md` 使用：PT02 是主要场景，PT05 最多一位次级人物，PT06 禁止人物。人物和外设不得遮挡产品或暗示未随箱提供的内容。
 - 风格选择不得改变 `image-spec.md`、`compliance-rules.md` 或 Amazon 当前图片要求的优先级。
