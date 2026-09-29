@@ -6,7 +6,7 @@
 
 - 共同源记录：Listing 流程可以使用 MyStore ERP、Checking List 或两者，并按照 [input-source-cross-validation.md](input-source-cross-validation.md) 建立字段级证据账本。图片流程只继承 MyStore 产品 ID/URL、Checking List 行号、`VL-` 和映射状态等追踪信息，不重新解析标题或覆盖已核实属性。
 - 直接事实输入：该产品的最终 Listing 工作簿、Title、Bullets、Description、已验证 attributes、实际可售 RAM/SSD 选项、保修与定制披露、已确认随箱配件，以及每项事实的证据。只有 `VERIFIED` 信息可进入图片文案或视觉元素。
-- 图片规范：[image-spec.md](image-spec.md)。每批制作前读取当前版本，并同时读取 [image-style-profiles.md](image-style-profiles.md)、[conversion-hero-styles.md](conversion-hero-styles.md) 与 [supporting-gallery-styles.md](supporting-gallery-styles.md)；已验证 Gaming 产品还须读取 [gaming-hero-styles.md](gaming-hero-styles.md) 和 [gaming-core-badge-styles.md](gaming-core-badge-styles.md)，Business/Work 产品须读取 [business-work-hero-styles.md](business-work-hero-styles.md)。所有图片同时遵守 [compliance-rules.md](compliance-rules.md)。
+- 图片规范：[image-spec.md](image-spec.md)。每批制作前读取当前版本，并同时读取 [image-style-profiles.md](image-style-profiles.md)、[conversion-hero-styles.md](conversion-hero-styles.md)、[hero-composition-variants.md](hero-composition-variants.md) 与 [supporting-gallery-styles.md](supporting-gallery-styles.md)；已验证 Gaming 产品还须读取 [gaming-hero-styles.md](gaming-hero-styles.md) 和 [gaming-core-badge-styles.md](gaming-core-badge-styles.md)，Business/Work 产品须读取 [business-work-hero-styles.md](business-work-hero-styles.md)。所有图片同时遵守 [compliance-rules.md](compliance-rules.md)。
 - GitHub 交付根目录：[`product generated photo/`](../product%20generated%20photo/)。每个产品使用一个 `VL-<内部型号>/` 子目录，不把不同产品图片混放。
 - 照片素材：有商业使用权的 OEM/经销商媒体包图片，或卖家自行拍摄的实际机型照片。Amazon 竞品图片和网页图片只能作为研究参考，不能下载后裁剪、换色、描摹、拼贴或轻改用于自己的 Listing。
 
@@ -40,7 +40,7 @@
 | Student/Study | 书桌、图书馆、远程学习等整洁场景 | 不暗示未包含的软件、配件或未经证实的课程适用性 |
 | General | 产品本体与通用工作/学习场景 | 不为凑主题改变硬件外观或用途 |
 
-用途决定整个辅助图库的场景、图标、人物、文案语气与光效。先按 [image-style-profiles.md](image-style-profiles.md) 选择基础排版，再为 PT01 选择 hero family：Gaming 使用 G01–G06 + C01–C06，Business/Work 使用 B01–B06。PT02–PT08 随后必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 选择同编号 continuation pack：G01 对应 GG01，以此类推；B01 对应 BG01，以此类推。PT02 是人物主要使用场景；PT05 只有在解释直播、多任务、会议或 AI 工作流时才加入最多一位次级人物；PT06 禁止人物与场景道具。严格 `MAIN` 仍遵守纯白背景和无新增 overlay、游戏人物或场景的默认规则。卖家明确确认账户/类目允许 package-style 或 3D enhanced main 时，可制作待审候选并记录确认日期与确认人，但取得可审计的当前规则依据和人工批准前不得替换 `MAIN.jpg`。PT01–PT08 必须使用与已验证底机制造商一致的官方或已授权 OEM Logo；具体合成按第 4 节执行。
+用途决定整个辅助图库的场景、图标、人物、文案语气与光效。先按 [image-style-profiles.md](image-style-profiles.md) 选择基础排版，再为 PT01 选择 hero family：Gaming 使用 G01–G06 + C01–C06，Business/Work 使用 B01–B06。随后按 [hero-composition-variants.md](hero-composition-variants.md) 独立选择 `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD`；两种构图均可与所有 Gaming G/C 和 Business B 风格组合，侧向模式必须有准确机型的授权侧视素材。PT02–PT08 随后必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 选择同编号 continuation pack：G01 对应 GG01，以此类推；B01 对应 BG01，以此类推。PT02 是人物主要使用场景；PT05 只有在解释直播、多任务、会议或 AI 工作流时才加入最多一位次级人物；PT06 禁止人物与场景道具。严格 `MAIN` 仍遵守纯白背景和无新增 overlay、游戏人物或场景的默认规则。卖家明确确认账户/类目允许 package-style 或 3D enhanced main 时，可制作待审候选并记录确认日期与确认人，但取得可审计的当前规则依据和人工批准前不得替换 `MAIN.jpg`。PT01–PT08 必须使用与已验证底机制造商一致的官方或已授权 OEM Logo；具体合成按第 4 节执行。
 
 ### 3. 制作 9 张主图库图片
 
@@ -49,7 +49,7 @@
 | 顺序 / 槽位 | 固定角色 | 制作要点 |
 | --- | --- | --- |
 | 1 / `MAIN` | 主图 | 纯白背景，真实产品完整正面、居中、0°；无文字、徽章、水印或图形 logo。只展示确认随箱附带的配件。 |
-| 2 / `PT01` | Conversion Hero / 屏幕卖点 | 按所选 profile 与 conversion hero style 排版；主体居中，1 个 hero、最多 3 个 supporting feature cards，加 Windows 11 Pro treatment。`GAMING` 必须选 G01–G06 + C01–C06，并使用分层 3D 出屏主体；整体最多 2 张 feature cards。`BUSINESS_WORK` 必须选 B01–B06，并只展示通过权益闸门的 Office/Copilot 内容。 |
+| 2 / `PT01` | Conversion Hero / 屏幕卖点 | 先选 audience hero family，再选 `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD`。正向模式使用屏幕内小型 Windows 11 Pro 卡；侧向模式把较小卡片放在产品旁的独立白色安全区。两种模式都必须保持产品第一视觉主体、Windows 卡次要且不遮挡。`GAMING` 继续选 G01–G06 + C01–C06；`BUSINESS_WORK` 继续选 B01–B06。 |
 | 3 / `PT02` | 使用场景 | 按 continuation pack 展示真实用途；可按需求加入 1–3 位授权或原创虚拟人物，并记录来源、角色和 synthetic-performer 元数据。 |
 | 4 / `PT03` | 完整规格/配置图 | 按 continuation pack 的 loadout/work grid 展示 CPU、显示、实际可售 RAM/SSD 档位与固定 OS；不使用人物。 |
 | 5 / `PT04` | 机身设计 | 使用准确机型的真实侧面/形态素材；genre/work 元素仅作边缘氛围，不得虚构内部结构或硬件外观。 |
@@ -106,3 +106,4 @@ create-custom-pc-listing/
 `image-manifest.md` 必须记录该型号的 `image_style_profile`、选择原因和 benchmark 研究边界，并逐槽位记录实际路径、状态、授权素材来源、产品事实来源及必要元数据说明。PT 图还必须记录核实后的制造商、Logo 文件路径与来源、允许使用的 listing 类型、合成脚本、`logo-placement.json` 和逐图验收结果。只有文件存在、PT01–PT08 均含正确 OEM Logo，并通过事实、版权、尺寸、内容和合规检查时，状态才可为 `VERIFIED`。缺图、缺正确 Logo 或 Logo 安全区失败时不得伪造路径或标记完成。
 
 最终按产品报告：源记录、`VL-<内部型号>` 目录链接、九个槽位状态、实际文件路径、缺失素材或权限、未解决事实问题、审核结果和下一步人工动作。只有九个槽位全部通过时才可标为 `IMAGE_READY_FOR_REVIEW`；这不等同于 Amazon 已批准或已发布。
+
