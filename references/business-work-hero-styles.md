@@ -2,6 +2,8 @@
 
 本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 `Business/Work` 专用 style family。它让 `PT01 Conversion Hero` 以工作效率、Office、Windows 11 Pro、协作与连接能力为视觉核心，同时保持电脑居中、事实可验证和软件权益不夸大。正式 Amazon `MAIN.jpg` 仍执行 [image-spec.md](image-spec.md) 的纯白主图规则；本文件仅用于 `PT01`，或通过独立 MAIN exception gate 的内部候选。
 
+B01–B06 全部支持 [hero-composition-variants.md](hero-composition-variants.md) 的 `FRONT_SCREEN_CARD` 与 `THREE_QUARTER_SIDE_CARD`。正向模式适合屏幕内工作信息层；侧向模式适合展示准确机身角度并在旁侧留出较小 Windows 11 Pro 卡。构图不得改变 Office/Copilot 权益闸门或 BG continuation pack。
+
 PT01 选定 B01–B06 后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 使用同编号 BG01–BG06 continuation pack，使 Office、Copilot、会议、移动办公或学习到工作的主题贯穿整套辅助图库。
 
 ## 使用前提与自动路由
@@ -135,14 +137,16 @@ office_evidence: <source/reference>
 1. 先完成 audience 分类；`HYBRID_MANUAL_REVIEW` 不自动出图。
 2. 检查 Office 和 Copilot 权益状态；任何 `TBD`/`CONFLICT` 元素从画面删除，不用占位猜测。
 3. 从 B01–B06 中选择最能表达已验证购买理由的一种，不按轮换随机选。
-4. 再从 [conversion-hero-styles.md](conversion-hero-styles.md) 选择 Windows 11 Pro treatment；正式商标或 package 使用权未记录时使用文字型 tile。
-5. 生成无品牌母版，再后期合成获准的 OEM、Windows、Office 或 Copilot 原始资产。
-6. 在 100% 与缩略图尺寸下复核权益准确性、文字拼写、产品居中和视觉层级。
+4. 从 [hero-composition-variants.md](hero-composition-variants.md) 选择正向或侧向构图；没有准确、获授权的侧视产品素材时必须使用正向。
+5. 再从 [conversion-hero-styles.md](conversion-hero-styles.md) 选择 Windows 11 Pro treatment；正式商标或 package 使用权未记录时使用文字型 tile。
+6. 生成无品牌母版，再后期合成获准的 OEM、Windows、Office 或 Copilot 原始资产。
+7. 在 100% 与缩略图尺寸下复核权益准确性、文字拼写、产品构图和视觉层级。
 
 ## manifest 追加字段
 
 ```yaml
 business_style_id: B01|B02|B03|B04|B05|B06
+hero_composition_variant: FRONT_SCREEN_CARD|THREE_QUARTER_SIDE_CARD
 business_primary_task: <verified buyer task>
 hero_attribute: <verified claim>
 supporting_attributes:
@@ -167,3 +171,4 @@ product_center_offset_pct: <number>
 - Amazon 示例 [B0HHW35XTL](https://www.amazon.com/dp/B0HHW35XTL) 与 [B0FJ7L453K](https://www.amazon.com/dp/B0FJ7L453K) 仅用于研究 Business 主图中 Office、Copilot 与工作卖点的视觉层级；不得复制图片、文案、独特构图或未经独立验证的规格。
 - Office 当前产品名、一次性购买含义、设备数量与升级政策以 [Microsoft Office Home & Business 官方产品页](https://www.microsoft.com/en-us/microsoft-365/p/office-home-business-2021/CFQ7TTC0HPN4) 和 [Office 2024 / LTSC 2024 FAQ](https://support.microsoft.com/en-us/office/lifecycle/office-2024-and-office-ltsc-2024-faq) 为准。
 - Microsoft、Windows、Office、Copilot 与应用图标均按 [Microsoft Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks) 及适用的当前品牌资产指南使用；本文件不授予任何商标权。
+
