@@ -31,6 +31,7 @@
 - 主色以白、暖灰、石墨灰、海军蓝、钴蓝为基础；每套 family 只使用一种次级强调色。
 - PT02 是主要人物场景；PT05 最多一位次级人物；PT06 无人物、无环境道具，只展示准确随箱物。
 - OEM Logo 只使用官方或获准资产确定性合成。Office、Copilot、处理器和其他第三方 Logo 仍执行各自权益与授权闸门。
+- 所有逐槽示例均受 [supporting-gallery-styles.md](supporting-gallery-styles.md) 的 `Gallery Content Ownership Matrix` 约束：PT03 集中完整销售配置，PT04 集中显示/机身事实，PT05 解释工作关系而不重列配置，PT07 只能使用一个尚未解释的独立价值。示例中可能使用的功能词只是候选，不得跨槽重复。
 
 ## B07 / BG07 — Clear Collaboration Suite
 
@@ -41,13 +42,13 @@
 | `MAIN-STRICT` | 共用严格白底规则。 |
 | `MAIN-ENHANCED-FRONT-CANDIDATE` | 正面大产品，屏幕保留干净协作画布；只突出一个已验证 collaboration hero；固定 Windows package 放屏幕安全区。 |
 | `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 准确侧向产品 + 独立小型 package 安全区；用轻量青色声波或连接线表达协作，不显示平台 UI。 |
-| `PT01` | `Workday Collaboration Essentials`：最多三个已验证项目，例如 webcam、privacy shutter、mic/speaker、Wi-Fi；无 Windows package。 |
+| `PT01` | `Workday Collaboration Essentials`：最多三个高层协作购买理由，不重列 PT04/PT08 的摄像头、音频、隐私或无线功能清单；无 Windows package。 |
 | `PT02` | 2–3 位混合办公人员的原创会议/共同演示场景；产品保持第一主体，界面抽象化。 |
-| `PT03` | `Clear Work Canvas`：显示尺寸、分辨率、亮度/防眩光和当前配置分区；未验证项删除。 |
-| `PT04` | 摄像头、隐私快门、麦克风孔位、扬声器或键盘的真实局部特写；最多三处标注。 |
+| `PT03` | 当前 CPU/GPU/RAM/SSD/OS 配置；准确区分 installed value 和 selectable tiers。 |
+| `PT04` | `Clear Work Canvas`：集中显示尺寸、分辨率、亮度/防眩光，并加入摄像头、隐私快门、扬声器或键盘的真实局部特写；最多三处标注，未验证项删除。 |
 | `PT05` | `Meet → Review → Share` 三步工作流；只使用已验证硬件/软件能力，不暗示服务订阅。 |
 | `PT06` | 纯白背景展示准确电脑、电源和实际随箱物。 |
-| `PT07` | 4–6 项 collaboration-ready 规格回顾；每项只出现一次。 |
+| `PT07` | Collaboration `Distinct Value Module`：选择一个 PT01–PT06 尚未解释的协作、输入或支持价值；没有新事实时使用克制产品情境图，不做规格回顾。 |
 | `PT08` | 真实端口、Wi-Fi、Bluetooth、摄像头/音频连接图；外接显示器、耳机或 dock 仅作非随箱语境。 |
 
 ## B08 / BG08 — Connected Mobility Blueprint
@@ -59,13 +60,13 @@
 | `MAIN-STRICT` | 共用严格白底规则。 |
 | `MAIN-ENHANCED-FRONT-CANDIDATE` | 正面产品 + 一个移动办公 hero；package 等比放屏幕下角，不添加密集规格条。 |
 | `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 侧向角度突出准确厚度、开合或端口侧；package 放相反侧留白区。 |
-| `PT01` | `Ready for the Workday`：CPU/RAM/SSD 与一个真实移动功能组成简洁四格；无 package。 |
+| `PT01` | `Ready for the Workday`：最多三个高层购买理由，不列完整 CPU/RAM/SSD 配置；无 package。 |
 | `PT02` | 一位工作者在共享空间、家庭办公室或差旅桌面使用产品；不写未经验证的全天续航。 |
-| `PT03` | 当前配置与显示能力；明确区分 installed value 和 selectable tiers。 |
-| `PT04` | 准确尺寸、重量、厚度、180° 铰链或充电方式；使用同机型多角度素材。 |
+| `PT03` | 当前 CPU/GPU/RAM/SSD/OS 配置；明确区分 installed value 和 selectable tiers。 |
+| `PT04` | 集中显示参数，以及准确尺寸、重量、厚度、180° 铰链或充电方式；使用同机型多角度素材。 |
 | `PT05` | `Open → Connect → Multitask` 工作路径；窗口为原创抽象卡，不复制软件 UI。 |
 | `PT06` | 白底准确随箱物。 |
-| `PT07` | 便携工作规格回顾：显示、重量、无线、键盘、安全或续航只选已验证项。 |
+| `PT07` | Mobility `Distinct Value Module`：从尚未解释的移动、输入或支持价值中选择一个；不重复显示、重量、无线或配置卡。 |
 | `PT08` | 双侧端口地图；位置、数量、协议和充电/视频能力逐项核验。 |
 
 ## B09 / BG09 — Executive Workflow Studio
@@ -77,13 +78,13 @@
 | `MAIN-STRICT` | 共用严格白底规则。 |
 | `MAIN-ENHANCED-FRONT-CANDIDATE` | 正面产品，屏幕内一张原创工作 dashboard + 一个 verified hero；固定 package 小型化放安全区。 |
 | `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 三分之四角度 + 简洁 executive card rail；package 与产品保持独立安全间距。 |
-| `PT01` | `Professional Core`：CPU、RAM、SSD、display 四项以内，使用严格对齐的细线网格；无 package。 |
+| `PT01` | `Professional Core`：最多三个高层专业购买理由，避免列出 PT03/PT04 将负责的完整配置和显示参数；无 package。 |
 | `PT02` | 一位管理/分析/创意人员在现代办公室查看原创图表或演示内容。 |
-| `PT03` | `More Room to Work`：显示比例、分辨率、防眩光、亮度与配置分区。 |
-| `PT04` | 键盘、触控板、摄像头、机身材料、尺寸或重量的准确设计图；不凑功能。 |
+| `PT03` | 当前 CPU/GPU/RAM/SSD/OS 配置；准确区分 installed value 和 selectable tiers。 |
+| `PT04` | `More Room to Work`：集中显示比例、分辨率、防眩光和亮度，并加入键盘、触控板、摄像头、机身材料、尺寸或重量的准确设计图；不凑功能。 |
 | `PT05` | `Plan → Analyze → Present` 多任务流程；只陈述硬件支持的真实任务，不写性能倍数。 |
 | `PT06` | 白底准确随箱物。 |
-| `PT07` | 海军蓝 executive recap，4–6 项事实；无排名、奖项或未经验证的 enterprise claim。 |
+| `PT07` | 海军蓝 executive `Distinct Value Module`：解释一个尚未使用的管理、输入、安全或支持价值；无规格 recap、排名、奖项或未经验证的 enterprise claim。 |
 | `PT08` | 端口、Thunderbolt/USB-C、Ethernet、无线与外接屏工作流；dock 未包含时明确语义隔离。 |
 
 ## B10 / BG10 — AI Focus Workspace
@@ -95,13 +96,13 @@
 | `MAIN-STRICT` | 共用严格白底规则。 |
 | `MAIN-ENHANCED-FRONT-CANDIDATE` | 正面产品 + 单一已验证 AI hero；固定 Windows package 保持次要，不使用机器人手或竞品芯片画面。 |
 | `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 准确侧向产品 + 原创抽象 AI workflow；package 放屏幕或外部安全区。 |
-| `PT01` | `AI-Ready Hardware`：CPU/NPU/RAM/SSD 中最多四项；准确区分 AI PC、Copilot key、Windows Copilot 与 Copilot+ PC。 |
+| `PT01` | `AI-Ready Hardware`：使用最多三个经过验证的高层 AI/工作购买理由，不列完整 CPU/NPU/RAM/SSD 配置；准确区分 AI PC、Copilot key、Windows Copilot 与 Copilot+ PC。 |
 | `PT02` | 一位工作者使用原创摘要、计划或会议行动项工作流；不显示真实客户数据。 |
-| `PT03` | 平台与显示规格；NPU/TOPS 只有准确 SKU 官方证据充分时出现。 |
-| `PT04` | 触控屏、Copilot key、IR camera 或其他 AI interaction hardware 的真实局部素材。 |
+| `PT03` | 当前 CPU/GPU/NPU/RAM/SSD/OS 配置；NPU/TOPS 只有准确 SKU 官方证据充分时出现。 |
+| `PT04` | 集中显示参数，以及触控屏、Copilot key、IR camera 或其他 AI interaction hardware 的真实局部素材。 |
 | `PT05` | `Input → Assist → Human Review → Finish`，强调人工复核，不承诺自动完成或付费权益。 |
 | `PT06` | 白底准确随箱物。 |
-| `PT07` | AI/work essentials recap；未验证的软件、云服务和模型能力完全删除。 |
+| `PT07` | AI/work `Distinct Value Module`：只解释一个尚未使用的已验证 AI interaction、review 或 support 价值；禁止 essentials recap，未验证的软件、云服务和模型能力完全删除。 |
 | `PT08` | 摄像头、麦克风、端口、无线如何支持 AI/会议工作；不暗示 Microsoft 365 Copilot 已包含。 |
 
 ## B11 / BG11 — Secure Hybrid Office
@@ -113,13 +114,13 @@
 | `MAIN-STRICT` | 共用严格白底规则。 |
 | `MAIN-ENHANCED-FRONT-CANDIDATE` | 正面产品 + 一个 verified security/hybrid-work hero；固定 Windows package 放屏幕安全区。 |
 | `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 准确侧向产品突出真实安全硬件或企业端口；package 放独立留白区。 |
-| `PT01` | `Work Tools You Can Verify`：从 fingerprint、IR camera、privacy shutter、TPM、backlit keyboard、Ethernet 中选择最多三项；无 package。 |
+| `PT01` | `Work Tools You Can Verify`：最多三个高层安全/混合办公购买理由，不与 PT04/PT08 重列同一功能清单；无 package。 |
 | `PT02` | 一位专业人士在办公室与远程空间间工作的真实场景；不使用公司 Logo 或客户背书。 |
-| `PT03` | 当前 CPU/RAM/SSD/display/Windows 配置，安全事实独立列出，不与容量混写。 |
-| `PT04` | 指纹区、摄像头/快门、键盘、锁孔、耐用认证或机身细节；只展示准确机型。 |
+| `PT03` | 当前 CPU/GPU/RAM/SSD/Windows 配置；安全事实不与容量混写。 |
+| `PT04` | 集中显示参数，以及指纹区、摄像头/快门、键盘、锁孔、耐用认证或机身细节；只展示准确机型。 |
 | `PT05` | `Sign in → Connect → Work → Lock` 原创流程；不得承诺防黑客、零风险或未验证管理能力。 |
 | `PT06` | 白底准确随箱物。 |
-| `PT07` | 混合办公与安全规格回顾；Windows Pro、TPM、认证和生物识别逐项核验。 |
+| `PT07` | Security `Distinct Value Module`：从尚未解释的安全、管理或支持价值中选择一个；禁止 Windows Pro、TPM、认证和生物识别的规格回顾式重排。 |
 | `PT08` | Ethernet、Wi-Fi、Bluetooth、USB-C/Thunderbolt、摄像头和麦克风连接图；外设不暗示随箱。 |
 
 ## 选择逻辑

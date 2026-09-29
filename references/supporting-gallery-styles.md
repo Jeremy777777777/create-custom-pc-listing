@@ -54,14 +54,39 @@ identity_ip_review: PASS|BLOCKED
 
 ## PT02–PT08 的共同信息任务
 
+### 全图库信息归属与去重闸门
+
+生成任何 PT 图片前，先在 manifest 建立 `Gallery Content Ownership Matrix`。每个客户可见事实或卖点只能有一个 `PRIMARY OWNER`；其他槽位可以承接视觉语言，但不能把同一组事实换标题、换图标或换卡片后再次呈现。
+
+| 内容 | 默认主槽 | 其他槽位规则 |
+| --- | --- | --- |
+| 完整 CPU/GPU 型号、RAM/SSD 容量、销售 OS | `PT03` | PT01 只可用不构成配置表的高层购买理由；PT05 只能使用 CPU/GPU 等类别名；PT07 禁止再次列出 |
+| 屏幕尺寸、分辨率、刷新率、键盘与准确机身特征 | `PT04` | PT05 可解释 `Display` 在流程中的作用，但不重列完整显示参数 |
+| 使用场景与人物叙事 | `PT02` | 其他槽位不得用同一场景和同一组用途文案填充 |
+| 性能因果关系或任务流程 | `PT05` | 不得伪装成第二张配置表；不重复完整型号、容量或三个以上 PT03/PT04 核心事实 |
+| 准确随箱物 | `PT06` | 其他槽位不得暗示环境外设随箱包含 |
+| 尚未解释的独立购买价值 | `PT07` | 必须从剩余已验证事实中选择；禁止固定规格回顾 |
+| 端口、无线与协作连接 | `PT08` | PT03/PT07 不再用 Wi-Fi、Bluetooth 或接口卡片填满版面 |
+
+`PT07` 按证据优先从以下方向选择一个：MegaPC 定制/升级与支持、输入与控制体验、安全、音频、散热、移动性、特殊认证或其他真实型号差异。保修、服务、升级能力或软件权益只有在当前销售配置的证据充分时才能使用。若没有足够的新事实，制作以准确产品为主体、文字克制的实际使用/氛围图；不得为了凑满槽位重复 PT03 的规格。
+
+生成后必须对 PT01–PT08 执行 OCR + 语义级去重，而不是只比较逐字文本：
+
+- 品牌名、准确产品型号和必要的导航标题不计入重复；客户可见规格、卖点和购买结论计入。
+- 同一完整 CPU/GPU/RAM/SSD/OS 组合只能出现在 PT03；同一完整显示参数组只能出现在 PT04。
+- PT05 同时重现完整 CPU 型号、GPU 型号和显示参数即失败；类别级 `CPU → GPU → Display` 可保留。
+- PT07 出现规格回顾、`Gaming Essentials`、核心规格卡重排，或没有新增独立信息即失败。
+- 任意两张 PT 的主要客户信息语义重合超过 20% 即失败；重新分配信息并重生成其中一张，不以改标题或换布局视为去重。
+- 每张 PT 必须在 manifest 写明 `unique_information_contribution`。没有新增信息的槽位不得标为 `VERIFIED` 或 `FINAL_ASSET_QA_PASS`。
+
 | 槽位 | 固定购买问题 | 人物使用 | 不可改变的事实闸门 |
 | --- | --- | --- | --- |
 | `PT02` | 客户实际会怎样使用它？ | 推荐；1–3 人或原创角色 | 场景必须与真实定位和已验证功能一致 |
-| `PT03` | 我买到哪种配置？ | 不使用 | 只列实际可售 CPU/GPU/RAM/SSD/显示/OS；选项差异清楚 |
-| `PT04` | 机身设计如何支持用途？ | 通常不使用 | 只用准确机型角度、尺寸、键盘、散热口或形态事实 |
-| `PT05` | 这些硬件怎样支持任务？ | 可选；最多 1 人 | 不编造 FPS、benchmark、续航、AI、散热或软件能力 |
+| `PT03` | 我买到哪种配置？ | 不使用 | 完整 CPU/GPU/RAM/SSD/OS 只在本槽集中出现；选项差异清楚 |
+| `PT04` | 显示与机身设计如何支持用途？ | 通常不使用 | 集中显示参数、准确机型角度、尺寸、键盘、散热口或形态事实 |
+| `PT05` | 这些硬件怎样协作支持任务？ | 可选；最多 1 人 | 解释关系而非重列型号/容量；不编造 FPS、benchmark、续航、AI、散热或软件能力 |
 | `PT06` | 包装里有什么？ | 禁止 | 白底，仅准确随箱物；无场景、无虚拟附件 |
-| `PT07` | 最关键规格是什么？ | 不使用 | 4–6 个已验证事实，保持变体一致 |
+| `PT07` | 还有哪一个尚未解释的购买价值？ | 默认不使用 | 只用未被其他 PT 主张的已验证主题；禁止规格回顾和核心规格卡重排 |
 | `PT08` | 如何连接与协作？ | 可选，小型背景人物 | 接口种类/数量、无线、摄像头、麦克风和安全功能逐项验证 |
 
 ## Gaming continuation packs
@@ -76,7 +101,7 @@ identity_ip_review: PASS|BLOCKED
 - `PT03`：`Mission Loadout Grid`，把准确 GPU/CPU/RAM/SSD 分成清晰的装备格，但不使用武器图标。
 - `PT04`：准确机身角度配 `Built for the Session`；散热口、键盘或显示只在验证后标注。
 - `PT05`：`Play + Stream + Communicate` 流程图；只有准确硬件和软件能力支持时启用直播/多任务语义。
-- `PT07`：高对比 tactical dashboard 规格回顾。
+- `PT07`：高对比 tactical 风格的 `Distinct Value Module`；从未使用的已验证价值中选择一个主题，不做规格 dashboard。
 - `PT08`：`Team Setup Connectivity`，用真实接口连接抽象耳机/鼠标/显示器轮廓，不暗示随箱。
 
 ### GG02 — Mythic Campaign Journey
@@ -86,8 +111,8 @@ identity_ip_review: PASS|BLOCKED
 - `PT02`：原创玩家与屏幕内 guardian 形成双层叙事，表达沉浸式 campaign/co-op；人物不越过产品保护区。
 - `PT03`：`Power Relics` 规格卡，只用抽象晶体框承载真实硬件数据。
 - `PT04`：以屏幕、音频、键盘和机身角度解释沉浸感，未验证项删除。
-- `PT05`：CPU/GPU/RAM/SSD 组成 `Adventure Pipeline`，不声明具体游戏帧率。
-- `PT07`：轻量符文环式规格回顾，符号必须原创、非语言、非游戏资产。
+- `PT05`：以 Processing → Graphics → Display 类别级关系组成 `Adventure Pipeline`；不重列完整型号/容量，也不声明具体游戏帧率。
+- `PT07`：轻量符文环式 `Distinct Value Module`，承载一个尚未解释的已验证价值；符号必须原创、非语言、非游戏资产。
 - `PT08`：连接能力用能量路径表达，但端口位置和数量必须对应实物。
 
 ### GG03 — Open-World Mobility
@@ -98,7 +123,7 @@ identity_ip_review: PASS|BLOCKED
 - `PT03`：`Drop Ready Configuration`，以垂直卡片呈现准确配置。
 - `PT04`：准确重量、尺寸、屏幕开合与机身设计；便携性只用事实说明。
 - `PT05`：游戏、内容创建与多任务三段式使用流，仅在平台能力有证据时使用。
-- `PT07`：城市地图感网格，但不能像 battle royale 地图或 UI。
+- `PT07`：城市地图感的 `Distinct Value Module`，只解释一个剩余购买价值；不能像 battle royale 地图或 UI，也不能重复配置卡。
 - `PT08`：展示随处连接的真实 Wi-Fi/端口能力；不使用未经验证的 5G 或电池 claim。
 
 ### GG04 — Mech Performance Lab
@@ -109,7 +134,7 @@ identity_ip_review: PASS|BLOCKED
 - `PT03`：`Core Systems` 模块化硬件面板。
 - `PT04`：`Chassis Engineering`，只能标注真实进/出风口、键盘与显示结构；禁止 AI 透视虚构内部零件。
 - `PT05`：以 CPU → GPU → Display 的渲染链解释体验；不写未经证实的 FPS 或倍数。
-- `PT07`：机库控制台风规格回顾。
+- `PT07`：机库控制台风 `Distinct Value Module`；优先使用有证据的定制/升级与支持或其他尚未解释的价值，禁止规格回顾。
 - `PT08`：`Battle Station Ready` 连接图；外设为线稿语境，不属于包装。
 
 ### GG05 — Friendly Sandbox Studio
@@ -117,10 +142,10 @@ identity_ip_review: PASS|BLOCKED
 对应 G05。明亮低多边形自然环境，适合轻度 Gaming、家庭与学生。
 
 - `PT02`：1–2 位学生/家庭玩家进行创造、探索或协作；无儿童定向销售暗示。
-- `PT03`：友好圆角卡片呈现 RAM/SSD/CPU/display。
+- `PT03`：友好圆角卡片集中呈现实际 CPU/GPU/RAM/SSD/OS；display 参数留给 PT04。
 - `PT04`：强调真实显示、键盘、摄像头或便携设计。
 - `PT05`：`Create + Learn + Play` 三任务故事，仅使用准确能力，不承诺课程或游戏兼容性。
-- `PT07`：浅色多边形规格回顾。
+- `PT07`：浅色多边形 `Distinct Value Module`；选择一个尚未解释的真实家庭/学习价值，不重排核心规格。
 - `PT08`：家庭学习与轻游戏连接生态；不把外设写成 included。
 
 ### GG06 — Racing Motion System
@@ -128,10 +153,10 @@ identity_ip_review: PASS|BLOCKED
 对应 G06。夜间赛道、速度光带和原创未来载具。
 
 - `PT02`：一位玩家处于非品牌化 sim/desk setup；方向盘只作环境道具并明确非随箱。
-- `PT03`：`Performance Telemetry` 卡片只显示真实硬件数据，不造 FPS、圈速或 benchmark。
+- `PT03`：`Performance Telemetry` 卡片集中显示实际 CPU/GPU/RAM/SSD/OS，不造 FPS、圈速或 benchmark；display 参数留给 PT04。
 - `PT04`：显示刷新率/响应时间、键盘与机身设计只在验证后强调。
 - `PT05`：GPU → Display motion pipeline，以抽象帧序列解释已验证高刷新显示。
-- `PT07`：仪表盘式规格回顾，不复制真实赛车 UI。
+- `PT07`：仪表盘式 `Distinct Value Module`，只解释一个未使用的真实控制/体验价值；不复制真实赛车 UI，不重复配置表。
 - `PT08`：真实 HDMI/USB/无线连接映射至抽象显示器和控制器轮廓。
 
 ## Business / Work continuation packs
@@ -143,10 +168,10 @@ identity_ip_review: PASS|BLOCKED
 对应 B01，适合 Office 权益已验证的日常商务电脑。
 
 - `PT02`：一位专业人士在整洁桌面完成文档、表格和演示工作；屏幕使用原创抽象工作画布。
-- `PT03`：`Workday Configuration`，清楚列实际 CPU/RAM/SSD/display/Windows 与 Office 权益。
+- `PT03`：`Workday Configuration`，清楚列实际 CPU/GPU/RAM/SSD/Windows 与已验证 Office 权益；display 参数留给 PT04。
 - `PT04`：产品形态、键盘、数字键盘、显示或便携设计。
 - `PT05`：`Draft → Analyze → Present` 工作流；应用名称/图标仅在授权与权益均验证时出现。
-- `PT07`：简洁 Office-style 规格回顾。
+- `PT07`：简洁 Office-style `Distinct Value Module`；只解释一个尚未使用且已验证的定制、支持或工作价值，不做规格回顾。
 - `PT08`：桌面连接和外接显示工作流；外设不暗示随箱。
 
 ### BG02 — Copilot Productivity Flow
@@ -157,7 +182,7 @@ identity_ip_review: PASS|BLOCKED
 - `PT03`：硬件与系统规格网格，Copilot 只作已验证功能标签。
 - `PT04`：若物理 Copilot key 已验证，可用准确键盘局部实拍；不能让 AI 重画键盘。
 - `PT05`：`Prompt → Review → Finish` 抽象流程，不显示真实机密数据或复制 Microsoft UI。
-- `PT07`：蓝紫玻璃卡规格回顾。
+- `PT07`：蓝紫玻璃卡 `Distinct Value Module`；只承载一个尚未解释的已验证 AI/工作价值，不重复平台规格。
 - `PT08`：连接、摄像头和麦克风支持 AI/会议工作的场景；不暗示 Microsoft 365 Copilot 许可。
 
 ### BG03 — Executive Control Center
@@ -168,7 +193,7 @@ identity_ip_review: PASS|BLOCKED
 - `PT03`：`Executive Spec Grid`，核心配置和 Windows Pro 分层清楚。
 - `PT04`：准确机身、端口、键盘、显示和耐用性事实；认证未验证则删除。
 - `PT05`：多任务和数据工作流，只表达硬件/系统证据支持的能力。
-- `PT07`：海军蓝与细金线规格回顾。
+- `PT07`：海军蓝与细金线 `Distinct Value Module`；从剩余管理、输入、安全或支持价值中选择一个，不做 executive spec recap。
 - `PT08`：扩展坞/多屏/网络连接仅在接口和配件语义明确时展示。
 
 ### BG04 — Hybrid Collaboration Day
@@ -179,7 +204,7 @@ identity_ip_review: PASS|BLOCKED
 - `PT03`：配置与 collaboration features 分区。
 - `PT04`：摄像头、隐私快门、麦克风或扬声器只用准确产品局部素材。
 - `PT05`：`Meet → Co-create → Share` 流程；云服务和订阅未验证时不写品牌。
-- `PT07`：明亮浅色规格回顾。
+- `PT07`：明亮浅色 `Distinct Value Module`；使用一个尚未解释的协作或支持价值，不重复连接与配置卡。
 - `PT08`：Webcam/mic/Wi-Fi/ports 的协作连接图，数量与版本逐项核对。
 
 ### BG05 — Mobile Professional
@@ -190,7 +215,7 @@ identity_ip_review: PASS|BLOCKED
 - `PT03`：轻量配置栈，突出准确 RAM/SSD 档位。
 - `PT04`：重量、厚度、屏幕开合、充电方式和端口只展示已验证事实。
 - `PT05`：`Desk → Meeting → Travel` 使用路径，不承诺全天续航。
-- `PT07`：简洁移动工作规格回顾。
+- `PT07`：简洁移动工作 `Distinct Value Module`；选择一个未使用的移动/输入/支持价值，不重复 PT03/PT04/PT08。
 - `PT08`：真实端口与无线能力连接到抽象办公生态；dock 未包含时加语义隔离。
 
 ### BG06 — Student-to-Career
@@ -198,10 +223,10 @@ identity_ip_review: PASS|BLOCKED
 对应 B06，适合学习、家庭办公与入门商务。
 
 - `PT02`：一位学生或早期职业用户在书桌上学习和完成项目；人物不得儿童化。
-- `PT03`：清楚展示适售 RAM/SSD/CPU/display/Windows 与已验证 Office 权益。
+- `PT03`：清楚展示适售 CPU/GPU/RAM/SSD/Windows 与已验证 Office 权益；display 参数留给 PT04。
 - `PT04`：键盘、摄像头、显示和便携性。
 - `PT05`：`Learn → Create → Present` 工作流，不承诺学校课程、考试软件或教育服务兼容性。
-- `PT07`：明亮蓝绿规格回顾。
+- `PT07`：明亮蓝绿 `Distinct Value Module`；选择一个未使用的学习、家庭或支持价值，不重排核心规格。
 - `PT08`：学习、会议和家庭办公连接场景；外设保持非随箱语义。
 
 ### BG07–BG11 — End-to-End Business Laptop Packs

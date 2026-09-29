@@ -34,11 +34,11 @@
 | `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 侧向增强主图候选 | 准确三分之四产品角度 + 同一 profile hero + 固定 Windows package；未经 exception gate 不替换严格主图 |
 | `PT01` | 购买理由总览 | 大产品视图 + 仅属于该准确机型的已验证 feature chips；`Webcam`、`Backlit Keyboard`、`FP Reader`、`Wi-Fi 6` 只是候选示例，缺少或未验证就完全删除，不补猜测 |
 | `PT02` | 真实用途 | 一个主要生活/工作场景 + 最多 3 个简短用途说明；不出现客户评价或性能保证 |
-| `PT03` | 配置选择 | 清楚分开实际可售 RAM 与 SSD 档位，再列 CPU、显示和固定 OS；使用 `Configuration varies by selected option` 等事实脚注 |
-| `PT04` | 设计与形态 | 产品侧面/开合/支架/尺寸等真实设计信息；尺寸、重量和颜色必须逐项核验 |
-| `PT05` | 平台与性能 | 以 CPU 为主角，辅以 RAM/SSD 和固定预装 OS；只写官方规格，不使用未经验证的 benchmark 或比较 |
+| `PT03` | 唯一完整配置页 | 集中列出实际销售配置的 CPU、GPU、RAM、SSD 与 OS；存在可售档位时清楚区分并使用事实脚注。其他 PT 不再重列这组完整型号和容量。 |
+| `PT04` | 显示、设计与形态 | 集中承载屏幕尺寸、分辨率、刷新率以及经验证的产品侧面、开合、键盘、尺寸或颜色；不重复 CPU/RAM/SSD 配置表。 |
+| `PT05` | 性能关系 | 用 Processing → Graphics → Display 或对应工作流解释硬件如何协作；允许使用 CPU/GPU/Display 类别名，但不重列完整处理器/GPU型号、RAM/SSD容量或另一张配置表，不使用未经验证的 benchmark 或比较。 |
 | `PT06` | 包装内含物 | 白底平铺，只展示确实随该 SKU 提供的电脑、电源及附件 |
-| `PT07` | 快速规格回顾 | 4–6 个浅色规格卡；优先 CPU、显示、RAM、SSD、无线和 `Win 11 Pro` |
+| `PT07` | 独立购买价值 | 从尚未在 PT01–PT06 使用且有证据的定制/升级与支持、输入体验、安全、音频、散热、移动性或其他型号差异点中选择一个主题；禁止 `Specification Recap`、`Gaming Essentials` 和核心规格卡重排。没有足够新事实时使用产品主导的情境图，不以重复规格填充。 |
 | `PT08` | 协作与连接 | 真实接口/背面图 + 经验证的 Webcam、麦克风、键盘、安全或无线能力；接口数量必须与实物一致 |
 
 ## 针对具体型号选择 profile

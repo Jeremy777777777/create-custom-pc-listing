@@ -203,11 +203,11 @@ human approval are recorded.
 | **1C** | `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | Three-quarter enhanced hero candidate | Selected profile + audience family + `THREE_QUARTER_SIDE_CARD` | Use an authorized exact-model angled source and the fixed Windows package in a protected screen or side zone; do not invent chassis geometry. |
 | **2** | `PT01` | Conversion Hero / display | Selected profile + audience family; may reuse an accurate approved product angle | Use a different verified purchase focus from the enhanced main. No Windows package, Windows text tile, or placeholder. Gaming 3D mode permits no more than two feature cards. |
 | **3** | `PT02` | Use cases | Selected profile + matching continuation pack | Product in one verified use story; 1–3 licensed or original synthetic people/characters only when they clarify the use case; apply metadata and IP review |
-| **4** | `PT03` | Full specifications / configuration | Selected profile + matching continuation pack | Audience-appropriate loadout/work grid with verified CPU, display, RAM/SSD tiers and OS; no people |
-| **5** | `PT04` | Design and form factor | Selected profile + matching continuation pack | Accurate product angles and verified design facts; narrative effects remain peripheral and may not invent internals or geometry |
-| **6** | `PT05` | Performance / platform | Selected profile + matching continuation pack | Gaming pipeline or Business workflow grounded in verified hardware; at most one secondary person; no invented FPS, benchmark, battery or AI claims |
+| **4** | `PT03` | Sole full configuration page | Selected profile + matching continuation pack | Verified sold CPU/GPU, RAM/SSD tiers and OS; no people; other PT slots may not repeat the full models/capacities |
+| **5** | `PT04` | Display, design and form factor | Selected profile + matching continuation pack | Own the verified display size/resolution/refresh and accurate product-angle/design facts; narrative effects remain peripheral and may not invent internals or geometry |
+| **6** | `PT05` | Performance relationship | Selected profile + matching continuation pack | Explain a Gaming pipeline or Business workflow with category-level component labels; do not repeat full models/capacities or create a second specification grid; at most one secondary person; no invented FPS, benchmark, battery or AI claims |
 | **7** | `PT06` | What's included | White | Show only the exact unit, power equipment, and accessories included with the SKU |
-| **8** | `PT07` | Specification recap | White or light + continuation accents | 4–6 verified facts in the selected family; no people |
+| **8** | `PT07` | Distinct unaddressed value | White or light + continuation accents | One verified theme not already owned by PT01–PT06; never a specification recap or reordered core-spec card set; use a restrained product scene if no additional claims are available |
 | **9** | `PT08` | Connectivity | White/light + continuation ecosystem | Verified rear/side ports and connectivity remain primary; contextual peripherals may not imply inclusion |
 
 Reserve three-quarter views and multiple angles for PT images. Every displayed

@@ -4,7 +4,7 @@
 
 - `delivery_mode`: `FINAL_ASSET_DELIVERY`
 - `workflow_invocation_mode`: `IMAGE_ONLY_WORKFLOW`
-- `delivery_state`: `FINAL_ASSET_QA_PASS`
+- `delivery_state`: `REWORK_REQUIRED`
 - `candidate_semantics`: `COMPLETED_SELECTION_OPTION_NOT_DRAFT`
 - `final_image_count`: `11` (`3 MAIN + PT01-PT08`)
 - Product: HP Victus Gaming Laptop 15, 15.6-inch, black / Mica Silver chassis family
@@ -34,11 +34,11 @@
 | MAIN-ENHANCED-THREE-QUARTER | `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png` | White-catalog three-quarter 3D choice + fixed Windows package | None added | VERIFIED_VISUAL; MAIN_EXCEPTION_REQUIRED |
 | PT01 | `PT01.png` | 3D Gaming conversion hero; no Windows package | Upper right | VERIFIED |
 | PT02 | `PT02.png` | Play/create/stream use case | Lower left | VERIFIED |
-| PT03 | `PT03.png` | Full core-system specification grid | Upper left | VERIFIED |
+| PT03 | `PT03.png` | Sole full core-system configuration grid | Upper left | VERIFIED; PRIMARY_CONFIGURATION_OWNER |
 | PT04 | `PT04.png` | Victus chassis and design | Lower right | VERIFIED |
-| PT05 | `PT05.png` | CPU → GPU → display pipeline | Upper left | VERIFIED |
+| PT05 | `PT05.png` | CPU → GPU → display pipeline | Upper left | REWORK_REQUIRED; repeats exact CPU/GPU/display facts from PT03 |
 | PT06 | `PT06.png` | What's included | Upper right | VERIFIED |
-| PT07 | `PT07.png` | Light specification recap | Upper right | VERIFIED |
+| PT07 | `PT07.png` | Legacy light specification recap | Upper right | REWORK_REQUIRED; duplicates PT03 core configuration |
 | PT08 | `PT08.png` | Connectivity overview | Lower right | VERIFIED |
 
 ## QA record
@@ -48,4 +48,6 @@
 - Both enhanced MAIN choices contain complete core information, real layered Gaming frame-break treatment and the fixed Windows 11 Pro package.
 - PT01 contains no Windows package; PT01–PT08 all contain the verified HP OEM Logo applied through deterministic compositing.
 - Product identity, configuration text, 1:1 dimensions, legibility and cross-slot style consistency were reviewed.
+- Cross-gallery duplicate QA: `FAIL`. PT03 correctly owns the complete configuration, but PT05 repeats the exact CPU/GPU/display details and PT07 repeats the same core configuration as a second recap. PT05 must be regenerated as a category-level performance relationship without full models/capacities; PT07 must be regenerated as one unused verified value or a restrained product scene.
+- Until PT05 and PT07 are replaced and pairwise semantic overlap is at or below 20%, this gallery must remain `REWORK_REQUIRED` and cannot be used as a compliant reference set for future generation.
 - Enhanced MAIN production completion does not equal Amazon MAIN approval; account/category exception evidence and human approval remain required before selecting either enhanced file as the live MAIN.

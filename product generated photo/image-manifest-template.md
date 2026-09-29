@@ -4,7 +4,7 @@
 
 - `delivery_mode`: `<FINAL_ASSET_DELIVERY | CONCEPT_ONLY>`
 - `workflow_invocation_mode`: `<FULL_LISTING_WORKFLOW | IMAGE_ONLY_WORKFLOW | IMAGE_ADJUSTMENT_WORKFLOW>`
-- `delivery_state`: `<BLOCKED_BEFORE_PRODUCTION | IN_PRODUCTION | FINAL_ASSET_QA_PASS>`
+- `delivery_state`: `<BLOCKED_BEFORE_PRODUCTION | IN_PRODUCTION | REWORK_REQUIRED | FINAL_ASSET_QA_PASS>`
 - `candidate_semantics`: `COMPLETED_SELECTION_OPTION_NOT_DRAFT`
 - `final_image_count`: `11` (`3 MAIN + PT01-PT08`; production records excluded)
 - Internal model: `VL-<internal-model>`
@@ -84,19 +84,31 @@ primary people scene; `PT05` permits at most one secondary person when needed;
 
 ## Slot plan and record
 
-| Slot | Role | Continuation treatment | Verified copy / facts | Required asset or angle | Fact source | Asset source | Status | Final path |
-| --- | --- | --- | --- | --- | --- | --- | --- | --- |
-| MAIN-STRICT | White-background default hero | None | No overlay copy | Straight-on complete product |  |  | TO SOURCE |  |
-| MAIN-ENHANCED-FRONT-CANDIDATE | Front enhanced hero candidate | Hero family + fixed Windows package | Verified hero content | Accurate front product view |  |  | TO PRODUCE |  |
-| MAIN-ENHANCED-THREE-QUARTER-CANDIDATE | Three-quarter enhanced hero candidate | Hero family + fixed Windows package | Verified hero content | Authorized exact-model three-quarter product view |  |  | TO SOURCE |  |
-| PT01 | Display / feature overview | Hero family; no Windows package | Distinct verified focus from all MAIN variants |  |  |  | TO PRODUCE |  |
-| PT02 | Use cases | Pack use scene |  |  |  |  | TO PRODUCE |  |
-| PT03 | Full specifications / configuration | Pack loadout/work grid |  |  |  |  | TO PRODUCE |  |
-| PT04 | Design and form factor | Pack design treatment |  |  |  |  | TO PRODUCE |  |
-| PT05 | Performance / platform | Pack pipeline/workflow |  |  |  |  | TO PRODUCE |  |
-| PT06 | What's included | Clean white factual layout |  |  |  |  | TO SOURCE |  |
-| PT07 | Specification recap | Pack recap cards |  |  |  |  | TO PRODUCE |  |
-| PT08 | Connectivity / collaboration | Pack ecosystem |  |  |  |  | TO SOURCE |  |
+Before production, assign every customer-visible claim to one `PRIMARY OWNER` slot. Record the unique information contributed by every PT and its forbidden repeats; after production, populate the OCR/semantic duplicate result. Brand/product identity and navigation labels are excluded from the overlap calculation.
+
+| Slot | Customer question | Planned content | Primary claims owned | Unique contribution | Forbidden repeats | Fact source | Required asset / source | Rights status | Production status | Final path | Duplicate QA |
+| --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |
+| MAIN-STRICT | What is the exact product? | Product only | Product identity | Clean compliant product view | All overlays |  | Straight-on complete product /  |  | TO SOURCE |  | N/A |
+| MAIN-ENHANCED-FRONT-CANDIDATE | Which enhanced front option converts best? | Hero family + fixed Windows package | Front hero message | Completed front choice | Draft/placeholder content |  | Accurate front product + fixed package /  |  | TO PRODUCE |  | N/A |
+| MAIN-ENHANCED-THREE-QUARTER-CANDIDATE | Which angled option converts best? | Hero family + fixed Windows package | Angled hero message | Completed angled choice | Invented chassis details |  | Authorized exact-model angle + fixed package /  |  | TO SOURCE |  | N/A |
+| PT01 | Why consider this product? | Hero family; no Windows package | High-level purchase reason |  | Full configuration grid |  |  |  | TO PRODUCE |  | PENDING |
+| PT02 | How will it be used? | Pack use scene | Use-case narrative |  | Configuration cards |  |  |  | TO PRODUCE |  | PENDING |
+| PT03 | What exact configuration is sold? | Single full configuration page | CPU/GPU/RAM/SSD/OS |  | Second display/design recap beyond minimum configuration context |  |  |  | TO PRODUCE |  | PENDING |
+| PT04 | What are the display and chassis experiences? | Display + accurate design treatment | Size/resolution/refresh + verified chassis/keyboard facts |  | CPU/RAM/SSD configuration grid |  |  |  | TO PRODUCE |  | PENDING |
+| PT05 | How do the components support the task? | Causal pipeline/workflow | Performance relationship, not exact configuration |  | Full CPU/GPU models, RAM/SSD capacities, second specification grid |  |  |  | TO PRODUCE |  | PENDING |
+| PT06 | What's included? | Clean white factual layout | Exact in-box items |  | Performance/configuration claims |  |  |  | TO SOURCE |  | PENDING |
+| PT07 | What unaddressed value remains? | Dynamic distinct-value module or restrained product scene | One unused verified theme |  | Specification recap, Gaming Essentials, reordered core-spec cards |  |  |  | TO PRODUCE |  | PENDING |
+| PT08 | How does it connect? | Pack ecosystem | Ports/wireless/collaboration |  | Core performance recap |  |  |  | TO SOURCE |  | PENDING |
+
+## Cross-gallery duplicate QA
+
+- OCR/extracted claim inventory: `<path or summary>`
+- Pairwise semantic overlap review: `<PASS | FAIL; highest pair and percentage>`
+- PT03 sole complete-configuration owner: `<PASS | FAIL>`
+- PT05 relationship-not-recap review: `<PASS | FAIL>`
+- PT07 distinct-value review: `<PASS | FAIL>`
+- Every PT adds unique information: `<PASS | FAIL>`
+- Overall duplicate gate: `<PASS | FAIL>`
 
 ## QA record
 
@@ -105,6 +117,8 @@ primary people scene; `PT05` permits at most one secondary person when needed;
 - [ ] `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` uses an authorized exact-model angled view and the same fixed Windows package without inventing chassis details.
 - [ ] PT01–PT08 consistently use the selected profile.
 - [ ] PT02–PT08 use the continuation pack matching the PT01 Gaming/Business hero family.
+- [ ] A `Gallery Content Ownership Matrix` was completed before generation, and each PT has one documented `unique_information_contribution`.
+- [ ] OCR and semantic pairwise review passed: no pair exceeds 20% primary-information overlap, PT05 is not a second configuration page, and PT07 is not a specification recap.
 - [ ] PT01 contains no Windows package, Windows text tile, or placeholder and uses a different verified information focus from the enhanced MAIN variants.
 - [ ] If the enhanced-main package initially caused crowding, the layout was restructured, secondary content reduced, whitespace expanded, or an accurate alternate product angle used; the package was not omitted or replaced with text.
 - [ ] `THREE_QUARTER_SIDE_CARD` uses a verified exact-model angled asset and does not invent ports, chassis, keyboard, or included accessories.

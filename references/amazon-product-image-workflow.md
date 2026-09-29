@@ -58,6 +58,8 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 
 这里的固定交付数量是 **11 个最终图片文件**，不是 9 个：三个 MAIN 都保存在仓库供选择，PT01–PT08 共八张；Amazon 上传时再从三个 MAIN 中选择一个，因此实际 gallery 仍是一个 MAIN + 八个 PT。Manifest、Logo placement、版权记录或审核 contact sheet 不计入 11 张正式图片。
 
+在写任何 PT prompt 或开始渲染前，必须先按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 建立 `Gallery Content Ownership Matrix`，为每个客户可见事实指定唯一主槽，并为每个 PT 写明 `unique_information_contribution` 和禁止重复的内容。PT03、PT04、PT05、PT07、PT08 的边界不得由生成模型临时决定；事实不足时使用不重复的产品情境图或在生产前阻断，不能把核心规格再次包装成新页面。
+
 | 顺序 / 槽位 | 固定角色 | 制作要点 |
 | --- | --- | --- |
 | 1A / `MAIN-STRICT` | Amazon 严格主图 | 纯白背景，真实产品完整正面、居中、0°；无文字、徽章、水印、图形 Logo、Windows package 或场景。只展示确认随箱附带的配件。 |
@@ -65,11 +67,11 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 | 1C / `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 三分之四侧向增强主图候选 | 使用准确机型的授权三分之四产品素材，在独立侧边安全区或屏幕安全区确定性合成同一固定 Windows package；不得猜测接口、键盘、铰链或机身结构。 |
 | 2 / `PT01` | Conversion Hero / 屏幕卖点 | 选择 Gaming G01–G06 + C01–C06 或 Business B01–B11，可延续增强主图的题材、色彩和产品角度，但不得出现 Windows package、Windows 文字卡或占位图；用不同的视觉焦点避免与增强主图完全重复。 |
 | 3 / `PT02` | 使用场景 | 按 continuation pack 展示真实用途；可按需求加入 1–3 位授权或原创虚拟人物，并记录来源、角色和 synthetic-performer 元数据。 |
-| 4 / `PT03` | 完整规格/配置图 | 按 continuation pack 的 loadout/work grid 展示 CPU、显示、实际可售 RAM/SSD 档位与固定 OS；不使用人物。 |
-| 5 / `PT04` | 机身设计 | 使用准确机型的真实侧面/形态素材；genre/work 元素仅作边缘氛围，不得虚构内部结构或硬件外观。 |
-| 6 / `PT05` | 性能/平台信息图 | 用 Gaming pipeline 或 Business workflow 解释准确硬件如何支持任务；人物可选且最多一位，不编造跑分、FPS、续航或 AI 能力。 |
+| 4 / `PT03` | 唯一完整配置图 | 按 continuation pack 的 loadout/work grid 集中展示实际销售 CPU/GPU、RAM/SSD 与 OS；不使用人物，其他 PT 不再重列完整型号和容量。 |
+| 5 / `PT04` | 显示与机身设计 | 集中承载屏幕尺寸、分辨率、刷新率、键盘和准确机型的真实侧面/形态素材；genre/work 元素仅作边缘氛围，不得虚构内部结构或硬件外观。 |
+| 6 / `PT05` | 性能关系信息图 | 用 Gaming pipeline 或 Business workflow 解释 Processing → Graphics → Display 等关系；可使用类别名但不重列完整型号/容量或第二张配置表。人物可选且最多一位，不编造跑分、FPS、续航或 AI 能力。 |
 | 7 / `PT06` | 包装内含物 | 白色；只展示确实随该 SKU 交付的机器、电源和配件。 |
-| 8 / `PT07` | 浅色规格回顾 | 使用 continuation pack 的轻量卡片语言展示 4–6 个已核实核心规格，并准确说明配置差异；不使用人物。 |
+| 8 / `PT07` | 独立购买价值 | 使用 continuation pack 的视觉语言解释一个尚未在 PT01–PT06 使用且有证据的价值；禁止规格回顾、`Gaming Essentials` 和核心规格卡重排。事实不足时使用克制产品情境图，不重复 PT03。 |
 | 9 / `PT08` | 背面/连接 | 使用 continuation pack 的连接生态，但真实背部/接口仍是主体；接口种类与数量逐一核验，外设不暗示随箱。 |
 
 ### 4. 图片生成与事实保护
@@ -96,6 +98,7 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 - 图片为 1:1 方图：三份 MAIN 内部目标至少 `2000 × 2000 px`；PT 图约 `1500–2000 px`。最终优先 JPG；生产中间件可保留 PNG，扩展名必须与真实编码一致。
 - 逐张检查分辨率、比例、清晰度、裁切、颜色/角度、文字、Logo/版权、配件、接口、跨图规格一致性和 Amazon 主图限制。PT01–PT08 每张都必须有与底机 OEM 相符的官方或已获准 Logo，不能拼错、变形、擅自改色、重绘，也不能覆盖或接触文字、线条、接口、产品和信息卡。检查应同时包含 100% 尺寸与缩略图视觉复核，并确认 Logo 最终外缘到画布边缘及 `protectedZones` 的距离不小于 `minimumClearancePx`。`MAIN-STRICT` 不添加覆盖层，只核对机身自带标识是否真实自然；增强主图的品牌资产按固定素材规则复核。
 - 对照最终 Listing 复查 RAM/SSD、OS、屏幕、接口和随箱配件。任何不一致都必须返回修改，不能用免责声明掩盖错误。
+- 对 PT01–PT08 执行 OCR 与语义去重：核对 `Gallery Content Ownership Matrix`、每张图的新增信息、核心规格归属和任意两张图的主要信息重合。重合超过 `supporting-gallery-styles.md` 的阈值、PT05 成为第二张配置表、或 PT07 退化为规格回顾时，整套图库不得进入 `FINAL_ASSET_QA_PASS`，必须重做对应槽位。
 
 ### 6. GitHub 目录、命名与交付闸门
 
