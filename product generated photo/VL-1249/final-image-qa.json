@@ -4,7 +4,7 @@
   "expectedFinalImageCount": 11,
   "canvas": "1254x1254",
   "logoQa": "PASS",
-  "contactSheet": "contact-sheet-logo-v3-integrated.jpg",
+  "contactSheet": "contact-sheet-logo-v4-balanced.jpg",
   "result": "PASS",
   "images": [
     {
@@ -25,63 +25,63 @@
       "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
       "width": 1254,
       "height": 1254,
-      "sha256": "C313E9DA931FE59584CACB70FDB00D687E6C88A506FFB9F113BAD47764B54CC1",
+      "sha256": "C778EEF7D78A7D6F507F67B42DA85AC79E155B21850E0F9C87E2C6ECDFE0C792",
       "result": "PASS"
     },
     {
       "file": "PT01.png",
       "width": 1254,
       "height": 1254,
-      "sha256": "785D292E77E718328F336843562290A3E7E02828BA57CE535CC91E4431DCFE1E",
+      "sha256": "B7C9D33EBC00094D9AB55A9560C5D682F7A89D2B183A33836D21D738C86F080C",
       "result": "PASS"
     },
     {
       "file": "PT02.png",
       "width": 1254,
       "height": 1254,
-      "sha256": "B5DEB5C52031D9FC5EB0DE437635976662E08810C49664F70C25F0E6A6B7705D",
+      "sha256": "5A3B2EE536DDD52A57D30D3479F1DFE5B1BA3C2BCE795D86E1499595192D39E3",
       "result": "PASS"
     },
     {
       "file": "PT03.png",
       "width": 1254,
       "height": 1254,
-      "sha256": "575C44D69A5231275FAEFBCB5979B000C6F4A75D5BF904F00514116D391DD948",
+      "sha256": "38F6D647694F4C33E075AADE9AC716834C9E638BE985378850B09EFE8781308D",
       "result": "PASS"
     },
     {
       "file": "PT04.png",
       "width": 1254,
       "height": 1254,
-      "sha256": "0358426905E64F9DA53D223587D86F10C0FB63483A53F74747A30E1C39179553",
+      "sha256": "1F1BEF9E515368A7B9AA5126D64FE7DCB9782FFBE14763DCB4D5C4CB51458D08",
       "result": "PASS"
     },
     {
       "file": "PT05.png",
       "width": 1254,
       "height": 1254,
-      "sha256": "ED295ED0AE6EB1237599A84F7957F30AAAEF0E2D72C78A81454A01CCFBF4CA51",
+      "sha256": "F14370DE5EB4DB094BA83C47CC726824D7E14CE35E7F7358C67CDABD71E0F1F5",
       "result": "PASS"
     },
     {
       "file": "PT06.png",
       "width": 1254,
       "height": 1254,
-      "sha256": "4B75B42F5136AD8608572C32F0B4534E7728FABDED26C136162B3B866BDBA7CD",
+      "sha256": "FE5E77780E7A833C312F0D0CAC884A33161A50060FF093FB54E59ED980B88078",
       "result": "PASS"
     },
     {
       "file": "PT07.png",
       "width": 1254,
       "height": 1254,
-      "sha256": "45FA7C5AEA75EAAF45ED5BD2A511208AFFC88117128F3088FD04CE5836794A0C",
+      "sha256": "903B608A160490222C8BFEB497683C1BD8AEE598F91EC9FBA797585E18D50A97",
       "result": "PASS"
     },
     {
       "file": "PT08.png",
       "width": 1254,
       "height": 1254,
-      "sha256": "AC8A39DE8D0DA91656553E8D2C3F5DAE783FB1FD3B768CB4459B637DAD6DC154",
+      "sha256": "6A37440F6C3581D349485D2EC4E4C6ACB35BF36C238B4F468C5AA07465D8D535",
       "result": "PASS"
     }
   ]

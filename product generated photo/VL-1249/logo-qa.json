@@ -4,8 +4,10 @@
   "logoAsset": "dell-logo-blue-transparent.png",
   "logoAssetSha256": "7022F17D03A2277B67EF40D26E30A7B7476DAF7EDBB450879C81DDD82E6F78D1",
   "thumbnailReviewSizePx": 200,
-  "minimumVisibleLogoLongEdgePxAtThumbnail": 28,
-  "minimumVisibleLogoShortEdgePxAtThumbnail": 12,
+  "minimumVisibleLogoLongEdgePxAtThumbnail": 22,
+  "minimumVisibleLogoShortEdgePxAtThumbnail": 10,
+  "maximumLogoLongEdgePercentOfCanvas": 12.0,
+  "minimumComponentSeparationPx": 40,
   "result": "PASS",
   "images": [
     {
@@ -13,168 +15,182 @@
       "style": "transparent",
       "canvas": "1254x1254",
       "badgeBounds": {
-        "x": 1040,
-        "y": 45,
-        "width": 185,
-        "height": 185
+        "x": 1070,
+        "y": 55,
+        "width": 140,
+        "height": 140
       },
       "visibleLogoBounds": {
-        "x": 1040.0,
-        "y": 45.4,
-        "width": 185.0,
-        "height": 184.3
+        "x": 1070.0,
+        "y": 55.3,
+        "width": 140.0,
+        "height": 139.4
       },
       "thumbnailReviewSizePx": 200,
       "thumbnailVisibleLogoPx": {
-        "width": 29.5,
-        "height": 29.4
+        "width": 22.3,
+        "height": 22.2
       },
       "visibilityGate": "PASS",
-      "clearanceGate": "PASS"
+      "clearanceGate": "PASS",
+      "compositionSpacingGate": "PASS",
+      "placeholderFrameGate": "PASS"
     },
     {
       "file": "PT02.png",
       "style": "transparent",
       "canvas": "1254x1254",
       "badgeBounds": {
-        "x": 1035,
-        "y": 35,
-        "width": 185,
-        "height": 185
+        "x": 1070,
+        "y": 55,
+        "width": 140,
+        "height": 140
       },
       "visibleLogoBounds": {
-        "x": 1035.0,
-        "y": 35.4,
-        "width": 185.0,
-        "height": 184.3
+        "x": 1070.0,
+        "y": 55.3,
+        "width": 140.0,
+        "height": 139.4
       },
       "thumbnailReviewSizePx": 200,
       "thumbnailVisibleLogoPx": {
-        "width": 29.5,
-        "height": 29.4
+        "width": 22.3,
+        "height": 22.2
       },
       "visibilityGate": "PASS",
-      "clearanceGate": "PASS"
+      "clearanceGate": "PASS",
+      "compositionSpacingGate": "PASS",
+      "placeholderFrameGate": "PASS"
     },
     {
       "file": "PT03.png",
       "style": "transparent",
       "canvas": "1254x1254",
       "badgeBounds": {
-        "x": 1040,
-        "y": 45,
-        "width": 185,
-        "height": 185
+        "x": 1070,
+        "y": 50,
+        "width": 140,
+        "height": 140
       },
       "visibleLogoBounds": {
-        "x": 1040.0,
-        "y": 45.4,
-        "width": 185.0,
-        "height": 184.3
+        "x": 1070.0,
+        "y": 50.3,
+        "width": 140.0,
+        "height": 139.4
       },
       "thumbnailReviewSizePx": 200,
       "thumbnailVisibleLogoPx": {
-        "width": 29.5,
-        "height": 29.4
+        "width": 22.3,
+        "height": 22.2
       },
       "visibilityGate": "PASS",
-      "clearanceGate": "PASS"
+      "clearanceGate": "PASS",
+      "compositionSpacingGate": "PASS",
+      "placeholderFrameGate": "PASS"
     },
     {
       "file": "PT04.png",
       "style": "transparent",
       "canvas": "1254x1254",
       "badgeBounds": {
-        "x": 40,
-        "y": 40,
-        "width": 185,
-        "height": 185
+        "x": 35,
+        "y": 35,
+        "width": 140,
+        "height": 140
       },
       "visibleLogoBounds": {
-        "x": 40.0,
-        "y": 40.4,
-        "width": 185.0,
-        "height": 184.3
+        "x": 35.0,
+        "y": 35.3,
+        "width": 140.0,
+        "height": 139.4
       },
       "thumbnailReviewSizePx": 200,
       "thumbnailVisibleLogoPx": {
-        "width": 29.5,
-        "height": 29.4
+        "width": 22.3,
+        "height": 22.2
       },
       "visibilityGate": "PASS",
-      "clearanceGate": "PASS"
+      "clearanceGate": "PASS",
+      "compositionSpacingGate": "PASS",
+      "placeholderFrameGate": "PASS"
     },
     {
       "file": "PT05.png",
       "style": "transparent",
       "canvas": "1254x1254",
       "badgeBounds": {
-        "x": 1030,
-        "y": 1030,
-        "width": 185,
-        "height": 185
+        "x": 1070,
+        "y": 1045,
+        "width": 140,
+        "height": 140
       },
       "visibleLogoBounds": {
-        "x": 1030.0,
-        "y": 1030.4,
-        "width": 185.0,
-        "height": 184.3
+        "x": 1070.0,
+        "y": 1045.3,
+        "width": 140.0,
+        "height": 139.4
       },
       "thumbnailReviewSizePx": 200,
       "thumbnailVisibleLogoPx": {
-        "width": 29.5,
-        "height": 29.4
+        "width": 22.3,
+        "height": 22.2
       },
       "visibilityGate": "PASS",
-      "clearanceGate": "PASS"
+      "clearanceGate": "PASS",
+      "compositionSpacingGate": "PASS",
+      "placeholderFrameGate": "PASS"
     },
     {
       "file": "PT06.png",
       "style": "transparent",
       "canvas": "1254x1254",
       "badgeBounds": {
-        "x": 1025,
-        "y": 50,
-        "width": 185,
-        "height": 185
+        "x": 1070,
+        "y": 55,
+        "width": 140,
+        "height": 140
       },
       "visibleLogoBounds": {
-        "x": 1025.0,
-        "y": 50.4,
-        "width": 185.0,
-        "height": 184.3
+        "x": 1070.0,
+        "y": 55.3,
+        "width": 140.0,
+        "height": 139.4
       },
       "thumbnailReviewSizePx": 200,
       "thumbnailVisibleLogoPx": {
-        "width": 29.5,
-        "height": 29.4
+        "width": 22.3,
+        "height": 22.2
       },
       "visibilityGate": "PASS",
-      "clearanceGate": "PASS"
+      "clearanceGate": "PASS",
+      "compositionSpacingGate": "PASS",
+      "placeholderFrameGate": "PASS"
     },
     {
       "file": "PT07.png",
       "style": "transparent",
       "canvas": "1254x1254",
       "badgeBounds": {
-        "x": 50,
-        "y": 1015,
-        "width": 185,
-        "height": 185
+        "x": 35,
+        "y": 1065,
+        "width": 140,
+        "height": 140
       },
       "visibleLogoBounds": {
-        "x": 50.0,
-        "y": 1015.4,
-        "width": 185.0,
-        "height": 184.3
+        "x": 35.0,
+        "y": 1065.3,
+        "width": 140.0,
+        "height": 139.4
       },
       "thumbnailReviewSizePx": 200,
       "thumbnailVisibleLogoPx": {
-        "width": 29.5,
-        "height": 29.4
+        "width": 22.3,
+        "height": 22.2
       },
       "visibilityGate": "PASS",
-      "clearanceGate": "PASS"
+      "clearanceGate": "PASS",
+      "compositionSpacingGate": "PASS",
+      "placeholderFrameGate": "PASS"
     },
     {
       "file": "PT08.png",
@@ -182,23 +198,25 @@
       "canvas": "1254x1254",
       "badgeBounds": {
         "x": 55,
-        "y": 745,
-        "width": 185,
-        "height": 185
+        "y": 775,
+        "width": 140,
+        "height": 140
       },
       "visibleLogoBounds": {
         "x": 55.0,
-        "y": 745.4,
-        "width": 185.0,
-        "height": 184.3
+        "y": 775.3,
+        "width": 140.0,
+        "height": 139.4
       },
       "thumbnailReviewSizePx": 200,
       "thumbnailVisibleLogoPx": {
-        "width": 29.5,
-        "height": 29.4
+        "width": 22.3,
+        "height": 22.2
       },
       "visibilityGate": "PASS",
-      "clearanceGate": "PASS"
+      "clearanceGate": "PASS",
+      "compositionSpacingGate": "PASS",
+      "placeholderFrameGate": "PASS"
     }
   ]
 }

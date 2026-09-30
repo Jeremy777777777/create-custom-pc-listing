@@ -73,6 +73,12 @@ Amazon market research & originality
       uses a genuine transparent channel and natural negative space. A visible
       rectangular source background or generic white sticker/card is prohibited
       unless the OEM guideline requires it and `badgeExceptionReason` is recorded.
+- [ ] PT01–PT08 pass `UNIVERSAL_BRAND_SPACING_RULE`: visible Logo long edge is
+      no more than 12% of the canvas; component separation is at least 32 px or
+      2.5% of the canvas short edge; no dashed placeholder, old Logo, or residual
+      badge remains beneath the final mark.
+- [ ] Each enhanced MAIN contains exactly one approved Windows asset treatment;
+      no generated or earlier package remains beneath the deterministic overlay.
 - [ ] OEM or competitor listing conventions do not override the MegaPC
       brand-first title, required warranty/customization disclosure, or MFN
       requirements.

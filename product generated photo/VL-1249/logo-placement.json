@@ -1,19 +1,21 @@
 {
   "brand": "Dell",
   "logoRole": "OEM base-product identifier",
-  "minimumClearancePx": 16,
+  "minimumClearancePx": 32,
+  "minimumComponentSeparationPx": 40,
+  "maximumLogoLongEdgePercentOfCanvas": 12,
   "thumbnailReviewSizePx": 200,
-  "minimumVisibleLogoLongEdgePxAtThumbnail": 28,
-  "minimumVisibleLogoShortEdgePxAtThumbnail": 12,
+  "minimumVisibleLogoLongEdgePxAtThumbnail": 22,
+  "minimumVisibleLogoShortEdgePxAtThumbnail": 10,
   "preferredTreatment": "INTEGRATED_TRANSPARENT_MARK",
   "placements": {
-    "PT01.png": { "x": 1040, "y": 45, "width": 185, "height": 185, "style": "transparent", "contrastReview": "PASS", "protectedZones": [] },
-    "PT02.png": { "x": 1035, "y": 35, "width": 185, "height": 185, "style": "transparent", "contrastReview": "PASS", "protectedZones": [] },
-    "PT03.png": { "x": 1040, "y": 45, "width": 185, "height": 185, "style": "transparent", "contrastReview": "PASS", "protectedZones": [] },
-    "PT04.png": { "x": 40, "y": 40, "width": 185, "height": 185, "style": "transparent", "contrastReview": "PASS", "protectedZones": [] },
-    "PT05.png": { "x": 1030, "y": 1030, "width": 185, "height": 185, "style": "transparent", "contrastReview": "PASS", "protectedZones": [] },
-    "PT06.png": { "x": 1025, "y": 50, "width": 185, "height": 185, "style": "transparent", "contrastReview": "PASS", "protectedZones": [] },
-    "PT07.png": { "x": 50, "y": 1015, "width": 185, "height": 185, "style": "transparent", "contrastReview": "PASS", "protectedZones": [] },
-    "PT08.png": { "x": 55, "y": 745, "width": 185, "height": 185, "style": "transparent", "contrastReview": "PASS", "protectedZones": [] }
+    "PT01.png": { "x": 1070, "y": 55, "width": 140, "height": 140, "style": "transparent", "contrastReview": "PASS", "compositionSpacingReview": "PASS", "placeholderFrameReview": "PASS", "protectedZones": [] },
+    "PT02.png": { "x": 1070, "y": 55, "width": 140, "height": 140, "style": "transparent", "contrastReview": "PASS", "compositionSpacingReview": "PASS", "placeholderFrameReview": "PASS", "protectedZones": [] },
+    "PT03.png": { "x": 1070, "y": 50, "width": 140, "height": 140, "style": "transparent", "contrastReview": "PASS", "compositionSpacingReview": "PASS", "placeholderFrameReview": "PASS", "protectedZones": [] },
+    "PT04.png": { "x": 35, "y": 35, "width": 140, "height": 140, "style": "transparent", "contrastReview": "PASS", "compositionSpacingReview": "PASS", "placeholderFrameReview": "PASS", "protectedZones": [] },
+    "PT05.png": { "x": 1070, "y": 1045, "width": 140, "height": 140, "style": "transparent", "contrastReview": "PASS", "compositionSpacingReview": "PASS", "placeholderFrameReview": "PASS", "protectedZones": [] },
+    "PT06.png": { "x": 1070, "y": 55, "width": 140, "height": 140, "style": "transparent", "contrastReview": "PASS", "compositionSpacingReview": "PASS", "placeholderFrameReview": "PASS", "protectedZones": [] },
+    "PT07.png": { "x": 35, "y": 1065, "width": 140, "height": 140, "style": "transparent", "contrastReview": "PASS", "compositionSpacingReview": "PASS", "placeholderFrameReview": "PASS", "protectedZones": [] },
+    "PT08.png": { "x": 55, "y": 775, "width": 140, "height": 140, "style": "transparent", "contrastReview": "PASS", "compositionSpacingReview": "PASS", "placeholderFrameReview": "PASS", "protectedZones": [] }
   }
 }

@@ -87,7 +87,7 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 9. Business/Work 的 Office 与 Copilot 必须执行 `business-work-hero-styles.md` 的权益账本。`Lifetime Office` 只在卖家对准确 SKU 提供可审计依据并批准准确措辞时使用；否则展示准确 Office 产品名与许可模式。物理 Copilot key、Windows Copilot、Microsoft 365 Copilot 许可和 Copilot+ PC 是四种不同事实，不能互相推断。
 10. 对 customized laptop/desktop 的 PT01–PT08，先从产品事实账本确认底机制造商，再选择同一 OEM 的官方或已获准 Logo 资产。若产品是 HP，只能使用 HP Logo；品牌字段冲突、来源不明或资产未获准时停止合成。该 Logo 仅识别底机来源，不得暗示 OEM 完成、认可或为卖家升级提供保修。
 11. 先完成并保存无品牌 PT01–PT08 母版，再用原始 Logo 文件进行确定性后处理；禁止让 ImageGen 重画 Logo、品牌文字或商标。每个生成 prompt 必须主动预留约 `18% × 18%` 的自然负空间供 OEM mark 使用，不绘制占位框。默认使用带真实 alpha 的官方/获准透明 Logo 直接融入画面，不加统一白色矩形底牌；源文件带中性背景时，优先寻找透明原始资产，或使用 `scripts/remove-neutral-logo-background.ps1` 只移除背景并保留官方颜色、比例和几何。每张图单独选择位置，不设固定右下角。没有合格安全区时必须重新排版或重做该 PT 图。
-12. 在产品目录保存 `logo-placement.json`，除逐图记录 `x`、`y`、`width`、`height` 与样式外，还必须设置 `preferredTreatment: INTEGRATED_TRANSPARENT_MARK`、`minimumClearancePx >= 16`、`thumbnailReviewSizePx: 200`、`minimumVisibleLogoLongEdgePxAtThumbnail: 28`、`minimumVisibleLogoShortEdgePxAtThumbnail: 10`，并为每张图记录 `protectedZones`。`transparent` 和 `circle-keyline` 必须使用真实透明资产；`rounded-badge` 不是默认值，只有 OEM 规范要求时才允许，并必须记录 `badgeExceptionReason`。`scripts/add-brand-badge.ps1` 必须在合成前验证 alpha、画布边缘、受保护区和缩略图可见尺寸；任一失败即停止。
+12. 在产品目录保存 `logo-placement.json`，除逐图记录 `x`、`y`、`width`、`height` 与样式外，还必须设置 `preferredTreatment: INTEGRATED_TRANSPARENT_MARK`、`minimumClearancePx >= 16`、`minimumComponentSeparationPx >= 32`、`maximumLogoLongEdgePercentOfCanvas <= 12`、`thumbnailReviewSizePx: 200`、`minimumVisibleLogoLongEdgePxAtThumbnail >= 20`、`minimumVisibleLogoShortEdgePxAtThumbnail >= 10`，并为每张图记录 `protectedZones`。Logo 可见长边默认控制在画布 `9%–12%`，与电脑、标题、卡片和线条至少保持 `32 px` 或画布短边 `2.5%` 的距离（取较大值）。每个 placement 还必须记录 `compositionSpacingReview: PASS` 与 `placeholderFrameReview: PASS`。`transparent` 和 `circle-keyline` 必须使用真实透明资产；`rounded-badge` 不是默认值，只有 OEM 规范要求时才允许，并必须记录 `badgeExceptionReason`。`scripts/add-brand-badge.ps1` 必须在合成前验证 alpha、最大占比、画布边缘、受保护区、组件间距和缩略图可见尺寸；任一失败即停止。
 13. 内部可先输出到独立工作目录并以 100% 尺寸逐张检查，同时检查 200 px 缩略图。交给用户审核的 review 目录必须已经用 `scripts/add-brand-badge.ps1` 从 `unbranded/` 完成确定性合成，并生成 `logo-qa.json`，记录 OEM Logo 资产 SHA-256、每张图的实际可见边界、缩略图投影尺寸及 `PASS` 结果。Review 图必须包含全部文字、Logo、Windows package 和产品信息；用户批准决定是否采用或提交，不负责批准后再补齐成品。不得在已带 Logo 的图上再次叠加。
 14. Amazon 竞品页面只用于研究视觉层级、留白、信息密度和应覆盖的购买问题，不得复刻其独特构图、配色组合、图标、文案、人物场景或使用其图片资产。最终图必须保持原创布局并准确对应本机型。
 15. 若出现完全由 AI 生成的写实人物，按 `image-spec.md` 添加并记录所需元数据。
@@ -100,7 +100,7 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 - 对照最终 Listing 复查 RAM/SSD、OS、屏幕、接口和随箱配件。任何不一致都必须返回修改，不能用免责声明掩盖错误。
 - 对 PT01–PT08 执行 OCR 与语义去重：核对 `Gallery Content Ownership Matrix`、每张图的新增信息、核心规格归属和任意两张图的主要信息重合。重合超过 `supporting-gallery-styles.md` 的阈值、PT05 成为第二张配置表、或 PT07 退化为规格回顾时，整套图库不得进入 `FINAL_ASSET_QA_PASS`，必须重做对应槽位。
 - 对 PT01–PT08 执行 `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE`：`logo-qa.json` 必须存在并整体为 `PASS`；任何 Logo 在 200 px 缩略图投影中长边小于 28 px、短边小于 10 px，或低对比、碰撞、裁切，均将整套图库置为 `REWORK_REQUIRED`。
-- 对 PT01–PT08 执行 `UNIVERSAL_OEM_LOGO_INTEGRATION_RULE`：检查源资产 alpha 与 200 px contact sheet；出现灰/白矩形源底、统一白色贴纸感、未经记录的硬 badge 或明显破坏视觉层级时，整套图库置为 `REWORK_REQUIRED`。
+- 对 PT01–PT08 执行 `UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 和 `UNIVERSAL_BRAND_SPACING_RULE`：检查源资产 alpha 与 200 px contact sheet；出现灰/白矩形源底、统一白色贴纸感、虚线占位框、旧 Logo/旧 package 残留、未经记录的硬 badge、Logo 长边超过画布 `12%`、与电脑/文字/信息卡间距不足，或明显破坏视觉层级时，整套图库置为 `REWORK_REQUIRED`。增强主图的 Windows asset 也必须先清除底图里的旧版本，每张只允许一个确定性合成单元。
 
 ### 5A. 快速成功调用：标准成品流水线
 

@@ -59,6 +59,8 @@ Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求�
 - 固定品牌资产已经确定性合成，未让生成模型重画 Logo/package；
 - `logo-qa.json` 已证明 PT01–PT08 的 OEM Logo 在 200 px 缩略图中达到通用可见性阈值；
 - OEM Logo 使用透明、keyline 或经记录的品牌规范例外处理，与整体构图融合且没有矩形贴纸感；
+- OEM Logo 可见长边不超过画布 `12%`，与电脑、标题、卡片和线条保持至少 `32 px` 或画布短边 `2.5%` 的距离（取较大值）；底图不得残留虚线占位框、旧 Logo 或旧 badge；
+- 每张增强主图的 Windows asset 只能出现一次；合成前必须清除母版中的生成版、占位版或旧合成版，禁止重叠 package。
 - 1:1、RGB、真实扩展名，满足 [image-spec.md](image-spec.md) 的最终尺寸要求；
 - 100% 尺寸、200 px 缩略图、裁切、碰撞、可读性、产品准确性和跨图一致性检查通过；
 - 单张文件可以直接进入对应 Listing 槽位的上传准备，不依赖后续补字、补 Logo、补 package 或重新排版。

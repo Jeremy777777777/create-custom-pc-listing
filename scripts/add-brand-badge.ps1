@@ -119,11 +119,19 @@ if ($minimumClearance -lt 16) {
 $thumbnailReviewSize = [int]$plan.thumbnailReviewSizePx
 $minimumVisibleLongEdge = [int]$plan.minimumVisibleLogoLongEdgePxAtThumbnail
 $minimumVisibleShortEdge = [int]$plan.minimumVisibleLogoShortEdgePxAtThumbnail
+$maximumLogoLongEdgePercent = [float]$plan.maximumLogoLongEdgePercentOfCanvas
+$minimumComponentSeparation = [int]$plan.minimumComponentSeparationPx
 if ($thumbnailReviewSize -lt 200) {
     throw 'Placement plan thumbnailReviewSizePx must be at least 200.'
 }
-if ($minimumVisibleLongEdge -lt 28 -or $minimumVisibleShortEdge -lt 10) {
-    throw 'Placement plan thumbnail Logo thresholds must be at least 28 px long-edge and 10 px short-edge.'
+if ($minimumVisibleLongEdge -lt 20 -or $minimumVisibleShortEdge -lt 10) {
+    throw 'Placement plan thumbnail Logo thresholds must be at least 20 px long-edge and 10 px short-edge.'
+}
+if ($maximumLogoLongEdgePercent -le 0 -or $maximumLogoLongEdgePercent -gt 12) {
+    throw 'Placement plan maximumLogoLongEdgePercentOfCanvas must be greater than 0 and no more than 12.'
+}
+if ($minimumComponentSeparation -lt 32) {
+    throw 'Placement plan minimumComponentSeparationPx must be at least 32.'
 }
 
 $requiredFiles = 1..8 | ForEach-Object { 'PT{0:d2}.png' -f $_ }
@@ -177,6 +185,12 @@ try {
         }
         if ($style -eq 'transparent' -and [string]$placement.contrastReview -ne 'PASS') {
             throw "Transparent Logo placement for $fileName requires contrastReview: PASS."
+        }
+        if ([string]$placement.compositionSpacingReview -ne 'PASS') {
+            throw "Logo placement for $fileName requires compositionSpacingReview: PASS."
+        }
+        if ([string]$placement.placeholderFrameReview -ne 'PASS') {
+            throw "Logo placement for $fileName requires placeholderFrameReview: PASS; no dashed box, crop rectangle, or residual badge may remain behind the mark."
         }
         if ($style -eq 'rounded-badge' -and [string]::IsNullOrWhiteSpace([string]$placement.badgeExceptionReason)) {
             throw "Rounded badge placement for $fileName requires badgeExceptionReason; hard rectangular Logo cards are not the default treatment."
@@ -232,6 +246,11 @@ try {
             $bounds = [System.Drawing.RectangleF]::new($x, $y, $width, $height)
             $logoPadding = if ($style -eq 'rounded-badge') { 8 } else { 0 }
             $logoBounds = Get-FittedRectangle -Image $logo -Bounds $bounds -Padding $logoPadding
+            $maximumLogoLongEdge = [Math]::Max($source.Width, $source.Height) * ($maximumLogoLongEdgePercent / 100.0)
+            if ([Math]::Max($logoBounds.Width, $logoBounds.Height) -gt $maximumLogoLongEdge) {
+                throw ("Logo for {0} is too dominant: {1:N1}px long-edge exceeds {2:N1}% of the canvas ({3:N1}px)." -f `
+                    $fileName, [Math]::Max($logoBounds.Width, $logoBounds.Height), $maximumLogoLongEdgePercent, $maximumLogoLongEdge)
+            }
             $thumbnailScale = [float]$thumbnailReviewSize / [float]$source.Width
             $visibleLongEdge = [Math]::Max($logoBounds.Width, $logoBounds.Height) * $thumbnailScale
             $visibleShortEdge = [Math]::Min($logoBounds.Width, $logoBounds.Height) * $thumbnailScale
@@ -291,6 +310,8 @@ try {
                 }
                 visibilityGate = 'PASS'
                 clearanceGate = 'PASS'
+                compositionSpacingGate = 'PASS'
+                placeholderFrameGate = 'PASS'
             })
         }
         finally {
@@ -316,6 +337,8 @@ $qaReport = [ordered]@{
     thumbnailReviewSizePx = $thumbnailReviewSize
     minimumVisibleLogoLongEdgePxAtThumbnail = $minimumVisibleLongEdge
     minimumVisibleLogoShortEdgePxAtThumbnail = $minimumVisibleShortEdge
+    maximumLogoLongEdgePercentOfCanvas = $maximumLogoLongEdgePercent
+    minimumComponentSeparationPx = $minimumComponentSeparation
     result = 'PASS'
     images = $qaEntries
 }
