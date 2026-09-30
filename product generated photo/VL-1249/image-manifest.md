@@ -10,6 +10,7 @@
 - `universal_gallery_dedup_rule`: `PASS`
 - `universal_oem_logo_visibility_rule`: `PASS`
 - `universal_oem_logo_integration_rule`: `PASS`
+- `universal_oem_logo_outside_product_rule`: `PASS`
 - `oem_logo_asset_alpha_check`: `PASS`
 - `oem_logo_preferred_treatment`: `INTEGRATED_TRANSPARENT_MARK`
 - `logo_thumbnail_review_size_px`: `200`
@@ -17,6 +18,9 @@
 - `logo_maximum_long_edge_percent_of_canvas`: `12` (current Dell marks: approximately `11.2%`)
 - `logo_minimum_component_separation_px`: `40`
 - `logo_placeholder_frame_review`: `PASS`
+- `logo_final_hash_binding_review`: `PASS`
+- `logo_outside_product_review`: `PASS`
+- `product_surface_logo_absence_review`: `PASS`
 - `logo_qa_report`: `logo-qa.json`
 - `final_image_qa_report`: `final-image-qa.json`
 - Internal model: `VL-1249`
@@ -88,7 +92,8 @@
 - [x] The two enhanced MAIN choices use different approved deterministic Windows treatments: lockup on front, fixed package on three-quarter.
 - [x] The three-quarter enhanced MAIN contains exactly one Windows package; both earlier overlapping layers were removed before the single smaller fixed package was applied with independent negative space.
 - [x] PT01 contains no Windows package, Windows text tile or placeholder.
-- [x] PT01–PT08 use the verified Dell OEM logo with deterministic placement.
+- [x] PT01–PT08 use the verified Dell OEM logo with deterministic placement in background negative space outside every computer product silhouette.
+- [x] Every depicted computer surface, screen, internal structure, accessory and computer pictogram is free of OEM logos; PT04's earlier lid and pictogram marks were removed before final composition.
 - [x] `logo-qa.json` confirms all eight OEM marks meet the 200 px thumbnail visibility threshold, preserve aspect ratio, use transparent integrated treatment, contain no visible source rectangle or generic white card, and remain inside the declared canvas clearance.
 - [x] All eight OEM marks stay at approximately 11.2% of the canvas long edge, pass the 40 px composition-spacing review, and contain no dashed placeholder frame or old Logo beneath the final mark.
 - [x] PT03 is the sole complete configuration page and carries the only supporting-gallery Windows lockup.

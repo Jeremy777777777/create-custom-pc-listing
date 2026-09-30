@@ -1,10 +1,12 @@
 {
+  "schemaVersion": 2,
+  "generatedAtUtc": "2026-09-30T20:10:20.6731373Z",
   "brand": "Dell",
   "logoRole": "OEM base-product identifier",
   "logoAsset": "dell-logo-blue-transparent.png",
   "logoAssetSha256": "7022F17D03A2277B67EF40D26E30A7B7476DAF7EDBB450879C81DDD82E6F78D1",
   "thumbnailReviewSizePx": 200,
-  "minimumVisibleLogoLongEdgePxAtThumbnail": 22,
+  "minimumVisibleLogoLongEdgePxAtThumbnail": 20,
   "minimumVisibleLogoShortEdgePxAtThumbnail": 10,
   "maximumLogoLongEdgePercentOfCanvas": 12.0,
   "minimumComponentSeparationPx": 40,
@@ -15,14 +17,14 @@
       "style": "transparent",
       "canvas": "1254x1254",
       "badgeBounds": {
-        "x": 1070,
-        "y": 55,
+        "x": 1080,
+        "y": 35,
         "width": 140,
         "height": 140
       },
       "visibleLogoBounds": {
-        "x": 1070.0,
-        "y": 55.3,
+        "x": 1080.0,
+        "y": 35.3,
         "width": 140.0,
         "height": 139.4
       },
@@ -34,21 +36,25 @@
       "visibilityGate": "PASS",
       "clearanceGate": "PASS",
       "compositionSpacingGate": "PASS",
-      "placeholderFrameGate": "PASS"
+      "placeholderFrameGate": "PASS",
+      "outsideProductGate": "PASS",
+      "productSurfaceLogoAbsenceGate": "PASS",
+      "unbrandedSourceSha256": "64388E850656A23CD1A886CB8ACA2073D8E233C1816BE01EB9BA7781018E509A",
+      "finalImageSha256": "6D9E3988DFAED4DC908B337DE073B27F38BA95827DC04D4381E8379A3831DCFF"
     },
     {
       "file": "PT02.png",
       "style": "transparent",
       "canvas": "1254x1254",
       "badgeBounds": {
-        "x": 1070,
-        "y": 55,
+        "x": 1080,
+        "y": 35,
         "width": 140,
         "height": 140
       },
       "visibleLogoBounds": {
-        "x": 1070.0,
-        "y": 55.3,
+        "x": 1080.0,
+        "y": 35.3,
         "width": 140.0,
         "height": 139.4
       },
@@ -60,21 +66,25 @@
       "visibilityGate": "PASS",
       "clearanceGate": "PASS",
       "compositionSpacingGate": "PASS",
-      "placeholderFrameGate": "PASS"
+      "placeholderFrameGate": "PASS",
+      "outsideProductGate": "PASS",
+      "productSurfaceLogoAbsenceGate": "PASS",
+      "unbrandedSourceSha256": "C5FF8DD1771C506A124DED3FF3D4746BF00BE679E83F62DBE071638258696F71",
+      "finalImageSha256": "7C15BA3495A0832BA1DB186C6AB90BB5DA08AF6BEC11C116FB091EF6AFBA6DB6"
     },
     {
       "file": "PT03.png",
       "style": "transparent",
       "canvas": "1254x1254",
       "badgeBounds": {
-        "x": 1070,
-        "y": 50,
+        "x": 1080,
+        "y": 35,
         "width": 140,
         "height": 140
       },
       "visibleLogoBounds": {
-        "x": 1070.0,
-        "y": 50.3,
+        "x": 1080.0,
+        "y": 35.3,
         "width": 140.0,
         "height": 139.4
       },
@@ -86,7 +96,11 @@
       "visibilityGate": "PASS",
       "clearanceGate": "PASS",
       "compositionSpacingGate": "PASS",
-      "placeholderFrameGate": "PASS"
+      "placeholderFrameGate": "PASS",
+      "outsideProductGate": "PASS",
+      "productSurfaceLogoAbsenceGate": "PASS",
+      "unbrandedSourceSha256": "E8CCEE5746CE3E3CEEFB5C23442A9746F0809B8B332F400756221D001296090D",
+      "finalImageSha256": "C7D2B1B003A42788E2DCE3BC867320C1422796CB52B37A0A42F36D9E47BE63E6"
     },
     {
       "file": "PT04.png",
@@ -112,21 +126,25 @@
       "visibilityGate": "PASS",
       "clearanceGate": "PASS",
       "compositionSpacingGate": "PASS",
-      "placeholderFrameGate": "PASS"
+      "placeholderFrameGate": "PASS",
+      "outsideProductGate": "PASS",
+      "productSurfaceLogoAbsenceGate": "PASS",
+      "unbrandedSourceSha256": "BD67F1194030D7D8F635D1A30AD1A00497FFC886B5311E65157F658C0778F1D3",
+      "finalImageSha256": "CB49E762000E227F58D09DA73F02ACD0D839EE3847BD3CE6FFDF193071D58062"
     },
     {
       "file": "PT05.png",
       "style": "transparent",
       "canvas": "1254x1254",
       "badgeBounds": {
-        "x": 1070,
-        "y": 1045,
+        "x": 1080,
+        "y": 1080,
         "width": 140,
         "height": 140
       },
       "visibleLogoBounds": {
-        "x": 1070.0,
-        "y": 1045.3,
+        "x": 1080.0,
+        "y": 1080.3,
         "width": 140.0,
         "height": 139.4
       },
@@ -138,21 +156,25 @@
       "visibilityGate": "PASS",
       "clearanceGate": "PASS",
       "compositionSpacingGate": "PASS",
-      "placeholderFrameGate": "PASS"
+      "placeholderFrameGate": "PASS",
+      "outsideProductGate": "PASS",
+      "productSurfaceLogoAbsenceGate": "PASS",
+      "unbrandedSourceSha256": "E8080E00D47C0C7E1656B91634EFA9C6F57C515AA21C03487989C83C0B56DF02",
+      "finalImageSha256": "A633E4E08E707AA811FA2F6CD8995314173ADC597026B6A87985AB6149AB57FE"
     },
     {
       "file": "PT06.png",
       "style": "transparent",
       "canvas": "1254x1254",
       "badgeBounds": {
-        "x": 1070,
-        "y": 55,
+        "x": 1080,
+        "y": 35,
         "width": 140,
         "height": 140
       },
       "visibleLogoBounds": {
-        "x": 1070.0,
-        "y": 55.3,
+        "x": 1080.0,
+        "y": 35.3,
         "width": 140.0,
         "height": 139.4
       },
@@ -164,21 +186,25 @@
       "visibilityGate": "PASS",
       "clearanceGate": "PASS",
       "compositionSpacingGate": "PASS",
-      "placeholderFrameGate": "PASS"
+      "placeholderFrameGate": "PASS",
+      "outsideProductGate": "PASS",
+      "productSurfaceLogoAbsenceGate": "PASS",
+      "unbrandedSourceSha256": "52F0BEBA338C1083AA02B6C8828EDA029FC7EB6BC916D1CAA98D0F20873F7218",
+      "finalImageSha256": "CF113A8A0659FDE190195E60094B467133572A5C585713A5A8CADF3BD3571E09"
     },
     {
       "file": "PT07.png",
       "style": "transparent",
       "canvas": "1254x1254",
       "badgeBounds": {
-        "x": 35,
-        "y": 1065,
+        "x": 1080,
+        "y": 35,
         "width": 140,
         "height": 140
       },
       "visibleLogoBounds": {
-        "x": 35.0,
-        "y": 1065.3,
+        "x": 1080.0,
+        "y": 35.3,
         "width": 140.0,
         "height": 139.4
       },
@@ -190,21 +216,25 @@
       "visibilityGate": "PASS",
       "clearanceGate": "PASS",
       "compositionSpacingGate": "PASS",
-      "placeholderFrameGate": "PASS"
+      "placeholderFrameGate": "PASS",
+      "outsideProductGate": "PASS",
+      "productSurfaceLogoAbsenceGate": "PASS",
+      "unbrandedSourceSha256": "FCDD9DD09D9B194B5497F1367620075F3A70049DC3929798CB3444BFF702AA0A",
+      "finalImageSha256": "2824C8343249BD8FB9D7F0409C0FDBDCF7AE50029180946705F70656E59BFAAE"
     },
     {
       "file": "PT08.png",
       "style": "transparent",
       "canvas": "1254x1254",
       "badgeBounds": {
-        "x": 55,
-        "y": 775,
+        "x": 35,
+        "y": 760,
         "width": 140,
         "height": 140
       },
       "visibleLogoBounds": {
-        "x": 55.0,
-        "y": 775.3,
+        "x": 35.0,
+        "y": 760.3,
         "width": 140.0,
         "height": 139.4
       },
@@ -216,7 +246,11 @@
       "visibilityGate": "PASS",
       "clearanceGate": "PASS",
       "compositionSpacingGate": "PASS",
-      "placeholderFrameGate": "PASS"
+      "placeholderFrameGate": "PASS",
+      "outsideProductGate": "PASS",
+      "productSurfaceLogoAbsenceGate": "PASS",
+      "unbrandedSourceSha256": "43179D015D05466DD62650F47022F25B35A0C832ABC5D7C1C564160F87BBBAA4",
+      "finalImageSha256": "A8E72B609728CD4BCF04EC72B1538BD511E445DFA971FACCE6D2141D34380E5B"
     }
   ]
 }
