@@ -38,6 +38,7 @@
 - B12–B16 的风景、城市、建筑、科技或 editorial 画面必须使用原创生成或具商业使用权的素材。不得截取竞品屏幕、图库水印、真实公司 Logo、可识别客户数据或受保护地标品牌元素。
 - OEM Logo 必须出现在 PT01–PT08 每一张附图，并保持固定角落、尺寸和保护区；仍不得让生成模型重画。
 - OEM Logo 还必须通过通用缩略图可见性闸门；Business 极简留白不能成为缩小 Logo 的理由。生成 prompt 必须主动为 200 px 缩略图仍可辨认的确定性 Logo badge 预留至少约 `18% × 18%` 的无冲突负空间，最终仍以 28 px/10 px 实测阈值为准。
+- Business gallery 的默认 Logo 处理是透明官方 mark 融入浅色负空间，不是白色矩形 badge。标志周围依靠版面留白建立识别度；如果背景复杂，应移动 Logo 或重排构图，而不是截一块白底贴上去。圆形 keyline 或硬背景牌仅在 OEM 规范允许且必要时使用。
 - Windows 在 PT 图中的唯一默认所有者是 PT03：OS 行可使用一次获准标志 + `Windows 11 Pro` 锁定组合。其他 PT 不得为了“穿插”而重复 Windows。
 
 ## B07 / BG07 — Clear Collaboration Suite

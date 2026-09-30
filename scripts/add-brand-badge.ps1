@@ -148,6 +148,15 @@ if (Test-Path -LiteralPath $mainPath -PathType Leaf) {
 $logo = [System.Drawing.Bitmap]::new($resolvedLogo)
 $logoHash = (Get-FileHash -LiteralPath $resolvedLogo -Algorithm SHA256).Hash
 $qaEntries = [System.Collections.Generic.List[object]]::new()
+$logoHasTransparentPixels = $false
+for ($logoY = 0; $logoY -lt $logo.Height -and -not $logoHasTransparentPixels; $logoY++) {
+    for ($logoX = 0; $logoX -lt $logo.Width; $logoX++) {
+        if ($logo.GetPixel($logoX, $logoY).A -lt 255) {
+            $logoHasTransparentPixels = $true
+            break
+        }
+    }
+}
 try {
     foreach ($fileName in $requiredFiles) {
         $placement = $plan.placements.PSObject.Properties[$fileName].Value
@@ -163,8 +172,14 @@ try {
         if ($style -notin @('circle-keyline', 'rounded-badge', 'transparent')) {
             throw "Unsupported badge style '$style' for $fileName."
         }
+        if ($style -in @('transparent', 'circle-keyline') -and -not $logoHasTransparentPixels) {
+            throw "Logo asset for $fileName has no transparent pixels. Use an approved transparent original or a reproducible background-removal derivative."
+        }
         if ($style -eq 'transparent' -and [string]$placement.contrastReview -ne 'PASS') {
             throw "Transparent Logo placement for $fileName requires contrastReview: PASS."
+        }
+        if ($style -eq 'rounded-badge' -and [string]::IsNullOrWhiteSpace([string]$placement.badgeExceptionReason)) {
+            throw "Rounded badge placement for $fileName requires badgeExceptionReason; hard rectangular Logo cards are not the default treatment."
         }
         if ($null -eq $placement.PSObject.Properties['protectedZones']) {
             throw "Placement plan must declare protectedZones for $fileName (use an empty array after review when none apply)."

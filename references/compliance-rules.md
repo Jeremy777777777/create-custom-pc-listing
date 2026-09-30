@@ -69,6 +69,10 @@ Amazon market research & originality
       composition is proven by `logo-qa.json`, and the visible mark remains at
       least 28 px on its long edge and 10 px on its short edge in a 200 px
       thumbnail. A technically present but unreadable mark counts as missing.
+- [ ] PT01–PT08 pass `UNIVERSAL_OEM_LOGO_INTEGRATION_RULE`: the approved mark
+      uses a genuine transparent channel and natural negative space. A visible
+      rectangular source background or generic white sticker/card is prohibited
+      unless the OEM guideline requires it and `badgeExceptionReason` is recorded.
 - [ ] OEM or competitor listing conventions do not override the MegaPC
       brand-first title, required warranty/customization disclosure, or MFN
       requirements.

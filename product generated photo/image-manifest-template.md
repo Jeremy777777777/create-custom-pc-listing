@@ -40,6 +40,9 @@
 - `logo_thumbnail_review_size_px`: `200`
 - `logo_thumbnail_min_visible_edges_px`: `28 long / 10 short`
 - `logo_qa_report`: `<product folder>/logo-qa.json`
+- `universal_oem_logo_integration_rule`: `<REQUIRED | PASS | FAIL>`
+- `oem_logo_asset_alpha_check`: `<PASS | FAIL | NOT_APPLICABLE_OFFICIAL_REVERSE_ASSET>`
+- `oem_logo_preferred_treatment`: `INTEGRATED_TRANSPARENT_MARK`
 - `gaming_signature_main`: `<GAMING_WHITE_CATALOG_FRAME_BREAK | NOT_APPLICABLE>`
 - `gaming_signature_required_information_review`: `<display + GPU + CPU + RAM/SSD + fixed package: PASS | BLOCKED | NOT_APPLICABLE>`
 - `supporting_gallery_pack`: `<GG01-GG06 | BG01-BG11 | NEUTRAL>`
@@ -132,6 +135,7 @@ Before production, assign every customer-visible claim to one `PRIMARY OWNER` sl
 - [ ] Competitor wording, images, icons, layouts and A+ assets were not reused.
 - [ ] Every PT01–PT08 image contains the correct verified OEM logo and passed provenance and placement checks; `MAIN-STRICT` has no added overlay and both enhanced MAIN candidates use only approved deterministic brand assets.
 - [ ] `logo-qa.json` reports `PASS` for PT01–PT08; every visible OEM mark meets the 200 px thumbnail minimum of 28 px long-edge and 10 px short-edge.
+- [ ] Every OEM mark is visually integrated: transparent asset or OEM-approved keyline/reverse treatment, no visible source rectangle or generic white card; any hard badge has a documented `badgeExceptionReason`.
 - [ ] 100% and thumbnail reviews passed; no text, product, port, card, border or callout collision.
 - [ ] Synthetic-performer metadata was added when required.
 - [ ] People/characters passed source, identity/IP, anatomy/contact-point and included-item ambiguity review; PT06 contains none.

@@ -32,6 +32,8 @@ PT01–PT08 还必须通过 `UNIVERSAL_GALLERY_DEDUP_RULE` 的跨图信息独立
 
 PT01–PT08 同时必须通过 `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE`。正确 Logo 只在原尺寸文件中存在仍不够；它必须在 200 px 缩略图中保持可辨认，长边至少 28 px、短边至少 10 px，并与产品、文字、卡片、接口标注和画布边缘保持安全距离。最终目录必须保存 `logo-qa.json`，证明每张 PT 的 Logo 资产哈希、实际可见尺寸与闸门结果。任一 PT 缺失、太小、低对比、被裁切或发生碰撞时，整套图进入 `REWORK_REQUIRED`。
 
+Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求默认使用带真实 alpha 的官方/获准透明标志，直接融入预留负空间；不得出现从源图截下来的灰/白矩形底块，也不得为了批量方便给所有品牌统一套白色方卡。深色背景先换位置，其次使用 OEM 允许的 keyline 或官方反白资产。硬背景牌只能作为有记录的品牌规范例外。
+
 内部可以保留 mask、无品牌母版、透明环境层和中间文件，但它们必须放在内部生产目录，不能当作最终交付，也不能因为这些文件存在就声称任务完成。
 
 ## 3. 先阻断，再生成
@@ -56,6 +58,7 @@ PT01–PT08 同时必须通过 `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE`。正确 Log
 - 文字逐字校对，容量、单位、型号和 Windows edition 与 Listing 一致；
 - 固定品牌资产已经确定性合成，未让生成模型重画 Logo/package；
 - `logo-qa.json` 已证明 PT01–PT08 的 OEM Logo 在 200 px 缩略图中达到通用可见性阈值；
+- OEM Logo 使用透明、keyline 或经记录的品牌规范例外处理，与整体构图融合且没有矩形贴纸感；
 - 1:1、RGB、真实扩展名，满足 [image-spec.md](image-spec.md) 的最终尺寸要求；
 - 100% 尺寸、200 px 缩略图、裁切、碰撞、可读性、产品准确性和跨图一致性检查通过；
 - 单张文件可以直接进入对应 Listing 槽位的上传准备，不依赖后续补字、补 Logo、补 package 或重新排版。

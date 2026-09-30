@@ -332,6 +332,14 @@ the approved logo lockup once on the OS line; other PT slots may not repeat it.
   specified white keyline on dark photography; wordmarks may require a neutral
   badge. Preserve source colors, proportions, registration marks, and
   legibility. Do not stretch a circular logo into a rectangle.
+- Default to an approved Logo file with a real alpha channel and place the mark
+  directly in designed negative space. Do not preserve a gray/white rectangular
+  source background, and do not add a generic white card merely to increase
+  contrast. If an approved source has only a neutral raster background, a
+  reproducible background-removal derivative may be created without changing
+  the official color, geometry, or proportions. A hard badge is permitted only
+  when the OEM treatment requires it and the placement records a
+  `badgeExceptionReason`.
 - Keep an unbranded master and a per-image `logo-placement.json`. Generate a
   separate review set from those masters, inspect every image at 100%, and
   also inspect a 200 px gallery-size thumbnail before approval. The composition
@@ -352,6 +360,10 @@ the approved logo lockup once on the OS line; other PT slots may not repeat it.
   unlicensed logo artwork, an unsafe placement, or a mark that fails the
   `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE` is a blocking defect. A Logo that exists
   in the pixels but disappears at normal thumbnail size is treated as missing.
+- A Logo that is legible but visibly pasted inside a rectangular source crop or
+  generic white sticker fails `UNIVERSAL_OEM_LOGO_INTEGRATION_RULE`. Re-source
+  or derive an approved transparent asset, move it to cleaner negative space,
+  or use an OEM-approved reverse/keyline treatment.
   `MAIN-STRICT` remains exempt from added overlays and may show only the OEM mark
   physically present on the genuine product; the enhanced main uses only
   approved deterministic brand assets.
