@@ -77,7 +77,10 @@ Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求�
 - 屏幕上方必须显示已验证的 `screen size + resolution + refresh rate`；
 - 屏幕下方必须显示已验证的 `GPU + CPU + RAM/SSD`，RAM/SSD 为已安装值或明确的可选档位，不能混淆；
 - 固定 `assets/branding/windows-11-pro-package.png` 作为完整独立 package 放在产品右侧安全区或经验证的屏幕安全区；不得换成字体、文字卡或生成的近似包装；
+- 屏内 package 后方必须是自然连续的原场景，不得存在预留矩形或硬卡槽；使用 palette-aware glow 与 contact shadow 融合，但不得改动 package 本体；
 - 产品始终是第一视觉主体，package 和规格清晰但不把电脑推离中心。
+
+此外，所有 Gaming 出屏增强 MAIN 必须通过 `NATURAL_FRAME_BREAK_CONTINUITY_GATE`：跨框区域与屏内主体为同一连续剪影、边框自然从其后方经过，且不存在脱离肩块、对称三凸起、漂浮零件、双边框、霓虹描边或贴纸白边。任一项失败即为 `REWORK_REQUIRED`，不能作为完成候选交付。
 
 默认映射为：
 

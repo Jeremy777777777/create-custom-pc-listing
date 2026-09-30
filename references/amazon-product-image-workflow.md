@@ -81,9 +81,9 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 3. 图中文字只来自已验证属性，并逐字校对型号、容量、单位、拼写和免责声明，特别区分实际配置与可选档位。
 4. 同一产品各图保持屏幕壁纸和机身颜色一致，不混用同系列其他尺寸、颜色或代际。
 5. `MAIN-STRICT` 不添加任何图形 Logo、水印或卖家标识。实拍中机身原有 OEM 标识可自然保留，但不得在严格主图另加放大的 Logo 覆盖层。增强主图只可确定性合成获准的 OEM 与 Windows package 素材。
-6. `Centered Performance + Screen Package` 必须以电脑视觉包围框独立测量居中，水平偏差不超过画布宽度 2%，主体约占画布宽度 78%–86%。Windows 11 Pro 必须从固定仓库素材确定性合成并整体等比缩放，不得由生成模型重画。优先尝试屏幕右下安全区；若会压住 hero、角色或规格，可改用侧向产品构图和独立侧边安全区。屏幕内放置是可选方案，不是强制位置；任何方案都不得把 package 删除、裁切或改成文字卡。
+6. `Centered Performance + Screen Package` 必须以电脑视觉包围框独立测量居中，水平偏差不超过画布宽度 2%，主体约占画布宽度 78%–86%。Windows 11 Pro 必须从固定仓库素材确定性合成并整体等比缩放，不得由生成模型重画。优先尝试屏幕右下安全区；若会压住 hero、角色或规格，可改用侧向产品构图和独立侧边安全区。屏幕内放置时，母版必须在 package 后方保持连续自然的屏幕环境，不得出现预留矩形、边框或平色卡槽；使用 `scripts/add-fixed-image-overlay.ps1 -IntegrationStyle ScreenGlow` 添加取自局部屏幕色彩的环境光与接触阴影。任何方案都不得把 package 删除、裁切、改色、透视变形或改成文字卡。
 7. Gaming 图默认使用 `ORIGINAL_GENRE`：可研究 tactical、fantasy arena、battle royale、mech、sandbox 或 racing 等题材，但不得在提示或成品中复制游戏名称、人物、Logo、截图、地图、HUD、皮肤、标志性道具/载具或作品特有配色。只有书面授权覆盖该 Listing、渠道、地区和期限时，才可切换为 `LICENSED_GAME_CAMPAIGN` 并使用批准原始资产。
-8. Gaming 3D 出屏元素仍须与屏幕相连，越过屏幕的面积不得超过电脑视觉包围框的 12%，最多跨越两条屏幕边，且不得遮挡摄像头、铰链、键盘、触控板、OEM Logo、Windows 卡或已验证规格。电脑中心偏差仍须 `<= 2%`。
+8. Gaming 3D 出屏元素仍须与屏幕相连，越过屏幕的面积不得超过电脑视觉包围框的 12%，最多跨越两条屏幕边，且不得遮挡摄像头、铰链、键盘、触控板、OEM Logo、Windows 卡或已验证规格。跨框部分必须是屏内同一主体的连续剪影，边框从主体后方自然经过；禁止脱离的肩块、三凸起、漂浮部件、重复边框、霓虹轮廓或贴纸边缘。电脑中心偏差仍须 `<= 2%`。
 9. Business/Work 的 Office 与 Copilot 必须执行 `business-work-hero-styles.md` 的权益账本。`Lifetime Office` 只在卖家对准确 SKU 提供可审计依据并批准准确措辞时使用；否则展示准确 Office 产品名与许可模式。物理 Copilot key、Windows Copilot、Microsoft 365 Copilot 许可和 Copilot+ PC 是四种不同事实，不能互相推断。
 10. 对 customized laptop/desktop 的 PT01–PT08，先从产品事实账本确认底机制造商，再选择同一 OEM 的官方或已获准 Logo 资产。若产品是 HP，只能使用 HP Logo；品牌字段冲突、来源不明或资产未获准时停止合成。该 Logo 仅识别底机来源，不得暗示 OEM 完成、认可或为卖家升级提供保修。
 11. 先完成并保存无品牌 PT01–PT08 母版，再用原始 Logo 文件进行确定性后处理；禁止让 ImageGen 重画 Logo、品牌文字或商标。每个生成 prompt 必须主动预留约 `18% × 18%` 的自然负空间供 OEM mark 使用，不绘制占位框。默认使用带真实 alpha 的官方/获准透明 Logo 直接融入画面，不加统一白色矩形底牌；源文件带中性背景时，优先寻找透明原始资产，或使用 `scripts/remove-neutral-logo-background.ps1` 只移除背景并保留官方颜色、比例和几何。每张图单独选择位置，不设固定右下角。没有合格安全区时必须重新排版或重做该 PT 图。

@@ -37,6 +37,8 @@
 - Business/Work 的两个增强主图必须使用不同形态：一张为固定 package，另一张为 `WINDOWS_11_PRO_LOGO_LOCKUP`。Logo lockup 必须由获准 Windows 标志和准确文字 `Windows 11 Pro` 组成一个不可拆分的固定单元；标志与文字必须相邻，禁止裸文字。允许从固定 package 的身份区按记录过的 crop recipe 确定性导出完整 lockup，但禁止只抠 Logo 或重新排字。
 - `MAIN-STRICT` 和 PT01 均不得出现 package、logo lockup、文字替代卡或占位盒。PT03 作为唯一完整配置所有者，可在 OS 行出现一次 Business logo lockup；其他 PT 默认不得重复。
 - Windows asset 表达固定预装 OS，不得伪装成随箱零售盒、光盘、USB 或额外赠品。
+- 屏内 package 必须建立在连续完成的屏幕背景上，后方不得存在可见预留框。默认使用 `ScreenGlow` 确定性合成：从 package 四周屏幕像素取环境色，在 package 下方添加克制 halo 与 contact shadow，但保持品牌资产像素、比例、颜色和透视不变。
+- 若 100% 检查出现贴图感、硬矩形底、双边框或光晕与屏幕色温冲突，必须返工；不得通过降低 package 清晰度或透明度掩盖问题。
 - 不允许现场生成、重画、近似模仿或从竞品图抠取 Windows/Microsoft 标志。package 必须作为完整单元整体等比缩放；logo lockup 也必须作为完整固定单元合成，均不得裁切、改色或拆解。
 - 必须逐字显示 `Windows 11 Pro`，并与已验证 Listing、属性和交付配置一致。
 - Windows asset 属于 supporting information。缩略图中应可辨认，但不得大于 hero attribute，也不得覆盖或压缩核心硬件信息。

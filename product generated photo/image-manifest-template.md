@@ -35,6 +35,11 @@
 - `product_to_card_gap_pct`: `<required for THREE_QUARTER_SIDE_CARD>`
 - `outer_clear_space_review`: `<PASS | BLOCKED>`
 - `windows_package_non_overlap_review`: `<PASS | BLOCKED>`
+- `windows_package_integration_style`: `<SCREEN_GLOW | CANVAS_SIDE_SOFT_SHADOW | NOT_APPLICABLE>`
+- `windows_package_background_continuity_review`: `<PASS | BLOCKED>`
+- `windows_package_placeholder_visible`: `<false required | true>`
+- `frame_break_continuity_review`: `<PASS | BLOCKED | NOT_APPLICABLE>`
+- `frame_break_detached_lobes_or_double_border`: `<false required | true | NOT_APPLICABLE>`
 - `thumbnail_hierarchy_review`: `<PASS | BLOCKED>`
 - `universal_oem_logo_visibility_rule`: `<REQUIRED | PASS | FAIL>`
 - `logo_thumbnail_review_size_px`: `200`
@@ -126,6 +131,8 @@ Before production, assign every customer-visible claim to one `PRIMARY OWNER` sl
 - [ ] `MAIN-STRICT` follows the profile-independent Amazon main-image rules and contains no added text, logo overlay, or Windows package.
 - [ ] `MAIN-ENHANCED-FRONT-CANDIDATE` uses the accurate front view and fixed Windows 11 Pro package; the package is fully visible, proportionally scaled, and clear of protected content.
 - [ ] `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` uses an authorized exact-model angled view and the same fixed Windows package without inventing chassis details.
+- [ ] A screen-placed Windows package sits over a fully continuous background with no placeholder rectangle and uses palette-aware glow/contact shadow without altering the package itself.
+- [ ] Gaming frame-break subjects form one continuous screen-connected silhouette; no detached shoulder lobes, triple-bump outline, floating parts, double bezel, neon contour, or sticker edge remains.
 - [ ] PT01–PT08 consistently use the selected profile.
 - [ ] PT02–PT08 use the continuation pack matching the PT01 Gaming/Business hero family.
 - [ ] A `Gallery Content Ownership Matrix` was completed before generation, and each PT has one documented `unique_information_contribution`.

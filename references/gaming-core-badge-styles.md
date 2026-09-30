@@ -29,6 +29,9 @@ Windows 资产使用必须遵守 Microsoft 当前规则：准确的 `Windows 11 
 - 数字预装许可不能表现成随箱附送零售盒。使用 box-shot treatment 时，应在 manifest 标记 `retail_media_included: false`，并在需要时加小字 `Preinstalled — no retail media included`。
 - 产品和 MegaPC 销售配置必须比 Windows package 更显著；Windows 视觉不得成为第二件“随箱商品”。
 - 固定 package 只能整体等比缩放；不得裁切、抽取背景或 Logo、改色、重画或重新制造透视。
+- 当 package 放在屏幕内时，生成母版必须先完成 package 后方的连续屏幕环境，只保留低细节安全区；禁止预画深色矩形、边框、空白卡槽、发光盒或任何可见 placeholder。
+- 最终使用 `scripts/add-fixed-image-overlay.ps1 -IntegrationStyle ScreenGlow` 确定性合成：固定 package 像素保持原样，仅在其下方加入从邻近屏幕自动取色的柔和环境光和接触阴影，使其自然属于屏幕场景而不是贴纸。
+- package 与背景融合不等于改造品牌资产：不得降低 package 本身不透明度、模糊、改色、透视变形或让人物/规格压住 package。必须在 100% 与 200 px 复核完整性和自然度。
 - placement 为 `SCREEN_SAFE_ZONE` 或 `CANVAS_SIDE_SAFE_ZONE`。屏幕内放置是 option；若拥挤，必须减少次要内容、扩大留白或切换准确侧向构图，不能省略 package。
 
 ## 4. Core configuration model
