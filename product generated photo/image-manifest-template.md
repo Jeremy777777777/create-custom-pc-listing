@@ -161,7 +161,7 @@ Before production, assign every customer-visible claim to one `PRIMARY OWNER` sl
 - [ ] Every claim is `VERIFIED`; configuration options are clearly distinguished from installed values.
 - [ ] Competitor wording, images, icons, layouts and A+ assets were not reused.
 - [ ] Every PT01–PT08 image contains the correct verified OEM logo and passed provenance and placement checks; `MAIN-STRICT` has no added overlay and both enhanced MAIN candidates use only approved deterministic brand assets.
-- [ ] `logo-qa.json` reports `PASS` for PT01–PT08; every visible OEM mark meets the 200 px thumbnail minimum of 28 px long-edge and 10 px short-edge.
+- [ ] `logo-qa.json` reports `PASS` for PT01–PT08; every visible OEM mark meets the 200 px thumbnail minimum of 20 px long-edge and 10 px short-edge, stays at or below 12% of the source-canvas long edge, and passes component-spacing review.
 - [ ] Every OEM mark is visually integrated: transparent asset or OEM-approved keyline/reverse treatment, no visible source rectangle or generic white card; any hard badge has a documented `badgeExceptionReason`.
 - [ ] 100% and thumbnail reviews passed; no text, product, port, card, border or callout collision.
 - [ ] Synthetic-performer metadata was added when required.

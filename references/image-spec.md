@@ -324,8 +324,8 @@ the approved logo lockup once on the OS line; other PT slots may not repeat it.
   `minimumClearancePx` of at least 16 pixels for the production canvas and a
   `protectedZones` array for every PT image. It must also declare
   `thumbnailReviewSizePx: 200`,
-  `minimumVisibleLogoLongEdgePxAtThumbnail: 28`,
-  `maximumLogoLongEdgePercentOfCanvas: 15`,
+  `minimumVisibleLogoLongEdgePxAtThumbnail: 20`,
+  `maximumLogoLongEdgePercentOfCanvas: 12`,
   `minimumComponentSeparationPx: 32`, and
   `minimumVisibleLogoShortEdgePxAtThumbnail: 10`. Keep the rendered logo at least
   that distance from the canvas edge and every recorded protected zone; use a
@@ -348,7 +348,7 @@ the approved logo lockup once on the OS line; other PT slots may not repeat it.
   separate review set from those masters, inspect every image at 100%, and
   also inspect a 200 px gallery-size thumbnail before approval. The composition
   script must reject insufficient canvas clearance, intersection with a declared
-  protected zone, or a projected visible Logo smaller than 28 px on its long
+  protected zone, a projected visible Logo smaller than 20 px on its long
   edge or 10 px on its short edge at that thumbnail size. It must write
   `logo-qa.json` with the source-asset SHA-256 and per-image visible bounds.
   Replace final files only after human approval. If no safe

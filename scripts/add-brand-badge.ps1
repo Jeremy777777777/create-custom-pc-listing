@@ -124,11 +124,11 @@ $minimumComponentSeparation = [int]$plan.minimumComponentSeparationPx
 if ($thumbnailReviewSize -lt 200) {
     throw 'Placement plan thumbnailReviewSizePx must be at least 200.'
 }
-if ($minimumVisibleLongEdge -lt 28 -or $minimumVisibleShortEdge -lt 10) {
-    throw 'Placement plan thumbnail Logo thresholds must be at least 28 px long-edge and 10 px short-edge.'
+if ($minimumVisibleLongEdge -lt 20 -or $minimumVisibleShortEdge -lt 10) {
+    throw 'Placement plan thumbnail Logo thresholds must be at least 20 px long-edge and 10 px short-edge.'
 }
-if ($maximumLogoLongEdgePercent -le 0 -or $maximumLogoLongEdgePercent -gt 15) {
-    throw 'Placement plan maximumLogoLongEdgePercentOfCanvas must be greater than 0 and no more than 15.'
+if ($maximumLogoLongEdgePercent -le 0 -or $maximumLogoLongEdgePercent -gt 12) {
+    throw 'Placement plan maximumLogoLongEdgePercentOfCanvas must be greater than 0 and no more than 12.'
 }
 if ($minimumComponentSeparation -lt 32) {
     throw 'Placement plan minimumComponentSeparationPx must be at least 32.'

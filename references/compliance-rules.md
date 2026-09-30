@@ -67,14 +67,14 @@ Amazon market research & originality
       computer manufacturer; `MAIN` has no added logo overlay.
 - [ ] PT01–PT08 also pass `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE`: deterministic
       composition is proven by `logo-qa.json`, and the visible mark remains at
-      least 28 px on its long edge and 10 px on its short edge in a 200 px
+      least 20 px on its long edge and 10 px on its short edge in a 200 px
       thumbnail. A technically present but unreadable mark counts as missing.
 - [ ] PT01–PT08 pass `UNIVERSAL_OEM_LOGO_INTEGRATION_RULE`: the approved mark
       uses a genuine transparent channel and natural negative space. A visible
       rectangular source background or generic white sticker/card is prohibited
       unless the OEM guideline requires it and `badgeExceptionReason` is recorded.
 - [ ] PT01–PT08 pass `UNIVERSAL_BRAND_SPACING_RULE`: visible Logo long edge is
-      no more than 15% of the canvas; component separation is at least 32 px or
+      no more than 12% of the canvas; component separation is at least 32 px or
       2.5% of the canvas short edge; no dashed placeholder, old Logo, or residual
       badge remains beneath the final mark.
 - [ ] Each enhanced MAIN contains exactly one approved Windows asset treatment;
