@@ -86,9 +86,9 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 8. Gaming 3D 出屏元素仍须与屏幕相连，越过屏幕的面积不得超过电脑视觉包围框的 12%，最多跨越两条屏幕边，且不得遮挡摄像头、铰链、键盘、触控板、OEM Logo、Windows 卡或已验证规格。电脑中心偏差仍须 `<= 2%`。
 9. Business/Work 的 Office 与 Copilot 必须执行 `business-work-hero-styles.md` 的权益账本。`Lifetime Office` 只在卖家对准确 SKU 提供可审计依据并批准准确措辞时使用；否则展示准确 Office 产品名与许可模式。物理 Copilot key、Windows Copilot、Microsoft 365 Copilot 许可和 Copilot+ PC 是四种不同事实，不能互相推断。
 10. 对 customized laptop/desktop 的 PT01–PT08，先从产品事实账本确认底机制造商，再选择同一 OEM 的官方或已获准 Logo 资产。若产品是 HP，只能使用 HP Logo；品牌字段冲突、来源不明或资产未获准时停止合成。该 Logo 仅识别底机来源，不得暗示 OEM 完成、认可或为卖家升级提供保修。
-11. 先完成并保存无品牌 PT01–PT08 母版，再用原始 Logo 文件进行确定性后处理；禁止让 ImageGen 重画 Logo、品牌文字或商标。每张图单独选择负空间位置，不设固定右下角。Logo 的可见像素、白色 keyline、背景牌及其安全留白都不得覆盖或接触产品、标题、正文、规格卡、脚注、接口标注、引导线、边框或装饰线。没有合格安全区时必须重新排版或重做该 PT 图；在正确 OEM Logo 安全合成前，槽位保持 `BLOCKED`，不能省略 Logo 后标记完成。
-12. 在产品目录保存 `logo-placement.json`，除逐图记录 `x`、`y`、`width`、`height` 与样式外，还必须设置 `minimumClearancePx`，并为每张图记录 `protectedZones`（即使复核后为空数组）。安全距离从 Logo 的最终可见外缘计算，包含白色 keyline 或背景牌，不是只按原始 Logo 图片框计算。内部生产底线为 **16 px**；OEM 规范要求更大留白时使用更大的值。受保护区应覆盖相邻文字、产品、信息卡及其边框、接口、引导线和装饰线。脚本必须在合成前验证画布边缘距离和受保护区碰撞；验证失败即停止，不得生成可交付文件。
-13. 内部可先输出到独立工作目录并以 100% 尺寸逐张检查，同时检查缩略图状态下 Logo 是否仍与边框/线条视觉分离。交给用户审核的 review 目录必须已经用 `scripts/add-brand-badge.ps1` 从 `unbranded/` 完成确定性合成，并包含全部文字、Logo、Windows package 和产品信息；用户批准决定是否采用或提交，不负责批准后再补齐成品。不得在已带 Logo 的图上再次叠加。
+11. 先完成并保存无品牌 PT01–PT08 母版，再用原始 Logo 文件进行确定性后处理；禁止让 ImageGen 重画 Logo、品牌文字或商标。每个生成 prompt 必须主动预留约 `18% × 18%` 的自然负空间供 OEM badge 使用，不绘制占位框。每张图单独选择位置，不设固定右下角。Logo 的可见像素、白色 keyline、背景牌及其安全留白都不得覆盖或接触产品、标题、正文、规格卡、脚注、接口标注、引导线、边框或装饰线。没有合格安全区时必须重新排版或重做该 PT 图；在正确 OEM Logo 安全合成前，槽位保持 `BLOCKED`，不能省略 Logo 后标记完成。
+12. 在产品目录保存 `logo-placement.json`，除逐图记录 `x`、`y`、`width`、`height` 与样式外，还必须设置 `minimumClearancePx >= 16`、`thumbnailReviewSizePx: 200`、`minimumVisibleLogoLongEdgePxAtThumbnail: 28`、`minimumVisibleLogoShortEdgePxAtThumbnail: 10`，并为每张图记录 `protectedZones`（即使复核后为空数组）。安全距离从 Logo 的最终可见外缘计算，包含白色 keyline 或背景牌，不是只按原始 Logo 图片框计算。受保护区应覆盖相邻文字、产品、信息卡及其边框、接口、引导线和装饰线。`scripts/add-brand-badge.ps1` 必须在合成前验证画布边缘、受保护区和缩略图可见尺寸；任一失败即停止，不得生成可交付文件。
+13. 内部可先输出到独立工作目录并以 100% 尺寸逐张检查，同时检查 200 px 缩略图。交给用户审核的 review 目录必须已经用 `scripts/add-brand-badge.ps1` 从 `unbranded/` 完成确定性合成，并生成 `logo-qa.json`，记录 OEM Logo 资产 SHA-256、每张图的实际可见边界、缩略图投影尺寸及 `PASS` 结果。Review 图必须包含全部文字、Logo、Windows package 和产品信息；用户批准决定是否采用或提交，不负责批准后再补齐成品。不得在已带 Logo 的图上再次叠加。
 14. Amazon 竞品页面只用于研究视觉层级、留白、信息密度和应覆盖的购买问题，不得复刻其独特构图、配色组合、图标、文案、人物场景或使用其图片资产。最终图必须保持原创布局并准确对应本机型。
 15. 若出现完全由 AI 生成的写实人物，按 `image-spec.md` 添加并记录所需元数据。
 16. 人物资产必须记录 `people_asset_mode`、角色、数量、来源、IP/身份复核与 synthetic-performer metadata 状态。Gaming 人物不得指向具体游戏 IP、主播、名人或战队；Business 人物不得形成客户背书或复制软件界面。PT06 永远禁止人物。
@@ -99,6 +99,35 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 - 逐张检查分辨率、比例、清晰度、裁切、颜色/角度、文字、Logo/版权、配件、接口、跨图规格一致性和 Amazon 主图限制。PT01–PT08 每张都必须有与底机 OEM 相符的官方或已获准 Logo，不能拼错、变形、擅自改色、重绘，也不能覆盖或接触文字、线条、接口、产品和信息卡。检查应同时包含 100% 尺寸与缩略图视觉复核，并确认 Logo 最终外缘到画布边缘及 `protectedZones` 的距离不小于 `minimumClearancePx`。`MAIN-STRICT` 不添加覆盖层，只核对机身自带标识是否真实自然；增强主图的品牌资产按固定素材规则复核。
 - 对照最终 Listing 复查 RAM/SSD、OS、屏幕、接口和随箱配件。任何不一致都必须返回修改，不能用免责声明掩盖错误。
 - 对 PT01–PT08 执行 OCR 与语义去重：核对 `Gallery Content Ownership Matrix`、每张图的新增信息、核心规格归属和任意两张图的主要信息重合。重合超过 `supporting-gallery-styles.md` 的阈值、PT05 成为第二张配置表、或 PT07 退化为规格回顾时，整套图库不得进入 `FINAL_ASSET_QA_PASS`，必须重做对应槽位。
+- 对 PT01–PT08 执行 `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE`：`logo-qa.json` 必须存在并整体为 `PASS`；任何 Logo 在 200 px 缩略图投影中长边小于 28 px、短边小于 10 px，或低对比、碰撞、裁切，均将整套图库置为 `REWORK_REQUIRED`。
+
+### 5A. 快速成功调用：标准成品流水线
+
+以后执行完整图库或同类重做时，固定按以下顺序调用，不从临时经验重新拼流程：
+
+1. `git fetch`/fast-forward 同步 GitHub 最新规则，读取当前 `SKILL.md` 与适用 style family。
+2. 锁定 ERP/Listing 事实与公开 OEM 一手资料；错误或跨品牌文案进入拒绝清单。
+3. 在 manifest 先完成 audience/style lock、`Gallery Content Ownership Matrix`、品牌授权状态和 11 槽文件计划。
+4. 收集准确机型正面、三分之四、侧面、俯视和接口素材；缺少公共事实时主动 research 一手来源，不把公开资料搜集工作转给用户。
+5. 生成 3 MAIN 与 PT01–PT08 的无品牌母版。所有 PT prompt 必须写入“为确定性 OEM badge 预留约 18% × 18% 自然负空间；不得生成 Logo、品牌字样、占位框或虚线”。
+6. 用 `scripts/normalize-square-image.ps1` 统一真实编码、RGB 与 1:1 尺寸；严格 MAIN 保持 JPEG，其余生产母版可为 PNG。
+7. 用 `scripts/crop-image.ps1`（需要可复现 derivative 时）和 `scripts/add-fixed-image-overlay.ps1` 确定性加入 Windows/其他获准固定资产；禁止 AI 重画商标。
+8. 填写 `logo-placement.json` 的 200 px 可见性阈值、逐图坐标、样式、保护区；运行 `scripts/add-brand-badge.ps1` 从 `unbranded/` 生成 PT01–PT08 和 `logo-qa.json`。脚本失败时重排对应图片，不能减小或省略 Logo 绕过。
+9. 固定资产已完成后，优先调用 `scripts/finalize-image-gallery.ps1`，一次执行尺寸标准化、PT Logo 合成、`logo-qa.json`、contact sheet、exactly-11 与 SHA-256 报告；再人工完成 100%、200 px、拼写、事实、端口、Windows 和跨图去重复核。需要单独重建预览时可直接调用 `scripts/new-contact-sheet.ps1`。
+10. 只有 manifest、`logo-qa.json`、11 个 canonical 图片和人工视觉复核全部通过，才设置 `FINAL_ASSET_QA_PASS`；生产母版与 source records 移出 canonical GitHub 图片目录。
+11. 用户要求 GitHub 更新时，再次 fetch 确认没有远端漂移，选择性 stage 正式文件，commit 并 push；push 成功不等于 Amazon 已批准或已发布。
+
+固定资产和 `unbranded/PT01.png`–`PT08.png` 已就绪后，标准 finalizer 调用为：
+
+```powershell
+.\scripts\finalize-image-gallery.ps1 `
+  -ProductDirectory '.\product generated photo\VL-XXXX' `
+  -LogoPath '.\assets\branding\<verified-oem-logo>.png' `
+  -ExpectedBrand '<Verified OEM>' `
+  -ContactSheetPath '.\production-records\VL-XXXX\contact-sheet.jpg'
+```
+
+仅在调用前已经由同一脚本版本完成尺寸标准化时才使用 `-SkipNormalization`。Finalizer 不代替事实、版权、文字和视觉人工复核；它负责把容易漏掉的机械闸门变成失败即停止的自动检查。
 
 ### 6. GitHub 目录、命名与交付闸门
 

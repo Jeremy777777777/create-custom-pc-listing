@@ -65,6 +65,10 @@ Amazon market research & originality
       verified by an authoritative product source.
 - [ ] PT01–PT08 each use the official or authorized logo of the verified base
       computer manufacturer; `MAIN` has no added logo overlay.
+- [ ] PT01–PT08 also pass `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE`: deterministic
+      composition is proven by `logo-qa.json`, and the visible mark remains at
+      least 28 px on its long edge and 10 px on its short edge in a 200 px
+      thumbnail. A technically present but unreadable mark counts as missing.
 - [ ] OEM or competitor listing conventions do not override the MegaPC
       brand-first title, required warranty/customization disclosure, or MFN
       requirements.

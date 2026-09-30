@@ -17,6 +17,7 @@ description: "Run the MegaPC Amazon Custom PC workflow for complete listing prod
 - `UNIVERSAL_GALLERY_DEDUP_RULE` 对所有电脑和所有 `audience_style_family` 强制生效，包括 `GAMING`、`BUSINESS_WORK`、`STUDENT_STUDY`、`GENERAL`、`HYBRID_MANUAL_REVIEW` 及未来新增分类；任何 style profile、hero family 或 continuation pack 都不得覆盖。PT01–PT08 必须在生成前完成跨图信息归属，在生成后完成 OCR/语义去重；每张图回答不同的购买问题。PT03 是完整销售配置的唯一主槽，PT05 只解释性能关系而不重列完整型号/容量，PT07 使用尚未解释且有证据的独立购买价值，禁止再作为规格回顾页。详细归属和失败阈值见 [references/supporting-gallery-styles.md](references/supporting-gallery-styles.md)。
 - 图片请求中的“生成/制作/给我审核”默认交付完成文件，不交底稿、prompt、production brief、空模板或缺少后处理的候选。`CANDIDATE` 只表示已完成主图之间等待选择。完整图库若在 preflight 发现关键事实或素材不足，应先阻断并说明，不得用 `TO PRODUCE`/`TO SOURCE` 的缺图集合冒充成品。
 - MegaPC / J-Tech Digital 已确认其目录内销售的各 OEM 品牌均具有适用于商品销售与图片制作的经销商、合作伙伴或书面品牌素材授权。按 [`references/brand-authorization-policy.md`](references/brand-authorization-policy.md) 记录为 `USER_CONFIRMED_CATALOG_WIDE`；常规 OEM 产品图片与正确 OEM Logo 不得再仅因公开网页未展示授权证明而阻断。仍须核验品牌与准确机型匹配、使用官方/品牌提供的原始资产、遵守 Logo 规范，并对游戏、软件、人物及其他第三方 IP 另行执行授权闸门。
+- `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE` 对所有产品、品牌、受众和 style family 强制生效：PT01–PT08 每张图都必须在无品牌母版完成后，用正确 OEM 官方/获准原始 Logo 确定性合成；仅“文件里有 Logo”不算通过。`logo-placement.json` 必须启用 200 px 缩略图量化闸门，最终可见 Logo 在该缩略图上的长边至少 28 px、短边至少 10 px，且具有足够对比背景与安全区。任一 PT 缺 Logo、太小、被裁切、与内容碰撞或缩略图不可辨认时，整套图为 `REWORK_REQUIRED`，不得标为 `FINAL_ASSET_QA_PASS`。
 
 ## 输入与规则文件
 

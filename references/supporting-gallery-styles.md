@@ -256,6 +256,7 @@ identity_ip_review: PASS|BLOCKED
 4. 人物/环境单独生成或取得授权，不能让生成模型重画真实电脑、键盘、接口、Logo 或软件商标。
 5. 用真实产品 mask 合成，最后确定性加入已获准 OEM、Windows、Office、Copilot 或硬件品牌资产。
 6. 逐张进行事实、版权、人物、包含物语义、100% 尺寸和 200 px 缩略图检查。
+7. 对 PT01–PT08 执行 `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE`：用官方/获准 Logo 原始文件后期合成，200 px 缩略图中的可见 Logo 长边不得小于 28 px、短边不得小于 10 px；Logo 必须使用负空间与高对比底牌，不得用“存在但看不清”的小角标通过验收。
 
 ## 交付闸门
 

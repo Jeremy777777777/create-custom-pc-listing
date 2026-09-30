@@ -320,7 +320,10 @@ the approved logo lockup once on the OS line; other PT slots may not repeat it.
 - Measure clearance from the final rendered outer edge, including a white
   keyline or badge background. `logo-placement.json` must declare a
   `minimumClearancePx` of at least 16 pixels for the production canvas and a
-  `protectedZones` array for every PT image. Keep the rendered logo at least
+  `protectedZones` array for every PT image. It must also declare
+  `thumbnailReviewSizePx: 200`,
+  `minimumVisibleLogoLongEdgePxAtThumbnail: 28`, and
+  `minimumVisibleLogoShortEdgePxAtThumbnail: 10`. Keep the rendered logo at least
   that distance from the canvas edge and every recorded protected zone; use a
   larger value when the OEM identity standard requires it. A placement that
   merely avoids pixel overlap but visually touches a card border or decorative
@@ -331,9 +334,12 @@ the approved logo lockup once on the OS line; other PT slots may not repeat it.
   legibility. Do not stretch a circular logo into a rectangle.
 - Keep an unbranded master and a per-image `logo-placement.json`. Generate a
   separate review set from those masters, inspect every image at 100%, and
-  also inspect a gallery-size thumbnail before approval. The composition script
-  must reject insufficient canvas clearance or intersection with a declared
-  protected zone. Replace final files only after human approval. If no safe
+  also inspect a 200 px gallery-size thumbnail before approval. The composition
+  script must reject insufficient canvas clearance, intersection with a declared
+  protected zone, or a projected visible Logo smaller than 28 px on its long
+  edge or 10 px on its short edge at that thumbnail size. It must write
+  `logo-qa.json` with the source-asset SHA-256 and per-image visible bounds.
+  Replace final files only after human approval. If no safe
   placement exists, redesign or regenerate that PT composition and keep the slot
   `BLOCKED` until the correct OEM logo can be placed safely. Do not omit the logo
   and mark the PT image complete.
@@ -343,7 +349,9 @@ the approved logo lockup once on the OS line; other PT slots may not repeat it.
 - The overlay brand must match the verified physical OEM exactly. A mismatch is
   a blocking defect.
 - Every final PT01–PT08 file must contain that verified OEM logo. Missing logo,
-  unlicensed logo artwork, or an unsafe placement is a blocking defect.
+  unlicensed logo artwork, an unsafe placement, or a mark that fails the
+  `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE` is a blocking defect. A Logo that exists
+  in the pixels but disappears at normal thumbnail size is treated as missing.
   `MAIN-STRICT` remains exempt from added overlays and may show only the OEM mark
   physically present on the genuine product; the enhanced main uses only
   approved deterministic brand assets.

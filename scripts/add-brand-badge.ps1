@@ -116,6 +116,15 @@ $minimumClearance = [int]$plan.minimumClearancePx
 if ($minimumClearance -lt 16) {
     throw 'Placement plan minimumClearancePx must be at least 16.'
 }
+$thumbnailReviewSize = [int]$plan.thumbnailReviewSizePx
+$minimumVisibleLongEdge = [int]$plan.minimumVisibleLogoLongEdgePxAtThumbnail
+$minimumVisibleShortEdge = [int]$plan.minimumVisibleLogoShortEdgePxAtThumbnail
+if ($thumbnailReviewSize -lt 200) {
+    throw 'Placement plan thumbnailReviewSizePx must be at least 200.'
+}
+if ($minimumVisibleLongEdge -lt 28 -or $minimumVisibleShortEdge -lt 10) {
+    throw 'Placement plan thumbnail Logo thresholds must be at least 28 px long-edge and 10 px short-edge.'
+}
 
 $requiredFiles = 1..8 | ForEach-Object { 'PT{0:d2}.png' -f $_ }
 foreach ($fileName in $requiredFiles) {
@@ -137,6 +146,8 @@ if (Test-Path -LiteralPath $mainPath -PathType Leaf) {
 }
 
 $logo = [System.Drawing.Bitmap]::new($resolvedLogo)
+$logoHash = (Get-FileHash -LiteralPath $resolvedLogo -Algorithm SHA256).Hash
+$qaEntries = [System.Collections.Generic.List[object]]::new()
 try {
     foreach ($fileName in $requiredFiles) {
         $placement = $plan.placements.PSObject.Properties[$fileName].Value
@@ -151,6 +162,9 @@ try {
         }
         if ($style -notin @('circle-keyline', 'rounded-badge', 'transparent')) {
             throw "Unsupported badge style '$style' for $fileName."
+        }
+        if ($style -eq 'transparent' -and [string]$placement.contrastReview -ne 'PASS') {
+            throw "Transparent Logo placement for $fileName requires contrastReview: PASS."
         }
         if ($null -eq $placement.PSObject.Properties['protectedZones']) {
             throw "Placement plan must declare protectedZones for $fileName (use an empty array after review when none apply)."
@@ -201,6 +215,15 @@ try {
             $graphics.PixelOffsetMode = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
             $graphics.DrawImageUnscaled($source, 0, 0)
             $bounds = [System.Drawing.RectangleF]::new($x, $y, $width, $height)
+            $logoPadding = if ($style -eq 'rounded-badge') { 8 } else { 0 }
+            $logoBounds = Get-FittedRectangle -Image $logo -Bounds $bounds -Padding $logoPadding
+            $thumbnailScale = [float]$thumbnailReviewSize / [float]$source.Width
+            $visibleLongEdge = [Math]::Max($logoBounds.Width, $logoBounds.Height) * $thumbnailScale
+            $visibleShortEdge = [Math]::Min($logoBounds.Width, $logoBounds.Height) * $thumbnailScale
+            if ($visibleLongEdge -lt $minimumVisibleLongEdge -or $visibleShortEdge -lt $minimumVisibleShortEdge) {
+                throw ("Logo for {0} is present but too small at {1}px thumbnail: {2:N1}x{3:N1}px; required >= {4}px long-edge and >= {5}px short-edge." -f `
+                    $fileName, $thumbnailReviewSize, ($logoBounds.Width * $thumbnailScale), ($logoBounds.Height * $thumbnailScale), $minimumVisibleLongEdge, $minimumVisibleShortEdge)
+            }
 
             if ($style -eq 'circle-keyline') {
                 $keylineWidth = [int][Math]::Ceiling($width * 1.08)
@@ -214,7 +237,7 @@ try {
                 finally {
                     $keylineBrush.Dispose()
                 }
-                $graphics.DrawImage($logo, $bounds)
+                $graphics.DrawImage($logo, $logoBounds)
             }
             elseif ($style -eq 'rounded-badge') {
                 $badgePath = New-RoundedRectanglePath -Rectangle $bounds -Radius 12
@@ -223,7 +246,6 @@ try {
                 try {
                     $graphics.FillPath($badgeBrush, $badgePath)
                     $graphics.DrawPath($badgePen, $badgePath)
-                    $logoBounds = Get-FittedRectangle -Image $logo -Bounds $bounds -Padding 8
                     $graphics.DrawImage($logo, $logoBounds)
                 }
                 finally {
@@ -233,9 +255,28 @@ try {
                 }
             }
             else {
-                $logoBounds = Get-FittedRectangle -Image $logo -Bounds $bounds
                 $graphics.DrawImage($logo, $logoBounds)
             }
+
+            $qaEntries.Add([pscustomobject]@{
+                file = $fileName
+                style = $style
+                canvas = "$($source.Width)x$($source.Height)"
+                badgeBounds = [pscustomobject]@{ x = $x; y = $y; width = $width; height = $height }
+                visibleLogoBounds = [pscustomobject]@{
+                    x = [Math]::Round($logoBounds.X, 1)
+                    y = [Math]::Round($logoBounds.Y, 1)
+                    width = [Math]::Round($logoBounds.Width, 1)
+                    height = [Math]::Round($logoBounds.Height, 1)
+                }
+                thumbnailReviewSizePx = $thumbnailReviewSize
+                thumbnailVisibleLogoPx = [pscustomobject]@{
+                    width = [Math]::Round($logoBounds.Width * $thumbnailScale, 1)
+                    height = [Math]::Round($logoBounds.Height * $thumbnailScale, 1)
+                }
+                visibilityGate = 'PASS'
+                clearanceGate = 'PASS'
+            })
         }
         finally {
             $graphics.Dispose()
@@ -252,4 +293,19 @@ finally {
     $logo.Dispose()
 }
 
+$qaReport = [ordered]@{
+    brand = $plan.brand
+    logoRole = $plan.logoRole
+    logoAsset = Split-Path -Leaf $resolvedLogo
+    logoAssetSha256 = $logoHash
+    thumbnailReviewSizePx = $thumbnailReviewSize
+    minimumVisibleLogoLongEdgePxAtThumbnail = $minimumVisibleLongEdge
+    minimumVisibleLogoShortEdgePxAtThumbnail = $minimumVisibleShortEdge
+    result = 'PASS'
+    images = $qaEntries
+}
+$qaReportPath = Join-Path $resolvedOutput 'logo-qa.json'
+$qaReport | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $qaReportPath -Encoding UTF8
+
 Write-Output "Applied verified $($plan.brand) OEM logo to PT01-PT08 in $resolvedOutput"
+Write-Output "Logo visibility QA PASS: $qaReportPath"
