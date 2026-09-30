@@ -41,6 +41,75 @@
 - Business gallery 的默认 Logo 处理是透明官方 mark 融入浅色负空间，不是白色矩形 badge。标志周围依靠版面留白建立识别度；如果背景复杂，应移动 Logo 或重排构图，而不是截一块白底贴上去。圆形 keyline 或硬背景牌仅在 OEM 规范允许且必要时使用。
 - Windows 在 PT 图中的唯一默认所有者是 PT03：OS 行可使用一次获准标志 + `Windows 11 Pro` 锁定组合。其他 PT 不得为了“穿插”而重复 Windows。
 
+## 已验证的 Business Laptop 平衡版生产流程
+
+本流程用于稳定复现“产品是主角、品牌可识别、但 Logo 和 Windows asset 不像贴上去”的 Business Laptop 成品。它适用于 B07–B16/BG07–BG16，不取代各 family 的内容所有权和事实验证规则。
+
+### 1. 先生产干净母版
+
+1. 三份 MAIN 和 PT01–PT08 先以无后期品牌资产的母版形式完成。PT prompt 要求预留约 `18% × 18%` 的自然负空间，但明确禁止生成 Logo、品牌字样、虚线框、白色底牌、占位卡或“将在此处放 Logo”的视觉提示。
+2. 增强主图母版不得带生成的 Windows package/lockup。如果生成结果已含这些元素，先做精确局部清理并重建背景，再进入确定性合成；禁止直接把新 package 叠到旧 package 上。
+3. 在 100% 尺寸检查右上、四角、产品边缘和标题附近。任何虚线框、旧 Logo、残留 badge、裁切框或 package 重影都必须在合成前清除。PT02 人物/用途场景是高风险检查位，不得因背景浅色而忽略占位边框。
+
+### 2. Windows asset 只合成一次
+
+1. `MAIN-ENHANCED-FRONT-CANDIDATE` 与 `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` 使用不同的获准 Windows 形态：一张 lockup，一张 fixed package。每张只允许一个 Windows asset 实例。
+2. 从无 Windows asset 的 clean master 运行 `scripts/add-fixed-image-overlay.ps1`。固定资产完整等比缩放，不裁切、不改色、不重绘、不人工制造第二层透视。
+3. package/lockup 必须位于独立安全区，与电脑轮廓、规格行和画布边缘保持清晰间距。产品始终是第一视觉主体；如 package 接近产品、像实体随箱物或成为第二主体，应缩小并移入更干净的留白，不应缩小电脑。
+
+### 3. OEM Logo 使用透明资产融入构图
+
+1. 优先使用官方/获准的透明 Logo。如果已授权源文件只有中性灰/白背景，使用 `scripts/remove-neutral-logo-background.ps1` 生成可复现的 alpha derivative，只移除中性背景，不改 Logo 颜色、形状或比例。
+2. 在 `logo-placement.json` 中至少记录：
+   - `preferredTreatment: INTEGRATED_TRANSPARENT_MARK`
+   - `minimumClearancePx >= 16`；Business 成品推荐 `32`
+   - `minimumComponentSeparationPx >= 32`，或画布短边 `2.5%`，取较大值
+   - `maximumLogoLongEdgePercentOfCanvas <= 12`
+   - `thumbnailReviewSizePx: 200`
+   - `minimumVisibleLogoLongEdgePxAtThumbnail >= 20`
+   - `minimumVisibleLogoShortEdgePxAtThumbnail >= 10`
+   - 每图 `contrastReview: PASS`、`compositionSpacingReview: PASS`、`placeholderFrameReview: PASS` 和 `protectedZones`
+3. Logo 可见长边默认占画布 `9%–12%`。预留的 `18% × 18%` 是包含呼吸空间的安全区，不是 Logo 本身的目标尺寸。Logo 不得接触或贴近电脑、标题、线条、图标、信息卡或画布边缘，也不得为提高对比而统一添加白色矩形卡。
+4. 每张图单独选择最干净的负空间；不要机械固定在右下角。先保护电脑和标题的视觉层级，再考虑品牌位置。没有合格位置时应重排或清理母版，而不是挤入 Logo。
+
+### 4. 确定性输出顺序
+
+按以下顺序生成最终文件，防止重复叠加：
+
+1. 保存无 Logo、无 Windows asset、无占位框的 masters。
+2. 对两个增强主图分别从 clean master 确定性加入一次 Windows lockup/package。
+3. 将 PT01–PT08 masters 放入产品目录的 `unbranded/`；填写最终 `logo-placement.json`。
+4. 使用透明 OEM 资产运行 `scripts/add-brand-badge.ps1`，生成 PT01–PT08 与 `logo-qa.json`。
+5. 运行 `scripts/finalize-image-gallery.ps1`，生成/刷新 contact sheet 与 `final-image-qa.json`。
+6. 先逐张检查 100% 图，再检查 200 px contact sheet。两种尺度都通过后才能删除临时 `unbranded/` 工作目录并进入 Git 提交。
+
+不得把后期脚本重复运行在已经带 Logo/package 的成品上。每轮重做都必须回到对应 clean master。
+
+### 5. 最终视觉闸门
+
+以下项目必须同时通过：
+
+- 电脑在 MAIN 和 PT 中保持第一视觉主体；标题、产品、Logo 与信息卡各自拥有独立空间。
+- 200 px contact sheet 中 Logo 可辨认但不抢眼；100% 图中没有白块、灰底、虚线框、裁切边、光晕断层或贴纸感。
+- PT02 等浅色场景的 Logo 周围是连续背景，不存在为 Logo 特意画出的方形区域。
+- 三分之四增强主图中只有一个 Windows package/lockup，不存在错位双层、旧版残影或重复底座。
+- Windows asset 与电脑之间有清楚的负空间，不覆盖机身，不暗示实体盒随箱附送。
+- `logo-qa.json` 与 `final-image-qa.json` 均为 `PASS`，且 contact sheet 与最终单张文件一致。
+
+### 6. 1254 px 校准参考（VL-1249 审核通过版）
+
+以下数值用于复现本次已审核的视觉密度，不是其他机型的强制坐标：
+
+| 项目 | 已通过参数 | 跨尺寸使用方式 |
+| --- | --- | --- |
+| OEM Logo | `140 × 140 px`，约占画布 `11.2%` | 维持 `9%–12%` 可见长边；按实际负空间逐图定位 |
+| 组件间距 | placement plan 使用 `40 px` | 不低于 `32 px` 或短边 `2.5%` |
+| 缩略图可见性 | 200 px contact sheet 中约 `22.3 × 22.2 px` | 不低于 `20 × 10 px` 长短边门槛 |
+| 三分之四 MAIN package | `230 × 252 px`，位于独立右侧留白 | 保持原比例、单实例，并与产品保持明显间隔 |
+| PT02 | 先删除 Dell Logo 与整个虚线方框，再在连续背景上合成透明 mark | 任何场景都先清除旧 Logo/占位框，再进行最终合成 |
+
+对其他分辨率按画布比例换算，并以实际产品轮廓、标题边界和留白为准；禁止直接复制 VL-1249 的 `x/y` 坐标。
+
 ## B07 / BG07 — Clear Collaboration Suite
 
 适合摄像头、麦克风、扬声器、隐私快门或会议能力较强且已验证的 business laptop。视觉为冰灰、海军蓝和少量青色声波；强调“看得清、听得清、协作顺畅”。
