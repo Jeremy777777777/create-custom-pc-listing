@@ -9,7 +9,7 @@ C01–C06 是信息组合层，不锁定产品角度。每个 C style 都必须�
 - Amazon `MAIN-STRICT` 继续保持纯白背景、仅展示实际售卖产品，不添加规格字、Windows 卡、package、人物或装饰。以下样式可同时指导增强主图和 PT01；package 仅在增强主图出现，且增强版只有通过 `enhanced_main_candidate` 闸门后才可替换正式主图。
 - 电脑主体必须水平居中，中心偏差不超过画布宽度的 `2%`。信息层不能为了腾位置把产品推向一侧。
 - 优先把信息限制在屏幕可视区；若 package 与 hero/规格冲突，可重组整体结构并使用准确的侧向产品构图，在产品旁建立独立安全区。
-- 本模块叠加在 G01–G06 的原创场景上，不复制竞品的图标、卡片形状、配色、人物、壁纸或具体排版。
+- 本模块叠加在 G01–G16 的原创场景上，不复制竞品的图标、卡片形状、配色、人物、壁纸或具体排版。C01–C06 是可复用的信息层，不需要与十六种视觉世界一一同号。
 
 ## 2. Research snapshot
 
@@ -45,7 +45,7 @@ Gaming 信息优先级固定为：`GPU → display/refresh → CPU → RAM → S
 3. `RAM`：当前选中 SKU 的容量；仅在父体确实提供多配置时使用 `Up to`。
 4. `SSD`：当前选中 SKU 的容量与类型；不能把可选升级写成基础配置。
 
-一个 `CORE_SPEC_CLUSTER` 虽包含最多四个 micro cells，但在 G01–G06 的密度计算中视为一张 feature card。启用它后，只允许再放一张独立 hero/display card；Windows tile 另计。这样既保留核心配置，又不突破 Gaming 画面的两卡上限。
+一个 `CORE_SPEC_CLUSTER` 虽包含最多四个 micro cells，但在 G01–G16 的密度计算中视为一张 feature card。启用它后，只允许再放一张独立 hero/display card；Windows tile 另计。这样既保留核心配置，又不突破 Gaming 画面的两卡上限。
 
 推荐 cell 文案结构：
 
@@ -119,12 +119,12 @@ GeForce RTX 4060
 | 竞速/飞船动势 | C06 | C03 | 规格压住速度方向 |
 | 200 px 缩略图可读性 | C01 | C05 | 细小环绕文字 |
 
-无论选择 C01–C06 中哪一套，manifest 都要分别记录正面增强版、三分之四侧向增强版与 PT01 的 composition variant。构图改变位置，不改变核心规格内容或 G01–G06/GG01–GG06 的映射；两个增强主图记录固定 Windows 模式，PT01 记录 `NONE`。
+无论选择 C01–C06 中哪一套，manifest 都要分别记录正面增强版、三分之四侧向增强版与 PT01 的 composition variant。构图改变位置，不改变核心规格内容或 G01–G16/GG01–GG16 的映射；两个增强主图记录固定 Windows 模式，PT01 记录 `NONE`。
 
 ## 7. Production sequence
 
 1. 核验准确底机外观、GPU、CPU、显示、RAM、SSD 和 Windows 11 Pro 交付证据。
-2. 先选 G01–G06，再选 C01–C06；两者必须使用上面的适配关系或记录偏离理由。
+2. 先选 G01–G16，再选 C01–C06；C style 根据实际信息密度和主体位置选择，并记录适配理由。
 3. 为增强主图锁定 `os_asset_mode: FIXED_WINDOWS_11_PRO_PACKAGE` 和固定资产路径，并选择屏幕或侧边安全区；为 PT01 锁定 `os_asset_mode: NONE`。
 4. 生成无品牌、无 Microsoft 商标的 base art；预留明确的 `CORE_SPEC_CLUSTER`、OEM Logo 和 package protected zones。若初稿拥挤，先重构版面再继续。
 5. 用确定性排版写入规格；逐字对照 evidence map，不让生成模型渲染最终文字。

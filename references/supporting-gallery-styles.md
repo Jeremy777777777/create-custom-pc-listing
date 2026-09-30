@@ -14,7 +14,7 @@
 ## 全局路由
 
 1. 先按 [business-work-hero-styles.md](business-work-hero-styles.md) 的分类器确定 `audience_style_family`。
-2. `GAMING`：PT01 选择 G01–G06；PT02–PT08 选择同编号的 `GG01`–`GG06` continuation pack，不能把 tactical hero 接到 fantasy/racing 辅助图。
+2. `GAMING`：PT01 选择 G01–G16；PT02–PT08 选择同编号的 `GG01`–`GG16` continuation pack，不能把 tactical hero 接到 fantasy/racing 辅助图，也不能把低调 stealth hero 接到彩虹 RGB continuation pack。
 3. `BUSINESS_WORK`：PT01 选择 B01–B16；PT02–PT08 选择同编号的 `BG01`–`BG16` continuation pack。
 4. PT01 的 `FRONT_SCREEN_CARD`/`THREE_QUARTER_SIDE_CARD` 是独立构图层，不改变 G→GG 或 B→BG 的编号映射；两种构图都继续进入同一个对应 continuation pack。
 5. `STUDENT_STUDY` 或 `GENERAL`：继续使用中性 `image_style_profile`，不得借用未验证的 Gaming、Office、Copilot 或企业安全语义。
@@ -24,9 +24,9 @@ manifest 至少记录：
 
 ```yaml
 audience_style_family: GAMING|BUSINESS_WORK|STUDENT_STUDY|GENERAL|HYBRID_MANUAL_REVIEW
-hero_style_id: G01|G02|G03|G04|G05|G06|B01|B02|B03|B04|B05|B06|B07|B08|B09|B10|B11
+hero_style_id: G01|G02|G03|G04|G05|G06|G07|G08|G09|G10|G11|G12|G13|G14|G15|G16|B01|B02|B03|B04|B05|B06|B07|B08|B09|B10|B11|B12|B13|B14|B15|B16
 pt01_composition_variant: FRONT_SCREEN_CARD|THREE_QUARTER_SIDE_CARD
-supporting_gallery_pack: GG01|GG02|GG03|GG04|GG05|GG06|BG01|BG02|BG03|BG04|BG05|BG06|BG07|BG08|BG09|BG10|BG11|NEUTRAL
+supporting_gallery_pack: GG01|GG02|GG03|GG04|GG05|GG06|GG07|GG08|GG09|GG10|GG11|GG12|GG13|GG14|GG15|GG16|BG01|BG02|BG03|BG04|BG05|BG06|BG07|BG08|BG09|BG10|BG11|BG12|BG13|BG14|BG15|BG16|NEUTRAL
 gallery_story_reason: <why this pack fits verified buyer tasks and available assets>
 gallery_consistency_review: PASS|BLOCKED
 ```
@@ -172,6 +172,116 @@ identity_ip_review: PASS|BLOCKED
 - `PT05`：GPU → Display motion pipeline，以抽象帧序列解释已验证高刷新显示。
 - `PT07`：仪表盘式 `Distinct Value Module`，只解释一个未使用的真实控制/体验价值；不复制真实赛车 UI，不重复配置表。
 - `PT08`：真实 HDMI/USB/无线连接映射至抽象显示器和控制器轮廓。
+
+### GG07 — Esports Precision Suite
+
+对应 G07。黑灰训练空间、冰蓝测量线与少量荧光黄定位点，强调秩序与反应而非赛事 IP。
+
+- `PT02`：一位原创玩家在简洁竞技桌面训练；屏幕为抽象 arena，不出现比分、直播 UI 或战队标志。
+- `PT03`：`Competition Configuration` 集中展示实际 CPU/GPU/RAM/SSD/OS。
+- `PT04`：显示刷新、响应、键盘与机身设计只使用已验证事实。
+- `PT05`：`Input → Process → Display` 类别级低延迟路径；不写未经验证的 latency/FPS 数字。
+- `PT07`：精密网格式 `Distinct Value Module`，只解释一个未使用的控制、音频、支持或升级价值。
+- `PT08`：准确实体接口连接显示器、网络和输入设备轮廓；不暗示外设随箱。
+
+### GG08 — Liquid Cooling Lab
+
+对应 G08，仅用于确有液冷或可验证高级散热结构的 desktop。石墨实验室、青紫流路与透明材质贯穿全套。
+
+- `PT02`：克制的高性能 gaming/creator setup；人物最多一位，机箱可见结构优先。
+- `PT03`：`Reactor Configuration` 只列准确销售配置，不把散热结构写入第二套规格卡。
+- `PT04`：真实散热器、风扇、管路与机箱开孔的准确产品视图；禁止 AI 补画内部零件。
+- `PT05`：以 `Cool Air → Heat Transfer → Exhaust` 解释有证据的热路径，不写温降百分比。
+- `PT07`：实验室式 `Distinct Value Module`，使用尚未解释的 serviceability、cable management 或支持价值。
+- `PT08`：前/后真实 I/O 图，流线只能作为引导，不得遮挡端口开口。
+
+### GG09 — Stealth Performance Suite
+
+对应 G09。matte black、basalt graphite 与单一深红/冷白细线，适合低 RGB 或专业环境兼容的 Gaming PC。
+
+- `PT02`：夜间书房或专业工作室中的一位 gamer；场景克制，不做电竞舞台。
+- `PT03`：`Stealth Configuration`，低对比材质配高可读白字。
+- `PT04`：强调准确机身、通风、键盘或表面材质；不编造 quiet claim。
+- `PT05`：`Game → Create → Work` 关系图只在 verified platform facts 支持时启用。
+- `PT07`：暗色精密 `Distinct Value Module`，选择一个未使用的支持、安全、输入或升级价值。
+- `PT08`：真实接口地图使用细白/深红引导线，不能因低调视觉牺牲可读性。
+
+### GG10 — Spectrum Showcase Suite
+
+对应 G10，仅用于透明侧板、可见组件或 RGB 灯区有准确证据的 desktop。紫青琥珀光谱和玻璃展台贯穿全套。
+
+- `PT02`：一位玩家在干净 battlestation 中使用设备；RGB 环境不能暗示额外随箱灯具。
+- `PT03`：`Showcase Configuration`，规格卡与内部灯效视觉分离。
+- `PT04`：准确侧板、风扇、组件与机箱结构；不修改真实灯区和内部布局。
+- `PT05`：`Power → Graphics → Display` 光谱路径，不重复完整型号/容量。
+- `PT07`：棱镜式 `Distinct Value Module`，承载未使用的升级、线缆管理或定制价值。
+- `PT08`：准确前/后 I/O；彩色引导线保持一种端口一条逻辑，避免彩虹噪声。
+
+### GG11 — Arctic White Suite
+
+对应 G11，仅用于真实白色、银色或浅灰产品。冰白建筑、浅银材质和冷青光缝形成高键一致性。
+
+- `PT02`：明亮现代 gaming room，人物可选；产品轮廓必须与浅背景充分分离。
+- `PT03`：`Arctic Configuration`，深灰文字与浅色磨砂卡保持缩略图可读。
+- `PT04`：准确白/银机身、显示与通风结构，不能把黑色产品重绘成白色。
+- `PT05`：类别级性能路径使用极简冷青线，不做雪花或冰冻性能隐喻。
+- `PT07`：浅色 `Distinct Value Module`，选择未使用的设计、移动、输入或支持价值。
+- `PT08`：真实端口使用深色放大 inset 和冷青锚点，避免白底丢失几何。
+
+### GG12 — Thermal Forge Suite
+
+对应 G12。深黑、暗红、琥珀热流与网孔纹理，只用于有准确 airflow/thermal 证据的产品。
+
+- `PT02`：高性能桌面场景，避免火焰与竞技人物堆叠。
+- `PT03`：`Forge Configuration` 以中性规格卡呈现，热流不穿过文字。
+- `PT04`：准确展示进风、排风、网孔与机箱角度；端口和开孔不得生成猜测。
+- `PT05`：`Intake → Component Cooling → Exhaust` 只解释验证过的结构，不写温度/噪音百分比。
+- `PT07`：锻造材质 `Distinct Value Module`，承载未使用的维护、用料或支持价值。
+- `PT08`：前/后 I/O 与热流层分开，确保标签只连接真实接口。
+
+### GG13 — Creator Gaming Studio
+
+对应 G13。深紫工作室、青色时间线、原创 viewport 与柔和棚灯，适合 Gaming/streaming/creator crossover。
+
+- `PT02`：一位原创 creator/gamer 在抽象制作环境中工作；不得复制软件 UI 或暗示订阅随附。
+- `PT03`：`Studio Configuration` 集中实际 CPU/GPU/RAM/SSD/OS。
+- `PT04`：准确显示、键盘、摄像头、端口与机身，只标 verified creator-relevant facts。
+- `PT05`：`Capture/Create → Process → Publish/Play` 类别级流程；软件和编码能力需证据。
+- `PT07`：时间线式 `Distinct Value Module`，使用一个未解释的音频、输入、存储扩展或支持价值。
+- `PT08`：真实接口连接抽象显示器、相机或音频设备轮廓；所有外设保持非随箱语义。
+
+### GG14 — Compact Power Suite
+
+对应 G14，仅用于尺寸和 form factor 已验证的 SFF、mini tower 或 compact desktop。深灰模块舱与单色节点贯穿。
+
+- `PT02`：空间有限的真实书桌/宿舍 setup，产品尺寸关系准确，不做夸张微缩。
+- `PT03`：`Compact Configuration`，集中实际配置并保持较大字号。
+- `PT04`：准确尺寸、前后视图、通风与可维护结构；尺寸比较物必须中性且比例可信。
+- `PT05`：`Small Footprint → Full Workflow` 只表达 verified form-factor value，不承诺旗舰性能。
+- `PT07`：模块化 `Distinct Value Module`，选择未使用的升级、桌面空间或支持价值。
+- `PT08`：紧凑机身的前/后真实 I/O 放大图，禁止 AI 补画密集背板。
+
+### GG15 — Cosmic Portal Suite
+
+对应 G15。深空黑、靛蓝/紫色星云与原创引力环，适合高端沉浸叙事但保持产品优先。
+
+- `PT02`：一位玩家在暗色 setup 中体验原创太空环境；无已知飞船、角色或电影构图。
+- `PT03`：`Flight Configuration` 使用克制环形或轨道卡片，只列实际配置。
+- `PT04`：产品设计与显示体验使用真实素材，星尘只占边缘氛围。
+- `PT05`：CPU → GPU → Display 类别级 `Render Trajectory`，不写虚构 benchmark。
+- `PT07`：引力环式 `Distinct Value Module`，承载一个未使用的升级、音频、输入或支持价值。
+- `PT08`：准确端口与抽象轨道连接，避免把无线能力画成未经验证的卫星/5G 功能。
+
+### GG16 — Retro-Future Arcade Suite
+
+对应 G16。深海军蓝、洋红/青色光栅和原创立体网格，适合娱乐与 streaming 氛围。
+
+- `PT02`：一位玩家在现代娱乐空间；不得出现真实街机柜、版权像素角色或游戏海报。
+- `PT03`：`Arcade Configuration` 用现代高可读卡片，不能使用难读像素字体。
+- `PT04`：显示、键盘、机身与准确结构；网格只做辅助透视。
+- `PT05`：`Input → Render → Motion` 类别级流程，refresh claim 必须验证。
+- `PT07`：光栅式 `Distinct Value Module`，只解释一个未使用的娱乐、输入或支持价值。
+- `PT08`：真实 HDMI/USB/网络接口地图，外设轮廓不得像特定主机或控制器品牌。
 
 ## Business / Work continuation packs
 

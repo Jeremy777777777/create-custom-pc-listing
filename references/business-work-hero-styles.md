@@ -23,7 +23,7 @@ Business 增强主图不再把两个候选都做成同一种 package。每套必
 
 | 分类 | 必须满足的证据 | 路由 |
 | --- | --- | --- |
-| `GAMING` | 已验证 OEM gaming 系列；或已验证独显与 `>=120 Hz` 显示组合；或准确 SKU 有其他强 gaming 定位证据 | 必须选 G01–G06 + C01–C06，并使用真实分层的 3D 出屏主体 |
+| `GAMING` | 已验证 OEM gaming 系列；或已验证独显与 `>=120 Hz` 显示组合；或准确 SKU 有其他强 gaming 定位证据 | 必须选 G01–G16 + C01–C06，并使用真实分层的 3D 出屏主体 |
 | `BUSINESS_WORK` | 已验证 business/pro 系列，或准确 SKU 有 Office 权益、Windows Pro、企业协作/安全/扩展能力等强工作证据；同时没有压倒性的 Gaming 证据 | 选 B01–B16 |
 | `STUDENT_STUDY` | 准确 SKU 以学习/家庭作业为主要用途，且没有强 Gaming 或 Business 证据 | 使用中性学习风格；不得自动添加企业或 Gaming 元素 |
 | `GENERAL` | 证据不足以支持上述任一类 | 使用通用 Conversion Hero，不加 Office/Copilot/Gaming 专属视觉 |

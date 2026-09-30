@@ -2,11 +2,11 @@
 
 本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 Gaming 专用 add-on。它把准确产品与已验证性能信息扩展为原创的 3D 游戏氛围画面，可用于增强主图和 `PT01 Conversion Hero`。核心配置版式另从 [gaming-core-badge-styles.md](gaming-core-badge-styles.md) 选择 C01–C06；固定 Windows 11 Pro package 只出现在增强主图，PT01 不重复。Business/Work 改用 [business-work-hero-styles.md](business-work-hero-styles.md)，不能混用本文件的人物、场景和光效。
 
-一旦 `audience_style_family = GAMING`，两个增强 MAIN 和 PT01 都必须选择同一 G01–G06 与 C01–C06 family，并包含与屏幕相连的真实分层 `FRAME_BREAK_SUBJECT`；仅放一张游戏壁纸、霓虹背景、平面人物或画布背景中的独立角色不算完成。至少一张增强 MAIN 必须执行 [final-image-delivery-contract.md](final-image-delivery-contract.md) 的 `GAMING_WHITE_CATALOG_FRAME_BREAK`，默认使用准确三分之四产品角度。若准确机身几何、素材权利或遮挡安全无法实现，应在成品生产前标记 `BLOCKED_BEFORE_PRODUCTION` 交人工处理，不得自动退化为普通 Business/General 风格或交付半成品。
+一旦 `audience_style_family = GAMING`，两个增强 MAIN 和 PT01 都必须选择同一 G01–G16 与 C01–C06 family，并包含与屏幕相连的真实分层 `FRAME_BREAK_SUBJECT`；仅放一张游戏壁纸、霓虹背景、平面人物或画布背景中的独立角色不算完成。至少一张增强 MAIN 必须执行 [final-image-delivery-contract.md](final-image-delivery-contract.md) 的 `GAMING_WHITE_CATALOG_FRAME_BREAK`，默认使用准确三分之四产品角度。若准确机身几何、素材权利或遮挡安全无法实现，应在成品生产前标记 `BLOCKED_BEFORE_PRODUCTION` 交人工处理，不得自动退化为普通 Business/General 风格或交付半成品。
 
 PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 使用同编号 continuation pack：G01→GG01，G02→GG02，依此类推。这样人物、原创世界观、色彩和功能叙事在整套图库中连续，而不是只在 PT01 出现。
 
-每个 G01–G06 都可映射到 [hero-composition-variants.md](hero-composition-variants.md) 的两种构图。增强主图的 `FRONT_SCREEN_CARD` 将固定 Windows package 放入屏幕安全区；`THREE_QUARTER_SIDE_CARD` 使用准确三分之四产品素材并把 package 放在独立白色安全区。PT01 可延续相同角度和世界观，但不放 package。选择构图不改变 G 编号、原创 genre、C01–C06 核心配置或 GG01–GG06 continuation pack。
+每个 G01–G16 都可映射到 [hero-composition-variants.md](hero-composition-variants.md) 的两种构图。增强主图的 `FRONT_SCREEN_CARD` 将固定 Windows package 放入屏幕安全区；`THREE_QUARTER_SIDE_CARD` 使用准确三分之四产品素材并把 package 放在独立白色安全区。PT01 可延续相同角度和世界观，但不放 package。选择构图不改变 G 编号、原创 genre、C01–C06 核心配置或 GG01–GG16 continuation pack。
 
 ## 使用范围与主图闸门
 
@@ -16,15 +16,19 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 
 本库的 Gaming 效果是同一产品图库的连续视觉语言，而不是互不相关的版式：电脑主体、准确机型外观、屏幕层、性能信息和 3D 场景必须协作；Windows 11 Pro package 只在增强主图加入。
 
-每个 Gaming hero 必须选择一个 `gaming_style_id`（G01–G06）和一个 `gaming_core_badge.style_id`（C01–C06）。一个最多含四个 micro cells 的 `CORE_SPEC_CLUSTER` 计为一张 feature card，因此仍遵守两张 feature-card 上限；增强主图的 Windows package 另计，但不得成为第一视觉焦点。
+每个 Gaming hero 必须选择一个 `gaming_style_id`（G01–G16）和一个 `gaming_core_badge.style_id`（C01–C06）。G style 控制世界观、材质、配色与场景；C style 只控制规格信息层，因此十六种视觉方向不需要机械复制十六套 badge。一个最多含四个 micro cells 的 `CORE_SPEC_CLUSTER` 计为一张 feature card，因此仍遵守两张 feature-card 上限；增强主图的 Windows package 另计，但不得成为第一视觉焦点。
 
-## 研究依据（2026-09-28）
+## 研究依据（更新于 2026-09-30）
 
 - [Steam 官方 Most Played 榜单](https://store.steampowered.com/charts)显示高活跃题材长期集中在 tactical shooter、MOBA/fantasy arena、battle royale、hero shooter 等类型；研究时榜单前列包括 Counter-Strike 2、Dota 2、PUBG、Apex Legends 等。榜单只用于判断玩家熟悉的题材，不授予任何游戏资产使用权。
 - [Minecraft 官方 15 周年页面](https://www.minecraft.net/en-us/15th-anniversary)记录其达到 3 亿份销量，支持把 sandbox/building 作为长期大众题材，但不得复制方块角色、怪物、纹理或 Logo。
 - 用户提供的 [NIMO 示例一](https://www.amazon.com/dp/B0HFZYMDLT)把动漫角色、屏幕环境和规格卡叠在电脑屏幕内，并让头发越过屏幕边框形成深度。
 - 用户提供的 [示例二](https://www.amazon.com/dp/B0HCC5KZ2H)把装甲角色置于屏幕中心，让头部和肩部越过上边框，同时在底部保留硬件规格与 Windows 信息。
 - 上述 Amazon 图片只用于研究“屏幕内背景 → 跨框主体 → 前景光效/信息卡”的层次，不得下载、裁剪、描摹、换色、重绘或复刻角色与构图。
+- [ROG G700 官方设计页](https://rog.asus.com/desktops/full-tower/rog-g700-2025-g700/)把透明前/侧玻璃、可见内部组件、克制 RGB、散热路径、免工具升级、非对称几何与可兼容专业环境的极简外观放在同一产品语言中，支持增加展示内部结构、thermal engineering、creator crossover 与 professional-minimal Gaming 方向。
+- [Alienware Gaming Desktops 官方页面](https://www.dell.com/en-us/gaming/alienware-desktops)强调 airflow、液冷、purposeful cable management、透明侧板及多区域 AlienFX lighting，并展示 teal/lilac、red/orange、blue、magenta 等可定制灯光组合，支持把 RGB showcase、liquid-cooling flow 与 stealth/minimal chassis 分成不同风格，而不是把所有 Gaming 图统一成蓝紫霓虹。
+- [Alienware Aurora 官方产品说明](https://www.dell.com/en-hk/shop/pcs-desktop-computers/spd/alienwareauroraact1250)采用 matte basalt black、streamlined chassis、hexagonal vents 与 stadium lighting，说明“低调深色性能机”和“散热工程图”也是当前 Gaming 视觉，而不必固定使用角色或过量 RGB。
+- [ROG G700 Aura Sync 官方说明](https://rog.asus.com/us/desktops/full-tower/rog-g700-2025-gm700/)确认多区域灯光、全色谱同步和 creator/gamer 双场景是当前硬件的真实设计语境；它只支持题材选择，不允许复制 ROG 标志、Slash、Fearless Eye、页面背景或品牌 UI。
 
 热门榜单会变化。创建每一批新图前，应重新查看一个当前玩家数据来源并记录 `popularity_research_date` 与 `popularity_research_source`。榜单变化不要求追逐某个具体 IP；只需确认所选题材仍符合目标买家的游戏语境。
 
@@ -75,9 +79,9 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 - 屏幕外仍保持纯白/近白留白。彩色世界、规格和主要视觉内容留在屏幕内；出屏部分只是连续主体的自然延伸。
 - 在 100% 和 200 px 两种尺寸检查连接点、遮挡和边框走向。任一连接点像“拼上去”、出现断裂或无法判断前后关系时，标记 `REWORK_REQUIRED`，不得进入最终品牌合成。
 
-## 六种 Gaming add-on style
+## 十六种 Gaming add-on style
 
-以下 G01–G06 中的 Windows package/Windows 卡 placement 只适用于正面和三分之四侧向两个增强主图。PT01 复用题材时必须删除该元素，并把释放出的空间用于不同的已验证卖点或留白。
+以下 G01–G16 中的 Windows package/Windows 卡 placement 只适用于正面和三分之四侧向两个增强主图。PT01 复用题材时必须删除该元素，并把释放出的空间用于不同的已验证卖点或留白。
 
 ### G01 — Neon Tactical Breach
 
@@ -139,16 +143,117 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 - 信息区：refresh rate/display 为 hero，GPU 为 supporting card；Windows 卡放右下上层但不得与车头重叠。
 - 禁止：真实品牌车标、可识别车型、赛车号码/涂装、赛事 Logo、版权赛道和游戏 UI。
 
+### G07 — Esports Precision Grid
+
+适合明确电竞、高刷新或低延迟定位的 Gaming PC，使用专业比赛转播的秩序感而不复制任何赛事。
+
+- 屏幕内：黑灰竞技训练空间、冰蓝测量线和少量荧光黄定位点；保持大面积负空间。
+- 主体：原创无品牌竞技玩家剪影或抽象能量核心，头肩小幅跨越上边框；不使用队服、号码或战队标志。
+- 3D 重点：细网格、帧序列和定向光形成速度与精度，避免爆炸和武器叙事。
+- 信息区：refresh/display 为第一卖点，GPU 为第二卖点；优先 C02 或 C05。
+- 禁止：赛事 Logo、比分牌、直播平台 UI、职业选手相似形象、奖杯与未经验证的 latency/FPS 数字。
+
+### G08 — Liquid Cooling Reactor
+
+适合准确机型确有液冷、可见水冷管路或高规格散热系统的 desktop；无硬件证据时不得选择。
+
+- 屏幕内：深石墨实验室、青色与紫色流体光路、透明流道和温度层级的抽象可视化。
+- 主体：原创环形冷却核心或流体能量装置与屏幕相连，少量透明管线跨框但不覆盖真实机箱。
+- 3D 重点：体积光、凝露质感和流向线；真实硬件照片中的散热器、风扇与管路保持原样。
+- 信息区：verified cooling architecture 为 hero，CPU/GPU 为 supporting；优先 C03 或 C04。
+- 禁止：虚构水冷、温度下降百分比、冷却液品牌、错误管路、蒸汽泄漏或危险实验室语义。
+
+### G09 — Stealth Black Performance
+
+适合低调黑色机身、工作与 Gaming 共存或不希望强 RGB 的产品。
+
+- 屏幕内：matte black、basalt graphite、烟熏玻璃与单一深红或冷白细线；不使用彩虹灯。
+- 主体：原创暗色装甲几何或低多边形性能核心，小范围跨框并依靠轮廓光区分层次。
+- 3D 重点：材质、阴影、通风纹理与精密切面，而非粒子数量。
+- 信息区：GPU/CPU 与一个 verified acoustics/airflow/design 卖点；优先 C01 或 C05。
+- 禁止：伪军用徽章、全黑导致产品轮廓消失、未经验证的 quiet claim、廉价红黑火焰背景。
+
+### G10 — Spectrum Glass Showcase
+
+适合透明侧板、多区域 RGB 或内部组件可见的准确 desktop。
+
+- 屏幕内：玻璃展柜、紫—青—琥珀的克制光谱、反射地台与模块化灯带。
+- 主体：原创光谱棱镜或能量晶格从屏幕向前延伸；真实机箱内部仍是第一视觉主体。
+- 3D 重点：玻璃反射、分色边缘光和组件层次；灯效不得改写实际风扇数量或硬件布局。
+- 信息区：verified RGB zones/transparent panel 与 GPU；优先 C03 或 C04。
+- 禁止：品牌灯效 UI、虚构灯区、彩虹噪点覆盖文字、把内部组件生成成错误型号。
+
+### G11 — Arctic White Battlestation
+
+适合白色、银色或浅灰机身，以及需要高端清爽电商呈现的 Gaming PC。
+
+- 屏幕内：冰白建筑空间、浅银台面、冷青光缝和极少量紫色阴影。
+- 主体：原创冰晶几何、无人机或能量门，以连续浅色剪影小幅跨框。
+- 3D 重点：高键光、柔和接触阴影、透明亚克力质感；保持产品边缘和白底区分。
+- 信息区：GPU/display 与 verified chassis/RGB feature；优先 C02 或 C06。
+- 禁止：雪地品牌场景、过曝导致机身消失、蓝色冰霜覆盖接口、虚构白色硬件版本。
+
+### G12 — Crimson Thermal Forge
+
+适合准确机型有明显进出风口、大面积网孔或高性能 thermal positioning 的产品。
+
+- 屏幕内：深黑锻造空间、暗红至琥珀的热流、蜂窝/网孔抽象纹理。
+- 主体：原创能量锻炉或非人形动力核心跨越下边框，避免战斗角色。
+- 3D 重点：冷空气与热排气使用两种清晰方向线；真实通风口必须来自准确素材。
+- 信息区：verified airflow/cooling 为 hero，CPU/GPU 为 support；优先 C01 或 C06。
+- 禁止：火焰贴图、熔化产品、未经验证的温度/噪声数字、把红色等同于更快的夸张 claim。
+
+### G13 — Creator Gaming Studio
+
+适合 Gaming + streaming、3D、视频或 creator crossover，且相关能力有平台证据的产品。
+
+- 屏幕内：深紫工作室、青色时间线、抽象 3D viewport 和柔和棚灯；所有 UI 均原创。
+- 主体：原创数字雕塑或几何生物从 viewport 小幅跨框，表现创作过程而非具体游戏。
+- 3D 重点：图层、渲染网格和成片预览形成前后关系；产品与工作流仍居中。
+- 信息区：GPU 与 verified display/creator workflow；优先 C02 或 C05。
+- 禁止：复制 Adobe/Blender/OBS UI、软件 Logo、未经验证的编码器/AI claim、暗示订阅随附。
+
+### G14 — Compact Power Core
+
+适合 SFF、mini tower 或强调节省桌面空间的 Gaming PC；尺寸必须准确验证。
+
+- 屏幕内：深灰模块舱、酸绿或电蓝单色节点、紧凑堆叠几何。
+- 主体：原创高密度动力核心与机箱轮廓平行，小幅从侧边跨框。
+- 3D 重点：紧凑层叠、短路径和精确尺度线；不得通过夸张透视让产品显得更小。
+- 信息区：verified dimensions/form factor 与 GPU；优先 C04 或 C05。
+- 禁止：未验证体积百分比、错误尺寸对比物、虚构内部空间、把便携与电池能力混为一谈。
+
+### G15 — Cosmic Performance Portal
+
+适合旗舰 Gaming、沉浸式体验或希望使用高端深色叙事但不绑定具体游戏类型的产品。
+
+- 屏幕内：深空黑、靛蓝与紫色星云、原创引力环和克制星尘。
+- 主体：原创探测器、抽象飞船或能量门连续跨越上/侧边框，仍与屏幕环境相连。
+- 3D 重点：尺度、体积雾和环形光；避免把宇宙背景扩散到所有产品细节上。
+- 信息区：GPU 为 hero，CPU/display 为 support；优先 C03 或 C06。
+- 禁止：知名科幻飞船、电影构图、星球大战式文字、游戏阵营符号、未验证的“宇宙级”性能文案。
+
+### G16 — Retro-Future Arcade Grid
+
+适合年轻化、streaming 或娱乐型 Gaming PC，需要强辨识配色但仍保持原创。
+
+- 屏幕内：深海军蓝、洋红/青色光栅、抽象日落圆盘和立体网格隧道。
+- 主体：原创多边形 hover module 或几何吉祥物从屏幕下沿小幅跨框。
+- 3D 重点：扫描线、速度网格和柔和 glow；文字区保持现代可读，不使用像素字体堆叠。
+- 信息区：display/refresh 与 GPU；优先 C05 或 C06。
+- 禁止：复刻 1980s 游戏柜、已知街机角色、版权像素图、真实游戏 Logo、过度荧光导致电商缩略图失焦。
+
 ## Style 选择逻辑
 
 1. 只有产品具备 `Gaming` 的已验证定位，或拥有可验证的独显/高刷新率等足以支持 gaming 表达的事实时，才能启用本库。集成显卡与普通 60 Hz 商务机不得仅因标题含 `gaming` 使用重度 G01–G04。
-2. Tactical/team play → `G01`；fantasy/MOBA/RPG → `G02`；battle royale/open map → `G03`；hero/mech/sci-fi → `G04`；sandbox/family/light gaming → `G05`；racing/high-refresh motion → `G06`。
-3. 无法确认目标玩家偏好时，默认 `G04 Cyber Mech Breakthrough`；它的原创空间最大，且不依赖具体游戏世界观。
-4. 同一 parent listing 的变体共用一个 Gaming style family。RAM/SSD 变化只更新已验证数字，不更换人物与世界观。
-5. 增强主图若在 200 px 缩略图中电脑轮廓、角色剪影、hero attribute 或 Windows 11 Pro package 任一无法辨认，先删除粒子和第二 feature card，再缩小角色；不能把电脑继续缩小。PT01 只检查自身 hero 和不同卖点，不为 package 预留区域。
+2. 题材型路线：tactical/team play → `G01`；fantasy/MOBA/RPG → `G02`；open-world/mobility → `G03`；mech/high-tech → `G04`；sandbox/family/light gaming → `G05`；racing/high-refresh motion → `G06`；esports precision → `G07`；cosmic immersion → `G15`；retro-future entertainment → `G16`。
+3. 硬件与工业设计路线：verified liquid cooling → `G08`；low-RGB matte black → `G09`；glass + multi-zone RGB → `G10`；verified white/silver chassis → `G11`；verified airflow/thermal story → `G12`；creator crossover → `G13`；verified compact/SFF form factor → `G14`。
+4. 无法确认玩家题材偏好，但硬件外观与功能清楚时，优先根据机身事实选择 G08–G14；连硬件差异也不足时，默认 `G09 Stealth Black Performance`，它最不依赖具体游戏 IP，也能保持准确产品为主角。
+5. 同一 parent listing 的变体共用一个 Gaming style family。RAM/SSD 变化只更新已验证数字，不更换人物与世界观。
+6. 增强主图若在 200 px 缩略图中电脑轮廓、角色/抽象主体剪影、hero attribute 或 Windows 11 Pro package 任一无法辨认，先删除粒子和第二 feature card，再缩小出屏主体；不能把电脑继续缩小。PT01 只检查自身 hero 和不同卖点，不为 package 预留区域。
 
-6. G01–G06 不与构图绑定：正面与三分之四侧向两个增强候选都使用同一 G/C family。若侧视素材不能准确证明端口、机身和键盘，正面版照常完成，侧向候选标为 `TO SOURCE` 或 `BLOCKED`，不得用第二张正面图冒充侧向版。
-7. 在 `FINAL_ASSET_DELIVERY` 中，第 6 条的素材缺口必须在生成前解决或将整套请求标记为 `BLOCKED_BEFORE_PRODUCTION`；不得把待找素材的侧向槽位留在用户收到的“成品图库”里。
+7. G01–G16 不与构图绑定：正面与三分之四侧向两个增强候选都使用同一 G/C family。若侧视素材不能准确证明端口、机身和键盘，正面版照常完成，侧向候选标为 `TO_SOURCE` 或 `BLOCKED`，不得用第二张正面图冒充侧向版。
+8. 在 `FINAL_ASSET_DELIVERY` 中，第 7 条的素材缺口必须在生成前解决或将整套请求标记为 `BLOCKED_BEFORE_PRODUCTION`；不得把待找素材的侧向槽位留在用户收到的“成品图库”里。
 
 ## 生成与合成顺序
 
@@ -163,7 +268,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 
 ```yaml
 audience_style_family: GAMING
-gaming_style_id: G01|G02|G03|G04|G05|G06
+gaming_style_id: G01|G02|G03|G04|G05|G06|G07|G08|G09|G10|G11|G12|G13|G14|G15|G16
 hero_image_mode: PT01_GAMING_HERO|MAIN_ENHANCED_FRONT_CANDIDATE|MAIN_ENHANCED_THREE_QUARTER_CANDIDATE
 game_asset_mode: ORIGINAL_GENRE|LICENSED_GAME_CAMPAIGN
 genre_reference: <tactical / fantasy arena / battle royale / mech / sandbox / racing>

@@ -20,7 +20,15 @@
 - Profile reason: `<why this profile fits the verified product and licensed assets>`
 - `audience_style_family`: `<GAMING | BUSINESS_WORK | STUDENT_STUDY | GENERAL | HYBRID_MANUAL_REVIEW>`
 - Audience evidence / confidence / reason: `<verified evidence ledger>`
-- `hero_style_id`: `<G01-G06 | B01-B11 | NEUTRAL>`
+- `hero_style_id`: `<G01-G16 | B01-B16 | NEUTRAL>`
+- `style_approval_status`: `<PROPOSED | APPROVED | REJECTED | BYPASSED_BY_EXPLICIT_USER_REQUEST>`
+- `approved_style_id`: `<exact approved hero style ID>`
+- `approved_supporting_gallery_pack`: `<matching GG/BG pack>`
+- `approval_source`: `<USER_CHAT | EXPLICIT_USER_BYPASS>`
+- `approval_timestamp`: `<ISO-8601 timestamp>`
+- `screen_background_recipe`: `<palette + required motifs + forbidden motifs>`
+- `main_content_boundary`: `<SCREEN_ONLY | approved composition rule>`
+- `style_fidelity_review`: `<PASS | REWORK_REQUIRED | NOT_YET_REVIEWED>`
 - `enhanced_front_main_composition_variant`: `FRONT_SCREEN_CARD`
 - `enhanced_three_quarter_main_composition_variant`: `THREE_QUARTER_SIDE_CARD`
 - `pt01_composition_variant`: `<FRONT_SCREEN_CARD | THREE_QUARTER_SIDE_CARD>`
@@ -58,7 +66,7 @@
 - `oem_logo_preferred_treatment`: `INTEGRATED_TRANSPARENT_MARK`
 - `gaming_signature_main`: `<GAMING_WHITE_CATALOG_FRAME_BREAK | NOT_APPLICABLE>`
 - `gaming_signature_required_information_review`: `<display + GPU + CPU + RAM/SSD + fixed package: PASS | BLOCKED | NOT_APPLICABLE>`
-- `supporting_gallery_pack`: `<GG01-GG06 | BG01-BG11 | NEUTRAL>`
+- `supporting_gallery_pack`: `<GG01-GG16 | BG01-BG16 | NEUTRAL>`
 - Gallery story reason: `<why the continuation pack fits verified buyer tasks>`
 - Business primary task: `<collaboration | mobility | executive workflow | verified AI workflow | secure hybrid work | other verified task>`
 - Benchmark references: `<information coverage only; no wording or assets reused>`

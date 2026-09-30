@@ -16,7 +16,7 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 
 - 共同源记录：Listing 流程可以使用 MyStore ERP、Checking List 或两者，并按照 [input-source-cross-validation.md](input-source-cross-validation.md) 建立字段级证据账本。图片流程只继承 MyStore 产品 ID/URL、Checking List 行号、`VL-` 和映射状态等追踪信息，不重新解析标题或覆盖已核实属性。
 - 直接事实输入：该产品的最终 Listing 工作簿、Title、Bullets、Description、已验证 attributes、实际可售 RAM/SSD 选项、保修与定制披露、已确认随箱配件，以及每项事实的证据。只有 `VERIFIED` 信息可进入图片文案或视觉元素。
-- 图片规范：[image-spec.md](image-spec.md)。每批制作前读取当前版本，并同时读取 [image-style-profiles.md](image-style-profiles.md)、[conversion-hero-styles.md](conversion-hero-styles.md)、[hero-composition-variants.md](hero-composition-variants.md) 与 [supporting-gallery-styles.md](supporting-gallery-styles.md)；已验证 Gaming 产品还须读取 [gaming-hero-styles.md](gaming-hero-styles.md) 和 [gaming-core-badge-styles.md](gaming-core-badge-styles.md)，Business/Work 产品须读取 [business-work-hero-styles.md](business-work-hero-styles.md)，选择 B07–B16 时还须读取 [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md)。所有图片同时遵守 [compliance-rules.md](compliance-rules.md)。
+- 图片规范：[image-spec.md](image-spec.md)。每批制作前读取当前版本，并同时读取 [style-approval-gate.md](style-approval-gate.md)、[image-style-profiles.md](image-style-profiles.md)、[conversion-hero-styles.md](conversion-hero-styles.md)、[hero-composition-variants.md](hero-composition-variants.md) 与 [supporting-gallery-styles.md](supporting-gallery-styles.md)；已验证 Gaming 产品还须读取 [gaming-hero-styles.md](gaming-hero-styles.md) 和 [gaming-core-badge-styles.md](gaming-core-badge-styles.md)，Business/Work 产品须读取 [business-work-hero-styles.md](business-work-hero-styles.md)，选择 B07–B16 时还须读取 [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md)。所有图片同时遵守 [compliance-rules.md](compliance-rules.md)。
 - GitHub 交付根目录：[`product generated photo/`](../product%20generated%20photo/)。每个产品使用一个 `VL-<内部型号>/` 子目录，不把不同产品图片混放。
 - 照片素材：有商业使用权的 OEM/经销商媒体包图片，或卖家自行拍摄的实际机型照片。Amazon 竞品图片和网页图片只能作为研究参考，不能下载后裁剪、换色、描摹、拼贴或轻改用于自己的 Listing。
 
@@ -45,12 +45,18 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 
 | 用途 | 可调整的场景与视觉语气 | 不可越过的边界 |
 | --- | --- | --- |
-| Gaming laptop | 必须选择 G01–G06 和 C01–C06；PT01 必须具有与屏幕相连的真实分层 3D 出屏主体、遮挡、景深和 contact light | 不虚构 RGB、独显、刷新率、FPS、散热结构或游戏性能；不使用游戏人物、Logo、截图、地图、HUD 或标志性资产 |
+| Gaming PC | 必须选择 G01–G16 和 C01–C06；PT01 必须具有与屏幕相连的真实分层 3D 出屏主体、遮挡、景深和 contact light。Desktop 的出屏世界可由显示器屏幕承载；没有随售显示器时不能暗示显示器随箱 | 不虚构 RGB、独显、刷新率、FPS、散热结构、液冷、机箱内部或游戏性能；不使用游戏人物、Logo、截图、地图、HUD 或标志性资产 |
 | Business/Work | 从 B01–B16 选择；B07–B16 提供简约、工具导向及城市/风景/建筑/科技/editorial 的完整 laptop gallery，按已验证事实突出协作、连接、移动办公、AI、安全、专业形象或产品设计 | 不臆造软件权益、企业安全、续航、摄像头、扩展坞或认证；Office/Copilot/AI 未验证时不得展示；环境素材不能代替事实证据 |
 | Student/Study | 书桌、图书馆、远程学习等整洁场景 | 不暗示未包含的软件、配件或未经证实的课程适用性 |
 | General | 产品本体与通用工作/学习场景 | 不为凑主题改变硬件外观或用途 |
 
-用途决定整个图库的场景、图标、人物、文案语气与光效。每个型号固定制作三份主图：`MAIN-STRICT.jpg` 保持纯白背景和无新增 overlay；`MAIN-ENHANCED-FRONT-CANDIDATE.png` 固定采用 `FRONT_SCREEN_CARD`；`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png` 固定采用 `THREE_QUARTER_SIDE_CARD`。两个增强版都必须是完成的选择版并合成 audience 对应 Windows asset；`CANDIDATE` 不表示底稿。Gaming 的两个增强版都使用固定 package 且必须使用真实分层 3D 出屏，其中至少一张执行 `GAMING_WHITE_CATALOG_FRAME_BREAK`，默认由三分之四增强版承担。Business 的两个增强版分别使用固定 package 与获准 Windows 标志 + `Windows 11 Pro` 文字锁定组合；不得用裸文字。再为 PT01 选择 hero family：Gaming 使用 G01–G06 + C01–C06，Business/Work 使用 B01–B16；PT01 可延续增强主图题材但不得出现 Windows asset。PT02–PT08 随后必须选择同编号 continuation pack；B07–B16/BG07–BG16 必须保持简约、工具导向或选定环境语言并避免跨槽重复。取得可审计依据和人工批准前，两个增强版均不得替换严格 `MAIN-STRICT.jpg`，但这不允许把它们交付成未完成文件。
+用途决定整个图库的场景、图标、人物、文案语气与光效。每个型号固定制作三份主图：`MAIN-STRICT.jpg` 保持纯白背景和无新增 overlay；`MAIN-ENHANCED-FRONT-CANDIDATE.png` 固定采用 `FRONT_SCREEN_CARD`；`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png` 固定采用 `THREE_QUARTER_SIDE_CARD`。两个增强版都必须是完成的选择版并合成 audience 对应 Windows asset；`CANDIDATE` 不表示底稿。Gaming 的两个增强版都使用固定 package 且必须使用真实分层 3D 出屏，其中至少一张执行 `GAMING_WHITE_CATALOG_FRAME_BREAK`，默认由三分之四增强版承担。Business 的两个增强版分别使用固定 package 与获准 Windows 标志 + `Windows 11 Pro` 文字锁定组合；不得用裸文字。再为 PT01 选择 hero family：Gaming 使用 G01–G16 + C01–C06，Business/Work 使用 B01–B16；PT01 可延续增强主图题材但不得出现 Windows asset。PT02–PT08 随后必须选择同编号 continuation pack；G07–G16/GG07–GG16 与 B07–B16/BG07–BG16 都必须保持已批准的材质、配色、场景语言并避免跨槽重复。取得可审计依据和人工批准前，两个增强版均不得替换严格 `MAIN-STRICT.jpg`，但这不允许把它们交付成未完成文件。
+
+### 2A. Style Proposal 与用户批准
+
+选定 audience、hero style 和 continuation pack 后，必须执行 [style-approval-gate.md](style-approval-gate.md)。先把单一首选 style 的名称、选择理由、配色、屏幕背景 recipe、required/forbidden motifs、内容边界以及原创/获准视觉参考发给用户。该预览只用于方向审核，不是 11 张最终图片。
+
+用户明确批准前，`style_approval_status` 保持 `PROPOSED`，停止正式渲染。用户拒绝时选择下一套仍有事实依据的 style 并重新提案；不得生成完整图库来代替 style 选择。批准后把 style ID、对应 BG/GG pack、对话来源和批准时间记录为 `APPROVED`，并将其作为所有正式 prompt 的不可变 `style_lock`。生成后执行 `STYLE_FIDELITY_GATE`；风格漂移时进入 `REWORK_REQUIRED`，不得标记 `FINAL_ASSET_QA_PASS`。
 
 ### 3. 制作固定 11 张图片（3 MAIN + 8 张附图；Amazon 仍为 9 个实际槽位）
 
@@ -65,7 +71,7 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 | 1A / `MAIN-STRICT` | Amazon 严格主图 | 纯白背景，真实产品完整正面、居中、0°；无文字、徽章、水印、图形 Logo、Windows package 或场景。只展示确认随箱附带的配件。 |
 | 1B / `MAIN-ENHANCED-FRONT-CANDIDATE` | 正面增强主图候选 | 固定使用正向产品构图，允许原创 Gaming/Business hero 和已验证卖点；必须确定性合成 audience 对应 Windows asset，Business 默认使用获准 Windows 标志 + `Windows 11 Pro` 文字锁定组合，其他 audience 使用固定 package。优先放屏幕安全区；拥挤时重构版面，不能省略所需 asset。 |
 | 1C / `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 三分之四侧向增强主图候选 | 使用准确机型的授权三分之四产品素材，在独立侧边安全区或屏幕安全区确定性合成 audience 对应 Windows asset；Business 默认使用固定 package，并与正面候选的 logo lockup 形成变化；不得猜测接口、键盘、铰链或机身结构。 |
-| 2 / `PT01` | Conversion Hero / 屏幕卖点 | 选择 Gaming G01–G06 + C01–C06 或 Business B01–B16，可延续增强主图的题材、色彩和产品角度，但不得出现 Windows package、Windows logo lockup、Windows 文字卡或占位图；用不同的视觉焦点避免与增强主图完全重复。 |
+| 2 / `PT01` | Conversion Hero / 屏幕卖点 | 选择 Gaming G01–G16 + C01–C06 或 Business B01–B16，可延续增强主图的题材、色彩和产品角度，但不得出现 Windows package、Windows logo lockup、Windows 文字卡或占位图；用不同的视觉焦点避免与增强主图完全重复。 |
 | 3 / `PT02` | 使用场景 | 按 continuation pack 展示真实用途；可按需求加入 1–3 位授权或原创虚拟人物，并记录来源、角色和 synthetic-performer 元数据。 |
 | 4 / `PT03` | 唯一完整配置图 | 按 continuation pack 的 loadout/work grid 集中展示实际销售 CPU/GPU、RAM/SSD 与 OS；不使用人物，其他 PT 不再重列完整型号和容量。 |
 | 5 / `PT04` | 显示与机身设计 | 集中承载屏幕尺寸、分辨率、刷新率、键盘和准确机型的真实侧面/形态素材；genre/work 元素仅作边缘氛围，不得虚构内部结构或硬件外观。 |
@@ -102,6 +108,7 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 - 对 PT01–PT08 执行 `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE`：`logo-qa.json` 必须存在并整体为 `PASS`；任何 Logo 在 200 px 缩略图投影中长边小于 28 px、短边小于 10 px，或低对比、碰撞、裁切，均将整套图库置为 `REWORK_REQUIRED`。
 - 对 PT01–PT08 执行 `UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 和 `UNIVERSAL_BRAND_SPACING_RULE`：检查源资产 alpha 与 200 px contact sheet；出现灰/白矩形源底、统一白色贴纸感、虚线占位框、旧 Logo/旧 package 残留、未经记录的硬 badge、Logo 长边超过画布 `12%`、与电脑/文字/信息卡间距不足，或明显破坏视觉层级时，整套图库置为 `REWORK_REQUIRED`。增强主图的 Windows asset 也必须先清除底图里的旧版本，每张只允许一个确定性合成单元。
 - 对 PT01–PT08 执行 `UNIVERSAL_PHYSICAL_PORT_MAP_RULE`：确认至少一张、默认 `PT08`，包含准确机型的真实侧面/背面/前后 I/O 视图，可见端口开口和锚定到该开口的准确标注。只有接口/无线功能图标、抽象连线或三分之四产品图而没有实体端口时，整套图库置为 `REWORK_REQUIRED`。
+- 对全部正式图片执行 `STYLE_FIDELITY_GATE`：contact sheet 必须能识别用户批准的 style palette、screen-background recipe 和 required motifs，且不含 forbidden motifs、通用 fallback 壁纸或其他 family 的识别元素。Manifest 的 `style_approval_status` 必须为 `APPROVED`，`style_fidelity_review` 必须为 `PASS`；否则整套图库置为 `REWORK_REQUIRED`。
 
 ### 5A. 快速成功调用：标准成品流水线
 
@@ -109,15 +116,16 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 
 1. `git fetch`/fast-forward 同步 GitHub 最新规则，读取当前 `SKILL.md` 与适用 style family。
 2. 锁定 ERP/Listing 事实与公开 OEM 一手资料；错误或跨品牌文案进入拒绝清单。
-3. 在 manifest 先完成 audience/style lock、`Gallery Content Ownership Matrix`、品牌授权状态和 11 槽文件计划。
-4. 收集准确机型正面、三分之四、侧面、俯视和接口素材；接口素材必须足以制作实体 port map：Laptop 覆盖有端口的左右侧，Desktop/AIO/Mini 覆盖前后 I/O。缺少公共事实时主动 research 一手来源，不把公开资料搜集工作转给用户；仍无法取得准确视图时在批量生成前阻断，禁止 AI 猜测。
-5. 生成 3 MAIN 与 PT01–PT08 的无品牌母版。所有 PT prompt 必须写入“为确定性透明 OEM mark 预留约 18% × 18% 自然负空间；不得生成 Logo、品牌字样、白色底牌、占位框或虚线”。
-6. 用 `scripts/normalize-square-image.ps1` 统一真实编码、RGB 与 1:1 尺寸；严格 MAIN 保持 JPEG，其余生产母版可为 PNG。
-7. 用 `scripts/crop-image.ps1`（需要可复现 derivative 时）和 `scripts/add-fixed-image-overlay.ps1` 确定性加入 Windows/其他获准固定资产；禁止 AI 重画商标。
-8. 检查 OEM Logo 是否有真实 alpha；没有时先取得透明原始资产，或使用 `scripts/remove-neutral-logo-background.ps1` 创建可复现透明 derivative。填写 `logo-placement.json` 的 integration treatment、200 px 可见性阈值、逐图坐标、样式、保护区；运行 `scripts/add-brand-badge.ps1` 从 `unbranded/` 生成 PT01–PT08 和 `logo-qa.json`。脚本失败时重排对应图片，不能通过白色矩形底牌、减小或省略 Logo 绕过。
-9. 固定资产已完成后，优先调用 `scripts/finalize-image-gallery.ps1`，一次执行尺寸标准化、PT Logo 合成、`logo-qa.json`、contact sheet、exactly-11 与 SHA-256 报告；再人工完成 100%、200 px、拼写、事实、端口、Windows 和跨图去重复核。需要单独重建预览时可直接调用 `scripts/new-contact-sheet.ps1`。
-10. 只有 manifest、`logo-qa.json`、11 个 canonical 图片和人工视觉复核全部通过，才设置 `FINAL_ASSET_QA_PASS`；生产母版与 source records 移出 canonical GitHub 图片目录。
-11. 用户要求 GitHub 更新时，再次 fetch 确认没有远端漂移，选择性 stage 正式文件，commit 并 push；push 成功不等于 Amazon 已批准或已发布。
+3. 在 manifest 先完成 audience/style proposal、`Gallery Content Ownership Matrix`、品牌授权状态和 11 槽文件计划；向用户展示 style 文字方案与视觉参考。
+4. 等待用户明确批准，将 `style_approval_status`、批准 style ID、continuation pack、来源和时间写入 manifest。未批准时继续 proposal 循环，不生成正式 11 图。
+5. 收集准确机型正面、三分之四、侧面、俯视和接口素材；接口素材必须足以制作实体 port map：Laptop 覆盖有端口的左右侧，Desktop/AIO/Mini 覆盖前后 I/O。缺少公共事实时主动 research 一手来源，不把公开资料搜集工作转给用户；仍无法取得准确视图时在批量生成前阻断，禁止 AI 猜测。
+6. 使用已批准的 `style_lock` 生成 3 MAIN 与 PT01–PT08 的无品牌母版。所有 PT prompt 必须写入“为确定性透明 OEM mark 预留约 18% × 18% 自然负空间；不得生成 Logo、品牌字样、白色底牌、占位框或虚线”。
+7. 用 `scripts/normalize-square-image.ps1` 统一真实编码、RGB 与 1:1 尺寸；严格 MAIN 保持 JPEG，其余生产母版可为 PNG。
+8. 用 `scripts/crop-image.ps1`（需要可复现 derivative 时）和 `scripts/add-fixed-image-overlay.ps1` 确定性加入 Windows/其他获准固定资产；禁止 AI 重画商标。
+9. 检查 OEM Logo 是否有真实 alpha；没有时先取得透明原始资产，或使用 `scripts/remove-neutral-logo-background.ps1` 创建可复现透明 derivative。填写 `logo-placement.json` 的 integration treatment、200 px 可见性阈值、逐图坐标、样式、保护区；运行 `scripts/add-brand-badge.ps1` 从 `unbranded/` 生成 PT01–PT08 和 `logo-qa.json`。脚本失败时重排对应图片，不能通过白色矩形底牌、减小或省略 Logo 绕过。
+10. 固定资产已完成后，优先调用 `scripts/finalize-image-gallery.ps1`，一次执行尺寸标准化、PT Logo 合成、`logo-qa.json`、contact sheet、exactly-11 与 SHA-256 报告；再人工完成 100%、200 px、style fidelity、拼写、事实、端口、Windows 和跨图去重复核。需要单独重建预览时可直接调用 `scripts/new-contact-sheet.ps1`。
+11. 只有 manifest 的 style approval/fidelity、`logo-qa.json`、11 个 canonical 图片和人工视觉复核全部通过，才设置 `FINAL_ASSET_QA_PASS`；生产母版与 source records 移出 canonical GitHub 图片目录。
+12. 用户要求 GitHub 更新时，再次 fetch 确认没有远端漂移，选择性 stage 正式文件，commit 并 push；push 成功不等于 Amazon 已批准或已发布。
 
 固定资产和 `unbranded/PT01.png`–`PT08.png` 已就绪后，标准 finalizer 调用为：
 

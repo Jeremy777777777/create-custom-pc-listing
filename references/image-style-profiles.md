@@ -4,7 +4,7 @@
 
 基础 profile 与增强主图构图是两个独立维度；`navy-technical-v1` 和 `feature-led-studio-v1` 都可以组合 `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD`，具体执行 [hero-composition-variants.md](hero-composition-variants.md)。PT01 可复用准确角度，但不复用 Windows package。
 
-每个具体电脑型号必须在 `image-manifest.md` 顶部记录一个 `image_style_profile`。同一型号的 PT01–PT08 使用同一 profile；没有明确选择时使用 `navy-technical-v1`。不得在一套图库中逐张随机混用 profile。若受众被验证为 Gaming 或 Business/Work，还必须从 [supporting-gallery-styles.md](supporting-gallery-styles.md) 选择与 PT01 hero 同编号的 GG01–GG06 或 BG01–BG16 continuation pack；profile 控制基础排版，continuation pack 控制人物、场景和叙事。Business laptop 采用 B07–B16 时还必须读取 [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md) 的完整逐槽设计。
+每个具体电脑型号必须在 `image-manifest.md` 顶部记录一个 `image_style_profile`。同一型号的 PT01–PT08 使用同一 profile；没有明确选择时使用 `navy-technical-v1`。不得在一套图库中逐张随机混用 profile。若受众被验证为 Gaming 或 Business/Work，还必须从 [supporting-gallery-styles.md](supporting-gallery-styles.md) 选择与 PT01 hero 同编号的 GG01–GG16 或 BG01–BG16 continuation pack；profile 控制基础排版，continuation pack 控制人物、场景和叙事。Business laptop 采用 B07–B16 时还必须读取 [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md) 的完整逐槽设计。
 
 ## 可用 profiles
 

@@ -287,7 +287,7 @@ the approved logo lockup once on the OS line; other PT slots may not repeat it.
   composition and use the protected side zone. Do not overlap content or omit
   the asset to preserve a crowded front view. The paired PT01 must remove the
   Windows asset and use a distinct verified information focus.
-- A verified Gaming product must add one G01–G06 treatment from
+- A verified Gaming product must add one G01–G16 treatment from
   `gaming-hero-styles.md`. Keep the screen environment, rear subject,
   frame-break subject, depth effects, and contact light as separate layers.
   Default to original genre imagery; do not use unlicensed game characters,
@@ -299,7 +299,7 @@ the approved logo lockup once on the OS line; other PT slots may not repeat it.
   package visuals require exact-SKU entitlement evidence; unresolved elements
   are removed rather than inferred. `Lifetime Office` requires seller-approved
   wording and auditable evidence for that SKU.
-- PT02–PT08 must use the matching GG01–GG06 or BG01–BG16 pack from
+- PT02–PT08 must use the matching GG01–GG16 or BG01–BG16 pack from
   `supporting-gallery-styles.md`. Keep typography, card geometry, colors,
   lighting, and story world consistent; do not treat each slot as a random
   campaign. PT02 is the primary people scene, PT05 permits at most one

@@ -8,6 +8,7 @@
 - 只有用户明确要求“先看方向、草图、底稿、模板、prompt、wireframe、方案”时，才进入 `CONCEPT_ONLY`。
 - “给我审核”表示交付已经完成渲染、完整排版、文字校对和资产合成的**成品选择版**；等待的是用户是否采用或修改，不是等待补文字、Logo、Windows package、规格或产品信息。
 - 文件名中的 `CANDIDATE` 只表示“供用户从多个已完成主图中选择”，不表示半成品。
+- `UNIVERSAL_STYLE_APPROVAL_GATE` 是成品生产前的独立方向确认步骤：系统先提交 style proposal 与视觉参考，用户明确批准后才进入正式 11 图生产。Style preview 不属于最终图片槽位，也不改变批准后必须交付完成文件的要求。除非用户在当前请求中明确要求跳过，未批准 style 的任务不得进入 `FINAL_ASSET_DELIVERY` 渲染阶段。
 
 ## 2. 成品交付的不可缺项目
 
@@ -49,6 +50,8 @@ Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求�
 
 若文件已经生成，但内部 QA 或用户审核发现事实、品牌、排版或跨图重复问题，使用 `REWORK_REQUIRED` 并列出失败槽位；修正完成并重新通过全部闸门前，不得恢复为 `FINAL_ASSET_QA_PASS`。
 
+若成品与已批准的 style ID、palette、screen-background recipe、required/forbidden motifs 或内容边界不一致，同样使用 `REWORK_REQUIRED`。Manifest 必须记录 `style_approval_status: APPROVED` 和 `style_fidelity_review: PASS`；只有文件名或 manifest 声称某个 style、但 contact sheet 无法识别该风格时不得通过。
+
 `TO SOURCE`、`TO PRODUCE` 仅可用于规划模式或内部 manifest，不能作为成品请求的完成状态。
 
 ## 4. 完成文件的质量定义
@@ -67,6 +70,7 @@ Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求�
 - 1:1、RGB、真实扩展名，满足 [image-spec.md](image-spec.md) 的最终尺寸要求；
 - 100% 尺寸、200 px 缩略图、裁切、碰撞、可读性、产品准确性和跨图一致性检查通过；
 - 单张文件可以直接进入对应 Listing 槽位的上传准备，不依赖后续补字、补 Logo、补 package 或重新排版。
+- 与用户批准的 style proposal 一致，并通过 [style-approval-gate.md](style-approval-gate.md) 的 `STYLE_FIDELITY_GATE`；
 
 “生产完成”与“Amazon MAIN 合规批准”是两个独立状态。`MAIN-STRICT` 应满足默认 Amazon MAIN 规则；增强 MAIN 可以是完整成品，但只有通过当前账户/类目的 exception gate 才能作为正式 MAIN 上传。不得因为增强 MAIN 尚待合规批准，就把它做成半成品；也不得把“视觉完成”误报为“Amazon 已批准”。
 
