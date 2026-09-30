@@ -58,7 +58,9 @@ foreach ($fileName in $requiredPtFiles) {
     if ($entry.visibilityGate -ne 'PASS' -or
         $entry.clearanceGate -ne 'PASS' -or
         $entry.compositionSpacingGate -ne 'PASS' -or
-        $entry.placeholderFrameGate -ne 'PASS') {
+        $entry.placeholderFrameGate -ne 'PASS' -or
+        $entry.outsideProductGate -ne 'PASS' -or
+        $entry.productSurfaceLogoAbsenceGate -ne 'PASS') {
         throw "Logo QA gates are incomplete for $fileName."
     }
 

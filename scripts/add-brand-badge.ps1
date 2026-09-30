@@ -120,6 +120,10 @@ $thumbnailReviewSize = [int]$plan.thumbnailReviewSizePx
 $minimumVisibleLongEdge = [int]$plan.minimumVisibleLogoLongEdgePxAtThumbnail
 $minimumVisibleShortEdge = [int]$plan.minimumVisibleLogoShortEdgePxAtThumbnail
 $maximumLogoLongEdgePercent = [float]$plan.maximumLogoLongEdgePercentOfCanvas
+
+if ([string]$plan.productSurfaceLogoAbsenceReview -ne 'PASS') {
+    throw 'Placement plan requires productSurfaceLogoAbsenceReview: PASS after checking that every depicted computer surface, screen, internal structure, accessory, and computer pictogram is free of OEM Logos.'
+}
 $minimumComponentSeparation = [int]$plan.minimumComponentSeparationPx
 if ($thumbnailReviewSize -lt 200) {
     throw 'Placement plan thumbnailReviewSizePx must be at least 200.'
@@ -193,11 +197,24 @@ try {
         if ([string]$placement.placeholderFrameReview -ne 'PASS') {
             throw "Logo placement for $fileName requires placeholderFrameReview: PASS; no dashed box, crop rectangle, or residual badge may remain behind the mark."
         }
+        if ([string]$placement.outsideProductReview -ne 'PASS') {
+            throw "Logo placement for $fileName requires outsideProductReview: PASS. The added OEM mark must remain outside the computer, screen, chassis, keyboard, ports, and internal structure."
+        }
         if ($style -eq 'rounded-badge' -and [string]::IsNullOrWhiteSpace([string]$placement.badgeExceptionReason)) {
             throw "Rounded badge placement for $fileName requires badgeExceptionReason; hard rectangular Logo cards are not the default treatment."
         }
         if ($null -eq $placement.PSObject.Properties['protectedZones']) {
-            throw "Placement plan must declare protectedZones for $fileName (use an empty array after review when none apply)."
+            throw "Placement plan must declare protectedZones for $fileName."
+        }
+        $protectedZones = @($placement.protectedZones)
+        if ($protectedZones.Count -lt 1) {
+            throw "Placement plan protectedZones for $fileName cannot be empty."
+        }
+        $hasProductSilhouetteZone = @($protectedZones | Where-Object {
+            ([string]$_.label).ToUpperInvariant().StartsWith('PRODUCT_SILHOUETTE')
+        }).Count -gt 0
+        if (-not $hasProductSilhouetteZone) {
+            throw "Placement plan for $fileName must include at least one PRODUCT_SILHOUETTE protected zone."
         }
 
         $sourcePath = Join-Path $sourceDirectory $fileName
@@ -313,6 +330,8 @@ try {
                 clearanceGate = 'PASS'
                 compositionSpacingGate = 'PASS'
                 placeholderFrameGate = 'PASS'
+                outsideProductGate = 'PASS'
+                productSurfaceLogoAbsenceGate = 'PASS'
             }
         }
         finally {

@@ -26,6 +26,8 @@ try {
             clearanceGate = 'PASS'
             compositionSpacingGate = 'PASS'
             placeholderFrameGate = 'PASS'
+            outsideProductGate = 'PASS'
+            productSurfaceLogoAbsenceGate = 'PASS'
         }
     }
     $qa = [ordered]@{

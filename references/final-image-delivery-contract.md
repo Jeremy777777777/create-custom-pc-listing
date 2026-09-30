@@ -37,6 +37,8 @@ PT01–PT08 同时必须通过 `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE`。正确 Log
 
 Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求默认使用带真实 alpha 的官方/获准透明标志，直接融入预留负空间；不得出现从源图截下来的灰/白矩形底块，也不得为了批量方便给所有品牌统一套白色方卡。深色背景先换位置，其次使用 OEM 允许的 keyline 或官方反白资产。硬背景牌只能作为有记录的品牌规范例外。
 
+最终成图还必须通过 `UNIVERSAL_OEM_LOGO_OUTSIDE_PRODUCT_RULE`：Business、Gaming 和其他风格的电脑产品轮廓内不得出现任何 OEM Logo，不论它来自生成、后期合成还是原始产品素材；屏幕、显示内容、顶盖、机身、键盘、端口、透明侧板、内部结构、随箱物和电脑示意图均无例外。OEM Logo 只能放在产品轮廓之外的背景负空间。`logo-placement.json` 必须记录全套 `productSurfaceLogoAbsenceReview: PASS`，并用 `PRODUCT_SILHOUETTE*` protected zones 覆盖所有产品区域、逐图记录 `outsideProductReview: PASS`；Logo clearance bounds 与这些区域相交，或人工复核发现产品表面仍有 Logo，即进入 `REWORK_REQUIRED`。
+
 内部可以保留 mask、无品牌母版、透明环境层和中间文件，但它们必须放在内部生产目录，不能当作最终交付，也不能因为这些文件存在就声称任务完成。
 
 ## 3. 先阻断，再生成

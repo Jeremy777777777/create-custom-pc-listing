@@ -56,10 +56,12 @@
 - `thumbnail_hierarchy_review`: `<PASS | BLOCKED>`
 - `universal_oem_logo_visibility_rule`: `<REQUIRED | PASS | FAIL>`
 - `logo_thumbnail_review_size_px`: `200`
-- `logo_thumbnail_min_visible_edges_px`: `28 long / 10 short`
+- `logo_thumbnail_min_visible_edges_px`: `20 long / 10 short`
 - `logo_qa_schema_version`: `2`
 - `logo_final_hash_binding_review`: `<PASS | FAIL>`
-- `logo_maximum_long_edge_percent_of_canvas`: `15`
+- `logo_outside_product_review`: `<PASS | FAIL>`
+- `product_surface_logo_absence_review`: `<PASS | FAIL>`
+- `logo_maximum_long_edge_percent_of_canvas`: `12`
 - `logo_minimum_component_separation_px`: `32` (or `2.5%` of canvas short edge, whichever is greater)
 - `logo_placeholder_frame_review`: `PASS | FAIL`
 - `logo_qa_report`: `<product folder>/logo-qa.json`
