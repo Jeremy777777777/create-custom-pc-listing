@@ -8,6 +8,11 @@
 - `candidate_semantics`: `COMPLETED_SELECTION_OPTION_NOT_DRAFT`
 - `final_image_count`: `11` (`3 MAIN + PT01-PT08`; production records excluded)
 - `universal_gallery_dedup_rule`: `<REQUIRED | PASS | FAIL>` (mandatory for every PC audience/style family)
+- `universal_physical_port_map_rule`: `<REQUIRED | PASS | FAIL>` (mandatory for every PC audience/style family)
+- `physical_port_map_owner_slot`: `<PT08 default | other PT slot with reason>`
+- `physical_port_view_coverage`: `<LAPTOP_LEFT_AND_RIGHT | LAPTOP_VERIFIED_SINGLE_SIDE_PARTIAL | DESKTOP_FRONT_AND_REAR | OTHER_VERIFIED>`
+- `physical_port_source`: `<authorized exact-model side/rear/front image source>`
+- `physical_port_icon_only_failure`: `<false required | true>`
 - Internal model: `VL-<internal-model>`
 - Exact sold product: `<brand, model, form factor, color>`
 - Exact configuration / selectable tiers: `<verified values>`
@@ -114,7 +119,7 @@ Before production, assign every customer-visible claim to one `PRIMARY OWNER` sl
 | PT05 | How do the components support the task? | Causal pipeline/workflow | Performance relationship, not exact configuration |  | Full CPU/GPU models, RAM/SSD capacities, second specification grid |  |  |  | TO PRODUCE |  | PENDING |
 | PT06 | What's included? | Clean white factual layout | Exact in-box items |  | Performance/configuration claims |  |  |  | TO SOURCE |  | PENDING |
 | PT07 | What unaddressed value remains? | Dynamic distinct-value module or restrained product scene | One unused verified theme |  | Specification recap, Gaming Essentials, reordered core-spec cards |  |  |  | TO PRODUCE |  | PENDING |
-| PT08 | How does it connect? | Pack ecosystem | Ports/wireless/collaboration |  | Core performance recap |  |  |  | TO SOURCE |  | PENDING |
+| PT08 | How does it connect? | Exact-model physical port map + supporting wireless/collaboration | Visible physical ports, anchored verified labels, wireless as secondary |  | Icon-only connectivity page; core performance recap |  | Exact-model side/rear/front I/O source |  | TO SOURCE |  | PENDING |
 
 ## Cross-gallery duplicate QA
 
@@ -133,6 +138,8 @@ Before production, assign every customer-visible claim to one `PRIMARY OWNER` sl
 - [ ] `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` uses an authorized exact-model angled view and the same fixed Windows package without inventing chassis details.
 - [ ] A screen-placed Windows package sits over a fully continuous background with no placeholder rectangle and uses palette-aware glow/contact shadow without altering the package itself.
 - [ ] Gaming frame-break subjects form one continuous screen-connected silhouette; no detached shoulder lobes, triple-bump outline, floating parts, double bezel, neon contour, or sticker edge remains.
+- [ ] At least one PT image, normally PT08, shows the exact product's visible physical ports with callout leaders anchored to the correct openings; an icon-only connectivity layout is not accepted.
+- [ ] Laptop port coverage includes both port-bearing sides when required, or clearly identifies a verified partial side view; desktop/AIO/mini-PC coverage includes the relevant front and rear I/O. No port geometry or capability was inferred.
 - [ ] PT01–PT08 consistently use the selected profile.
 - [ ] PT02–PT08 use the continuation pack matching the PT01 Gaming/Business hero family.
 - [ ] A `Gallery Content Ownership Matrix` was completed before generation, and each PT has one documented `unique_information_contribution`.

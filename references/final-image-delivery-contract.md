@@ -30,6 +30,8 @@
 
 PT01–PT08 还必须通过 `UNIVERSAL_GALLERY_DEDUP_RULE` 的跨图信息独立性检查。该规则不区分 Gaming、Business、Student、General 或其他电脑类型。准确但重复的规格页不算新的完成槽位：PT03 负责完整销售配置，PT05 负责不重复完整型号/容量的性能关系，PT07 必须提供尚未解释的独立购买价值。只改标题、图标、颜色或布局而继续表达同一组信息，仍视为重复并阻断 `FINAL_ASSET_QA_PASS`。
 
+PT01–PT08 同时必须通过 `UNIVERSAL_PHYSICAL_PORT_MAP_RULE`。八张附图中至少一张、默认 `PT08`，必须展示准确机型的实体侧面/背面/前后 I/O，客户能直接看到接口开口及锚定到对应开口的已验证标签。只展示 USB-C、USB-A、HDMI、RJ-45、Wi-Fi 或 Bluetooth 图标而没有真实接口位置，不算接口展示并进入 `REWORK_REQUIRED`。缺少准确机型接口素材时必须在生成前阻断，不能用 AI 补画。
+
 PT01–PT08 同时必须通过 `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE`。正确 Logo 只在原尺寸文件中存在仍不够；它必须在 200 px 缩略图中保持可辨认，长边至少 28 px、短边至少 10 px，并与产品、文字、卡片、接口标注和画布边缘保持安全距离。最终目录必须保存 `logo-qa.json`，证明每张 PT 的 Logo 资产哈希、实际可见尺寸与闸门结果。任一 PT 缺失、太小、低对比、被裁切或发生碰撞时，整套图进入 `REWORK_REQUIRED`。
 
 Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求默认使用带真实 alpha 的官方/获准透明标志，直接融入预留负空间；不得出现从源图截下来的灰/白矩形底块，也不得为了批量方便给所有品牌统一套白色方卡。深色背景先换位置，其次使用 OEM 允许的 keyline 或官方反白资产。硬背景牌只能作为有记录的品牌规范例外。
@@ -61,6 +63,7 @@ Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求�
 - OEM Logo 使用透明、keyline 或经记录的品牌规范例外处理，与整体构图融合且没有矩形贴纸感；
 - OEM Logo 可见长边不超过画布 `12%`，与电脑、标题、卡片和线条保持至少 `32 px` 或画布短边 `2.5%` 的距离（取较大值）；底图不得残留虚线占位框、旧 Logo 或旧 badge；
 - 每张增强主图的 Windows asset 只能出现一次；合成前必须清除母版中的生成版、占位版或旧合成版，禁止重叠 package。
+- 至少一张附图、默认 `PT08`，已通过实体接口地图检查：准确机身接口可见、引导线锚点正确、标签与数量/能力证据一致；纯图标页不得通过；
 - 1:1、RGB、真实扩展名，满足 [image-spec.md](image-spec.md) 的最终尺寸要求；
 - 100% 尺寸、200 px 缩略图、裁切、碰撞、可读性、产品准确性和跨图一致性检查通过；
 - 单张文件可以直接进入对应 Listing 槽位的上传准备，不依赖后续补字、补 Logo、补 package 或重新排版。

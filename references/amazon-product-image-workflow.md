@@ -72,7 +72,7 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 | 6 / `PT05` | 性能关系信息图 | 用 Gaming pipeline 或 Business workflow 解释 Processing → Graphics → Display 等关系；可使用类别名但不重列完整型号/容量或第二张配置表。人物可选且最多一位，不编造跑分、FPS、续航或 AI 能力。 |
 | 7 / `PT06` | 包装内含物 | 白色；只展示确实随该 SKU 交付的机器、电源和配件。 |
 | 8 / `PT07` | 独立购买价值 | 使用 continuation pack 的视觉语言解释一个尚未在 PT01–PT06 使用且有证据的价值；禁止规格回顾、`Gaming Essentials` 和核心规格卡重排。事实不足时使用克制产品情境图，不重复 PT03。 |
-| 9 / `PT08` | 背面/连接 | 使用 continuation pack 的连接生态，但真实背部/接口仍是主体；接口种类与数量逐一核验，外设不暗示随箱。 |
+| 9 / `PT08` | 实体接口地图/连接 | 默认承担 `UNIVERSAL_PHYSICAL_PORT_MAP_RULE`：准确机型的 laptop 双侧/单侧或 desktop 前后 I/O 实物视图必须成为主体，引导线落在可见端口开口并逐项核验。Wi-Fi、Bluetooth 和功能卡只能补充，不能用纯图标替代实体接口；外设不暗示随箱。 |
 
 ### 4. 图片生成与事实保护
 
@@ -101,6 +101,7 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 - 对 PT01–PT08 执行 OCR 与语义去重：核对 `Gallery Content Ownership Matrix`、每张图的新增信息、核心规格归属和任意两张图的主要信息重合。重合超过 `supporting-gallery-styles.md` 的阈值、PT05 成为第二张配置表、或 PT07 退化为规格回顾时，整套图库不得进入 `FINAL_ASSET_QA_PASS`，必须重做对应槽位。
 - 对 PT01–PT08 执行 `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE`：`logo-qa.json` 必须存在并整体为 `PASS`；任何 Logo 在 200 px 缩略图投影中长边小于 28 px、短边小于 10 px，或低对比、碰撞、裁切，均将整套图库置为 `REWORK_REQUIRED`。
 - 对 PT01–PT08 执行 `UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 和 `UNIVERSAL_BRAND_SPACING_RULE`：检查源资产 alpha 与 200 px contact sheet；出现灰/白矩形源底、统一白色贴纸感、虚线占位框、旧 Logo/旧 package 残留、未经记录的硬 badge、Logo 长边超过画布 `12%`、与电脑/文字/信息卡间距不足，或明显破坏视觉层级时，整套图库置为 `REWORK_REQUIRED`。增强主图的 Windows asset 也必须先清除底图里的旧版本，每张只允许一个确定性合成单元。
+- 对 PT01–PT08 执行 `UNIVERSAL_PHYSICAL_PORT_MAP_RULE`：确认至少一张、默认 `PT08`，包含准确机型的真实侧面/背面/前后 I/O 视图，可见端口开口和锚定到该开口的准确标注。只有接口/无线功能图标、抽象连线或三分之四产品图而没有实体端口时，整套图库置为 `REWORK_REQUIRED`。
 
 ### 5A. 快速成功调用：标准成品流水线
 
@@ -109,7 +110,7 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 1. `git fetch`/fast-forward 同步 GitHub 最新规则，读取当前 `SKILL.md` 与适用 style family。
 2. 锁定 ERP/Listing 事实与公开 OEM 一手资料；错误或跨品牌文案进入拒绝清单。
 3. 在 manifest 先完成 audience/style lock、`Gallery Content Ownership Matrix`、品牌授权状态和 11 槽文件计划。
-4. 收集准确机型正面、三分之四、侧面、俯视和接口素材；缺少公共事实时主动 research 一手来源，不把公开资料搜集工作转给用户。
+4. 收集准确机型正面、三分之四、侧面、俯视和接口素材；接口素材必须足以制作实体 port map：Laptop 覆盖有端口的左右侧，Desktop/AIO/Mini 覆盖前后 I/O。缺少公共事实时主动 research 一手来源，不把公开资料搜集工作转给用户；仍无法取得准确视图时在批量生成前阻断，禁止 AI 猜测。
 5. 生成 3 MAIN 与 PT01–PT08 的无品牌母版。所有 PT prompt 必须写入“为确定性透明 OEM mark 预留约 18% × 18% 自然负空间；不得生成 Logo、品牌字样、白色底牌、占位框或虚线”。
 6. 用 `scripts/normalize-square-image.ps1` 统一真实编码、RGB 与 1:1 尺寸；严格 MAIN 保持 JPEG，其余生产母版可为 PNG。
 7. 用 `scripts/crop-image.ps1`（需要可复现 derivative 时）和 `scripts/add-fixed-image-overlay.ps1` 确定性加入 Windows/其他获准固定资产；禁止 AI 重画商标。

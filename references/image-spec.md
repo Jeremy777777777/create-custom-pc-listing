@@ -214,9 +214,11 @@ human approval are recorded.
 | **6** | `PT05` | Performance relationship | Selected profile + matching continuation pack | Explain a Gaming pipeline or Business workflow with category-level component labels; do not repeat full models/capacities or create a second specification grid; at most one secondary person; no invented FPS, benchmark, battery or AI claims |
 | **7** | `PT06` | What's included | White | Show only the exact unit, power equipment, and accessories included with the SKU |
 | **8** | `PT07` | Distinct unaddressed value | White or light + continuation accents | One verified theme not already owned by PT01–PT06; never a specification recap or reordered core-spec card set; use a restrained product scene if no additional claims are available |
-| **9** | `PT08` | Connectivity | White/light + continuation ecosystem | Verified rear/side ports and connectivity remain primary; contextual peripherals may not imply inclusion |
+| **9** | `PT08` | Physical port map / connectivity | White/light + continuation ecosystem | Show accurate-model physical side/rear/front I/O with visible port openings and anchored verified labels; wireless/function icons are supplemental and may not replace the product's real ports; contextual peripherals may not imply inclusion |
 
 `UNIVERSAL_GALLERY_DEDUP_RULE` applies to this slot map for every PC type and every audience/style family. Gaming, Business/Work, Student/Study, General, Hybrid and future profiles may change visual treatment only; they may not move full-configuration ownership away from PT03, turn PT05 into another configuration page, turn PT07 into a specification recap, or bypass the pairwise overlap gate.
+
+`UNIVERSAL_PHYSICAL_PORT_MAP_RULE` also applies to every PC type and audience/style family. At least one of PT01–PT08, normally PT08, must show the exact product's physical ports rather than only port or wireless icons. Use authorized exact-model side/rear/front source views; every leader terminates on a visible port opening, and labels may claim only verified type, count, speed, video, charging, or protocol capabilities. Missing exact-model port imagery blocks final production rather than authorizing generated chassis geometry.
 
 Reserve three-quarter views and multiple angles for PT images. Every displayed
 RAM or SSD option must be genuinely offered for the listing. Use a brief factual

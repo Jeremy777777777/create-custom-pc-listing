@@ -91,6 +91,18 @@ identity_ip_review: PASS|BLOCKED
 | `PT07` | 还有哪一个尚未解释的购买价值？ | 默认不使用 | 只用未被其他 PT 主张的已验证主题；禁止规格回顾和核心规格卡重排 |
 | `PT08` | 如何连接与协作？ | 可选，小型背景人物 | 接口种类/数量、无线、摄像头、麦克风和安全功能逐项验证 |
 
+### `UNIVERSAL_PHYSICAL_PORT_MAP_RULE`
+
+本规则适用于 Gaming、Business/Work、Student/Study、General、Hybrid 以及未来新增的所有 PC 分类。每套 `PT01`–`PT08` 至少有一张成品必须展示准确机型的**实体接口地图**；默认信息主槽为 `PT08`，style family 只能改变配色、标题和装饰，不能把实体接口替换成纯图标或抽象功能卡。
+
+- Laptop：若左右两侧都有接口，优先用上下双侧视图、两个准确侧面 inset，或其他能同时看清两侧实际接口的布局；只展示一侧时，不得暗示它是完整接口集合。
+- Desktop、Tower、SFF、Mini PC 和 AIO：按实际结构展示前置与后置 I/O；必要时用两个准确视图或放大 inset，不得让生成模型补画背板、开孔或接口。
+- 每个实体接口必须在产品图上可见；引导线末端必须落在对应的真实接口开口，标签与接口种类、数量和位置逐一匹配。USB-C 的充电、DisplayPort/视频、Thunderbolt/USB4、速率等能力只有在准确 SKU 证据确认后才能标注。
+- Wi-Fi、Bluetooth、摄像头、麦克风、dock、显示器、耳机、鼠标等功能或生态图标可以作为辅助，但不能代替实体接口视图，也不能暗示外设随箱。
+- 只有 `USB-C / USB-A / HDMI / RJ-45 / Wi-Fi / Bluetooth` 等卡片、三分之四产品 hero、线稿接口或抽象连线，而看不到准确机身上的端口开口，标记 `PHYSICAL_PORT_MAP_FAIL`。
+- 100% 检查接口几何、数量、位置与标签锚点；200 px 检查至少能辨认“真实机身接口视图 + 对应标注”的信息结构。任一检查失败，整套图库为 `REWORK_REQUIRED`。
+- 缺少准确机型的获准侧面/背面接口素材，或端口证据为 `TBD`/`CONFLICT` 时，在生产前使用 `BLOCKED_BEFORE_PRODUCTION`；不得用 AI 猜测接口图完成槽位。
+
 ## Gaming continuation packs
 
 所有 Gaming pack 延续 PT01 的颜色、原创世界观、光效方向和人物轮廓。只有 PT02 可把人物/角色放大到场景主体；PT03–PT08 以电脑和事实为主，genre 元素只做 10%–20% 的边缘氛围。
