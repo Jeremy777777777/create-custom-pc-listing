@@ -37,7 +37,7 @@
 - 所有逐槽示例均受 [supporting-gallery-styles.md](supporting-gallery-styles.md) 的 `Gallery Content Ownership Matrix` 约束：PT03 集中完整销售配置，PT04 集中显示/机身事实，PT05 解释工作关系而不重列配置，PT07 只能使用一个尚未解释的独立价值。示例中可能使用的功能词只是候选，不得跨槽重复。
 - B12–B16 的风景、城市、建筑、科技或 editorial 画面必须使用原创生成或具商业使用权的素材。不得截取竞品屏幕、图库水印、真实公司 Logo、可识别客户数据或受保护地标品牌元素。
 - OEM Logo 必须出现在 PT01–PT08 每一张附图，并保持固定角落、尺寸和保护区；仍不得让生成模型重画。
-- OEM Logo 还必须通过通用缩略图可见性闸门；Business 极简留白不能成为缩小到无法辨认的理由，也不能把 Logo 放大到与产品竞争。生成 prompt 必须主动预留至少约 `18% × 18%` 的无冲突负空间，但实际 Logo 可见长边默认只占画布 `9%–12%`，在 200 px 缩略图中不小于 20 px/10 px 长短边阈值，其余空间用于与标题、电脑和信息卡建立视觉呼吸。
+- OEM Logo 还必须通过通用缩略图可见性闸门；Business 极简留白不能成为缩小到无法辨认的理由，也不能把 Logo 放大到与产品竞争。生成 prompt 必须主动预留至少约 `18% × 18%` 的无冲突负空间，但实际 Logo 可见长边默认占画布 `14%–15%`，在 200 px 缩略图中不小于 28 px/10 px 长短边阈值，其余空间用于与标题、电脑和信息卡建立视觉呼吸。
 - Business gallery 的默认 Logo 处理是透明官方 mark 融入浅色负空间，不是白色矩形 badge。标志周围依靠版面留白建立识别度；如果背景复杂，应移动 Logo 或重排构图，而不是截一块白底贴上去。圆形 keyline 或硬背景牌仅在 OEM 规范允许且必要时使用。
 - Windows 在 PT 图中的唯一默认所有者是 PT03：OS 行可使用一次获准标志 + `Windows 11 Pro` 锁定组合。其他 PT 不得为了“穿插”而重复 Windows。
 
@@ -64,12 +64,12 @@
    - `preferredTreatment: INTEGRATED_TRANSPARENT_MARK`
    - `minimumClearancePx >= 16`；Business 成品推荐 `32`
    - `minimumComponentSeparationPx >= 32`，或画布短边 `2.5%`，取较大值
-   - `maximumLogoLongEdgePercentOfCanvas <= 12`
+   - `maximumLogoLongEdgePercentOfCanvas <= 15`
    - `thumbnailReviewSizePx: 200`
-   - `minimumVisibleLogoLongEdgePxAtThumbnail >= 20`
+   - `minimumVisibleLogoLongEdgePxAtThumbnail >= 28`
    - `minimumVisibleLogoShortEdgePxAtThumbnail >= 10`
    - 每图 `contrastReview: PASS`、`compositionSpacingReview: PASS`、`placeholderFrameReview: PASS` 和 `protectedZones`
-3. Logo 可见长边默认占画布 `9%–12%`。预留的 `18% × 18%` 是包含呼吸空间的安全区，不是 Logo 本身的目标尺寸。Logo 不得接触或贴近电脑、标题、线条、图标、信息卡或画布边缘，也不得为提高对比而统一添加白色矩形卡。
+3. Logo 可见长边默认占画布 `14%–15%`。预留的 `18% × 18%` 是包含呼吸空间的安全区，不是 Logo 本身的目标尺寸。Logo 不得接触或贴近电脑、标题、线条、图标、信息卡或画布边缘，也不得为提高对比而统一添加白色矩形卡。
 4. 每张图单独选择最干净的负空间；不要机械固定在右下角。先保护电脑和标题的视觉层级，再考虑品牌位置。没有合格位置时应重排或清理母版，而不是挤入 Logo。
 
 ### 4. 确定性输出顺序
@@ -102,9 +102,9 @@
 
 | 项目 | 已通过参数 | 跨尺寸使用方式 |
 | --- | --- | --- |
-| OEM Logo | `140 × 140 px`，约占画布 `11.2%` | 维持 `9%–12%` 可见长边；按实际负空间逐图定位 |
+| OEM Logo | 依据画布和品牌比例计算 | 维持 `14%–15%` 可见长边；按实际负空间逐图定位 |
 | 组件间距 | placement plan 使用 `40 px` | 不低于 `32 px` 或短边 `2.5%` |
-| 缩略图可见性 | 200 px contact sheet 中约 `22.3 × 22.2 px` | 不低于 `20 × 10 px` 长短边门槛 |
+| 缩略图可见性 | 200 px contact sheet 中的实际投影尺寸 | 不低于 `28 × 10 px` 长短边门槛 |
 | 三分之四 MAIN package | `230 × 252 px`，位于独立右侧留白 | 保持原比例、单实例，并与产品保持明显间隔 |
 | PT02 | 先删除 Dell Logo 与整个虚线方框，再在连续背景上合成透明 mark | 任何场景都先清除旧 Logo/占位框，再进行最终合成 |
 

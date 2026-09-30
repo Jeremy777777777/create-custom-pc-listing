@@ -85,9 +85,13 @@ if ($unexpectedImages) {
 $logoQaPath = Join-Path $product 'logo-qa.json'
 if (-not (Test-Path -LiteralPath $logoQaPath -PathType Leaf)) { throw 'Missing logo-qa.json.' }
 $logoQa = Get-Content -Raw -LiteralPath $logoQaPath | ConvertFrom-Json
-if ($logoQa.result -ne 'PASS' -or @($logoQa.images).Count -ne 8) {
+if ([int]$logoQa.schemaVersion -lt 2 -or $logoQa.result -ne 'PASS' -or @($logoQa.images).Count -ne 8) {
     throw 'OEM Logo visibility QA did not pass for all eight PT images.'
 }
+
+& (Join-Path $scriptRoot 'test-final-image-gallery.ps1') `
+    -ProductDirectory $product `
+    -ExpectedBrand $ExpectedBrand
 
 $report = [ordered]@{
     productDirectory = Split-Path -Leaf $product

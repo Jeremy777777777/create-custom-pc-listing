@@ -1,0 +1,62 @@
+name: Validate gallery OEM Logo QA
+
+on:
+  pull_request:
+    paths:
+      - 'product generated photo/**/PT*.png'
+      - 'product generated photo/**/logo-qa.json'
+      - 'product generated photo/**/logo-placement.json'
+      - 'scripts/add-brand-badge.ps1'
+      - 'scripts/finalize-image-gallery.ps1'
+      - 'scripts/test-final-image-gallery.ps1'
+      - 'scripts/test-gallery-commit-gate-selftest.ps1'
+  push:
+    branches: [main]
+    paths:
+      - 'product generated photo/**/PT*.png'
+      - 'product generated photo/**/logo-qa.json'
+      - 'product generated photo/**/logo-placement.json'
+      - 'scripts/add-brand-badge.ps1'
+      - 'scripts/finalize-image-gallery.ps1'
+      - 'scripts/test-final-image-gallery.ps1'
+      - 'scripts/test-gallery-commit-gate-selftest.ps1'
+
+jobs:
+  validate-changed-galleries:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate changed canonical galleries
+        shell: pwsh
+        env:
+          EVENT_NAME: ${{ github.event_name }}
+          BEFORE_SHA: ${{ github.event.before }}
+          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
+          HEAD_SHA: ${{ github.sha }}
+        run: |
+          $ErrorActionPreference = 'Stop'
+          & ./scripts/test-gallery-commit-gate-selftest.ps1
+
+          $baseSha = if ($env:EVENT_NAME -eq 'pull_request') { $env:PR_BASE_SHA } else { $env:BEFORE_SHA }
+          if ([string]::IsNullOrWhiteSpace($baseSha) -or $baseSha -match '^0+$') {
+            $changed = @(git diff-tree --no-commit-id --name-only -r $env:HEAD_SHA)
+          } else {
+            $changed = @(git diff --name-only $baseSha $env:HEAD_SHA)
+          }
+
+          $galleryDirectories = $changed |
+            Where-Object { $_ -match '^product generated photo/(VL-[^/]+)/(PT0[1-8]\.png|logo-qa\.json|logo-placement\.json)$' } |
+            ForEach-Object { Split-Path -Parent $_ } |
+            Sort-Object -Unique
+
+          if (-not $galleryDirectories) {
+            Write-Output 'No canonical VL gallery images changed.'
+            exit 0
+          }
+
+          foreach ($directory in $galleryDirectories) {
+            & ./scripts/test-final-image-gallery.ps1 -ProductDirectory $directory
+          }

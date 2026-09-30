@@ -124,11 +124,11 @@ $minimumComponentSeparation = [int]$plan.minimumComponentSeparationPx
 if ($thumbnailReviewSize -lt 200) {
     throw 'Placement plan thumbnailReviewSizePx must be at least 200.'
 }
-if ($minimumVisibleLongEdge -lt 20 -or $minimumVisibleShortEdge -lt 10) {
-    throw 'Placement plan thumbnail Logo thresholds must be at least 20 px long-edge and 10 px short-edge.'
+if ($minimumVisibleLongEdge -lt 28 -or $minimumVisibleShortEdge -lt 10) {
+    throw 'Placement plan thumbnail Logo thresholds must be at least 28 px long-edge and 10 px short-edge.'
 }
-if ($maximumLogoLongEdgePercent -le 0 -or $maximumLogoLongEdgePercent -gt 12) {
-    throw 'Placement plan maximumLogoLongEdgePercentOfCanvas must be greater than 0 and no more than 12.'
+if ($maximumLogoLongEdgePercent -le 0 -or $maximumLogoLongEdgePercent -gt 15) {
+    throw 'Placement plan maximumLogoLongEdgePercentOfCanvas must be greater than 0 and no more than 15.'
 }
 if ($minimumComponentSeparation -lt 32) {
     throw 'Placement plan minimumComponentSeparationPx must be at least 32.'
@@ -167,6 +167,7 @@ for ($logoY = 0; $logoY -lt $logo.Height -and -not $logoHasTransparentPixels; $l
 }
 try {
     foreach ($fileName in $requiredFiles) {
+        $qaEntry = $null
         $placement = $plan.placements.PSObject.Properties[$fileName].Value
         $x = [int]$placement.x
         $y = [int]$placement.y
@@ -292,7 +293,7 @@ try {
                 $graphics.DrawImage($logo, $logoBounds)
             }
 
-            $qaEntries.Add([pscustomobject]@{
+            $qaEntry = [pscustomobject]@{
                 file = $fileName
                 style = $style
                 canvas = "$($source.Width)x$($source.Height)"
@@ -312,7 +313,7 @@ try {
                 clearanceGate = 'PASS'
                 compositionSpacingGate = 'PASS'
                 placeholderFrameGate = 'PASS'
-            })
+            }
         }
         finally {
             $graphics.Dispose()
@@ -323,6 +324,9 @@ try {
         $canvas.Save($tempPath, [System.Drawing.Imaging.ImageFormat]::Png)
         $canvas.Dispose()
         Move-Item -LiteralPath $tempPath -Destination $destinationPath -Force
+        $qaEntry | Add-Member -NotePropertyName unbrandedSourceSha256 -NotePropertyValue ((Get-FileHash -LiteralPath $sourcePath -Algorithm SHA256).Hash)
+        $qaEntry | Add-Member -NotePropertyName finalImageSha256 -NotePropertyValue ((Get-FileHash -LiteralPath $destinationPath -Algorithm SHA256).Hash)
+        $qaEntries.Add($qaEntry)
     }
 }
 finally {
@@ -330,6 +334,8 @@ finally {
 }
 
 $qaReport = [ordered]@{
+    schemaVersion = 2
+    generatedAtUtc = [DateTime]::UtcNow.ToString('o')
     brand = $plan.brand
     logoRole = $plan.logoRole
     logoAsset = Split-Path -Leaf $resolvedLogo

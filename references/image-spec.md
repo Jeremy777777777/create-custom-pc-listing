@@ -324,8 +324,8 @@ the approved logo lockup once on the OS line; other PT slots may not repeat it.
   `minimumClearancePx` of at least 16 pixels for the production canvas and a
   `protectedZones` array for every PT image. It must also declare
   `thumbnailReviewSizePx: 200`,
-  `minimumVisibleLogoLongEdgePxAtThumbnail: 20`,
-  `maximumLogoLongEdgePercentOfCanvas: 12`,
+  `minimumVisibleLogoLongEdgePxAtThumbnail: 28`,
+  `maximumLogoLongEdgePercentOfCanvas: 15`,
   `minimumComponentSeparationPx: 32`, and
   `minimumVisibleLogoShortEdgePxAtThumbnail: 10`. Keep the rendered logo at least
   that distance from the canvas edge and every recorded protected zone; use a
