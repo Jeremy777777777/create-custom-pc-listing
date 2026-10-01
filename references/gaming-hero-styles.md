@@ -1,8 +1,10 @@
 # MegaPC Gaming PC Hero Style Library
 
+Gaming 增强 MAIN 的可复现生产以 [稳定生产标准](gaming-main-reproducible-workflow.md) 为唯一构图数值来源；G style 决定题材，不授予肩/手/装备出屏许可。PT01、Business、MAIN-STRICT 不套用该正面比例。
+
 本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 Gaming 专用 add-on。它把准确产品与已验证性能信息扩展为原创的 3D 游戏氛围画面，可用于增强主图和 `PT01 Conversion Hero`。增强主图的核心配置布局从 [gaming-core-badge-styles.md](gaming-core-badge-styles.md) 选择 C01–C07；PT01 只选 C01–C06 的精简布局。资产卡视觉由同文件的 A01–A16 控制，并默认与 G01–G16 同编号绑定。固定 Windows 11 Pro package 只出现在增强主图，PT01 不重复。Business/Work 改用 [business-work-hero-styles.md](business-work-hero-styles.md)，不能混用本文件的人物、场景和光效。
 
-一旦 `audience_style_family = GAMING`，两个增强 MAIN 和 PT01 都必须选择同一 G01–G16，并记录对应 C layout 与 A asset-card skin。默认 signature enhanced-main 为 `GAMING_3D_BREAKOUT_SPATIAL_CARDS`：准确电脑置于纯白电商画布，原创 3D 主体与屏幕环境保持连续并可受控跨越屏幕上缘/侧缘，六张确定性资产卡按获批构图灵活安排在 LCD 内，可在下部、四角或错位区域。只有连续相连的角色/装备实体可以出屏；粒子、光晕、接触光、文字、数字、额外 Logo、Windows package、卡片底板和其他信息像素均禁止出屏。准确机身原有的原厂 Logo 必须保留。仅放一张游戏壁纸、霓虹背景或平面人物不算完成。若准确机身几何、素材权利或逐卡安全区无法实现，应在成品生产前标记 `BLOCKED_BEFORE_PRODUCTION`，不得自动退化为普通 Business/General 风格或交付半成品。
+一旦 `audience_style_family = GAMING`，两个增强 MAIN 和 PT01 都必须选择同一 G01–G16，并记录对应 C layout 与 A asset-card skin。默认 signature enhanced-main 为 `GAMING_3D_BREAKOUT_SPATIAL_CARDS`：准确电脑置于纯白电商画布，原创 3D 主体与屏幕环境保持连续；默认只有头部/头盔可轻微跨越 LCD 上缘，六张确定性资产卡按获批构图灵活安排在 LCD 内，可在下部、四角或错位区域。只有连续相连的头部/头盔可以出屏；无头部的载具/几何主题使用屏内纵深，不自动获得出屏许可；粒子、光晕、接触光、文字、数字、额外 Logo、Windows package、卡片底板和其他信息像素均禁止出屏。准确机身原有的原厂 Logo 必须保留。仅放一张游戏壁纸、霓虹背景或平面人物不算完成。若准确机身几何、素材权利或逐卡安全区无法实现，应在成品生产前标记 `BLOCKED_BEFORE_PRODUCTION`，不得自动退化为普通 Business/General 风格或交付半成品。
 
 同一 G/A 视觉体系不代表 PT01 复用增强 MAIN 的 C07 六卡：两个增强 MAIN 可共享 C07，而 PT01 独立选择 C01–C06 的精简布局，最多两张 feature cards。
 
@@ -12,7 +14,7 @@
 
 用户明确指定某张已批准基础图时，该图是 `APPROVED_BASE_COMPOSITION_LOCK` 的编辑目标，不是重新出图时可随意参考的 mood board。锁定电脑尺寸/位置、上下左右留白、屏幕透视、角色重心与六个空间卡位；先在原卡位清除示意图，再确定性放入已验证规格、组件资产和固定 Windows package。若底图的准确机身或原厂标志需要修复，仅替换对应产品层；不得为安放文字重新生成整台电脑或把六卡压成一条平铺带。
 
-对 VL-1221 这类用户批准的“仅头部轻微出屏”构图，`HEAD_ONLY_FRAME_BREAK` 比通用 `CONTROLLED_FRAME_BREAK` 更严格：只有头盔/头部可少量越过 LCD 上缘；手、手臂、肩膀、肩甲、粒子和所有光效必须在 LCD 内。编辑前后分别在 100% 图上检查上缘和侧缘，并保存头/肩/臂/手的逐部位通过记录。参考底图若已有肩甲或碎片越界，应局部收回，而不是保留该缺陷或整体换图。未经用户重新批准，不得放宽为全身出屏。
+对 Gaming 增强 MAIN 默认启用“仅头部轻微出屏”构图，`HEAD_ONLY_FRAME_BREAK` 比通用 `CONTROLLED_FRAME_BREAK` 更严格：只有头盔/头部可少量越过 LCD 上缘；手、手臂、肩膀、肩甲、粒子和所有光效必须在 LCD 内。编辑前后分别在 100% 图上检查上缘和侧缘，并保存头/肩/臂/手的逐部位通过记录。参考底图若已有肩甲或碎片越界，应局部收回，而不是保留该缺陷或整体换图。未经用户重新批准，不得放宽为全身出屏。
 
 PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 使用同编号 continuation pack：G01→GG01，G02→GG02，依此类推。这样人物、原创世界观、色彩和功能叙事在整套图库中连续，而不是只在 PT01 出现。
 
@@ -21,7 +23,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 ## 使用范围与主图闸门
 
 - `STRICT_MAIN`：Amazon 搜索结果正式主图。继续使用纯白背景、完整真实产品、无新增人物、游戏画面、文字、徽章、Windows package、粒子或 3D 出屏效果。
-- `MAIN_ENHANCED_FRONT_CANDIDATE` 与 `MAIN_ENHANCED_THREE_QUARTER_CANDIDATE`：分别输出正面和准确三分之四侧向的完整原创游戏成品。默认使用纯白背景、约 `90%–94%` 产品宽度、`8%–12%` 顶部视觉安全区和 `6%–9%` 底部空间；仅连续 3D 实体可按批准方案受控出屏，六张规格资产卡与 Windows package 必须完整位于 LCD 内，但位置不固定。文件名中的 candidate 仅代表供人选择，不代表后续还要补信息。只有当前账户/类目的可审计书面依据和人工批准都已记录，才能选择其中一份替换 `MAIN.jpg`；看到其他卖家使用类似图片不构成许可。
+- `MAIN_ENHANCED_FRONT_CANDIDATE` 与 `MAIN_ENHANCED_THREE_QUARTER_CANDIDATE`：分别输出正面和准确三分之四侧向的完整原创游戏成品。正面采用 [稳定生产标准](gaming-main-reproducible-workflow.md) 的获批比例（电脑宽度约 `97%–98%`、顶部约 `8%–10%`）；侧向需独立适配并批准，不拉伸机身；仅头部/头盔可轻微出屏，六张规格资产卡与 Windows package 必须完整位于 LCD 内，但位置不固定。文件名中的 candidate 仅代表供人选择，不代表后续还要补信息。只有当前账户/类目的可审计书面依据和人工批准都已记录，才能选择其中一份替换 `MAIN.jpg`；看到其他卖家使用类似图片不构成许可。
 - `PT01_GAMING_HERO`：允许延续相同视觉世界、准确产品与克制光效，但必须使用不同信息焦点，且不得出现 Windows package、Windows 文字卡或占位图。
 
 本库的 Gaming 效果是同一产品图库的连续视觉语言，而不是互不相关的版式：电脑主体、准确机型外观、屏幕层、性能信息和 3D 场景必须协作；Windows 11 Pro package 只在增强主图加入。
@@ -64,18 +66,18 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 
 1. `SCREEN_ENVIRONMENT`：原创环境完全位于屏幕可视区内，提供远景和色彩气氛。
 2. `SUBJECT_REAR`：角色/载具的后部仍被屏幕边框正确遮挡，建立“来自屏幕”的关系。
-3. `FRAME_BREAK_SUBJECT`：头部、肩部、手臂、披风、载具前鼻或道具的一小部分越过屏幕边框。
+3. `FRAME_BREAK_SUBJECT`：增强 MAIN 仅头部/头盔可跨越 LCD 上缘；肩、手、臂、披风、装备和载具全部在屏内。无头部主题使用 SCREEN_ONLY；不得借 G style 示例自动放宽。
 4. `DEPTH_EFFECTS`：粒子、雾、碎片、速度线或能量光仅在 LCD 内建立纵深；屏幕外一律不延续，不遮挡原厂 OEM 标识、Windows 卡或硬件事实。
 5. `CONTACT_LIGHT`：只在 LCD 内的主体交界处加入克制的投影、边缘光与环境反射；不在屏幕外边框、机身或白底上制造额外彩色光效。
 
 ### 深度与布局限额
 
-- 电脑主体按自身视觉包围框水平居中，中心偏差绝对值 `<= 2%`；建议占画布宽度 `78%–86%`。
+- 电脑主体按自身视觉包围框水平居中，中心偏差绝对值 `<= 2%`；增强 MAIN 正面采用稳定生产标准的 `97%–98%`，PT01 与侧向独立按获批构图测量。
 - 出屏主体仍须与屏幕相连，不能变成白色背景上第二件独立商品。越过屏幕的面积不超过电脑视觉包围框的 `12%`。
-- 角色或载具最多跨越两条屏幕边；越过上边框的最高点不超过画布高度的 `6%`，不得触碰画布边缘。
+- 增强 MAIN 仅允许头部跨越 TOP 一条边；最高点、LCD 上缘和跨出高度分别按批准参考测量，不沿用旧的 6% 高度上限。无头部主题不跨框。
 - 不遮挡摄像头位置、准确屏幕比例、铰链、键盘布局、数字键盘、触控板、接口和机身原生 Logo。
 - 画面最多一个主角或一个主载具；远景可有最多两个弱化剪影，不能形成“多人随箱内容”或喧宾夺主。
-- 屏幕环境至少保留 `25%` 的安静区域；3D add-on 启用后，feature cards 从最多三张降为最多两张；增强主图的 Windows 11 Pro package 另计。
+- PT01 的 3D add-on 最多两张 feature cards。增强 MAIN 的 C07 为六张空间资产卡，不套用两卡上限或固定 25% 安静区；以获批参考的角色/卡片平衡和缩略图辨识为准。
 - 增强主图的 `Windows 11 Pro` 必须使用固定 package 素材并等比放在 LCD 内安全区；准确侧向构图也不允许外置侧边安全区。不得用 Glass OS Chip、文字卡或占位盒替代。PT01 禁止任何 Windows package。
 - 所有场景保持 PG-13 以内：无血液、伤口、尸体、恐怖特写、赌博、毒品、性暗示、仇恨符号或武器直指观众。
 
@@ -83,9 +85,9 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 
 每一张 Gaming 出屏图在进入文字与品牌合成前，必须先通过以下连续性闸门：
 
-- 越过屏幕上边框的头部、头发、冠部或小范围肩甲，必须与屏幕内同一主体形成**一条连续、相连的剪影**；屏幕边框应自然从主体后方经过。
+- 越过屏幕上边框的头部/头盔，必须与屏幕内同一主体形成**一条连续、相连的剪影**；屏幕边框应自然从主体后方经过。
 - 禁止把跨框区域做成脱离主体的独立肩块、左右对称三凸起、漂浮部件、重复头部、第二层边框、霓虹描边或贴纸白边。
-- 默认只允许头部/冠部和少量相连的肩部或头发跨过上边框；跨框必须克制，不能把整个人物或大面积赛博背景带到白色画布。
+- 增强 MAIN 默认只允许头部/头盔跨过 LCD 上缘；跨框必须克制，不能把整个人物或大面积赛博背景带到白色画布。
 - 屏幕外仍保持纯白/近白留白。彩色世界、规格和主要视觉内容留在屏幕内；出屏部分只是连续主体的自然延伸。
 - 在 100% 和 200 px 两种尺寸检查连接点、遮挡和边框走向。任一连接点像“拼上去”、出现断裂或无法判断前后关系时，标记 `REWORK_REQUIRED`，不得进入最终品牌合成。
 
@@ -98,8 +100,8 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 适合具有已验证独显、高刷新率或明确 gaming 定位的机型。视觉母题来自 tactical shooter 与团队竞技，但必须是原创角色。
 
 - 屏幕内：深蓝工业走廊、抽象网格门或训练场，使用青蓝与少量警示橙。
-- 主体：原创未来战术操作员，头盔和一侧肩甲越过上边框；武器保持低位或不出现，不能指向观众。
-- 3D 重点：肩甲遮挡屏幕边框，冷色边缘光和少量尘粒向键盘方向衰减。
+- 主体：原创未来战术操作员，仅头盔轻微越过 LCD 上缘，肩甲留在屏内；武器保持低位或不出现，不能指向观众。
+- 3D 重点：头盔与上框形成遮挡；肩甲、冷色边缘光和尘粒全部在 LCD 内。
 - 信息区：左下放一张 GPU 卡，底部中间放一张 refresh-rate/display 卡；Windows 卡放右下。
 - 禁止：现实军警标识、特定阵营徽章、可识别地图、准星/HUD、写实枪战或爆炸伤害。
 
@@ -108,8 +110,8 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 适合希望覆盖 MOBA、RPG 与 fantasy 玩家，但不把产品绑定到单一作品的机型。
 
 - 屏幕内：原创浮空竞技场、远山和环形能量结构，紫蓝为主、金色点亮。
-- 主体：原创守护者或法术使用者；头肩与披风越过上边框，手部能量弧轻微越过侧边框。
-- 3D 重点：披风前后遮挡、能量环穿过屏幕边缘、前景粒子形成三段景深。
+- 主体：原创守护者或法术使用者；仅头部轻微越过 LCD 上缘，肩、披风、手部及能量弧全部在屏内。
+- 3D 重点：披风前后遮挡、能量环位于 LCD 内、前景粒子形成三段景深。
 - 信息区：底部两张玻璃卡分别展示 CPU/GPU 或 GPU/display；Windows package 放在不与角色冲突的安全区。
 - 禁止：复刻具体英雄、武器、召唤物、技能图标、队伍色、地图兵线或游戏 UI。
 
@@ -118,8 +120,8 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 适合 battle royale、open-map shooter 与强调移动性的 Gaming laptop。
 
 - 屏幕内：原创未来城市天际线、远处风暴云和垂直光柱；不使用任何已知地图地标。
-- 主体：原创飞行服探索者从屏幕深处跃向前景，腿部仍在屏幕内，躯干小幅跨越上边框。
-- 3D 重点：前后景城市缩放、衣带/轻型翼片跨框、粒子和风线沿对角线出屏。
+- 主体：原创飞行服探索者从屏幕深处跃向前景，腿部仍在屏幕内，仅头盔轻微跨越 LCD 上缘，躯干在屏内。
+- 3D 重点：前后景城市缩放、衣带/轻型翼片、粒子和风线均在 LCD 内形成对角纵深。
 - 信息区：把 RAM/SSD 合并为一张底部卡，另一张展示 verified display/GPU；Windows 卡置右下且不挡人物落点。
 - 禁止：降落伞/滑翔器的标志性造型、风暴圈 UI、补给箱、已知服装或胜利标语。
 
@@ -128,8 +130,8 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 适合高性能 gaming/creator crossover、RGB 视觉或强调 GPU 的机型。
 
 - 屏幕内：原创机库、发光装甲舱和体积光，主色为青蓝/品红。
-- 主体：原创非人形或半人形机甲上半身；一只机械手或肩部越过屏幕边缘，但不覆盖整台电脑。
-- 3D 重点：前臂与边框形成真实遮挡，局部火花和屏幕反光落到键盘上方；不改变实物键盘颜色。
+- 主体：原创非人形或半人形机甲上半身；仅头盔轻微越过 LCD 上缘；机械手、臂和肩部全部在屏内。
+- 3D 重点：头盔与上框形成真实遮挡；前臂、火花和反光限定在 LCD 内，不照染键盘。
 - 信息区：GPU 为主要 hero，CPU 或 display 为第二卡；Windows 卡使用 Screen Package Mini。
 - 禁止：超级英雄、电影机甲、具体英雄射击角色、品牌装甲轮廓、胸口标志和版权配色。
 
@@ -138,7 +140,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 适合学生/家庭也会选择的轻度 Gaming laptop，可覆盖 sandbox、building 与 exploration 兴趣，同时保持更友好氛围。
 
 - 屏幕内：原创低多边形峡谷、晶体森林或天空岛；避免草地方块、像素纹理和已知怪物。
-- 主体：原创探索者或小型机器人伙伴从发光入口跨出，头部与一只手/前轮越过下方或侧边框。
+- 主体：原创探索者或小型机器人伙伴从发光入口跨出，仅头部可轻微跨越 LCD 上缘；手和前轮留在屏内。
 - 3D 重点：多边形碎片、柔和体积光、近景晶体与远景地形形成景深。
 - 信息区：优先展示 RAM/SSD 与 display，减少攻击性卖点；Windows package 使用固定素材并保持完整可读。
 - 禁止：方块人物、像素镐、爬行怪物、特定建造纹理、游戏 Logo 或儿童误导性角色。
@@ -148,8 +150,8 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 适合高刷新率、低响应显示卖点明确，或以流畅视觉为核心的 Gaming laptop。
 
 - 屏幕内：原创夜间赛道、抽象城市隧道和光门；不使用真实车厂、赛事、赛道或赞助商元素。
-- 主体：原创未来赛车或悬浮载具从屏幕深处冲向前景，车头小幅越过下边框，后部仍在屏幕内。
-- 3D 重点：透视夸张、轮廓运动模糊、轮胎/悬浮喷流和速度粒子跨框；键盘保持清楚。
+- 主体：原创未来赛车或悬浮载具从屏幕深处冲向前景，车头和后部全部在 LCD 内，以屏内透视建立纵深。
+- 3D 重点：透视夸张、轮廓运动模糊、轮胎/悬浮喷流和速度粒子全部在 LCD 内；键盘保持清楚。
 - 信息区：refresh rate/display 为 hero，GPU 为 supporting card；Windows 卡放右下上层但不得与车头重叠。
 - 禁止：真实品牌车标、可识别车型、赛车号码/涂装、赛事 Logo、版权赛道和游戏 UI。
 
@@ -158,7 +160,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 适合明确电竞、高刷新或低延迟定位的 Gaming PC，使用专业比赛转播的秩序感而不复制任何赛事。
 
 - 屏幕内：黑灰竞技训练空间、冰蓝测量线和少量荧光黄定位点；保持大面积负空间。
-- 主体：原创无品牌竞技玩家剪影或抽象能量核心，头肩小幅跨越上边框；不使用队服、号码或战队标志。
+- 主体：原创无品牌竞技玩家剪影或抽象能量核心，仅人形头部可轻微跨越 LCD 上缘，肩和能量核心留在屏内；不使用队服、号码或战队标志。
 - 3D 重点：细网格、帧序列和定向光形成速度与精度，避免爆炸和武器叙事。
 - 信息区：refresh/display 为第一卖点，GPU 为第二卖点；优先 C02 或 C05。
 - 禁止：赛事 Logo、比分牌、直播平台 UI、职业选手相似形象、奖杯与未经验证的 latency/FPS 数字。
@@ -168,7 +170,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 适合准确机型确有液冷、可见水冷管路或高规格散热系统的 desktop；无硬件证据时不得选择。
 
 - 屏幕内：深石墨实验室、青色与紫色流体光路、透明流道和温度层级的抽象可视化。
-- 主体：原创环形冷却核心或流体能量装置与屏幕相连，少量透明管线跨框但不覆盖真实机箱。
+- 主体：原创环形冷却核心或流体能量装置与屏幕相连，透明管线全部在 LCD 内，不覆盖真实机箱。
 - 3D 重点：体积光、凝露质感和流向线；真实硬件照片中的散热器、风扇与管路保持原样。
 - 信息区：verified cooling architecture 为 hero，CPU/GPU 为 supporting；优先 C03 或 C04。
 - 禁止：虚构水冷、温度下降百分比、冷却液品牌、错误管路、蒸汽泄漏或危险实验室语义。
@@ -178,7 +180,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 适合低调黑色机身、工作与 Gaming 共存或不希望强 RGB 的产品。
 
 - 屏幕内：matte black、basalt graphite、烟熏玻璃与单一深红或冷白细线；不使用彩虹灯。
-- 主体：原创暗色装甲几何或低多边形性能核心，小范围跨框并依靠轮廓光区分层次。
+- 主体：原创暗色装甲几何或低多边形性能核心，完全留在 LCD 内并依靠轮廓光区分层次。
 - 3D 重点：材质、阴影、通风纹理与精密切面，而非粒子数量。
 - 信息区：GPU/CPU 与一个 verified acoustics/airflow/design 卖点；优先 C01 或 C05。
 - 禁止：伪军用徽章、全黑导致产品轮廓消失、未经验证的 quiet claim、廉价红黑火焰背景。
@@ -198,7 +200,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 适合白色、银色或浅灰机身，以及需要高端清爽电商呈现的 Gaming PC。
 
 - 屏幕内：冰白建筑空间、浅银台面、冷青光缝和极少量紫色阴影。
-- 主体：原创冰晶几何、无人机或能量门，以连续浅色剪影小幅跨框。
+- 主体：原创冰晶几何、无人机或能量门，以屏内连续浅色剪影建立纵深。
 - 3D 重点：高键光、柔和接触阴影、透明亚克力质感；保持产品边缘和白底区分。
 - 信息区：GPU/display 与 verified chassis/RGB feature；优先 C02 或 C06。
 - 禁止：雪地品牌场景、过曝导致机身消失、蓝色冰霜覆盖接口、虚构白色硬件版本。
@@ -208,7 +210,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 适合准确机型有明显进出风口、大面积网孔或高性能 thermal positioning 的产品。
 
 - 屏幕内：深黑锻造空间、暗红至琥珀的热流、蜂窝/网孔抽象纹理。
-- 主体：原创能量锻炉或非人形动力核心跨越下边框，避免战斗角色。
+- 主体：原创能量锻炉或非人形动力核心留在 LCD 内，避免战斗角色。
 - 3D 重点：冷空气与热排气使用两种清晰方向线；真实通风口必须来自准确素材。
 - 信息区：verified airflow/cooling 为 hero，CPU/GPU 为 support；优先 C01 或 C06。
 - 禁止：火焰贴图、熔化产品、未经验证的温度/噪声数字、把红色等同于更快的夸张 claim。
@@ -218,7 +220,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 适合 Gaming + streaming、3D、视频或 creator crossover，且相关能力有平台证据的产品。
 
 - 屏幕内：深紫工作室、青色时间线、抽象 3D viewport 和柔和棚灯；所有 UI 均原创。
-- 主体：原创数字雕塑或几何生物从 viewport 小幅跨框，表现创作过程而非具体游戏。
+- 主体：原创数字雕塑或几何生物在 LCD 内从 viewport 向前延伸，表现创作过程而非具体游戏。
 - 3D 重点：图层、渲染网格和成片预览形成前后关系；产品与工作流仍居中。
 - 信息区：GPU 与 verified display/creator workflow；优先 C02 或 C05。
 - 禁止：复制 Adobe/Blender/OBS UI、软件 Logo、未经验证的编码器/AI claim、暗示订阅随附。
@@ -228,7 +230,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 适合 SFF、mini tower 或强调节省桌面空间的 Gaming PC；尺寸必须准确验证。
 
 - 屏幕内：深灰模块舱、酸绿或电蓝单色节点、紧凑堆叠几何。
-- 主体：原创高密度动力核心与机箱轮廓平行，小幅从侧边跨框。
+- 主体：原创高密度动力核心与机箱轮廓平行，在 LCD 内以透视建立纵深。
 - 3D 重点：紧凑层叠、短路径和精确尺度线；不得通过夸张透视让产品显得更小。
 - 信息区：verified dimensions/form factor 与 GPU；优先 C04 或 C05。
 - 禁止：未验证体积百分比、错误尺寸对比物、虚构内部空间、把便携与电池能力混为一谈。
@@ -238,7 +240,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 适合旗舰 Gaming、沉浸式体验或希望使用高端深色叙事但不绑定具体游戏类型的产品。
 
 - 屏幕内：深空黑、靛蓝与紫色星云、原创引力环和克制星尘。
-- 主体：原创探测器、抽象飞船或能量门连续跨越上/侧边框，仍与屏幕环境相连。
+- 主体：原创探测器、抽象飞船或能量门完整位于 LCD 内，仍与屏幕环境相连。
 - 3D 重点：尺度、体积雾和环形光；避免把宇宙背景扩散到所有产品细节上。
 - 信息区：GPU 为 hero，CPU/display 为 support；优先 C03 或 C06。
 - 禁止：知名科幻飞船、电影构图、星球大战式文字、游戏阵营符号、未验证的“宇宙级”性能文案。
@@ -248,7 +250,7 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 适合年轻化、streaming 或娱乐型 Gaming PC，需要强辨识配色但仍保持原创。
 
 - 屏幕内：深海军蓝、洋红/青色光栅、抽象日落圆盘和立体网格隧道。
-- 主体：原创多边形 hover module 或几何吉祥物从屏幕下沿小幅跨框。
+- 主体：原创多边形 hover module 或几何吉祥物在 LCD 内形成前后遮挡。
 - 3D 重点：扫描线、速度网格和柔和 glow；文字区保持现代可读，不使用像素字体堆叠。
 - 信息区：display/refresh 与 GPU；优先 C05 或 C06。
 - 禁止：复刻 1980s 游戏柜、已知街机角色、版权像素图、真实游戏 Logo、过度荧光导致电商缩略图失焦。
@@ -291,7 +293,7 @@ popularity_research_source: <URL>
 screen_environment_asset: <path/source>
 subject_asset: <path/source>
 ip_similarity_review: PASS|BLOCKED
-frame_edges_crossed: <TOP / LEFT / RIGHT / BOTTOM; maximum two>
+frame_edges_crossed: <TOP for HEAD_ONLY_FRAME_BREAK; NONE for SCREEN_ONLY>
 frame_break_area_pct: <must be <= 12>
 product_center_offset_pct: <absolute value must be <= 2>
 feature_cards: <C07 enhanced main = six deterministic asset cards; PT01 = maximum two>
@@ -299,13 +301,13 @@ asset_card_placements: <per-card x/y/width/height/z-index and reading path appro
 asset_card_sources: <paths + hashes + rights/evidence>
 ai_generated_final_text_or_logo: false
 spatial_cards_lcd_containment_review: PASS|BLOCKED|NOT_APPLICABLE
-product_width_pct: <C07 target 90-94>
-composition_top_clearance_pct: <C07 target 8-12>
-composition_bottom_clearance_pct: <C07 target 6-9>
+product_width_pct: <front reference target 97-98; approved angle-specific value otherwise>
+composition_top_clearance_pct: <front reference target 8-10>
+composition_bottom_clearance_pct: <measure chassis and shadow separately; see stable production standard>
 enhanced_front_main_windows_visual_style: FIXED_WINDOWS_11_PRO_PACKAGE
-enhanced_front_main_windows_placement: <screen or canvas-side safe zone>
+enhanced_front_main_windows_placement: <LCD-only safe zone>
 enhanced_three_quarter_main_windows_visual_style: FIXED_WINDOWS_11_PRO_PACKAGE
-enhanced_three_quarter_main_windows_placement: <screen or canvas-side safe zone>
+enhanced_three_quarter_main_windows_placement: <LCD-only safe zone>
 pt01_windows_asset_mode: NONE
 license_evidence: NONE_REQUIRED_ORIGINAL|<licensed campaign evidence>
 ```

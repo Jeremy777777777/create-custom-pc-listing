@@ -1,4 +1,6 @@
 # Final Image Delivery Contract
+
+Gaming 增强 MAIN 须额外通过 [稳定生产标准](gaming-main-reproducible-workflow.md) 的 REFERENCE_MATCH_GATE 和 REPRODUCIBLE_BUILD_GATE。视觉基准获批不代表产品照片来源、全部文字资产或完整图库 QA 已通过。
 > 全目录固定政策和自主核验按 [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) 执行：Windows 11 Pro；6 个月保修 + 12 个月延保；图片只展示电脑本身，PT06 不展示配件；Business Windows 资产仅在 LCD 内；长条官方 Logo 使用比例分流。旧示例与该规则冲突时以该文件为准。
 
 
@@ -76,7 +78,7 @@ Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求�
 - 100% 尺寸、200 px 缩略图、裁切、碰撞、可读性、产品准确性和跨图一致性检查通过；
 - 单张文件可以直接进入对应 Listing 槽位的上传准备，不依赖后续补字、补 Logo、补 package 或重新排版。
 - 与用户批准的 style proposal 一致，并通过 [style-approval-gate.md](style-approval-gate.md) 的 `STYLE_FIDELITY_GATE`；
-- 两张增强主图通过 `ENHANCED_MAIN_CONTENT_BOUNDARY_GATE`：Business/Work 与未获批例外的 family 使用 `SCREEN_ONLY`；Gaming 可使用获批 `CONTROLLED_FRAME_BREAK`，但仅允许连续的原创 3D 实体出屏；粒子、接触光、光晕、雾及投影不得出屏。全部卡片、规格、额外 Logo 和 Windows asset 必须完整位于 LCD 内，原厂机身标志保留。屏幕外保持纯白 `#FFFFFF`，不得出现外置信息元素或独立场景；
+- 两张增强主图通过 `ENHANCED_MAIN_CONTENT_BOUNDARY_GATE`：Business/Work 与未获批例外的 family 使用 `SCREEN_ONLY`；Gaming 默认使用 `HEAD_ONLY_FRAME_BREAK`，仅连续头部/头盔可跨越 LCD 上缘，无头部主题使用 SCREEN_ONLY；粒子、接触光、光晕、雾及投影不得出屏。全部卡片、规格、额外 Logo 和 Windows asset 必须完整位于 LCD 内，原厂机身标志保留。屏幕外保持纯白 `#FFFFFF`，不得出现外置信息元素或独立场景；
 - 用户指定的获批基础图须通过 `APPROVED_BASE_COMPOSITION_LOCK`；启用 `HEAD_ONLY_FRAME_BREAK` 时须逐部位检查，仅头部可轻微越过屏幕上缘。PT08 须通过 `PRODUCT_APPEARANCE_MATCH_GATE`，不能把另一颜色/系列的维护手册线稿当成准确机身照片。任何一项失败，已有图库也保持 `REWORK_REQUIRED`，不得因其他 11 张文件仍在目录中而上传替换。
 
 “生产完成”与“Amazon MAIN 合规批准”是两个独立状态。`MAIN-STRICT` 应满足默认 Amazon MAIN 规则；增强 MAIN 可以是完整成品，但只有通过当前账户/类目的 exception gate 才能作为正式 MAIN 上传。不得因为增强 MAIN 尚待合规批准，就把它做成半成品；也不得把“视觉完成”误报为“Amazon 已批准”。
@@ -86,15 +88,15 @@ Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求�
 当 `audience_style_family = GAMING` 时，两张增强 MAIN 都必须是完整的 3D Gaming 成品，而不是普通壁纸加卡片，并默认使用 `GAMING_3D_BREAKOUT_SPATIAL_CARDS`：
 
 - 外部画布为纯白 `#FFFFFF` 电商背景，不使用占满画面的赛博海报背景；
-- 准确产品使用批准的正面或自然三分之四角度，视觉包围框居中，主体约占画布宽度 `90%–94%`；顶部视觉留白 `8%–12%`，底部 `6%–9%`；
-- 原创 genre 主体在屏幕内部建立前、中、后景深度，并按 `CONTROLLED_FRAME_BREAK` 受控越过上缘或侧缘；
+- 准确产品使用批准的正面或自然三分之四角度，视觉包围框居中，正面机身宽度约 `97%–98%`、顶部视觉留白 `8%–10%`，机身底部与阴影底部分别按稳定生产标准测量；侧向另行适配；
+- 原创 genre 主体在屏幕内部建立前、中、后景深度，并按 `HEAD_ONLY_FRAME_BREAK` 仅头部/头盔跨越 LCD 上缘；
 - 六类确定性资产卡 `DISPLAY / CPU / GPU / RAM / SSD / OS` 全部在 LCD 内；可在下部、四角或错位区域按空间与阅读动线安排，不固定顺序或平铺方式；卡片 skin 默认与 G style 同编号绑定为 A01–A16；
 - 卡片中的文字、数字、图标、商标和底板均来自 approved assets，ImageGen 不生成任何最终规格或 Logo；
 - 固定 `assets/branding/windows-11-pro-package.png` 作为完整独立 package 放在经验证的屏幕安全区；不得换成字体、文字卡、生成的近似包装或移到产品旁；
 - 屏内 package 后方必须是自然连续的原场景，不得存在预留矩形或硬卡槽；使用 palette-aware glow 与 contact shadow 融合，但不得改动 package 本体；
 - 产品始终是第一视觉主体，package 和规格清晰但不把电脑推离中心。
 
-此外，两张 Gaming 增强 MAIN 必须通过 `CONTROLLED_FRAME_BREAK_GATE` 与 `SPATIAL_CARDS_LCD_CONTAINMENT_GATE`：3D 实体出屏面积 `<=12%`、最多跨越两条屏幕边并保持连续遮挡；六张资产卡、全部文字/数字/额外 Logo、Windows package、卡片边框、glow、粒子和接触光必须完整留在 LCD 内。准确机身原厂标志不属于额外 Logo。PT01 如继续使用出屏主体，也执行 `NATURAL_FRAME_BREAK_CONTINUITY_GATE`，但不得复制增强主图的完整六卡配置。
+此外，两张 Gaming 增强 MAIN 必须通过 `CONTROLLED_FRAME_BREAK_GATE` 与 `SPATIAL_CARDS_LCD_CONTAINMENT_GATE`：仅头部/头盔出屏面积 `<=12%`、只跨 TOP 一条屏幕边并保持连续遮挡；六张资产卡、全部文字/数字/额外 Logo、Windows package、卡片边框、glow、粒子和接触光必须完整留在 LCD 内。准确机身原厂标志不属于额外 Logo。PT01 如继续使用出屏主体，也执行 `NATURAL_FRAME_BREAK_CONTINUITY_GATE`，但不得复制增强主图的完整六卡配置。
 
 默认映射为：
 

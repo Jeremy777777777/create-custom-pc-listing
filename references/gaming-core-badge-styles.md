@@ -1,5 +1,7 @@
 # Gaming Core Badge + Windows 11 Pro Styles
 
+两张增强 MAIN 生产前读取 [稳定生产标准](gaming-main-reproducible-workflow.md)。正面获批样例与机器可读布局在该文件链接的 reference pack 中；C/A 样式不能覆盖其几何与边界约束。
+
 本文件为 [gaming-hero-styles.md](gaming-hero-styles.md) 提供可组合的信息层。它专门解决 Gaming PC 主视觉中的核心配置表达，并规定 Windows 11 Pro 固定 package 只用于增强主图。它不是新的 MAIN 合规例外；默认生产同时保留 `MAIN-STRICT`、正面增强主图、三分之四侧向增强主图和不含 package 的 `PT01_GAMING_HERO`。
 
 C01–C07 是信息布局层，不锁定产品角度；A01–A16 是资产卡片视觉层，并默认与 G01–G16 同编号绑定。C style 决定卡片数量、方向和占位，A style 决定卡片外形、材质、边框、颜色、图标语言和发光方式，两者不得混为一项。每个 C style 都必须支持 [hero-composition-variants.md](hero-composition-variants.md) 的准确产品角度。增强主图必须合成同一个固定 Windows package；PT01 继续删除 package，并改用不同的 hero attribute 或信息重心。
@@ -8,9 +10,9 @@ C01–C07 是信息布局层，不锁定产品角度；A01–A16 是资产卡片
 
 - Amazon `MAIN-STRICT` 继续保持纯白背景、仅展示实际售卖产品，不添加规格字、Windows 卡、package、人物或装饰。以下样式可同时指导增强主图和 PT01；package 仅在增强主图出现，且增强版只有通过 `enhanced_main_candidate` 闸门后才可替换正式主图。
 - 电脑主体必须水平居中，中心偏差不超过画布宽度的 `2%`。信息层不能为了腾位置把产品推向一侧。
-- 增强 MAIN 的全部资产卡、规格文字、额外 Logo、Windows package、粒子及一切光效必须限制在屏幕可视区；只有获批 `GAMING_3D_BREAKOUT_SPATIAL_CARDS` 中连续相连的原创 3D 实体可以受控跨越屏幕上缘或侧缘。准确电脑原有的原厂 OEM 标志保留原位。若 package 与 hero/规格冲突，重组屏内结构或减少装饰，不得把资产卡或光效移到电脑外部。
+- 增强 MAIN 的全部资产卡、规格文字、额外 Logo、Windows package、粒子及一切光效必须限制在屏幕可视区；默认只有连续相连的原创头部/头盔可轻微跨越 LCD 上缘（HEAD_ONLY_FRAME_BREAK）；无头部主题全部在屏内。准确电脑原有的原厂 OEM 标志保留原位。若 package 与 hero/规格冲突，重组屏内结构或减少装饰，不得把资产卡或光效移到电脑外部。
 - 本模块叠加在 G01–G16 的原创场景上，不复制竞品的图标、卡片形状、配色、人物、壁纸或具体排版。C01–C07 是布局，A01–A16 是由当前 G style 驱动的视觉皮肤；除非用户重新批准，禁止随机换皮、跨 family 混用或让生成模型自行设计新卡片。
-- ImageGen 只生成准确电脑、原创 3D 主体、屏幕环境和为卡片预留的干净区域。最终文字、数字、Windows package、组件 Logo、类别图标、边框和卡片底板全部来自可追踪资产并通过确定性合成加入；不得让生成模型渲染最终规格或重画商标。
+- ImageGen 只生成原创 3D 主体、屏幕环境和非品牌装饰；准确电脑使用已核验产品层，不得由生成模型重画。最终文字、数字、Windows package、组件 Logo、类别图标、边框和卡片底板全部来自可追踪资产并通过确定性合成加入；不得让生成模型渲染最终规格或重画商标。
 
 ## 2. Research snapshot
 
@@ -42,7 +44,7 @@ Windows 资产使用必须遵守 Microsoft 当前规则：准确的 `Windows 11 
 - 数字预装许可不能表现成随箱附送零售盒。使用 box-shot treatment 时，应在 manifest 标记 `retail_media_included: false`，并在需要时加小字 `Preinstalled — no retail media included`。
 - 产品和 MegaPC 销售配置必须比 Windows package 更显著；Windows 视觉不得成为第二件“随箱商品”。
 - 固定 package 只能整体等比缩放；不得裁切、抽取背景或 Logo、改色、重画或重新制造透视。
-- 当 package 放在屏幕内时，生成母版必须先完成 package 后方的连续屏幕环境，只保留低细节安全区；禁止预画深色矩形、边框、空白卡槽、发光盒或任何可见 placeholder。
+- 当 package 放在屏幕内时，生成母版必须先完成 package 后方的连续屏幕环境，只保留低细节安全区；禁止未完成的占位矩形或旧 package 边框；允许获批 A style 的成品 OS 外框，原始 package 完整放入内区，不得再叠加多余白框。
 - 最终使用 `scripts/add-fixed-image-overlay.ps1 -IntegrationStyle ScreenGlow` 确定性合成：固定 package 像素保持原样，仅在其下方加入从邻近屏幕自动取色的柔和环境光和接触阴影，使其自然属于屏幕场景而不是贴纸。
 - package 与背景融合不等于改造品牌资产：不得降低 package 本身不透明度、模糊、改色、透视变形或让人物/规格压住 package。必须在 100% 与 200 px 复核完整性和自然度。
 - placement 固定为 `SCREEN_SAFE_ZONE`。若拥挤，必须减少次要内容或重排屏内层级，不能省略 package，也不能移到屏幕外。
@@ -58,9 +60,9 @@ Gaming 信息优先级固定为：`GPU → display/refresh → CPU → RAM → S
 3. `RAM`：当前选中 SKU 的容量；仅在父体确实提供多配置时使用 `Up to`。
 4. `SSD`：当前选中 SKU 的容量与类型；不能把可选升级写成基础配置。
 
-一个 `CORE_SPEC_CLUSTER` 虽包含最多四个 micro cells，但在 G01–G16 的密度计算中视为一张 feature card。启用它后，只允许再放一张独立 hero/display card；Windows tile 另计。这样既保留核心配置，又不突破 Gaming 画面的两卡上限。
+一个 `CORE_SPEC_CLUSTER` 虽包含最多四个 micro cells，但在 C01–C06 的密度计算中视为一张 feature card，可另放一张 hero/display card；Windows tile 仅增强 MAIN 另计。C07 增强 MAIN 明确为六张独立图形资产卡，不套用两卡上限。
 
-推荐 cell 文案结构：
+以下仅示意 cell 的规格字段，不是纯文字成品；增强 MAIN 必须同时配置对应图形资产：
 
 ```text
 GPU
@@ -77,7 +79,7 @@ GeForce RTX 4060
 
 - 在屏幕底部建立一条连续的深色 command deck；从左至右显示 GPU、CPU、RAM/SSD 三个 micro zones。
 - 固定 Windows package 从 deck 右端向上“立起”，保持原始比例与平面形态。
-- 角色或机甲占屏幕中央，上半身可跨越屏幕上沿；deck 始终在角色之后、键盘之前。
+- 角色或机甲占屏幕中央，仅头部/头盔可轻微跨越 LCD 上缘；deck 始终在角色之后、键盘之前。
 - 适配：G01 Neon Tactical Arena、G04 Mech Reactor Bay。
 - 缩略图目标：200 px 下至少可识别 GPU 型号、总内存/存储和 `Windows 11 Pro`。
 
@@ -86,7 +88,7 @@ GeForce RTX 4060
 - 屏幕左右各一条窄型纵向 rail：左侧放 GPU + CPU，右侧放 RAM + SSD。
 - 固定 Windows package 放在右下安全区；若 rail 过密，改用独立侧边安全区。
 - 中央 58%–66% 屏幕宽度留给原创人物、赛车或奇幻主体，避免规格遮脸。
-- rail 只使用原创几何图标或纯文字；不得模仿游戏 HUD、准星或角色选择界面。
+- rail 使用图形资产加短规格，不使用纯文字成品；不得模仿游戏 HUD、准星或角色选择界面。
 - 适配：G02 Mythic Portal Guardian、G03 Battle-Drop Horizon。
 
 ### C03 — Holographic Corner Stack
@@ -100,7 +102,7 @@ GeForce RTX 4060
 ### C04 — Core Orbit + OS Dock
 
 - 以中央原创主体为焦点，使用不超过四个小型节点组成不闭合的半圆：GPU、CPU、RAM、SSD。
-- 节点使用无品牌的发光圆点与短标签；不使用真实芯片厂商 Logo，除非另有当前授权。
+- 节点使用可辨认的硬件图标与短规格，不以发光圆点代替图形资产；不使用真实芯片厂商 Logo，除非另有当前授权。
 - 固定 Windows package 单独放在屏幕底部安全区，不能作为“第五个硬件节点”；如空间不足则切换到侧边安全区。
 - orbit 线段不能接触人物脸部、电脑边框或 OEM Logo。
 - 适配：G02 Mythic Portal Guardian、G05 Low-Poly Adventure World。
@@ -118,15 +120,15 @@ GeForce RTX 4060
 - 在屏幕一侧放三片斜向 prism blade：第一片强调 GPU，第二片 CPU，第三片合并 RAM + SSD。
 - 固定 Windows package 放在 base 旁并保持原比例，不得被裁成水平 base plate 或斜片。
 - 斜线方向应把视线引回电脑中心；产品主体中心偏差仍不得超过 2%。
-- 另一侧保留足够负空间给跨框载具、飞船或速度光轨。
+- 另一侧保留足够负空间给屏内载具、飞船或速度光轨。
 - 适配：G03 Battle-Drop Horizon、G06 Velocity Circuit。
 
 ### C07 — Six Spatial Asset Cards + 3D Breakout
 
 - 这是获批的 Gaming 增强主图 signature layout；适用于需要同时快速表达 display、CPU、GPU、RAM、SSD、OS 的准确销售配置。
-- 电脑水平居中，成品画布为 `1:1`；电脑宽度目标为画布的 `90%–94%`，左右留白各约 `3%–5%`，3D 主体最高点保留 `8%–12%` 顶部留白，电脑及接触阴影保留 `6%–9%` 底部留白。
+- 电脑水平居中，成品画布为 `1:1`；正面按 [稳定生产标准](gaming-main-reproducible-workflow.md) 使用约 `97%–98%` 电脑宽度、左右各约 `1%–1.5%`、主体顶部 `8%–10%` 留白；机身底部与阴影底部各自测量。侧向和其他形态独立适配，不拉伸产品。
 - 六类信息 `DISPLAY / CPU / GPU / RAM / SSD / OS` 必须齐全，但**没有固定顺序或固定平铺位置**。可按获批构图放在屏幕下部、四角、分层错位区域或其他屏内安全区；位置、尺寸、阅读动线与主体纵深共同设计，不能为凑成一排牺牲空间感。六卡全部位于 LCD 可视区内，卡片、文字、Logo、边框和 glow 均不得越过屏幕内缘。
-- 屏幕中的原创 3D 主体建立纵深；头部、肩部、手部或连续装备可以受控跨越屏幕上缘/侧缘，形成清楚的前后遮挡，但不得覆盖任何卡片、键盘、触控板、准确机身结构或原厂标志。粒子、光晕、接触光、速度线及其投影都不得出屏。
+- 屏幕中的原创 3D 主体建立纵深；默认仅头部/头盔可轻微跨越 LCD 上缘，肩部、手部、手臂和装备必须在屏内，形成清楚的前后遮挡，但不得覆盖任何卡片、键盘、触控板、准确机身结构或原厂标志。粒子、光晕、接触光、速度线及其投影都不得出屏。
 - Windows 卡使用固定 repository asset；CPU/GPU 仅使用已获准且与实际配置一致的官方组件资产。DISPLAY/RAM/SSD 使用 repository-owned 图标与确定性文字资产。
 - `C07` 只用于两个 Gaming 增强 MAIN；PT01 仍遵守其独立信息所有权和卡片上限，不能复制六卡完整配置。
 - Base render 必须输出没有任何最终营销文字、数字、额外 Logo 或卡片的 clean master；准确产品原有的原厂标志不得清除。六张卡在后期按用户批准的**逐卡坐标/层级**确定性合成。
@@ -175,7 +177,7 @@ GeForce RTX 4060
 1. 核验准确底机外观、GPU、CPU、显示、RAM、SSD 和 Windows 11 Pro 交付证据。
 2. 先选 G01–G16，再选 C01–C07；A01–A16 默认由 G style 同编号派生，并记录 binding。若选择 signature 六卡成品，使用 `C07`。
 3. 为增强主图锁定 `os_asset_mode: FIXED_WINDOWS_11_PRO_PACKAGE` 和固定资产路径，并选择屏内安全区；为 PT01 锁定 `os_asset_mode: NONE`。
-4. 生成无额外营销 Logo、无 Microsoft 商标、无最终文字和无卡片底板的 base art；准确产品上的原厂标志照实保留。预留逐卡、主体和 package protected zones。若初稿拥挤，先重构版面再继续。
+4. 按稳定生产标准复用获批 clean master；首次建立时只生成屏内环境和原创主体，使用已核验产品层。准确产品及原厂标志不得重画。预留逐卡、主体和 package protected zones。若初稿拥挤，先重构版面再继续。
 5. 从 approved asset inventory 取得卡片底板、类别图标、组件 Logo、Windows package 和确定性文字资产；逐字对照 evidence map 后一次性合成，不让生成模型渲染最终文字或商标。
 6. 最后为增强主图合成固定 Windows package；为 PT01 可在产品外自然负空间合成获准的 OEM Logo，不合成 Windows package。真实原厂机身标志保留，不得让生成模型重画任何 Logo。
 7. 在 100% 和 200 px 两种尺寸检查产品居中、逐卡阅读动线、文字准确性、Windows 权利、遮挡、原厂标志保留及跨图一致性。
@@ -195,9 +197,9 @@ gaming_core_badge:
   ai_generated_final_text_or_logo: false
   asset_card_sources: <paths + hashes + rights/evidence>
   spatial_cards_lcd_containment_review: <PASS | BLOCKED>
-  product_width_pct: <measured value; C07 target 90-94>
-  composition_top_clearance_pct: <measured value; C07 target 8-12>
-  composition_bottom_clearance_pct: <measured value; C07 target 6-9>
+  product_width_pct: <measured value; approved front target 97-98>
+  composition_top_clearance_pct: <measured value; approved front target 8-10>
+  composition_bottom_clearance_pct: <separate chassis/shadow bottom measurements; stable production standard>
   controlled_frame_break_review: <PASS | BLOCKED | NOT_APPLICABLE>
   core_spec_cluster:
     gpu: <verified value>

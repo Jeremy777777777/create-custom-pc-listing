@@ -1,0 +1,207 @@
+{
+  "schema_version": 1,
+  "id": "gaming-front-vl1221-approved-v1",
+  "status": "VISUAL_REFERENCE_APPROVED",
+  "production_pack_ready": false,
+  "scope": "Gaming enhanced MAIN front; not product-fact evidence, not a complete layered master",
+  "reference": {
+    "path": "approved.png",
+    "sha256": "893d668f898b39854d92641d9acf4d3e0c6be42361fa1a42f533de319dd6a7c4",
+    "width": 1254,
+    "height": 1254
+  },
+  "coordinate_system": "reference pixels; uniformly scale for output; approximate hand-read anchors, refine masks without redesign",
+  "style": {
+    "g": "G04",
+    "c": "C07",
+    "a": "A04",
+    "boundary": "HEAD_ONLY_FRAME_BREAK",
+    "crossed_edges": [
+      "TOP"
+    ]
+  },
+  "geometry": {
+    "product_bbox": [
+      14,
+      272,
+      1225,
+      856
+    ],
+    "lcd_bbox": [
+      127,
+      298,
+      999,
+      526
+    ],
+    "head_top_y": 112,
+    "shadow_bottom_y": 1165
+  },
+  "tolerances": {
+    "product_width_pct": [
+      97,
+      98
+    ],
+    "center_offset_pct_max": 1,
+    "top_clearance_pct": [
+      8,
+      10
+    ],
+    "chassis_bottom_clearance_pct": [
+      9,
+      11
+    ],
+    "shadow_bottom_clearance_pct": [
+      6,
+      8
+    ],
+    "same_product_anchor_drift_pct_max": 1
+  },
+  "cards": [
+    {
+      "id": "display",
+      "bounds": [
+        141,
+        345,
+        212,
+        207
+      ],
+      "content_box": [
+        169,
+        373,
+        164,
+        166
+      ],
+      "graphic": "display/diagonal-size icon",
+      "specs": [
+        "15.6″",
+        "FHD",
+        "144Hz"
+      ],
+      "z": 30
+    },
+    {
+      "id": "cpu",
+      "bounds": [
+        895,
+        344,
+        215,
+        205
+      ],
+      "content_box": [
+        939,
+        373,
+        134,
+        160
+      ],
+      "graphic": "amd-ryzen-7.png",
+      "specs": [
+        "7445HS"
+      ],
+      "z": 30
+    },
+    {
+      "id": "gpu",
+      "bounds": [
+        143,
+        572,
+        231,
+        246
+      ],
+      "content_box": [
+        171,
+        623,
+        173,
+        180
+      ],
+      "graphic": "nvidia-geforce-rtx.png",
+      "specs": [
+        "RTX 4050",
+        "6GB"
+      ],
+      "z": 40
+    },
+    {
+      "id": "ram",
+      "bounds": [
+        379,
+        598,
+        259,
+        224
+      ],
+      "content_box": [
+        402,
+        633,
+        211,
+        178
+      ],
+      "graphic": "RAM module icon",
+      "specs": [
+        "16GB",
+        "DDR5"
+      ],
+      "z": 40
+    },
+    {
+      "id": "ssd",
+      "bounds": [
+        636,
+        604,
+        241,
+        218
+      ],
+      "content_box": [
+        657,
+        628,
+        194,
+        183
+      ],
+      "graphic": "SSD icon",
+      "specs": [
+        "512GB",
+        "SSD"
+      ],
+      "z": 40
+    },
+    {
+      "id": "os",
+      "bounds": [
+        881,
+        580,
+        228,
+        242
+      ],
+      "content_box": [
+        914,
+        615,
+        161,
+        177
+      ],
+      "graphic": "../../branding/windows-11-pro-package.png",
+      "specs": [],
+      "z": 40
+    }
+  ],
+  "assets": [
+    {
+      "path": "amd-ryzen-7.png",
+      "sha256": "8c8fff0e6118fc3f3a0ada96583a1ec0fceced5ca39af8b7ceaa32b46e4e341d",
+      "source": "https://www.amd.com/content/dam/amd/en/images/logos/products/2462924-amd-ryzen-7-badge.png"
+    },
+    {
+      "path": "nvidia-geforce-rtx.png",
+      "sha256": "8f587fb15bd0c1bc93ba3eb49c0163898717c5313b207a46c0cb3f5440506aa1",
+      "source": "https://iprsoftwaremedia.com/219/files/202512/202512022046/geforcertx-logo-wht.png?download=true"
+    }
+  ],
+  "production_requirements": {
+    "exact_sku_product_layer": "required before production",
+    "lcd_and_head_masks": "required before production",
+    "frozen_environment_and_subject": "required before production",
+    "editable_card_skins_icons_text": "required before production",
+    "deterministic_render_command": "required before production",
+    "reference_match_review": "required on each changed output",
+    "repeat_build_test": "required for layered pack acceptance",
+    "ram_only_diff_test": "required for layered pack acceptance"
+  },
+  "warning": "Specs above belong to VL-1221 only. No new SKU inheritance. This reference validation is not production or gallery QA."
+}

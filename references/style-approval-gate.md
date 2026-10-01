@@ -1,5 +1,7 @@
 # Style Approval Gate
 
+Gaming 增强 MAIN 的 proposal 必须引用 [稳定生产标准](gaming-main-reproducible-workflow.md) 和具体 reference/recipe 版本。新产品仍审批 G/A 和卡位，但默认沿用大机身、图形卡、仅头部出屏；已批准产品的同版局部修正不重复审批。
+
 本文件定义 `UNIVERSAL_STYLE_APPROVAL_GATE`。目标是在正式生成 3 MAIN + PT01–PT08 之前，让用户先审核系统依据产品事实选出的视觉方向，避免 manifest 记录了 B/G/BG style，而成品退化为不匹配的通用蓝色科技图。
 
 ## 适用范围

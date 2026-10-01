@@ -1,5 +1,7 @@
 # Enhanced MAIN and PT01 Composition Variants
 
+Gaming 正面比例与边界以 [稳定生产标准](gaming-main-reproducible-workflow.md) 为准；下述一般构图的四周 8%–12% 留白、OS 建议高度及人物禁令不覆盖获批 Gaming 正面模板。侧向必须另有准确素材与适配布局，不能把正面图拉伸。
+
 本文件控制两份增强主图的产品角度、留白和 Windows 11 Pro 资产位置：`MAIN-ENHANCED-FRONT-CANDIDATE` 固定使用 `FRONT_SCREEN_CARD`，`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` 固定使用 `THREE_QUARTER_SIDE_CARD`。PT01 可复用任一准确产品角度，但不复用 Windows asset。本文件不改变 audience 分类、Gaming/Business 题材、核心规格、软件权益、图片 profile、品牌资产或 PT02–PT08 continuation pack。所有增强构图都受 [final-image-delivery-contract.md](final-image-delivery-contract.md) 的成品交付定义约束。
 
 `MAIN-STRICT` 不使用本文件；它继续遵守纯白背景、无新增文字/卡片/人物/场景的规则。PT01 使用构图时必须删除 Windows asset，并以不同卖点避免与增强主图重复。
@@ -29,7 +31,7 @@
 - 侧向素材必须来自卖家实拍或获商业使用权且与准确机型匹配的 OEM/经销商素材。不得让生成模型凭正面图猜测或重画端口、散热口、键盘、铰链、厚度和机身结构。
 - 缺少准确侧视素材时，将侧向候选标为 `BLOCKED` 并使用 `FRONT_SCREEN_CARD`。
 
-当 audience 为 `GAMING` 时，默认使用 `GAMING_3D_BREAKOUT_SPATIAL_CARDS`：外部为纯白电商背景，产品保持准确角度且视觉居中；只有连续的原创 3D 实体可在批准范围内跨越屏幕上缘/侧缘，粒子与一切光效不出屏。六类 display/CPU/GPU/RAM/SSD/OS 资产卡全部位于 LCD 内，但可在下部、四角或错位区域按空间感布局，无固定顺序。禁止全画布赛博海报、电脑外置信息卡或任何文字/额外 Logo/package 越出 LCD；真实机身原厂标志保留。C07 目标为产品宽度 `90%–94%`、3D 主体顶部留白 `8%–12%`、电脑与接触阴影底部留白 `6%–9%`，并明确优先于本文件两种一般构图的 `8%–12%` 四周留白建议。
+当 audience 为 `GAMING` 时，默认使用 `GAMING_3D_BREAKOUT_SPATIAL_CARDS`：外部为纯白电商背景，产品保持准确角度且视觉居中；默认只有连续的原创头部/头盔可轻微跨越 LCD 上缘，无头部主题保留屏内纵深，粒子与一切光效不出屏。六类 display/CPU/GPU/RAM/SSD/OS 资产卡全部位于 LCD 内，但可在下部、四角或错位区域按空间感布局，无固定顺序。禁止全画布赛博海报、电脑外置信息卡或任何文字/额外 Logo/package 越出 LCD；真实机身原厂标志保留。Gaming 正面 C07 按 [稳定生产标准](gaming-main-reproducible-workflow.md) 采用产品宽度约 `97%–98%`、主体顶部留白 `8%–10%`，机身与阴影底部分别测量；侧向独立适配，并明确优先于本文件两种一般构图的 `8%–12%` 四周留白建议。
 
 ## 增强主图的 Windows 资产共同规则
 
@@ -98,7 +100,7 @@ outer_clear_space_review: PASS|BLOCKED
 windows_asset_non_overlap_review: PASS|BLOCKED
 business_windows_mode_diversity_review: PASS|BLOCKED|NOT_APPLICABLE
 thumbnail_hierarchy_review: PASS|BLOCKED
-main_content_boundary: SCREEN_ONLY|CONTROLLED_FRAME_BREAK
+main_content_boundary: SCREEN_ONLY|HEAD_ONLY_FRAME_BREAK
 enhanced_main_outer_background: PURE_WHITE
 enhanced_main_screen_only_review: PASS|BLOCKED|NOT_APPLICABLE_CONTROLLED_FRAME_BREAK
 enhanced_main_spatial_cards_lcd_containment_review: PASS|BLOCKED|NOT_APPLICABLE
