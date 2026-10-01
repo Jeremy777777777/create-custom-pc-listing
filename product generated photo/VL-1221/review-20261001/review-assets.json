@@ -1,0 +1,27 @@
+{
+  "product": "VL-1221",
+  "status": "REVIEW_READY",
+  "canonical_replacement": false,
+  "full_gallery_qa_pass": false,
+  "generation_mode": "built-in ImageGen edits followed by original-brand-asset composition",
+  "assets": [
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "b5657a3d5992f6c56bc4a2429522c581a1c62244bb71d08bca4d037d7bb6a494",
+      "product_photo_provenance": "generated composition, not verified OEM photograph"
+    },
+    {
+      "file": "PT08.png",
+      "width": 1254,
+      "height": 1254,
+      "sha256": "1be51617d277101154ee4575ff0fd3c57c4b792b333b6d90c7f2dad45574572c",
+      "product_photo_provenance": "ImageGen edit of user-approved reference; not verified OEM photograph"
+    }
+  ],
+  "limitations": [
+    "Existing canonical PT06 accessory depiction and missing gallery logo QA remain unresolved.",
+    "This two-image visual review is not an Amazon compliance approval or full-gallery QA pass."
+  ]
+}
