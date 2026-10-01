@@ -105,6 +105,20 @@ Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求�
 
 ## 6. 最终报告
 
-完成后只把最终单张文件、额外 contact sheet、事实/权利警告和上传资格状态交给用户。不要把中间母版当作主要结果。除非用户要求提交，否则审核阶段不自动 commit/push；用户明确要求更新 GitHub 时，先同步远端最新版本、在其上修改并完成检查后再提交。
+完成后只把最终单张文件、额外 contact sheet、事实/权利警告和上传资格状态交给用户。不要把中间母版当作主要结果。所有正式成品默认必须上传当前 GitHub 仓库；生成请求已包含此交付步骤，不再单独询问是否上传。先同步远端最新版本，在其上完成检查并提交；只有用户明确要求“仅本地、不上传、概念预览”时才跳过。
 
-用户指定 `VL-XXXX` 并要求上传/替换时，11 张正式图片写入 `product generated photo/VL-XXXX/`。临时 review 文件夹仅用于内部检查；批准后的 GitHub 交付不得留在 review 文件夹中，也不得把同一产品拆成多个并列最终目录。
+从已核实的输入识别产品内部 ID 后，11 张正式图片必须上传到 GitHub 的 `product generated photo/VL-XXXX/`。临时 review 文件夹仅用于内部检查；批准后的 GitHub 交付不得留在 review 文件夹中，也不得把同一产品拆成多个并列最终目录。
+
+
+## 7. 默认 GitHub 最终交付（强制）
+
+本节覆盖旧的“审核阶段不自动提交”“用户要求 GitHub 更新时才提交”等可选措辞。
+完整图片任务的终点是 GitHub 中可访问的成品目录，不是本地渲染、ZIP、预览或 workflow 文档提交。
+
+- 上传仓库为当前任务绑定的仓库，本项目为 `Jeremy777777777/create-custom-pc-listing`。
+- 用来源映射已核实的内部 ID 创建仓库根目录 `product generated photo/VL-XXXX/`；例如 VL-1276 对应 `product generated photo/VL-1276/`。VL 是内部追踪编号，不是 OEM 型号、ERP 数字 ID 或 ASIN；不得猜测、重复添加前缀或使用本地 `outputs/` 前缀。
+- QA 通过后上传 11 张正式单图、`image-manifest.md`、`logo-placement.json`、`logo-qa.json`、`final-image-qa.json` 和必要来源记录；可附 contact sheet。无品牌母版、生成背景、临时 review 和其他生产中间件留在内部生产区，不上传到成品目录。
+- 新产品目录可在内部 QA 通过后上传供用户审核，不需要再次询问上传许可。已有 canonical 目录的同槽替换继续遵守审核通过后替换的规则；Git 历史保留旧版，不覆盖其他内部 ID。
+- `FINAL_ASSET_QA_PASS` 仅说明图片制作/QA 完成。`GITHUB_DELIVERY_PENDING` 表示尚未上传；上传失败使用 `GITHUB_DELIVERY_BLOCKED`，保留本地文件并说明具体原因，不能宣称整体任务完成。
+- 必须核实目标分支 commit 成功、正确目录存在、11 个单图文件完整且远端字节/哈希匹配当前 QA；适用的 GitHub 图片 QA check 必须通过。全部满足后才记录 `GITHUB_DELIVERY_VERIFIED` 并报告图片任务完成。
+- 最终回复必须提供 GitHub 内部 ID 目录链接、实际提交链接及 11 张完成状态。本地 ZIP 和 contact sheet 只是补充交付；它们不能代替 GitHub 上传。GitHub 交付与 Amazon/Seller Central 发布仍是不同状态。

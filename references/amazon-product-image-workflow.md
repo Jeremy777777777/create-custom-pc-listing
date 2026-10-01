@@ -129,7 +129,7 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 10. 固定资产已完成后，必须调用 `scripts/finalize-image-gallery.ps1`，一次执行尺寸标准化、PT Logo 合成、schema v3 `logo-qa.json`（既有图库 v2 仅历史兼容）、contact sheet、exactly-11 与 SHA-256 报告；不得用 `Copy-Item`、文件管理器或其他直接复制方式把 ImageGen/`unbranded` PT 提升为 canonical PT。
 11. Finalizer 完成后必须单独运行 `scripts/test-final-image-gallery.ps1 -ProductDirectory <path> [-ExpectedBrand <brand>]`。该脚本逐张比较当前 PT 与 `logo-qa.json` 的 `finalImageSha256`，并在 `unbranded/` 存在时比较 `unbrandedSourceSha256`。报告缺失、schema 过旧、任一 hash 不匹配、任一 Logo gate 非 PASS 或 canonical 图片集合异常都必须立即停止。
 12. 再人工完成 100%、200 px、style fidelity、拼写、事实、端口、Windows 和跨图去重复核。只有 manifest、hash-bound `logo-qa.json`、11 个 canonical 图片、commit gate 和人工视觉复核全部通过，才设置 `FINAL_ASSET_QA_PASS`；生产母版与 source records 移出 canonical GitHub 图片目录。
-13. 用户要求 GitHub 更新时，再次运行 `test-final-image-gallery.ps1`，然后 fetch 确认没有远端漂移，选择性 stage 正式文件，commit 并 push。GitHub `Validate gallery OEM Logo QA` check 必须通过；push 成功不等于 Amazon 已批准或已发布。
+13. 每次正式成品生成都必须执行 GitHub 交付（除非用户明确要求仅本地或不上传），再次运行 `test-final-image-gallery.ps1`，然后 fetch 确认没有远端漂移，选择性 stage 正式文件，commit 并 push。GitHub `Validate gallery OEM Logo QA` check 必须通过；push 成功不等于 Amazon 已批准或已发布。
 
 固定资产和 `unbranded/PT01.png`–`PT08.png` 已就绪后，标准 finalizer 调用为：
 
@@ -171,6 +171,9 @@ create-custom-pc-listing/
 
 每个已识别产品的 GitHub canonical output 必须是 `product generated photo/VL-XXXX/`。内部可以使用临时 review 目录，但用户批准后必须把 11 张完成图片写回准确的 `VL-XXXX` 目录并替换同槽旧图；不得把 `VL-XXXX-review-*` 作为最终 GitHub 目录，也不得同时保留旧的单一 `MAIN.png` 与新的三 MAIN 结构。替换其他产品目录或跨型号复制图片均属阻断错误。
 
-`image-manifest.md` 必须记录该型号的 `image_style_profile`、选择原因和 benchmark 研究边界，并逐槽位记录实际路径、状态、授权素材来源、产品事实来源及必要元数据说明。PT 图还必须记录核实后的制造商、Logo 文件路径与来源、允许使用的 listing 类型、合成脚本、`logo-placement.json` 和逐图验收结果。只有文件存在、PT01–PT08 均含正确 OEM Logo，并通过事实、版权、尺寸、内容和合规检查时，状态才可为 `VERIFIED`。缺图、缺正确 Logo 或 Logo 安全区失败时不得伪造路径或标记完成。成品请求还必须记录 `delivery_mode: FINAL_ASSET_DELIVERY` 和整体 `delivery_state: FINAL_ASSET_QA_PASS`；否则不能向用户报告完成。
+`image-manifest.md` 必须记录该型号的 `image_style_profile`、选择原因和 benchmark 研究边界，并逐槽位记录实际路径、状态、授权素材来源、产品事实来源及必要元数据说明。PT 图还必须记录核实后的制造商、Logo 文件路径与来源、允许使用的 listing 类型、合成脚本、`logo-placement.json` 和逐图验收结果。只有文件存在、PT01–PT08 均含正确 OEM Logo，并通过事实、版权、尺寸、内容和合规检查时，状态才可为 `VERIFIED`。缺图、缺正确 Logo 或 Logo 安全区失败时不得伪造路径或标记完成。成品请求还必须记录 `delivery_mode: FINAL_ASSET_DELIVERY` 和整体 `delivery_state: FINAL_ASSET_QA_PASS`；该状态只证明本地图片 QA 完成；必须再按 final-image-delivery-contract.md 第 7 节完成上传核验，达到 `GITHUB_DELIVERY_VERIFIED` 后才能向用户报告整体任务完成。
 
 最终按产品报告：源记录、`VL-<内部型号>` 目录链接、11 张最终图片状态、实际文件路径、缺失素材或权限、未解决事实问题、审核结果和下一步人工动作。只有三张 MAIN 与 PT01–PT08 全部通过时才可标为 `FINAL_ASSET_QA_PASS`；这不等同于 Amazon 已批准或已发布。
+
+
+默认 GitHub 交付是生成流程的必做步骤，按 [final-image-delivery-contract.md 第 7 节](final-image-delivery-contract.md#7-默认-github-最终交付强制) 执行。固定顺序：内部 ID 核实 → 11 图制作 → QA → GitHub commit/upload → 远端文件及适用 CI 核验 → GitHub 目录链接交付。不得在本地 QA 或 ZIP 生成后提前结束。

@@ -25,3 +25,8 @@
 ## 长条官方 Logo 的比例一致性
 
 200px 缩略图的可见长边必须 ≥20px，画布长边占比 ≤12%，仍需足够对比和人工辨识。普通标志短边 ≥10px；官方可见宽高比 >2.4 的长条字标采用 `logoVisibilityMode: ASPECT_RATIO_WORDMARK`，保存来源及测量比例，短边最低值 `20 / visibleAspectRatio`，不得拉伸、增高、裁掉字标或加硬背景来凑 10px。脚本根据原始透明资产的可见边界校验比例和短边下限。旧的统一 10px 短边与 12% 上限对 ASUS 等长条字标数学上不可兼得；该比例分流只修正这一冲突，其余可见性、间距、哈希与品牌闸门不变。
+
+
+## GitHub 图库交付固定要求
+
+用户确认所有正式生成的最终图片默认上传当前 GitHub 仓库，按已核实的内部 ID 存放到仓库根目录 `product generated photo/VL-XXXX/`，例如 `VL-1276/`。生成请求即包含上传步骤，不重复询问。上传 11 张正式单图及 manifest/QA 记录，核验远端 commit、文件哈希与适用 CI 后，以 `GITHUB_DELIVERY_VERIFIED` 和 GitHub 目录链接交付。本地 QA、ZIP、预览和 workflow 文档提交不代表图库已经上传。仅用户明确要求不上传/仅本地/概念预览时跳过；已有目录替换仍保留既有审核规则。完整状态及失败处理按 [final-image-delivery-contract.md 第 7 节](final-image-delivery-contract.md#7-默认-github-最终交付强制)。
