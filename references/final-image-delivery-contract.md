@@ -117,7 +117,7 @@ Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求�
 
 - 上传仓库为当前任务绑定的仓库，本项目为 `Jeremy777777777/create-custom-pc-listing`。
 - 用来源映射已核实的内部 ID 创建仓库根目录 `product generated photo/VL-XXXX/`；例如 VL-1276 对应 `product generated photo/VL-1276/`。VL 是内部追踪编号，不是 OEM 型号、ERP 数字 ID 或 ASIN；不得猜测、重复添加前缀或使用本地 `outputs/` 前缀。
-- QA 通过后上传 11 张正式单图、`image-manifest.md`、`logo-placement.json`、`logo-qa.json`、`final-image-qa.json` 和必要来源记录；可附 contact sheet。无品牌母版、生成背景、临时 review 和其他生产中间件留在内部生产区，不上传到成品目录。
+- QA 通过后上传 11 张正式单图、`image-manifest.md`、`logo-placement.json`、`logo-qa.json`、`final-image-qa.json` 和必要来源记录；Contact sheet 仅作本地补充，或放在非顶层的独立预览子目录；canonical 顶层只能有 11 张正式图片。无品牌母版、生成背景、临时 review 和其他生产中间件留在内部生产区，不上传到成品目录。
 - 新产品目录可在内部 QA 通过后上传供用户审核，不需要再次询问上传许可。已有 canonical 目录的同槽替换继续遵守审核通过后替换的规则；Git 历史保留旧版，不覆盖其他内部 ID。
 - `FINAL_ASSET_QA_PASS` 仅说明图片制作/QA 完成。`GITHUB_DELIVERY_PENDING` 表示尚未上传；上传失败使用 `GITHUB_DELIVERY_BLOCKED`，保留本地文件并说明具体原因，不能宣称整体任务完成。
 - 必须核实目标分支 commit 成功、正确目录存在、11 个单图文件完整且远端字节/哈希匹配当前 QA；适用的 GitHub 图片 QA check 必须通过。全部满足后才记录 `GITHUB_DELIVERY_VERIFIED` 并报告图片任务完成。
