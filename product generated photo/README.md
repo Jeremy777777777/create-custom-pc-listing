@@ -21,3 +21,13 @@ listing workflow: a user may generate or adjust images for one `VL-XXXX`
 without regenerating listing copy or the Excel workbook. Approved review images
 must be copied into the canonical `VL-XXXX/` folder; review-suffixed directories
 are not final GitHub delivery locations.
+
+### Unified per-product GitHub output
+
+Research starts the product's output folder. Once the verified internal ID is known and a Research Review workbook has been generated, upload that real workbook immediately to the repository-root path `product generated photo/VL-XXXX/`; Git creates the folder through the committed file. Do not wait for image generation or final listing approval to create it.
+
+Use the same existing folder for the later listing workbook, 3 MAIN choices, PT01-PT08, manifest and QA records. Do not create a separate Excel folder, a session-ID folder, or a duplicate product folder. Keep the workbook's true review status in its filename and records (for example `*_RESEARCH_REVIEW.xlsx`); uploading a research draft does not mark it final or publish-ready. Later validated listing workbooks stay in this same folder with a clear stage/version. Never overwrite the original `assets/listing-workbook-template.xlsx`.
+
+The 11-image gate counts image slots only: XLSX and JSON/Markdown records are additional deliverables. Contact sheets remain local or in a separate non-top-level preview folder. A verified existing product folder is reused. Missing or ambiguous internal-ID mappings must be resolved before uploading; never substitute an ERP ID, OEM model or ASIN.
+
+Local files are working copies. For each completed stage, commit/upload the produced files and verify the GitHub path and remote file hashes. Report the GitHub folder and workbook links; a local file link or ZIP alone is not GitHub delivery. Only an explicit local-only/no-upload instruction skips this step. Image-only tasks reuse the folder and do not invent or regenerate an Excel workbook.

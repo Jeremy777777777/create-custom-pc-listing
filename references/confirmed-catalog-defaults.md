@@ -30,3 +30,8 @@
 ## GitHub 图库交付固定要求
 
 用户确认所有正式生成的最终图片默认上传当前 GitHub 仓库，按已核实的内部 ID 存放到仓库根目录 `product generated photo/VL-XXXX/`，例如 `VL-1276/`。生成请求即包含上传步骤，不重复询问。上传 11 张正式单图及 manifest/QA 记录，核验远端 commit、文件哈希与适用 CI 后，以 `GITHUB_DELIVERY_VERIFIED` 和 GitHub 目录链接交付。本地 QA、ZIP、预览和 workflow 文档提交不代表图库已经上传。仅用户明确要求不上传/仅本地/概念预览时跳过；已有目录替换仍保留既有审核规则。完整状态及失败处理按 [final-image-delivery-contract.md 第 7 节](final-image-delivery-contract.md#7-默认-github-最终交付强制)。
+
+
+## Excel 与图片共用内部 ID 目录
+
+Research 阶段先生成 Excel，即上传到 `product generated photo/VL-XXXX/` 并创建该产品目录，不等待图片生成。后续 Listing Excel、11 张正式图片和 manifest/QA 记录复用同一 GitHub 目录；已有目录直接复用，不另建 Excel、任务 ID 或 review 后缀目录。Excel 保留真实阶段，如 `*_RESEARCH_REVIEW.xlsx`；上传研究稿不代表最终通过审核。原始模板不覆盖，本地 outputs 只作为工作副本。最终提供 GitHub 产品目录和 Excel 文件链接并核实远端哈希。只有用户明确要求仅本地/不上传时跳过；图片单独任务不强制重做 Excel。

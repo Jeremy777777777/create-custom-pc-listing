@@ -99,7 +99,9 @@ user does not need the listing copy and workbook rebuilt.
 ```text
 MyStore product and/or Checking List row
   -> source mapping and field-level cross-validation
-  -> research and fact validation
+  -> research workbook
+  -> create/reuse product generated photo/VL-XXXX/ and upload Research Review XLSX
+  -> fact validation
   -> listing copy and workbook
   -> compliance and human review
   -> separate image plan and production
@@ -111,3 +113,13 @@ MyStore product and/or Checking List row
 
 
 Final image generation includes GitHub delivery by default. Upload all 11 finished images and QA records to `product generated photo/VL-XXXX/` using the verified internal ID, then verify the remote files and applicable CI. Local images, a ZIP, or workflow-only commits are not completed gallery delivery. Only an explicit local-only/no-upload/concept request skips this step. Report completion with the GitHub folder and commit links after `GITHUB_DELIVERY_VERIFIED`; see [the delivery contract](references/final-image-delivery-contract.md#7-默认-github-最终交付强制).
+
+### Unified per-product GitHub output
+
+Research starts the product's output folder. Once the verified internal ID is known and a Research Review workbook has been generated, upload that real workbook immediately to the repository-root path `product generated photo/VL-XXXX/`; Git creates the folder through the committed file. Do not wait for image generation or final listing approval to create it.
+
+Use the same existing folder for the later listing workbook, 3 MAIN choices, PT01-PT08, manifest and QA records. Do not create a separate Excel folder, a session-ID folder, or a duplicate product folder. Keep the workbook's true review status in its filename and records (for example `*_RESEARCH_REVIEW.xlsx`); uploading a research draft does not mark it final or publish-ready. Later validated listing workbooks stay in this same folder with a clear stage/version. Never overwrite the original `assets/listing-workbook-template.xlsx`.
+
+The 11-image gate counts image slots only: XLSX and JSON/Markdown records are additional deliverables. Contact sheets remain local or in a separate non-top-level preview folder. A verified existing product folder is reused. Missing or ambiguous internal-ID mappings must be resolved before uploading; never substitute an ERP ID, OEM model or ASIN.
+
+Local files are working copies. For each completed stage, commit/upload the produced files and verify the GitHub path and remote file hashes. Report the GitHub folder and workbook links; a local file link or ZIP alone is not GitHub delivery. Only an explicit local-only/no-upload instruction skips this step. Image-only tasks reuse the folder and do not invent or regenerate an Excel workbook.

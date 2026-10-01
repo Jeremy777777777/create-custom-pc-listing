@@ -181,3 +181,8 @@ create-custom-pc-listing/
 
 
 默认 GitHub 交付是生成流程的必做步骤，按 [final-image-delivery-contract.md 第 7 节](final-image-delivery-contract.md#7-默认-github-最终交付强制) 执行。固定顺序：内部 ID 核实 → 11 图制作 → QA → GitHub commit/upload → 远端文件及适用 CI 核验 → GitHub 目录链接交付。不得在本地 QA 或 ZIP 生成后提前结束。
+
+
+### Research Excel 先建立产品目录
+
+本图库目录是产品全部输出的共用目录。Research Excel 先生成时立即上传到 `product generated photo/VL-XXXX/` 创建目录；后续生成的图片与 QA 记录上传到同一已存在目录，不创建单独图片副本目录。图片数量检查只统计 11 张正式单图，Excel 不计入图片槽位；不要求已有 Research Review Excel 成为最终版才允许建立目录。图片分支只读取相关已验证事实，不自动重做 Excel。
