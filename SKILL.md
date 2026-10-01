@@ -113,6 +113,8 @@ description: "Run the MegaPC Amazon Custom PC workflow for complete listing prod
 
 ### 6. Output：严格映射到现有 Excel 模板
 
+Research Excel 一旦生成即创建并上传到 `product generated photo/VL-XXXX/`，以已核实内部 ID 分目录；后续 Listing Excel、最终图片和 QA 记录复用同一 GitHub 文件夹，不等图片生成后才建目录。本地 outputs/任务 ID 目录仅为工作副本，不能作为最终交付位置。Research Review 保留真实待审状态；上传不代表已验证完毕。
+
 每条产品记录使用一份独立的模板副本。模板当前有 `Product Details`、`Offer`、`Safety&Compliance` 三个工作表；每张表第 1 行是字段名，第 2 行是 `Definition`，第 3 行是 `Value`，第 4 行是 `Status`，第 5 行是 `Source`。按**工作表名 + 第 1 行字段名**匹配目标列，将结果写入同一列的既有 `Value / Status / Source` 行。不要依赖列顺序，也不要新增、删除或改名工作表、字段列及这些行。
 
 最小映射：
@@ -134,4 +136,14 @@ description: "Run the MegaPC Amazon Custom PC workflow for complete listing prod
 
 ## 执行者最终报告
 
-按产品列出：输入模式、MyStore URL/产品 ID、Checking List 页签/行号、映射状态、`VL-`、产品名、参考 Amazon listing 数量及 URL、官方来源、关键属性验证结果、未解决的 `TBD/CONFLICT/SOURCE_UNAVAILABLE`、合规结果、输出工作簿路径和下一步人工动作。若某项被阻断，写明具体原因及需要谁提供什么资料；不要仅写“失败”。
+按产品列出：输入模式、MyStore URL/产品 ID、Checking List 页签/行号、映射状态、`VL-`、产品名、参考 Amazon listing 数量及 URL、官方来源、关键属性验证结果、未解决的 `TBD/CONFLICT/SOURCE_UNAVAILABLE`、合规结果、GitHub 产品目录链接、输出工作簿的 GitHub 文件链接、远端哈希核验及下一步人工动作。若某项被阻断，写明具体原因及需要谁提供什么资料；不要仅写“失败”。
+
+### Unified per-product GitHub output
+
+Research starts the product's output folder. Once the verified internal ID is known and a Research Review workbook has been generated, upload that real workbook immediately to the repository-root path `product generated photo/VL-XXXX/`; Git creates the folder through the committed file. Do not wait for image generation or final listing approval to create it.
+
+Use the same existing folder for the later listing workbook, 3 MAIN choices, PT01-PT08, manifest and QA records. Do not create a separate Excel folder, a session-ID folder, or a duplicate product folder. Keep the workbook's true review status in its filename and records (for example `*_RESEARCH_REVIEW.xlsx`); uploading a research draft does not mark it final or publish-ready. Later validated listing workbooks stay in this same folder with a clear stage/version. Never overwrite the original `assets/listing-workbook-template.xlsx`.
+
+The 11-image gate counts image slots only: XLSX and JSON/Markdown records are additional deliverables. Contact sheets remain local or in a separate non-top-level preview folder. A verified existing product folder is reused. Missing or ambiguous internal-ID mappings must be resolved before uploading; never substitute an ERP ID, OEM model or ASIN.
+
+Local files are working copies. For each completed stage, commit/upload the produced files and verify the GitHub path and remote file hashes. Report the GitHub folder and workbook links; a local file link or ZIP alone is not GitHub delivery. Only an explicit local-only/no-upload instruction skips this step. Image-only tasks reuse the folder and do not invent or regenerate an Excel workbook.
