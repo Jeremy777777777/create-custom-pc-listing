@@ -1,0 +1,254 @@
+{
+  "brand": "Lenovo",
+  "logoRole": "OEM base-product identifier",
+  "preferredTreatment": "INTEGRATED_TRANSPARENT_MARK",
+  "minimumClearancePx": 60,
+  "minimumComponentSeparationPx": 60,
+  "maximumLogoLongEdgePercentOfCanvas": 12,
+  "thumbnailReviewSizePx": 200,
+  "minimumVisibleLogoLongEdgePxAtThumbnail": 20,
+  "minimumVisibleLogoShortEdgePxAtThumbnail": 6.672,
+  "logoVisibilityMode": "ASPECT_RATIO_WORDMARK",
+  "logoAssetSourceUrl": "https://brandworld.lenovo.com/visual-identity/logo/",
+  "productSurfaceLogoAbsenceReview": "PASS",
+  "authenticFactoryMarkPreservationReview": "PASS",
+  "placements": {
+    "PT01.png": {
+      "x": 1980,
+      "y": 145,
+      "width": 280,
+      "height": 93,
+      "style": "transparent",
+      "contrastReview": "PASS",
+      "compositionSpacingReview": "PASS",
+      "placeholderFrameReview": "PASS",
+      "outsideProductReview": "PASS",
+      "protectedZones": [
+        {
+          "x": 140,
+          "y": 680,
+          "width": 2120,
+          "height": 1010,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 130,
+          "y": 70,
+          "width": 1780,
+          "height": 265,
+          "label": "TITLE_BLOCK"
+        }
+      ]
+    },
+    "PT02.png": {
+      "x": 1980,
+      "y": 2185,
+      "width": 280,
+      "height": 93,
+      "style": "transparent",
+      "contrastReview": "PASS",
+      "compositionSpacingReview": "PASS",
+      "placeholderFrameReview": "PASS",
+      "outsideProductReview": "PASS",
+      "protectedZones": [
+        {
+          "x": 1050,
+          "y": 1412,
+          "width": 1250,
+          "height": 596,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 130,
+          "y": 70,
+          "width": 1780,
+          "height": 265,
+          "label": "TITLE_BLOCK"
+        }
+      ]
+    },
+    "PT03.png": {
+      "x": 1980,
+      "y": 145,
+      "width": 280,
+      "height": 93,
+      "style": "transparent",
+      "contrastReview": "PASS",
+      "compositionSpacingReview": "PASS",
+      "placeholderFrameReview": "PASS",
+      "outsideProductReview": "PASS",
+      "protectedZones": [
+        {
+          "x": 1170,
+          "y": 678,
+          "width": 1100,
+          "height": 524,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 130,
+          "y": 70,
+          "width": 1780,
+          "height": 265,
+          "label": "TITLE_BLOCK"
+        }
+      ]
+    },
+    "PT04.png": {
+      "x": 1980,
+      "y": 145,
+      "width": 280,
+      "height": 93,
+      "style": "transparent",
+      "contrastReview": "PASS",
+      "compositionSpacingReview": "PASS",
+      "placeholderFrameReview": "PASS",
+      "outsideProductReview": "PASS",
+      "protectedZones": [
+        {
+          "x": 369,
+          "y": 480,
+          "width": 1662,
+          "height": 1260,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 130,
+          "y": 70,
+          "width": 1780,
+          "height": 265,
+          "label": "TITLE_BLOCK"
+        }
+      ]
+    },
+    "PT05.png": {
+      "x": 1980,
+      "y": 145,
+      "width": 280,
+      "height": 93,
+      "style": "transparent",
+      "contrastReview": "PASS",
+      "compositionSpacingReview": "PASS",
+      "placeholderFrameReview": "PASS",
+      "outsideProductReview": "PASS",
+      "protectedZones": [
+        {
+          "x": 120,
+          "y": 926,
+          "width": 730,
+          "height": 348,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 890,
+          "y": 875,
+          "width": 730,
+          "height": 450,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 1660,
+          "y": 829,
+          "width": 730,
+          "height": 542,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 130,
+          "y": 70,
+          "width": 1780,
+          "height": 265,
+          "label": "TITLE_BLOCK"
+        }
+      ]
+    },
+    "PT06.png": {
+      "x": 1980,
+      "y": 145,
+      "width": 280,
+      "height": 93,
+      "style": "transparent",
+      "contrastReview": "PASS",
+      "compositionSpacingReview": "PASS",
+      "placeholderFrameReview": "PASS",
+      "outsideProductReview": "PASS",
+      "protectedZones": [
+        {
+          "x": 140,
+          "y": 711,
+          "width": 2120,
+          "height": 1148,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 130,
+          "y": 70,
+          "width": 1780,
+          "height": 265,
+          "label": "TITLE_BLOCK"
+        }
+      ]
+    },
+    "PT07.png": {
+      "x": 1980,
+      "y": 145,
+      "width": 280,
+      "height": 93,
+      "style": "transparent",
+      "contrastReview": "PASS",
+      "compositionSpacingReview": "PASS",
+      "placeholderFrameReview": "PASS",
+      "outsideProductReview": "PASS",
+      "protectedZones": [
+        {
+          "x": 399,
+          "y": 850,
+          "width": 1622,
+          "height": 1230,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 130,
+          "y": 70,
+          "width": 1780,
+          "height": 265,
+          "label": "TITLE_BLOCK"
+        }
+      ]
+    },
+    "PT08.png": {
+      "x": 1980,
+      "y": 145,
+      "width": 280,
+      "height": 93,
+      "style": "transparent",
+      "contrastReview": "PASS",
+      "compositionSpacingReview": "PASS",
+      "placeholderFrameReview": "PASS",
+      "outsideProductReview": "PASS",
+      "protectedZones": [
+        {
+          "x": 140,
+          "y": 721,
+          "width": 2120,
+          "height": 328,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 140,
+          "y": 1442,
+          "width": 2120,
+          "height": 197,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 130,
+          "y": 70,
+          "width": 1780,
+          "height": 265,
+          "label": "TITLE_BLOCK"
+        }
+      ]
+    }
+  }
+}

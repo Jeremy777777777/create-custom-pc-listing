@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 3,
+  "generatedAtUtc": "2026-10-01T20:04:19.1236604Z",
+  "brand": "Lenovo",
+  "logoRole": "OEM base-product identifier",
+  "logoAsset": "lenovo-official-logo.png",
+  "logoAssetSha256": "4CE047EE792725696E38E0BF0CC4CD2D62B235A7335A715ABE0AD032BBD1B092",
+  "thumbnailReviewSizePx": 200,
+  "minimumVisibleLogoLongEdgePxAtThumbnail": 20,
+  "minimumVisibleLogoShortEdgePxAtThumbnail": 6.672,
+  "logoVisibilityMode": "ASPECT_RATIO_WORDMARK",
+  "logoAssetSourceUrl": "https://brandworld.lenovo.com/visual-identity/logo/",
+  "maximumLogoLongEdgePercentOfCanvas": 12.0,
+  "minimumComponentSeparationPx": 60,
+  "result": "PASS",
+  "images": [
+    {
+      "file": "PT01.png",
+      "style": "transparent",
+      "canvas": "2400x2400",
+      "badgeBounds": {
+        "x": 1980,
+        "y": 145,
+        "width": 280,
+        "height": 93
+      },
+      "visibleLogoBounds": {
+        "x": 1982.9,
+        "y": 145.0,
+        "width": 274.2,
+        "height": 93.0
+      },
+      "thumbnailReviewSizePx": 200,
+      "thumbnailVisibleLogoPx": {
+        "width": 22.8,
+        "height": 7.8
+      },
+      "visibilityGate": "PASS",
+      "clearanceGate": "PASS",
+      "compositionSpacingGate": "PASS",
+      "placeholderFrameGate": "PASS",
+      "outsideProductGate": "PASS",
+      "productSurfaceLogoAbsenceGate": "PASS",
+      "authenticFactoryMarkPreservationGate": "PASS",
+      "unbrandedSourceSha256": "D7D8FA525B166051F1F4AA405551854DEDAB29D59AE9A8A8F32D347F1E69C300",
+      "finalImageSha256": "E35773553F6DE5E66833E84145A1009DFC11A423772236DB5D264E8CC8DD1202"
+    },
+    {
+      "file": "PT02.png",
+      "style": "transparent",
+      "canvas": "2400x2400",
+      "badgeBounds": {
+        "x": 1980,
+        "y": 2185,
+        "width": 280,
+        "height": 93
+      },
+      "visibleLogoBounds": {
+        "x": 1982.9,
+        "y": 2185.0,
+        "width": 274.2,
+        "height": 93.0
+      },
+      "thumbnailReviewSizePx": 200,
+      "thumbnailVisibleLogoPx": {
+        "width": 22.8,
+        "height": 7.8
+      },
+      "visibilityGate": "PASS",
+      "clearanceGate": "PASS",
+      "compositionSpacingGate": "PASS",
+      "placeholderFrameGate": "PASS",
+      "outsideProductGate": "PASS",
+      "productSurfaceLogoAbsenceGate": "PASS",
+      "authenticFactoryMarkPreservationGate": "PASS",
+      "unbrandedSourceSha256": "223C98BAB57BF8FBE6F1F0F1C4ABF8FA13099C5CC573D117A3CF641E4AF8C5D1",
+      "finalImageSha256": "992107BEA62E5678EA938DF6C0EE2D3D42C87E8E5B7C19D81B071E27D8CF3AB4"
+    },
+    {
+      "file": "PT03.png",
+      "style": "transparent",
+      "canvas": "2400x2400",
+      "badgeBounds": {
+        "x": 1980,
+        "y": 145,
+        "width": 280,
+        "height": 93
+      },
+      "visibleLogoBounds": {
+        "x": 1982.9,
+        "y": 145.0,
+        "width": 274.2,
+        "height": 93.0
+      },
+      "thumbnailReviewSizePx": 200,
+      "thumbnailVisibleLogoPx": {
+        "width": 22.8,
+        "height": 7.8
+      },
+      "visibilityGate": "PASS",
+      "clearanceGate": "PASS",
+      "compositionSpacingGate": "PASS",
+      "placeholderFrameGate": "PASS",
+      "outsideProductGate": "PASS",
+      "productSurfaceLogoAbsenceGate": "PASS",
+      "authenticFactoryMarkPreservationGate": "PASS",
+      "unbrandedSourceSha256": "35CC58BFCF171585659D635ADF6399A22A30361C86DE86F0B0E74180D578CBFE",
+      "finalImageSha256": "A60F92C31F61B26413816DFA5C7FD6E72BFB6598807CACB101F9972B23C8C638"
+    },
+    {
+      "file": "PT04.png",
+      "style": "transparent",
+      "canvas": "2400x2400",
+      "badgeBounds": {
+        "x": 1980,
+        "y": 145,
+        "width": 280,
+        "height": 93
+      },
+      "visibleLogoBounds": {
+        "x": 1982.9,
+        "y": 145.0,
+        "width": 274.2,
+        "height": 93.0
+      },
+      "thumbnailReviewSizePx": 200,
+      "thumbnailVisibleLogoPx": {
+        "width": 22.8,
+        "height": 7.8
+      },
+      "visibilityGate": "PASS",
+      "clearanceGate": "PASS",
+      "compositionSpacingGate": "PASS",
+      "placeholderFrameGate": "PASS",
+      "outsideProductGate": "PASS",
+      "productSurfaceLogoAbsenceGate": "PASS",
+      "authenticFactoryMarkPreservationGate": "PASS",
+      "unbrandedSourceSha256": "0A2E26E9CE89812C254E55F85429AD5E39DA1212D335CCE783A953F3EE36A0D4",
+      "finalImageSha256": "AF795324154F1720A236887D278F4370BF7A7D57259AD62F90AB2FD27223704E"
+    },
+    {
+      "file": "PT05.png",
+      "style": "transparent",
+      "canvas": "2400x2400",
+      "badgeBounds": {
+        "x": 1980,
+        "y": 145,
+        "width": 280,
+        "height": 93
+      },
+      "visibleLogoBounds": {
+        "x": 1982.9,
+        "y": 145.0,
+        "width": 274.2,
+        "height": 93.0
+      },
+      "thumbnailReviewSizePx": 200,
+      "thumbnailVisibleLogoPx": {
+        "width": 22.8,
+        "height": 7.8
+      },
+      "visibilityGate": "PASS",
+      "clearanceGate": "PASS",
+      "compositionSpacingGate": "PASS",
+      "placeholderFrameGate": "PASS",
+      "outsideProductGate": "PASS",
+      "productSurfaceLogoAbsenceGate": "PASS",
+      "authenticFactoryMarkPreservationGate": "PASS",
+      "unbrandedSourceSha256": "2939301E837C7870C8F19D46A1A9C57CF2A183E75DB3EFAD7A4D60C1E413DD37",
+      "finalImageSha256": "67BF20037DAFEEDA37F47C56545475758AF15BC49AE257F5611AFC9E23ECF716"
+    },
+    {
+      "file": "PT06.png",
+      "style": "transparent",
+      "canvas": "2400x2400",
+      "badgeBounds": {
+        "x": 1980,
+        "y": 145,
+        "width": 280,
+        "height": 93
+      },
+      "visibleLogoBounds": {
+        "x": 1982.9,
+        "y": 145.0,
+        "width": 274.2,
+        "height": 93.0
+      },
+      "thumbnailReviewSizePx": 200,
+      "thumbnailVisibleLogoPx": {
+        "width": 22.8,
+        "height": 7.8
+      },
+      "visibilityGate": "PASS",
+      "clearanceGate": "PASS",
+      "compositionSpacingGate": "PASS",
+      "placeholderFrameGate": "PASS",
+      "outsideProductGate": "PASS",
+      "productSurfaceLogoAbsenceGate": "PASS",
+      "authenticFactoryMarkPreservationGate": "PASS",
+      "unbrandedSourceSha256": "A3047DA154A9098C1486F06CDE82F6B1F9450E29A0877CF7E2F4D68C537B3BB2",
+      "finalImageSha256": "C5967F11E519A619DA00BF88C1326D1CC84BBA7D7A7827B8EE32C83B7B332CF2"
+    },
+    {
+      "file": "PT07.png",
+      "style": "transparent",
+      "canvas": "2400x2400",
+      "badgeBounds": {
+        "x": 1980,
+        "y": 145,
+        "width": 280,
+        "height": 93
+      },
+      "visibleLogoBounds": {
+        "x": 1982.9,
+        "y": 145.0,
+        "width": 274.2,
+        "height": 93.0
+      },
+      "thumbnailReviewSizePx": 200,
+      "thumbnailVisibleLogoPx": {
+        "width": 22.8,
+        "height": 7.8
+      },
+      "visibilityGate": "PASS",
+      "clearanceGate": "PASS",
+      "compositionSpacingGate": "PASS",
+      "placeholderFrameGate": "PASS",
+      "outsideProductGate": "PASS",
+      "productSurfaceLogoAbsenceGate": "PASS",
+      "authenticFactoryMarkPreservationGate": "PASS",
+      "unbrandedSourceSha256": "A5FEF7E99431D5DF54DBBFD61269E0E8FF7B00D35B74C0F1DFD8868684502E85",
+      "finalImageSha256": "46A8DF7412165216DB36D08F5F5D1FF80030DE43A8112562C9A5E47A0D480E2B"
+    },
+    {
+      "file": "PT08.png",
+      "style": "transparent",
+      "canvas": "2400x2400",
+      "badgeBounds": {
+        "x": 1980,
+        "y": 145,
+        "width": 280,
+        "height": 93
+      },
+      "visibleLogoBounds": {
+        "x": 1982.9,
+        "y": 145.0,
+        "width": 274.2,
+        "height": 93.0
+      },
+      "thumbnailReviewSizePx": 200,
+      "thumbnailVisibleLogoPx": {
+        "width": 22.8,
+        "height": 7.8
+      },
+      "visibilityGate": "PASS",
+      "clearanceGate": "PASS",
+      "compositionSpacingGate": "PASS",
+      "placeholderFrameGate": "PASS",
+      "outsideProductGate": "PASS",
+      "productSurfaceLogoAbsenceGate": "PASS",
+      "authenticFactoryMarkPreservationGate": "PASS",
+      "unbrandedSourceSha256": "6884C6CC1BF55272788846C415EF477794CC56D18BCF8120112AFFA6DBC96246",
+      "finalImageSha256": "69A88DEEB38A2F0952277EFD4BB3B20172DA94912C87286FD18E1109631BE92D"
+    }
+  ]
+}

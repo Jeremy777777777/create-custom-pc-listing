@@ -33,7 +33,7 @@ Research Review XLSX generated first. This folder is the canonical destination f
 
 Listing copy/workbook: review draft; publication COMPLIANCE_BLOCKED pending seller/account records. No submission to Seller Central is authorized by this workflow.
 
-Image style: B16 / BG16 Editorial Innovation is PROPOSED, awaiting explicit approval for this new product. Final image production has not started. The previous product's B08 approval does not apply.
+Image style: B16 / BG16 Editorial Innovation APPROVED by the user in this task: “批准 B16 / BG16”. Final gallery production uses this product-specific approval. Gallery QA and GitHub delivery are recorded separately in image-manifest.md and the current verification records.
 
 ## Review limits
 
