@@ -1,10 +1,12 @@
 # Business Laptop End-to-End Gallery Styles
+> 全目录固定政策和自主核验按 [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) 执行：Windows 11 Pro；6 个月保修 + 12 个月延保；图片只展示电脑本身，PT06 不展示配件；Business Windows 资产仅在 LCD 内；长条官方 Logo 使用比例分流。旧示例与该规则冲突时以该文件为准。
+
 
 本文件为 `BUSINESS_WORK` laptop 提供十套完整图库 family：B07–B16 对应增强主图和 PT01，BG07–BG16 对应 PT02–PT08。它们是对 IST Computers 店铺优秀 listing 的信息顺序、工作任务覆盖和简约层级的原创抽象，不复制任何竞品图片、文字、人物、图标、屏幕 UI、配色组合或独特构图。
 
 所有 family 都遵守三主图规则：
 
-- `MAIN-STRICT`：Amazon 严格白底，只有准确产品和实际随箱物；无新增文字、图形 Logo 或 Windows package。
+- `MAIN-STRICT`：Amazon 严格白底，只有准确电脑本身；无新增文字、图形 Logo 或 Windows package。
 - `MAIN-ENHANCED-FRONT-CANDIDATE`：正面、简约、一个工作主卖点，默认确定性合成获准的 Windows 标志 + `Windows 11 Pro` 文字锁定组合。
 - `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE`：准确机型三分之四侧向素材、一个工作主卖点，默认合成固定 Windows 11 Pro package；缺少授权角度素材时标记 `TO SOURCE`/`BLOCKED`，不得猜测机身。两种 Windows asset 可按安全区互换，但两张增强主图不能使用同一种形态。
 - PT01 不出现 Windows package、Windows 文字卡或占位图。PT02–PT08 相邻图片不得回答相同购买问题。
@@ -32,7 +34,7 @@
 - 每张图只保留一个 headline、一个主要产品视图和最多三个 supporting facts；200 px 缩略图必须先读出工作任务，再读出规格。
 - 使用真实产品照片或准确授权素材；屏幕 UI 使用原创抽象界面，不复制 Teams、Zoom、Office、Windows 或竞品画面。
 - 主色以白、暖灰、石墨灰、海军蓝、钴蓝为基础；每套 family 只使用一种次级强调色。
-- PT02 是主要人物场景；PT05 最多一位次级人物；PT06 无人物、无环境道具，只展示准确随箱物。
+- PT02 是主要人物场景；PT05 最多一位次级人物；PT06 无人物、无环境道具，只展示电脑本身的输入/机身细节。
 - OEM Logo 只使用官方或获准资产确定性合成。Office、Copilot、处理器和其他第三方 Logo 仍执行各自权益与授权闸门。
 - 所有逐槽示例均受 [supporting-gallery-styles.md](supporting-gallery-styles.md) 的 `Gallery Content Ownership Matrix` 约束：PT03 集中完整销售配置，PT04 集中显示/机身事实，PT05 解释工作关系而不重列配置，PT07 只能使用一个尚未解释的独立价值。示例中可能使用的功能词只是候选，不得跨槽重复。
 - B12–B16 的风景、城市、建筑、科技或 editorial 画面必须使用原创生成或具商业使用权的素材。不得截取竞品屏幕、图库水印、真实公司 Logo、可识别客户数据或受保护地标品牌元素。
@@ -55,7 +57,7 @@
 
 1. `MAIN-ENHANCED-FRONT-CANDIDATE` 与 `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` 使用不同的获准 Windows 形态：一张 lockup，一张 fixed package。每张只允许一个 Windows asset 实例。
 2. 从无 Windows asset 的 clean master 运行 `scripts/add-fixed-image-overlay.ps1`。固定资产完整等比缩放，不裁切、不改色、不重绘、不人工制造第二层透视。
-3. package/lockup 必须位于独立安全区，与电脑轮廓、规格行和画布边缘保持清晰间距。产品始终是第一视觉主体；如 package 接近产品、像实体随箱物或成为第二主体，应缩小并移入更干净的留白，不应缩小电脑。
+3. package/lockup 必须完整位于 LCD 内的独立安全区，与屏幕边缘和规格行保持清晰间距。产品始终是第一视觉主体；如 package 像实体随箱物或成为第二主体，应缩小并移入更干净的留白，不应缩小电脑。
 
 ### 3. OEM Logo 使用透明资产融入构图
 
@@ -67,7 +69,7 @@
    - `maximumLogoLongEdgePercentOfCanvas <= 12`
    - `thumbnailReviewSizePx: 200`
    - `minimumVisibleLogoLongEdgePxAtThumbnail >= 20`
-   - `minimumVisibleLogoShortEdgePxAtThumbnail >= 10`
+   - `minimumVisibleLogoShortEdgePxAtThumbnail >= 10`（长条官方字标采用比例分流）
    - 每图 `contrastReview: PASS`、`compositionSpacingReview: PASS`、`placeholderFrameReview: PASS` 和 `protectedZones`
 3. Logo 可见长边默认占画布 `9%–12%`，且不得超过 `12%`。预留的 `18% × 18%` 是包含呼吸空间的安全区，不是 Logo 本身的目标尺寸。Logo 不得接触或贴近电脑、标题、线条、图标、信息卡或画布边缘，也不得为提高对比而统一添加白色矩形卡。
 4. 每张图单独选择最干净的负空间；不要机械固定在右下角。先保护电脑和标题的视觉层级，再考虑品牌位置。没有合格位置时应重排或清理母版，而不是挤入 Logo。
@@ -93,7 +95,7 @@
 - 200 px contact sheet 中 Logo 可辨认但不抢眼；100% 图中没有白块、灰底、虚线框、裁切边、光晕断层或贴纸感。
 - PT02 等浅色场景的 Logo 周围是连续背景，不存在为 Logo 特意画出的方形区域。
 - 三分之四增强主图中只有一个 Windows package/lockup，不存在错位双层、旧版残影或重复底座。
-- Windows asset 与电脑之间有清楚的负空间，不覆盖机身，不暗示实体盒随箱附送。
+- Windows asset 在 LCD 内有清楚的负空间，不覆盖机身，不暗示实体盒随箱附送。
 - `logo-qa.json` 与 `final-image-qa.json` 均为 `PASS`，且 contact sheet 与最终单张文件一致。
 
 ### 6. 1254 px 校准参考（VL-1249 审核通过版）
@@ -105,7 +107,7 @@
 | OEM Logo | 依据画布和品牌比例计算 | 维持 `9%–12%` 可见长边；按实际负空间逐图定位 |
 | 组件间距 | placement plan 使用 `40 px` | 不低于 `32 px` 或短边 `2.5%` |
 | 缩略图可见性 | 200 px contact sheet 中的实际投影尺寸 | 不低于 `20 × 10 px` 长短边门槛 |
-| 三分之四 MAIN package | `230 × 252 px`，位于独立右侧留白 | 保持原比例、单实例，并与产品保持明显间隔 |
+| 三分之四 MAIN package | `230 × 252 px`，位于 LCD 内右侧留白 | 保持原比例、单实例，并与产品保持明显间隔 |
 | PT02 | 先删除 Dell Logo 与整个虚线方框，再在连续背景上合成透明 mark | 任何场景都先清除旧 Logo/占位框，再进行最终合成 |
 
 对其他分辨率按画布比例换算，并以实际产品轮廓、标题边界和留白为准；禁止直接复制 VL-1249 的 `x/y` 坐标。
@@ -118,13 +120,13 @@
 | --- | --- |
 | `MAIN-STRICT` | 共用严格白底规则。 |
 | `MAIN-ENHANCED-FRONT-CANDIDATE` | 正面大产品，屏幕保留干净协作画布；只突出一个已验证 collaboration hero；Windows logo lockup 放屏幕安全区。 |
-| `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 准确侧向产品 + 独立小型 package 安全区；用轻量青色声波或连接线表达协作，不显示平台 UI。 |
+| `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 准确侧向产品；package 和轻量协作图形完整位于 LCD 内独立安全区，不显示平台 UI。 |
 | `PT01` | `Workday Collaboration Essentials`：最多三个高层协作购买理由，不重列 PT04/PT08 的摄像头、音频、隐私或无线功能清单；无 Windows package。 |
 | `PT02` | 2–3 位混合办公人员的原创会议/共同演示场景；产品保持第一主体，界面抽象化。 |
 | `PT03` | 当前 CPU/GPU/RAM/SSD/OS 配置；准确区分 installed value 和 selectable tiers。 |
 | `PT04` | `Clear Work Canvas`：集中显示尺寸、分辨率、亮度/防眩光，并加入摄像头、隐私快门、扬声器或键盘的真实局部特写；最多三处标注，未验证项删除。 |
 | `PT05` | `Meet → Review → Share` 三步工作流；只使用已验证硬件/软件能力，不暗示服务订阅。 |
-| `PT06` | 纯白背景展示准确电脑、电源和实际随箱物。 |
+| `PT06` | 白底电脑本身：准确键盘、触控板或机身角度；无配件，与显示/尺寸和端口图去重。 |
 | `PT07` | Collaboration `Distinct Value Module`：选择一个 PT01–PT06 尚未解释的协作、输入或支持价值；没有新事实时使用克制产品情境图，不做规格回顾。 |
 | `PT08` | 真实端口、Wi-Fi、Bluetooth、摄像头/音频连接图；外接显示器、耳机或 dock 仅作非随箱语境。 |
 
@@ -136,13 +138,13 @@
 | --- | --- |
 | `MAIN-STRICT` | 共用严格白底规则。 |
 | `MAIN-ENHANCED-FRONT-CANDIDATE` | 正面产品 + 一个移动办公 hero；Windows logo lockup 放屏幕下角，不添加密集规格条。 |
-| `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 侧向角度突出准确厚度、开合或端口侧；package 放相反侧留白区。 |
+| `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 侧向角度突出准确厚度、开合或端口侧；package 放 LCD 内相反侧留白区。 |
 | `PT01` | `Ready for the Workday`：最多三个高层购买理由，不列完整 CPU/RAM/SSD 配置；无 package。 |
 | `PT02` | 一位工作者在共享空间、家庭办公室或差旅桌面使用产品；不写未经验证的全天续航。 |
 | `PT03` | 当前 CPU/GPU/RAM/SSD/OS 配置；明确区分 installed value 和 selectable tiers。 |
 | `PT04` | 集中显示参数，以及准确尺寸、重量、厚度、180° 铰链或充电方式；使用同机型多角度素材。 |
 | `PT05` | `Open → Connect → Multitask` 工作路径；窗口为原创抽象卡，不复制软件 UI。 |
-| `PT06` | 白底准确随箱物。 |
+| `PT06` | 白底电脑本身：准确键盘、触控板或机身角度；无配件，与显示/尺寸和端口图去重。 |
 | `PT07` | Mobility `Distinct Value Module`：从尚未解释的移动、输入或支持价值中选择一个；不重复显示、重量、无线或配置卡。 |
 | `PT08` | 双侧端口地图；位置、数量、协议和充电/视频能力逐项核验。 |
 
@@ -160,7 +162,7 @@
 | `PT03` | 当前 CPU/GPU/RAM/SSD/OS 配置；准确区分 installed value 和 selectable tiers。 |
 | `PT04` | `More Room to Work`：集中显示比例、分辨率、防眩光和亮度，并加入键盘、触控板、摄像头、机身材料、尺寸或重量的准确设计图；不凑功能。 |
 | `PT05` | `Plan → Analyze → Present` 多任务流程；只陈述硬件支持的真实任务，不写性能倍数。 |
-| `PT06` | 白底准确随箱物。 |
+| `PT06` | 白底电脑本身：准确键盘、触控板或机身角度；无配件，与显示/尺寸和端口图去重。 |
 | `PT07` | 海军蓝 executive `Distinct Value Module`：解释一个尚未使用的管理、输入、安全或支持价值；无规格 recap、排名、奖项或未经验证的 enterprise claim。 |
 | `PT08` | 端口、Thunderbolt/USB-C、Ethernet、无线与外接屏工作流；dock 未包含时明确语义隔离。 |
 
@@ -172,13 +174,13 @@
 | --- | --- |
 | `MAIN-STRICT` | 共用严格白底规则。 |
 | `MAIN-ENHANCED-FRONT-CANDIDATE` | 正面产品 + 单一已验证 AI hero；Windows logo lockup 保持次要，不使用机器人手或竞品芯片画面。 |
-| `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 准确侧向产品 + 原创抽象 AI workflow；package 放屏幕或外部安全区。 |
+| `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 准确侧向产品 + 原创抽象 AI workflow；package 仅放 LCD 内安全区。 |
 | `PT01` | `AI-Ready Hardware`：使用最多三个经过验证的高层 AI/工作购买理由，不列完整 CPU/NPU/RAM/SSD 配置；准确区分 AI PC、Copilot key、Windows Copilot 与 Copilot+ PC。 |
 | `PT02` | 一位工作者使用原创摘要、计划或会议行动项工作流；不显示真实客户数据。 |
 | `PT03` | 当前 CPU/GPU/NPU/RAM/SSD/OS 配置；NPU/TOPS 只有准确 SKU 官方证据充分时出现。 |
 | `PT04` | 集中显示参数，以及触控屏、Copilot key、IR camera 或其他 AI interaction hardware 的真实局部素材。 |
 | `PT05` | `Input → Assist → Human Review → Finish`，强调人工复核，不承诺自动完成或付费权益。 |
-| `PT06` | 白底准确随箱物。 |
+| `PT06` | 白底电脑本身：准确键盘、触控板或机身角度；无配件，与显示/尺寸和端口图去重。 |
 | `PT07` | AI/work `Distinct Value Module`：只解释一个尚未使用的已验证 AI interaction、review 或 support 价值；禁止 essentials recap，未验证的软件、云服务和模型能力完全删除。 |
 | `PT08` | 摄像头、麦克风、端口、无线如何支持 AI/会议工作；不暗示 Microsoft 365 Copilot 已包含。 |
 
@@ -190,13 +192,13 @@
 | --- | --- |
 | `MAIN-STRICT` | 共用严格白底规则。 |
 | `MAIN-ENHANCED-FRONT-CANDIDATE` | 正面产品 + 一个 verified security/hybrid-work hero；Windows logo lockup 放屏幕安全区。 |
-| `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 准确侧向产品突出真实安全硬件或企业端口；package 放独立留白区。 |
+| `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 准确侧向产品突出真实安全硬件或企业端口；package 放 LCD 内独立留白区。 |
 | `PT01` | `Work Tools You Can Verify`：最多三个高层安全/混合办公购买理由，不与 PT04/PT08 重列同一功能清单；无 package。 |
 | `PT02` | 一位专业人士在办公室与远程空间间工作的真实场景；不使用公司 Logo 或客户背书。 |
 | `PT03` | 当前 CPU/GPU/RAM/SSD/Windows 配置；安全事实不与容量混写。 |
 | `PT04` | 集中显示参数，以及指纹区、摄像头/快门、键盘、锁孔、耐用认证或机身细节；只展示准确机型。 |
 | `PT05` | `Sign in → Connect → Work → Lock` 原创流程；不得承诺防黑客、零风险或未验证管理能力。 |
-| `PT06` | 白底准确随箱物。 |
+| `PT06` | 白底电脑本身：准确键盘、触控板或机身角度；无配件，与显示/尺寸和端口图去重。 |
 | `PT07` | Security `Distinct Value Module`：从尚未解释的安全、管理或支持价值中选择一个；禁止 Windows Pro、TPM、认证和生物识别的规格回顾式重排。 |
 | `PT08` | Ethernet、Wi-Fi、Bluetooth、USB-C/Thunderbolt、摄像头和麦克风连接图；外设不暗示随箱。 |
 
@@ -214,7 +216,7 @@
 | `PT03` | `Business Configuration`：整套唯一完整 CPU/GPU/RAM/SSD/OS；OS 行使用一次 Windows logo lockup。 |
 | `PT04` | `A Clearer View of Work`：显示与机身事实配合玻璃建筑的垂直/网格节奏；不重复 PT03。 |
 | `PT05` | `Plan → Analyze → Present`：类别级工作关系，不列完整型号和容量。 |
-| `PT06` | 白底准确随箱物，无建筑、人物或虚拟配件。 |
+| `PT06` | 白底电脑本身：准确键盘、触控板或机身角度；无配件，与显示/尺寸和端口图去重。 |
 | `PT07` | 选择一个未使用的专业输入、安全、支持或移动价值；使用克制 skyline 线稿，不做规格 recap。 |
 | `PT08` | 办公桌连接生态与真实端口/无线；外接屏和 dock 保持非随箱语义。 |
 
@@ -226,13 +228,13 @@
 | --- | --- |
 | `MAIN-STRICT` | 共用严格白底规则。 |
 | `MAIN-ENHANCED-FRONT-CANDIDATE` | 屏幕使用原创宽阔景观 + 一个 verified mobility hero；Windows logo lockup 放屏幕角落安全区。 |
-| `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 准确侧向机身突出真实厚度/重量/开合；Windows package 放相反侧留白区。 |
+| `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` | 准确侧向机身突出真实厚度/重量/开合；Windows package 放 LCD 内相反侧留白区。 |
 | `PT01` | `Work Beyond One Desk`：最多三个高层移动办公理由，不写未验证续航小时数。 |
 | `PT02` | 一位成年人在合法、安全的共享空间、住宅露台或交通候机区工作；不把产品放在雨雪、沙土或不安全边缘。 |
 | `PT03` | 唯一完整配置 + Windows logo lockup；景观仅作淡色边缘。 |
 | `PT04` | 集中展示显示、重量、尺寸、厚度、铰链或充电事实；使用准确产品多角度。 |
 | `PT05` | `Pack → Connect → Work` 类别级流程，不重复重量、无线版本或配置表。 |
-| `PT06` | 白底准确随箱物。 |
+| `PT06` | 白底电脑本身：准确键盘、触控板或机身角度；无配件，与显示/尺寸和端口图去重。 |
 | `PT07` | 一个尚未解释的输入、支持或移动细节；不重复便携、配置、显示或连接。 |
 | `PT08` | 真实端口与无线连接；机场/咖啡店图标只作场景导航，不暗示公共网络安全。 |
 
@@ -250,7 +252,7 @@
 | `PT03` | 唯一完整配置 + Windows logo lockup，采用清晰模块而非复杂 HUD。 |
 | `PT04` | 显示、机身与真实接口侧面；网络图只做边缘装饰。 |
 | `PT05` | `Input → Process → Review → Share` 类别级关系；不承诺云服务、AI 自动化或性能倍数。 |
-| `PT06` | 白底准确随箱物。 |
+| `PT06` | 白底电脑本身：准确键盘、触控板或机身角度；无配件，与显示/尺寸和端口图去重。 |
 | `PT07` | 一个未解释的安全、管理、输入或支持价值；不得重复网络、配置或端口。 |
 | `PT08` | 双侧端口和无线连接图，是本 family 的连接细节所有者。 |
 
@@ -268,7 +270,7 @@
 | `PT03` | 唯一完整配置 + Windows logo lockup；使用建筑网格式对齐。 |
 | `PT04` | 本 family 核心：显示、键盘、触控板、摄像头、机身、尺寸/重量等最多三个已验证设计事实。 |
 | `PT05` | `Create → Refine → Present` 工作路径；不重复 PT04 参数或 PT03 型号。 |
-| `PT06` | 白底准确随箱物。 |
+| `PT06` | 白底电脑本身：准确键盘、触控板或机身角度；无配件，与显示/尺寸和端口图去重。 |
 | `PT07` | 一个未解释的输入、音频、安全或支持价值；无规格 recap。 |
 | `PT08` | 精确端口地图与工作台连接；位置和数量必须对应实物。 |
 
@@ -286,7 +288,7 @@
 | `PT03` | 唯一完整配置 + Windows logo lockup，采用 editorial fact box。 |
 | `PT04` | 显示与机身事实作为“design notes”；不重复配置。 |
 | `PT05` | `Idea → Assist → Review → Deliver`；AI 只在类型、硬件和权益均验证时出现。 |
-| `PT06` | 白底准确随箱物，无 collage。 |
+| `PT06` | 白底电脑本身：准确键盘、触控板或机身角度；无配件，与显示/尺寸和端口图去重。 |
 | `PT07` | 一个尚未解释的创新交互、输入、支持或安全价值；不得以另一版 headline 重复 PT01。 |
 | `PT08` | 端口、无线、摄像头/麦克风如何支持工作；外设与服务不暗示 included。 |
 

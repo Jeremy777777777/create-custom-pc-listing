@@ -1,8 +1,10 @@
 # Business / Work Conversion Hero Styles
+> 全目录固定政策和自主核验按 [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) 执行：Windows 11 Pro；6 个月保修 + 12 个月延保；图片只展示电脑本身，PT06 不展示配件；Business Windows 资产仅在 LCD 内；长条官方 Logo 使用比例分流。旧示例与该规则冲突时以该文件为准。
+
 
 本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 `Business/Work` 专用 style family。它让正面和三分之四侧向增强主图与 `PT01 Conversion Hero` 以工作效率、Office、协作与连接能力为视觉核心，同时保持电脑居中、事实可验证和软件权益不夸大。`MAIN-STRICT` 仍执行 [image-spec.md](image-spec.md) 的纯白主图规则；Business 的两个增强主图使用两种不同的 Windows 11 Pro 固定资产形态，PT01 不重复。
 
-B01–B16 全部支持 [hero-composition-variants.md](hero-composition-variants.md) 的 `FRONT_SCREEN_CARD` 与 `THREE_QUARTER_SIDE_CARD`。正向模式适合屏幕内工作信息层；侧向模式适合展示准确机身角度，并为增强主图在旁侧留出较小 Windows 11 Pro 资产安全区。PT01 可复用角度但不放 Windows asset。构图不得改变 Office/Copilot 权益闸门或 BG continuation pack。
+B01–B16 全部支持 [hero-composition-variants.md](hero-composition-variants.md) 的 `FRONT_SCREEN_CARD` 与 `THREE_QUARTER_SIDE_CARD`。正向模式适合屏幕内工作信息层；侧向模式适合展示准确机身角度，并为增强主图在 LCD 内留出较小 Windows 11 Pro 资产安全区。PT01 可复用角度但不放 Windows asset。构图不得改变 Office/Copilot 权益闸门或 BG continuation pack。
 
 PT01 选定 B01–B16 后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 使用同编号 BG01–BG16 continuation pack，使 Office、Copilot、会议、移动办公、城市建筑、自然景观或科技基础设施主题贯穿整套辅助图库。
 
@@ -210,4 +212,3 @@ product_center_offset_pct: <number>
 - 本轮新增视觉研究包含 [B01N4C1TH4](https://www.amazon.com/dp/B01N4C1TH4)、[B0CKBB4YTP](https://www.amazon.com/dp/B0CKBB4YTP)、[B0FHKXYR3T](https://www.amazon.com/dp/B0FHKXYR3T) 与 [B0F23LBVNZ](https://www.amazon.com/dp/B0F23LBVNZ)。只吸收城市/建筑/景观/科技题材、单主题附图和信息层级，不复制任何图片、文字、壁纸、拼贴素材、图标或布局。
 - Office 当前产品名、一次性购买含义、设备数量与升级政策以 [Microsoft Office Home & Business 官方产品页](https://www.microsoft.com/en-us/microsoft-365/p/office-home-business-2021/CFQ7TTC0HPN4) 和 [Office 2024 / LTSC 2024 FAQ](https://support.microsoft.com/en-us/office/lifecycle/office-2024-and-office-ltsc-2024-faq) 为准。
 - Microsoft、Windows、Office、Copilot 与应用图标均按 [Microsoft Trademark & Brand Guidelines](https://www.microsoft.com/en-us/legal/intellectualproperty/trademarks) 及适用的当前品牌资产指南使用；本文件不授予任何商标权。
-

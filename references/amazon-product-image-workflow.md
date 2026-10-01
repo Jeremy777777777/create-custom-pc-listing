@@ -1,4 +1,6 @@
 # Amazon Product Image Generation Workflow
+> 全目录固定政策和自主核验按 [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) 执行：Windows 11 Pro；6 个月保修 + 12 个月延保；图片只展示电脑本身，PT06 不展示配件；Business Windows 资产仅在 LCD 内；长条官方 Logo 使用比例分流。旧示例与该规则冲突时以该文件为准。
+
 
 本流程是仓库根目录 [MegaPC Amazon Custom PC Workflow](../SKILL.md) 下可独立调用的图片子流程。它既可以由完整 Listing 流程在事实验证后接续执行，也可以通过 `IMAGE_ONLY_WORKFLOW` 或 `IMAGE_ADJUSTMENT_WORKFLOW` 单独启动；单独启动时不要求重新生成 Title、Bullets、Description、Listing Excel 或重跑无关步骤。开始前必须读取 [final-image-delivery-contract.md](final-image-delivery-contract.md)，先判断用户要求的是默认 `FINAL_ASSET_DELIVERY` 还是明确指定的 `CONCEPT_ONLY`。图片事实优先复用该产品已有的已验证 Listing/manifest/ERP 记录；只对图片必需但仍缺失的字段补充核验，不重新建立相互冲突的第二套产品事实。本流程不自动发布到 Seller Central。
 
@@ -76,7 +78,7 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 | 4 / `PT03` | 唯一完整配置图 | 按 continuation pack 的 loadout/work grid 集中展示实际销售 CPU/GPU、RAM/SSD 与 OS；不使用人物，其他 PT 不再重列完整型号和容量。 |
 | 5 / `PT04` | 显示与机身设计 | 集中承载屏幕尺寸、分辨率、刷新率、键盘和准确机型的真实侧面/形态素材；genre/work 元素仅作边缘氛围，不得虚构内部结构或硬件外观。 |
 | 6 / `PT05` | 性能关系信息图 | 用 Gaming pipeline 或 Business workflow 解释 Processing → Graphics → Display 等关系；可使用类别名但不重列完整型号/容量或第二张配置表。人物可选且最多一位，不编造跑分、FPS、续航或 AI 能力。 |
-| 7 / `PT06` | 包装内含物 | 白色；只展示确实随该 SKU 交付的机器、电源和配件。 |
+| `PT06` | 白底电脑本身：准确键盘、触控板或机身角度；无配件，与显示/尺寸和端口图去重。 |
 | 8 / `PT07` | 独立购买价值 | 使用 continuation pack 的视觉语言解释一个尚未在 PT01–PT06 使用且有证据的价值；禁止规格回顾、`Gaming Essentials` 和核心规格卡重排。事实不足时使用克制产品情境图，不重复 PT03。 |
 | 9 / `PT08` | 实体接口地图/连接 | 默认承担 `UNIVERSAL_PHYSICAL_PORT_MAP_RULE`：准确机型的 laptop 双侧/单侧或 desktop 前后 I/O 实物视图必须成为主体，引导线落在可见端口开口并逐项核验。Wi-Fi、Bluetooth 和功能卡只能补充，不能用纯图标替代实体接口；外设不暗示随箱。 |
 
@@ -93,7 +95,7 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 9. Business/Work 的 Office 与 Copilot 必须执行 `business-work-hero-styles.md` 的权益账本。`Lifetime Office` 只在卖家对准确 SKU 提供可审计依据并批准准确措辞时使用；否则展示准确 Office 产品名与许可模式。物理 Copilot key、Windows Copilot、Microsoft 365 Copilot 许可和 Copilot+ PC 是四种不同事实，不能互相推断。
 10. 对 customized laptop/desktop 的 PT01–PT08，先从产品事实账本确认底机制造商，再选择同一 OEM 的官方或已获准 Logo 资产。若产品是 HP，只能使用 HP Logo；品牌字段冲突、来源不明或资产未获准时停止合成。该 Logo 仅识别底机来源，不得暗示 OEM 完成、认可或为卖家升级提供保修。
 11. 先完成并保存无品牌 PT01–PT08 母版，再用原始 Logo 文件进行确定性后处理；禁止让 ImageGen 重画 Logo、品牌文字或商标。每个生成 prompt 必须主动预留约 `18% × 18%` 的自然负空间供 OEM mark 使用，不绘制占位框。默认使用带真实 alpha 的官方/获准透明 Logo 直接融入画面，不加统一白色矩形底牌；源文件带中性背景时，优先寻找透明原始资产，或使用 `scripts/remove-neutral-logo-background.ps1` 只移除背景并保留官方颜色、比例和几何。每张图单独选择位置，不设固定右下角。没有合格安全区时必须重新排版或重做该 PT 图。
-12. 在产品目录保存 `logo-placement.json`，除逐图记录 `x`、`y`、`width`、`height` 与样式外，还必须设置 `preferredTreatment: INTEGRATED_TRANSPARENT_MARK`、`minimumClearancePx >= 16`、`minimumComponentSeparationPx >= 32`、`maximumLogoLongEdgePercentOfCanvas <= 12`、`thumbnailReviewSizePx: 200`、`minimumVisibleLogoLongEdgePxAtThumbnail >= 20`、`minimumVisibleLogoShortEdgePxAtThumbnail >= 10`。准确产品素材中原有的 OEM 机身标志必须保留原位；新增 `authenticFactoryMarkPreservationReview: PASS` 记录复核。历史字段 `productSurfaceLogoAbsenceReview: PASS` 仅表示没有额外生成/合成到产品表面的 Logo，绝不要求去除原厂标志。每张图必须记录 `outsideProductReview: PASS`，并用一个或多个标签以 `PRODUCT_SILHOUETTE` 开头的 `protectedZones` 覆盖电脑屏幕、显示内容、机身、键盘、端口与内部结构，阻止额外合成 Logo 覆盖产品。Logo 可见长边默认控制在画布 `9%–12%`，与产品轮廓、标题、卡片和线条至少保持 `32 px` 或画布短边 `2.5%` 的距离（取较大值）。每个 placement 还必须记录 `compositionSpacingReview: PASS` 与 `placeholderFrameReview: PASS`。`transparent` 和 `circle-keyline` 必须使用真实透明资产；`rounded-badge` 不是默认值，只有 OEM 规范要求时才允许，并必须记录 `badgeExceptionReason`。`scripts/add-brand-badge.ps1` 必须在合成前验证原厂标志保留、无额外产品表面标志、alpha、最大占比、画布边缘、产品轮廓、组件间距和缩略图可见尺寸；任一失败即停止。
+12. 在产品目录保存 `logo-placement.json`，除逐图记录 `x`、`y`、`width`、`height` 与样式外，还必须设置 `preferredTreatment: INTEGRATED_TRANSPARENT_MARK`、`minimumClearancePx >= 16`、`minimumComponentSeparationPx >= 32`、`maximumLogoLongEdgePercentOfCanvas <= 12`、`thumbnailReviewSizePx: 200`、`minimumVisibleLogoLongEdgePxAtThumbnail >= 20`、`minimumVisibleLogoShortEdgePxAtThumbnail >= 10`（长条官方字标采用比例分流）。准确产品素材中原有的 OEM 机身标志必须保留原位；新增 `authenticFactoryMarkPreservationReview: PASS` 记录复核。历史字段 `productSurfaceLogoAbsenceReview: PASS` 仅表示没有额外生成/合成到产品表面的 Logo，绝不要求去除原厂标志。每张图必须记录 `outsideProductReview: PASS`，并用一个或多个标签以 `PRODUCT_SILHOUETTE` 开头的 `protectedZones` 覆盖电脑屏幕、显示内容、机身、键盘、端口与内部结构，阻止额外合成 Logo 覆盖产品。Logo 可见长边默认控制在画布 `9%–12%`，与产品轮廓、标题、卡片和线条至少保持 `32 px` 或画布短边 `2.5%` 的距离（取较大值）。每个 placement 还必须记录 `compositionSpacingReview: PASS` 与 `placeholderFrameReview: PASS`。`transparent` 和 `circle-keyline` 必须使用真实透明资产；`rounded-badge` 不是默认值，只有 OEM 规范要求时才允许，并必须记录 `badgeExceptionReason`。`scripts/add-brand-badge.ps1` 必须在合成前验证原厂标志保留、无额外产品表面标志、alpha、最大占比、画布边缘、产品轮廓、组件间距和缩略图可见尺寸；任一失败即停止。
 13. 内部可先输出到独立工作目录并以 100% 尺寸逐张检查，同时检查 200 px 缩略图。交给用户审核的 review 目录必须已经用 `scripts/add-brand-badge.ps1` 从 `unbranded/` 完成确定性合成，并生成 `logo-qa.json`，记录 OEM Logo 资产 SHA-256、每张图的实际可见边界、缩略图投影尺寸及 `PASS` 结果。Review 图必须包含全部文字、Logo、Windows package 和产品信息；用户批准决定是否采用或提交，不负责批准后再补齐成品。不得在已带 Logo 的图上再次叠加。
 14. Amazon 竞品页面只用于研究视觉层级、留白、信息密度和应覆盖的购买问题，不得复刻其独特构图、配色组合、图标、文案、人物场景或使用其图片资产。最终图必须保持原创布局并准确对应本机型。
 15. 若出现完全由 AI 生成的写实人物，按 `image-spec.md` 添加并记录所需元数据。
@@ -172,4 +174,3 @@ create-custom-pc-listing/
 `image-manifest.md` 必须记录该型号的 `image_style_profile`、选择原因和 benchmark 研究边界，并逐槽位记录实际路径、状态、授权素材来源、产品事实来源及必要元数据说明。PT 图还必须记录核实后的制造商、Logo 文件路径与来源、允许使用的 listing 类型、合成脚本、`logo-placement.json` 和逐图验收结果。只有文件存在、PT01–PT08 均含正确 OEM Logo，并通过事实、版权、尺寸、内容和合规检查时，状态才可为 `VERIFIED`。缺图、缺正确 Logo 或 Logo 安全区失败时不得伪造路径或标记完成。成品请求还必须记录 `delivery_mode: FINAL_ASSET_DELIVERY` 和整体 `delivery_state: FINAL_ASSET_QA_PASS`；否则不能向用户报告完成。
 
 最终按产品报告：源记录、`VL-<内部型号>` 目录链接、11 张最终图片状态、实际文件路径、缺失素材或权限、未解决事实问题、审核结果和下一步人工动作。只有三张 MAIN 与 PT01–PT08 全部通过时才可标为 `FINAL_ASSET_QA_PASS`；这不等同于 Amazon 已批准或已发布。
-

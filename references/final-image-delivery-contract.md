@@ -1,4 +1,6 @@
 # Final Image Delivery Contract
+> 全目录固定政策和自主核验按 [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) 执行：Windows 11 Pro；6 个月保修 + 12 个月延保；图片只展示电脑本身，PT06 不展示配件；Business Windows 资产仅在 LCD 内；长条官方 Logo 使用比例分流。旧示例与该规则冲突时以该文件为准。
+
 
 本文件定义图片任务的默认交付含义，防止把“生成图片”“给我审核”误解为先交底稿、提示词、空白模板或未完成候选。它与 [amazon-product-image-workflow.md](amazon-product-image-workflow.md) 和 [image-spec.md](image-spec.md) 同时生效；事实、版权或 Amazon 合规要求发生冲突时，仍以更严格的规则为准。
 
@@ -33,7 +35,7 @@ PT01–PT08 还必须通过 `UNIVERSAL_GALLERY_DEDUP_RULE` 的跨图信息独立
 
 PT01–PT08 同时必须通过 `UNIVERSAL_PHYSICAL_PORT_MAP_RULE`。八张附图中至少一张、默认 `PT08`，必须展示准确机型的实体侧面/背面/前后 I/O，客户能直接看到接口开口及锚定到对应开口的已验证标签。只展示 USB-C、USB-A、HDMI、RJ-45、Wi-Fi 或 Bluetooth 图标而没有真实接口位置，不算接口展示并进入 `REWORK_REQUIRED`。缺少准确机型接口素材时必须在生成前阻断，不能用 AI 补画。
 
-PT01–PT08 同时必须通过 `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE`。正确的额外合成 Logo 只在原尺寸文件中存在仍不够；它必须在 200 px 缩略图中保持可辨认，长边至少 20 px、短边至少 10 px，可见长边默认占原画布 `9%–12%` 且不得超过 `12%`，并与产品、文字、卡片、接口标注和画布边缘保持至少 `32 px` 或画布短边 `2.5%` 的距离（取较大值）。新制作的最终目录必须保存 schema v3 `logo-qa.json`，证明每张 PT 的 Logo 资产哈希、无额外品牌 overlay 母版 SHA-256、最终成品 SHA-256、原厂机身标志保留复核、实际可见尺寸与闸门结果；既有图库 schema v2 保持历史兼容。任一 PT 缺失、太小、过大、低对比、被裁切、发生碰撞或当前文件 hash 与报告不符时，整套图进入 `REWORK_REQUIRED`。
+PT01–PT08 同时必须通过 `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE`。正确的额外合成 Logo 只在原尺寸文件中存在仍不够；它必须在 200 px 缩略图中保持可辨认，长边至少 20 px、短边普通标志至少 10 px（长条字标按 confirmed-catalog-defaults.md 的原始比例分流），可见长边默认占原画布 `9%–12%` 且不得超过 `12%`，并与产品、文字、卡片、接口标注和画布边缘保持至少 `32 px` 或画布短边 `2.5%` 的距离（取较大值）。新制作的最终目录必须保存 schema v3 `logo-qa.json`，证明每张 PT 的 Logo 资产哈希、无额外品牌 overlay 母版 SHA-256、最终成品 SHA-256、原厂机身标志保留复核、实际可见尺寸与闸门结果；既有图库 schema v2 保持历史兼容。任一 PT 缺失、太小、过大、低对比、被裁切、发生碰撞或当前文件 hash 与报告不符时，整套图进入 `REWORK_REQUIRED`。
 
 Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求默认使用带真实 alpha 的官方/获准透明标志，直接融入预留负空间；不得出现从源图截下来的灰/白矩形底块，也不得为了批量方便给所有品牌统一套白色方卡。深色背景先换位置，其次使用 OEM 允许的 keyline 或官方反白资产。硬背景牌只能作为有记录的品牌规范例外。
 

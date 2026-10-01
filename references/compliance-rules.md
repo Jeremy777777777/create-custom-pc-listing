@@ -1,4 +1,6 @@
 # Amazon Custom PC — Compliance Rules & Checklist
+> 全目录固定政策和自主核验按 [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) 执行：Windows 11 Pro；6 个月保修 + 12 个月延保；图片只展示电脑本身，PT06 不展示配件；Business Windows 资产仅在 LCD 内；长条官方 Logo 使用比例分流。旧示例与该规则冲突时以该文件为准。
+
 
 Distilled from Amazon Seller University, *"Sell Custom PCs on Amazon"*
 (Custom_PC_Instructions_Final_Mar_25.pdf). This is the source of truth for the
@@ -172,7 +174,7 @@ Prohibited: listing under an OEM brand name; software customizations of any
 kind; customizing components other than RAM and storage; omitting customization
 disclosures.
 
-**Warranty disclosure — compliant examples from the guide:**
+**Historical warranty disclosure examples from the guide — not MegaPC catalog defaults:**
 > "WARRANTY: Original manufacturer warranty is voided due to hardware
 > customization. [Your Brand Name] provides a 1-year limited warranty on RAM and
 > SSD upgrades"
@@ -181,8 +183,7 @@ disclosures.
 > components. 1-year Original manufacturer warranty remains valid on remaining
 > components"
 
-(MegaPC's default policy follows the **second** pattern: OEM warranty remains
-valid on factory components, MegaPC warrants the upgraded RAM/SSD.)
+MegaPC catalog wording is **6-month warranty + 12-month extended warranty**, as confirmed by the seller. Do not infer the allocation, OEM validity, or one-year terms from the historical examples above. Windows 11 Pro is the seller-confirmed final delivered edition; this does not automatically waive independent Amazon publication eligibility requirements.
 
 ## Brand options
 

@@ -1,4 +1,6 @@
 # Input Sources and Cross-Validation
+> 全目录固定政策和自主核验按 [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) 执行：Windows 11 Pro；6 个月保修 + 12 个月延保；图片只展示电脑本身，PT06 不展示配件；Business Windows 资产仅在 LCD 内；长条官方 Logo 使用比例分流。旧示例与该规则冲突时以该文件为准。
+
 
 本参考规定如何把 MyStore ERP 与 Listing Status Tracker 作为可选输入及互相核验来源。它们都是卖家内部来源，但承担的业务角色不同；两边出现不同值时，不能简单选择较新、较完整或更有利于销售的一边。
 

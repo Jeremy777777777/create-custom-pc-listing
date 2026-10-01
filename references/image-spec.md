@@ -1,4 +1,6 @@
 # Product Image Spec
+> 全目录固定政策和自主核验按 [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) 执行：Windows 11 Pro；6 个月保修 + 12 个月延保；图片只展示电脑本身，PT06 不展示配件；Business Windows 资产仅在 LCD 内；长条官方 Logo 使用比例分流。旧示例与该规则冲突时以该文件为准。
+
 
 This reference governs the Amazon product-image gallery for customized PCs.
 Use it through the [dedicated image workflow](amazon-product-image-workflow.md),
@@ -212,7 +214,7 @@ human approval are recorded.
 | **4** | `PT03` | Sole full configuration page | Selected profile + matching continuation pack | Verified sold CPU/GPU, RAM/SSD tiers and OS; no people; Business may use the approved Windows logo lockup once on the OS line; other PT slots may not repeat the full models/capacities or Windows treatment |
 | **5** | `PT04` | Display, design and form factor | Selected profile + matching continuation pack | Own the verified display size/resolution/refresh and accurate product-angle/design facts; narrative effects remain peripheral and may not invent internals or geometry |
 | **6** | `PT05` | Performance relationship | Selected profile + matching continuation pack | Explain a Gaming pipeline or Business workflow with category-level component labels; do not repeat full models/capacities or create a second specification grid; at most one secondary person; no invented FPS, benchmark, battery or AI claims |
-| **7** | `PT06` | What's included | White | Show only the exact unit, power equipment, and accessories included with the SKU |
+| **7** | `PT06` | Computer input/detail views | White | Exact computer only; keyboard/touchpad or chassis detail; no accessories, and no repetition of PT04 display/size or PT08 ports |
 | **8** | `PT07` | Distinct unaddressed value | White or light + continuation accents | One verified theme not already owned by PT01–PT06; never a specification recap or reordered core-spec card set; use a restrained product scene if no additional claims are available |
 | **9** | `PT08` | Physical port map / connectivity | White/light + continuation ecosystem | Show accurate-model physical side/rear/front I/O with visible port openings and anchored verified labels; wireless/function icons are supplemental and may not replace the product's real ports; contextual peripherals may not imply inclusion |
 
@@ -325,7 +327,7 @@ the approved logo lockup once on the OS line; other PT slots may not repeat it.
   `minimumVisibleLogoLongEdgePxAtThumbnail: 20`,
   `maximumLogoLongEdgePercentOfCanvas: 12`,
   `minimumComponentSeparationPx: 32`, and
-  `minimumVisibleLogoShortEdgePxAtThumbnail: 10`. Keep the rendered logo at least
+  `minimumVisibleLogoShortEdgePxAtThumbnail: 10` (compact marks); official wide wordmarks use the aspect-ratio branch in confirmed-catalog-defaults.md. Keep the rendered logo at least
   that distance from the canvas edge and every recorded protected zone; use a
   larger value when the OEM identity standard requires it. A placement that
   merely avoids pixel overlap but visually touches a card border or decorative
@@ -347,7 +349,8 @@ the approved logo lockup once on the OS line; other PT slots may not repeat it.
   also inspect a 200 px gallery-size thumbnail before approval. The composition
   script must reject insufficient canvas clearance, intersection with a declared
   protected zone, a projected visible Logo smaller than 20 px on its long
-  edge or 10 px on its short edge at that thumbnail size. It must write
+  edge or the compact/wide-wordmark source-proportional short-edge threshold
+  at that thumbnail size. It must write
   `logo-qa.json` with the source-asset SHA-256 and per-image visible bounds.
   Replace final files only after human approval. If no safe
   placement exists, redesign or regenerate that PT composition and keep the slot
@@ -378,13 +381,14 @@ the approved logo lockup once on the OS line; other PT slots may not repeat it.
 - Document customization and warranty in the listing title, bullet points, and
   product description rather than as gallery advertising.
 - Display RAM and SSD tiers only when physically supported and actually offered.
-- Show `Win 11 Pro` consistently in the relevant PT images after verifying the
-  exact sold configuration, license/activation, and fulfillment process. It is
-  a fixed preinstalled specification, never a buyer-selectable customization.
+- Show `Win 11 Pro` in the sole PT03 configuration page using the confirmed
+  catalog-wide final-delivery policy. License/activation and fulfillment QA
+  remain operational checks; OEM Home does not block image production. It is
+  a fixed delivered specification, never a buyer-selectable customization.
 - Show Touch, AI-ready, webcam, cellular, or other features only when verified
   for the exact SKU.
-- Show a port or accessory only when it is present or included with the exact
-  shipped configuration.
+- Show ports only when verified for the exact computer. Do not show accessories
+  in new galleries, even when included with the shipped configuration.
 
 ## Separate image-task output format
 
@@ -412,4 +416,3 @@ Before Amazon bulk upload, copy the approved main variant to the required
 `ProductIdentifier.MAIN.extension` name and export PT files as described above.
 Do not put production records in the listing workbook, and do not claim an
 Amazon-ready file path for an image that does not exist.
-

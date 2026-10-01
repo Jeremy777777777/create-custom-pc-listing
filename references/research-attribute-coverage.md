@@ -1,4 +1,6 @@
 # Product Attribute Research Coverage
+> 全目录固定政策和自主核验按 [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) 执行：Windows 11 Pro；6 个月保修 + 12 个月延保；图片只展示电脑本身，PT06 不展示配件；Business Windows 资产仅在 LCD 内；长条官方 Logo 使用比例分流。旧示例与该规则冲突时以该文件为准。
+
 
 本参考规定 Listing 研究必须覆盖什么、如何记录“查到 / 未查到 / 不适用”，以及何时可以结束研究。它是研究与 QA 规则，不是任何产品的事实来源。Amazon 页面、截图和竞品 ASIN 可用于发现应研究的属性，但其中的值必须另行验证，不能直接复制。
 
