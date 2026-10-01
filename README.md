@@ -49,14 +49,14 @@ existing navy style remains available and the feature-led studio style is an
 additional option. Enhanced-main candidates and PT01 also follow
 [`references/conversion-hero-styles.md`](references/conversion-hero-styles.md),
 including the preferred `Centered Performance + Screen Package` base preset.
-Verified gaming models then select one of six original 3D genre treatments
+Verified gaming models then select one of sixteen original 3D genre treatments
 from [`references/gaming-hero-styles.md`](references/gaming-hero-styles.md).
 The selected treatment is required across both completed enhanced-MAIN choices
-and `PT01`; at least one enhanced choice uses the white-catalog 3D frame-break
-signature, while the default strict Amazon `MAIN` never uses it. Each Gaming hero also selects one of
-six core-configuration compositions from
+and `PT01`; both enhanced choices use the approved white-catalog 3D frame-break
+signature when C07 is selected, while the default strict Amazon `MAIN` never uses it. Only a continuous 3D subject may cross the LCD boundary; effects and six verified specification cards remain inside. Cards may occupy approved corners or staggered zones, not a fixed row. Authentic factory OEM marks on the exact computer are preserved. Each Gaming hero also selects one of
+seven core-configuration compositions and one of sixteen matching asset-card skins from
 [`references/gaming-core-badge-styles.md`](references/gaming-core-badge-styles.md).
-Business/Work models instead select one of eleven productivity treatments from
+Business/Work models instead select one of sixteen productivity treatments from
 [`references/business-work-hero-styles.md`](references/business-work-hero-styles.md)
 after the workflow verifies the exact Office/Copilot entitlement. The workflow
 records the audience evidence, confidence, and routing reason so Gaming,

@@ -122,7 +122,10 @@ $minimumVisibleShortEdge = [int]$plan.minimumVisibleLogoShortEdgePxAtThumbnail
 $maximumLogoLongEdgePercent = [float]$plan.maximumLogoLongEdgePercentOfCanvas
 
 if ([string]$plan.productSurfaceLogoAbsenceReview -ne 'PASS') {
-    throw 'Placement plan requires productSurfaceLogoAbsenceReview: PASS after checking that every depicted computer surface, screen, internal structure, accessory, and computer pictogram is free of OEM Logos.'
+    throw 'Placement plan requires productSurfaceLogoAbsenceReview: PASS, meaning no EXTRA generated or composited OEM mark was placed on the product. Authentic factory marks must not be removed.'
+}
+if ([string]$plan.authenticFactoryMarkPreservationReview -ne 'PASS') {
+    throw 'Placement plan requires authenticFactoryMarkPreservationReview: PASS after comparing the exact product source and confirming its factory OEM marks remain intact, unaltered and unobscured.'
 }
 $minimumComponentSeparation = [int]$plan.minimumComponentSeparationPx
 if ($thumbnailReviewSize -lt 200) {
@@ -332,6 +335,7 @@ try {
                 placeholderFrameGate = 'PASS'
                 outsideProductGate = 'PASS'
                 productSurfaceLogoAbsenceGate = 'PASS'
+                authenticFactoryMarkPreservationGate = 'PASS'
             }
         }
         finally {
@@ -353,7 +357,7 @@ finally {
 }
 
 $qaReport = [ordered]@{
-    schemaVersion = 2
+    schemaVersion = 3
     generatedAtUtc = [DateTime]::UtcNow.ToString('o')
     brand = $plan.brand
     logoRole = $plan.logoRole

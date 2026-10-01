@@ -29,7 +29,7 @@
 - 侧向素材必须来自卖家实拍或获商业使用权且与准确机型匹配的 OEM/经销商素材。不得让生成模型凭正面图猜测或重画端口、散热口、键盘、铰链、厚度和机身结构。
 - 缺少准确侧视素材时，将侧向候选标为 `BLOCKED` 并使用 `FRONT_SCREEN_CARD`。
 
-当 audience 为 `GAMING` 时，默认使用 `GAMING_3D_BREAKOUT_ASSET_RAIL`：外部为纯白电商背景，产品保持准确角度且视觉居中；原创 3D 主体可在批准范围内跨越屏幕上缘/侧缘，六张 display/CPU/GPU/RAM/SSD/OS 资产卡全部位于 LCD 下部。禁止全画布赛博海报、电脑外置信息卡或任何文字/Logo/package 越出 LCD。C07 目标为产品宽度 `90%–94%`、3D 主体顶部留白 `8%–12%`、电脑与接触阴影底部留白 `6%–9%`。
+当 audience 为 `GAMING` 时，默认使用 `GAMING_3D_BREAKOUT_SPATIAL_CARDS`：外部为纯白电商背景，产品保持准确角度且视觉居中；只有连续的原创 3D 实体可在批准范围内跨越屏幕上缘/侧缘，粒子与一切光效不出屏。六类 display/CPU/GPU/RAM/SSD/OS 资产卡全部位于 LCD 内，但可在下部、四角或错位区域按空间感布局，无固定顺序。禁止全画布赛博海报、电脑外置信息卡或任何文字/额外 Logo/package 越出 LCD；真实机身原厂标志保留。C07 目标为产品宽度 `90%–94%`、3D 主体顶部留白 `8%–12%`、电脑与接触阴影底部留白 `6%–9%`，并明确优先于本文件两种一般构图的 `8%–12%` 四周留白建议。
 
 ## 增强主图的 Windows 资产共同规则
 
@@ -51,7 +51,7 @@
 
 | Audience layer | Content/style layer | Allowed composition | Continuation mapping |
 | --- | --- | --- | --- |
-| Gaming | `G01–G16` + `C01–C07` + 同号 `A01–A16` | `FRONT_SCREEN_CARD`、`THREE_QUARTER_SIDE_CARD` 或批准的 `GAMING_3D_BREAKOUT_ASSET_RAIL` | 继续按 G 编号映射 `GG01–GG16` |
+| Gaming | `G01–G16` + `C01–C07` + 同号 `A01–A16` | `FRONT_SCREEN_CARD`、`THREE_QUARTER_SIDE_CARD` 或批准的 `GAMING_3D_BREAKOUT_SPATIAL_CARDS` | 继续按 G 编号映射 `GG01–GG16` |
 | Business/Work | `B01–B16` | `FRONT_SCREEN_CARD` 或 `THREE_QUARTER_SIDE_CARD` | 继续按 B 编号映射 `BG01–BG16` |
 | Student/Study | 中性学习 hero | 两种均可，按准确素材选择 | `NEUTRAL` |
 | General | 通用 Conversion Hero | 两种均可，按准确素材选择 | `NEUTRAL` |
@@ -101,7 +101,7 @@ thumbnail_hierarchy_review: PASS|BLOCKED
 main_content_boundary: SCREEN_ONLY|CONTROLLED_FRAME_BREAK
 enhanced_main_outer_background: PURE_WHITE
 enhanced_main_screen_only_review: PASS|BLOCKED|NOT_APPLICABLE_CONTROLLED_FRAME_BREAK
-enhanced_main_asset_rail_lcd_containment_review: PASS|BLOCKED|NOT_APPLICABLE
+enhanced_main_spatial_cards_lcd_containment_review: PASS|BLOCKED|NOT_APPLICABLE
 enhanced_main_controlled_frame_break_review: PASS|BLOCKED|NOT_APPLICABLE
 enhanced_main_outer_background_review: PASS|BLOCKED
 ```

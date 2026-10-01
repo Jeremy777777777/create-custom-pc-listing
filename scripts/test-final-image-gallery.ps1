@@ -60,7 +60,8 @@ foreach ($fileName in $requiredPtFiles) {
         $entry.compositionSpacingGate -ne 'PASS' -or
         $entry.placeholderFrameGate -ne 'PASS' -or
         $entry.outsideProductGate -ne 'PASS' -or
-        $entry.productSurfaceLogoAbsenceGate -ne 'PASS') {
+        $entry.productSurfaceLogoAbsenceGate -ne 'PASS' -or
+        ([int]$qa.schemaVersion -ge 3 -and $entry.authenticFactoryMarkPreservationGate -ne 'PASS')) {
         throw "Logo QA gates are incomplete for $fileName."
     }
 

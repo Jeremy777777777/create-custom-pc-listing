@@ -8,7 +8,7 @@ C01–C07 是信息布局层，不锁定产品角度；A01–A16 是资产卡片
 
 - Amazon `MAIN-STRICT` 继续保持纯白背景、仅展示实际售卖产品，不添加规格字、Windows 卡、package、人物或装饰。以下样式可同时指导增强主图和 PT01；package 仅在增强主图出现，且增强版只有通过 `enhanced_main_candidate` 闸门后才可替换正式主图。
 - 电脑主体必须水平居中，中心偏差不超过画布宽度的 `2%`。信息层不能为了腾位置把产品推向一侧。
-- 增强 MAIN 的全部资产卡、规格文字、Logo 和 Windows package 必须限制在屏幕可视区；只有获批 `GAMING_3D_BREAKOUT_ASSET_RAIL` 中的原创 3D 主体及其少量连续粒子/接触光可以受控跨越屏幕上缘或侧缘。若 package 与 hero/规格冲突，重组屏内结构或减少装饰，不得把资产卡移到电脑外部。
+- 增强 MAIN 的全部资产卡、规格文字、额外 Logo、Windows package、粒子及一切光效必须限制在屏幕可视区；只有获批 `GAMING_3D_BREAKOUT_SPATIAL_CARDS` 中连续相连的原创 3D 实体可以受控跨越屏幕上缘或侧缘。准确电脑原有的原厂 OEM 标志保留原位。若 package 与 hero/规格冲突，重组屏内结构或减少装饰，不得把资产卡或光效移到电脑外部。
 - 本模块叠加在 G01–G16 的原创场景上，不复制竞品的图标、卡片形状、配色、人物、壁纸或具体排版。C01–C07 是布局，A01–A16 是由当前 G style 驱动的视觉皮肤；除非用户重新批准，禁止随机换皮、跨 family 混用或让生成模型自行设计新卡片。
 - ImageGen 只生成准确电脑、原创 3D 主体、屏幕环境和为卡片预留的干净区域。最终文字、数字、Windows package、组件 Logo、类别图标、边框和卡片底板全部来自可追踪资产并通过确定性合成加入；不得让生成模型渲染最终规格或重画商标。
 
@@ -59,7 +59,7 @@ GeForce RTX 4060
 
 ## 5. 七套可组合布局
 
-以下 C01–C07 中的 Windows package placement 只适用于正面与三分之四侧向两个增强主图；PT01 保留精简 core configuration 结构，但完全删除 package 与其文字替代物，也不复制 C07 六卡 rail。
+以下 C01–C07 中的 Windows package placement 只适用于正面与三分之四侧向两个增强主图；PT01 只可选 C01–C06 的精简 core configuration 结构，完全删除 package 与其文字替代物，也不复制 C07 六卡完整配置。
 
 ### C01 — Command Deck + Box Rise
 
@@ -109,19 +109,19 @@ GeForce RTX 4060
 - 另一侧保留足够负空间给跨框载具、飞船或速度光轨。
 - 适配：G03 Battle-Drop Horizon、G06 Velocity Circuit。
 
-### C07 — Six Asset Card Rail + 3D Breakout
+### C07 — Six Spatial Asset Cards + 3D Breakout
 
 - 这是获批的 Gaming 增强主图 signature layout；适用于需要同时快速表达 display、CPU、GPU、RAM、SSD、OS 的准确销售配置。
 - 电脑水平居中，成品画布为 `1:1`；电脑宽度目标为画布的 `90%–94%`，左右留白各约 `3%–5%`，3D 主体最高点保留 `8%–12%` 顶部留白，电脑及接触阴影保留 `6%–9%` 底部留白。
-- 屏幕下部建立一条六卡 rail，顺序固定为 `DISPLAY → CPU → GPU → RAM → SSD → OS`。六卡全部位于 LCD 可视区内，卡片、文字、Logo、边框和 glow 均不得越过屏幕内缘。
-- 屏幕上部由原创 3D 主体占据；头部、肩部、手部或连续装备可以受控跨越屏幕上缘/侧缘，形成清楚的前后遮挡，但不得覆盖六卡 rail、键盘、触控板或准确机身结构。
+- 六类信息 `DISPLAY / CPU / GPU / RAM / SSD / OS` 必须齐全，但**没有固定顺序或固定平铺位置**。可按获批构图放在屏幕下部、四角、分层错位区域或其他屏内安全区；位置、尺寸、阅读动线与主体纵深共同设计，不能为凑成一排牺牲空间感。六卡全部位于 LCD 可视区内，卡片、文字、Logo、边框和 glow 均不得越过屏幕内缘。
+- 屏幕中的原创 3D 主体建立纵深；头部、肩部、手部或连续装备可以受控跨越屏幕上缘/侧缘，形成清楚的前后遮挡，但不得覆盖任何卡片、键盘、触控板、准确机身结构或原厂标志。粒子、光晕、接触光、速度线及其投影都不得出屏。
 - Windows 卡使用固定 repository asset；CPU/GPU 仅使用已获准且与实际配置一致的官方组件资产。DISPLAY/RAM/SSD 使用 repository-owned 图标与确定性文字资产。
 - `C07` 只用于两个 Gaming 增强 MAIN；PT01 仍遵守其独立信息所有权和卡片上限，不能复制六卡完整配置。
-- Base render 必须输出没有任何最终文字、数字、Logo 或卡片的 clean master；六张卡在后期按锁定坐标一次性合成。
+- Base render 必须输出没有任何最终营销文字、数字、额外 Logo 或卡片的 clean master；准确产品原有的原厂标志不得清除。六张卡在后期按用户批准的**逐卡坐标/层级**确定性合成。
 
 ## 6. Asset card visual styles
 
-每个 Gaming G style 默认绑定同编号 A style。A style 只改变卡片视觉，不改变卡片事实、顺序或证据要求。需要改用非默认 A style 时，必须在 style proposal 中展示预览并取得用户重新批准。
+每个 Gaming G style 默认绑定同编号 A style。A style 只改变卡片视觉，不改变卡片事实或证据要求；卡片位置和阅读顺序由当前构图决定。需要改用非默认 A style 时，必须在 style proposal 中展示预览并取得用户重新批准。
 
 | Asset style | 默认绑定 | 卡片视觉语言 |
 | --- | --- | --- |
@@ -162,11 +162,11 @@ GeForce RTX 4060
 
 1. 核验准确底机外观、GPU、CPU、显示、RAM、SSD 和 Windows 11 Pro 交付证据。
 2. 先选 G01–G16，再选 C01–C07；A01–A16 默认由 G style 同编号派生，并记录 binding。若选择 signature 六卡成品，使用 `C07`。
-3. 为增强主图锁定 `os_asset_mode: FIXED_WINDOWS_11_PRO_PACKAGE` 和固定资产路径，并选择屏幕或侧边安全区；为 PT01 锁定 `os_asset_mode: NONE`。
-4. 生成无品牌、无 Microsoft 商标、无最终文字和无卡片底板的 base art；预留明确的 asset rail、主体和 package protected zones。若初稿拥挤，先重构版面再继续。
+3. 为增强主图锁定 `os_asset_mode: FIXED_WINDOWS_11_PRO_PACKAGE` 和固定资产路径，并选择屏内安全区；为 PT01 锁定 `os_asset_mode: NONE`。
+4. 生成无额外营销 Logo、无 Microsoft 商标、无最终文字和无卡片底板的 base art；准确产品上的原厂标志照实保留。预留逐卡、主体和 package protected zones。若初稿拥挤，先重构版面再继续。
 5. 从 approved asset inventory 取得卡片底板、类别图标、组件 Logo、Windows package 和确定性文字资产；逐字对照 evidence map 后一次性合成，不让生成模型渲染最终文字或商标。
-6. 最后为增强主图合成获准的 OEM Logo 与固定 Windows package；为 PT01 只合成 OEM Logo，不合成 Windows package。不得让生成模型重画任何 Logo。
-7. 在 100% 和 200 px 两种尺寸检查产品居中、信息顺序、文字准确性、Windows 权利、遮挡和跨图一致性。
+6. 最后为增强主图合成固定 Windows package；为 PT01 可在产品外自然负空间合成获准的 OEM Logo，不合成 Windows package。真实原厂机身标志保留，不得让生成模型重画任何 Logo。
+7. 在 100% 和 200 px 两种尺寸检查产品居中、逐卡阅读动线、文字准确性、Windows 权利、遮挡、原厂标志保留及跨图一致性。
 
 ## 9. Manifest fields
 
@@ -176,13 +176,13 @@ gaming_core_badge:
   asset_card_style_id: A01|A02|A03|A04|A05|A06|A07|A08|A09|A10|A11|A12|A13|A14|A15|A16
   asset_card_style_binding: <Gxx -> Axx>
   asset_card_override_approval: <null or approval record>
-  enhanced_main_signature: <GAMING_3D_BREAKOUT_ASSET_RAIL | OTHER_APPROVED_LAYOUT>
-  enhanced_main_asset_card_order: [DISPLAY, CPU, GPU, RAM, SSD, OS]
+  enhanced_main_signature: <GAMING_3D_BREAKOUT_SPATIAL_CARDS | OTHER_APPROVED_LAYOUT>
+  enhanced_main_asset_card_placements: <per-card x/y/width/height/z-index and reading path approved for each MAIN>
   enhanced_main_asset_card_count: <verified count>
   deterministic_asset_composition: true
   ai_generated_final_text_or_logo: false
   asset_card_sources: <paths + hashes + rights/evidence>
-  asset_rail_lcd_containment_review: <PASS | BLOCKED>
+  spatial_cards_lcd_containment_review: <PASS | BLOCKED>
   product_width_pct: <measured value; C07 target 90-94>
   composition_top_clearance_pct: <measured value; C07 target 8-12>
   composition_bottom_clearance_pct: <measured value; C07 target 6-9>

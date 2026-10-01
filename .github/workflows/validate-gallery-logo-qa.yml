@@ -4,6 +4,8 @@ on:
   pull_request:
     paths:
       - 'product generated photo/**/PT*.png'
+      - 'product generated photo/**/MAIN-*.png'
+      - 'product generated photo/**/MAIN-*.jpg'
       - 'product generated photo/**/logo-qa.json'
       - 'product generated photo/**/logo-placement.json'
       - 'scripts/add-brand-badge.ps1'
@@ -14,6 +16,8 @@ on:
     branches: [main]
     paths:
       - 'product generated photo/**/PT*.png'
+      - 'product generated photo/**/MAIN-*.png'
+      - 'product generated photo/**/MAIN-*.jpg'
       - 'product generated photo/**/logo-qa.json'
       - 'product generated photo/**/logo-placement.json'
       - 'scripts/add-brand-badge.ps1'
@@ -48,7 +52,7 @@ jobs:
           }
 
           $galleryDirectories = $changed |
-            Where-Object { $_ -match '^product generated photo/(VL-[^/]+)/(PT0[1-8]\.png|logo-qa\.json|logo-placement\.json)$' } |
+            Where-Object { $_ -match '^product generated photo/(VL-[^/]+)/(PT0[1-8]\.png|MAIN-[^/]+\.(png|jpg)|logo-qa\.json|logo-placement\.json)$' } |
             ForEach-Object { Split-Path -Parent $_ } |
             Sort-Object -Unique
 

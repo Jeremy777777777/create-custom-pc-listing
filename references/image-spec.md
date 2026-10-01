@@ -24,7 +24,7 @@ For a product verified as Gaming, additionally read
 [gaming-hero-styles.md](gaming-hero-styles.md). Its 3D characters, vehicles,
 environments, and effects are PT01 add-ons or separately gated enhanced-main
 candidates; they are never permitted on the default strict `MAIN`. Also read
-[gaming-core-badge-styles.md](gaming-core-badge-styles.md) for the six approved
+[gaming-core-badge-styles.md](gaming-core-badge-styles.md) for the seven approved
 core-configuration compositions and enhanced-main Windows 11 Pro treatment. One four-cell
 `CORE_SPEC_CLUSTER` counts as one feature card; all values must match the
 selected verified SKU.
@@ -291,7 +291,7 @@ the approved logo lockup once on the OS line; other PT slots may not repeat it.
   frame-break subject, depth effects, and contact light as separate layers.
   Default to original genre imagery; do not use unlicensed game characters,
   logos, screenshots, maps, HUD, skins, signature props, vehicles, or trade
-  dress. PT01 keeps at least 25% of the screen quiet and uses no more than two feature cards. Gaming enhanced MAIN may instead use `C07` with six deterministic asset cards in DISPLAY/CPU/GPU/RAM/SSD/OS order; all six remain inside the LCD and do not count as PT01 cards. ImageGen must not generate their final text, icons or trademarks.
+  dress. PT01 keeps at least 25% of the screen quiet and uses no more than two feature cards. Gaming enhanced MAIN may instead use `C07` with six deterministic asset cards for DISPLAY/CPU/GPU/RAM/SSD/OS; they may occupy approved LCD corners, lower areas or staggered spaces without a fixed order. All six, along with glow/particles/contact light, remain inside the LCD and do not count as PT01 cards. Only a continuous 3D entity may break the frame. ImageGen must not generate their final text, icons or trademarks. Preserve authentic factory OEM marks on the exact product.
 - A verified Business/Work product must select one B01–B16 treatment from
   `business-work-hero-styles.md`. Office and Copilot claims, icons, logos, and
   package visuals require exact-SKU entitlement evidence; unresolved elements

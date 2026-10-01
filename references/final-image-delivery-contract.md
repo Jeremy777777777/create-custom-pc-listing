@@ -33,11 +33,11 @@ PT01–PT08 还必须通过 `UNIVERSAL_GALLERY_DEDUP_RULE` 的跨图信息独立
 
 PT01–PT08 同时必须通过 `UNIVERSAL_PHYSICAL_PORT_MAP_RULE`。八张附图中至少一张、默认 `PT08`，必须展示准确机型的实体侧面/背面/前后 I/O，客户能直接看到接口开口及锚定到对应开口的已验证标签。只展示 USB-C、USB-A、HDMI、RJ-45、Wi-Fi 或 Bluetooth 图标而没有真实接口位置，不算接口展示并进入 `REWORK_REQUIRED`。缺少准确机型接口素材时必须在生成前阻断，不能用 AI 补画。
 
-PT01–PT08 同时必须通过 `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE`。正确 Logo 只在原尺寸文件中存在仍不够；它必须在 200 px 缩略图中保持可辨认，长边至少 20 px、短边至少 10 px，可见长边默认占原画布 `9%–12%` 且不得超过 `12%`，并与产品、文字、卡片、接口标注和画布边缘保持至少 `32 px` 或画布短边 `2.5%` 的距离（取较大值）。最终目录必须保存 schema v2 `logo-qa.json`，证明每张 PT 的 Logo 资产哈希、无品牌母版 SHA-256、最终成品 SHA-256、实际可见尺寸与闸门结果。任一 PT 缺失、太小、过大、低对比、被裁切、发生碰撞或当前文件 hash 与报告不符时，整套图进入 `REWORK_REQUIRED`。
+PT01–PT08 同时必须通过 `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE`。正确的额外合成 Logo 只在原尺寸文件中存在仍不够；它必须在 200 px 缩略图中保持可辨认，长边至少 20 px、短边至少 10 px，可见长边默认占原画布 `9%–12%` 且不得超过 `12%`，并与产品、文字、卡片、接口标注和画布边缘保持至少 `32 px` 或画布短边 `2.5%` 的距离（取较大值）。新制作的最终目录必须保存 schema v3 `logo-qa.json`，证明每张 PT 的 Logo 资产哈希、无额外品牌 overlay 母版 SHA-256、最终成品 SHA-256、原厂机身标志保留复核、实际可见尺寸与闸门结果；既有图库 schema v2 保持历史兼容。任一 PT 缺失、太小、过大、低对比、被裁切、发生碰撞或当前文件 hash 与报告不符时，整套图进入 `REWORK_REQUIRED`。
 
 Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求默认使用带真实 alpha 的官方/获准透明标志，直接融入预留负空间；不得出现从源图截下来的灰/白矩形底块，也不得为了批量方便给所有品牌统一套白色方卡。深色背景先换位置，其次使用 OEM 允许的 keyline 或官方反白资产。硬背景牌只能作为有记录的品牌规范例外。
 
-最终成图还必须通过 `UNIVERSAL_OEM_LOGO_OUTSIDE_PRODUCT_RULE`：Business、Gaming 和其他风格的电脑产品轮廓内不得出现任何 OEM Logo，不论它来自生成、后期合成还是原始产品素材；屏幕、显示内容、顶盖、机身、键盘、端口、透明侧板、内部结构、随箱物和电脑示意图均无例外。OEM Logo 只能放在产品轮廓之外的背景负空间。`logo-placement.json` 必须记录全套 `productSurfaceLogoAbsenceReview: PASS`，并用 `PRODUCT_SILHOUETTE*` protected zones 覆盖所有产品区域、逐图记录 `outsideProductReview: PASS`；Logo clearance bounds 与这些区域相交，或人工复核发现产品表面仍有 Logo，即进入 `REWORK_REQUIRED`。
+最终成图还必须通过 `UNIVERSAL_AUTHENTIC_OEM_MARK_RULE`：准确产品素材中真实存在的原厂机身标志必须原位保留，不得删除、遮挡、重画或伪造。额外生成或后期合成的 OEM Logo 不得进入产品轮廓，只能放在产品外的自然负空间。`logo-placement.json` 中的历史字段 `productSurfaceLogoAbsenceReview: PASS` 仅复核无额外产品表面 Logo；新增 `authenticFactoryMarkPreservationReview: PASS` 复核原厂标志保留。`PRODUCT_SILHOUETTE*` protected zones 与逐图 `outsideProductReview: PASS` 继续阻止额外合成 Logo 覆盖电脑；原厂标志本身不因此失败。
 
 内部可以保留 mask、无品牌母版、透明环境层和中间文件，但它们必须放在内部生产目录，不能当作最终交付，也不能因为这些文件存在就声称任务完成。
 
@@ -74,29 +74,29 @@ Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求�
 - 100% 尺寸、200 px 缩略图、裁切、碰撞、可读性、产品准确性和跨图一致性检查通过；
 - 单张文件可以直接进入对应 Listing 槽位的上传准备，不依赖后续补字、补 Logo、补 package 或重新排版。
 - 与用户批准的 style proposal 一致，并通过 [style-approval-gate.md](style-approval-gate.md) 的 `STYLE_FIDELITY_GATE`；
-- 两张增强主图通过 `ENHANCED_MAIN_CONTENT_BOUNDARY_GATE`：Business/Work 与未获批例外的 family 使用 `SCREEN_ONLY`；Gaming 可使用获批 `CONTROLLED_FRAME_BREAK`，但只有连续的原创 3D 主体及少量粒子/接触光可以出屏，全部卡片、规格、Logo 和 Windows asset 必须完整位于 LCD 内。屏幕外保持纯白 `#FFFFFF`，不得出现外置信息元素或独立场景；
+- 两张增强主图通过 `ENHANCED_MAIN_CONTENT_BOUNDARY_GATE`：Business/Work 与未获批例外的 family 使用 `SCREEN_ONLY`；Gaming 可使用获批 `CONTROLLED_FRAME_BREAK`，但仅允许连续的原创 3D 实体出屏；粒子、接触光、光晕、雾及投影不得出屏。全部卡片、规格、额外 Logo 和 Windows asset 必须完整位于 LCD 内，原厂机身标志保留。屏幕外保持纯白 `#FFFFFF`，不得出现外置信息元素或独立场景；
 
 “生产完成”与“Amazon MAIN 合规批准”是两个独立状态。`MAIN-STRICT` 应满足默认 Amazon MAIN 规则；增强 MAIN 可以是完整成品，但只有通过当前账户/类目的 exception gate 才能作为正式 MAIN 上传。不得因为增强 MAIN 尚待合规批准，就把它做成半成品；也不得把“视觉完成”误报为“Amazon 已批准”。
 
-## 5. Gaming 3D Breakout + Asset Rail 成品印象
+## 5. Gaming 3D Breakout + Spatial Asset Cards 成品印象
 
-当 `audience_style_family = GAMING` 时，两张增强 MAIN 都必须是完整的 3D Gaming 成品，而不是普通壁纸加卡片，并默认使用 `GAMING_3D_BREAKOUT_ASSET_RAIL`：
+当 `audience_style_family = GAMING` 时，两张增强 MAIN 都必须是完整的 3D Gaming 成品，而不是普通壁纸加卡片，并默认使用 `GAMING_3D_BREAKOUT_SPATIAL_CARDS`：
 
 - 外部画布为纯白 `#FFFFFF` 电商背景，不使用占满画面的赛博海报背景；
 - 准确产品使用批准的正面或自然三分之四角度，视觉包围框居中，主体约占画布宽度 `90%–94%`；顶部视觉留白 `8%–12%`，底部 `6%–9%`；
 - 原创 genre 主体在屏幕内部建立前、中、后景深度，并按 `CONTROLLED_FRAME_BREAK` 受控越过上缘或侧缘；
-- 屏幕下方使用六张确定性资产卡，顺序为 `DISPLAY → CPU → GPU → RAM → SSD → OS`；卡片 skin 默认与 G style 同编号绑定为 A01–A16；
+- 六类确定性资产卡 `DISPLAY / CPU / GPU / RAM / SSD / OS` 全部在 LCD 内；可在下部、四角或错位区域按空间与阅读动线安排，不固定顺序或平铺方式；卡片 skin 默认与 G style 同编号绑定为 A01–A16；
 - 卡片中的文字、数字、图标、商标和底板均来自 approved assets，ImageGen 不生成任何最终规格或 Logo；
 - 固定 `assets/branding/windows-11-pro-package.png` 作为完整独立 package 放在经验证的屏幕安全区；不得换成字体、文字卡、生成的近似包装或移到产品旁；
 - 屏内 package 后方必须是自然连续的原场景，不得存在预留矩形或硬卡槽；使用 palette-aware glow 与 contact shadow 融合，但不得改动 package 本体；
 - 产品始终是第一视觉主体，package 和规格清晰但不把电脑推离中心。
 
-此外，两张 Gaming 增强 MAIN 必须通过 `CONTROLLED_FRAME_BREAK_GATE` 与 `ASSET_RAIL_LCD_CONTAINMENT_GATE`：3D 主体出屏面积 `<=12%`、最多跨越两条屏幕边并保持连续遮挡；六张资产卡、全部文字/数字/Logo、Windows package、卡片边框和 glow 必须完整留在 LCD 内。PT01 如继续使用出屏主体，也执行 `NATURAL_FRAME_BREAK_CONTINUITY_GATE`，但不得复制增强主图的完整六卡配置。
+此外，两张 Gaming 增强 MAIN 必须通过 `CONTROLLED_FRAME_BREAK_GATE` 与 `SPATIAL_CARDS_LCD_CONTAINMENT_GATE`：3D 实体出屏面积 `<=12%`、最多跨越两条屏幕边并保持连续遮挡；六张资产卡、全部文字/数字/额外 Logo、Windows package、卡片边框、glow、粒子和接触光必须完整留在 LCD 内。准确机身原厂标志不属于额外 Logo。PT01 如继续使用出屏主体，也执行 `NATURAL_FRAME_BREAK_CONTINUITY_GATE`，但不得复制增强主图的完整六卡配置。
 
 默认映射为：
 
-- `MAIN-ENHANCED-FRONT-CANDIDATE`：同一 G/C/A family 的正面 `GAMING_3D_BREAKOUT_ASSET_RAIL` 成品；
-- `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE`：同一 G/C/A family 的准确三分之四成品，形成“白底大产品 + 3D 受控出屏 + LCD 六卡 rail”的固定识别；
+- `MAIN-ENHANCED-FRONT-CANDIDATE`：同一 G/C/A family 的正面 `GAMING_3D_BREAKOUT_SPATIAL_CARDS` 成品；
+- `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE`：同一 G/C/A family 的准确三分之四成品，形成“白底大产品 + 3D 实体受控出屏 + LCD 六卡空间布局”的识别；
 - `PT01`：继续使用同一 Gaming 世界观和真实 3D 出屏，但按既有规则不重复 Windows package，并更换信息焦点。
 
 若关键显示、GPU、CPU、RAM/SSD 任一未验证，不得静默省略后仍称该固定构图已完成；应在 preflight 阶段阻断或由用户明确批准切换到不依赖该字段的另一完整成品构图。
