@@ -7,6 +7,8 @@ description: "Run the MegaPC Amazon Custom PC workflow for complete listing prod
 
 适用范围：根据 MyStore ERP 和/或 Checking List 中的产品记录，为 MegaPC 定制 PC 生成经过事实核验、原创且符合项目合规规则的 Amazon Listing 工作簿。本文件是逐产品执行的工作流程，不授权直接发布到 Seller Central。若产品不是“全新电脑、仅定制 RAM/存储”的适用情形，应停止套用本流程并提交人工判断。
 
+> 全目录固定政策和自主核验按 [confirmed-catalog-defaults.md](references/confirmed-catalog-defaults.md) 执行：Windows 11 Pro；6 个月保修 + 12 个月延保；图片只展示电脑本身，PT06 不展示配件；Business Windows 资产仅在 LCD 内；长条官方 Logo 使用比例分流。旧示例与该规则冲突时以该文件为准。
+
 ## 工作流路由
 
 - Listing 研究、文案、合规检查和 Excel 输出继续执行本文件。
@@ -20,11 +22,11 @@ description: "Run the MegaPC Amazon Custom PC workflow for complete listing prod
 - `UNIVERSAL_PHYSICAL_PORT_MAP_RULE` 对所有电脑、所有受众和 style family 强制生效：八张附图中至少一张必须让客户直接看见准确机型的实体接口，默认由 `PT08` 承担。Laptop 应展示有接口的一侧或双侧机身，Desktop/AIO/Mini PC 应展示前置/后置 I/O；接口开口、相对位置和数量必须来自准确机型的获准素材，并用引导线连接到逐项验证的名称/能力。只有 USB-C、USB-A、HDMI、RJ-45、Wi-Fi、Bluetooth 等功能图标而看不到实际接口，不算通过。详细闸门见 [references/supporting-gallery-styles.md](references/supporting-gallery-styles.md)。
 - 图片请求中的“生成/制作/给我审核”默认交付完成文件，不交底稿、prompt、production brief、空模板或缺少后处理的候选。`CANDIDATE` 只表示已完成主图之间等待选择。完整图库若在 preflight 发现关键事实或素材不足，应先阻断并说明，不得用 `TO PRODUCE`/`TO SOURCE` 的缺图集合冒充成品。
 - MegaPC / J-Tech Digital 已确认其目录内销售的各 OEM 品牌均具有适用于商品销售与图片制作的经销商、合作伙伴或书面品牌素材授权。按 [`references/brand-authorization-policy.md`](references/brand-authorization-policy.md) 记录为 `USER_CONFIRMED_CATALOG_WIDE`；常规 OEM 产品图片与正确 OEM Logo 不得再仅因公开网页未展示授权证明而阻断。仍须核验品牌与准确机型匹配、使用官方/品牌提供的原始资产、遵守 Logo 规范，并对游戏、软件、人物及其他第三方 IP 另行执行授权闸门。
-- `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE` 对所有产品、品牌、受众和 style family 强制生效：PT01–PT08 每张图都必须在无额外品牌 overlay 的母版完成后，用正确 OEM 官方/获准原始 Logo 确定性合成；真实产品上原有的原厂标志不可清除。仅“文件里有 Logo”不算通过。`logo-placement.json` 必须启用 200 px 缩略图量化闸门，最终可见 Logo 在该缩略图上的长边至少 20 px、短边至少 10 px，且可见长边默认占画布 `9%–12%`、不得超过 `12%`，并具有足够对比背景与独立安全区。任一 PT 缺额外获准 Logo、太小、过大、被裁切、与内容碰撞或缩略图不可辨认时，整套图为 `REWORK_REQUIRED`，不得标为 `FINAL_ASSET_QA_PASS`。
+- `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE` 对所有产品、品牌、受众和 style family 强制生效：PT01–PT08 每张图都必须在无额外品牌 overlay 的母版完成后，用正确 OEM 官方/获准原始 Logo 确定性合成；真实产品上原有的原厂标志不可清除。仅“文件里有 Logo”不算通过。`logo-placement.json` 必须启用 200 px 缩略图量化闸门，最终可见 Logo 在该缩略图上的长边至少 20 px、短边普通标志至少 10 px（长条字标按 confirmed-catalog-defaults.md 的原始比例分流），且可见长边默认占画布 `9%–12%`、不得超过 `12%`，并具有足够对比背景与独立安全区。任一 PT 缺额外获准 Logo、太小、过大、被裁切、与内容碰撞或缩略图不可辨认时，整套图为 `REWORK_REQUIRED`，不得标为 `FINAL_ASSET_QA_PASS`。
 - `UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 同样强制生效：默认使用带真实透明通道的官方/获准 Logo，在生成时预留的自然负空间中直接合成，使标志成为构图的一部分。不得把带灰/白矩形背景的 Logo 图片或统一白色方卡贴在成品上。深色复杂背景优先换安全位置或使用 OEM 允许的细 keyline/反白原始资产；只有品牌规范明确要求背景牌时才可用硬 badge，并在 placement plan 记录 `badgeExceptionReason`。公开源文件只有中性背景时，可用 `scripts/remove-neutral-logo-background.ps1` 生成不改颜色和比例的可复现透明 derivative。
 - `UNIVERSAL_AUTHENTIC_OEM_MARK_RULE` 对全部 style family 强制生效：准确产品素材中真实存在的原厂机身 OEM 标志必须保留原位、原比例、原色和自然可见性，不得删除、遮挡、重画或伪造；以准确 SKU 的产品素材核验。屏幕里的营销品牌图形须另有权利与配置证据。额外后期合成的 OEM Logo 仍只允许放在产品轮廓外的自然负空间，不得贴入屏幕、机身、结构或电脑示意图。`logo-placement.json` 中既有的 `productSurfaceLogoAbsenceReview: PASS` 仅表示没有**额外生成/合成的产品表面标志**，绝不表示要清除原厂标志；新增 `authenticFactoryMarkPreservationReview: PASS` 记录原厂标志保留复核。每张 PT 的 `outsideProductReview: PASS` 和 `PRODUCT_SILHOUETTE*` protected zones 继续约束额外合成 Logo。没有外部自然负空间时重排版面，不能牺牲原厂标志或把额外 Logo 移进电脑。
 - `UNIVERSAL_CANONICAL_PROMOTION_GATE` 禁止把 ImageGen 输出或 `unbranded/PT01.png`–`PT08.png` 直接复制到 canonical product folder 后提交。PT 成品只能通过 `scripts/finalize-image-gallery.ps1` 的确定性 Logo 合成路径生成；随后必须运行 `scripts/test-final-image-gallery.ps1`。新生成的 `logo-qa.json` 必须为 schema v3（历史 v2 仅供既有图库兼容验证），并把每张无额外品牌 overlay 的母版和最终 PT 的 SHA-256 绑定在同一条记录中，同时记录原厂标志保留 gate。任何 PT 或母版在 QA 后发生字节变化，旧报告立即失效；未重新 finalization、验证脚本未 PASS、或 GitHub Logo QA check 未通过时，不得报告完成、commit 或 push。
-- `UNIVERSAL_BRAND_SPACING_RULE` 强制控制标志尺寸和距离：为满足 200 px 缩略图长边至少 20 px、短边至少 10 px 的可见性，Logo 可见长边默认占画布 `9%–12%`，不得超过 `12%`；与电脑轮廓、标题、信息卡、线条及其他视觉组件保持至少 `32 px` 或画布短边 `2.5%` 的独立空间（取较大值）。合成前必须确认底图没有虚线框、占位牌、残留底卡或旧 Logo；否则先清理无品牌母版，禁止直接在旧元素上叠加。
+- `UNIVERSAL_BRAND_SPACING_RULE` 强制控制标志尺寸和距离：为满足 200 px 缩略图长边至少 20 px、短边普通标志至少 10 px（长条字标按 confirmed-catalog-defaults.md 的原始比例分流） 的可见性，Logo 可见长边默认占画布 `9%–12%`，不得超过 `12%`；与电脑轮廓、标题、信息卡、线条及其他视觉组件保持至少 `32 px` 或画布短边 `2.5%` 的独立空间（取较大值）。合成前必须确认底图没有虚线框、占位牌、残留底卡或旧 Logo；否则先清理无品牌母版，禁止直接在旧元素上叠加。
 
 ## 输入与规则文件
 
@@ -132,4 +134,3 @@ description: "Run the MegaPC Amazon Custom PC workflow for complete listing prod
 ## 执行者最终报告
 
 按产品列出：输入模式、MyStore URL/产品 ID、Checking List 页签/行号、映射状态、`VL-`、产品名、参考 Amazon listing 数量及 URL、官方来源、关键属性验证结果、未解决的 `TBD/CONFLICT/SOURCE_UNAVAILABLE`、合规结果、输出工作簿路径和下一步人工动作。若某项被阻断，写明具体原因及需要谁提供什么资料；不要仅写“失败”。
-

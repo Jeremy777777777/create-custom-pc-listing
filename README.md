@@ -7,6 +7,13 @@ This repository contains one end-to-end workflow with two coordinated outputs:
 
 Nothing in this repository authorizes automatic publishing to Seller Central.
 
+Catalog-wide seller defaults and autonomous research follow
+[`references/confirmed-catalog-defaults.md`](references/confirmed-catalog-defaults.md):
+Windows 11 Pro; 6-month warranty + 12-month extended warranty; computer-only
+gallery imagery; internal SSD and installed RAM cross-validation; independently
+source exact-model high-resolution angles from OEM, Best Buy and Amazon.
+Previously approved product styles remain approved during the same task.
+
 ## Repository map
 
 ```text
@@ -24,7 +31,7 @@ references/
   gaming-hero-styles.md                       Six original 3D gaming hero add-ons
   gaming-core-badge-styles.md                 Six Gaming core-config compositions + enhanced-MAIN Windows rules
   business-work-hero-styles.md                 Business/Work hero routing and entitlement gates
-  business-laptop-gallery-styles.md            Five end-to-end minimalist Business laptop galleries
+  business-laptop-gallery-styles.md            B07–B16 end-to-end Business laptop galleries
   supporting-gallery-styles.md                 Gaming/Business PT02-PT08 continuation packs
 assets/
   listing-workbook-template.xlsx              Listing workbook template
@@ -62,7 +69,7 @@ after the workflow verifies the exact Office/Copilot entitlement. The workflow
 records the audience evidence, confidence, and routing reason so Gaming,
 Business/Work, Student/Study, and General products do not silently share the
 wrong visual language.
-Business laptops may additionally select one of five complete B07–B11/BG07–BG11
+Business laptops may additionally select one of ten complete B07–B16/BG07–BG16
 systems from
 [`references/business-laptop-gallery-styles.md`](references/business-laptop-gallery-styles.md),
 which emphasize collaboration tools, mobility, executive workflows, verified AI
@@ -77,9 +84,11 @@ Gaming or Business story pack in
 [`references/supporting-gallery-styles.md`](references/supporting-gallery-styles.md),
 including controlled use of licensed or original synthetic people where a real
 use case benefits from them.
-Both `MAIN-ENHANCED-FRONT-CANDIDATE` and
-`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` always use the fixed Windows 11 Pro
-package asset; `MAIN-STRICT` and PT01 never use a package or text substitute.
+Business `MAIN-ENHANCED-FRONT-CANDIDATE` and
+`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` use different fixed Windows forms:
+one approved logo lockup and one package. Both remain wholly inside the LCD.
+Other audience families follow their own fixed-package rules.
+`MAIN-STRICT` and PT01 never use a Windows asset.
 All branded assets require recorded commercial-use rights.
 Finished image files and their `image-manifest.md` are delivered under
 [`product generated photo/`](product%20generated%20photo/); they are not written
