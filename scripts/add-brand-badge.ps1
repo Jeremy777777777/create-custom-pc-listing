@@ -118,7 +118,8 @@ if ($minimumClearance -lt 16) {
 }
 $thumbnailReviewSize = [int]$plan.thumbnailReviewSizePx
 $minimumVisibleLongEdge = [int]$plan.minimumVisibleLogoLongEdgePxAtThumbnail
-$minimumVisibleShortEdge = [int]$plan.minimumVisibleLogoShortEdgePxAtThumbnail
+$minimumVisibleShortEdge = [float]$plan.minimumVisibleLogoShortEdgePxAtThumbnail
+$wordmarkMode = [string]$plan.logoVisibilityMode -eq 'ASPECT_RATIO_WORDMARK'
 $maximumLogoLongEdgePercent = [float]$plan.maximumLogoLongEdgePercentOfCanvas
 
 if ([string]$plan.productSurfaceLogoAbsenceReview -ne 'PASS') {
@@ -131,8 +132,8 @@ $minimumComponentSeparation = [int]$plan.minimumComponentSeparationPx
 if ($thumbnailReviewSize -lt 200) {
     throw 'Placement plan thumbnailReviewSizePx must be at least 200.'
 }
-if ($minimumVisibleLongEdge -lt 20 -or $minimumVisibleShortEdge -lt 10) {
-    throw 'Placement plan thumbnail Logo thresholds must be at least 20 px long-edge and 10 px short-edge.'
+if ($minimumVisibleLongEdge -lt 20 -or $minimumVisibleShortEdge -le 0 -or (-not $wordmarkMode -and $minimumVisibleShortEdge -lt 10)) {
+    throw 'Logo thresholds require 20 px long-edge and 10 px short-edge, unless the source-measured official wide-wordmark branch applies.'
 }
 if ($maximumLogoLongEdgePercent -le 0 -or $maximumLogoLongEdgePercent -gt 12) {
     throw 'Placement plan maximumLogoLongEdgePercentOfCanvas must be greater than 0 and no more than 12.'
@@ -275,6 +276,19 @@ try {
             $thumbnailScale = [float]$thumbnailReviewSize / [float]$source.Width
             $visibleLongEdge = [Math]::Max($logoBounds.Width, $logoBounds.Height) * $thumbnailScale
             $visibleShortEdge = [Math]::Min($logoBounds.Width, $logoBounds.Height) * $thumbnailScale
+            if ($wordmarkMode) {
+                if ([string]::IsNullOrWhiteSpace([string]$plan.logoAssetSourceUrl)) { throw 'Wide-wordmark mode requires official logoAssetSourceUrl.' }
+                $minX = $logo.Width; $minY = $logo.Height; $maxX = -1; $maxY = -1
+                for ($ay = 0; $ay -lt $logo.Height; $ay++) { for ($ax = 0; $ax -lt $logo.Width; $ax++) { if ($logo.GetPixel($ax,$ay).A -gt 8) { $minX=[Math]::Min($minX,$ax); $maxX=[Math]::Max($maxX,$ax); $minY=[Math]::Min($minY,$ay); $maxY=[Math]::Max($maxY,$ay) } } }
+                if ($maxX -lt 0) { throw 'Official wordmark has no visible pixels.' }
+                $alphaBounds = [System.Drawing.Rectangle]::new($minX,$minY,$maxX-$minX+1,$maxY-$minY+1)
+                $sourceRatio = [Math]::Max($alphaBounds.Width, $alphaBounds.Height) / [Math]::Min($alphaBounds.Width, $alphaBounds.Height)
+                if ($sourceRatio -le 2.4) { throw 'Wide-wordmark branch only applies to official visible aspect ratios greater than 2.4.' }
+                $requiredShortEdge = $minimumVisibleLongEdge / $sourceRatio
+                if ($minimumVisibleShortEdge -lt ($requiredShortEdge - 0.01)) { throw 'Wide-wordmark short-edge threshold is below the source-proportional floor.' }
+                $renderRatio = $visibleLongEdge / $visibleShortEdge
+                if ([Math]::Abs($renderRatio - $sourceRatio) / $sourceRatio -gt 0.03) { throw 'Official wordmark aspect ratio was distorted.' }
+            }
             if ($visibleLongEdge -lt $minimumVisibleLongEdge -or $visibleShortEdge -lt $minimumVisibleShortEdge) {
                 throw ("Logo for {0} is present but too small at {1}px thumbnail: {2:N1}x{3:N1}px; required >= {4}px long-edge and >= {5}px short-edge." -f `
                     $fileName, $thumbnailReviewSize, ($logoBounds.Width * $thumbnailScale), ($logoBounds.Height * $thumbnailScale), $minimumVisibleLongEdge, $minimumVisibleShortEdge)
@@ -366,6 +380,8 @@ $qaReport = [ordered]@{
     thumbnailReviewSizePx = $thumbnailReviewSize
     minimumVisibleLogoLongEdgePxAtThumbnail = $minimumVisibleLongEdge
     minimumVisibleLogoShortEdgePxAtThumbnail = $minimumVisibleShortEdge
+    logoVisibilityMode = [string]$plan.logoVisibilityMode
+    logoAssetSourceUrl = [string]$plan.logoAssetSourceUrl
     maximumLogoLongEdgePercentOfCanvas = $maximumLogoLongEdgePercent
     minimumComponentSeparationPx = $minimumComponentSeparation
     result = 'PASS'
