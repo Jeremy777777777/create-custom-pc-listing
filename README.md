@@ -103,6 +103,11 @@ MyStore product and/or Checking List row
   -> listing copy and workbook
   -> compliance and human review
   -> separate image plan and production
-  -> image QA and human review
+  -> image QA
+  -> mandatory GitHub upload under product generated photo/VL-XXXX/
+  -> remote file/hash and applicable CI verification
+  -> GitHub folder delivery and human review
 ```
 
+
+Final image generation includes GitHub delivery by default. Upload all 11 finished images and QA records to `product generated photo/VL-XXXX/` using the verified internal ID, then verify the remote files and applicable CI. Local images, a ZIP, or workflow-only commits are not completed gallery delivery. Only an explicit local-only/no-upload/concept request skips this step. Report completion with the GitHub folder and commit links after `GITHUB_DELIVERY_VERIFIED`; see [the delivery contract](references/final-image-delivery-contract.md#7-默认-github-最终交付强制).
