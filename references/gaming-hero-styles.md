@@ -6,6 +6,14 @@
 
 同一 G/A 视觉体系不代表 PT01 复用增强 MAIN 的 C07 六卡：两个增强 MAIN 可共享 C07，而 PT01 独立选择 C01–C06 的精简布局，最多两张 feature cards。
 
+### 已批准基础图与逐部位出屏限制
+
+增强 MAIN 的信息层执行 [gaming-core-badge-styles.md](gaming-core-badge-styles.md) 的“用户确认的图形资产与贴合要求”和 `GRAPHIC_ASSET_CARD_FIT_GATE`；获批底图加固定坐标纯文字不构成合格成品。Laptop PT08 执行 [supporting-gallery-styles.md](supporting-gallery-styles.md) 的用户批准双侧接口图构图与 `PT08_REFERENCE_LAYOUT_GATE`。
+
+用户明确指定某张已批准基础图时，该图是 `APPROVED_BASE_COMPOSITION_LOCK` 的编辑目标，不是重新出图时可随意参考的 mood board。锁定电脑尺寸/位置、上下左右留白、屏幕透视、角色重心与六个空间卡位；先在原卡位清除示意图，再确定性放入已验证规格、组件资产和固定 Windows package。若底图的准确机身或原厂标志需要修复，仅替换对应产品层；不得为安放文字重新生成整台电脑或把六卡压成一条平铺带。
+
+对 VL-1221 这类用户批准的“仅头部轻微出屏”构图，`HEAD_ONLY_FRAME_BREAK` 比通用 `CONTROLLED_FRAME_BREAK` 更严格：只有头盔/头部可少量越过 LCD 上缘；手、手臂、肩膀、肩甲、粒子和所有光效必须在 LCD 内。编辑前后分别在 100% 图上检查上缘和侧缘，并保存头/肩/臂/手的逐部位通过记录。参考底图若已有肩甲或碎片越界，应局部收回，而不是保留该缺陷或整体换图。未经用户重新批准，不得放宽为全身出屏。
+
 PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 使用同编号 continuation pack：G01→GG01，G02→GG02，依此类推。这样人物、原创世界观、色彩和功能叙事在整套图库中连续，而不是只在 PT01 出现。
 
 每个 G01–G16 都可映射到 [hero-composition-variants.md](hero-composition-variants.md) 的准确正面或三分之四产品角度。两个增强 MAIN 都把固定 Windows package 放入屏幕安全区；三分之四版本只改变准确产品角度，不建立外置信息区。PT01 可延续相同角度和世界观，但不放 package。选择构图不改变 G 编号、原创 genre、C01–C07 核心配置、同号 A01–A16 asset-card skin 或 GG01–GG16 continuation pack。

@@ -60,6 +60,8 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 
 用户明确批准前，`style_approval_status` 保持 `PROPOSED`，停止正式渲染。用户拒绝时选择下一套仍有事实依据的 style 并重新提案；不得生成完整图库来代替 style 选择。批准后把 style ID、对应 BG/GG pack、对话来源和批准时间记录为 `APPROVED`，并将其作为所有正式 prompt 的不可变 `style_lock`。生成后执行 `STYLE_FIDELITY_GATE`；风格漂移时进入 `REWORK_REQUIRED`，不得标记 `FINAL_ASSET_QA_PASS`。
 
+若用户另外指定某张已批准的基础图作为返工底图，启用 `APPROVED_BASE_COMPOSITION_LOCK`：先记录该文件路径、SHA-256、画布、电脑视觉包围框、四周留白、屏幕四角、主体姿态、允许出屏的部位以及六卡空间占位。只在用户点名的区域做局部编辑和确定性资产替换；不得把底图降格为“风格参考”后另起一张机甲或电脑。获批底图锁定构图，不豁免准确 SKU、原厂机身标志、素材权利及 Amazon 边界；若底图中的机身不准确或原厂标志缺失，应使用准确获准产品层局部修复，不能让 ImageGen 重画标志或自行猜测硬件。无法在保留获批构图的同时修复时，生产前说明冲突并请求新的底图/授权角度，不得静默改用新构图。
+
 ### 3. 制作固定 11 张图片（3 MAIN + 8 张附图；Amazon 仍为 9 个实际槽位）
 
 生产交付固定包含 `MAIN-STRICT`、`MAIN-ENHANCED-FRONT-CANDIDATE`、`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE`、`PT01`–`PT08`。Amazon 实际 gallery 仍使用一个 `MAIN` 槽；三份主图是供人工选择的完成版替代方案，不能同时占用多个 MAIN 槽位。默认上传严格版；两个增强版只有通过 exception gate 后才可选用。`FINAL_ASSET_DELIVERY` 必须在生产前解决全部必需事实和素材；无法解决时使用 `BLOCKED_BEFORE_PRODUCTION`，不能把 `TO SOURCE`、`TO PRODUCE`、production brief 或缺少内容的图片作为完成交付。规划模式仍可在 manifest 中使用待制作状态，但不得声称图片已经生成完成。
@@ -91,7 +93,7 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 5. `MAIN-STRICT` 不添加任何图形 Logo、水印或卖家标识。实拍中机身原有 OEM 标识可自然保留，但不得在严格主图另加放大的 Logo 覆盖层。增强主图只可确定性合成获准的 OEM 与 Windows package 素材。
 6. `Centered Performance + Screen Package` 必须以电脑视觉包围框独立测量居中，水平偏差不超过画布宽度 2%，一般版主体约占画布宽度 78%–86%；Gaming C07 则按获批的 90%–94% 例外。Windows 11 Pro 必须从固定仓库素材确定性合成并整体等比缩放，不得由生成模型重画。优先尝试屏幕内安静区域；若会压住 hero、角色或规格，须在屏内重排内容，即使改用侧向产品角度也不能使用屏幕外侧边安全区。母版必须在 package 后方保持连续自然的屏幕环境，不得出现预留矩形、边框或平色卡槽；使用 `scripts/add-fixed-image-overlay.ps1 -IntegrationStyle ScreenGlow` 添加仅限屏内的环境光与接触阴影。任何方案都不得把 package 删除、裁切、改色、透视变形或改成文字卡。
 7. Gaming 图默认使用 `ORIGINAL_GENRE`：可研究 tactical、fantasy arena、battle royale、mech、sandbox 或 racing 等题材，但不得在提示或成品中复制游戏名称、人物、Logo、截图、地图、HUD、皮肤、标志性道具/载具或作品特有配色。只有书面授权覆盖该 Listing、渠道、地区和期限时，才可切换为 `LICENSED_GAME_CAMPAIGN` 并使用批准原始资产。
-8. Gaming 的两张增强 MAIN 默认使用批准的 `GAMING_3D_BREAKOUT_SPATIAL_CARDS`：只有连续的原创 3D 实体可跨越屏幕上缘或侧缘，越过屏幕的面积不得超过电脑视觉包围框的 `12%`，最多跨越两条屏幕边；粒子、接触光、光晕、雾、速度线和投影不得越出 LCD。display/CPU/GPU/RAM/SSD/OS 六张资产卡可按空间感放在屏内下部、四角或错位区域，不要求固定顺序；全部文字/数字/额外 Logo 与 Windows asset 必须完整位于 LCD 内。准确电脑原有 OEM 标志保留。电脑外部继续保持纯白，只允许受控 3D 实体和准确电脑轮廓，不得放信息卡或外部场景。电脑中心偏差仍须 `<= 2%`。
+8. Gaming 的两张增强 MAIN 默认使用批准的 `GAMING_3D_BREAKOUT_SPATIAL_CARDS`：只有连续的原创 3D 实体可跨越屏幕上缘或侧缘，越过屏幕的面积不得超过电脑视觉包围框的 `12%`，最多跨越两条屏幕边；粒子、接触光、光晕、雾、速度线和投影不得越出 LCD。对用户明确要求“仅头部轻微出屏”的已批准构图，启用更严格的 `HEAD_ONLY_FRAME_BREAK`：仅头盔/头部可少量越过屏幕上缘，手、手臂、肩膀、肩甲及其光效必须完整留在 LCD 内；通用的“连续 3D 实体”许可不能覆盖这一逐部位限制。display/CPU/GPU/RAM/SSD/OS 六张资产卡可按空间感放在屏内下部、四角或错位区域，不要求固定顺序；全部文字/数字/额外 Logo 与 Windows asset 必须完整位于 LCD 内。准确电脑原有 OEM 标志保留。电脑外部继续保持纯白，只允许受控 3D 实体和准确电脑轮廓，不得放信息卡或外部场景。电脑中心偏差仍须 `<= 2%`。
 9. Business/Work 的 Office 与 Copilot 必须执行 `business-work-hero-styles.md` 的权益账本。`Lifetime Office` 只在卖家对准确 SKU 提供可审计依据并批准准确措辞时使用；否则展示准确 Office 产品名与许可模式。物理 Copilot key、Windows Copilot、Microsoft 365 Copilot 许可和 Copilot+ PC 是四种不同事实，不能互相推断。
 10. 对 customized laptop/desktop 的 PT01–PT08，先从产品事实账本确认底机制造商，再选择同一 OEM 的官方或已获准 Logo 资产。若产品是 HP，只能使用 HP Logo；品牌字段冲突、来源不明或资产未获准时停止合成。该 Logo 仅识别底机来源，不得暗示 OEM 完成、认可或为卖家升级提供保修。
 11. 先完成并保存无品牌 PT01–PT08 母版，再用原始 Logo 文件进行确定性后处理；禁止让 ImageGen 重画 Logo、品牌文字或商标。每个生成 prompt 必须主动预留约 `18% × 18%` 的自然负空间供 OEM mark 使用，不绘制占位框。默认使用带真实 alpha 的官方/获准透明 Logo 直接融入画面，不加统一白色矩形底牌；源文件带中性背景时，优先寻找透明原始资产，或使用 `scripts/remove-neutral-logo-background.ps1` 只移除背景并保留官方颜色、比例和几何。每张图单独选择位置，不设固定右下角。没有合格安全区时必须重新排版或重做该 PT 图。
@@ -109,11 +111,13 @@ OEM 品牌授权按 [`brand-authorization-policy.md`](brand-authorization-policy
 - 对 PT01–PT08 执行 OCR 与语义去重：核对 `Gallery Content Ownership Matrix`、每张图的新增信息、核心规格归属和任意两张图的主要信息重合。重合超过 `supporting-gallery-styles.md` 的阈值、PT05 成为第二张配置表、或 PT07 退化为规格回顾时，整套图库不得进入 `FINAL_ASSET_QA_PASS`，必须重做对应槽位。
 - 对 PT01–PT08 执行 `UNIVERSAL_OEM_LOGO_VISIBILITY_RULE`：`logo-qa.json` 必须存在并整体为 `PASS`；任何 Logo 在 200 px 缩略图投影中长边小于 20 px、短边小于 10 px，可见长边超过原画布 `12%`，或低对比、碰撞、裁切，均将整套图库置为 `REWORK_REQUIRED`。
 - 对 PT01–PT08 执行 `UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 和 `UNIVERSAL_BRAND_SPACING_RULE`：检查源资产 alpha 与 200 px contact sheet；出现灰/白矩形源底、统一白色贴纸感、虚线占位框、旧 Logo/旧 package 残留、未经记录的硬 badge、Logo 长边超过画布 `12%`、与电脑/文字/信息卡间距不足，或明显破坏视觉层级时，整套图库置为 `REWORK_REQUIRED`。增强主图的 Windows asset 也必须先清除底图里的旧版本，每张只允许一个确定性合成单元。
-- 对 PT01–PT08 执行 `UNIVERSAL_PHYSICAL_PORT_MAP_RULE`：确认至少一张、默认 `PT08`，包含准确机型的真实侧面/背面/前后 I/O 视图，可见端口开口和锚定到该开口的准确标注。只有接口/无线功能图标、抽象连线或三分之四产品图而没有实体端口时，整套图库置为 `REWORK_REQUIRED`。
+- 对 PT01–PT08 执行 `UNIVERSAL_PHYSICAL_PORT_MAP_RULE` 和 `PRODUCT_APPEARANCE_MATCH_GATE`：确认至少一张、默认 `PT08`，包含准确 SKU/颜色的真实侧面/背面/前后 I/O 视图，可见端口开口和锚定到该开口的准确标注；与 MAIN 和其余 PT 逐张对照机身颜色、饰面、原厂标志、接口开口及几何。维护手册/系列线稿只可核对端口事实，不得直接裁成营销成品、伪装成实拍，也不得把浅色系列示意图用于深色准确 SKU。只有接口/无线功能图标、抽象连线或三分之四产品图而没有准确实体端口时，整套图库置为 `REWORK_REQUIRED`。
 - 对全部正式图片执行 `STYLE_FIDELITY_GATE`：contact sheet 必须能识别用户批准的 style palette、screen-background recipe 和 required motifs，且不含 forbidden motifs、通用 fallback 壁纸或其他 family 的识别元素。Manifest 的 `style_approval_status` 必须为 `APPROVED`，`style_fidelity_review` 必须为 `PASS`；否则整套图库置为 `REWORK_REQUIRED`。
-- 对两张增强主图执行 `ENHANCED_MAIN_CONTENT_BOUNDARY_GATE`。Business/Work 和未获批例外的 family 执行 `SCREEN_ONLY`。Gaming 执行 `CONTROLLED_FRAME_BREAK`：检查 3D 主体连续性、`<=12%` 出屏面积和最多两条边，同时确认所有资产卡、文字、数字、Logo、Windows package、卡片边框/glow 完整位于 LCD 内。任何电脑外置信息卡、文字、Logo、package、房间/城市背景或非连续装饰均置为 `REWORK_REQUIRED`。
+- 对两张增强主图执行 `ENHANCED_MAIN_CONTENT_BOUNDARY_GATE`。Business/Work 和未获批例外的 family 执行 `SCREEN_ONLY`。Gaming 执行 `CONTROLLED_FRAME_BREAK`：检查 3D 主体连续性、`<=12%` 出屏面积和最多两条边；若批准记录为 `HEAD_ONLY_FRAME_BREAK`，还须在 100% 图上按头、肩、臂、手分区复核，任何肩甲、手臂或手部越过 LCD 上缘/侧缘立即失败。全部资产卡、文字、数字、Logo、Windows package、卡片边框/glow 必须完整位于 LCD 内。任何电脑外置信息卡、文字、Logo、package、房间/城市背景或非连续装饰均置为 `REWORK_REQUIRED`。
 
 ### 5A. 快速成功调用：标准成品流水线
+
+Gaming 两张增强 MAIN 在正式交付前还须通过 `GRAPHIC_ASSET_CARD_FIT_GATE`（详见 gaming-core-badge-styles.md）：逐卡验证图形资产、边距、倾斜协调与融合，不允许纯文字替代资产。Laptop PT08 须通过 `PT08_REFERENCE_LAYOUT_GATE`（详见 supporting-gallery-styles.md）：按用户批准的白底双侧大机身、圆形图标、短标签、独立接口引导线与底部无线条制作。任何一项失败均为 `REWORK_REQUIRED`；文件存在或规格正确不能代替视觉验收。
 
 以后执行完整图库或同类重做时，固定按以下顺序调用，不从临时经验重新拼流程：
 

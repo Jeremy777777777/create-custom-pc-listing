@@ -77,6 +77,7 @@ Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求�
 - 单张文件可以直接进入对应 Listing 槽位的上传准备，不依赖后续补字、补 Logo、补 package 或重新排版。
 - 与用户批准的 style proposal 一致，并通过 [style-approval-gate.md](style-approval-gate.md) 的 `STYLE_FIDELITY_GATE`；
 - 两张增强主图通过 `ENHANCED_MAIN_CONTENT_BOUNDARY_GATE`：Business/Work 与未获批例外的 family 使用 `SCREEN_ONLY`；Gaming 可使用获批 `CONTROLLED_FRAME_BREAK`，但仅允许连续的原创 3D 实体出屏；粒子、接触光、光晕、雾及投影不得出屏。全部卡片、规格、额外 Logo 和 Windows asset 必须完整位于 LCD 内，原厂机身标志保留。屏幕外保持纯白 `#FFFFFF`，不得出现外置信息元素或独立场景；
+- 用户指定的获批基础图须通过 `APPROVED_BASE_COMPOSITION_LOCK`；启用 `HEAD_ONLY_FRAME_BREAK` 时须逐部位检查，仅头部可轻微越过屏幕上缘。PT08 须通过 `PRODUCT_APPEARANCE_MATCH_GATE`，不能把另一颜色/系列的维护手册线稿当成准确机身照片。任何一项失败，已有图库也保持 `REWORK_REQUIRED`，不得因其他 11 张文件仍在目录中而上传替换。
 
 “生产完成”与“Amazon MAIN 合规批准”是两个独立状态。`MAIN-STRICT` 应满足默认 Amazon MAIN 规则；增强 MAIN 可以是完整成品，但只有通过当前账户/类目的 exception gate 才能作为正式 MAIN 上传。不得因为增强 MAIN 尚待合规批准，就把它做成半成品；也不得把“视觉完成”误报为“Amazon 已批准”。
 
