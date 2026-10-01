@@ -17,13 +17,13 @@
 所有机型的两个增强主图都必须使用仓库固定素材 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)。该素材表示预装系统视觉标签，不表示随箱附送实体零售盒；manifest 固定记录 `retail_media_included: false`。不得让生成模型重画、拼写或改造它，也不得以纯文字卡、edition lockup、占位盒或临时近似图替代。`MAIN-STRICT` 和 PT01 均不出现 package。
 
 1. package 必须整体等比缩放，保持完整、清晰、无遮挡，不裁切、不改色、不拆出 Windows 图形或背景。
-2. 可放在电脑屏幕的安静安全区，也可放在产品旁独立安全区；屏幕内放置是 option，不是强制。
+2. 只能放在电脑屏幕的安静安全区；产品旁独立安全区不允许用于增强 MAIN 的任何营销资产。
 3. 若版面拥挤，先减少次要装饰/feature cards、扩大留白或使用准确的侧向产品构图。不得删除 package，也不得把它标记为待处理后继续交付。
 4. package 必须从属于电脑主体，不得造成“第二件随箱商品”的观感；严格 `MAIN-STRICT` 始终不添加 package，增强版只有通过独立 MAIN exception gate 后才可作为正式 `MAIN.jpg` 使用。
 
 ### Windows 视觉样式库
 
-所有增强主图统一使用 **Fixed Windows 11 Pro Package**。允许两种 placement：`SCREEN_SAFE_ZONE`（等比放入屏幕安静区域）和 `CANVAS_SIDE_SAFE_ZONE`（配合正向或三分之四侧向产品放在独立留白区）。placement 可以随型号和信息密度改变，但素材文件不变。PT01 只复用 style、色彩和准确产品角度，不复用 package。
+所有增强主图统一使用 **Fixed Windows 11 Pro Package**，placement 固定为 `SCREEN_SAFE_ZONE`，等比放入屏幕安静区域。`CANVAS_SIDE_SAFE_ZONE` 不再允许用于增强 MAIN。PT01 只复用 style、色彩和准确产品角度，不复用 package。
 
 ## 屏幕内信息架构
 

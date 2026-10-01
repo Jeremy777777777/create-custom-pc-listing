@@ -1,22 +1,22 @@
 # MegaPC Gaming PC Hero Style Library
 
-本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 Gaming 专用 add-on。它把准确产品与已验证性能信息扩展为原创的 3D 游戏氛围画面，可用于增强主图和 `PT01 Conversion Hero`。核心配置版式另从 [gaming-core-badge-styles.md](gaming-core-badge-styles.md) 选择 C01–C06；固定 Windows 11 Pro package 只出现在增强主图，PT01 不重复。Business/Work 改用 [business-work-hero-styles.md](business-work-hero-styles.md)，不能混用本文件的人物、场景和光效。
+本文件是 [conversion-hero-styles.md](conversion-hero-styles.md) 的 Gaming 专用 add-on。它把准确产品与已验证性能信息扩展为原创的 3D 游戏氛围画面，可用于增强主图和 `PT01 Conversion Hero`。核心配置布局从 [gaming-core-badge-styles.md](gaming-core-badge-styles.md) 选择 C01–C07；资产卡视觉由同文件的 A01–A16 控制，并默认与 G01–G16 同编号绑定。固定 Windows 11 Pro package 只出现在增强主图，PT01 不重复。Business/Work 改用 [business-work-hero-styles.md](business-work-hero-styles.md)，不能混用本文件的人物、场景和光效。
 
-一旦 `audience_style_family = GAMING`，两个增强 MAIN 和 PT01 都必须选择同一 G01–G16 与 C01–C06 family，并包含与屏幕相连的真实分层 `FRAME_BREAK_SUBJECT`；仅放一张游戏壁纸、霓虹背景、平面人物或画布背景中的独立角色不算完成。至少一张增强 MAIN 必须执行 [final-image-delivery-contract.md](final-image-delivery-contract.md) 的 `GAMING_WHITE_CATALOG_FRAME_BREAK`，默认使用准确三分之四产品角度。若准确机身几何、素材权利或遮挡安全无法实现，应在成品生产前标记 `BLOCKED_BEFORE_PRODUCTION` 交人工处理，不得自动退化为普通 Business/General 风格或交付半成品。
+一旦 `audience_style_family = GAMING`，两个增强 MAIN 和 PT01 都必须选择同一 G01–G16，并记录对应 C layout 与 A asset-card skin。默认 signature enhanced-main 为 `GAMING_3D_BREAKOUT_ASSET_RAIL`：准确电脑置于纯白电商画布，原创 3D 主体与屏幕环境保持连续并可受控跨越屏幕上缘/侧缘，六张确定性资产卡完整留在 LCD 下部。只有角色/装备及少量连续粒子/接触光可以出屏；文字、数字、Logo、Windows package、卡片底板和其他信息像素禁止出屏。仅放一张游戏壁纸、霓虹背景或平面人物不算完成。若准确机身几何、素材权利或 asset rail 安全区无法实现，应在成品生产前标记 `BLOCKED_BEFORE_PRODUCTION`，不得自动退化为普通 Business/General 风格或交付半成品。
 
 PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting-gallery-styles.md) 使用同编号 continuation pack：G01→GG01，G02→GG02，依此类推。这样人物、原创世界观、色彩和功能叙事在整套图库中连续，而不是只在 PT01 出现。
 
-每个 G01–G16 都可映射到 [hero-composition-variants.md](hero-composition-variants.md) 的两种构图。增强主图的 `FRONT_SCREEN_CARD` 将固定 Windows package 放入屏幕安全区；`THREE_QUARTER_SIDE_CARD` 使用准确三分之四产品素材并把 package 放在独立白色安全区。PT01 可延续相同角度和世界观，但不放 package。选择构图不改变 G 编号、原创 genre、C01–C06 核心配置或 GG01–GG16 continuation pack。
+每个 G01–G16 都可映射到 [hero-composition-variants.md](hero-composition-variants.md) 的准确正面或三分之四产品角度。两个增强 MAIN 都把固定 Windows package 放入屏幕安全区；三分之四版本只改变准确产品角度，不建立外置信息区。PT01 可延续相同角度和世界观，但不放 package。选择构图不改变 G 编号、原创 genre、C01–C07 核心配置、同号 A01–A16 asset-card skin 或 GG01–GG16 continuation pack。
 
 ## 使用范围与主图闸门
 
 - `STRICT_MAIN`：Amazon 搜索结果正式主图。继续使用纯白背景、完整真实产品、无新增人物、游戏画面、文字、徽章、Windows package、粒子或 3D 出屏效果。
-- `MAIN_ENHANCED_FRONT_CANDIDATE` 与 `MAIN_ENHANCED_THREE_QUARTER_CANDIDATE`：分别输出正面和准确三分之四侧向的完整原创游戏成品、3D 出屏角色、已验证性能信息和固定 Windows 11 Pro package。至少一张使用白底电商型 `GAMING_WHITE_CATALOG_FRAME_BREAK`；默认三分之四增强版使用“白底大产品 + 屏幕上方显示规格 + 屏幕下方 GPU/CPU/RAM/SSD + 出屏主体 + 右侧 package”。文件名中的 candidate 仅代表供人选择，不代表后续还要补信息。只有当前账户/类目的可审计书面依据和人工批准都已记录，才能选择其中一份替换 `MAIN.jpg`；看到其他卖家使用类似图片不构成许可。
+- `MAIN_ENHANCED_FRONT_CANDIDATE` 与 `MAIN_ENHANCED_THREE_QUARTER_CANDIDATE`：分别输出正面和准确三分之四侧向的完整原创游戏成品。默认使用纯白背景、约 `90%–94%` 产品宽度、`8%–12%` 顶部视觉安全区和 `6%–9%` 底部空间；3D 主体可按批准方案受控出屏，规格资产 rail 与 Windows package 必须完整位于 LCD 内。文件名中的 candidate 仅代表供人选择，不代表后续还要补信息。只有当前账户/类目的可审计书面依据和人工批准都已记录，才能选择其中一份替换 `MAIN.jpg`；看到其他卖家使用类似图片不构成许可。
 - `PT01_GAMING_HERO`：允许延续相同视觉世界、准确产品与克制光效，但必须使用不同信息焦点，且不得出现 Windows package、Windows 文字卡或占位图。
 
 本库的 Gaming 效果是同一产品图库的连续视觉语言，而不是互不相关的版式：电脑主体、准确机型外观、屏幕层、性能信息和 3D 场景必须协作；Windows 11 Pro package 只在增强主图加入。
 
-每个 Gaming hero 必须选择一个 `gaming_style_id`（G01–G16）和一个 `gaming_core_badge.style_id`（C01–C06）。G style 控制世界观、材质、配色与场景；C style 只控制规格信息层，因此十六种视觉方向不需要机械复制十六套 badge。一个最多含四个 micro cells 的 `CORE_SPEC_CLUSTER` 计为一张 feature card，因此仍遵守两张 feature-card 上限；增强主图的 Windows package 另计，但不得成为第一视觉焦点。
+每个 Gaming hero 必须选择一个 `gaming_style_id`（G01–G16）、一个 `gaming_core_badge.style_id`（C01–C07）和一个 `gaming_asset_card.style_id`（A01–A16）。G style 控制世界观、材质、配色与场景；C style 控制规格布局；A style 控制卡片视觉，并默认与 G 同编号绑定。`C07` 的六卡 rail 是增强主图专用的信息组件，不受 PT01 两张 feature-card 上限影响；PT01 仍只能使用精简信息层，不能重复完整配置。
 
 ## 研究依据（更新于 2026-09-30）
 
@@ -250,17 +250,17 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 3. 硬件与工业设计路线：verified liquid cooling → `G08`；low-RGB matte black → `G09`；glass + multi-zone RGB → `G10`；verified white/silver chassis → `G11`；verified airflow/thermal story → `G12`；creator crossover → `G13`；verified compact/SFF form factor → `G14`。
 4. 无法确认玩家题材偏好，但硬件外观与功能清楚时，优先根据机身事实选择 G08–G14；连硬件差异也不足时，默认 `G09 Stealth Black Performance`，它最不依赖具体游戏 IP，也能保持准确产品为主角。
 5. 同一 parent listing 的变体共用一个 Gaming style family。RAM/SSD 变化只更新已验证数字，不更换人物与世界观。
-6. 增强主图若在 200 px 缩略图中电脑轮廓、角色/抽象主体剪影、hero attribute 或 Windows 11 Pro package 任一无法辨认，先删除粒子和第二 feature card，再缩小出屏主体；不能把电脑继续缩小。PT01 只检查自身 hero 和不同卖点，不为 package 预留区域。
+6. 增强主图若在 200 px 缩略图中电脑轮廓、3D 主体剪影、六卡 asset rail 或 Windows 11 Pro package 任一无法辨认，先减少粒子、降低背景细节或重新平衡主体与 rail；不能把电脑继续缩小，也不能让 ImageGen 重画卡片文字。PT01 只检查自身 hero 和不同卖点，不为 package 预留区域。
 
-7. G01–G16 不与构图绑定：正面与三分之四侧向两个增强候选都使用同一 G/C family。若侧视素材不能准确证明端口、机身和键盘，正面版照常完成，侧向候选标为 `TO_SOURCE` 或 `BLOCKED`，不得用第二张正面图冒充侧向版。
+7. G01–G16 不与产品角度绑定：正面与三分之四侧向两个增强候选都使用同一 G/C/A family。若侧视素材不能准确证明端口、机身和键盘，正面版照常完成，侧向候选标为 `TO_SOURCE` 或 `BLOCKED`，不得用第二张正面图冒充侧向版。
 8. 在 `FINAL_ASSET_DELIVERY` 中，第 7 条的素材缺口必须在生成前解决或将整套请求标记为 `BLOCKED_BEFORE_PRODUCTION`；不得把待找素材的侧向槽位留在用户收到的“成品图库”里。
 
 ## 生成与合成顺序
 
 1. 锁定真实产品照片、准确屏幕四角、产品 mask、键盘/Logo/接口 protected zones。
-2. 先生成不含任何品牌、文字、产品机身和游戏 IP 的原创 `SCREEN_ENVIRONMENT` 与 `SUBJECT` 透明层。
+2. 先生成不含任何品牌、文字、数字、卡片底板、产品机身和游戏 IP 的原创 `SCREEN_ENVIRONMENT` 与 `SUBJECT` 透明层。
 3. 用屏幕 mask 合成环境，用前后两个 subject mask 建立跨框遮挡；不得让生成模型重画真实电脑。
-4. 添加 feature cards 并逐字校对规格；仅增强主图加入固定 Windows 11 Pro package，PT01 明确不加入。
+4. 按已批准的 C layout 和 G→A binding，从 approved asset inventory 确定性合成卡片底板、类别图标、规格文字、组件 Logo 与 Windows package；逐字校对规格。不得让 ImageGen 生成或修复任何最终文字/Logo。PT01 明确不加入 Windows package，也不复制 C07 六卡 rail。
 5. 最后按已有 OEM Logo 流程使用官方原始资产确定性合成；任何 Logo 不得由生成模型绘制。
 6. 以 100% 和 200 px 两种尺寸检查产品准确性、IP 相似性、文字、人物手部/面部、边缘遮挡、光影和压缩伪影。
 
@@ -269,6 +269,10 @@ PT01 选定后，PT02–PT08 必须按 [supporting-gallery-styles.md](supporting
 ```yaml
 audience_style_family: GAMING
 gaming_style_id: G01|G02|G03|G04|G05|G06|G07|G08|G09|G10|G11|G12|G13|G14|G15|G16
+gaming_core_layout_id: C01|C02|C03|C04|C05|C06|C07
+gaming_asset_card_style_id: A01|A02|A03|A04|A05|A06|A07|A08|A09|A10|A11|A12|A13|A14|A15|A16
+gaming_asset_card_style_binding: <Gxx -> Axx>
+enhanced_main_signature: GAMING_3D_BREAKOUT_ASSET_RAIL|OTHER_APPROVED_LAYOUT
 hero_image_mode: PT01_GAMING_HERO|MAIN_ENHANCED_FRONT_CANDIDATE|MAIN_ENHANCED_THREE_QUARTER_CANDIDATE
 game_asset_mode: ORIGINAL_GENRE|LICENSED_GAME_CAMPAIGN
 genre_reference: <tactical / fantasy arena / battle royale / mech / sandbox / racing>
@@ -280,7 +284,14 @@ ip_similarity_review: PASS|BLOCKED
 frame_edges_crossed: <TOP / LEFT / RIGHT / BOTTOM; maximum two>
 frame_break_area_pct: <must be <= 12>
 product_center_offset_pct: <absolute value must be <= 2>
-feature_cards: <maximum two when 3D add-on is enabled>
+feature_cards: <C07 enhanced main = six deterministic asset cards; PT01 = maximum two>
+asset_card_order: <DISPLAY, CPU, GPU, RAM, SSD, OS for C07>
+asset_card_sources: <paths + hashes + rights/evidence>
+ai_generated_final_text_or_logo: false
+asset_rail_lcd_containment_review: PASS|BLOCKED|NOT_APPLICABLE
+product_width_pct: <C07 target 90-94>
+composition_top_clearance_pct: <C07 target 8-12>
+composition_bottom_clearance_pct: <C07 target 6-9>
 enhanced_front_main_windows_visual_style: FIXED_WINDOWS_11_PRO_PACKAGE
 enhanced_front_main_windows_placement: <screen or canvas-side safe zone>
 enhanced_three_quarter_main_windows_visual_style: FIXED_WINDOWS_11_PRO_PACKAGE

@@ -14,7 +14,7 @@
 
 根据已验证产品事实、受众分类和可用准确素材，选择一个首选 style，而不是随机轮换：
 
-- Gaming：`G01–G16` + 可组合的 `C01–C06` 信息层 + 同编号 `GG01–GG16`；
+- Gaming：`G01–G16` 世界观 + `C01–C07` 信息布局 + 默认同编号 `A01–A16` 资产卡皮肤 + 同编号 `GG01–GG16`；
 - Business/Work：`B01–B16` + 同编号 `BG01–BG16`；
 - Student/General：使用适用的 Conversion Hero/style profile，并记录可复现的自定义 ID。
 
@@ -31,6 +31,11 @@ screen_background_recipe:
   required_motifs: [<motifs that must be visible>]
   forbidden_motifs: [<visuals that would indicate drift>]
 main_content_boundary: <SCREEN_ONLY or approved composition rule>
+enhanced_main_outer_background: PURE_WHITE
+gaming_core_layout_id: <C01-C07 when GAMING>
+gaming_asset_card_style_id: <A01-A16 when GAMING>
+gaming_asset_card_style_binding: <Gxx -> Axx when GAMING>
+gaming_enhanced_main_signature: <GAMING_3D_BREAKOUT_ASSET_RAIL or other approved layout>
 ```
 
 `IST-inspired`、`business style`、`gaming look`、`blue technology` 等宽泛描述不能代替 style ID 和 recipe。
@@ -41,7 +46,7 @@ main_content_boundary: <SCREEN_ONLY or approved composition rule>
 
 1. style ID 与名称；
 2. 为什么它适合该产品，引用 2–4 个已验证购买理由；
-3. 颜色、屏幕背景、光线、卡片/线条、人物或场景语言；
+3. 颜色、屏幕背景、光线、卡片/线条、人物或场景语言；Gaming 还必须展示或说明与 G style 绑定的 A asset-card skin；
 4. 主图与 PT 图如何延续同一 family；
 5. `required_motifs` 与 `forbidden_motifs`；
 6. 内容边界，例如增强主图的新增营销内容是否必须全部位于屏幕内。
@@ -89,6 +94,7 @@ style_fidelity_review: PASS|REWORK_REQUIRED
 - forbidden motifs、通用 fallback 壁纸和其他 family 的识别元素均未出现；
 - MAIN、PT01 与 PT02–PT08 使用同一 hero/continuation family；
 - 文字、卡片、Windows asset 与内容边界符合批准方案；
+- Business/Work 和未批准例外的增强主图中，所有营销内容均完全位于真实屏幕内缘之内。Gaming `GAMING_3D_BREAKOUT_ASSET_RAIL` 允许批准的原创 3D 主体受控出屏，但六张资产卡、文字、数字、Logo 与 Windows package 必须完整位于 LCD 内；G→A binding、卡片顺序和资产来源必须与批准方案一致。两种模式的电脑外部均为纯白背景，不得出现外置信息卡或独立场景；
 - 100% 和 200 px contact sheet 下仍能识别该风格，而不只是文件名或 manifest 声称一致。
 
 任一项失败时设置 `style_fidelity_review: REWORK_REQUIRED`，不得进入 `FINAL_ASSET_QA_PASS`。重做仍使用已批准 style；如果必须换 style，重新取得用户批准。

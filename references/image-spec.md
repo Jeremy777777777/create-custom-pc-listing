@@ -282,18 +282,16 @@ the approved logo lockup once on the OS line; other PT slots may not repeat it.
 - Keep one consistent, non-promotional on-screen wallpaper across product views.
 - For enhanced-main `Centered Performance + Windows Asset`, measure the computer separately
   from all overlays. Keep its horizontal center within 2% of the canvas center
-  and use approximately 78%–86% of canvas width. Place the required Windows asset inside
-  a clear screen zone when that layout works; otherwise change the overall
-  composition and use the protected side zone. Do not overlap content or omit
+  and use approximately 78%–86% of canvas width. Gaming `C07` is the documented exception and targets `90%–94%` product width. Place the required Windows asset inside
+  a clear screen zone; if crowded, change the overall composition or reduce secondary content. Do not use an exterior side zone, overlap content or omit
   the asset to preserve a crowded front view. The paired PT01 must remove the
   Windows asset and use a distinct verified information focus.
 - A verified Gaming product must add one G01–G16 treatment from
-  `gaming-hero-styles.md`. Keep the screen environment, rear subject,
+  `gaming-hero-styles.md`, one C01–C07 information layout and the default same-number A01–A16 asset-card skin from `gaming-core-badge-styles.md`. Keep the screen environment, rear subject,
   frame-break subject, depth effects, and contact light as separate layers.
   Default to original genre imagery; do not use unlicensed game characters,
   logos, screenshots, maps, HUD, skins, signature props, vehicles, or trade
-  dress. Keep at least 25% of the screen quiet and use no more than two feature
-  cards when this add-on is active.
+  dress. PT01 keeps at least 25% of the screen quiet and uses no more than two feature cards. Gaming enhanced MAIN may instead use `C07` with six deterministic asset cards in DISPLAY/CPU/GPU/RAM/SSD/OS order; all six remain inside the LCD and do not count as PT01 cards. ImageGen must not generate their final text, icons or trademarks.
 - A verified Business/Work product must select one B01–B16 treatment from
   `business-work-hero-styles.md`. Office and Copilot claims, icons, logos, and
   package visuals require exact-SKU entitlement evidence; unresolved elements

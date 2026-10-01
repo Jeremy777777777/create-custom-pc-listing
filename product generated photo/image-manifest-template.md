@@ -27,7 +27,12 @@
 - `approval_source`: `<USER_CHAT | EXPLICIT_USER_BYPASS>`
 - `approval_timestamp`: `<ISO-8601 timestamp>`
 - `screen_background_recipe`: `<palette + required motifs + forbidden motifs>`
-- `main_content_boundary`: `<SCREEN_ONLY | approved composition rule>`
+- `main_content_boundary`: `<SCREEN_ONLY | CONTROLLED_FRAME_BREAK | approved composition rule>`
+- `enhanced_main_outer_background`: `PURE_WHITE`
+- `enhanced_main_screen_only_review`: `<PASS | BLOCKED | NOT_APPLICABLE_CONTROLLED_FRAME_BREAK>`
+- `enhanced_main_asset_rail_lcd_containment_review`: `<PASS | BLOCKED | NOT_APPLICABLE>`
+- `enhanced_main_controlled_frame_break_review`: `<PASS | BLOCKED | NOT_APPLICABLE>`
+- `enhanced_main_outer_background_review`: `<PASS | BLOCKED>`
 - `style_fidelity_review`: `<PASS | REWORK_REQUIRED | NOT_YET_REVIEWED>`
 - `enhanced_front_main_composition_variant`: `FRONT_SCREEN_CARD`
 - `enhanced_three_quarter_main_composition_variant`: `THREE_QUARTER_SIDE_CARD`
@@ -68,8 +73,17 @@
 - `universal_oem_logo_integration_rule`: `<REQUIRED | PASS | FAIL>`
 - `oem_logo_asset_alpha_check`: `<PASS | FAIL | NOT_APPLICABLE_OFFICIAL_REVERSE_ASSET>`
 - `oem_logo_preferred_treatment`: `INTEGRATED_TRANSPARENT_MARK`
-- `gaming_signature_main`: `<GAMING_WHITE_CATALOG_FRAME_BREAK | NOT_APPLICABLE>`
+- `gaming_signature_main`: `<GAMING_3D_BREAKOUT_ASSET_RAIL | OTHER_APPROVED_LAYOUT | NOT_APPLICABLE>`
 - `gaming_signature_required_information_review`: `<display + GPU + CPU + RAM/SSD + fixed package: PASS | BLOCKED | NOT_APPLICABLE>`
+- `gaming_core_layout_id`: `<C01-C07 | NOT_APPLICABLE>`
+- `gaming_asset_card_style_id`: `<A01-A16 | NOT_APPLICABLE>`
+- `gaming_asset_card_style_binding`: `<Gxx -> Axx | NOT_APPLICABLE>`
+- `gaming_asset_card_order`: `<DISPLAY, CPU, GPU, RAM, SSD, OS | other approved order | NOT_APPLICABLE>`
+- `gaming_asset_card_sources`: `<paths + hashes + rights/evidence>`
+- `gaming_ai_generated_final_text_or_logo`: `<false required | NOT_APPLICABLE>`
+- `gaming_product_width_pct`: `<measured; C07 target 90-94>`
+- `gaming_composition_top_clearance_pct`: `<measured; C07 target 8-12>`
+- `gaming_composition_bottom_clearance_pct`: `<measured; C07 target 6-9>`
 - `supporting_gallery_pack`: `<GG01-GG16 | BG01-BG16 | NEUTRAL>`
 - Gallery story reason: `<why the continuation pack fits verified buyer tasks>`
 - Business primary task: `<collaboration | mobility | executive workflow | verified AI workflow | secure hybrid work | other verified task>`
@@ -150,6 +164,8 @@ Before production, assign every customer-visible claim to one `PRIMARY OWNER` sl
 - [ ] `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE` uses an authorized exact-model angled view and the same fixed Windows package without inventing chassis details.
 - [ ] A screen-placed Windows package sits over a fully continuous background with no placeholder rectangle and uses palette-aware glow/contact shadow without altering the package itself.
 - [ ] Gaming frame-break subjects form one continuous screen-connected silhouette; no detached shoulder lobes, triple-bump outline, floating parts, double bezel, neon contour, or sticker edge remains.
+- [ ] Gaming `C07` enhanced MAIN uses six deterministic asset cards in `DISPLAY → CPU → GPU → RAM → SSD → OS` order; every card, character, number, Logo, border and glow remains inside the LCD while only the approved 3D subject/effects use controlled frame-break.
+- [ ] Gaming asset-card skin matches the approved G→A binding; all final text and trademarks came from recorded assets, and ImageGen generated none of them.
 - [ ] At least one PT image, normally PT08, shows the exact product's visible physical ports with callout leaders anchored to the correct openings; an icon-only connectivity layout is not accepted.
 - [ ] Laptop port coverage includes both port-bearing sides when required, or clearly identifies a verified partial side view; desktop/AIO/mini-PC coverage includes the relevant front and rear I/O. No port geometry or capability was inferred.
 - [ ] PT01–PT08 consistently use the selected profile.

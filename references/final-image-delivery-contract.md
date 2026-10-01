@@ -74,28 +74,29 @@ Logo 可见不等于视觉合格。`UNIVERSAL_OEM_LOGO_INTEGRATION_RULE` 要求�
 - 100% 尺寸、200 px 缩略图、裁切、碰撞、可读性、产品准确性和跨图一致性检查通过；
 - 单张文件可以直接进入对应 Listing 槽位的上传准备，不依赖后续补字、补 Logo、补 package 或重新排版。
 - 与用户批准的 style proposal 一致，并通过 [style-approval-gate.md](style-approval-gate.md) 的 `STYLE_FIDELITY_GATE`；
+- 两张增强主图通过 `ENHANCED_MAIN_CONTENT_BOUNDARY_GATE`：Business/Work 与未获批例外的 family 使用 `SCREEN_ONLY`；Gaming 可使用获批 `CONTROLLED_FRAME_BREAK`，但只有连续的原创 3D 主体及少量粒子/接触光可以出屏，全部卡片、规格、Logo 和 Windows asset 必须完整位于 LCD 内。屏幕外保持纯白 `#FFFFFF`，不得出现外置信息元素或独立场景；
 
 “生产完成”与“Amazon MAIN 合规批准”是两个独立状态。`MAIN-STRICT` 应满足默认 Amazon MAIN 规则；增强 MAIN 可以是完整成品，但只有通过当前账户/类目的 exception gate 才能作为正式 MAIN 上传。不得因为增强 MAIN 尚待合规批准，就把它做成半成品；也不得把“视觉完成”误报为“Amazon 已批准”。
 
-## 5. Gaming 固定成品印象
+## 5. Gaming 3D Breakout + Asset Rail 成品印象
 
-当 `audience_style_family = GAMING` 时，两张增强 MAIN 都必须是完整的 3D Gaming 成品，而不是普通壁纸加卡片。至少一张增强 MAIN 必须使用 `GAMING_WHITE_CATALOG_FRAME_BREAK`：
+当 `audience_style_family = GAMING` 时，两张增强 MAIN 都必须是完整的 3D Gaming 成品，而不是普通壁纸加卡片，并默认使用 `GAMING_3D_BREAKOUT_ASSET_RAIL`：
 
-- 外部画布为纯白或接近纯白的干净电商背景，不使用占满画面的赛博海报背景；
-- 准确产品使用自然三分之四角度，视觉包围框居中，主体约占画布宽度 `78%–86%`；
-- 原创 genre 主体从屏幕内部向外突破，后部仍被屏幕边框遮挡，头部/肩部/机械结构小幅越过上边框或侧边框，并包含可信 contact light；
-- 屏幕上方必须显示已验证的 `screen size + resolution + refresh rate`；
-- 屏幕下方必须显示已验证的 `GPU + CPU + RAM/SSD`，RAM/SSD 为已安装值或明确的可选档位，不能混淆；
-- 固定 `assets/branding/windows-11-pro-package.png` 作为完整独立 package 放在产品右侧安全区或经验证的屏幕安全区；不得换成字体、文字卡或生成的近似包装；
+- 外部画布为纯白 `#FFFFFF` 电商背景，不使用占满画面的赛博海报背景；
+- 准确产品使用批准的正面或自然三分之四角度，视觉包围框居中，主体约占画布宽度 `90%–94%`；顶部视觉留白 `8%–12%`，底部 `6%–9%`；
+- 原创 genre 主体在屏幕内部建立前、中、后景深度，并按 `CONTROLLED_FRAME_BREAK` 受控越过上缘或侧缘；
+- 屏幕下方使用六张确定性资产卡，顺序为 `DISPLAY → CPU → GPU → RAM → SSD → OS`；卡片 skin 默认与 G style 同编号绑定为 A01–A16；
+- 卡片中的文字、数字、图标、商标和底板均来自 approved assets，ImageGen 不生成任何最终规格或 Logo；
+- 固定 `assets/branding/windows-11-pro-package.png` 作为完整独立 package 放在经验证的屏幕安全区；不得换成字体、文字卡、生成的近似包装或移到产品旁；
 - 屏内 package 后方必须是自然连续的原场景，不得存在预留矩形或硬卡槽；使用 palette-aware glow 与 contact shadow 融合，但不得改动 package 本体；
 - 产品始终是第一视觉主体，package 和规格清晰但不把电脑推离中心。
 
-此外，所有 Gaming 出屏增强 MAIN 必须通过 `NATURAL_FRAME_BREAK_CONTINUITY_GATE`：跨框区域与屏内主体为同一连续剪影、边框自然从其后方经过，且不存在脱离肩块、对称三凸起、漂浮零件、双边框、霓虹描边或贴纸白边。任一项失败即为 `REWORK_REQUIRED`，不能作为完成候选交付。
+此外，两张 Gaming 增强 MAIN 必须通过 `CONTROLLED_FRAME_BREAK_GATE` 与 `ASSET_RAIL_LCD_CONTAINMENT_GATE`：3D 主体出屏面积 `<=12%`、最多跨越两条屏幕边并保持连续遮挡；六张资产卡、全部文字/数字/Logo、Windows package、卡片边框和 glow 必须完整留在 LCD 内。PT01 如继续使用出屏主体，也执行 `NATURAL_FRAME_BREAK_CONTINUITY_GATE`，但不得复制增强主图的完整六卡配置。
 
 默认映射为：
 
-- `MAIN-ENHANCED-FRONT-CANDIDATE`：同一 G/C family 的正面 3D 出屏成品；
-- `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE`：优先使用 `GAMING_WHITE_CATALOG_FRAME_BREAK`，形成“白底大产品 + 屏内完整核心规格 + 3D 出屏主体 + 右侧 Windows package”的固定识别；
+- `MAIN-ENHANCED-FRONT-CANDIDATE`：同一 G/C/A family 的正面 `GAMING_3D_BREAKOUT_ASSET_RAIL` 成品；
+- `MAIN-ENHANCED-THREE-QUARTER-CANDIDATE`：同一 G/C/A family 的准确三分之四成品，形成“白底大产品 + 3D 受控出屏 + LCD 六卡 rail”的固定识别；
 - `PT01`：继续使用同一 Gaming 世界观和真实 3D 出屏，但按既有规则不重复 Windows package，并更换信息焦点。
 
 若关键显示、GPU、CPU、RAM/SSD 任一未验证，不得静默省略后仍称该固定构图已完成；应在 preflight 阶段阻断或由用户明确批准切换到不依赖该字段的另一完整成品构图。

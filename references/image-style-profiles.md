@@ -62,7 +62,7 @@
 
 - 所有文字和图标都必须对应 `VERIFIED` 属性；竞品页面只能提示“哪些字段值得研究”，不能证明本产品有该功能。
 - `Win 11 Pro` 是 MegaPC 当前全品类的固定展示字段，但必须先核验该销售配置实际预装、已正确授权并交付 Windows 11 Pro。它是固定 OS 规格，不是 RAM/SSD 之外的买家可选定制项。
-- 两份增强主图都必须确定性合成 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)，不得改成纯文字卡或占位图。若构图拥挤，调整信息密度与留白；正面版保持正向，侧向版保持准确三分之四角度。package 可等比放在屏幕内，也可放在产品旁独立安全区，但不能省略。`MAIN-STRICT` 与 PT01 均不放 package。
+- 两份增强主图都必须确定性合成 [`../assets/branding/windows-11-pro-package.png`](../assets/branding/windows-11-pro-package.png)，不得改成纯文字卡或占位图。若构图拥挤，调整屏内信息密度与留白；正面版保持正向，侧向版保持准确三分之四角度。package 只能等比放在屏幕内，不能省略，也不能移到产品旁。`MAIN-STRICT` 与 PT01 均不放 package。
 - `Webcam`、`Backlit Keyboard`、`FP Reader`、`Wi-Fi 6` 仅在准确机型和销售配置均已验证时出现。不存在或证据不足时删除相应 chip、标题词和图片文案。
 - 上述高意向功能没有最低数量，也不要求不同型号使用相同组合；每个型号都从自己的事实账本重新选择。
 - `PT01`–`PT08` 必须在生成后通过确定性后处理加入与已验证底机生产商一致的官方或已授权 OEM Logo。Logo 不得由生成模型重画；没有正确资产或没有安全位置时必须重做布局或将槽位标为 `BLOCKED`，不能无 Logo 交付。

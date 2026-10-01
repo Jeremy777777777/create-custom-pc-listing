@@ -23,7 +23,7 @@ Business 增强主图不再把两个候选都做成同一种 package。每套必
 
 | 分类 | 必须满足的证据 | 路由 |
 | --- | --- | --- |
-| `GAMING` | 已验证 OEM gaming 系列；或已验证独显与 `>=120 Hz` 显示组合；或准确 SKU 有其他强 gaming 定位证据 | 必须选 G01–G16 + C01–C06，并使用真实分层的 3D 出屏主体 |
+| `GAMING` | 已验证 OEM gaming 系列；或已验证独显与 `>=120 Hz` 显示组合；或准确 SKU 有其他强 gaming 定位证据 | 必须选 G01–G16 + C01–C07、同号 A01–A16 资产卡皮肤，并使用真实分层的 3D 出屏主体 |
 | `BUSINESS_WORK` | 已验证 business/pro 系列，或准确 SKU 有 Office 权益、Windows Pro、企业协作/安全/扩展能力等强工作证据；同时没有压倒性的 Gaming 证据 | 选 B01–B16 |
 | `STUDENT_STUDY` | 准确 SKU 以学习/家庭作业为主要用途，且没有强 Gaming 或 Business 证据 | 使用中性学习风格；不得自动添加企业或 Gaming 元素 |
 | `GENERAL` | 证据不足以支持上述任一类 | 使用通用 Conversion Hero，不加 Office/Copilot/Gaming 专属视觉 |
@@ -166,7 +166,7 @@ B07–B16 不只是单张 hero，而是从三种 MAIN 候选一直定义到 PT08
 2. 检查 Office 和 Copilot 权益状态；任何 `TBD`/`CONFLICT` 元素从画面删除，不用占位猜测。
 3. 从 B01–B16 中选择最能表达已验证购买理由的一种，不按轮换随机选。B12–B16 只提供视觉环境与叙事框架，不能代替产品事实证据。
 4. 从 [hero-composition-variants.md](hero-composition-variants.md) 选择正向或侧向构图；没有准确、获授权的侧视产品素材时必须使用正向。
-5. 两个增强主图分别使用 `WINDOWS_11_PRO_PACKAGE` 与 `WINDOWS_11_PRO_LOGO_LOCKUP`；按版面选择屏幕安全区或产品旁独立安全区。PT01 的 Windows asset mode 固定为 `NONE`，PT03 只在 OS 行允许一次 lockup。
+5. 两个增强主图分别使用 `WINDOWS_11_PRO_PACKAGE` 与 `WINDOWS_11_PRO_LOGO_LOCKUP`，并且只能放在屏幕安全区；产品旁独立安全区不允许承载营销资产。PT01 的 Windows asset mode 固定为 `NONE`，PT03 只在 OS 行允许一次 lockup。
 6. 生成无品牌母版，再为增强主图后期确定性合成固定 Windows asset 和获准的 OEM、Office 或 Copilot 原始资产；PT01 只合成适用的品牌资产，不合成 Windows asset。增强主图若拥挤则减少次要信息、扩大留白或切换准确侧向构图，不能省略 Windows asset。
 7. 在 100% 与缩略图尺寸下复核权益准确性、文字拼写、产品构图和视觉层级。
 
