@@ -1,0 +1,286 @@
+{
+  "method": "Manual visual claim transcription checked against deterministic text and OEM/ERP sources; primary-information ownership excludes navigation, brand identity and generic task language. Not a claim of automated OCR.",
+  "claim_inventory": {
+    "PT01": [
+      "High-level flexible, intuitive, forward-looking purchase reasons"
+    ],
+    "PT02": [
+      "Original research/compare/review lifestyle canvas"
+    ],
+    "PT03": [
+      "CPU430",
+      "Radeon840M",
+      "installed16GB",
+      "internal512GB",
+      "NPU50TOPS",
+      "finalWindows11Pro"
+    ],
+    "PT04": [
+      "14inchOLED",
+      "1920x1200",
+      "60Hz",
+      "400nits",
+      "100DCIP3",
+      "15.4mm",
+      "glossy10pointtouch"
+    ],
+    "PT05": [
+      "Idea laptop",
+      "Review stand",
+      "Deliver tablet",
+      "360hinge task relationship"
+    ],
+    "PT06": [
+      "BacklitUSkeyboard",
+      "1.5mmtravel",
+      "75x120MylarPrecisiontouchpad"
+    ],
+    "PT07": [
+      "5MPIRcamera",
+      "facerecognition",
+      "physicalprivacyshutter",
+      "fingerprint",
+      "fourarraymics"
+    ],
+    "PT08": [
+      "actualdual-sideconnectors",
+      "USBA5Gbps",
+      "USB C10Gbps PD DP",
+      "microSD",
+      "HDMI2.1",
+      "audio3.5",
+      "WiFi7",
+      "BT5.4"
+    ]
+  },
+  "pairs": [
+    {
+      "pair": [
+        "PT01",
+        "PT02"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT01",
+        "PT03"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT01",
+        "PT04"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT01",
+        "PT05"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT01",
+        "PT06"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT01",
+        "PT07"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT01",
+        "PT08"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT02",
+        "PT03"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT02",
+        "PT04"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT02",
+        "PT05"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT02",
+        "PT06"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT02",
+        "PT07"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT02",
+        "PT08"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT03",
+        "PT04"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT03",
+        "PT05"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT03",
+        "PT06"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT03",
+        "PT07"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT03",
+        "PT08"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT04",
+        "PT05"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT04",
+        "PT06"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT04",
+        "PT07"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT04",
+        "PT08"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT05",
+        "PT06"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT05",
+        "PT07"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT05",
+        "PT08"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT06",
+        "PT07"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT06",
+        "PT08"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    },
+    {
+      "pair": [
+        "PT07",
+        "PT08"
+      ],
+      "shared_primary_claims": [],
+      "primary_information_overlap_percent": 0
+    }
+  ],
+  "result": "PASS",
+  "PT03_sole_complete_configuration_owner": "PASS",
+  "PT05_relationship_not_recap": "PASS",
+  "PT07_distinct_value": "PASS"
+}

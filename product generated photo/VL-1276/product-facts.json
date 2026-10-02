@@ -1,0 +1,42 @@
+{
+  "schemaVersion": 1,
+  "workflowPolicyVersion": "2026-10-02",
+  "internalId": "VL-1276",
+  "currentRecordRole": "CURRENT_POLICY_RESOLUTIONS_NOT_A_COMPLETE_HARDWARE_LEDGER",
+  "sellerPolicy": {
+    "customized": true,
+    "listingTitlePrefix": "MegaPC Custom",
+    "excelConfigurationScope": "BASE_ONLY",
+    "finalOperatingSystem": "Windows 11 Pro",
+    "operatingSystemPolicyStatus": "USER_CONFIRMED_CATALOG_POLICY",
+    "warrantyTemplate": "The original [OEM brand] manufacturer warranty remains valid on factory components. MegaPC provides a 6-month limited warranty on upgraded RAM and SSD components, with a 12-month warranty extension available.",
+    "warrantyStatus": "USER_CONFIRMED_CATALOG_POLICY",
+    "imageScope": "COMPUTER_ONLY",
+    "finalImageSize": [
+      2000,
+      2000
+    ]
+  },
+  "unresolvedOperationalChecks": [
+    "Windows licence/activation and fixed delivery QA",
+    "Applicable Amazon/account publication requirements",
+    "Current exact-model asset rights, physical matching and image-required facts"
+  ],
+  "styleApprovalStatus": "DO_NOT_INFER_FROM_HISTORICAL_MANIFEST",
+  "revalidationRequired": true,
+  "confirmedHardware": {
+    "oemBrand": "ASUS",
+    "internalSsdGB": 512,
+    "installedRamGB": 16,
+    "ramTechnology": "LPDDR5X",
+    "ramInstallation": "ONBOARD",
+    "ramSelectableUpgradeTiers": [],
+    "status": "VERIFIED_USER_CONFIRMED",
+    "source": "Seller-confirmed model-specific resolutions recorded in current catalog policy; this conversation confirmed retention and replacement of superseded rules."
+  },
+  "resolvedDifferences": [
+    "OEM Windows Home is factory state; Windows 11 Pro is fixed seller-delivered OS, not CONFLICT.",
+    "Legacy 1TB dock capacity is external; internal installed SSD is 512GB.",
+    "16GB onboard memory does not authorize a 32GB RAM tier."
+  ]
+}

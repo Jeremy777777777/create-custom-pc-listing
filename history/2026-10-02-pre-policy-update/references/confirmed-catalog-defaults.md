@@ -1,0 +1,37 @@
+# Confirmed catalog defaults and autonomous research
+
+用户于 2026-10-01 确认以下全目录规则。本文件优先于旧示例、旧 ASIN、OEM 出厂配置和默认 packout 图片任务；不改变独立的 Amazon 发布资格检查。
+
+## 固定卖家政策
+
+- 所有电脑最终销售系统固定为 **Windows 11 Pro**。卖家在交付前升级；OEM Home 是原厂状态，不是最终销售配置冲突。记录 `USER_CONFIRMED_CATALOG_POLICY` 并用于图片和文案，不再逐机询问。许可证、激活和履约检查属于交付/发布 QA，不阻断已确认 Pro 的图片制作。不得据此声称包含 Office、Microsoft 365 或付费 Copilot。
+- 所有电脑固定 **6 个月保修 + 12 个月延保**；英文锁定 `6-month warranty + 12-month extended warranty`。记录 `USER_CONFIRMED_CATALOG_POLICY`，不再逐机询问。不得自行追加免费、付费、注册条件、覆盖范围、OEM 保修有效/失效或升级部件独立一年保修等承诺；历史一年保修示例只作政策来源示例，不能套用。
+- 所有新图库只展示**电脑本身**。不得展示拓展坞、电源适配器、线缆、鼠标、显示器或其他配件，也不得把确认配件清单当作图片前置阻断。PT06 改为白底电脑本身的准确多角度/输入细节，禁止 packout；其内容必须与 PT04/PT08 去重。PT02 可有工作环境和匿名工作者，但不得出现额外设备或配件。增强 MAIN 所需的固定 Windows 图形是软件身份资产，完整位于 LCD 内，不表示实体盒随箱。
+
+## 自主交叉验证
+
+1. 保存 ERP 产品字段、标题、关联 listing 原值及具体字段路径。识别准确型号、代际、厂商料号、颜色和销售 SKU，区分系列可选配置与实际机器。
+2. SSD 只统计电脑**内部已安装 SSD**。拓展坞内置/附带容量、外置盘、SD 卡、云存储和平台支持上限必须单独记录，绝不相加。内部 SSD 以准确 ERP/装配记录、卖家确认与匹配 OEM SKU 交叉验证；有冲突时指出原文及字段位置，不能只引用错误结构化容量。VL-1276 的最终内部 SSD 为用户确认的 **512GB**；旧 listing 的 1TB 来自 dock 语境，不是电脑 SSD。
+3. RAM 验证实际安装容量、技术代际、速度、板载/焊接、实际插槽、可升级性和最大支持值。最大支持值、系列可选值不等于本机已安装值。仅发布有供应/装配证据的可售升级档位。板载、无插槽机型不得编造升级 tier；VL-1276 是 **16GB LPDDR5X onboard**，不生成 32GB 档位。
+4. 主动研究 OEM 准确 SKU 产品页、tech specs、手册与 OEM 发布信息；随后对照 Best Buy 准确型号/颜色，以及 Amazon 已有同型号或高度相关 listing。Amazon/零售商用于发现字段、市场表达与差异，不作为单独最终规格证据。不得为了凑三个参考而纳入错误型号；少于三个记录检索范围继续工作。
+5. 对可解释差异自主给出结论并保存证据，如内部/外置容量、地区版、不同代际、OEM Home/卖家 Pro、平台上限/安装值。只有影响最终产品且仍无法解释的关键冲突才询问用户；已确认标准不重复询问。
+6. 高清多角度素材检索顺序：OEM 官方 gallery/pressroom/下载页 → Best Buy 准确型号多角度 gallery → Amazon 准确机型 listing。核对颜色、CPU 代际对应机身、键盘、端口数量和位置；保存 URL、检索日期、原始尺寸、SHA-256、授权状态、视觉匹配/淘汰理由。营销页已更新代际时，不继承新机规格；有旧机准确 gallery 可独立使用。优先 ≥2000px 原图，不使用截图、竞品 infographic 或 AI 猜测接口。独立检索穷尽且缺必要角度时才请求补充。
+7. 已批准的当前产品 style ID 在同一任务后续继续有效；不因研究、workflow 更新或固定默认值补齐重新要求批准。更换 family 才重新提案。VL-1276 的 B08/BG08 已由用户批准。
+
+## Business 屏内边界与原厂标志
+
+所有 Business 增强 MAIN 的文案、Windows package/lockup、图形和氛围仅在真实 LCD 内；屏幕外仅电脑、纯白背景及中性接触阴影。旧版“相反侧/外部/右侧留白”示例统一解释为 LCD 内的安全区。准确照片的原厂机身标志原位保留；额外 OEM Logo 只在 PT 的产品轮廓外透明合成。
+
+## 长条官方 Logo 的比例一致性
+
+200px 缩略图的可见长边必须 ≥20px，画布长边占比 ≤12%，仍需足够对比和人工辨识。普通标志短边 ≥10px；官方可见宽高比 >2.4 的长条字标采用 `logoVisibilityMode: ASPECT_RATIO_WORDMARK`，保存来源及测量比例，短边最低值 `20 / visibleAspectRatio`，不得拉伸、增高、裁掉字标或加硬背景来凑 10px。脚本根据原始透明资产的可见边界校验比例和短边下限。旧的统一 10px 短边与 12% 上限对 ASUS 等长条字标数学上不可兼得；该比例分流只修正这一冲突，其余可见性、间距、哈希与品牌闸门不变。
+
+
+## GitHub 图库交付固定要求
+
+用户确认所有正式生成的最终图片默认上传当前 GitHub 仓库，按已核实的内部 ID 存放到仓库根目录 `product generated photo/VL-XXXX/`，例如 `VL-1276/`。生成请求即包含上传步骤，不重复询问。上传 11 张正式单图及 manifest/QA 记录，核验远端 commit、文件哈希与适用 CI 后，以 `GITHUB_DELIVERY_VERIFIED` 和 GitHub 目录链接交付。本地 QA、ZIP、预览和 workflow 文档提交不代表图库已经上传。仅用户明确要求不上传/仅本地/概念预览时跳过；已有目录替换仍保留既有审核规则。完整状态及失败处理按 [final-image-delivery-contract.md 第 7 节](final-image-delivery-contract.md#7-默认-github-最终交付强制)。
+
+
+## Excel 与图片共用内部 ID 目录
+
+Research 阶段先生成 Excel，即上传到 `product generated photo/VL-XXXX/` 并创建该产品目录，不等待图片生成。后续 Listing Excel、11 张正式图片和 manifest/QA 记录复用同一 GitHub 目录；已有目录直接复用，不另建 Excel、任务 ID 或 review 后缀目录。Excel 保留真实阶段，如 `*_RESEARCH_REVIEW.xlsx`；上传研究稿不代表最终通过审核。原始模板不覆盖，本地 outputs 只作为工作副本。最终提供 GitHub 产品目录和 Excel 文件链接并核实远端哈希。只有用户明确要求仅本地/不上传时跳过；图片单独任务不强制重做 Excel。

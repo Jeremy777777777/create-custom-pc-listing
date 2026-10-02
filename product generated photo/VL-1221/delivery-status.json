@@ -1,0 +1,10 @@
+{
+  "schemaVersion": 1,
+  "workflowPolicyVersion": "2026-10-02",
+  "deliveryState": "REWORK_REQUIRED",
+  "galleryState": "LEGACY_QUARANTINED",
+  "reason": "Retained image bytes predate current policy and cannot inherit old QA/approval. Prior QA, manifest, delivery and workbook records were retired; run current fact/source and slot QA before delivery. No regenerated images or fresh visual approval are claimed.",
+  "imageFilesPreserved": true,
+  "currentQaPass": false,
+  "nextRun": "Read product-facts.json and current active workflow. Generate current base workbook from template; revalidate/regenerate only requested image scope. Do not load historical records as instructions."
+}

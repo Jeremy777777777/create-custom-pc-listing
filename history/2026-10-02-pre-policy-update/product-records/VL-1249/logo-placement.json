@@ -1,0 +1,22 @@
+{
+  "brand": "Dell",
+  "logoRole": "OEM base-product identifier",
+  "minimumClearancePx": 32,
+  "minimumComponentSeparationPx": 40,
+  "maximumLogoLongEdgePercentOfCanvas": 12,
+  "thumbnailReviewSizePx": 200,
+  "minimumVisibleLogoLongEdgePxAtThumbnail": 20,
+  "minimumVisibleLogoShortEdgePxAtThumbnail": 10,
+  "preferredTreatment": "INTEGRATED_TRANSPARENT_MARK",
+  "productSurfaceLogoAbsenceReview": "PASS",
+  "placements": {
+    "PT01.png": { "x": 1080, "y": 35, "width": 140, "height": 140, "style": "transparent", "contrastReview": "PASS", "compositionSpacingReview": "PASS", "placeholderFrameReview": "PASS", "outsideProductReview": "PASS", "protectedZones": [{ "label": "PRODUCT_SILHOUETTE", "x": 80, "y": 540, "width": 1120, "height": 650 }] },
+    "PT02.png": { "x": 1080, "y": 35, "width": 140, "height": 140, "style": "transparent", "contrastReview": "PASS", "compositionSpacingReview": "PASS", "placeholderFrameReview": "PASS", "outsideProductReview": "PASS", "protectedZones": [{ "label": "PRODUCT_SILHOUETTE", "x": 220, "y": 620, "width": 800, "height": 520 }] },
+    "PT03.png": { "x": 1080, "y": 35, "width": 140, "height": 140, "style": "transparent", "contrastReview": "PASS", "compositionSpacingReview": "PASS", "placeholderFrameReview": "PASS", "outsideProductReview": "PASS", "protectedZones": [{ "label": "PRODUCT_SILHOUETTE", "x": 45, "y": 240, "width": 900, "height": 650 }] },
+    "PT04.png": { "x": 35, "y": 35, "width": 140, "height": 140, "style": "transparent", "contrastReview": "PASS", "compositionSpacingReview": "PASS", "placeholderFrameReview": "PASS", "outsideProductReview": "PASS", "protectedZones": [{ "label": "PRODUCT_SILHOUETTE_REAR", "x": 35, "y": 250, "width": 830, "height": 680 }, { "label": "PRODUCT_SILHOUETTE_FRONT", "x": 700, "y": 340, "width": 500, "height": 430 }] },
+    "PT05.png": { "x": 1080, "y": 1080, "width": 140, "height": 140, "style": "transparent", "contrastReview": "PASS", "compositionSpacingReview": "PASS", "placeholderFrameReview": "PASS", "outsideProductReview": "PASS", "protectedZones": [{ "label": "PRODUCT_SILHOUETTE", "x": 140, "y": 540, "width": 830, "height": 570 }] },
+    "PT06.png": { "x": 1080, "y": 35, "width": 140, "height": 140, "style": "transparent", "contrastReview": "PASS", "compositionSpacingReview": "PASS", "placeholderFrameReview": "PASS", "outsideProductReview": "PASS", "protectedZones": [{ "label": "PRODUCT_SILHOUETTE", "x": 215, "y": 280, "width": 900, "height": 560 }] },
+    "PT07.png": { "x": 1080, "y": 35, "width": 140, "height": 140, "style": "transparent", "contrastReview": "PASS", "compositionSpacingReview": "PASS", "placeholderFrameReview": "PASS", "outsideProductReview": "PASS", "protectedZones": [{ "label": "PRODUCT_SILHOUETTE", "x": 70, "y": 300, "width": 1110, "height": 820 }] },
+    "PT08.png": { "x": 35, "y": 760, "width": 140, "height": 140, "style": "transparent", "contrastReview": "PASS", "compositionSpacingReview": "PASS", "placeholderFrameReview": "PASS", "outsideProductReview": "PASS", "protectedZones": [{ "label": "PRODUCT_SILHOUETTE_TOP", "x": 45, "y": 20, "width": 1030, "height": 560 }, { "label": "PRODUCT_SILHOUETTE_BOTTOM_SCREEN", "x": 580, "y": 660, "width": 640, "height": 500 }, { "label": "PRODUCT_SILHOUETTE_BOTTOM_BASE", "x": 130, "y": 990, "width": 1100, "height": 180 }] }
+  }
+}

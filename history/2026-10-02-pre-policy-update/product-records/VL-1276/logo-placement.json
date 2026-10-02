@@ -1,0 +1,243 @@
+{
+  "brand": "ASUS",
+  "logoRole": "OEM base-product identifier",
+  "preferredTreatment": "INTEGRATED_TRANSPARENT_MARK",
+  "minimumClearancePx": 60,
+  "minimumComponentSeparationPx": 60,
+  "maximumLogoLongEdgePercentOfCanvas": 12,
+  "thumbnailReviewSizePx": 200,
+  "minimumVisibleLogoLongEdgePxAtThumbnail": 20,
+  "minimumVisibleLogoShortEdgePxAtThumbnail": 4.124,
+  "logoVisibilityMode": "ASPECT_RATIO_WORDMARK",
+  "logoAssetSourceUrl": "https://press.asus.com/media/corporate-assets/2/albums/47/",
+  "productSurfaceLogoAbsenceReview": "PASS",
+  "authenticFactoryMarkPreservationReview": "PASS",
+  "placements": {
+    "PT01.png": {
+      "x": 2030,
+      "y": 210,
+      "width": 288,
+      "height": 59,
+      "style": "transparent",
+      "contrastReview": "PASS",
+      "compositionSpacingReview": "PASS",
+      "placeholderFrameReview": "PASS",
+      "outsideProductReview": "PASS",
+      "protectedZones": [
+        {
+          "x": 170,
+          "y": 572,
+          "width": 2050,
+          "height": 1365,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 130,
+          "y": 80,
+          "width": 1780,
+          "height": 265,
+          "label": "TITLE_BLOCK"
+        }
+      ]
+    },
+    "PT02.png": {
+      "x": 2030,
+      "y": 210,
+      "width": 288,
+      "height": 59,
+      "style": "transparent",
+      "contrastReview": "PASS",
+      "compositionSpacingReview": "PASS",
+      "placeholderFrameReview": "PASS",
+      "outsideProductReview": "PASS",
+      "protectedZones": [
+        {
+          "x": 960,
+          "y": 1158,
+          "width": 1330,
+          "height": 885,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 130,
+          "y": 80,
+          "width": 1780,
+          "height": 265,
+          "label": "TITLE_BLOCK"
+        }
+      ]
+    },
+    "PT03.png": {
+      "x": 2030,
+      "y": 210,
+      "width": 288,
+      "height": 59,
+      "style": "transparent",
+      "contrastReview": "PASS",
+      "compositionSpacingReview": "PASS",
+      "placeholderFrameReview": "PASS",
+      "outsideProductReview": "PASS",
+      "protectedZones": [
+        {
+          "x": 1190,
+          "y": 607,
+          "width": 1090,
+          "height": 726,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 130,
+          "y": 80,
+          "width": 1780,
+          "height": 265,
+          "label": "TITLE_BLOCK"
+        }
+      ]
+    },
+    "PT04.png": {
+      "x": 2030,
+      "y": 210,
+      "width": 288,
+      "height": 59,
+      "style": "transparent",
+      "contrastReview": "PASS",
+      "compositionSpacingReview": "PASS",
+      "placeholderFrameReview": "PASS",
+      "outsideProductReview": "PASS",
+      "protectedZones": [
+        {
+          "x": 250,
+          "y": 477,
+          "width": 1900,
+          "height": 1306,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 130,
+          "y": 80,
+          "width": 1780,
+          "height": 265,
+          "label": "TITLE_BLOCK"
+        }
+      ]
+    },
+    "PT05.png": {
+      "x": 2030,
+      "y": 210,
+      "width": 288,
+      "height": 59,
+      "style": "transparent",
+      "contrastReview": "PASS",
+      "compositionSpacingReview": "PASS",
+      "placeholderFrameReview": "PASS",
+      "outsideProductReview": "PASS",
+      "protectedZones": [
+        {
+          "x": 430,
+          "y": 580,
+          "width": 1540,
+          "height": 1059,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 130,
+          "y": 80,
+          "width": 1780,
+          "height": 265,
+          "label": "TITLE_BLOCK"
+        }
+      ]
+    },
+    "PT06.png": {
+      "x": 2030,
+      "y": 210,
+      "width": 288,
+      "height": 59,
+      "style": "transparent",
+      "contrastReview": "PASS",
+      "compositionSpacingReview": "PASS",
+      "placeholderFrameReview": "PASS",
+      "outsideProductReview": "PASS",
+      "protectedZones": [
+        {
+          "x": 160,
+          "y": 670,
+          "width": 2080,
+          "height": 1259,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 130,
+          "y": 80,
+          "width": 1780,
+          "height": 265,
+          "label": "TITLE_BLOCK"
+        }
+      ]
+    },
+    "PT07.png": {
+      "x": 2030,
+      "y": 210,
+      "width": 288,
+      "height": 59,
+      "style": "transparent",
+      "contrastReview": "PASS",
+      "compositionSpacingReview": "PASS",
+      "placeholderFrameReview": "PASS",
+      "outsideProductReview": "PASS",
+      "protectedZones": [
+        {
+          "x": 450,
+          "y": 880,
+          "width": 1500,
+          "height": 1031,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 130,
+          "y": 80,
+          "width": 1780,
+          "height": 265,
+          "label": "TITLE_BLOCK"
+        }
+      ]
+    },
+    "PT08.png": {
+      "x": 2030,
+      "y": 210,
+      "width": 288,
+      "height": 59,
+      "style": "transparent",
+      "contrastReview": "PASS",
+      "compositionSpacingReview": "PASS",
+      "placeholderFrameReview": "PASS",
+      "outsideProductReview": "PASS",
+      "protectedZones": [
+        {
+          "x": 160,
+          "y": 770,
+          "width": 2080,
+          "height": 195,
+          "label": "PRODUCT_SILHOUETTE_LEFT"
+        },
+        {
+          "x": 160,
+          "y": 1510,
+          "width": 2080,
+          "height": 195,
+          "label": "PRODUCT_SILHOUETTE_RIGHT"
+        },
+        {
+          "x": 130,
+          "y": 80,
+          "width": 1780,
+          "height": 265,
+          "label": "TITLE_BLOCK"
+        }
+      ]
+    }
+  },
+  "githubCanonicalDirectory": "product generated photo/VL-1276/",
+  "githubDeliveryRepository": "Jeremy777777777/create-custom-pc-listing",
+  "contactSheetDelivery": "LOCAL_SUPPLEMENT_ONLY; not a canonical image slot"
+}

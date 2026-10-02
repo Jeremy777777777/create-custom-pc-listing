@@ -1,33 +1,9 @@
-# Product-generated photos
+# Product output folders
 
-Final Amazon gallery images are organized by verified internal model under
-`VL-<internal-model>/`. Each canonical product folder contains exactly **11
-final image files**: three different completed MAIN choices (`MAIN-STRICT`,
-front enhanced, and three-quarter enhanced) plus `PT01`–`PT08`. Manifest and
-Logo placement records are additional files and do not count toward 11.
+Use one verified internal-ID folder: `VL-XXXX/`. Upload a real Research Review workbook as soon as available; later base-configuration listing workbooks, final images and current QA share the same folder. Never overwrite the source template.
 
-Follow [the dedicated product-image workflow](../references/amazon-product-image-workflow.md)
-and [the current image specification](../references/image-spec.md), then select
-one per-model visual profile from
-[the image style profiles](../references/image-style-profiles.md). Record the
-profile and reason in `image-manifest.md`. Each product
-folder contains `MAIN-STRICT`, `MAIN-ENHANCED-FRONT-CANDIDATE`,
-`MAIN-ENHANCED-THREE-QUARTER-CANDIDATE`, `PT01`–`PT08`, and an
-`image-manifest.md` production record. The three MAIN files are alternatives for
-one Amazon MAIN slot. Start new models from [`image-manifest-template.md`](image-manifest-template.md).
-Image work is separate from the listing workbook.
-It is an independently callable child workflow under the complete MegaPC
-listing workflow: a user may generate or adjust images for one `VL-XXXX`
-without regenerating listing copy or the Excel workbook. Approved review images
-must be copied into the canonical `VL-XXXX/` folder; review-suffixed directories
-are not final GitHub delivery locations.
+Read `product-facts.json` and `delivery-status.json` first. `LEGACY_QUARANTINED` images remain recoverable but are not approved examples or completed deliveries. Retired workbook, manifest, QA and delivery records are historical only and must not be loaded in a normal run.
 
-### Unified per-product GitHub output
+For current production follow `../SKILL.md` and start from `image-manifest-template.md`. A complete current gallery has exactly three MAIN alternatives and PT01–PT08, all 2000×2000 RGB/RGBA with opaque final backgrounds (JPEG must be RGB), plus records. Research-only folders need not contain images. Computer-only imagery has no external equipment or accessories.
 
-Research starts the product's output folder. Once the verified internal ID is known and a Research Review workbook has been generated, upload that real workbook immediately to the repository-root path `product generated photo/VL-XXXX/`; Git creates the folder through the committed file. Do not wait for image generation or final listing approval to create it.
-
-Use the same existing folder for the later listing workbook, 3 MAIN choices, PT01-PT08, manifest and QA records. Do not create a separate Excel folder, a session-ID folder, or a duplicate product folder. Keep the workbook's true review status in its filename and records (for example `*_RESEARCH_REVIEW.xlsx`); uploading a research draft does not mark it final or publish-ready. Later validated listing workbooks stay in this same folder with a clear stage/version. Never overwrite the original `assets/listing-workbook-template.xlsx`.
-
-The 11-image gate counts image slots only: XLSX and JSON/Markdown records are additional deliverables. Contact sheets remain local or in a separate non-top-level preview folder. A verified existing product folder is reused. Missing or ambiguous internal-ID mappings must be resolved before uploading; never substitute an ERP ID, OEM model or ASIN.
-
-Local files are working copies. For each completed stage, commit/upload the produced files and verify the GitHub path and remote file hashes. Report the GitHub folder and workbook links; a local file link or ZIP alone is not GitHub delivery. Only an explicit local-only/no-upload instruction skips this step. Image-only tasks reuse the folder and do not invent or regenerate an Excel workbook.
+Local QA precedes selective commit/push; applicable CI and remote hash verification precede completion. Requested same-slot replacement is authorized after internal QA. Unrelated image bytes must stay unchanged.
