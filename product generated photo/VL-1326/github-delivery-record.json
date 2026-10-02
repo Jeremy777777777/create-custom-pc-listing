@@ -1,0 +1,194 @@
+{
+  "commit": "ef7da6d56c834746cf826841f32d1c19a978f8df",
+  "commit_url": "https://github.com/Jeremy777777777/create-custom-pc-listing/commit/ef7da6d56c834746cf826841f32d1c19a978f8df",
+  "folder_url": "https://github.com/Jeremy777777777/create-custom-pc-listing/tree/main/product%20generated%20photo/VL-1326",
+  "all_files_match": true,
+  "canonical_image_count": 11,
+  "checks": [
+    {
+      "file": "asset-source-records.json",
+      "local_git_blob_sha": "6cb2b1fb6cd9406f92cf1269ea643ef54c32bb8e",
+      "remote_git_blob_sha": "6cb2b1fb6cd9406f92cf1269ea643ef54c32bb8e",
+      "sha256": "c6201febcaeb51e2fc8b315fff3e7302b2677942f5a547b67c41f750a64dea2d",
+      "match": true
+    },
+    {
+      "file": "coverage-summary.json",
+      "local_git_blob_sha": "5597b0bb893286a48078e3a4b0a57721b59b0f41",
+      "remote_git_blob_sha": "5597b0bb893286a48078e3a4b0a57721b59b0f41",
+      "sha256": "efd433883bd28d4c7d9a77e24fcc7fd324059c207dc01442f36f9b6eaec9c725",
+      "match": true
+    },
+    {
+      "file": "final-image-qa.json",
+      "local_git_blob_sha": "bcdbd1e1b7c3cb581ed4e1163f1bf9b90533c78f",
+      "remote_git_blob_sha": "bcdbd1e1b7c3cb581ed4e1163f1bf9b90533c78f",
+      "sha256": "845cd7471ecd7a310010014f1c77c128f0e9b6dea075893e332b46874aae6b4d",
+      "match": true
+    },
+    {
+      "file": "front-restoration-record.json",
+      "local_git_blob_sha": "1cdc2aaf8c44cffaa46b61590e8d9aa4fa6e3f8c",
+      "remote_git_blob_sha": "1cdc2aaf8c44cffaa46b61590e8d9aa4fa6e3f8c",
+      "sha256": "22d2934256f53849488c9fbe4d50a1dd60e25a9e83fbe1ff25cdda8effff9715",
+      "match": true
+    },
+    {
+      "file": "gallery-semantic-qa.json",
+      "local_git_blob_sha": "fb6fed8f9cf2cb49aa6c61cae4cc167eec45a5bd",
+      "remote_git_blob_sha": "fb6fed8f9cf2cb49aa6c61cae4cc167eec45a5bd",
+      "sha256": "3fc45a9c675ad3849158a690366214231f3c17e738d5abc55bb15bb4aea4445f",
+      "match": true
+    },
+    {
+      "file": "image-manifest.md",
+      "local_git_blob_sha": "2d7fe560e3c66c44fa13d48a6366702d39862d4b",
+      "remote_git_blob_sha": "2d7fe560e3c66c44fa13d48a6366702d39862d4b",
+      "sha256": "682887239480da4a9da748ab61007a73676bde62ff39cdceb4adfa9957b4c6bb",
+      "match": true
+    },
+    {
+      "file": "listing-copy-review.md",
+      "local_git_blob_sha": "4c1cef2e69a3a7b1c6e4f3bb14929140c6d097bb",
+      "remote_git_blob_sha": "4c1cef2e69a3a7b1c6e4f3bb14929140c6d097bb",
+      "sha256": "70cc8daeb5479c11f2daa978d82bb2ece07a37cb1500296123930851bbbe3bed",
+      "match": true
+    },
+    {
+      "file": "logo-placement.json",
+      "local_git_blob_sha": "189d097583214b5902b7bb05387da7ecc9a9903e",
+      "remote_git_blob_sha": "189d097583214b5902b7bb05387da7ecc9a9903e",
+      "sha256": "f0a75beb39245d060de331f1b9d2b1837459fa11e987b39e964aedb5fa52ff62",
+      "match": true
+    },
+    {
+      "file": "logo-qa.json",
+      "local_git_blob_sha": "ff2ca2ca7f15723411152b41d5ca865259b6344b",
+      "remote_git_blob_sha": "ff2ca2ca7f15723411152b41d5ca865259b6344b",
+      "sha256": "fe54e0d608bd5e3cf1456929e86a4873c34924da014b66e78eda8cde65031e64",
+      "match": true
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "local_git_blob_sha": "0126612ed894ccc524598f139678e24654694292",
+      "remote_git_blob_sha": "0126612ed894ccc524598f139678e24654694292",
+      "sha256": "c55e9a0ed75aa7b283444588bbec3a57769463ef14e4a1bbc9b4c7710af018a3",
+      "match": true
+    },
+    {
+      "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "local_git_blob_sha": "24d0d75ede045a46f89d48b7864d6deb0b9a9d9e",
+      "remote_git_blob_sha": "24d0d75ede045a46f89d48b7864d6deb0b9a9d9e",
+      "sha256": "5045df914ce9e384da93cf03381ac6840209033b689502f65a79097438443376",
+      "match": true
+    },
+    {
+      "file": "MAIN-STRICT.jpg",
+      "local_git_blob_sha": "1f2eb57563d90aa63c0137776a2ece1d51926f98",
+      "remote_git_blob_sha": "1f2eb57563d90aa63c0137776a2ece1d51926f98",
+      "sha256": "52ba061ca0928a2c673b0bc1abf042f16c6056653d1be174a4a87d20a45701e5",
+      "match": true
+    },
+    {
+      "file": "MegaPC_Lenovo_Yoga_7_VL-1326_LISTING_REVIEW.xlsx",
+      "local_git_blob_sha": "3b42e46ef62e0d269114b3fbd929cf558f26be9e",
+      "remote_git_blob_sha": "3b42e46ef62e0d269114b3fbd929cf558f26be9e",
+      "sha256": "fa69bd279b29b9a65e13ab90838580593fc560be56f996d8108886e988db60ce",
+      "match": true
+    },
+    {
+      "file": "MegaPC_Lenovo_Yoga_7_VL-1326_RESEARCH_REVIEW.xlsx",
+      "local_git_blob_sha": "04978440c8a260cdc215fd8c790522c39149a1b2",
+      "remote_git_blob_sha": "04978440c8a260cdc215fd8c790522c39149a1b2",
+      "sha256": "87494fc20962694f625236f7cf223ae1a139c14d63300c79e2f1d1aef625f76a",
+      "match": true
+    },
+    {
+      "file": "PT01.png",
+      "local_git_blob_sha": "8edc4207accc5c1754a3cdfd80720513db90ec6f",
+      "remote_git_blob_sha": "8edc4207accc5c1754a3cdfd80720513db90ec6f",
+      "sha256": "e35773553f6de5e66833e84145a1009dfc11a423772236db5d264e8cc8dd1202",
+      "match": true
+    },
+    {
+      "file": "PT02.png",
+      "local_git_blob_sha": "dac2ffcfa8d4a18392879268e4bc13d8effe3a79",
+      "remote_git_blob_sha": "dac2ffcfa8d4a18392879268e4bc13d8effe3a79",
+      "sha256": "992107bea62e5678ea938df6c0ee2d3d42c87e8e5b7c19d81b071e27d8cf3ab4",
+      "match": true
+    },
+    {
+      "file": "PT03.png",
+      "local_git_blob_sha": "000fa0d051e4ea17aec2c466a903753bfd96b550",
+      "remote_git_blob_sha": "000fa0d051e4ea17aec2c466a903753bfd96b550",
+      "sha256": "a60f92c31f61b26413816dfa5c7fd6e72bfb6598807cacb101f9972b23c8c638",
+      "match": true
+    },
+    {
+      "file": "PT04.png",
+      "local_git_blob_sha": "889a49ee958e13688c6f4ed937507ca27c3a7a0d",
+      "remote_git_blob_sha": "889a49ee958e13688c6f4ed937507ca27c3a7a0d",
+      "sha256": "af795324154f1720a236887d278f4370bf7a7d57259ad62f90ab2fd27223704e",
+      "match": true
+    },
+    {
+      "file": "PT05.png",
+      "local_git_blob_sha": "bccd82273fb3c4ea2e12c985475a3bc98c0b19e8",
+      "remote_git_blob_sha": "bccd82273fb3c4ea2e12c985475a3bc98c0b19e8",
+      "sha256": "67bf20037dafeeda37f47c56545475758af15bc49ae257f5611afc9e23ecf716",
+      "match": true
+    },
+    {
+      "file": "PT06.png",
+      "local_git_blob_sha": "33d557912f6cbf2919eeb4039f8a607009ff04ad",
+      "remote_git_blob_sha": "33d557912f6cbf2919eeb4039f8a607009ff04ad",
+      "sha256": "c5967f11e519a619da00bf88c1326d1cc84bba7d7a7827b8ee32c83b7b332cf2",
+      "match": true
+    },
+    {
+      "file": "PT07.png",
+      "local_git_blob_sha": "87900fdcbb0f0f5e62fd4f2cfcb829189c2b95e2",
+      "remote_git_blob_sha": "87900fdcbb0f0f5e62fd4f2cfcb829189c2b95e2",
+      "sha256": "46a8df7412165216db36d08f5f5d1ff80030de43a8112562c9a5e47a0d480e2b",
+      "match": true
+    },
+    {
+      "file": "PT08.png",
+      "local_git_blob_sha": "2066760729ca28ee0f74fa856a202e27476e1bf8",
+      "remote_git_blob_sha": "2066760729ca28ee0f74fa856a202e27476e1bf8",
+      "sha256": "69a88deeb38a2f0952277efd4bb3b20172da94912c87286fd18e1109631be92d",
+      "match": true
+    },
+    {
+      "file": "research-coverage-ledger.json",
+      "local_git_blob_sha": "e00ba5d0e2c2ffa14fd6b95fc266dc3b3826dfc8",
+      "remote_git_blob_sha": "e00ba5d0e2c2ffa14fd6b95fc266dc3b3826dfc8",
+      "sha256": "14487a4ebecde319c64f8685c2aec33dab47658d407088d690f458004b129fb4",
+      "match": true
+    },
+    {
+      "file": "run-record.md",
+      "local_git_blob_sha": "7bce0a8e37b82e7c12cd032e1350cfb57af13df3",
+      "remote_git_blob_sha": "7bce0a8e37b82e7c12cd032e1350cfb57af13df3",
+      "sha256": "4b5def3757a52f9e19e29678aec3e83da7973018a82fd588c00ef595a186603b",
+      "match": true
+    },
+    {
+      "file": "workbook-qa.json",
+      "local_git_blob_sha": "f74374b8cbb92317d28d21802f16c4e45757e7d5",
+      "remote_git_blob_sha": "f74374b8cbb92317d28d21802f16c4e45757e7d5",
+      "sha256": "e79e3e6f4d01cb50a3d41970aa3b156b4b1bdea609afe686160609ed8b125103",
+      "match": true
+    }
+  ],
+  "ci": [
+    {
+      "name": "Validate gallery OEM Logo QA",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jeremy777777777/create-custom-pc-listing/actions/runs/36919211197"
+    }
+  ],
+  "delivery_state": "GITHUB_DELIVERY_VERIFIED",
+  "verification_scope": "All 25 uploaded delivery files at the image-producing commit; later documentation-only completion records do not alter these image bytes."
+}

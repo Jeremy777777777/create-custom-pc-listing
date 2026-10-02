@@ -12,7 +12,7 @@
     853,
     1522
   ],
-  "scale": 2.5908203125,
+  "scale": "See scale_xy for optimized independent axes; original uniform screen-width estimate was 2.5908203125",
   "translation": [
     -677.3885156249995,
     -1570.9697265625
@@ -25,5 +25,9 @@
     3840
   ],
   "status": "VISUAL_REVIEW_PASS",
-  "outside_reference_photo_fill": "WHITE; no black affine-fill artifacts"
+  "outside_reference_photo_fill": "WHITE; no black affine-fill artifacts",
+  "scale_xy": [
+    2.582520312499998,
+    2.5908203125
+  ]
 }

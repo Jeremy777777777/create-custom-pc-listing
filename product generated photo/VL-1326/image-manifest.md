@@ -3,7 +3,7 @@
 delivery_mode: FINAL_ASSET_DELIVERY
 workflow_invocation_mode: FULL_LISTING_WORKFLOW
 delivery_state: FINAL_ASSET_QA_PASS
-github_delivery_state: GITHUB_DELIVERY_PENDING
+github_delivery_state: GITHUB_DELIVERY_VERIFIED
 candidate_semantics: COMPLETED_SELECTION_OPTION_NOT_DRAFT
 final_image_count: 11 (3 MAIN + PT01–PT08)
 Internal ID: VL-1326; ERP product 31326; linked listing 129889888.
@@ -103,3 +103,9 @@ Listing publication: COMPLIANCE_BLOCKED pending the explicit seller/account item
 Qualified accessible live Amazon references: 0. Three direct attempts unavailable; ERP mirror is not represented as a live Amazon page. OEM and exact Best Buy sources support the gallery facts.
 MAIN-STRICT is the default image upload-preparation candidate. Enhanced MAIN choices are finished visuals; Amazon account/category exception approval is separate and not asserted.
 No Seller Central publication or ERP edits occurred.
+
+## Verified GitHub delivery
+
+Image-producing commit: https://github.com/Jeremy777777777/create-custom-pc-listing/commit/ef7da6d56c834746cf826841f32d1c19a978f8df
+
+All 25 delivery file Git blob hashes matched; exactly 11 canonical image slots. GitHub gallery QA: https://github.com/Jeremy777777777/create-custom-pc-listing/actions/runs/36919211197 — success. See github-delivery-record.json. Later completion-record commits preserve the verified image bytes.

@@ -987,5 +987,6 @@
   "qualified_live_amazon_reference_count": 0,
   "amazon_status": "SOURCE_UNAVAILABLE: direct pages failed to fetch; exact linked ERP specification reviewed independently.",
   "style_approval_status": "APPROVED",
-  "github_delivery_status": "GITHUB_DELIVERY_PENDING"
+  "github_delivery_status": "GITHUB_DELIVERY_VERIFIED",
+  "image_delivery_commit": "ef7da6d56c834746cf826841f32d1c19a978f8df"
 }
