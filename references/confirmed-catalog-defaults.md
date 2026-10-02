@@ -22,7 +22,7 @@ All final MAIN and PT files are **2000×2000**. Do not upscale insufficient sour
 
 Business enhanced front defaults to `WINDOWS_11_PRO_LOGO_LOCKUP`, angle to `WINDOWS_11_PRO_PACKAGE`; they may swap for safe fit but must differ. Gaming/Student/General use one fixed package in each enhanced MAIN. All Windows assets and their glow/shadow are LCD-contained. MAIN-STRICT and PT01 use no Windows overlay. Business PT03 may use one lockup in its OS line; other PT slots do not repeat Windows treatment.
 
-Gaming front: product width 97–98%, top visual clearance 8–10%, accurate chassis; angle independently adapted. Only a continuous original head/helmet may cross TOP, at most 12% of the product bounding-box area; shoulders, arms, hands, particles and all information stay LCD-contained. No-head themes stay inside the LCD. Six graphical display/CPU/GPU/RAM/SSD/OS cards use frozen layers and approved G/C/A composition. A flat PNG is a visual reference, not a reusable layered template.
+Gaming front defaults to the current SCREEN_ONLY accepted-reference composition: approximately 97–100% product width when naturally feasible, with margins adapted to the real chassis/aspect ratio; angle independently adapted. No mandatory 8–10% top clearance or head breakout. A separately approved HEAD_ONLY variation may cross TOP at most 12% of the product bounding-box area; shoulders, arms, hands, particles and all information always stay LCD-contained. No-head themes stay inside the LCD. Six graphical display/CPU/GPU/RAM/SSD/OS cards use frozen layers and approved G/C/A composition. A flat PNG is a visual reference, not a reusable layered template.
 
 ## Slot ownership and semantic review
 

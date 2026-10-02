@@ -14,7 +14,7 @@ C01–C06 can arrange/group six cards differently but cannot omit their categori
 | C04 Core Orbit | Partial node orbit with separate complete OS card |
 | C05 Performance Matrix | Ordered graphical module grid below hero |
 | C06 Prism Blade Stack | Diagonal module stack, no skew of fixed Windows artwork |
-| C07 Six Spatial Asset Cards | Six independent depth cards in LCD; no fixed row/order; approved HEAD_ONLY/TOP |
+| C07 Six Spatial Asset Cards | Six depth cards in LCD; default DISPLAY/CPU above, GPU/RAM/SSD/OS below per current SCREEN_ONLY reference; adapt measured zones to target LCD |
 
 ## A card skins
 

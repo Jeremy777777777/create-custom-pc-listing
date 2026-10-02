@@ -1,38 +1,21 @@
-# Gaming enhanced MAIN — stable reference-driven production
+# Gaming enhanced MAIN — current reference-driven production
 
-## Scope and authority
+Read [gaming-approved-main-fit.md](gaming-approved-main-fit.md) and the current approved reference/normalized recipe before building Gaming MAIN. The user has approved the supplied VL-1221 image as the current successful example. Its acceptance is user-confirmed for that image, not independently checked or transferred to a new SKU.
 
-适用于 Gaming 增强 MAIN；不改变 Business、PT01–PT08、MAIN-STRICT 或产品真实性/发布合规要求。[历史视觉基准](../assets/gaming-main-reference/vl1221-approved-v1/approved.png) 可说明设计目标：大机身、白底、连续 3D 主体、六张图形资产卡、原厂标志保留。它是视觉基准，不是官方产品照片或新 SKU 规格证据。
+## 1. Current composition and reference
 
+Default SCREEN_ONLY: original orange/blue mecha behind six readable graphical cards, accurate dominant front computer, white exterior and neutral shadow. DISPLAY/CPU flank the hero above; GPU/RAM/SSD/OS occupy the lower tier with cyan/orange/lime/cyan/purple/blue accents. All character/card/brand/effect pixels stay inside the real LCD. Use current measured masks and approximate normalized anchors; do not copy 1254px coordinates or require 8–10% top clearance. Adapt square-canvas margins to exact source geometry. Head-only/TOP breakout is an optional separately approved direction.
 
-## 1. Current recipe and historical reference boundaries
+The exact supplied 1237×937 front is imported without altering bytes under approved-slot-exception.json. New generated files default 2000×2000 from sufficiently detailed sources. Keep existing style approval and verify current product facts; no reference values transfer to other products.
 
-下述位图/配方仅在用户明确要求历史对比时读取，普通run使用当前批准的recipe，不读取历史样例。历史配方：[layout.json](../assets/gaming-main-reference/vl1221-approved-v1/layout.json)。坐标采用 1254×1254 历史参考画布，正式输出固定2000×2000，坐标按同一系数缩放；不得把低清位图放大充当正式来源；不拉伸机身。数值为从获批位图人工读取的近似初始锚点，不冒充精确分割。首次分层时核准 mask 后记录实际测量值。
-
-仅历史对比任务使用 `pwsh -File scripts/test-gaming-main-reference.ps1 -SelfTest` 校验历史参考哈希、尺寸、矩形锚点与六卡内容框。此工具只返回 REFERENCE_METADATA_PASS，不判断最终图片是否美观、头部 mask 是否准确或分层生产包是否完成。
-
-当前正面比例标准（数值源自已确定的设计目标；不要求读取历史样例）：
-
-| 项目 | 基准/验收范围 |
-| --- | --- |
-| 电脑本体宽度，不含阴影与角色 | 约 97.7%；目标 97–98% |
-| 左右空白 | 各约 1–1.5%；不裁切电脑 |
-| 电脑水平中心 | 距画布中心不超过 1% |
-| 角色最高点（有头部主题） | 当前2000px画布 y=160–200；顶部空白8–10%。无头部主题不套用该头部指标，以获批屏内构图为准 |
-| 电脑本体底缘 | 当前2000px画布 y=1780–1820；底部9–11% |
-| 接触阴影底缘 | 当前2000px画布 y=1840–1880；底部6–8%，以可见阴影人工复核 |
-| LCD 可视区 | 从当前准确产品层测量并保存真实mask；无通用像素坐标，不套用1254px旧锚点 |
-
-仅头部/头盔可越过 LCD 上缘，默认只跨 TOP 一条边。肩、肩甲、手、手臂、装备、粒子、光晕、碎片、速度线全部在 LCD 内；白底不延续彩色光。无头部的 G style 用屏内透视与遮挡保留 3D 纵深，不能自动改成载具/核心出屏。保留真实 V/VICTUS 等原厂标志，不添加或伪造机身标志。
-
-六卡位置使用当前获批recipe，无固定顺序；历史JSON坐标不能自动套用到当前产品。新 G/A 可采用四角或其他有空间感的安排，须先审批并保存自己的 recipe。三分之四、desktop 和不同长宽比产品独立适配，不能硬套正面像素或照搬 VL-1221 规格。
+The old vl1221-approved-v1 PNG/layout and its metadata test are historical only. Normal runs read the new current reference. The new recipe is a visual layout guide, not a completed editable production pack. A flat PNG alone cannot pass reproducibility. Standalone desktop uses the catalog DESKTOP_GRAPHIC_SAFE_ZONE exception with no invented LCD/monitor/head breakout.
 
 ## 2. Build and retain a layered production pack
 
 第一次建立模板必须保存以下实际文件；不能把一张扁平成品声称为完整分层模板：
 
 - 已核验的准确产品照片/产品层、原厂标志、来源与使用授权记录；
-- LCD mask、product protected mask、head-only breakout mask；
+- LCD mask、product protected mask、optional head-only breakout mask only for separately approved breakout variations；
 - frozen screen environment 与 subject rear/head 层；
 - 六张不含字与商标的 A-style 卡片皮肤，以及 电脑LCD/内部RAM/SSD能力图标资产；
 - 官方 CPU/GPU/Windows 文件、必要的字体/文字排版参数；
@@ -55,7 +38,7 @@ ImageGen 负责原创环境、角色和必要的非品牌卡片装饰，始终�
 ## 4. Run sequence and correction policy
 
 1. 同步最新 workflow；核验当前产品和销售配置。先读当前目录政策和产品事实记录；读取本标准和当前已批准recipe；历史 reference PNG/layout JSON 不进入普通run，仅用户明确要求历史对比时读取。
-2. 新产品选择 G/C/A，展示包含产品占比、头部边界和六卡位置的 proposal；沿用现有审批闸门。已有同产品/同风格的实际批准可继续用于局部修正；历史文件不能证明新产品批准。
+2. 新产品选择 G/C/A，展示包含产品占比、SCREEN_ONLY边界或另行批准的头部边界和六卡位置的 proposal；沿用现有审批闸门。已有同产品/同风格的实际批准可继续用于局部修正；历史文件不能证明新产品批准。
 3. 优先复用当前产品获批生产包。新产品必须换成准确产品层；不能沿用上一 SKU 的机身、CPU/GPU 或端口。
 4. 首次建立/缺失分层时完成第 2 节，不绕过来源闸门；冻结通过视觉验收的背景、角色和卡片皮肤。
 5. 按 recipe 合成图形资产与真实规格，再合成一次 Windows；输出版本化文件，不先覆盖 canonical。
@@ -66,7 +49,7 @@ ImageGen 负责原创环境、角色和必要的非品牌卡片装饰，始终�
 
 `REFERENCE_MATCH_GATE`（必须人工看图，不能仅凭 JSON PASS）：
 
-- 同尺寸并排比较当前style lock指向的获批参考与候选；若没有当前基准，记录REFERENCE_BASELINE_REQUIRED，不能以历史参考或虚构PASS补齐。比较，并检查 100% 和 200 px 缩略图；检查产品占比、四周留白、LCD、角色重心、仅头部出屏、六卡图形辨识、内边距、Windows fit、原厂标志。
+- 同尺寸并排比较当前style lock指向的获批参考与候选；若没有当前基准，记录REFERENCE_BASELINE_REQUIRED，不能以历史参考或虚构PASS补齐。比较，并检查 100% 和 200 px 缩略图；检查产品占比、四周留白、LCD、角色重心、默认全部屏内，或另行批准的仅头部出屏、六卡图形辨识、内边距、Windows fit、原厂标志。
 - 同产品同版修正：产品边界、LCD 四角和卡片锚点偏移不超过画布 1%，除非用户批准移动；检查不能只对文字正确性打勾。
 - 分辨率和真实产品几何优先，不把尺寸范围当作拉伸产品的许可。不同产品/角度需要独立批准的 recipe。
 
@@ -80,7 +63,3 @@ ImageGen 负责原创环境、角色和必要的非品牌卡片装饰，始终�
 在 manifest 记录 reference path/hash、recipe path/hash、产品与图层资产/hash、当前规格证据、合成命令、实际 bbox、部位边界检查、逐卡 fit、100%/200px 复核、复跑对比与局部更新测试结果。保持 VISUAL_APPROVED、PRODUCTION_PACK_READY、FULL_GALLERY_QA 和 AMAZON_MAIN_ELIGIBILITY 独立。
 
 Standalone desktop uses DESKTOP_GRAPHIC_SAFE_ZONE from catalog policy: the laptop width/top/bottom ranges and LCD/head masks above do not apply. Save separately measured chassis/card/Windows safe zones in the desktop recipe; accurate visible hardware remains untouched.
-
-## Active reference precedence — 2026-10-02
-
-[gaming-approved-main-fit.md](gaming-approved-main-fit.md) is the active ordinary-run reference and overrides the historical reference, mandatory head-breakout and 8–10% top-clearance defaults above. Read the new approved PNG and normalized recipe during normal production. Existing historical PNGs remain excluded. SCREEN_ONLY is the new default; only specifically approved breakout variations use head masks and the old breakout margins. Retain layered-pack, deterministic typography/brand and repeat-build gates.

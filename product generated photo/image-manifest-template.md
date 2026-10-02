@@ -28,9 +28,11 @@ main_content_boundary: <SCREEN_ONLY|HEAD_ONLY_FRAME_BREAK|DESKTOP_GRAPHIC_SAFE_Z
 enhanced_main_outer_background: PURE_WHITE
 gaming_breakout_edge: <TOP|NOT_APPLICABLE>
 gaming_breakout_parts: <HEAD_ONLY|NONE>
-gaming_product_width_pct: <front measured target97-98>
-gaming_top_clearance_pct: <front measured target8-10>
+gaming_product_width_pct: <actual measured fit; current reference approximately97-100, no clipping>
+gaming_top_clearance_pct: <actual aspect-aware margins; no mandatory8-10 in SCREEN_ONLY>
 layered_production_pack: <actual files or NOT_READY; flat PNG is not sufficient>
+current_gaming_reference: assets/gaming-main-reference/vl1221-amazon-approved-20261002/approved.png
+user_approved_exact_import_exception: <receipt path or NOT_APPLICABLE>
 enhanced_front_windows_asset_mode: <integrated-screen Business LOGO_LOCKUP; otherwise PACKAGE>
 enhanced_three_quarter_windows_asset_mode: PACKAGE
 windows_asset_placement: <SCREEN_SAFE_ZONE|DESKTOP_GRAPHIC_SAFE_ZONE>
