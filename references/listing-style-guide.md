@@ -43,3 +43,5 @@ Preserve this structure in the workbook, including real newlines, Markdown bold 
 ```
 
 Sections may be combined/omitted when irrelevant; Warranty is last. Do not present OS upgrades as buyer-selectable software customization or state that all software remains factory configured. Other hardware stays factory configured, with actual RAM/storage changes described accurately. No unsupported FPS, battery/runtime, compatibility, thermal or security guarantees. Exact facts must agree across title, bullets, description, attributes and images. Run [compliance-rules.md](compliance-rules.md) before marking publication ready.
+
+Warranty wording is directly confirmed by the user on 2026-10-02. Use it unchanged in all three locations; OEM applicability is left for seller manual confirmation before publication and does not block workbook drafts.

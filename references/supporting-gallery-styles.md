@@ -74,11 +74,11 @@ Physical PT08: show exact real left/right laptop ports when both exist, or actua
 
 ### BG01 — Office Workflow Suite
 
-对应 B01，适合 Office 权益已验证的日常商务电脑。
+对应 B01，普通办公主题不要求包含 Office。使用原创抽象文档/任务视觉；只有展示 Office 商标、专有界面或宣称包含 Office 时，才要求独立核验对应权益与素材授权。
 
 ### BG02 — Copilot Productivity Flow
 
-对应 B02，只用于 Copilot 类型和权益已经准确区分的产品。
+对应 B02，仅使用已验证 AI 能力；原创抽象助手主题不暗示付费 Copilot。展示 Copilot 商标或宣称包含具体服务时，核验其类型、权益与素材授权；Copilot key 不证明付费服务或 Copilot+。
 
 ### BG03 — Executive Control Center
 
@@ -95,3 +95,5 @@ Physical PT08: show exact real left/right laptop ports when both exist, or actua
 ### BG06 — Student-to-Career
 
 对应 B06，适合学习、家庭办公与入门商务。
+
+B07–B16 route to same-number BG07–BG16 using the motifs in [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md) and slot layouts in [production-recipes.md](production-recipes.md). If PT07 has no unused verified value, use an accurate restrained product/task atmosphere image with no invented claim and explicit manual semantic review.

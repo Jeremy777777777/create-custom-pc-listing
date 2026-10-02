@@ -1,10 +1,10 @@
 name: Validate current gallery delivery
 on:
   pull_request:
-    paths: ['SKILL.md', 'README.md', 'references/**', 'scripts/**', '.github/**', 'product generated photo/**']
+    paths: ['SKILL.md', 'README.md', 'references/**', 'assets/**', 'scripts/**', '.github/**', 'product generated photo/**']
   push:
     branches: [main]
-    paths: ['SKILL.md', 'README.md', 'references/**', 'scripts/**', '.github/**', 'product generated photo/**']
+    paths: ['SKILL.md', 'README.md', 'references/**', 'assets/**', 'scripts/**', '.github/**', 'product generated photo/**']
 jobs:
   validate:
     runs-on: ubuntu-latest
@@ -17,6 +17,8 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -r scripts/requirements.txt
       - run: python -m unittest discover -s scripts/tests -v
+      - name: Validate current workbook structure
+        run: python scripts/check-workbooks.py --directory .
       - name: Validate eligible canonical galleries and changed quarantined images
         env:
           BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
@@ -27,3 +29,12 @@ jobs:
           else
             python scripts/gallery_engine.py gate --directory . --base "$BASE" --head "$HEAD"
           fi
+      - name: Retain check scope summaries
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: workflow-check-summaries
+          path: |
+            gallery-ci-summary.json
+            workbook-ci-summary.json
+          if-no-files-found: ignore

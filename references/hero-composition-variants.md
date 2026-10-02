@@ -9,3 +9,7 @@ Policy is [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md); implem
 Business uses one fixed logo+Windows 11 Pro lockup and one fixed package, default front/angle respectively. Other audiences use package in both. All identity pixels, glow and shadow remain inside LCD. No accessory, external device or decorative outside scene is allowed. Gaming head-only TOP exception and six graphical cards follow [gaming-main-reproducible-workflow.md](gaming-main-reproducible-workflow.md); no other content crosses the LCD.
 
 Record source/hash/rights/model match for both views; product bbox/LCD mask; composition ID; Windows source/crop recipe/rights/mode; protected zones; current-hash overlap, scale, style and visual review. MAIN-STRICT remains separate and enhanced candidates require independently verified Amazon exception before serving as published MAIN.
+
+## Current recipe and desktop applicability
+
+Use [production-recipes.md](production-recipes.md) for slot layouts, layer requirements and rebuild procedure. Read the current product style-lock.json first; preserve approved direction while rebuilding missing recipes, without inheriting old QA. Universal LCD/SCREEN_ONLY and lockup/package instructions above apply to integrated-screen computers. Standalone towers/SFF/mini PCs use the catalog policy's DESKTOP_GRAPHIC_SAFE_ZONE exception with package/package, accurate chassis layers and an approved versioned safe-zone recipe; no monitor, invented LCD or head breakout.

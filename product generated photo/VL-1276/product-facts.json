@@ -15,14 +15,16 @@
     "finalImageSize": [
       2000,
       2000
-    ]
+    ],
+    "warrantyWordingConfirmation": "DIRECT_USER_INSTRUCTION_2026-10-02",
+    "oemWarrantyApplicabilityReview": "SELLER_MANUAL_PUBLICATION_CHECK"
   },
   "unresolvedOperationalChecks": [
     "Windows licence/activation and fixed delivery QA",
     "Applicable Amazon/account publication requirements",
     "Current exact-model asset rights, physical matching and image-required facts"
   ],
-  "styleApprovalStatus": "DO_NOT_INFER_FROM_HISTORICAL_MANIFEST",
+  "styleApprovalStatus": "APPROVED_DIRECTION_RECIPE_REBUILD_REQUIRED",
   "revalidationRequired": true,
   "confirmedHardware": {
     "oemBrand": "ASUS",
@@ -38,5 +40,6 @@
     "OEM Windows Home is factory state; Windows 11 Pro is fixed seller-delivered OS, not CONFLICT.",
     "Legacy 1TB dock capacity is external; internal installed SSD is 512GB.",
     "16GB onboard memory does not authorize a 32GB RAM tier."
-  ]
+  ],
+  "styleLock": "style-lock.json"
 }

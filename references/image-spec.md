@@ -35,3 +35,7 @@ People require seller-owned/licensed/original synthetic sources. No real identit
 ## Review and status
 
 Use [style-approval-gate.md](style-approval-gate.md), [supporting-gallery-styles.md](supporting-gallery-styles.md) and [final-image-delivery-contract.md](final-image-delivery-contract.md). Save slot fact ownership, semantic metric/manual rationale, 100% and 200px visual checks, LCD masks/protected zones, source licenses and current file hashes. Manual review records must be bound to the actual final hashes; automatic scripts cannot assert visual or license PASS. Any edited output invalidates its corresponding reports. Keep full-gallery QA, delivery verification and Amazon MAIN eligibility separate.
+
+## Current recipe and desktop applicability
+
+Use [production-recipes.md](production-recipes.md) for slot layouts, layer requirements and rebuild procedure. Read the current product style-lock.json first; preserve approved direction while rebuilding missing recipes, without inheriting old QA. Universal LCD/SCREEN_ONLY and lockup/package instructions above apply to integrated-screen computers. Standalone towers/SFF/mini PCs use the catalog policy's DESKTOP_GRAPHIC_SAFE_ZONE exception with package/package, accurate chassis layers and an approved versioned safe-zone recipe; no monitor, invented LCD or head breakout.

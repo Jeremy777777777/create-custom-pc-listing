@@ -42,3 +42,7 @@ Default bind Gxx→Axx. Material skin change follows style approval. Theme names
 所有 A style 共用以下不可变规则：卡片中的文字和数字必须来自确定性排版资产；商标使用获准源文件；Logo 不得被生成、重画、变形、改色或重新拼字；卡片必须在 100% 与 200 px 缩略图通过可读性检查。
 
 Record each card's asset/source hashes, outer and usable bounds, icon/text fit, LCD mask and current final review. Logo scales are proportional; transparent padding may be removed but visible artwork never cropped. Windows identity remains complete, planar and proportional. Final typography/brand assets are deterministic, not image-generated. Missing graphical assets require sourcing rather than silent text-only fallback.
+
+## Current recipe and desktop applicability
+
+Use [production-recipes.md](production-recipes.md) for slot layouts, layer requirements and rebuild procedure. Read the current product style-lock.json first; preserve approved direction while rebuilding missing recipes, without inheriting old QA. Universal LCD/SCREEN_ONLY and lockup/package instructions above apply to integrated-screen computers. Standalone towers/SFF/mini PCs use the catalog policy's DESKTOP_GRAPHIC_SAFE_ZONE exception with package/package, accurate chassis layers and an approved versioned safe-zone recipe; no monitor, invented LCD or head breakout.

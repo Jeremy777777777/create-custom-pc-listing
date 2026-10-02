@@ -147,3 +147,7 @@ No copied characters, games, UI, maps, licensed vehicle branding, celebrity iden
 - 主体：原创多边形 hover module 或几何吉祥物在 LCD 内形成前后遮挡。
 - 3D 重点：扫描线、速度网格和柔和 glow；文字区保持现代可读，不使用像素字体堆叠。
 - 禁止：复刻 1980s 游戏柜、已知街机角色、版权像素图、真实游戏 Logo、过度荧光导致电商缩略图失焦。
+
+## Current recipe and desktop applicability
+
+Use [production-recipes.md](production-recipes.md) for slot layouts, layer requirements and rebuild procedure. Read the current product style-lock.json first; preserve approved direction while rebuilding missing recipes, without inheriting old QA. Universal LCD/SCREEN_ONLY and lockup/package instructions above apply to integrated-screen computers. Standalone towers/SFF/mini PCs use the catalog policy's DESKTOP_GRAPHIC_SAFE_ZONE exception with package/package, accurate chassis layers and an approved versioned safe-zone recipe; no monitor, invented LCD or head breakout.

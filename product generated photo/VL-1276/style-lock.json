@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VL-1276",
+  "style_approval_status": "APPROVED",
+  "approved_style_id": "B08",
+  "approved_supporting_gallery_pack": "BG08",
+  "audience_style_family": "BUSINESS_WORK",
+  "approvalMigration": {
+    "migratedAt": "2026-10-02",
+    "recordedApprovalText": "Style approval: APPROVED by user in this conversation; approval reused without another gate.",
+    "recordedApprovalDate": null,
+    "exactApprovalTimestamp": null,
+    "sourceRecord": "history/2026-10-02-pre-policy-update/product-records/VL-1276/image-manifest.md",
+    "sourceRecordSha256": "2d98f88eee211087cad2c49e819fff63bda758111313536496f8ca9febe24506",
+    "scope": "Direction only; no historical image QA, current recipe approval or asset rights inherited"
+  },
+  "recipeStatus": "REBUILD_REQUIRED",
+  "recipePath": null,
+  "recipeSha256": null,
+  "currentImageQaInherited": false
+}

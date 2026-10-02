@@ -29,3 +29,7 @@ Light gray/blue technical drafting and abstract task timeline. No docks, externa
 Bright blue-green, soft geometry and original notes/calendar abstractions. No unsupported school/course compatibility or bundled software claims.
 
 B07–B16 and matching BG07–BG16 motif descriptions are in [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md). All styles use fixed catalog slot ownership and current style approval; same-product local corrections retain approval.
+
+## Current recipe and desktop applicability
+
+Use [production-recipes.md](production-recipes.md) for slot layouts, layer requirements and rebuild procedure. Read the current product style-lock.json first; preserve approved direction while rebuilding missing recipes, without inheriting old QA. Universal LCD/SCREEN_ONLY and lockup/package instructions above apply to integrated-screen computers. Standalone towers/SFF/mini PCs use the catalog policy's DESKTOP_GRAPHIC_SAFE_ZONE exception with package/package, accurate chassis layers and an approved versioned safe-zone recipe; no monitor, invented LCD or head breakout.

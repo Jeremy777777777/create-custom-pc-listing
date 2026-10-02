@@ -98,3 +98,7 @@ A canonical folder must have exactly 11 current image slots when completed; XLSX
 ## Final report
 
 Report the verified internal ID, source mapping, base configuration, workbook stage, critical unresolved items, current policy version, gallery state, requested/changed slots, local and applicable remote QA, GitHub folder/workbook/commit links and remote hash verification. State any production/delivery/publication blockers separately. Do not present a ZIP, local PASS or historical report as GitHub completion.
+
+## Current recipe and desktop applicability
+
+Use [production-recipes.md](references/production-recipes.md) for slot layouts, layer requirements and rebuild procedure. Read the current product style-lock.json first; preserve approved direction while rebuilding missing recipes, without inheriting old QA. Universal LCD/SCREEN_ONLY and lockup/package instructions above apply to integrated-screen computers. Standalone towers/SFF/mini PCs use the catalog policy's DESKTOP_GRAPHIC_SAFE_ZONE exception with package/package, accurate chassis layers and an approved versioned safe-zone recipe; no monitor, invented LCD or head breakout.

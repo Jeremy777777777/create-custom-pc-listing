@@ -207,7 +207,14 @@ def accept(directory,brand=None,slots=None):
     qa=read(p/'logo-qa.json'); qa.update(result='PASS',visualReviewSha256=digest(p/'visual-review.json')); write(p/'logo-qa.json',qa)
     write(p/'final-image-qa.json',{'schemaVersion':3,'result':'PASS','generatedAtUtc':datetime.now(timezone.utc).isoformat(),'images':images,'logoQaSha256':digest(p/'logo-qa.json'),'visualReviewSha256':digest(p/'visual-review.json'),'semanticReviewSha256':digest(p/'semantic-review.json')})
     if (p/'delivery-status.json').exists():
-        status=read(p/'delivery-status.json'); status.update(galleryState='CURRENT_REVIEWED',deliveryState='READY'); write(p/'delivery-status.json',status)
+        status=read(p/'delivery-status.json')
+        status.update(galleryState='CURRENT_REVIEWED',deliveryState='READY_FOR_GITHUB_DELIVERY',
+                      deliveryScope='FULL_GALLERY',currentQaPass=True,
+                      reason='Current full-gallery bytes and supplied hash-bound reviews passed local acceptance; remote delivery remains unverified.',
+                      nextRun='Commit/push, await applicable CI and verify remote file hashes before claiming GITHUB_DELIVERY_VERIFIED.')
+        for key in ('verifiedRemoteCommit','githubDeliveryVerifiedAtUtc','remoteDeliveryRecord'):
+            status.pop(key,None)
+        write(p/'delivery-status.json',status)
 
 def partial_checks(p,slots,brand=None):
     if not slots or any(n not in NAMES for n in slots) or len(set(slots))!=len(slots): raise ValueError('Invalid partial scope')
@@ -265,24 +272,35 @@ def crop(src,out,x,y,w,h):
     if min(w,h)<=0 or min(x,y)<0 or x+w>im.width or y+h>im.height: raise ValueError('Crop outside canvas')
     save(im.crop((x,y,x+w,y+h)),out)
 
+def gallery_directories(root,changed,full=False):
+    if full or any(s in ('SKILL.md','README.md') or s.startswith(('scripts/','.github/','references/','assets/')) or s=='product generated photo/image-manifest-template.md' for s in changed):
+        return list((root/'product generated photo').glob('VL-*'))
+    return sorted({root/Path(*Path(s).parts[:2]) for s in changed if s.startswith('product generated photo/VL-')})
+
 def gate(root,base=None,head='HEAD'):
     root=Path(root)
     changed=[] if not base else subprocess.check_output(['git','diff','--name-only',base,head],cwd=root,text=True).splitlines()
-    all_galleries=not base or any(s.startswith(('scripts/','.github/')) for s in changed)
-    dirs=list((root/'product generated photo').glob('VL-*')) if all_galleries else sorted({root/Path(*Path(s).parts[:2]) for s in changed if s.startswith('product generated photo/VL-')})
-    validated=0; quarantined=0
+    dirs=gallery_directories(root,changed,full=not base)
+    validated=0; quarantined=0; partial=0; research=0
     for p in dirs:
         if not p.is_dir(): continue
         if not any((p/n).exists() for n in NAMES):
-            print(f'Research-only folder excluded from gallery validation: {p}'); continue
+            print(f'Research-only folder excluded from gallery validation: {p}'); research+=1; continue
         status=p/'delivery-status.json'
         if status.exists() and read(status).get('galleryState')=='LEGACY_QUARANTINED':
             relative=p.relative_to(root).as_posix()+'/'
-            image_changes=[s for s in changed if s.startswith(relative) and Path(s).suffix.lower() in ('.png','.jpg','.jpeg')]
-            if image_changes: validate_partial(p,[Path(s).name for s in image_changes])
+            image_changes=[s for s in changed if s.startswith(relative) and Path(s).parent.as_posix()==relative.rstrip('/') and Path(s).suffix.lower() in ('.png','.jpg','.jpeg')]
+            if image_changes:
+                validate_partial(p,[Path(s).name for s in image_changes]); partial+=1
             quarantined+=1; continue
         validate(p); validated+=1
     print(f'Validated {validated} eligible galleries; {quarantined} quarantined folders excluded, not PASS')
+    summary={'fullGalleriesValidated':validated,'quarantinedNotPassed':quarantined,'partialUpdatesValidated':partial,'researchOnlyFolders':research}
+    write(root/'gallery-ci-summary.json',summary)
+    if os.environ.get('GITHUB_STEP_SUMMARY'):
+        with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as f:
+            f.write(f'### Gallery check scope\n\nFull galleries validated: {validated}. Quarantined, NOT PASS: {quarantined}. Scoped partial updates: {partial}. Research-only folders: {research}.\n\nCI success means checks executed successfully; it does not clear quarantine or certify Amazon readiness.\n')
+    return summary
 
 def main():
     ap=argparse.ArgumentParser(); ap.add_argument('operation',choices=['normalize','remove-bg','overlay','badges','validate','finalize','gate','crop','contact','accept']); ap.add_argument('--input'); ap.add_argument('--output'); ap.add_argument('--size',type=int,default=2000); ap.add_argument('--format',default='PNG'); ap.add_argument('--asset'); ap.add_argument('--directory'); ap.add_argument('--plan'); ap.add_argument('--brand'); ap.add_argument('--contact'); ap.add_argument('--slots',nargs='+'); ap.add_argument('--skip-normalization',action='store_true'); ap.add_argument('--allow-legacy',action='store_true'); ap.add_argument('--mask'); ap.add_argument('--style',default='Flat'); ap.add_argument('--padding',type=int,default=18); ap.add_argument('--x',type=int); ap.add_argument('--y',type=int); ap.add_argument('--width',type=int); ap.add_argument('--height',type=int); ap.add_argument('--tolerance',type=int,default=8); ap.add_argument('--full',type=int,default=42); ap.add_argument('--base'); ap.add_argument('--head',default='HEAD'); a=ap.parse_args()

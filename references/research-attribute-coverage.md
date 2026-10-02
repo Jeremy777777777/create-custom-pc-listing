@@ -91,7 +91,7 @@ ledger 至少记录：`sheet`、`attribute`、`definition`、`applicability`、`
 在把候选值写入模板前，逐字段阅读 Definition，并检查：
 
 - 数值与单位列成对；重量、尺寸、速度、容量不以带单位文本替代数值字段。
-- 重复字段一致：RAM installed/size/maximum、storage capacity/hard-disk size、display resolution/native/maximum、OS/OS family、GPU/VRAM、端口明细/端口总数。
+- 同义字段一致：RAM installed/size、storage capacity/hard-disk size、OS/OS family、GPU/VRAM、端口明细/端口总数。RAM maximum、最大存储支持值、display native/maximum 必须分别按 Definition 核验，不要求与已安装容量或原生分辨率相等。基础配置仅限制销售文案和已安装字段；最大支持能力字段保存真实已验证上限，不能写成已安装值或可售升级档位。
 - `Manufacturer`、`Brand Name`、OEM 型号和 MegaPC 定制身份按项目合规规则分别表达。
 - 不把用途文案写入硬件位置字段。例如 `Antenna Location` 不能填 “gaming / creative work”；不把 `USB 3.0` 写成内部硬盘接口。
 - Amazon 或竞品页出现但与 OEM/实物冲突的值必须标为 `CONFLICT`，不得因页面完整或排名高而优先采用。

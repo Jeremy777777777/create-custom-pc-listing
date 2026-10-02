@@ -15,3 +15,5 @@ Existing approval remains for the same product/style during research, policy upd
 ## Lock and review
 
 Save `style_approval_status`, `approved_style_id`, `approved_supporting_gallery_pack`, palette, required/forbidden motifs, layout/recipe version and boundary fields. Prompts derive from this lock, not generic model aesthetics. Review actual 100%/200px current outputs: family visible, facts accurate, no external devices, all boundaries and asset modes met, slot distinctions real. Bind manual review to final hashes; record `style_fidelity_review: PASS` only after inspection. Failed candidates are REWORK_REQUIRED and remain in the approved direction unless a material change is approved.
+
+Read current style-lock.json before proposing a direction. Migrated approval may retain recorded approval text/date and its source hash; unknown approval time stays unknown. It does not approve current image bytes, a new geometric recipe, or unverified assets. Same-family recipe rebuilds preserve direction; validate measurements and fidelity before delivery. Material changes still require approval.

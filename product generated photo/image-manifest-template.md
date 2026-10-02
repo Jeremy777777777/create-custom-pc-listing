@@ -23,16 +23,17 @@ gaming_asset_card_style_id: <Axx|NOT_APPLICABLE>
 style_approval_status: <APPROVED|PROPOSED>
 approval_source_timestamp: <actual approval reference>
 recipe_path_hash: <versioned recipe and hash>
-main_content_boundary: <SCREEN_ONLY|HEAD_ONLY_FRAME_BREAK>
+form_factor: <LAPTOP|AIO|STANDALONE_DESKTOP>
+main_content_boundary: <SCREEN_ONLY|HEAD_ONLY_FRAME_BREAK|DESKTOP_GRAPHIC_SAFE_ZONE>
 enhanced_main_outer_background: PURE_WHITE
 gaming_breakout_edge: <TOP|NOT_APPLICABLE>
 gaming_breakout_parts: <HEAD_ONLY|NONE>
 gaming_product_width_pct: <front measured target97-98>
 gaming_top_clearance_pct: <front measured target8-10>
 layered_production_pack: <actual files or NOT_READY; flat PNG is not sufficient>
-enhanced_front_windows_asset_mode: <Business LOGO_LOCKUP default; otherwise PACKAGE>
-enhanced_three_quarter_windows_asset_mode: <Business PACKAGE default; otherwise PACKAGE>
-windows_asset_placement: SCREEN_SAFE_ZONE
+enhanced_front_windows_asset_mode: <integrated-screen Business LOGO_LOCKUP; otherwise PACKAGE>
+enhanced_three_quarter_windows_asset_mode: PACKAGE
+windows_asset_placement: <SCREEN_SAFE_ZONE|DESKTOP_GRAPHIC_SAFE_ZONE>
 windows_package_asset: assets/branding/windows-11-pro-package.png
 windows_lockup_source_recipe_rights: <fixed asset or deterministic complete mark+text derivative>
 logo_qa_schema_version: 3
@@ -82,8 +83,8 @@ Numeric overlap uses shared/min counts, fails above20%; zero-count/unreliable ma
 - Actual source/rights and exact hardware reviewed; authentic factory marks preserved.
 - All11 current files, sizes, hashes and required manual reviews verified, including MAIN.
 - Logo alpha-visible bounds/spacing, protected silhouettes and current source/master/final hashes checked in schema3.
-- Windows assets/glow/shadow remain LCD-contained, one per enhanced MAIN; Business modes differ.
-- Gaming only HEAD_ONLY/TOP, all six card contents/effects in LCD; frozen layered production pack actually exists.
+- Integrated-screen Windows assets/glow/shadow remain LCD-contained, one per enhanced MAIN; Business modes differ. Standalone desktop uses approved protected-chassis graphic safe zones and package/package, never a fabricated monitor/LCD.
+- Integrated-screen Gaming only HEAD_ONLY/TOP, all six card contents/effects in LCD; desktop has no head breakout. Frozen layered production pack actually exists.
 - No extra products/accessories, old placeholders, duplicated overlays or unverified claims.
 - Material style approval and actual current-hash fidelity review recorded.
 

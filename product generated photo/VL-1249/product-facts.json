@@ -15,7 +15,9 @@
     "finalImageSize": [
       2000,
       2000
-    ]
+    ],
+    "warrantyWordingConfirmation": "DIRECT_USER_INSTRUCTION_2026-10-02",
+    "oemWarrantyApplicabilityReview": "SELLER_MANUAL_PUBLICATION_CHECK"
   },
   "unresolvedOperationalChecks": [
     "Windows licence/activation and fixed delivery QA",
