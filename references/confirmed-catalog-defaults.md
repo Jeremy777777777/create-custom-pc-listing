@@ -64,3 +64,7 @@ LCD rules apply to laptops and all-in-one computers with a real integrated displ
 ## Approval migration
 
 Read the current product's style-lock.json when present. A migrated style direction preserves its recorded approval, not historical image QA, asset rights or an unbuilt recipe. APPROVED with recipeStatus REBUILD_REQUIRED permits rebuilding that same direction without asking for style approval again. Measured geometry and current-byte review still require actual work; material direction changes follow the approval gate.
+
+## Current Gaming reference — 2026-10-02
+
+For Gaming enhanced MAIN, apply [gaming-approved-main-fit.md](gaming-approved-main-fit.md) before any older generic head-breakout, top-clearance or reference-exclusion instructions. SCREEN_ONLY six-card composition is now the integrated-screen default; HEAD_ONLY is an optional separately approved variation. The exact VL-1221 front supplied and approved by the user is a hash-bound 1237×937 import exception, not a full-gallery PASS or a reusable exception for other files. New generations retain 2000×2000 defaults and independently verified product facts.

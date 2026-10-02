@@ -24,6 +24,8 @@
     "Applicable Amazon/account publication requirements",
     "Current exact-model asset rights, physical matching and image-required facts"
   ],
-  "styleApprovalStatus": "DO_NOT_INFER_FROM_HISTORICAL_MANIFEST",
-  "revalidationRequired": true
+  "styleApprovalStatus": "APPROVED",
+  "revalidationRequired": true,
+  "styleLock": "style-lock.json",
+  "approvedFrontAssetException": "approved-slot-exception.json"
 }

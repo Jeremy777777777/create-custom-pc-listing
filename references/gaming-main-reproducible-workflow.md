@@ -80,3 +80,7 @@ ImageGen 负责原创环境、角色和必要的非品牌卡片装饰，始终�
 在 manifest 记录 reference path/hash、recipe path/hash、产品与图层资产/hash、当前规格证据、合成命令、实际 bbox、部位边界检查、逐卡 fit、100%/200px 复核、复跑对比与局部更新测试结果。保持 VISUAL_APPROVED、PRODUCTION_PACK_READY、FULL_GALLERY_QA 和 AMAZON_MAIN_ELIGIBILITY 独立。
 
 Standalone desktop uses DESKTOP_GRAPHIC_SAFE_ZONE from catalog policy: the laptop width/top/bottom ranges and LCD/head masks above do not apply. Save separately measured chassis/card/Windows safe zones in the desktop recipe; accurate visible hardware remains untouched.
+
+## Active reference precedence — 2026-10-02
+
+[gaming-approved-main-fit.md](gaming-approved-main-fit.md) is the active ordinary-run reference and overrides the historical reference, mandatory head-breakout and 8–10% top-clearance defaults above. Read the new approved PNG and normalized recipe during normal production. Existing historical PNGs remain excluded. SCREEN_ONLY is the new default; only specifically approved breakout variations use head masks and the old breakout margins. Retain layered-pack, deterministic typography/brand and repeat-build gates.

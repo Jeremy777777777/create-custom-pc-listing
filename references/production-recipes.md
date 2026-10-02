@@ -39,3 +39,7 @@ Gaming uses the chosen G scene and matching A material across six enhanced-MAIN 
 3. Render, inspect 100%/200px and verify semantic ownership, geometry, licenses and style. Fix only failed layers; never manufacture review PASS.
 4. Freeze approved current inputs. Re-run identical inputs and compare pixels/hashes; Gaming RAM-only change must affect only its card content before restoring actual facts.
 5. Same-slot updates retain other canonical bytes and follow partial acceptance when the gallery is quarantined. A rebuilt recipe alone does not clear historical gallery status.
+
+## Current Gaming reference — 2026-10-02
+
+For Gaming enhanced MAIN, apply [gaming-approved-main-fit.md](gaming-approved-main-fit.md) before any older generic head-breakout, top-clearance or reference-exclusion instructions. SCREEN_ONLY six-card composition is now the integrated-screen default; HEAD_ONLY is an optional separately approved variation. The exact VL-1221 front supplied and approved by the user is a hash-bound 1237×937 import exception, not a full-gallery PASS or a reusable exception for other files. New generations retain 2000×2000 defaults and independently verified product facts.

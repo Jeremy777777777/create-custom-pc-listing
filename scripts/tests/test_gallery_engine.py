@@ -98,4 +98,15 @@ class Tests(unittest.TestCase):
   g.write(gallery/'delivery-status.json',{'galleryState':'LEGACY_QUARANTINED','currentQaPass':False})
   with patch.dict('os.environ',{},clear=True): result=g.gate(self.p)
   self.assertEqual(result['fullGalleriesValidated'],0);self.assertEqual(result['quarantinedNotPassed'],1)
+ def test_exact_import_exception_is_hash_and_scope_bound(self):
+  root=self.p;gallery=root/'product generated photo'/'VL-1221';gallery.mkdir(parents=True)
+  for n in g.NAMES:
+   Image.new('RGB',(1237,937),'white').save(gallery/n)
+  ref=root/'assets'/'approved.png';ref.parent.mkdir();ref.write_bytes((gallery/g.MAIN[1]).read_bytes())
+  receipt={'schemaVersion':1,'internalId':'VL-1221','file':g.MAIN[1],'exceptionType':'USER_APPROVED_EXACT_ASSET_IMPORT','authorizationSource':'test explicit import','fullGalleryPass':False,'sha256':g.digest(ref),'referenceSha256':g.digest(ref),'referencePath':'assets/approved.png','dimensions':[1237,937],'mode':'RGB','unchangedCanonicalSha256':{n:g.digest(gallery/n) for n in g.NAMES if n!=g.MAIN[1]},'visualReview':{'notes':'fixture review'}}
+  g.write(gallery/'approved-slot-exception.json',receipt)
+  g.validate_approved_import(root,gallery,[g.MAIN[1]])
+  with self.assertRaises(ValueError):g.validate_approved_import(root,gallery,[g.MAIN[1],'PT01.png'])
+  Image.new('RGB',(1237,937),'red').save(gallery/'PT01.png')
+  with self.assertRaises(ValueError):g.validate_approved_import(root,gallery,[g.MAIN[1]])
 if __name__=='__main__': unittest.main()

@@ -277,11 +277,30 @@ def gallery_directories(root,changed,full=False):
         return list((root/'product generated photo').glob('VL-*'))
     return sorted({root/Path(*Path(s).parts[:2]) for s in changed if s.startswith('product generated photo/VL-')})
 
+def validate_approved_import(root,p,changed):
+    receipt=read(p/'approved-slot-exception.json'); name=receipt.get('file')
+    if receipt.get('schemaVersion')!=1 or receipt.get('internalId')!=p.name or name!=MAIN[1] or set(changed)!={name}:
+        raise ValueError('Approved import exception does not cover this scope')
+    if receipt.get('exceptionType')!='USER_APPROVED_EXACT_ASSET_IMPORT' or not receipt.get('authorizationSource') or receipt.get('fullGalleryPass') is not False:
+        raise ValueError('Missing scoped user import authorization')
+    expected=receipt.get('sha256')
+    reference=(root/receipt['referencePath']).resolve()
+    if not reference.is_relative_to(root.resolve()) or digest(p/name)!=expected or digest(reference)!=expected or receipt.get('referenceSha256')!=expected:
+        raise ValueError('Approved import bytes/reference changed')
+    with Image.open(p/name) as im:
+        im.load()
+        if im.format!='PNG' or list(im.size)!=receipt.get('dimensions') or im.mode!=receipt.get('mode'):
+            raise ValueError('Approved import format differs from supplied asset')
+    unchanged={n:digest(p/n) for n in NAMES if n!=name}
+    if receipt.get('unchangedCanonicalSha256')!=unchanged or not receipt.get('visualReview',{}).get('notes'):
+        raise ValueError('Untouched slots changed or import review missing')
+    print('USER_APPROVED_EXACT_ASSET_IMPORT: one scoped native-size file; remaining gallery NOT PASS; Amazon acceptance user-reported')
+
 def gate(root,base=None,head='HEAD'):
     root=Path(root)
     changed=[] if not base else subprocess.check_output(['git','diff','--name-only',base,head],cwd=root,text=True).splitlines()
     dirs=gallery_directories(root,changed,full=not base)
-    validated=0; quarantined=0; partial=0; research=0
+    validated=0; quarantined=0; partial=0; research=0; imports=0
     for p in dirs:
         if not p.is_dir(): continue
         if not any((p/n).exists() for n in NAMES):
@@ -291,15 +310,19 @@ def gate(root,base=None,head='HEAD'):
             relative=p.relative_to(root).as_posix()+'/'
             image_changes=[s for s in changed if s.startswith(relative) and Path(s).parent.as_posix()==relative.rstrip('/') and Path(s).suffix.lower() in ('.png','.jpg','.jpeg')]
             if image_changes:
-                validate_partial(p,[Path(s).name for s in image_changes]); partial+=1
+                names=[Path(s).name for s in image_changes]
+                if (p/'approved-slot-exception.json').exists() and set(names)=={MAIN[1]}:
+                    validate_approved_import(root,p,names); imports+=1
+                else:
+                    validate_partial(p,names); partial+=1
             quarantined+=1; continue
         validate(p); validated+=1
     print(f'Validated {validated} eligible galleries; {quarantined} quarantined folders excluded, not PASS')
-    summary={'fullGalleriesValidated':validated,'quarantinedNotPassed':quarantined,'partialUpdatesValidated':partial,'researchOnlyFolders':research}
+    summary={'fullGalleriesValidated':validated,'quarantinedNotPassed':quarantined,'partialUpdatesValidated':partial,'approvedExactAssetImports':imports,'researchOnlyFolders':research}
     write(root/'gallery-ci-summary.json',summary)
     if os.environ.get('GITHUB_STEP_SUMMARY'):
         with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as f:
-            f.write(f'### Gallery check scope\n\nFull galleries validated: {validated}. Quarantined, NOT PASS: {quarantined}. Scoped partial updates: {partial}. Research-only folders: {research}.\n\nCI success means checks executed successfully; it does not clear quarantine or certify Amazon readiness.\n')
+            f.write(f'### Gallery check scope\n\nFull galleries validated: {validated}. Quarantined, NOT PASS: {quarantined}. Scoped partial updates: {partial}. Exact user-approved imports: {imports}. Research-only folders: {research}.\n\nCI success means checks executed successfully; it does not clear quarantine or certify Amazon readiness.\n')
     return summary
 
 def main():
