@@ -47,3 +47,9 @@ Read `product-facts.json` and `delivery-status.json` before legacy outputs. Exis
 ## Completion
 
 Local QA → selective commit/push → applicable GitHub CI → remote commit/path/hash verification → GITHUB_DELIVERY_VERIFIED. Spreadsheet structure PASS, local image PASS, style approval, GitHub delivery and Amazon publication eligibility are distinct states.
+
+## Consistency correction — 2026-10-02
+
+Warranty wording is directly confirmed; OEM applicability is seller-reviewed before publication without blocking review workbooks. Installed capacities and platform maximums are distinct fields. VL-1276 B08/BG08 and VL-1326 B16/BG16 direction approvals are retained in current style locks; recipe rebuilding does not confer image QA. Use [production-recipes.md](references/production-recipes.md) for current slot construction and standalone-desktop safe zones. CI summaries distinguish validated galleries, quarantined folders, partial receipts and workbook structural checks; none implies Amazon readiness.
+
+Current Gaming visual baseline: [gaming-approved-main-fit.md](references/gaming-approved-main-fit.md). VL-1221 enhanced front is the exact user-supplied, user-confirmed Amazon-accepted image; its native-size exception is scoped to that file and hash. Remaining gallery QA and remote upload are separate.

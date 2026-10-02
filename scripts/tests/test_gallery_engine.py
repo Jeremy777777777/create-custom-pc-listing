@@ -1,4 +1,5 @@
 import importlib.util, json, tempfile, unittest
+from unittest.mock import patch
 from pathlib import Path
 from PIL import Image
 spec=importlib.util.spec_from_file_location('engine',Path(__file__).parents[1]/'gallery_engine.py'); g=importlib.util.module_from_spec(spec); spec.loader.exec_module(g)
@@ -53,8 +54,9 @@ class Tests(unittest.TestCase):
   images=g.validate(self.p,require_final=False)
   g.write(self.p/'final-image-qa.json',{'schemaVersion':3,'result':'PASS','images':images,'logoQaSha256':g.digest(self.p/'logo-qa.json'),'visualReviewSha256':g.digest(self.p/'visual-review.json'),'semanticReviewSha256':g.digest(self.p/'semantic-review.json')})
   g.validate(self.p)
-  g.write(self.p/'delivery-status.json',{'galleryState':'LEGACY_QUARANTINED','deliveryState':'REWORK_REQUIRED'})
+  g.write(self.p/'delivery-status.json',{'galleryState':'LEGACY_QUARANTINED','deliveryState':'REWORK_REQUIRED','currentQaPass':False,'reason':'Legacy images','verifiedRemoteCommit':'old'})
   g.accept(self.p,'OEM'); self.assertEqual(g.read(self.p/'delivery-status.json')['galleryState'],'CURRENT_REVIEWED')
+  status=g.read(self.p/'delivery-status.json'); self.assertTrue(status['currentQaPass']); self.assertEqual(status['deliveryState'],'READY_FOR_GITHUB_DELIVERY'); self.assertNotIn('verifiedRemoteCommit',status); self.assertNotEqual(status['reason'],'Legacy images')
   # Remote canonical folders can validate recorded provenance without claiming replayed source verification.
   for n in g.PT: (self.p/'unbranded'/n).unlink()
   g.validate(self.p)
@@ -85,4 +87,26 @@ class Tests(unittest.TestCase):
  def test_quarantine_never_passes(self):
   g.write(self.p/'delivery-status.json',{'galleryState':'LEGACY_QUARANTINED'})
   with self.assertRaisesRegex(ValueError,'LEGACY_QUARANTINED'): g.validate(self.p)
+ def test_global_policy_and_assets_revalidate_all_galleries(self):
+  root=self.p; gallery=root/'product generated photo'/'VL-1234';gallery.mkdir(parents=True)
+  for changed in ['references/image-spec.md','SKILL.md','README.md','assets/listing-workbook-template.xlsx','product generated photo/image-manifest-template.md']:
+   self.assertEqual(g.gallery_directories(root,[changed]),[gallery])
+  self.assertEqual(g.gallery_directories(root,['history/old.md']),[])
+ def test_quarantine_summary_does_not_claim_full_pass(self):
+  gallery=self.p/'product generated photo'/'VL-1234';gallery.mkdir(parents=True)
+  (gallery/g.MAIN[0]).write_bytes(b'unchanged legacy bytes')
+  g.write(gallery/'delivery-status.json',{'galleryState':'LEGACY_QUARANTINED','currentQaPass':False})
+  with patch.dict('os.environ',{},clear=True): result=g.gate(self.p)
+  self.assertEqual(result['fullGalleriesValidated'],0);self.assertEqual(result['quarantinedNotPassed'],1)
+ def test_exact_import_exception_is_hash_and_scope_bound(self):
+  root=self.p;gallery=root/'product generated photo'/'VL-1221';gallery.mkdir(parents=True)
+  for n in g.NAMES:
+   Image.new('RGB',(1237,937),'white').save(gallery/n)
+  ref=root/'assets'/'approved.png';ref.parent.mkdir();ref.write_bytes((gallery/g.MAIN[1]).read_bytes())
+  receipt={'schemaVersion':1,'internalId':'VL-1221','file':g.MAIN[1],'exceptionType':'USER_APPROVED_EXACT_ASSET_IMPORT','authorizationSource':'test explicit import','fullGalleryPass':False,'sha256':g.digest(ref),'referenceSha256':g.digest(ref),'referencePath':'assets/approved.png','dimensions':[1237,937],'mode':'RGB','unchangedCanonicalSha256':{n:g.digest(gallery/n) for n in g.NAMES if n!=g.MAIN[1]},'visualReview':{'notes':'fixture review'}}
+  g.write(gallery/'approved-slot-exception.json',receipt)
+  g.validate_approved_import(root,gallery,[g.MAIN[1]])
+  with self.assertRaises(ValueError):g.validate_approved_import(root,gallery,[g.MAIN[1],'PT01.png'])
+  Image.new('RGB',(1237,937),'red').save(gallery/'PT01.png')
+  with self.assertRaises(ValueError):g.validate_approved_import(root,gallery,[g.MAIN[1]])
 if __name__=='__main__': unittest.main()

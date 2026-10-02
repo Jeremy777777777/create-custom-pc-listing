@@ -15,13 +15,17 @@
     "finalImageSize": [
       2000,
       2000
-    ]
+    ],
+    "warrantyWordingConfirmation": "DIRECT_USER_INSTRUCTION_2026-10-02",
+    "oemWarrantyApplicabilityReview": "SELLER_MANUAL_PUBLICATION_CHECK"
   },
   "unresolvedOperationalChecks": [
     "Windows licence/activation and fixed delivery QA",
     "Applicable Amazon/account publication requirements",
     "Current exact-model asset rights, physical matching and image-required facts"
   ],
-  "styleApprovalStatus": "DO_NOT_INFER_FROM_HISTORICAL_MANIFEST",
-  "revalidationRequired": true
+  "styleApprovalStatus": "APPROVED",
+  "revalidationRequired": true,
+  "styleLock": "style-lock.json",
+  "approvedFrontAssetException": "approved-slot-exception.json"
 }

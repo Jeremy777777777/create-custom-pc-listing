@@ -22,7 +22,7 @@ All final MAIN and PT files are **2000×2000**. Do not upscale insufficient sour
 
 Business enhanced front defaults to `WINDOWS_11_PRO_LOGO_LOCKUP`, angle to `WINDOWS_11_PRO_PACKAGE`; they may swap for safe fit but must differ. Gaming/Student/General use one fixed package in each enhanced MAIN. All Windows assets and their glow/shadow are LCD-contained. MAIN-STRICT and PT01 use no Windows overlay. Business PT03 may use one lockup in its OS line; other PT slots do not repeat Windows treatment.
 
-Gaming front: product width 97–98%, top visual clearance 8–10%, accurate chassis; angle independently adapted. Only a continuous original head/helmet may cross TOP, at most 12% of the product bounding-box area; shoulders, arms, hands, particles and all information stay LCD-contained. No-head themes stay inside the LCD. Six graphical display/CPU/GPU/RAM/SSD/OS cards use frozen layers and approved G/C/A composition. A flat PNG is a visual reference, not a reusable layered template.
+Gaming front defaults to the current SCREEN_ONLY accepted-reference composition: approximately 97–100% product width when naturally feasible, with margins adapted to the real chassis/aspect ratio; angle independently adapted. No mandatory 8–10% top clearance or head breakout. A separately approved HEAD_ONLY variation may cross TOP at most 12% of the product bounding-box area; shoulders, arms, hands, particles and all information always stay LCD-contained. No-head themes stay inside the LCD. Six graphical display/CPU/GPU/RAM/SSD/OS cards use frozen layers and approved G/C/A composition. A flat PNG is a visual reference, not a reusable layered template.
 
 ## Slot ownership and semantic review
 
@@ -52,3 +52,19 @@ Research Excel, Listing Excel and 11 final gallery files share `product generate
 Sequence: local checks and actual manual review → commit/push → remote applicable CI → verify commit and current file hashes → report `GITHUB_DELIVERY_VERIFIED`. CI is triggered by push; it is not a pre-push requirement. Changed images invalidate their previous hash-bound QA and delivery evidence; refresh reviews honestly, never relabel old PASS. Selected-slot corrections to quarantined legacy galleries use CURRENT_REQUESTED_SLOT_QA_PASS / PARTIAL_UPDATE and partial-update-qa.json while whole-gallery state stays REWORK_REQUIRED. Structural workbook PASS, factual completeness, seller review readiness, full-gallery QA, remote delivery and Amazon eligibility are independent statuses.
 
 Legacy policies are archived in `history/2026-10-02-pre-policy-update/` and are excluded from normal workflow retrieval. Consult history only for an explicitly requested historical comparison, never as fallback instructions.
+
+## Warranty confirmation for this correction
+
+On 2026-10-02 the user explicitly instructed this repair to retain the exact warranty paragraph above: OEM factory-component warranty remains valid; MegaPC covers upgraded RAM/SSD for 6 months; the 12-month extension is available. This direct instruction establishes the wording. Do not request another confirmation, historical approval citation or OEM-validity document before producing Research/Listing review workbooks. The seller will manually confirm OEM applicability before publication. Record this as SELLER_MANUAL_PUBLICATION_CHECK, separately from the confirmed wording; do not invent evidence or mark that manual check complete.
+
+## Form-factor boundary
+
+LCD rules apply to laptops and all-in-one computers with a real integrated display. A standalone tower/SFF/mini PC has no LCD: do not add a monitor or fabricate a screen. For its two enhanced MAIN candidates, use accurate front/three-quarter chassis views on white, with the scene, six Gaming cards and one Windows package per candidate in a separate approved graphic safe zone outside the protected chassis. This is information graphics, not included peripherals or retail media. No head breakout applies. This DESKTOP_GRAPHIC_SAFE_ZONE exception overrides universal SCREEN_ONLY wording only for these two candidates; MAIN-STRICT stays product-only, and enhanced publication eligibility remains independent. Obtain a product-specific composition approval before first use; never infer approval from a laptop recipe.
+
+## Approval migration
+
+Read the current product's style-lock.json when present. A migrated style direction preserves its recorded approval, not historical image QA, asset rights or an unbuilt recipe. APPROVED with recipeStatus REBUILD_REQUIRED permits rebuilding that same direction without asking for style approval again. Measured geometry and current-byte review still require actual work; material direction changes follow the approval gate.
+
+## Current Gaming reference — 2026-10-02
+
+For Gaming enhanced MAIN, apply [gaming-approved-main-fit.md](gaming-approved-main-fit.md) before any older generic head-breakout, top-clearance or reference-exclusion instructions. SCREEN_ONLY six-card composition is now the integrated-screen default; HEAD_ONLY is an optional separately approved variation. The exact VL-1221 front supplied and approved by the user is a hash-bound 1237×937 import exception, not a full-gallery PASS or a reusable exception for other files. New generations retain 2000×2000 defaults and independently verified product facts.

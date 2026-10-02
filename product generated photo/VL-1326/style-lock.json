@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VL-1326",
+  "style_approval_status": "APPROVED",
+  "approved_style_id": "B16",
+  "approved_supporting_gallery_pack": "BG16",
+  "audience_style_family": "BUSINESS_WORK",
+  "approvalMigration": {
+    "migratedAt": "2026-10-02",
+    "recordedApprovalText": "批准 B16 / BG16",
+    "recordedApprovalDate": "2026-10-01",
+    "exactApprovalTimestamp": null,
+    "sourceRecord": "history/2026-10-02-pre-policy-update/product-records/VL-1326/run-record.md",
+    "sourceRecordSha256": "fd6c25483bb0bfbbae0dd87c44ce23154e0802d6f492d09b62616362b13e9769",
+    "scope": "Direction only; no historical image QA, current recipe approval or asset rights inherited"
+  },
+  "recipeStatus": "REBUILD_REQUIRED",
+  "recipePath": null,
+  "recipeSha256": null,
+  "currentImageQaInherited": false
+}

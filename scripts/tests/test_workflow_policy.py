@@ -11,8 +11,8 @@ WARRANTY = ('The original [OEM brand] manufacturer warranty remains valid on fac
 
 class WorkflowPolicyTests(unittest.TestCase):
     def test_current_policy_and_base_scope(self):
-        policy = (ROOT/'references/confirmed-catalog-defaults.md').read_text()
-        skill = (ROOT/'SKILL.md').read_text()
+        policy = (ROOT/'references/confirmed-catalog-defaults.md').read_text(encoding='utf-8')
+        skill = (ROOT/'SKILL.md').read_text(encoding='utf-8')
         self.assertIn('2026-10-02', policy)
         self.assertIn(WARRANTY, policy)
         self.assertIn(WARRANTY, skill)
@@ -24,13 +24,13 @@ class WorkflowPolicyTests(unittest.TestCase):
     def test_no_discoverable_skill_in_history(self):
         self.assertFalse(list((ROOT/'history').rglob('SKILL.md')))
         for file in list((ROOT/'references').glob('*.md')) + [ROOT/'SKILL.md']:
-            content = file.read_text()
+            content = file.read_text(encoding='utf-8')
             self.assertNotRegex(content, r'\]\([^)]*history/')
 
     def test_markdown_local_links_resolve(self):
         files = list((ROOT/'references').glob('*.md')) + [ROOT/'SKILL.md', ROOT/'README.md', ROOT/'product generated photo/image-manifest-template.md']
         for file in files:
-            for target in re.findall(r'\]\(([^)]+)\)', file.read_text()):
+            for target in re.findall(r'\]\(([^)]+)\)', file.read_text(encoding='utf-8')):
                 if '://' in target or target.startswith('#'):
                     continue
                 path = target.split('#')[0].replace('%20', ' ')
@@ -41,7 +41,7 @@ class WorkflowPolicyTests(unittest.TestCase):
             status_path = folder/'delivery-status.json'
             if not status_path.exists():
                 continue
-            status = json.loads(status_path.read_text())
+            status = json.loads(status_path.read_text(encoding='utf-8'))
             if status.get('galleryState') != 'LEGACY_QUARANTINED':
                 continue
             self.assertFalse(status.get('currentQaPass', False))

@@ -15,18 +15,21 @@
     "finalImageSize": [
       2000,
       2000
-    ]
+    ],
+    "warrantyWordingConfirmation": "DIRECT_USER_INSTRUCTION_2026-10-02",
+    "oemWarrantyApplicabilityReview": "SELLER_MANUAL_PUBLICATION_CHECK"
   },
   "unresolvedOperationalChecks": [
     "Windows licence/activation and fixed delivery QA",
     "Applicable Amazon/account publication requirements",
     "Current exact-model asset rights, physical matching and image-required facts"
   ],
-  "styleApprovalStatus": "DO_NOT_INFER_FROM_HISTORICAL_MANIFEST",
+  "styleApprovalStatus": "APPROVED_DIRECTION_RECIPE_REBUILD_REQUIRED",
   "revalidationRequired": true,
   "identity": {
     "oemBrand": "Lenovo",
     "model": "Yoga 7 2-in-1 14AGP11",
     "status": "PRIOR_RESEARCH_IDENTITY_REVALIDATE_CURRENT_SOURCE"
-  }
+  },
+  "styleLock": "style-lock.json"
 }

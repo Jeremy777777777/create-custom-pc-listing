@@ -29,3 +29,7 @@ Generation and requested revisions authorize upload unless user requests local-o
 4. Report completed scope and real limitations. An upload failure is not successful delivery. A partial adjustment may be delivered as `CURRENT_REQUESTED_SLOT_QA_PASS` / `PARTIAL_UPDATE` with `partial-update-qa.json` for named slots. A quarantined legacy folder remains whole-gallery REWORK_REQUIRED; no forced rerender of unrelated slots and no full-gallery PASS.
 
 A previous delivery record certifies its recorded commit only. After editing, create evidence for the new commit rather than using the old record. Publication eligibility for MAIN-STRICT/enhanced candidates remains independent.
+
+## Current Gaming reference — 2026-10-02
+
+For Gaming enhanced MAIN, apply [gaming-approved-main-fit.md](gaming-approved-main-fit.md) before any older generic head-breakout, top-clearance or reference-exclusion instructions. SCREEN_ONLY six-card composition is now the integrated-screen default; HEAD_ONLY is an optional separately approved variation. The exact VL-1221 front supplied and approved by the user is a hash-bound 1237×937 import exception, not a full-gallery PASS or a reusable exception for other files. New generations retain 2000×2000 defaults and independently verified product facts.

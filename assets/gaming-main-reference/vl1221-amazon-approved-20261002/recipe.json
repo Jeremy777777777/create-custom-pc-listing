@@ -1,0 +1,128 @@
+{
+  "schemaVersion": 1,
+  "id": "gaming-screen-contained-six-cards-v2",
+  "internalId": "VL-1221",
+  "referencePath": "assets/gaming-main-reference/vl1221-amazon-approved-20261002/approved.png",
+  "referenceSha256": "f552ae9c395ae16805f9cd390c980985f7072805af00213c0271712d08ab3a48",
+  "referenceCanvas": [
+    1237,
+    937
+  ],
+  "coordinateSystem": "normalized rectangles [x,y,width,height], approximate visual anchors; measure actual masks per product",
+  "boundaryMode": "SCREEN_ONLY",
+  "headBreakout": false,
+  "style": {
+    "g": "G04",
+    "c": "C07",
+    "a": "A04",
+    "gg": "GG04"
+  },
+  "canvasPolicy": "This exact seller-approved 1237x937 import is an exception; new generations default 2000x2000 without stretching/upscaling this bitmap",
+  "anchors": {
+    "product": [
+      0.005,
+      0.007,
+      0.99,
+      0.925
+    ],
+    "lcd": [
+      0.097,
+      0.04,
+      0.806,
+      0.56
+    ],
+    "hero": [
+      0.282,
+      0.05,
+      0.379,
+      0.369
+    ]
+  },
+  "cards": [
+    {
+      "id": "display",
+      "color": "cyan",
+      "bounds": [
+        0.109,
+        0.083,
+        0.184,
+        0.228
+      ]
+    },
+    {
+      "id": "cpu",
+      "color": "orange",
+      "bounds": [
+        0.711,
+        0.084,
+        0.183,
+        0.223
+      ]
+    },
+    {
+      "id": "gpu",
+      "color": "lime",
+      "bounds": [
+        0.101,
+        0.331,
+        0.198,
+        0.264
+      ]
+    },
+    {
+      "id": "ram",
+      "color": "cyan",
+      "bounds": [
+        0.302,
+        0.369,
+        0.2,
+        0.23
+      ]
+    },
+    {
+      "id": "ssd",
+      "color": "purple",
+      "bounds": [
+        0.505,
+        0.359,
+        0.195,
+        0.244
+      ]
+    },
+    {
+      "id": "os",
+      "color": "Windows blue",
+      "bounds": [
+        0.7,
+        0.342,
+        0.195,
+        0.259
+      ]
+    }
+  ],
+  "readingOrder": [
+    "display",
+    "cpu",
+    "gpu",
+    "ram",
+    "ssd",
+    "os"
+  ],
+  "factsVisibleInReferenceOnly": {
+    "display": "15.6 inch FHD 144Hz",
+    "cpu": "Ryzen 7 7445HS",
+    "gpu": "RTX 4050 6GB",
+    "ram": "16GB DDR5",
+    "ssd": "512GB SSD",
+    "os": "Windows 11 Pro"
+  },
+  "productionPackReady": false,
+  "hardwareEvidence": "Reference appearance and text are not independent proof for any SKU; research exact product before reuse",
+  "amazonApproval": {
+    "status": "USER_CONFIRMED_ACCEPTED",
+    "scope": "This exact VL-1221 image only",
+    "source": "Direct user message 2026-10-02: 这个主图已经通过amazon的审核",
+    "independentlyVerified": false
+  },
+  "renderStrategy": "Accurate separate product photograph plus original screen scene; freeze clean six-card skins, then deterministic licensed logos and exact typography; clip all graphics to LCD; save measured recipe and layers"
+}

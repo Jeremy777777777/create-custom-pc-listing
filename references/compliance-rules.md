@@ -20,3 +20,5 @@ MAIN-STRICT is the default white-background computer image with no added graphic
 ## Source verification
 
 Use current official Amazon/account guidance for publication decisions and official component/OEM sources for product facts. OEM Windows Home and platform capacity limits do not override confirmed sold Pro/base capacities. New genuine external policy conflicts should be explained specifically, not hidden by reverting to archived seller rules.
+
+The confirmed warranty wording requires no additional approval/source citation for review outputs. OEM applicability is a seller manual publication check, not a research/copy-production blocker. For standalone desktop enhanced candidates apply the DESKTOP_GRAPHIC_SAFE_ZONE exception in catalog policy; never imply Amazon acceptance.

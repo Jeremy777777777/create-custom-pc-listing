@@ -41,3 +41,5 @@ Use [current catalog policy](confirmed-catalog-defaults.md) and [image-spec.md](
 ## B16 / BG16 — Editorial Innovation
 
 适合 AI、科技平台、新一代处理器或创新工作流有充分证据的机型。视觉采用原创 editorial collage：纸张层级、裁切色块、技术网格和自有标题系统；不得复制真实报纸、杂志、文章、人物照片或 IST 的撕纸轮廓。
+
+Use [production-recipes.md](production-recipes.md) for concrete per-slot layouts and the versioned recipe fields; B/BG motifs adapt that plan rather than replacing it.
