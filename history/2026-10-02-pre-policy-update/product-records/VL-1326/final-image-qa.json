@@ -1,0 +1,88 @@
+{
+  "productDirectory": "VL-1326",
+  "finalImageCount": 11,
+  "expectedFinalImageCount": 11,
+  "canvas": "2400x2400",
+  "logoQa": "PASS",
+  "contactSheet": "VL-1326-contact-sheet.jpg",
+  "result": "PASS",
+  "images": [
+    {
+      "file": "MAIN-STRICT.jpg",
+      "width": 2400,
+      "height": 2400,
+      "sha256": "52BA061CA0928A2C673B0BC1ABF042F16C6056653D1BE174A4A87D20A45701E5",
+      "result": "PASS"
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "width": 2400,
+      "height": 2400,
+      "sha256": "C55E9A0ED75AA7B283444588BBEC3A57769463EF14E4A1BBC9B4C7710AF018A3",
+      "result": "PASS"
+    },
+    {
+      "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "width": 2400,
+      "height": 2400,
+      "sha256": "5045DF914CE9E384DA93CF03381AC6840209033B689502F65A79097438443376",
+      "result": "PASS"
+    },
+    {
+      "file": "PT01.png",
+      "width": 2400,
+      "height": 2400,
+      "sha256": "E35773553F6DE5E66833E84145A1009DFC11A423772236DB5D264E8CC8DD1202",
+      "result": "PASS"
+    },
+    {
+      "file": "PT02.png",
+      "width": 2400,
+      "height": 2400,
+      "sha256": "992107BEA62E5678EA938DF6C0EE2D3D42C87E8E5B7C19D81B071E27D8CF3AB4",
+      "result": "PASS"
+    },
+    {
+      "file": "PT03.png",
+      "width": 2400,
+      "height": 2400,
+      "sha256": "A60F92C31F61B26413816DFA5C7FD6E72BFB6598807CACB101F9972B23C8C638",
+      "result": "PASS"
+    },
+    {
+      "file": "PT04.png",
+      "width": 2400,
+      "height": 2400,
+      "sha256": "AF795324154F1720A236887D278F4370BF7A7D57259AD62F90AB2FD27223704E",
+      "result": "PASS"
+    },
+    {
+      "file": "PT05.png",
+      "width": 2400,
+      "height": 2400,
+      "sha256": "67BF20037DAFEEDA37F47C56545475758AF15BC49AE257F5611AFC9E23ECF716",
+      "result": "PASS"
+    },
+    {
+      "file": "PT06.png",
+      "width": 2400,
+      "height": 2400,
+      "sha256": "C5967F11E519A619DA00BF88C1326D1CC84BBA7D7A7827B8EE32C83B7B332CF2",
+      "result": "PASS"
+    },
+    {
+      "file": "PT07.png",
+      "width": 2400,
+      "height": 2400,
+      "sha256": "46A8DF7412165216DB36D08F5F5D1FF80030DE43A8112562C9A5E47A0D480E2B",
+      "result": "PASS"
+    },
+    {
+      "file": "PT08.png",
+      "width": 2400,
+      "height": 2400,
+      "sha256": "69A88DEEB38A2F0952277EFD4BB3B20172DA94912C87286FD18E1109631BE92D",
+      "result": "PASS"
+    }
+  ]
+}

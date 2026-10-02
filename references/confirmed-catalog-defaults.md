@@ -1,37 +1,54 @@
-# Confirmed catalog defaults and autonomous research
+# Confirmed catalog policy — 2026-10-02
 
-用户于 2026-10-01 确认以下全目录规则。本文件优先于旧示例、旧 ASIN、OEM 出厂配置和默认 packout 图片任务；不改变独立的 Amazon 发布资格检查。
+This is the single active authority for seller decisions, workbook configuration and gallery defaults. Read this file and the product directory's current product-fact record before research, copy or image production. Historical files, old generated workbooks and image examples are not active instructions or current QA evidence. A later explicit user decision may replace a policy; record it here rather than appending contradictory instructions elsewhere. Actual Amazon eligibility remains a separate check.
 
-## 固定卖家政策
+## Seller policy
 
-- 所有电脑最终销售系统固定为 **Windows 11 Pro**。卖家在交付前升级；OEM Home 是原厂状态，不是最终销售配置冲突。记录 `USER_CONFIRMED_CATALOG_POLICY` 并用于图片和文案，不再逐机询问。许可证、激活和履约检查属于交付/发布 QA，不阻断已确认 Pro 的图片制作。不得据此声称包含 Office、Microsoft 365 或付费 Copilot。
-- 所有电脑固定 **6 个月保修 + 12 个月延保**；英文锁定 `6-month warranty + 12-month extended warranty`。记录 `USER_CONFIRMED_CATALOG_POLICY`，不再逐机询问。不得自行追加免费、付费、注册条件、覆盖范围、OEM 保修有效/失效或升级部件独立一年保修等承诺；历史一年保修示例只作政策来源示例，不能套用。
-- 所有新图库只展示**电脑本身**。不得展示拓展坞、电源适配器、线缆、鼠标、显示器或其他配件，也不得把确认配件清单当作图片前置阻断。PT06 改为白底电脑本身的准确多角度/输入细节，禁止 packout；其内容必须与 PT04/PT08 去重。PT02 可有工作环境和匿名工作者，但不得出现额外设备或配件。增强 MAIN 所需的固定 Windows 图形是软件身份资产，完整位于 LCD 内，不表示实体盒随箱。
+- All products are customized computers. Every title starts with `MegaPC Custom`, identifies the OEM model through `Created Using …`, and ends with `Win 11 Pro`. Do not reopen whether a computer qualifies as customized. Describe actual changes accurately; do not invent RAM upgrades on soldered-memory models.
+- The final sold OS is Windows 11 Pro. OEM Windows Home describes the factory configuration, not a contradiction with the seller's final configuration. Record `USER_CONFIRMED_CATALOG_POLICY`. License/activation and channel eligibility are fulfillment/publication checks; do not repeatedly ask the user to reconfirm Pro or block image research for that reason. No Office, Microsoft 365 or paid Copilot entitlement is implied.
+- Mandatory warranty text, with only `[OEM brand]` replaced by the verified brand:
 
-## 自主交叉验证
+  > The original [OEM brand] manufacturer warranty remains valid on factory components. MegaPC provides a 6-month limited warranty on upgraded RAM and SSD components, with a 12-month warranty extension available.
 
-1. 保存 ERP 产品字段、标题、关联 listing 原值及具体字段路径。识别准确型号、代际、厂商料号、颜色和销售 SKU，区分系列可选配置与实际机器。
-2. SSD 只统计电脑**内部已安装 SSD**。拓展坞内置/附带容量、外置盘、SD 卡、云存储和平台支持上限必须单独记录，绝不相加。内部 SSD 以准确 ERP/装配记录、卖家确认与匹配 OEM SKU 交叉验证；有冲突时指出原文及字段位置，不能只引用错误结构化容量。VL-1276 的最终内部 SSD 为用户确认的 **512GB**；旧 listing 的 1TB 来自 dock 语境，不是电脑 SSD。
-3. RAM 验证实际安装容量、技术代际、速度、板载/焊接、实际插槽、可升级性和最大支持值。最大支持值、系列可选值不等于本机已安装值。仅发布有供应/装配证据的可售升级档位。板载、无插槽机型不得编造升级 tier；VL-1276 是 **16GB LPDDR5X onboard**，不生成 32GB 档位。
-4. 主动研究 OEM 准确 SKU 产品页、tech specs、手册与 OEM 发布信息；随后对照 Best Buy 准确型号/颜色，以及 Amazon 已有同型号或高度相关 listing。Amazon/零售商用于发现字段、市场表达与差异，不作为单独最终规格证据。不得为了凑三个参考而纳入错误型号；少于三个记录检索范围继续工作。
-5. 对可解释差异自主给出结论并保存证据，如内部/外置容量、地区版、不同代际、OEM Home/卖家 Pro、平台上限/安装值。只有影响最终产品且仍无法解释的关键冲突才询问用户；已确认标准不重复询问。
-6. 高清多角度素材检索顺序：OEM 官方 gallery/pressroom/下载页 → Best Buy 准确型号多角度 gallery → Amazon 准确机型 listing。核对颜色、CPU 代际对应机身、键盘、端口数量和位置；保存 URL、检索日期、原始尺寸、SHA-256、授权状态、视觉匹配/淘汰理由。营销页已更新代际时，不继承新机规格；有旧机准确 gallery 可独立使用。优先 ≥2000px 原图，不使用截图、竞品 infographic 或 AI 猜测接口。独立检索穷尽且缺必要角度时才请求补充。
-7. 已批准的当前产品 style ID 在同一任务后续继续有效；不因研究、workflow 更新或固定默认值补齐重新要求批准。更换 family 才重新提案。VL-1276 的 B08/BG08 已由用户批准。
+  Use the same complete text in bullet 1, the last Warranty section of Description, and Warranty Description. `available` does not mean automatically included. Do not add costs, registration requirements, whole-computer coverage, different terms or extra promises. This policy resolves the OEM/seller coverage question; no per-product reconfirmation is required.
+- A workbook represents the **base configuration only**. Attributes, title, bullets and description contain its actual installed RAM/SSD and no selectable tiers/options. Factory configuration, platform maximums and external storage may be research evidence but never alternate sold capacities. Internal SSD excludes dock/external/SD/cloud storage. Current product-fact records resolve historical capacity conflicts; do not restore resolved conflicts from old workbooks.
+- Actual hardware customization concerns RAM/storage; other hardware remains factory configured. The fixed seller Windows 11 Pro upgrade is disclosed separately and is not a buyer-selectable software customization. All listing content uses the same base facts.
 
-## Business 屏内边界与原厂标志
+## Computer-only imagery
 
-所有 Business 增强 MAIN 的文案、Windows package/lockup、图形和氛围仅在真实 LCD 内；屏幕外仅电脑、纯白背景及中性接触阴影。旧版“相反侧/外部/右侧留白”示例统一解释为 LCD 内的安全区。准确照片的原厂机身标志原位保留；额外 OEM Logo 只在 PT 的产品轮廓外透明合成。
+Only the computer is displayed as a product. No extra devices or accessories, including adapters, cables, docks, mice, headphones, controllers, standalone monitors or external-device pictograms, even as non-included context. Anonymous people and neutral environments may support a scene without those devices. Internal-component/LCD capability pictograms and approved software identity graphics are permitted information graphics, not accessory depictions. Enhanced MAIN Windows graphics remain entirely inside the real LCD and do not imply a physical retail box is included.
 
-## 长条官方 Logo 的比例一致性
+All final MAIN and PT files are **2000×2000**. Do not upscale insufficient source detail or stretch the chassis. Use accurate exact-model views with verified commercial-use rights. Preserve authentic factory chassis marks; additional OEM marks appear only outside the product silhouette in PT01–PT08.
 
-200px 缩略图的可见长边必须 ≥20px，画布长边占比 ≤12%，仍需足够对比和人工辨识。普通标志短边 ≥10px；官方可见宽高比 >2.4 的长条字标采用 `logoVisibilityMode: ASPECT_RATIO_WORDMARK`，保存来源及测量比例，短边最低值 `20 / visibleAspectRatio`，不得拉伸、增高、裁掉字标或加硬背景来凑 10px。脚本根据原始透明资产的可见边界校验比例和短边下限。旧的统一 10px 短边与 12% 上限对 ASUS 等长条字标数学上不可兼得；该比例分流只修正这一冲突，其余可见性、间距、哈希与品牌闸门不变。
+Business enhanced front defaults to `WINDOWS_11_PRO_LOGO_LOCKUP`, angle to `WINDOWS_11_PRO_PACKAGE`; they may swap for safe fit but must differ. Gaming/Student/General use one fixed package in each enhanced MAIN. All Windows assets and their glow/shadow are LCD-contained. MAIN-STRICT and PT01 use no Windows overlay. Business PT03 may use one lockup in its OS line; other PT slots do not repeat Windows treatment.
 
+Gaming front: product width 97–98%, top visual clearance 8–10%, accurate chassis; angle independently adapted. Only a continuous original head/helmet may cross TOP, at most 12% of the product bounding-box area; shoulders, arms, hands, particles and all information stay LCD-contained. No-head themes stay inside the LCD. Six graphical display/CPU/GPU/RAM/SSD/OS cards use frozen layers and approved G/C/A composition. A flat PNG is a visual reference, not a reusable layered template.
 
-## GitHub 图库交付固定要求
+## Slot ownership and semantic review
 
-用户确认所有正式生成的最终图片默认上传当前 GitHub 仓库，按已核实的内部 ID 存放到仓库根目录 `product generated photo/VL-XXXX/`，例如 `VL-1276/`。生成请求即包含上传步骤，不重复询问。上传 11 张正式单图及 manifest/QA 记录，核验远端 commit、文件哈希与适用 CI 后，以 `GITHUB_DELIVERY_VERIFIED` 和 GitHub 目录链接交付。本地 QA、ZIP、预览和 workflow 文档提交不代表图库已经上传。仅用户明确要求不上传/仅本地/概念预览时跳过；已有目录替换仍保留既有审核规则。完整状态及失败处理按 [final-image-delivery-contract.md 第 7 节](final-image-delivery-contract.md#7-默认-github-最终交付强制)。
+| Slot | Primary information |
+| --- | --- |
+| PT01 | High-level purchase reason, no full configuration or Windows treatment |
+| PT02 | Verified use scene |
+| PT03 | Sole full base CPU/GPU/RAM/SSD/OS configuration page |
+| PT04 | Display and overall form, dimensions/weight if verified |
+| PT05 | Task flow and hardware relationships, not repeated model/capacity tables |
+| PT06 | White-background computer input details: keyboard, touchpad and controls |
+| PT07 | One remaining verified value; no seller warranty/service advertising or configuration recap |
+| PT08 | Accurate physical port map plus verified wireless/connectivity |
 
+Style libraries provide motifs, not alternative slot assignments. Wallpapers/UI may vary by slot while palette, visual language and approved family remain consistent. A fact has one primary PT owner. Before production list canonical fact IDs per slot. For each PT pair define `overlap = shared primary fact IDs / min(primary fact count A, primary fact count B)`; pairs with zero facts require manual review, not a fabricated percentage. Exclude only OEM identity/model/navigation labels, not vague task claims automatically. Equivalent claims count as the same ID. Overlap above 20% requires reallocation. OCR supports but does not replace human semantic review. If reliable fact mapping is unavailable, record `MANUAL_REVIEW` with rationale and no numeric percentage. Never generate a PASS without actually reviewing current files.
 
-## Excel 与图片共用内部 ID 目录
+## Logo and style controls
 
-Research 阶段先生成 Excel，即上传到 `product generated photo/VL-XXXX/` 并创建该产品目录，不等待图片生成。后续 Listing Excel、11 张正式图片和 manifest/QA 记录复用同一 GitHub 目录；已有目录直接复用，不另建 Excel、任务 ID 或 review 后缀目录。Excel 保留真实阶段，如 `*_RESEARCH_REVIEW.xlsx`；上传研究稿不代表最终通过审核。原始模板不覆盖，本地 outputs 只作为工作副本。最终提供 GitHub 产品目录和 Excel 文件链接并核实远端哈希。只有用户明确要求仅本地/不上传时跳过；图片单独任务不强制重做 Excel。
+PT logos use approved transparent originals, original proportions/colors and measured alpha-visible bounds, excluding padding. At 200px thumbnail, long edge ≥20px, visible canvas long-edge share ≤12%. Ordinary marks short edge ≥10px; official wordmarks with visible aspect ratio >2.4 use `ASPECT_RATIO_WORDMARK`, short edge ≥20/ratio. Keep ≥max(32px, 2.5% of canvas short edge) clearance to canvas edges, product and other protected components. Reserve natural negative space, not a visible placeholder/card. Schema 3 records source/master/final hashes, actual visible measurements and manually verified authentic factory-mark preservation.
+
+New product/style direction requires the style proposal/approval in [style-approval-gate.md](style-approval-gate.md), unless explicitly waived. Existing same-product approval survives research/policy updates and mechanical corrections. Material changes to audience, major palette, scene, hero/pack, layout family or purchase story need reapproval. Replacing a requested same-slot image after internal QA is already authorized; do not require a second approval merely to upload it. A legacy exemplar cannot establish a new product's approval or current compliance.
+
+## Delivery and evidence
+
+Research Excel, Listing Excel and 11 final gallery files share `product generated photo/VL-XXXX/` using the verified internal ID. Research upload does not imply publication readiness. Image-only work does not require recreating Excel. User generation/modification requests authorize GitHub upload and requested same-slot replacement after local QA, unless they explicitly request local-only/concept work. Keep untouched slots byte-identical during targeted adjustments.
+
+Sequence: local checks and actual manual review → commit/push → remote applicable CI → verify commit and current file hashes → report `GITHUB_DELIVERY_VERIFIED`. CI is triggered by push; it is not a pre-push requirement. Changed images invalidate their previous hash-bound QA and delivery evidence; refresh reviews honestly, never relabel old PASS. Selected-slot corrections to quarantined legacy galleries use CURRENT_REQUESTED_SLOT_QA_PASS / PARTIAL_UPDATE and partial-update-qa.json while whole-gallery state stays REWORK_REQUIRED. Structural workbook PASS, factual completeness, seller review readiness, full-gallery QA, remote delivery and Amazon eligibility are independent statuses.
+
+Legacy policies are archived in `history/2026-10-02-pre-policy-update/` and are excluded from normal workflow retrieval. Consult history only for an explicitly requested historical comparison, never as fallback instructions.

@@ -1,0 +1,394 @@
+param(
+    [Parameter(Mandatory = $true)]
+    [string]$ImageDirectory,
+
+    [Parameter(Mandatory = $true)]
+    [string]$LogoPath,
+
+    [Parameter(Mandatory = $true)]
+    [string]$PlacementPlanPath,
+
+    [Parameter(Mandatory = $false)]
+    [string]$OutputDirectory = $ImageDirectory,
+
+    [Parameter(Mandatory = $false)]
+    [string]$ExpectedBrand
+)
+
+$ErrorActionPreference = 'Stop'
+Add-Type -AssemblyName System.Drawing
+
+function New-RoundedRectanglePath {
+    param(
+        [System.Drawing.RectangleF]$Rectangle,
+        [float]$Radius
+    )
+
+    $path = [System.Drawing.Drawing2D.GraphicsPath]::new()
+    $diameter = $Radius * 2
+    $arc = [System.Drawing.RectangleF]::new($Rectangle.X, $Rectangle.Y, $diameter, $diameter)
+    $path.AddArc($arc, 180, 90)
+    $arc.X = $Rectangle.Right - $diameter
+    $path.AddArc($arc, 270, 90)
+    $arc.Y = $Rectangle.Bottom - $diameter
+    $path.AddArc($arc, 0, 90)
+    $arc.X = $Rectangle.X
+    $path.AddArc($arc, 90, 90)
+    $path.CloseFigure()
+    return $path
+}
+
+function Get-FittedRectangle {
+    param(
+        [System.Drawing.Image]$Image,
+        [System.Drawing.RectangleF]$Bounds,
+        [float]$Padding = 0
+    )
+
+    $availableWidth = $Bounds.Width - (2 * $Padding)
+    $availableHeight = $Bounds.Height - (2 * $Padding)
+    $scale = [Math]::Min($availableWidth / $Image.Width, $availableHeight / $Image.Height)
+    $width = [float]($Image.Width * $scale)
+    $height = [float]($Image.Height * $scale)
+    return [System.Drawing.RectangleF]::new(
+        $Bounds.X + (($Bounds.Width - $width) / 2),
+        $Bounds.Y + (($Bounds.Height - $height) / 2),
+        $width,
+        $height
+    )
+}
+
+function Get-BadgeRenderRectangle {
+    param(
+        [float]$X,
+        [float]$Y,
+        [float]$Width,
+        [float]$Height,
+        [string]$Style
+    )
+
+    if ($Style -eq 'circle-keyline') {
+        $renderWidth = [float][Math]::Ceiling($Width * 1.08)
+        $renderHeight = [float][Math]::Ceiling($Height * 1.08)
+        return [System.Drawing.RectangleF]::new(
+            $X - [float][Math]::Round(($renderWidth - $Width) / 2),
+            $Y - [float][Math]::Round(($renderHeight - $Height) / 2),
+            $renderWidth,
+            $renderHeight
+        )
+    }
+
+    return [System.Drawing.RectangleF]::new($X, $Y, $Width, $Height)
+}
+
+function Test-RectangleIntersection {
+    param(
+        [System.Drawing.RectangleF]$First,
+        [System.Drawing.RectangleF]$Second
+    )
+
+    return ($First.Left -lt $Second.Right -and
+        $First.Right -gt $Second.Left -and
+        $First.Top -lt $Second.Bottom -and
+        $First.Bottom -gt $Second.Top)
+}
+
+$resolvedProduct = (Resolve-Path -LiteralPath $ImageDirectory).Path
+$resolvedLogo = (Resolve-Path -LiteralPath $LogoPath).Path
+$resolvedPlan = (Resolve-Path -LiteralPath $PlacementPlanPath).Path
+$sourceDirectory = Join-Path $resolvedProduct 'unbranded'
+
+if (-not (Test-Path -LiteralPath $sourceDirectory -PathType Container)) {
+    throw "Missing unbranded master directory: $sourceDirectory"
+}
+
+$plan = Get-Content -Raw -LiteralPath $resolvedPlan | ConvertFrom-Json
+if ([string]::IsNullOrWhiteSpace($plan.brand)) {
+    throw 'Placement plan must declare the verified product brand.'
+}
+if ($ExpectedBrand -and $plan.brand -ne $ExpectedBrand) {
+    throw "Brand mismatch: expected '$ExpectedBrand', plan declares '$($plan.brand)'."
+}
+if ($plan.logoRole -ne 'OEM base-product identifier') {
+    throw "Unsupported logoRole '$($plan.logoRole)'. Expected 'OEM base-product identifier'."
+}
+$minimumClearance = [int]$plan.minimumClearancePx
+if ($minimumClearance -lt 16) {
+    throw 'Placement plan minimumClearancePx must be at least 16.'
+}
+$thumbnailReviewSize = [int]$plan.thumbnailReviewSizePx
+$minimumVisibleLongEdge = [int]$plan.minimumVisibleLogoLongEdgePxAtThumbnail
+$minimumVisibleShortEdge = [float]$plan.minimumVisibleLogoShortEdgePxAtThumbnail
+$wordmarkMode = [string]$plan.logoVisibilityMode -eq 'ASPECT_RATIO_WORDMARK'
+$maximumLogoLongEdgePercent = [float]$plan.maximumLogoLongEdgePercentOfCanvas
+
+if ([string]$plan.productSurfaceLogoAbsenceReview -ne 'PASS') {
+    throw 'Placement plan requires productSurfaceLogoAbsenceReview: PASS, meaning no EXTRA generated or composited OEM mark was placed on the product. Authentic factory marks must not be removed.'
+}
+if ([string]$plan.authenticFactoryMarkPreservationReview -ne 'PASS') {
+    throw 'Placement plan requires authenticFactoryMarkPreservationReview: PASS after comparing the exact product source and confirming its factory OEM marks remain intact, unaltered and unobscured.'
+}
+$minimumComponentSeparation = [int]$plan.minimumComponentSeparationPx
+if ($thumbnailReviewSize -lt 200) {
+    throw 'Placement plan thumbnailReviewSizePx must be at least 200.'
+}
+if ($minimumVisibleLongEdge -lt 20 -or $minimumVisibleShortEdge -le 0 -or (-not $wordmarkMode -and $minimumVisibleShortEdge -lt 10)) {
+    throw 'Logo thresholds require 20 px long-edge and 10 px short-edge, unless the source-measured official wide-wordmark branch applies.'
+}
+if ($maximumLogoLongEdgePercent -le 0 -or $maximumLogoLongEdgePercent -gt 12) {
+    throw 'Placement plan maximumLogoLongEdgePercentOfCanvas must be greater than 0 and no more than 12.'
+}
+if ($minimumComponentSeparation -lt 32) {
+    throw 'Placement plan minimumComponentSeparationPx must be at least 32.'
+}
+
+$requiredFiles = 1..8 | ForEach-Object { 'PT{0:d2}.png' -f $_ }
+foreach ($fileName in $requiredFiles) {
+    if ($null -eq $plan.placements.PSObject.Properties[$fileName]) {
+        throw "Placement plan is missing $fileName."
+    }
+    $masterPath = Join-Path $sourceDirectory $fileName
+    if (-not (Test-Path -LiteralPath $masterPath -PathType Leaf)) {
+        throw "Missing unbranded master: $masterPath"
+    }
+}
+
+$resolvedOutput = [System.IO.Path]::GetFullPath($OutputDirectory)
+New-Item -ItemType Directory -Force -Path $resolvedOutput | Out-Null
+
+$mainPath = Join-Path $resolvedProduct 'MAIN.png'
+if (Test-Path -LiteralPath $mainPath -PathType Leaf) {
+    Copy-Item -LiteralPath $mainPath -Destination (Join-Path $resolvedOutput 'MAIN.png') -Force
+}
+
+$logo = [System.Drawing.Bitmap]::new($resolvedLogo)
+$logoHash = (Get-FileHash -LiteralPath $resolvedLogo -Algorithm SHA256).Hash
+$qaEntries = [System.Collections.Generic.List[object]]::new()
+$logoHasTransparentPixels = $false
+for ($logoY = 0; $logoY -lt $logo.Height -and -not $logoHasTransparentPixels; $logoY++) {
+    for ($logoX = 0; $logoX -lt $logo.Width; $logoX++) {
+        if ($logo.GetPixel($logoX, $logoY).A -lt 255) {
+            $logoHasTransparentPixels = $true
+            break
+        }
+    }
+}
+try {
+    foreach ($fileName in $requiredFiles) {
+        $qaEntry = $null
+        $placement = $plan.placements.PSObject.Properties[$fileName].Value
+        $x = [int]$placement.x
+        $y = [int]$placement.y
+        $width = [int]$placement.width
+        $height = [int]$placement.height
+        $style = [string]$placement.style
+
+        if ($width -le 0 -or $height -le 0) {
+            throw "Invalid placement size for $fileName."
+        }
+        if ($style -notin @('circle-keyline', 'rounded-badge', 'transparent')) {
+            throw "Unsupported badge style '$style' for $fileName."
+        }
+        if ($style -in @('transparent', 'circle-keyline') -and -not $logoHasTransparentPixels) {
+            throw "Logo asset for $fileName has no transparent pixels. Use an approved transparent original or a reproducible background-removal derivative."
+        }
+        if ($style -eq 'transparent' -and [string]$placement.contrastReview -ne 'PASS') {
+            throw "Transparent Logo placement for $fileName requires contrastReview: PASS."
+        }
+        if ([string]$placement.compositionSpacingReview -ne 'PASS') {
+            throw "Logo placement for $fileName requires compositionSpacingReview: PASS."
+        }
+        if ([string]$placement.placeholderFrameReview -ne 'PASS') {
+            throw "Logo placement for $fileName requires placeholderFrameReview: PASS; no dashed box, crop rectangle, or residual badge may remain behind the mark."
+        }
+        if ([string]$placement.outsideProductReview -ne 'PASS') {
+            throw "Logo placement for $fileName requires outsideProductReview: PASS. The added OEM mark must remain outside the computer, screen, chassis, keyboard, ports, and internal structure."
+        }
+        if ($style -eq 'rounded-badge' -and [string]::IsNullOrWhiteSpace([string]$placement.badgeExceptionReason)) {
+            throw "Rounded badge placement for $fileName requires badgeExceptionReason; hard rectangular Logo cards are not the default treatment."
+        }
+        if ($null -eq $placement.PSObject.Properties['protectedZones']) {
+            throw "Placement plan must declare protectedZones for $fileName."
+        }
+        $protectedZones = @($placement.protectedZones)
+        if ($protectedZones.Count -lt 1) {
+            throw "Placement plan protectedZones for $fileName cannot be empty."
+        }
+        $hasProductSilhouetteZone = @($protectedZones | Where-Object {
+            ([string]$_.label).ToUpperInvariant().StartsWith('PRODUCT_SILHOUETTE')
+        }).Count -gt 0
+        if (-not $hasProductSilhouetteZone) {
+            throw "Placement plan for $fileName must include at least one PRODUCT_SILHOUETTE protected zone."
+        }
+
+        $sourcePath = Join-Path $sourceDirectory $fileName
+        $destinationPath = Join-Path $resolvedOutput $fileName
+        $source = [System.Drawing.Bitmap]::new($sourcePath)
+        $canvas = [System.Drawing.Bitmap]::new($source.Width, $source.Height, [System.Drawing.Imaging.PixelFormat]::Format24bppRgb)
+        $graphics = [System.Drawing.Graphics]::FromImage($canvas)
+        try {
+            if ($x -lt 0 -or $y -lt 0 -or ($x + $width) -gt $source.Width -or ($y + $height) -gt $source.Height) {
+                throw "Placement for $fileName is outside the canvas."
+            }
+
+            $renderBounds = Get-BadgeRenderRectangle -X $x -Y $y -Width $width -Height $height -Style $style
+            if (($renderBounds.Left - $minimumClearance) -lt 0 -or
+                ($renderBounds.Top - $minimumClearance) -lt 0 -or
+                ($renderBounds.Right + $minimumClearance) -gt $source.Width -or
+                ($renderBounds.Bottom + $minimumClearance) -gt $source.Height) {
+                throw "Placement for $fileName violates the $minimumClearance px canvas clearance."
+            }
+
+            $clearanceBounds = [System.Drawing.RectangleF]::new(
+                $renderBounds.X - $minimumClearance,
+                $renderBounds.Y - $minimumClearance,
+                $renderBounds.Width + (2 * $minimumClearance),
+                $renderBounds.Height + (2 * $minimumClearance)
+            )
+            foreach ($zone in $placement.protectedZones) {
+                $zoneBounds = [System.Drawing.RectangleF]::new(
+                    [float]$zone.x,
+                    [float]$zone.y,
+                    [float]$zone.width,
+                    [float]$zone.height
+                )
+                if ($zoneBounds.Width -le 0 -or $zoneBounds.Height -le 0) {
+                    throw "Invalid protected zone for $fileName."
+                }
+                if (Test-RectangleIntersection -First $clearanceBounds -Second $zoneBounds) {
+                    $zoneLabel = if ($zone.label) { [string]$zone.label } else { 'unnamed protected zone' }
+                    throw "Placement for $fileName violates the $minimumClearance px clearance around '$zoneLabel'."
+                }
+            }
+
+            $graphics.SmoothingMode = [System.Drawing.Drawing2D.SmoothingMode]::AntiAlias
+            $graphics.InterpolationMode = [System.Drawing.Drawing2D.InterpolationMode]::HighQualityBicubic
+            $graphics.PixelOffsetMode = [System.Drawing.Drawing2D.PixelOffsetMode]::HighQuality
+            $graphics.DrawImageUnscaled($source, 0, 0)
+            $bounds = [System.Drawing.RectangleF]::new($x, $y, $width, $height)
+            $logoPadding = if ($style -eq 'rounded-badge') { 8 } else { 0 }
+            $logoBounds = Get-FittedRectangle -Image $logo -Bounds $bounds -Padding $logoPadding
+            $maximumLogoLongEdge = [Math]::Max($source.Width, $source.Height) * ($maximumLogoLongEdgePercent / 100.0)
+            if ([Math]::Max($logoBounds.Width, $logoBounds.Height) -gt $maximumLogoLongEdge) {
+                throw ("Logo for {0} is too dominant: {1:N1}px long-edge exceeds {2:N1}% of the canvas ({3:N1}px)." -f `
+                    $fileName, [Math]::Max($logoBounds.Width, $logoBounds.Height), $maximumLogoLongEdgePercent, $maximumLogoLongEdge)
+            }
+            $thumbnailScale = [float]$thumbnailReviewSize / [float]$source.Width
+            $visibleLongEdge = [Math]::Max($logoBounds.Width, $logoBounds.Height) * $thumbnailScale
+            $visibleShortEdge = [Math]::Min($logoBounds.Width, $logoBounds.Height) * $thumbnailScale
+            if ($wordmarkMode) {
+                if ([string]::IsNullOrWhiteSpace([string]$plan.logoAssetSourceUrl)) { throw 'Wide-wordmark mode requires official logoAssetSourceUrl.' }
+                $minX = $logo.Width; $minY = $logo.Height; $maxX = -1; $maxY = -1
+                for ($ay = 0; $ay -lt $logo.Height; $ay++) { for ($ax = 0; $ax -lt $logo.Width; $ax++) { if ($logo.GetPixel($ax,$ay).A -gt 8) { $minX=[Math]::Min($minX,$ax); $maxX=[Math]::Max($maxX,$ax); $minY=[Math]::Min($minY,$ay); $maxY=[Math]::Max($maxY,$ay) } } }
+                if ($maxX -lt 0) { throw 'Official wordmark has no visible pixels.' }
+                $alphaBounds = [System.Drawing.Rectangle]::new($minX,$minY,$maxX-$minX+1,$maxY-$minY+1)
+                $sourceRatio = [Math]::Max($alphaBounds.Width, $alphaBounds.Height) / [Math]::Min($alphaBounds.Width, $alphaBounds.Height)
+                if ($sourceRatio -le 2.4) { throw 'Wide-wordmark branch only applies to official visible aspect ratios greater than 2.4.' }
+                $requiredShortEdge = $minimumVisibleLongEdge / $sourceRatio
+                if ($minimumVisibleShortEdge -lt ($requiredShortEdge - 0.01)) { throw 'Wide-wordmark short-edge threshold is below the source-proportional floor.' }
+                $renderRatio = $visibleLongEdge / $visibleShortEdge
+                if ([Math]::Abs($renderRatio - $sourceRatio) / $sourceRatio -gt 0.03) { throw 'Official wordmark aspect ratio was distorted.' }
+            }
+            if ($visibleLongEdge -lt $minimumVisibleLongEdge -or $visibleShortEdge -lt $minimumVisibleShortEdge) {
+                throw ("Logo for {0} is present but too small at {1}px thumbnail: {2:N1}x{3:N1}px; required >= {4}px long-edge and >= {5}px short-edge." -f `
+                    $fileName, $thumbnailReviewSize, ($logoBounds.Width * $thumbnailScale), ($logoBounds.Height * $thumbnailScale), $minimumVisibleLongEdge, $minimumVisibleShortEdge)
+            }
+
+            if ($style -eq 'circle-keyline') {
+                $keylineWidth = [int][Math]::Ceiling($width * 1.08)
+                $keylineHeight = [int][Math]::Ceiling($height * 1.08)
+                $keylineX = $x - [int][Math]::Round(($keylineWidth - $width) / 2)
+                $keylineY = $y - [int][Math]::Round(($keylineHeight - $height) / 2)
+                $keylineBrush = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::White)
+                try {
+                    $graphics.FillEllipse($keylineBrush, $keylineX, $keylineY, $keylineWidth, $keylineHeight)
+                }
+                finally {
+                    $keylineBrush.Dispose()
+                }
+                $graphics.DrawImage($logo, $logoBounds)
+            }
+            elseif ($style -eq 'rounded-badge') {
+                $badgePath = New-RoundedRectanglePath -Rectangle $bounds -Radius 12
+                $badgeBrush = [System.Drawing.SolidBrush]::new([System.Drawing.Color]::FromArgb(248, 255, 255, 255))
+                $badgePen = [System.Drawing.Pen]::new([System.Drawing.Color]::FromArgb(210, 205, 210, 220), 1.5)
+                try {
+                    $graphics.FillPath($badgeBrush, $badgePath)
+                    $graphics.DrawPath($badgePen, $badgePath)
+                    $graphics.DrawImage($logo, $logoBounds)
+                }
+                finally {
+                    $badgeBrush.Dispose()
+                    $badgePen.Dispose()
+                    $badgePath.Dispose()
+                }
+            }
+            else {
+                $graphics.DrawImage($logo, $logoBounds)
+            }
+
+            $qaEntry = [pscustomobject]@{
+                file = $fileName
+                style = $style
+                canvas = "$($source.Width)x$($source.Height)"
+                badgeBounds = [pscustomobject]@{ x = $x; y = $y; width = $width; height = $height }
+                visibleLogoBounds = [pscustomobject]@{
+                    x = [Math]::Round($logoBounds.X, 1)
+                    y = [Math]::Round($logoBounds.Y, 1)
+                    width = [Math]::Round($logoBounds.Width, 1)
+                    height = [Math]::Round($logoBounds.Height, 1)
+                }
+                thumbnailReviewSizePx = $thumbnailReviewSize
+                thumbnailVisibleLogoPx = [pscustomobject]@{
+                    width = [Math]::Round($logoBounds.Width * $thumbnailScale, 1)
+                    height = [Math]::Round($logoBounds.Height * $thumbnailScale, 1)
+                }
+                visibilityGate = 'PASS'
+                clearanceGate = 'PASS'
+                compositionSpacingGate = 'PASS'
+                placeholderFrameGate = 'PASS'
+                outsideProductGate = 'PASS'
+                productSurfaceLogoAbsenceGate = 'PASS'
+                authenticFactoryMarkPreservationGate = 'PASS'
+            }
+        }
+        finally {
+            $graphics.Dispose()
+            $source.Dispose()
+        }
+
+        $tempPath = "$destinationPath.tmp.png"
+        $canvas.Save($tempPath, [System.Drawing.Imaging.ImageFormat]::Png)
+        $canvas.Dispose()
+        Move-Item -LiteralPath $tempPath -Destination $destinationPath -Force
+        $qaEntry | Add-Member -NotePropertyName unbrandedSourceSha256 -NotePropertyValue ((Get-FileHash -LiteralPath $sourcePath -Algorithm SHA256).Hash)
+        $qaEntry | Add-Member -NotePropertyName finalImageSha256 -NotePropertyValue ((Get-FileHash -LiteralPath $destinationPath -Algorithm SHA256).Hash)
+        $qaEntries.Add($qaEntry)
+    }
+}
+finally {
+    $logo.Dispose()
+}
+
+$qaReport = [ordered]@{
+    schemaVersion = 3
+    generatedAtUtc = [DateTime]::UtcNow.ToString('o')
+    brand = $plan.brand
+    logoRole = $plan.logoRole
+    logoAsset = Split-Path -Leaf $resolvedLogo
+    logoAssetSha256 = $logoHash
+    thumbnailReviewSizePx = $thumbnailReviewSize
+    minimumVisibleLogoLongEdgePxAtThumbnail = $minimumVisibleLongEdge
+    minimumVisibleLogoShortEdgePxAtThumbnail = $minimumVisibleShortEdge
+    logoVisibilityMode = [string]$plan.logoVisibilityMode
+    logoAssetSourceUrl = [string]$plan.logoAssetSourceUrl
+    maximumLogoLongEdgePercentOfCanvas = $maximumLogoLongEdgePercent
+    minimumComponentSeparationPx = $minimumComponentSeparation
+    result = 'PASS'
+    images = $qaEntries
+}
+$qaReportPath = Join-Path $resolvedOutput 'logo-qa.json'
+$qaReport | ConvertTo-Json -Depth 8 | Set-Content -LiteralPath $qaReportPath -Encoding UTF8
+
+Write-Output "Applied verified $($plan.brand) OEM logo to PT01-PT08 in $resolvedOutput"
+Write-Output "Logo visibility QA PASS: $qaReportPath"

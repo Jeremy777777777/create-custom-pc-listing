@@ -1,66 +1,29 @@
-name: Validate gallery OEM Logo QA
-
+name: Validate current gallery delivery
 on:
   pull_request:
-    paths:
-      - 'product generated photo/**/PT*.png'
-      - 'product generated photo/**/MAIN-*.png'
-      - 'product generated photo/**/MAIN-*.jpg'
-      - 'product generated photo/**/logo-qa.json'
-      - 'product generated photo/**/logo-placement.json'
-      - 'scripts/add-brand-badge.ps1'
-      - 'scripts/finalize-image-gallery.ps1'
-      - 'scripts/test-final-image-gallery.ps1'
-      - 'scripts/test-gallery-commit-gate-selftest.ps1'
+    paths: ['SKILL.md', 'README.md', 'references/**', 'scripts/**', '.github/**', 'product generated photo/**']
   push:
     branches: [main]
-    paths:
-      - 'product generated photo/**/PT*.png'
-      - 'product generated photo/**/MAIN-*.png'
-      - 'product generated photo/**/MAIN-*.jpg'
-      - 'product generated photo/**/logo-qa.json'
-      - 'product generated photo/**/logo-placement.json'
-      - 'scripts/add-brand-badge.ps1'
-      - 'scripts/finalize-image-gallery.ps1'
-      - 'scripts/test-final-image-gallery.ps1'
-      - 'scripts/test-gallery-commit-gate-selftest.ps1'
-
+    paths: ['SKILL.md', 'README.md', 'references/**', 'scripts/**', '.github/**', 'product generated photo/**']
 jobs:
-  validate-changed-galleries:
+  validate:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
         with:
           fetch-depth: 0
-
-      - name: Validate changed canonical galleries
-        shell: pwsh
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - run: python -m pip install -r scripts/requirements.txt
+      - run: python -m unittest discover -s scripts/tests -v
+      - name: Validate eligible canonical galleries and changed quarantined images
         env:
-          EVENT_NAME: ${{ github.event_name }}
-          BEFORE_SHA: ${{ github.event.before }}
-          PR_BASE_SHA: ${{ github.event.pull_request.base.sha }}
-          HEAD_SHA: ${{ github.sha }}
+          BASE: ${{ github.event.pull_request.base.sha || github.event.before }}
+          HEAD: ${{ github.sha }}
         run: |
-          $ErrorActionPreference = 'Stop'
-          & ./scripts/test-gallery-commit-gate-selftest.ps1
-
-          $baseSha = if ($env:EVENT_NAME -eq 'pull_request') { $env:PR_BASE_SHA } else { $env:BEFORE_SHA }
-          if ([string]::IsNullOrWhiteSpace($baseSha) -or $baseSha -match '^0+$') {
-            $changed = @(git diff-tree --no-commit-id --name-only -r $env:HEAD_SHA)
-          } else {
-            $changed = @(git diff --name-only $baseSha $env:HEAD_SHA)
-          }
-
-          $galleryDirectories = $changed |
-            Where-Object { $_ -match '^product generated photo/(VL-[^/]+)/(PT0[1-8]\.png|MAIN-[^/]+\.(png|jpg)|logo-qa\.json|logo-placement\.json)$' } |
-            ForEach-Object { Split-Path -Parent $_ } |
-            Sort-Object -Unique
-
-          if (-not $galleryDirectories) {
-            Write-Output 'No canonical VL gallery images changed.'
-            exit 0
-          }
-
-          foreach ($directory in $galleryDirectories) {
-            & ./scripts/test-final-image-gallery.ps1 -ProductDirectory $directory
-          }
+          if [ -z "$BASE" ] || [ "$BASE" = "0000000000000000000000000000000000000000" ]; then
+            python scripts/gallery_engine.py gate --directory .
+          else
+            python scripts/gallery_engine.py gate --directory . --base "$BASE" --head "$HEAD"
+          fi

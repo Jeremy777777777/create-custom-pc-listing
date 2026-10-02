@@ -1,0 +1,17 @@
+{
+  "result": "PASS",
+  "workbooks": [
+    {
+      "file": "MegaPC_Lenovo_Yoga_7_VL-1326_LISTING_REVIEW.xlsx",
+      "template_preserved": true,
+      "fields_with_status_and_source_reason": 294,
+      "result": "PASS"
+    },
+    {
+      "file": "MegaPC_Lenovo_Yoga_7_VL-1326_RESEARCH_REVIEW.xlsx",
+      "template_preserved": true,
+      "fields_with_status_and_source_reason": 294,
+      "result": "PASS"
+    }
+  ]
+}

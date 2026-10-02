@@ -1,0 +1,257 @@
+{
+  "rights_basis": "USER_CONFIRMED_CATALOG_WIDE from confirmed-catalog-defaults.md",
+  "product_gallery_page": "https://www.bestbuy.com/product/lenovo-yoga-7a-2-in-1-14-2k-oled-touchscreen-laptop-amd-ryzen-ai-5-430-2026-16gb-memory-512gb-storage-copilot-pc-seashell/JJGH36L8FL",
+  "source_gallery_urls": [
+    {
+      "file": "BB-angle-01.jpg",
+      "source_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/34438180-6525-4112-942e-2ec16de5a34d.jpg",
+      "size": [
+        3840,
+        2775
+      ],
+      "source_page": "https://www.bestbuy.com/product/lenovo-yoga-7a-2-in-1-14-2k-oled-touchscreen-laptop-amd-ryzen-ai-5-430-2026-16gb-memory-512gb-storage-copilot-pc-seashell/JJGH36L8FL",
+      "status": "EXACT_MODEL_VISUAL_MATCH_PASS",
+      "commercial_use_basis": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "file": "BB-angle-02.jpg",
+      "source_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/e31cd03e-76e6-41fa-8c84-dbb9c2e8324f.jpg",
+      "size": [
+        3840,
+        2622
+      ],
+      "source_page": "https://www.bestbuy.com/product/lenovo-yoga-7a-2-in-1-14-2k-oled-touchscreen-laptop-amd-ryzen-ai-5-430-2026-16gb-memory-512gb-storage-copilot-pc-seashell/JJGH36L8FL",
+      "status": "EXACT_MODEL_VISUAL_MATCH_PASS",
+      "commercial_use_basis": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "file": "BB-angle-03.jpg",
+      "source_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/5e00c3e9-a6cf-4cd7-92ba-4d2e13bf6b7c.jpg",
+      "size": [
+        3743,
+        1784
+      ],
+      "source_page": "https://www.bestbuy.com/product/lenovo-yoga-7a-2-in-1-14-2k-oled-touchscreen-laptop-amd-ryzen-ai-5-430-2026-16gb-memory-512gb-storage-copilot-pc-seashell/JJGH36L8FL",
+      "status": "EXACT_MODEL_VISUAL_MATCH_PASS",
+      "commercial_use_basis": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "file": "BB-angle-04.jpg",
+      "source_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/7ab1665c-ada9-45da-b8de-24d7ef91294d.jpg",
+      "size": [
+        3536,
+        3569
+      ],
+      "source_page": "https://www.bestbuy.com/product/lenovo-yoga-7a-2-in-1-14-2k-oled-touchscreen-laptop-amd-ryzen-ai-5-430-2026-16gb-memory-512gb-storage-copilot-pc-seashell/JJGH36L8FL",
+      "status": "EXACT_MODEL_VISUAL_MATCH_PASS",
+      "commercial_use_basis": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "file": "BB-angle-05.jpg",
+      "source_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/3eea087e-faec-402f-9c02-6a460eab7188.jpg",
+      "size": [
+        3236,
+        3567
+      ],
+      "source_page": "https://www.bestbuy.com/product/lenovo-yoga-7a-2-in-1-14-2k-oled-touchscreen-laptop-amd-ryzen-ai-5-430-2026-16gb-memory-512gb-storage-copilot-pc-seashell/JJGH36L8FL",
+      "status": "EXACT_MODEL_VISUAL_MATCH_PASS",
+      "commercial_use_basis": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "file": "BB-angle-06.jpg",
+      "source_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/0a6e1809-2ee4-42f6-8602-89e71b3c147e.jpg",
+      "size": [
+        3771,
+        2327
+      ],
+      "source_page": "https://www.bestbuy.com/product/lenovo-yoga-7a-2-in-1-14-2k-oled-touchscreen-laptop-amd-ryzen-ai-5-430-2026-16gb-memory-512gb-storage-copilot-pc-seashell/JJGH36L8FL",
+      "status": "EXACT_MODEL_VISUAL_MATCH_PASS",
+      "commercial_use_basis": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "file": "BB-angle-07.jpg",
+      "source_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/24a11ffa-ddd0-45f9-a92e-655f8890997d.jpg",
+      "size": [
+        3760,
+        2791
+      ],
+      "source_page": "https://www.bestbuy.com/product/lenovo-yoga-7a-2-in-1-14-2k-oled-touchscreen-laptop-amd-ryzen-ai-5-430-2026-16gb-memory-512gb-storage-copilot-pc-seashell/JJGH36L8FL",
+      "status": "EXACT_MODEL_VISUAL_MATCH_PASS",
+      "commercial_use_basis": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "file": "BB-angle-08.jpg",
+      "source_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/82043fb4-d9c1-4957-85af-4321fcb4912b.jpg",
+      "size": [
+        2513,
+        3569
+      ],
+      "source_page": "https://www.bestbuy.com/product/lenovo-yoga-7a-2-in-1-14-2k-oled-touchscreen-laptop-amd-ryzen-ai-5-430-2026-16gb-memory-512gb-storage-copilot-pc-seashell/JJGH36L8FL",
+      "status": "EXACT_MODEL_VISUAL_MATCH_PASS",
+      "commercial_use_basis": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "file": "BB-angle-09.jpg",
+      "source_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/0de7e2b6-78c6-4422-aa53-51572a9cb553.jpg",
+      "size": [
+        3840,
+        313
+      ],
+      "source_page": "https://www.bestbuy.com/product/lenovo-yoga-7a-2-in-1-14-2k-oled-touchscreen-laptop-amd-ryzen-ai-5-430-2026-16gb-memory-512gb-storage-copilot-pc-seashell/JJGH36L8FL",
+      "status": "EXACT_MODEL_VISUAL_MATCH_PASS",
+      "commercial_use_basis": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "file": "BB-angle-10.jpg",
+      "source_url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/733b7148-ca68-4ea2-a936-3353f513a9b6.jpg",
+      "size": [
+        3840,
+        3840
+      ],
+      "source_page": "https://www.bestbuy.com/product/lenovo-yoga-7a-2-in-1-14-2k-oled-touchscreen-laptop-amd-ryzen-ai-5-430-2026-16gb-memory-512gb-storage-copilot-pc-seashell/JJGH36L8FL",
+      "status": "EXACT_MODEL_VISUAL_MATCH_PASS",
+      "commercial_use_basis": "USER_CONFIRMED_CATALOG_WIDE"
+    }
+  ],
+  "ports_image": "https://psref.lenovo.com/syspool/Sys/PDF/Yoga/Yoga_7_2_in_1_14AGP11/Yoga_7_2_in_1_14AGP11_Spec.html",
+  "logo": "https://media.lenovobrandworld.fiestic.com/2022/06/08010946/LenovoLogo_POS-Red-H.png",
+  "logo_brand_rules": "https://brandworld.lenovo.com/visual-identity/logo/",
+  "badgeExceptionReason": "The red rectangle is an integral part of Lenovo\u2019s official signature logo. It is not an added background card; original colors and proportions remain intact, with transparent outer margins.",
+  "assets": [
+    {
+      "file": "BB-angle-01.jpg",
+      "size": [
+        3840,
+        2775
+      ],
+      "sha256": "b5f04630b6b3b928145efabbbd39937cafa28ba6a07c324b9245e6063f861e3b",
+      "usage": "SOURCE_ONLY; no raw source or intermediate uploaded as final image"
+    },
+    {
+      "file": "BB-angle-02.jpg",
+      "size": [
+        3840,
+        2622
+      ],
+      "sha256": "17b3876f10efd1e0af189e9db8e847c6073b04c21299eb8c6126c5fed834b29a",
+      "usage": "SOURCE_ONLY; no raw source or intermediate uploaded as final image"
+    },
+    {
+      "file": "BB-angle-03.jpg",
+      "size": [
+        3743,
+        1784
+      ],
+      "sha256": "bd3a14c8f3aab70af3d2fe4c47ed9c2bd71a75eae0418ce4ca2ea74884a7bd43",
+      "usage": "SOURCE_ONLY; no raw source or intermediate uploaded as final image"
+    },
+    {
+      "file": "BB-angle-04.jpg",
+      "size": [
+        3536,
+        3569
+      ],
+      "sha256": "39a8301d8eeace87ef7d404996d52ebd6da4dc8307864658014e6b112a4736df",
+      "usage": "SOURCE_ONLY; no raw source or intermediate uploaded as final image"
+    },
+    {
+      "file": "BB-angle-05.jpg",
+      "size": [
+        3236,
+        3567
+      ],
+      "sha256": "e40592c0dbefd5b9434a7f68fc725a9f8cdff1a3cc41d3cdbc42d6882dee33e0",
+      "usage": "SOURCE_ONLY; no raw source or intermediate uploaded as final image"
+    },
+    {
+      "file": "BB-angle-06.jpg",
+      "size": [
+        3771,
+        2327
+      ],
+      "sha256": "0745e50f4f10025fba72225dd2512a279944dc1eeef6f8a75ccee79278bd3449",
+      "usage": "SOURCE_ONLY; no raw source or intermediate uploaded as final image"
+    },
+    {
+      "file": "BB-angle-07.jpg",
+      "size": [
+        3760,
+        2791
+      ],
+      "sha256": "ab2ccd88c742daaac07445cc834edceb8058f3bbddc2966ffdc03b1f76aede78",
+      "usage": "SOURCE_ONLY; no raw source or intermediate uploaded as final image"
+    },
+    {
+      "file": "BB-angle-08.jpg",
+      "size": [
+        2513,
+        3569
+      ],
+      "sha256": "8f0192ac97f8b508a748d221fdd65a6149496d5b4374880b8b2533fbe9147bce",
+      "usage": "SOURCE_ONLY; no raw source or intermediate uploaded as final image"
+    },
+    {
+      "file": "BB-angle-09.jpg",
+      "size": [
+        3840,
+        313
+      ],
+      "sha256": "b5cc150971ccece4152f41a828d27b05961433129d3c835c1145257a611a06a4",
+      "usage": "SOURCE_ONLY; no raw source or intermediate uploaded as final image"
+    },
+    {
+      "file": "BB-angle-10.jpg",
+      "size": [
+        3840,
+        3840
+      ],
+      "sha256": "706d2329ff4e64bc4d5e0243968ef70c428cc2330b21f1fd56e5ea1102ac2499",
+      "usage": "SOURCE_ONLY; no raw source or intermediate uploaded as final image"
+    },
+    {
+      "file": "BB-front-facts.png",
+      "size": [
+        2000,
+        2000
+      ],
+      "sha256": "5ff67f225eaa5c99c89b4f3ae72978fe71f3ff61c8e8b3e0fa0751fed51ccaa4",
+      "usage": "SOURCE_ONLY; no raw source or intermediate uploaded as final image"
+    },
+    {
+      "file": "front-restored-photo.png",
+      "size": [
+        3840,
+        3840
+      ],
+      "sha256": "a3d3bf4d2801c8be25f7b6d9fef75a95462d13a970eabb97e069fd64a558d2d1",
+      "usage": "SOURCE_ONLY; no raw source or intermediate uploaded as final image"
+    },
+    {
+      "file": "lenovo-official-front.png",
+      "size": [
+        420,
+        420
+      ],
+      "sha256": "a2a05c77886d489aa73fd76b78ae58629d242b42f3baa13755d14ed238bbcd03",
+      "usage": "SOURCE_ONLY; no raw source or intermediate uploaded as final image"
+    },
+    {
+      "file": "lenovo-official-logo.png",
+      "size": [
+        2560,
+        854
+      ],
+      "sha256": "1b6d4520444b571bf23a04ca91384275957ad6dbebd83c7f873fee15239be9e3",
+      "usage": "SOURCE_ONLY; no raw source or intermediate uploaded as final image"
+    },
+    {
+      "file": "oem-spec-00.png",
+      "size": [
+        1280,
+        629
+      ],
+      "sha256": "23a81b6fef8b3292f1a56a5708ea8af95267d69785435f752be2b8f79df706c1",
+      "usage": "SOURCE_ONLY; no raw source or intermediate uploaded as final image"
+    }
+  ]
+}

@@ -1,5 +1,5 @@
 # Product Attribute Research Coverage
-> 全目录固定政策和自主核验按 [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) 执行：Windows 11 Pro；6 个月保修 + 12 个月延保；图片只展示电脑本身，PT06 不展示配件；Business Windows 资产仅在 LCD 内；长条官方 Logo 使用比例分流。旧示例与该规则冲突时以该文件为准。
+See [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for the active seller/base-configuration policy.
 
 
 本参考规定 Listing 研究必须覆盖什么、如何记录“查到 / 未查到 / 不适用”，以及何时可以结束研究。它是研究与 QA 规则，不是任何产品的事实来源。Amazon 页面、截图和竞品 ASIN 可用于发现应研究的属性，但其中的值必须另行验证，不能直接复制。
@@ -9,9 +9,9 @@
 每次运行都以仓库当前 `assets/listing-workbook-template.xlsx` 为准，不使用旧版本字段清单：
 
 1. 读取 `Product Details`、`Offer`、`Safety&Compliance` 三个工作表。
-2. 按每张表第 1 行枚举全部字段名，同时读取第 2 行 Definition。
+2. 按每张表第 1 行枚举全部产品字段名，同时读取第 2 行 Definition；跳过A列 Field / Attribute 等行元数据标签，不把它们当作商品属性。
 3. 为**每一个字段**建立 research coverage ledger；不能只为已知核心规格建表。
-4. 每个字段最终必须有明确处置：`VERIFIED`、`CONFLICT`、`TBD`、`SOURCE_UNAVAILABLE` 或经确认的 `NOT_APPLICABLE`。不允许 Value、Status、Source 同时空白，也不允许未检索就默认 `NOT_APPLICABLE`。
+4. 每个字段最终必须有明确处置：`VERIFIED`、`INPUT_UNVERIFIED`、`CONFLICT`、`TBD`、`SOURCE_UNAVAILABLE` 或经确认的 `NOT_APPLICABLE`。不允许 Value、Status、Source 同时空白，也不允许未检索就默认 `NOT_APPLICABLE`。
 
 ledger 至少记录：`sheet`、`attribute`、`definition`、`applicability`、`research_question`、`candidate_values`、`final_value`、`unit`、`exact_model_or_configuration`、`sources_attempted`、`source_date`、`status`、`reason`、`conflict_notes`。对于只能由卖家、法务、物流或账户设置提供的字段，主状态保持 `TBD`，并在 `reason` 中明确写 `SELLER_INPUT_REQUIRED`，说明需要谁提供什么。
 
@@ -37,9 +37,9 @@ ledger 至少记录：`sheet`、`attribute`、`definition`、`applicability`、`
 
 ### 内存与存储
 
-- 原厂内存、MegaPC 可售内存选项、已安装/最大容量、内存技术/类型、速度、插槽总数及可用插槽。
-- 原厂存储、MegaPC 可售 SSD 选项、实际介质类型、协议/接口、M.2 规格、已安装/最大容量、可用 M.2 插槽。
-- 所有重复容量字段必须表达同一销售选项逻辑。USB 端口版本不是内部 SSD 的 `Hard Disk Interface`；不得因 Amazon 参考页出现该值就复制。
+- 原厂内存、MegaPC 基础配置已安装内存、已安装/最大容量、内存技术/类型、速度、插槽总数及可用插槽。
+- 原厂存储、MegaPC 基础配置已安装 SSD、实际介质类型、协议/接口、M.2 规格、已安装/最大容量、可用 M.2 插槽。
+- 所有重复容量字段必须表达同一基础销售配置。USB 端口版本不是内部 SSD 的 `Hard Disk Interface`；不得因 Amazon 参考页出现该值就复制。
 
 ### 图形
 
@@ -70,7 +70,7 @@ ledger 至少记录：`sheet`、`attribute`、`definition`、`applicability`、`
 
 ### 保修、Offer 与 Safety & Compliance
 
-- OEM 原厂部件保修、MegaPC 升级部件保修、延保选项和实际限制必须分别由准确政策支持，并在 Description、Bullet 和 Warranty Description 中一致。
+- 保修使用已确认目录政策的完整固定文案；Bullet 1、Description 最后 Warranty 节和 Warranty Description 完全一致，不再逐机询问或补充限制。
 - SKU、Quantity、Handling Time、价格上下限、List/Sale Price、Tax Code、Shipping Template、Gift Options、发布日期等是卖家运营或账户字段；不能通过 OEM 网页猜测。缺少时以 `TBD` + `SELLER_INPUT_REQUIRED` 列出所需卖家输入。
 - 电池运输、Dangerous Goods、FCC/SDoC、Proposition 65、监管 ID、Compliance Media、Safety Attestation、全球配送、BAA/TAA 等必须来自适用的 OEM 监管文件、标签/实物证据或卖家法务/物流决定。不得以网页未提及为理由填 `No` 或 `NOT_APPLICABLE`。
 
@@ -78,7 +78,7 @@ ledger 至少记录：`sheet`、`attribute`、`definition`、`applicability`、`
 
 对适用产品字段依次尝试：
 
-1. 能绑定 MyStore 产品 ID、`VL-`、采购/装配记录或实际销售选项的卖家一手资料。
+1. 能绑定 MyStore 产品 ID、`VL-`、采购/装配记录或实际基础销售配置的卖家一手资料。
 2. 匹配准确 OEM 型号和料号的产品页、datasheet、maintenance/service guide、regulatory/safety guide 与随箱清单。
 3. CPU、GPU、无线模块等部件厂商的官方规格，只用于部件本身；不能反推整机一定启用全部能力。
 4. 实物铭牌、接口照片、系统信息或包装标签，用于解决官网与实际 SKU 的差异。
@@ -98,9 +98,9 @@ ledger 至少记录：`sheet`、`attribute`、`definition`、`applicability`、`
 
 ## 5. Research Completeness Gate
 
-导出前必须生成 coverage summary：每张表的总字段数，以及 `VERIFIED / CONFLICT / TBD / SOURCE_UNAVAILABLE / NOT_APPLICABLE` 数量，并列出所有未解决字段、原因和下一步责任人。
+导出前必须生成 coverage summary：每张表的总字段数，以及 `VERIFIED / INPUT_UNVERIFIED / CONFLICT / TBD / SOURCE_UNAVAILABLE / NOT_APPLICABLE` 数量，并列出所有未解决字段、原因和下一步责任人。
 
-本流程中的 Critical Product Facts 至少包括：Listing/OEM 身份与准确型号、实际及可售 RAM/SSD 配置、CPU、GPU、屏幕、OS、颜色/机身、尺寸重量、无线与全部实体接口、输入设备、摄像头/音频/安全、电池与电源适配器、随箱物品、定制范围和保修。某个产品类型还存在会影响购买、兼容、运输或合规的关键字段时，也应加入本组；不能把它降为“非关键”来绕过阻断。
+本流程中的 Critical Product Facts 至少包括：Listing/OEM 身份与准确型号、基础配置实际 RAM/SSD、CPU、GPU、屏幕、OS、颜色/机身、尺寸重量、无线与全部实体接口、输入设备、摄像头/音频/安全、电池与电源适配器、随箱物品、定制范围和保修。某个产品类型还存在会影响购买、兼容、运输或合规的关键字段时，也应加入本组；不能把它降为“非关键”来绕过阻断。
 
 以下任一情况都不得标为 `READY_FOR_SELLER_REVIEW`：
 

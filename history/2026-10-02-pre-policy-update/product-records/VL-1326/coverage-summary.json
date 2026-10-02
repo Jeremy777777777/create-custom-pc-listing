@@ -1,0 +1,992 @@
+{
+  "product_id": 31326,
+  "internal_id": "VL-1326",
+  "input": "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/31326",
+  "workflow_commit": "3c94f60837d2af65afa231378fc220eb62f8df72",
+  "stage": "LISTING_REVIEW",
+  "listing_status": "COMPLIANCE_BLOCKED",
+  "research_completeness_gate": "NOT_PASSED",
+  "image_status": "FINAL_ASSET_QA_PASS",
+  "sheets": [
+    {
+      "sheet": "Product Details",
+      "field_count": 195,
+      "status_counts": {
+        "TBD": 51,
+        "VERIFIED": 138,
+        "NOT_APPLICABLE": 6
+      }
+    },
+    {
+      "sheet": "Offer",
+      "field_count": 43,
+      "status_counts": {
+        "TBD": 32,
+        "VERIFIED": 2,
+        "NOT_APPLICABLE": 9
+      }
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "field_count": 56,
+      "status_counts": {
+        "TBD": 44,
+        "VERIFIED": 9,
+        "NOT_APPLICABLE": 3
+      }
+    }
+  ],
+  "template_field_count": 294,
+  "critical_review_items": [
+    "Final seller pack-out",
+    "Exact sold-unit weight vs OEM startingweight",
+    "Actual hardware customization/available storage tiers",
+    "Publication warranty responsibility and OEM applicability"
+  ],
+  "unresolved_fields": [
+    {
+      "sheet": "Product Details",
+      "attribute": "Customizations",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: verify actual storage customization and available fulfillable capacities; fixed soldered16GB memory is not buyer-selectable. Base512GB is verified, extra1TB/2TB legacy ASINs do not prove upgrade fulfillment.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Name",
+      "status": "TBD",
+      "reason": "Original review draft based on verified hardware and catalog defaults. COMPLIANCE_BLOCKED for publication pending the explicitly listed seller/account records.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Highlight",
+      "status": "TBD",
+      "reason": "Title exceeds75characters, so optional highlight is not displayed per field Definition. Keep blank; no additional offer highlight selected.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "External Product ID",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: own new MegaPC barcode / GTIN or approved exemption. OEM UPC199272785583 is a reference identity and must not be reused for a new customized offer.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Type Keyword",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: verify allowed Amazon category keyword for new own-brand Custom offer.",
+      "candidate_values": [
+        "traditional-laptop-computers"
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Product Description",
+      "status": "TBD",
+      "reason": "Original review draft based on verified hardware and catalog defaults. COMPLIANCE_BLOCKED for publication pending the explicitly listed seller/account records.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Bullet Point",
+      "status": "TBD",
+      "reason": "Original review draft based on verified hardware and catalog defaults. COMPLIANCE_BLOCKED for publication pending the explicitly listed seller/account records.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Generic Keyword",
+      "status": "TBD",
+      "reason": "Search terms prepared separately; seller category/policy review before field submission.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Number of Items",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: existing ASIN packagequantity1 observed; final new Custom pack-out has not been confirmed. Inventory59 is not package count.",
+      "candidate_values": [
+        1
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Package Quantity",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: existing ASIN packagequantity1 observed; final new Custom pack-out has not been confirmed. Inventory59 is not package count.",
+      "candidate_values": [
+        1
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Part Number",
+      "status": "TBD",
+      "reason": "Matched reference SKU 83TD0000US has the exact ERP configuration; unit label/procurement part number is not present in the observed ERP fields. Do not claim a physically verified SKU.",
+      "candidate_values": [
+        "83TD0000US"
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Number of Cells",
+      "status": "TBD",
+      "reason": "OEM reviewed SKU/platform specifies70Wh lithium-ion pack but no cell count verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Memory Speed",
+      "status": "TBD",
+      "reason": "OEM LPDDR5X-8000 is a transfer-rate designation (8000MT/s). Template asks MHz / GHz clock; do not equate transfers and clock without validated clock evidence.",
+      "candidate_values": [
+        "8000 MT/s transfer rate"
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Memory Speed Unit",
+      "status": "TBD",
+      "reason": "OEM LPDDR5X-8000 is a transfer-rate designation (8000MT/s). Template asks MHz / GHz clock; do not equate transfers and clock without validated clock evidence.",
+      "candidate_values": [
+        "8000 MT/s transfer rate"
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Voltage",
+      "status": "TBD",
+      "reason": "Template generic voltage is ambiguous between AC adapter input 100-240V and USB-PD DC profiles. No single unambiguous field value.",
+      "candidate_values": [
+        "100-240V AC input"
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Voltage Unit",
+      "status": "TBD",
+      "reason": "Template generic voltage is ambiguous between AC adapter input 100-240V and USB-PD DC profiles. No single unambiguous field value.",
+      "candidate_values": [
+        "100-240V AC input"
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Compatible Devices",
+      "status": "TBD",
+      "reason": "No exact device-level compatibility matrix in reviewed Lenovo or AMD sources; do not imply universal USB or display-device compatibility.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Memory Clock Speed",
+      "status": "TBD",
+      "reason": "OEM LPDDR5X-8000 is a transfer-rate designation (8000MT/s). Template asks MHz / GHz clock; do not equate transfers and clock without validated clock evidence.",
+      "candidate_values": [
+        "8000 MT/s transfer rate"
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Memory Clock Speed Unit",
+      "status": "TBD",
+      "reason": "OEM LPDDR5X-8000 is a transfer-rate designation (8000MT/s). Template asks MHz / GHz clock; do not equate transfers and clock without validated clock evidence.",
+      "candidate_values": [
+        "8000 MT/s transfer rate"
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Unit Count",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: existing ASIN packagequantity1 observed; final new Custom pack-out has not been confirmed. Inventory59 is not package count.",
+      "candidate_values": [
+        1
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Unit Count Type",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: existing ASIN packagequantity1 observed; final new Custom pack-out has not been confirmed. Inventory59 is not package count.",
+      "candidate_values": [
+        1
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Product Site Launch Date",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: applicable jurisdiction/account metadata is not established by the OEM specification. Needs seller legal/account decision.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Included Components",
+      "status": "TBD",
+      "reason": "OEM documents 65W USB-C adapter and no bundled accessories; ERP final seller pack-out is blank. Do not import legacy accessory bundles. Final pack-out is a seller operational record.",
+      "candidate_values": [
+        "Laptop;65W USB-C adapter (OEM configuration)"
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "CPU L1 Cache",
+      "status": "TBD",
+      "reason": "AMD exact processor page and Lenovo SKU specification provide L2 and L3 only; L1 breakdown not verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "CPU L1 Cache Unit",
+      "status": "TBD",
+      "reason": "AMD exact processor page and Lenovo SKU specification provide L2 and L3 only; L1 breakdown not verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Graphics Card Ram",
+      "status": "TBD",
+      "reason": "Exact shared-memory allocation is not specified. Do not invent a dedicated VRAM capacity or enter zero.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Graphics Ram Size",
+      "status": "TBD",
+      "reason": "Exact shared-memory allocation is not specified. Do not invent a dedicated VRAM capacity or enter zero.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Graphics Ram Size Unit",
+      "status": "TBD",
+      "reason": "Exact shared-memory allocation is not specified. Do not invent a dedicated VRAM capacity or enter zero.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Target Region",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: confirm market and new Amazon Custom offer destination; OEM country does not decide offer routing.",
+      "candidate_values": [
+        "Amazon US (existing listing)"
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Total USB 3.0 Ports",
+      "status": "TBD",
+      "reason": "Template USB3.0-only count is ambiguous for USB5Gbps + USB10Gbps; exact physical USB breakdown is separately verified.",
+      "candidate_values": [
+        3
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Rapid Charging Performance",
+      "status": "TBD",
+      "reason": "OEM Rapid Charge Express is expressed as up to 3h use after15min charge with conditions; template expects percent-of-charge and no percentage is verified.",
+      "candidate_values": [
+        "Rapid Charge Express; 15min for up to3h under OEM test conditions"
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Repairability Index",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: applicable jurisdiction/account metadata is not established by the OEM specification. Needs seller legal/account decision.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Repairability Index Criteria Table URL",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: applicable jurisdiction/account metadata is not established by the OEM specification. Needs seller legal/account decision.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Repairability Index Regulation",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: applicable jurisdiction/account metadata is not established by the OEM specification. Needs seller legal/account decision.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Repairability Index Value",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: applicable jurisdiction/account metadata is not established by the OEM specification. Needs seller legal/account decision.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Software Update Supported to Date",
+      "status": "TBD",
+      "reason": "OEM service End of Support is not a software/security update guarantee; do not copy the service date.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Office Productivity Software Included",
+      "status": "TBD",
+      "reason": "OEM only lists Office trial; exact final entitlement not established. Omit software marketing claims; seller entitlement record needed.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Office Productivity Software License Agreement Term",
+      "status": "TBD",
+      "reason": "OEM only lists Office trial; exact final entitlement not established. Omit software marketing claims; seller entitlement record needed.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Office Productivity Software Included Title",
+      "status": "TBD",
+      "reason": "OEM only lists Office trial; exact final entitlement not established. Omit software marketing claims; seller entitlement record needed.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Internet Security Software Included",
+      "status": "TBD",
+      "reason": "OEM only lists Office trial; exact final entitlement not established. Omit software marketing claims; seller entitlement record needed.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Internet Security Software License Agreement Term",
+      "status": "TBD",
+      "reason": "OEM only lists Office trial; exact final entitlement not established. Omit software marketing claims; seller entitlement record needed.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Internet Security Software Included Title",
+      "status": "TBD",
+      "reason": "OEM only lists Office trial; exact final entitlement not established. Omit software marketing claims; seller entitlement record needed.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Virtual Reality Ready",
+      "status": "TBD",
+      "reason": "IntegratedGPU and OEM specifications do not establish a tested VR-ready hardware/software combination.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Screen Bezel Thickness",
+      "status": "TBD",
+      "reason": "OEM provides active area ratio, not bezel thickness; no conversion without physical geometry evidence.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Number of Packs",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: existing ASIN packagequantity1 observed; final new Custom pack-out has not been confirmed. Inventory59 is not package count.",
+      "candidate_values": [
+        1
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Government Contract Name and Number",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: applicable jurisdiction/account metadata is not established by the OEM specification. Needs seller legal/account decision.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Government Contract Name",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: applicable jurisdiction/account metadata is not established by the OEM specification. Needs seller legal/account decision.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Government Contract Number",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: applicable jurisdiction/account metadata is not established by the OEM specification. Needs seller legal/account decision.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Weight",
+      "status": "TBD",
+      "reason": "OEM gives starting weight 1.38kg, varying by configuration; exact sold-unit weight not verified. Starting value may be used only with explicit qualification.",
+      "candidate_values": [
+        "Starting at 1.38kg / 3.04lb"
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Weight Unit",
+      "status": "TBD",
+      "reason": "OEM gives starting weight 1.38kg, varying by configuration; exact sold-unit weight not verified. Starting value may be used only with explicit qualification.",
+      "candidate_values": [
+        "Starting at 1.38kg / 3.04lb"
+      ]
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Merch Manufacturing Method",
+      "status": "TBD",
+      "reason": "No graphics-printing customization is part of this offer; template field applicability requires seller taxonomy decision.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "SKU",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: choose new own-brand Custom offer SKU; existing O6-CT3I-VIUY and internalVL-1326 are not silently reused.",
+      "candidate_values": [
+        "O6-CT3I-VIUY (existing)",
+        "VL-1326 (internalID)"
+      ]
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Quantity",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED:59sellable units observed, but new Amazon Custom offer allocation/commitment is not approved.",
+      "candidate_values": [
+        59
+      ]
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Handling Time",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Handling Time requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Restock Date",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Restock Date requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Minimum Advertised Price",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Minimum Advertised Price requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Your Price",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: ERPCurrentAMZ(FBM)1077USD is a historical existing-offer reference, not price approval for this new Custom offer.",
+      "candidate_values": [
+        1077
+      ]
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Currency Conversion",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Currency Conversion requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Minimum Seller Allowed Price",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Minimum Seller Allowed Price requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Maximum Seller Allowed Price",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Maximum Seller Allowed Price requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Sale Price",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Sale Price requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Sale Start Date",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Sale Start Date requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Sale End Date",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Sale End Date requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Offering Release Date",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Offering Release Date requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "List Price",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: List Price requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Product Tax Code",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Product Tax Code requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Merchant Release Date",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Merchant Release Date requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Shipping Template",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Shipping Template requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Maximum Order Quantity",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Maximum Order Quantity requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Gift Options",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Gift Options requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Offering Can Be Gift Messaged",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Offering Can Be Gift Messaged requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Is Gift Wrap Available",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Is Gift Wrap Available requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Package Dimensions",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Item Package Dimensions requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Package Length",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Item Package Length requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Package Length Unit",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Package Length Unit requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Package Width",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Item Package Width requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Package Width Unit",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Package Width Unit requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Package Height",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Item Package Height requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Package Height Unit",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Package Height Unit requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Package Weight",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Package Weight requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Package Weight Unit",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Package Weight Unit requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Display Weight",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Item Display Weight requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Display Weight Unit",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Item Display Weight Unit requires new-offer pricing, inventory, shipping, packaging or account settings. OEM product specification does not decide it.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Country/Region of Origin",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Country/Region of Origin requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Life",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Battery Life requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Average Battery Life Unit",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Average Battery Life Unit requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Average Life Standby",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Battery Average Life Standby requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Average Standby Battery Life",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Average Standby Battery Life requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Average Standby Battery Life Unit",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Average Standby Battery Life Unit requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Charging Time",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Charging Time requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Charge Time",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Battery Charge Time requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery charge time",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Battery charge time requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Weight",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Battery Weight requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Weight Unit",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Battery Weight Unit requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Number of Batteries",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Number of Batteries requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Number of Lithium-ion Cells",
+      "status": "TBD",
+      "reason": "Definition is for cells not contained in an encased battery. Device contains an internalpack; do not infer number or copy an unrelatedSKU cell count.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Lithium Battery Packaging",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Lithium Battery Packaging requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Dangerous Goods Regulations",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Dangerous Goods Regulations requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Is This Product Subject To Buyer Age Restrictions",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Is This Product Subject To Buyer Age Restrictions requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "California Proposition 65",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: California Proposition 65 requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "California Proposition 65 Warning Type",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: California Proposition 65 Warning Type requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "FCC Radio Frequency Emission Compliance",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: FCC Radio Frequency Emission Compliance requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Radio Frequency Emission & Authorization Status",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Radio Frequency Emission & Authorization Status requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "FCC ID",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: FCC ID requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "SDoC Contact Name",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: SDoC Contact Name requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "SDoC Contact US Mailing Address",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: SDoC Contact US Mailing Address requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "SDoC Contact Email Address",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: SDoC Contact Email Address requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "SDOC Contact US Phone Number",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: SDOC Contact US Phone Number requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Regulatory Compliance Certification",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Regulatory Compliance Certification requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Compliance Regulation Type",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Compliance Regulation Type requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Regulatory Identification",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Regulatory Identification requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Responsible Person's Email or Electronic Address",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Responsible Person's Email or Electronic Address requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Compliance Media",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Compliance Media requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Compliance Media Content Type",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Compliance Media Content Type requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Compliance Media Language",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Compliance Media Language requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Compliance Media Source Location",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Compliance Media Source Location requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Safety Attestation",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Safety Attestation requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Manufacturer\u2019s Email or Electronic Address",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Manufacturer\u2019s Email or Electronic Address requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Ships Globally",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Ships Globally requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Contains Battery or Cell",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Contains Battery or Cell requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Has Replaceable Battery",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Has Replaceable Battery requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Has Less than 30 Percent State of Charge",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Has Less than 30 Percent State of Charge requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Installation Device Type",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Battery Installation Device Type requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Is OEM Sourced Product",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Is OEM Sourced Product requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "GHS Chemical H Code",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: GHS Chemical H Code requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "BAA/TAA Regulation Compliance",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: BAA/TAA Regulation Compliance requires applicable regulatory, battery-label, logistics or legal evidence. Lenovo SKU/platform and ERP reviewed; no exact final-shipment attestation verified.",
+      "candidate_values": []
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Modified Product",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: actual hardware change from OEM not evidenced; OS upgrade is software and must not be attested as hardware modification.",
+      "candidate_values": []
+    }
+  ],
+  "amazon_pages_attempted": [
+    "B0H9RVFF29",
+    "B0HFQX6J2R",
+    "B0HJ1N8NNL"
+  ],
+  "qualified_live_amazon_reference_count": 0,
+  "amazon_status": "SOURCE_UNAVAILABLE: direct pages failed to fetch; exact linked ERP specification reviewed independently.",
+  "style_approval_status": "APPROVED",
+  "github_delivery_status": "GITHUB_DELIVERY_VERIFIED",
+  "image_delivery_commit": "ef7da6d56c834746cf826841f32d1c19a978f8df"
+}

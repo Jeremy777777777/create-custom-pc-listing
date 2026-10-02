@@ -1,0 +1,15 @@
+{
+  "brand": "HP",
+  "logoRole": "OEM base-product identifier",
+  "minimumClearancePx": 24,
+  "placements": {
+    "PT01.png": { "x": 1130, "y": 35, "width": 70, "height": 70, "style": "circle-keyline", "protectedZones": [] },
+    "PT02.png": { "x": 35, "y": 1130, "width": 70, "height": 70, "style": "circle-keyline", "protectedZones": [] },
+    "PT03.png": { "x": 35, "y": 35, "width": 70, "height": 70, "style": "circle-keyline", "protectedZones": [] },
+    "PT04.png": { "x": 1130, "y": 1130, "width": 70, "height": 70, "style": "circle-keyline", "protectedZones": [] },
+    "PT05.png": { "x": 35, "y": 35, "width": 70, "height": 70, "style": "circle-keyline", "protectedZones": [] },
+    "PT06.png": { "x": 1130, "y": 35, "width": 70, "height": 70, "style": "transparent", "protectedZones": [] },
+    "PT07.png": { "x": 1130, "y": 35, "width": 70, "height": 70, "style": "transparent", "protectedZones": [] },
+    "PT08.png": { "x": 1130, "y": 1130, "width": 70, "height": 70, "style": "transparent", "protectedZones": [] }
+  }
+}

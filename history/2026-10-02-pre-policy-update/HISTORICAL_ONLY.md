@@ -1,0 +1,1 @@
+Historical snapshot of superseded rules and scripts at commit 4d7677d. Never read, route to, execute, or use these files as current workflow instructions. Git history also retains original deliverables.
