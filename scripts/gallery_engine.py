@@ -365,7 +365,9 @@ def validate_vl1276_ai_gallery_import(root,p,changed):
         raise ValueError('Missing explicit method, replacement or eleven-file approval')
     source=p/'ai-gallery-architectural-20261005'
     for filename,key in [('effect-review.json','sourceReviewSha256'),('native-file-checks.json','sourceFileChecksSha256')]:
-        if digest(source/filename)!=receipt.get(key):
+        # Git text checkout may use CRLF on Windows and LF on Linux.
+        evidence_hash=hashlib.sha256((source/filename).read_bytes().replace(b'\r\n',b'\n')).hexdigest()
+        if receipt.get('sourceReviewEncoding')!='UTF8_LF_NORMALIZED' or evidence_hash!=receipt.get(key):
             raise ValueError('AI source review binding stale')
     for n in NAMES:
         if digest(p/n)!=expected[n] or digest(source/n)!=expected[n]:
