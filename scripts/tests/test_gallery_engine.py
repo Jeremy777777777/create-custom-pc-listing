@@ -120,6 +120,27 @@ class Tests(unittest.TestCase):
   (gallery/g.PT[0]).write_bytes((source/g.PT[0]).read_bytes())
   Image.new('RGB',(1254,1254),'red').save(gallery/g.MAIN[0])
   with self.assertRaises(ValueError): g.validate_ai_effect_import(root,gallery,g.PT)
+ def test_vl1276_eleven_ai_import_frozen_bytes_and_no_qa(self):
+  import shutil
+  root=self.p; product=root/'product generated photo'/'VL-1276'; product.mkdir(parents=True)
+  original=Path(__file__).parents[2]/'product generated photo'/'VL-1276'
+  source=product/'ai-gallery-architectural-20261005'
+  shutil.copytree(original/'ai-gallery-architectural-20261005',source)
+  for n in g.NAMES: shutil.copyfile(source/n,product/n)
+  shutil.copyfile(original/'approved-ai-gallery-import.json',product/'approved-ai-gallery-import.json')
+  shutil.copyfile(original/'delivery-status.json',product/'delivery-status.json')
+  g.validate_vl1276_ai_gallery_import(root,product,g.NAMES)
+  with self.assertRaises(ValueError): g.validate_vl1276_ai_gallery_import(root,product,g.PT)
+  with self.assertRaises(ValueError): g.validate_vl1276_ai_gallery_import(root,product.with_name('VL-9999'),g.NAMES)
+  receipt=g.read(product/'approved-ai-gallery-import.json')
+  receipt['fullGalleryPass']=True; g.write(product/'approved-ai-gallery-import.json',receipt)
+  with self.assertRaises(ValueError): g.validate_vl1276_ai_gallery_import(root,product,g.NAMES)
+  receipt['fullGalleryPass']=False; g.write(product/'approved-ai-gallery-import.json',receipt)
+  Image.new('RGB',(1254,1254),'red').save(product/g.MAIN[0])
+  with self.assertRaises(ValueError): g.validate_vl1276_ai_gallery_import(root,product,g.NAMES)
+  shutil.copyfile(source/g.MAIN[0],product/g.MAIN[0])
+  receipt['images'][g.MAIN[0]]='0'*64; g.write(product/'approved-ai-gallery-import.json',receipt)
+  with self.assertRaises(ValueError): g.validate_vl1276_ai_gallery_import(root,product,g.NAMES)
  def test_quarantine_never_passes(self):
   g.write(self.p/'delivery-status.json',{'galleryState':'LEGACY_QUARANTINED'})
   with self.assertRaisesRegex(ValueError,'LEGACY_QUARANTINED'): g.validate(self.p)

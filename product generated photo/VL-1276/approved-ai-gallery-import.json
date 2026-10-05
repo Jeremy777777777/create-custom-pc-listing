@@ -1,0 +1,50 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VL-1276",
+  "date": "2026-10-05",
+  "exceptionType": "USER_APPROVED_VL1276_ELEVEN_AI_IMPORT",
+  "sourceCommit": "2fa9845ee8a8a2594c4e443377ff5962358b3ac0",
+  "authorization": {
+    "aiMethodQuote": "是的，AI模仿",
+    "replacementQuote": "现在帮我覆盖掉在VL-1276文件夹里面的1张图片，你最新生成的我approve可以",
+    "scopeClarificationQuote": "11张图片"
+  },
+  "images": {
+    "MAIN-STRICT.jpg": "a8168d6adad3eb7d72f683946004c900fcd955022877216103163009b7d87197",
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png": "60e8cf761bf817a90791e154beb50c99e8fc4bf8b04a65d5d7d1f17c93ff0e1a",
+    "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": "51fc0a579c5bcb976bccf38f3037371d91b23d7d0e2bd5793c2e3ef2a484593c",
+    "PT01.png": "9b1694585db0300428d91a2bdfb18f6f78c27aa0160a7b8cf08fb2babb2e1a72",
+    "PT02.png": "72f2cc5de3d818ae11a1b68cae71450b95a27602ebbc2e2ebda9e634c986ba73",
+    "PT03.png": "882e853c9b5d7d7e814e910d182110eba1a242f8d04cad933127fcf74878f0c7",
+    "PT04.png": "879bfbf7f13d29ab70621471c226d001f9640ffe81423af6793ec3a7e7c4a323",
+    "PT05.png": "0832dade56d2c9300fe41db1dd73d53d732af0f1be3bc4ce97bf07991b685eb0",
+    "PT06.png": "6ab3c90fbf9bec3ff1a0d38cd3f9b78ffd43773d8397e75794016afe62f7003f",
+    "PT07.png": "704e68ce663a82fb75be365eafffdb5497f9471922324ed144a09156afd914e8",
+    "PT08.png": "cd9f524e2ff91d9738b6dc2b1299671602795bc892b66923b179838229436a38"
+  },
+  "replacedCanonicalSha256": {
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png": "4b81d0257b760d86bd3818b9751b6a58a68f655110e3cfb0de21fb50f32e4254",
+    "MAIN-STRICT.jpg": "87f31d6f1d4b1619e77998e27964a37dd8868df8212ed0f28424920ae7e77c18",
+    "PT07.png": "abd6fc135c1508b8d2f6028f32c3f7b71fc5ff54c9a2020882461cc352574415",
+    "PT08.png": "05c25db4cb860999c226b0ce3a69e91576a66e8c7c900d64d52168705dc46a34",
+    "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": "12d13a7260293b8fdfec50532dd3ebb6a0699e036b047df62413ad55a8e17203",
+    "PT06.png": "f32076318c7529544bdd10f071895ae48ecd8870b9e4972d162c0a2261e09b77",
+    "PT03.png": "fcdd15b1f8663bc7dacce584a3375c47f0d97d3cb50f476ec7d816e99a31dc70",
+    "PT05.png": "5beccea79b460b1c3d27b1ef3913e91ccb7c1239d1e99b3a40da71be7e6f7075",
+    "PT04.png": "e794250b0ffb68066e68e8271525acd64339ef9ae4e4445c7f91a3da84168d9a",
+    "PT02.png": "01d6065e55c2ebcec239d9b8ac401435311a148e2644b6fb18dd121401a038d4",
+    "PT01.png": "a53770071819e9a20c9d16c331e0225906ad4f7460735199efd6278307223cf7"
+  },
+  "recoveryCommit": "2fa9845ee8a8a2594c4e443377ff5962358b3ac0",
+  "sourceReviewSha256": "051f051ce0f381f4d2fff58fa5bfc3fc08237492aaed1a4c234af12efa4c2821",
+  "sourceFileChecksSha256": "5ae1df2b23a23adcc6551ea09a3964b5feda78833a583200c955ce3f550c7e9f",
+  "fullGalleryPass": false,
+  "strictProductBrandQaPass": false,
+  "publicationReadiness": "NOT_ASSESSED",
+  "limitations": [
+    "AI hardware/keyboard/camera/brand artwork remains approximate, not real product photography or certified factory geometry.",
+    "This exact eleven-file VL-1276 approval does not change ordinary exact-product or brand gates.",
+    "Dimension and byte identity checks are separate from Amazon eligibility; enhanced MAIN overlays are not automatically eligible.",
+    "Source version records remain immutable production-time evidence; this receipt records subsequent canonical replacement."
+  ]
+}

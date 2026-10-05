@@ -336,6 +336,49 @@ def validate_ai_effect_import(root,p,changed):
     if receipt.get('unchangedMainSha256')!={n:digest(p/n) for n in MAIN}: raise ValueError('AI import changed MAIN')
     print('USER_APPROVED_AI_EFFECT_IMPORT: eight hash-bound images imported; full product/brand QA and Amazon readiness NOT certified')
 
+def validate_vl1276_ai_gallery_import(root,p,changed):
+    """Exact eleven-file user approval, never strict QA or general AI permission."""
+    if p.name!='VL-1276' or set(changed)!=set(NAMES):
+        raise ValueError('VL-1276 approval covers exactly eleven slots')
+    receipt=read(p/'approved-ai-gallery-import.json')
+    expected={
+    "MAIN-STRICT.jpg": "a8168d6adad3eb7d72f683946004c900fcd955022877216103163009b7d87197",
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png": "60e8cf761bf817a90791e154beb50c99e8fc4bf8b04a65d5d7d1f17c93ff0e1a",
+    "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": "51fc0a579c5bcb976bccf38f3037371d91b23d7d0e2bd5793c2e3ef2a484593c",
+    "PT01.png": "9b1694585db0300428d91a2bdfb18f6f78c27aa0160a7b8cf08fb2babb2e1a72",
+    "PT02.png": "72f2cc5de3d818ae11a1b68cae71450b95a27602ebbc2e2ebda9e634c986ba73",
+    "PT03.png": "882e853c9b5d7d7e814e910d182110eba1a242f8d04cad933127fcf74878f0c7",
+    "PT04.png": "879bfbf7f13d29ab70621471c226d001f9640ffe81423af6793ec3a7e7c4a323",
+    "PT05.png": "0832dade56d2c9300fe41db1dd73d53d732af0f1be3bc4ce97bf07991b685eb0",
+    "PT06.png": "6ab3c90fbf9bec3ff1a0d38cd3f9b78ffd43773d8397e75794016afe62f7003f",
+    "PT07.png": "704e68ce663a82fb75be365eafffdb5497f9471922324ed144a09156afd914e8",
+    "PT08.png": "cd9f524e2ff91d9738b6dc2b1299671602795bc892b66923b179838229436a38"
+}
+    if receipt.get('schemaVersion')!=1 or receipt.get('internalId')!='VL-1276' or receipt.get('exceptionType')!='USER_APPROVED_VL1276_ELEVEN_AI_IMPORT':
+        raise ValueError('Missing VL-1276-specific import receipt')
+    if receipt.get('images')!=expected or receipt.get('sourceCommit')!='2fa9845ee8a8a2594c4e443377ff5962358b3ac0':
+        raise ValueError('Approval is frozen to the previously delivered eleven files')
+    if receipt.get('fullGalleryPass') is not False or receipt.get('strictProductBrandQaPass') is not False or receipt.get('publicationReadiness')!='NOT_ASSESSED' or not receipt.get('limitations'):
+        raise ValueError('AI import cannot confer QA or publication clearance')
+    auth=receipt.get('authorization',{})
+    if not all(auth.get(k) for k in ('aiMethodQuote','replacementQuote','scopeClarificationQuote')):
+        raise ValueError('Missing explicit method, replacement or eleven-file approval')
+    source=p/'ai-gallery-architectural-20261005'
+    for filename,key in [('effect-review.json','sourceReviewSha256'),('native-file-checks.json','sourceFileChecksSha256')]:
+        if digest(source/filename)!=receipt.get(key):
+            raise ValueError('AI source review binding stale')
+    for n in NAMES:
+        if digest(p/n)!=expected[n] or digest(source/n)!=expected[n]:
+            raise ValueError('Approved AI image bytes changed')
+        with Image.open(p/n) as im:
+            im.load(); check_image_size(im.size)
+            if im.mode!='RGB' or im.format!=('JPEG' if n==MAIN[0] else 'PNG'):
+                raise ValueError('AI import format mismatch')
+    status=read(p/'delivery-status.json')
+    if status.get('galleryState')!='LEGACY_QUARANTINED' or status.get('currentQaPass') is not False:
+        raise ValueError('Strict QA quarantine must be retained')
+    print('USER_APPROVED_VL1276_ELEVEN_AI_IMPORT: approved bytes replaced; strict QA and Amazon readiness NOT certified')
+
 def gate(root,base=None,head='HEAD'):
     root=Path(root)
     changed=[] if not base else subprocess.check_output(['git','diff','--name-only',base,head],cwd=root,text=True).splitlines()
@@ -355,6 +398,8 @@ def gate(root,base=None,head='HEAD'):
                     validate_approved_import(root,p,names); imports+=1
                 elif (p/'approved-ai-effect-import.json').exists() and set(names)==set(PT):
                     validate_ai_effect_import(root,p,names); ai_imports+=1
+                elif p.name=='VL-1276' and (p/'approved-ai-gallery-import.json').exists() and set(names)==set(NAMES):
+                    validate_vl1276_ai_gallery_import(root,p,names); ai_imports+=1
                 else:
                     validate_partial(p,names); partial+=1
             quarantined+=1; continue
