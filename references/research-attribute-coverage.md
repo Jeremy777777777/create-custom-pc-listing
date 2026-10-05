@@ -70,7 +70,7 @@ ledger 至少记录：`sheet`、`attribute`、`definition`、`applicability`、`
 
 ### 保修、Offer 与 Safety & Compliance
 
-- 保修使用已确认目录政策的完整固定文案；Bullet 1、Description 最后 Warranty 节和 Warranty Description 完全一致，不再逐机询问或补充限制。
+- 保修与披露使用 2026-10-05 已确认目录政策的完整固定文案；只替换制造商名。Bullet 1、Description 最后 Warranty and Disclosure 节和 Warranty Description 完全一致，不再逐机询问、改写或补充限制。固定措辞不等于 OEM 保修适用性、封条/改装事实或 Amazon 发布资格已独立核验；事实矛盾必须报告，不得编造升级。
 - SKU、Quantity、Handling Time、价格上下限、List/Sale Price、Tax Code、Shipping Template、Gift Options、发布日期等是卖家运营或账户字段；不能通过 OEM 网页猜测。缺少时以 `TBD` + `SELLER_INPUT_REQUIRED` 列出所需卖家输入。
 - 电池运输、Dangerous Goods、FCC/SDoC、Proposition 65、监管 ID、Compliance Media、Safety Attestation、全球配送、BAA/TAA 等必须来自适用的 OEM 监管文件、标签/实物证据或卖家法务/物流决定。不得以网页未提及为理由填 `No` 或 `NOT_APPLICABLE`。
 

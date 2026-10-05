@@ -5,9 +5,10 @@ import unittest
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[2]
-WARRANTY = ('The original [OEM brand] manufacturer warranty remains valid on factory components. '
-            'MegaPC provides a 6-month limited warranty on upgraded RAM and SSD components, '
-            'with a 12-month warranty extension available.')
+WARRANTY = ('MegaPC provides a 1-year limited warranty on the upgraded RAM and SSD components. '
+            'The original [OEM brand] manufacturer warranty remains valid on all remaining factory components, '
+            'so you are covered on both the base machine and our upgrades. '
+            'The original seal has been opened solely for upgrading purposes.')
 
 class WorkflowPolicyTests(unittest.TestCase):
     def test_current_policy_and_base_scope(self):
@@ -20,6 +21,12 @@ class WorkflowPolicyTests(unittest.TestCase):
         self.assertIn('base sold configuration only', skill)
         self.assertIn('Amazon-based size policy', skill)
         self.assertIn('PARTIAL_UPDATE', skill)
+        template=json.loads((ROOT/'assets/warranty-disclosure-policy.json').read_text(encoding='utf-8'))
+        self.assertEqual(template['paragraph'],WARRANTY)
+        self.assertFalse(template['wordingExceptionsAllowed'])
+        for file in (ROOT/'product generated photo').glob('VL-*/product-facts.json'):
+            facts=json.loads(file.read_text(encoding='utf-8'))
+            self.assertEqual(facts['sellerPolicy']['warrantyTemplate'],WARRANTY)
 
     def test_no_discoverable_skill_in_history(self):
         self.assertFalse(list((ROOT/'history').rglob('SKILL.md')))

@@ -1,8 +1,10 @@
 import importlib.util
 import tempfile
 import unittest
+import sys
 from pathlib import Path
 import openpyxl
+sys.path.insert(0, str(Path(__file__).parents[1]))
 
 spec=importlib.util.spec_from_file_location('workbooks',Path(__file__).parents[1]/'check-workbooks.py')
 module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)

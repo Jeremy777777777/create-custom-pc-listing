@@ -1,6 +1,6 @@
 # MegaPC Custom PC listing and image workflow
 
-Start with [SKILL.md](SKILL.md) and [current seller policy](references/confirmed-catalog-defaults.md). Effective policy version: **2026-10-02**.
+Start with [SKILL.md](SKILL.md) and [current seller policy](references/confirmed-catalog-defaults.md). Effective policy: **2026-10-02 baseline, amended 2026-10-05**.
 
 The workflow produces research and base-configuration listing workbooks, plus an independently callable image workflow. It delivers to this repository and does not publish automatically to Seller Central.
 
@@ -9,9 +9,9 @@ The workflow produces research and base-configuration listing workbooks, plus an
 - All catalog computers are customized; titles use **MegaPC Custom**.
 - Excel describes **the base sold configuration only**, including its title, bullets and description. No selectable RAM/SSD lists.
 - Final delivered OS is **Windows 11 Pro**; licence/activation/publication eligibility remain separate operational checks.
-- Warranty is bullet 1 and appears identically in Description's final Warranty section and the workbook Warranty Description. Replace the brand token only:
+- Warranty is bullet 1 and appears identically in Description's final Warranty and Disclosure section and the workbook Warranty Description. Replace the brand token only:
 
-> The original [OEM brand] manufacturer warranty remains valid on factory components. MegaPC provides a 6-month limited warranty on upgraded RAM and SSD components, with a 12-month warranty extension available.
+> MegaPC provides a 1-year limited warranty on the upgraded RAM and SSD components. The original [OEM brand] manufacturer warranty remains valid on all remaining factory components, so you are covered on both the base machine and our upgrades. The original seal has been opened solely for upgrading purposes.
 
 - Images show **the computer only**, with no additional devices/accessories, pack-out or contextual peripheral silhouettes. PT02 may use people/furniture to explain use.
 - Final slots follow the [Amazon-based size policy](references/image-spec.md), not a fixed square resolution. Preserve geometry; do not enlarge low-resolution sources to claim required fidelity.

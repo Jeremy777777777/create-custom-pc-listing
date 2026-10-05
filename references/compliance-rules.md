@@ -5,7 +5,7 @@ Seller decisions are in [confirmed-catalog-defaults.md](confirmed-catalog-defaul
 ## Listing checks
 
 - Exact `MegaPC Custom` title prefix, OEM model identified via Created Using, accurate base RAM/SSD only, Win 11 Pro ending, appropriate title length.
-- Bullet 1, Description's final Warranty section and Warranty Description use the identical mandatory OEM/MegaPC wording, with verified OEM brand substituted. Seller policy is already confirmed; do not reopen coverage or invent terms.
+- Bullet 1, Description's final Warranty and Disclosure section and Warranty Description use the identical mandatory OEM/MegaPC wording, with verified OEM brand substituted. Seller policy is already confirmed; do not reopen coverage or invent terms.
 - Actual RAM/storage modification disclosure is accurate; all computers are customized. No invented upgrade options, CPU/GPU/screen customization or software bundle. Fixed Windows 11 Pro is the sold system, not a selectable software customization.
 - Exact SKU facts and evidence are consistent. Complete template coverage includes unresolved seller fields explicitly, not guessed values.
 - Check program enrollment, required customization documentation, MFN/FBA eligibility, GTIN/new ASIN requirements and channel rules against current applicable account guidance. Any actual policy restriction is recorded in `AMAZON_ELIGIBILITY`; user policy does not constitute Amazon approval. Do not require an extra user approval merely to research/write the confirmed configuration.

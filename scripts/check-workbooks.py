@@ -4,6 +4,7 @@ import json
 import os
 from pathlib import Path
 import openpyxl
+from warranty_policy import validate_workbook_copy
 
 SHEETS = ['Product Details', 'Offer', 'Safety&Compliance']
 
@@ -25,7 +26,7 @@ def template_topology(path):
     finally:
         book.close()
 
-def check_output(path, topology):
+def check_output(path, topology, manufacturer=None):
     book = openpyxl.load_workbook(path, data_only=False)
     try:
         if book.sheetnames != list(topology):
@@ -43,6 +44,8 @@ def check_output(path, topology):
             for c in range(2,sheet.max_column+1):
                 if not sheet.cell(4,c).value or not sheet.cell(5,c).value:
                     raise ValueError(f'{path}: {sheet.title}/{sheet.cell(1,c).value} lacks Status/Source or disposition')
+        if manufacturer is not None:
+            validate_workbook_copy(book, manufacturer)
     finally:
         book.close()
 
@@ -50,7 +53,13 @@ def main():
     ap=argparse.ArgumentParser();ap.add_argument('--directory',default='.');args=ap.parse_args()
     root=Path(args.directory);topology=template_topology(root/'assets/listing-workbook-template.xlsx')
     outputs=sorted((root/'product generated photo').glob('VL-*/*.xlsx'))
-    for path in outputs:check_output(path,topology)
+    for path in outputs:
+        manufacturer=None
+        if '_LISTING_' in path.stem.upper():
+            facts=json.loads((path.parent/'product-facts.json').read_text(encoding='utf-8-sig'))
+            manufacturer=facts.get('identity',{}).get('oemBrand')
+            if not manufacturer: raise ValueError(f'{path}: OEM brand required for warranty copy check')
+        check_output(path,topology,manufacturer)
     summary={'templateStructure':'PASS','currentOutputsStructureChecked':len(outputs),
              'historicalOutputsExcluded':True,'factOrPublicationReadinessInferred':False}
     (root/'workbook-ci-summary.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')

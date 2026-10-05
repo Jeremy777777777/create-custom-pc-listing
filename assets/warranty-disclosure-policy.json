@@ -1,0 +1,19 @@
+{
+  "schemaVersion": 1,
+  "effectiveDate": "2026-10-05",
+  "heading": "Warranty and Disclosure",
+  "manufacturerToken": "[OEM brand]",
+  "paragraph": "MegaPC provides a 1-year limited warranty on the upgraded RAM and SSD components. The original [OEM brand] manufacturer warranty remains valid on all remaining factory components, so you are covered on both the base machine and our upgrades. The original seal has been opened solely for upgrading purposes.",
+  "requiredLocations": [
+    "Bullet Point: first paragraph",
+    "Product Description: final Warranty and Disclosure section",
+    "Safety&Compliance: Warranty Description"
+  ],
+  "wordingExceptionsAllowed": false,
+  "sellerAssertionStatus": "USER_CONFIRMED_CATALOG_POLICY",
+  "publicationChecks": [
+    "OEM warranty applicability",
+    "Actual seal-opening and hardware customization consistency"
+  ],
+  "previousDurationRuleSuperseded": true
+}

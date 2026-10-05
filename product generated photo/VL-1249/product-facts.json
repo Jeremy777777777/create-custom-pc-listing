@@ -9,15 +9,19 @@
     "excelConfigurationScope": "BASE_ONLY",
     "finalOperatingSystem": "Windows 11 Pro",
     "operatingSystemPolicyStatus": "USER_CONFIRMED_CATALOG_POLICY",
-    "warrantyTemplate": "The original [OEM brand] manufacturer warranty remains valid on factory components. MegaPC provides a 6-month limited warranty on upgraded RAM and SSD components, with a 12-month warranty extension available.",
+    "warrantyTemplate": "MegaPC provides a 1-year limited warranty on the upgraded RAM and SSD components. The original [OEM brand] manufacturer warranty remains valid on all remaining factory components, so you are covered on both the base machine and our upgrades. The original seal has been opened solely for upgrading purposes.",
     "warrantyStatus": "USER_CONFIRMED_CATALOG_POLICY",
     "imageScope": "COMPUTER_ONLY",
     "finalImageSize": [
       2000,
       2000
     ],
-    "warrantyWordingConfirmation": "DIRECT_USER_INSTRUCTION_2026-10-02",
-    "oemWarrantyApplicabilityReview": "SELLER_MANUAL_PUBLICATION_CHECK"
+    "warrantyWordingConfirmation": "DIRECT_USER_INSTRUCTION_2026-10-05",
+    "oemWarrantyApplicabilityReview": "SELLER_MANUAL_PUBLICATION_CHECK",
+    "warrantyHeading": "Warranty and Disclosure",
+    "warrantyPolicyPath": "assets/warranty-disclosure-policy.json",
+    "sealOpeningDisclosureStatus": "USER_CONFIRMED_CATALOG_POLICY",
+    "sealOpeningAccuracyReview": "SELLER_MANUAL_PUBLICATION_CHECK"
   },
   "unresolvedOperationalChecks": [
     "Windows licence/activation and fixed delivery QA",
