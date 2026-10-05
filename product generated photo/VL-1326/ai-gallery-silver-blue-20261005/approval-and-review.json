@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VL-1326",
+  "date": "2026-10-05",
+  "scope": "Eight AI-generated supporting-image effect versions only; no MAIN or canonical gallery replacement",
+  "approvedStyle": "B03/BG03 silver-white + business-blue product-specific adaptation",
+  "styleApprovalQuote": "就按照这种风格给我来8张附图吧，记得要把附图的要点加上",
+  "aiMethodApprovalQuote": "允许，使用AI效果图，但是这个效果图就是真是产品的模仿",
+  "approvalTimestampExact": null,
+  "userConfirmedMainImageContent": [
+    "Lenovo Yoga 7",
+    "360° Convertible",
+    "14-inch 2K OLED",
+    "AMD Ryzen AI 5 430",
+    "Windows 11 Pro",
+    "Copilot PC",
+    "Office Package",
+    "Backlit Keyboard",
+    "Fingerprint Reader"
+  ],
+  "userConfirmedConfiguration": {
+    "ram": "16GB",
+    "ssd": "512GB",
+    "source": "Direct user answer to per-product RAM/SSD question"
+  },
+  "productionTool": "built-in image_gen",
+  "AIApproximation": true,
+  "realPhotograph": false,
+  "sourceProductPixelsPreserved": false,
+  "longTermRuleOverride": false,
+  "canonical2000pxRequirementRetained": true,
+  "strictGalleryQaPass": false,
+  "geometryBrandAssetsAndEntitlementsCertified": false,
+  "publicationReadiness": "NOT_ASSESSED",
+  "officialSupplementarySource": "https://psref.lenovo.com/syspool/Sys/PDF/Yoga/Yoga_7_2_in_1_14AGP11/Yoga_7_2_in_1_14AGP11_Spec.pdf",
+  "supplementaryEvidenceScope": "Radeon 840M for Ryzen AI 5 430, current platform input features and connector/wireless types; official overview used to guide PT08 opening order. Not independent certification of every AI pixel or seller-installed RAM/SSD.",
+  "remainingLimitations": [
+    "Native output 1254x1254, not final 2000x2000; not upscaled to hide deficient native detail.",
+    "Product hardware and brand graphics are AI approximations; exact keyboard lettering, hinge structure, sensor shape/location and factory marks not certified.",
+    "Fingerprint placement revised for internal set consistency, not independently verified exact-model sensor-location evidence.",
+    "Generated informational interfaces are illustrative; no measured performance claims or subscription promises.",
+    "Official specification is platform-level, not an exact MTM/serial-number ledger."
+  ],
+  "reviewedObservations": {
+    "PT01": "Office Package Included heading plus documents/spreadsheets/presentations; no OS badge or full configuration.",
+    "PT02": "Original work-scene illustration; removed extra device-like desk-edge item; no capacity claims.",
+    "PT03": "Visible Ryzen AI 5 430, 16GB RAM, 512GB SSD, Radeon 840M, Windows 11 Pro; Copilot PC added without paid-service promise.",
+    "PT04": "Visible 14-inch 2K OLED Touch Display wording follows seller's confirmed main image; no new brightness/refresh-rate claim.",
+    "PT05": "Tent, laptop and stand work relationships; approved silver/blue reference language retained.",
+    "PT06": "White high-key keyboard/touchpad detail layout; Backlit Keyboard, Copilot Key and Multi-touch Touchpad labels readable at native inspection.",
+    "PT07": "Fingerprint Reader wording; revised illustrated sensor side for consistency with PT06; no security certification claim.",
+    "PT08": "Two side views with seven corresponding labels; pen-holder-like accessory and invented side grille removed; Wi-Fi 7 and Bluetooth 5.4 visible."
+  },
+  "semanticReview": "MANUAL_SCOPE_REVIEW_NO_NUMERIC_OVERLAP_CLAIM",
+  "slotPrimaryFacts": {
+    "PT01": [
+      "OFFICE_PACKAGE_INCLUDED"
+    ],
+    "PT02": [
+      "PLANNING_ANALYSIS_PRESENTATION_USE_SCENE"
+    ],
+    "PT03": [
+      "CPU_RYZEN_AI_5_430",
+      "RAM_16GB",
+      "SSD_512GB",
+      "GPU_RADEON_840M",
+      "OS_WINDOWS_11_PRO",
+      "COPILOT_PC"
+    ],
+    "PT04": [
+      "DISPLAY_14INCH_2K_OLED_TOUCH"
+    ],
+    "PT05": [
+      "CONVERTIBLE_360_MODES"
+    ],
+    "PT06": [
+      "BACKLIT_KEYBOARD",
+      "MULTITOUCH_TOUCHPAD",
+      "COPILOT_KEY"
+    ],
+    "PT07": [
+      "FINGERPRINT_READER"
+    ],
+    "PT08": [
+      "USB_A",
+      "USB_C_2",
+      "MICROSD",
+      "POWER_BUTTON",
+      "HDMI",
+      "AUDIO_3_5",
+      "WIFI7",
+      "BT5_4"
+    ]
+  },
+  "sourcePromptRecord": "prompts.json"
+}

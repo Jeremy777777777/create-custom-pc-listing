@@ -1,0 +1,90 @@
+{
+  "schemaVersion": 1,
+  "checkedWith": "Anaconda listing-testing Python 3.12",
+  "count": 8,
+  "decodeCheck": "PASS",
+  "canonical2000pxSizePass": false,
+  "artisticOrHardwareCertificationInferred": false,
+  "files": [
+    {
+      "file": "PT01.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "6ecf7f65142f511c4efad7f3287c91f84c57bf56739b70e6e68f83b738b145ed",
+      "bytes": 1677722
+    },
+    {
+      "file": "PT02.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "13646d69ddc79e51b966712157041bdbb127b307d470ca8fe36c1b3faef72c27",
+      "bytes": 1552451
+    },
+    {
+      "file": "PT03.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "86e15135b65f1f1055c45386c6a51fa8cd7961e1aaa8a1c03464c3d6232a1b47",
+      "bytes": 1673455
+    },
+    {
+      "file": "PT04.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "912984414c2d3e1012cd2bdf2657d07033b5df3871fec0c99b08a948f73cba33",
+      "bytes": 1783964
+    },
+    {
+      "file": "PT05.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "739d07d8bd15eac60abbfa251ba6e66445e6e876cb8e77ed7fcab7ce7421f522",
+      "bytes": 1638047
+    },
+    {
+      "file": "PT06.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "5a77ef306218022ed407a699e4029804b1cd3d3947ecf3b68b71c4d1a16080b1",
+      "bytes": 1723368
+    },
+    {
+      "file": "PT07.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "2fe694702ca24f79b31c1e97308a5e747cfb8c56fa67e86fe984de0fcdce3499",
+      "bytes": 1715555
+    },
+    {
+      "file": "PT08.png",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "sha256": "e27d37542907be2901fe43b69b2bb1f57f09be6141f16073b0d451884dcc23e3",
+      "bytes": 1366868
+    }
+  ]
+}
