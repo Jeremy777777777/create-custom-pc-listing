@@ -1,10 +1,10 @@
 name: Validate current gallery delivery
 on:
   pull_request:
-    paths: ['SKILL.md', 'README.md', 'references/**', 'assets/**', 'scripts/**', '.github/**', 'product generated photo/**']
+    paths: ['AGENTS.md', 'SKILL.md', 'README.md', 'references/**', 'assets/**', 'scripts/**', 'local-testing/**', '.github/**', 'product generated photo/**']
   push:
     branches: [main]
-    paths: ['SKILL.md', 'README.md', 'references/**', 'assets/**', 'scripts/**', '.github/**', 'product generated photo/**']
+    paths: ['AGENTS.md', 'SKILL.md', 'README.md', 'references/**', 'assets/**', 'scripts/**', 'local-testing/**', '.github/**', 'product generated photo/**']
 jobs:
   validate:
     runs-on: ubuntu-latest

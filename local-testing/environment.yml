@@ -1,0 +1,14 @@
+name: listing-testing
+channels:
+  - defaults
+dependencies:
+  - python=3.12
+  - pip
+  - pip:
+      - Pillow>=11.0,<13
+      - openpyxl>=3.1,<4
+      - PyYAML>=6,<7
+      - pytest>=8,<10
+      - jupyterlab>=4,<5
+      - ipykernel>=6,<8
+      - nbclient>=0.10,<1

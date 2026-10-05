@@ -24,6 +24,10 @@ The request authorizes same-product, same-slot replacement and repository delive
 
 ## 1. Identify and map the target
 
+### Python / Jupyter execution preference
+
+For every Listing mode (text/workbooks, images and workflow updates), apply the user's [Python/Jupyter testing preference](references/python-jupyter-testing.md) before programmable work. Prefer the dedicated Anaconda `listing-testing` Python 3.12 environment and **Python (Listing Testing)** kernel; verify the interpreter and run checks relevant to the changed content. Jupyter debugging and direct scripts share this environment; no always-open server is needed. Missing environment/access is reported rather than silently switching runtimes. This tooling preference does not replace factual/manual image QA, style approval or delivery gates.
+
 Read `references/input-source-cross-validation.md`.
 
 Optional sources:

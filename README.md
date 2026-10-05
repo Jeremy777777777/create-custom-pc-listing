@@ -33,6 +33,7 @@ The workflow produces research and base-configuration listing workbooks, plus an
 | Reference-driven Business Laptop B17/BG17 | [Graphite Business design system](references/business-graphite-design-system.md) |
 | Business defaults/approval decisions (existing rules retained) | [Policy decisions](references/business-graphite-policy-decisions.md) |
 | Workbook template | [listing-workbook-template.xlsx](assets/listing-workbook-template.xlsx) |
+| Preferred Python/Jupyter environment for text and images | [Testing preference](references/python-jupyter-testing.md) / [setup and reusable tests](local-testing/README.md) |
 
 Audience style references define creative recipes only; they do not override policy, factual gates, information ownership, dimensions or delivery rules.
 
