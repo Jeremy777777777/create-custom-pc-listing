@@ -4,7 +4,21 @@ Apply [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) as the sing
 
 ## Deliverables and ownership
 
-All 11 final images are 2000×2000, sRGB, high-quality JPG/PNG with readable 100% and 200px views. Do not stretch the chassis, invent ports/keys, upscale deficient source detail or crop the product. Angle photos must match exact model/color and preserve factory marks. Non-square composition is fit proportionally to canvas; only crops that preserve all product content are allowed.
+### Amazon-based size policy — user decision 2026-10-05
+
+The user removed the fixed 2000×2000 rule for all Listing images. Use the [Amazon US Product image guide](https://sellercentral.amazon.com/help/hub/reference/external/G1881?locale=en_us), checked 2026-10-05:
+
+- Hard pixel requirement: longest side 500–10,000 pixels, inclusive. Square shape and identical dimensions across slots are not required by this general rule.
+- Recommendation, not a hard gate: longest side 1,000+ pixels for customer experience and zoom. Record zoom eligibility by size separately from acceptance.
+- Use clear, non-pixelated images with no jagged edges. Do not artificially enlarge small images merely to satisfy a number. Preserve native dimensions when usable; normalization/resizing is opt-in and must not upscale or distort the product.
+- Amazon supports JPEG, PNG, TIFF and non-animated GIF and recommends JPEG/RGB. Our existing JPG/PNG slot names, opaque backgrounds and sRGB export convention remain workflow conventions, not claims that Amazon bans other supported formats. The guide also specifies at least 72 dpi: inspect export metadata before publication; missing metadata is a review item, not proof of compliance. DPI does not add pixel detail.
+- Before publication, check current marketplace/category/account requirements. Use MAIN-specific white background, accurate complete product, product fill and no added marketing overlays requirements; enhanced MAIN candidates are not automatically eligible. All images must accurately depict the sold product and avoid prohibited claims/marks. Apply relevant AI-person metadata disclosure when needed.
+
+`check_image_size` verifies only decoded pixel dimensions. It does not establish clarity, truthful hardware/features, licensing, DPI, or Amazon acceptance. Keep those reviews and existing hash-bound evidence gates. This change does not clear quarantined galleries, overwrite styles, approve generated product/logo replacements globally, or retroactively certify older images. It supersedes older fixed-resolution wording; retain historical production receipts as records rather than editing their original claims.
+
+Measure masks, logo bounds and thumbnail readability against each actual canvas. Record per-slot width/height in reports; never infer a 2000px canvas from an old recipe.
+
+All 11 final images meet the Amazon-based size policy below, using sRGB, high-quality JPG/PNG with readable 100% and 200px views. Do not stretch the chassis, invent ports/keys, upscale deficient source detail or crop the product. Angle photos must match exact model/color and preserve factory marks. Non-square composition is fit proportionally to canvas; only crops that preserve all product content are allowed.
 
 | File | Required content |
 | --- | --- |
@@ -42,4 +56,4 @@ Use [production-recipes.md](production-recipes.md) for slot layouts, layer requi
 
 ## Current Gaming reference — 2026-10-02
 
-For Gaming enhanced MAIN, apply [gaming-approved-main-fit.md](gaming-approved-main-fit.md) before any older generic head-breakout, top-clearance or reference-exclusion instructions. SCREEN_ONLY six-card composition is now the integrated-screen default; HEAD_ONLY is an optional separately approved variation. The exact VL-1221 front supplied and approved by the user is a hash-bound 1237×937 import exception, not a full-gallery PASS or a reusable exception for other files. New generations retain 2000×2000 defaults and independently verified product facts.
+For Gaming enhanced MAIN, apply [gaming-approved-main-fit.md](gaming-approved-main-fit.md) before any older generic head-breakout, top-clearance or reference-exclusion instructions. SCREEN_ONLY six-card composition is now the integrated-screen default; HEAD_ONLY is an optional separately approved variation. The exact VL-1221 front supplied and approved by the user is a hash-bound 1237×937 import exception, not a full-gallery PASS or a reusable exception for other files. New generations follow the current Amazon-based size policy in image-spec.md and independently verified product facts.

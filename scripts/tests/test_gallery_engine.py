@@ -9,11 +9,26 @@ class Tests(unittest.TestCase):
  def image(self,name,size,color='white'):
   p=self.p/name; Image.new('RGB' if p.suffix=='.jpg' else 'RGBA',size,color).save(p); return p
  def test_normalization_aspect_and_no_upscale(self):
-  src=self.image('s.png',(2400,1200),'red'); out=self.p/'out.png'; g.normalize(src,out)
+  src=self.image('s.png',(2400,1200),'red'); out=self.p/'out.png'; g.normalize(src,out,2000)
   im=Image.open(out); self.assertEqual(im.size,(2000,2000)); self.assertEqual(im.getpixel((1000,400))[:3],(255,255,255)); self.assertEqual(im.getpixel((1000,600))[:3],(255,0,0))
   low=self.image('low.png',(1000,1000)); before=g.digest(low)
-  with self.assertRaises(ValueError): g.normalize(low,low)
+  with self.assertRaises(ValueError): g.normalize(low,low,2000)
   self.assertEqual(g.digest(low),before)
+ def test_amazon_pixel_boundaries_and_zoom_are_separate(self):
+  for dimensions in [(500,300),(999,700),(1000,500),(1254,1254),(2400,1800),(10000,500)]:
+   result=g.check_image_size(dimensions)
+   self.assertEqual((result['width'],result['height']),dimensions)
+   self.assertEqual(result['zoomEligibleBySize'],max(dimensions)>=1000)
+  for dimensions in [(499,499),(10001,500),(0,1000)]:
+   with self.assertRaises(ValueError): g.check_image_size(dimensions)
+ def test_native_normalization_and_finalize_do_not_force_resize(self):
+  source=self.image('native.png',(1254,937),'red'); out=self.p/'square.png'
+  g.normalize(source,out)
+  with Image.open(out) as image: self.assertEqual(image.size,(1254,1254))
+  main=self.image(g.MAIN[0],(1254,937)); before=g.digest(main)
+  with patch.object(g,'contact_sheet'):
+   g.finalize(self.p,None,None,None,slots=[g.MAIN[0]])
+  self.assertEqual(g.digest(main),before)
  def test_background_preserves_black_white_enclosed_and_red(self):
   src=self.image('ink.png',(20,20)); im=Image.open(src); pix=im.load()
   for y in range(5,15):
@@ -41,17 +56,19 @@ class Tests(unittest.TestCase):
   g.evidence(evidence,['PT01.png'],self.p); Image.new('RGBA',(20,20),'red').save(im)
   with self.assertRaises(ValueError): g.evidence(evidence,['PT01.png'],self.p)
  def test_full_validator_main_hash_and_non_destructive(self):
-  for n in g.NAMES: self.image(n,(2000,2000))
+  for n in g.NAMES: self.image(n,(2400,1800) if n in g.MAIN else (1254,1254))
   (self.p/'unbranded').mkdir()
   for n in g.PT: (self.p/'unbranded'/n).write_bytes((self.p/n).read_bytes())
   logo=self.image('logo.png',(200,100),(0,0,255,255)); im=Image.open(logo); im.putpixel((0,0),(0,0,0,0)); im.save(logo)
   # Logo asset is external to the canonical folder, as required by directory hygiene.
   external=self.p.parent/(self.p.name+'-logo.png'); external.write_bytes(logo.read_bytes()); logo.unlink(); self.addCleanup(external.unlink)
-  cfg={'x':100,'y':100,'width':200,'height':100,'style':'transparent','protectedZones':[{'x':500,'y':500,'width':1000,'height':1000,'label':'PRODUCT_SILHOUETTE'}]}
+  cfg={'x':64,'y':64,'width':126,'height':63,'style':'transparent','protectedZones':[{'x':300,'y':300,'width':700,'height':700,'label':'PRODUCT_SILHOUETTE'}]}
   g.write(self.p/'logo-placement.json',{'brand':'OEM','placements':{n:cfg for n in g.PT},'minimumClearancePx':50,'minimumComponentSeparationPx':50})
   g.write(self.p/'logo-qa.json',{'schemaVersion':3,'generatedAtUtc':'now','brand':'OEM','logoAssetPath':'../'+external.name,'logoAssetSha256':g.digest(external),'placementPlanSha256':g.digest(self.p/'logo-placement.json'),'images':[{'file':n,'geometryGate':'PASS','commandRecord':'test fixture clean master','finalImageSha256':g.digest(self.p/n),'unbrandedSourceSha256':g.digest(self.p/'unbranded'/n)} for n in g.PT]})
   for f,names in [('visual-review.json',g.NAMES),('semantic-review.json',g.PT)]: g.write(self.p/f,{'schemaVersion':3,'result':'PASS','reviewer':'tester','reviewedAtUtc':'now','images':[{'file':n,'sha256':g.digest(self.p/n),'result':'PASS','notes':'Actual inspection'} for n in names]})
   images=g.validate(self.p,require_final=False)
+  self.assertEqual((images[0]['width'],images[0]['height']),(2400,1800))
+  self.assertEqual((images[3]['width'],images[3]['height']),(1254,1254))
   g.write(self.p/'final-image-qa.json',{'schemaVersion':3,'result':'PASS','images':images,'logoQaSha256':g.digest(self.p/'logo-qa.json'),'visualReviewSha256':g.digest(self.p/'visual-review.json'),'semanticReviewSha256':g.digest(self.p/'semantic-review.json')})
   g.validate(self.p)
   g.write(self.p/'delivery-status.json',{'galleryState':'LEGACY_QUARANTINED','deliveryState':'REWORK_REQUIRED','currentQaPass':False,'reason':'Legacy images','verifiedRemoteCommit':'old'})
@@ -64,13 +81,13 @@ class Tests(unittest.TestCase):
   with self.assertRaises(ValueError): g.validate(self.p)
   self.assertEqual(g.digest(self.p/'final-image-qa.json'),report_hash)
  def test_selected_composition_and_partial_receipt_keep_legacy_bytes(self):
-  for n in g.NAMES: self.image(n,(2000,2000))
+  for n in g.NAMES: self.image(n,(1254,1254))
   (self.p/'unbranded').mkdir(); (self.p/'unbranded'/'PT02.png').write_bytes((self.p/'PT02.png').read_bytes())
   logo=self.image('logo.png',(400,200),(0,0,0,0)); im=Image.open(logo)
   for x in range(100,300):
    for y in range(50,150): im.putpixel((x,y),(255,0,0,255))
   im.save(logo)
-  cfg={'x':100,'y':100,'width':200,'height':100,'style':'transparent','protectedZones':[{'x':500,'y':500,'width':1000,'height':1000,'label':'PRODUCT_SILHOUETTE'}]}
+  cfg={'x':64,'y':64,'width':126,'height':63,'style':'transparent','protectedZones':[{'x':300,'y':300,'width':700,'height':700,'label':'PRODUCT_SILHOUETTE'}]}
   g.write(self.p/'logo-placement.json',{'brand':'OEM','logoRole':'OEM base-product identifier','placements':{'PT02.png':cfg},'minimumClearancePx':50,'minimumComponentSeparationPx':50})
   before={n:g.digest(self.p/n) for n in g.NAMES if n!='PT02.png'}
   g.badges(self.p,logo,self.p/'logo-placement.json',slots=['PT02.png'])
@@ -84,6 +101,25 @@ class Tests(unittest.TestCase):
   with self.assertRaises(ValueError): g.validate_partial(self.p,['PT05.png'])
   self.image('PT05.png',(2000,2000),'red')
   with self.assertRaises(ValueError): g.validate_partial(self.p,['PT02.png'])
+ def test_ai_effect_import_is_scoped_and_never_full_qa(self):
+  root=self.p; gallery=root/'product generated photo'/'VL-1326'; source=gallery/'ai-gallery-silver-blue-20261005'; source.mkdir(parents=True)
+  for n in g.NAMES: Image.new('RGB',(1254,1254),'white').save(gallery/n)
+  for n in g.PT: (source/n).write_bytes((gallery/n).read_bytes())
+  hashes={n:g.digest(gallery/n) for n in g.PT}
+  g.write(source/'native-file-checks.json',{'files':[{'file':n,'sha256':hashes[n]} for n in g.PT]})
+  g.write(source/'approval-and-review.json',{'strictGalleryQaPass':False})
+  receipt={'schemaVersion':1,'internalId':'VL-1326','exceptionType':'USER_APPROVED_AI_EFFECT_IMPORT','authorization':{'aiMethodQuote':'explicit method approval','replacementQuote':'explicit byte replacement','sizePolicyQuote':'explicit size rule change'},'fullGalleryPass':False,'publicationReadiness':'NOT_ASSESSED','limitations':['AI approximation'],'sourceReviewSha256':g.digest(source/'approval-and-review.json'),'sourceFileChecksSha256':g.digest(source/'native-file-checks.json'),'images':hashes,'unchangedMainSha256':{n:g.digest(gallery/n) for n in g.MAIN}}
+  g.write(gallery/'approved-ai-effect-import.json',receipt)
+  g.validate_ai_effect_import(root,gallery,g.PT)
+  with self.assertRaises(ValueError): g.validate_ai_effect_import(root,gallery,[g.PT[0]])
+  receipt['fullGalleryPass']=True; g.write(gallery/'approved-ai-effect-import.json',receipt)
+  with self.assertRaises(ValueError): g.validate_ai_effect_import(root,gallery,g.PT)
+  receipt['fullGalleryPass']=False; g.write(gallery/'approved-ai-effect-import.json',receipt)
+  Image.new('RGB',(1254,1254),'red').save(gallery/g.PT[0])
+  with self.assertRaises(ValueError): g.validate_ai_effect_import(root,gallery,g.PT)
+  (gallery/g.PT[0]).write_bytes((source/g.PT[0]).read_bytes())
+  Image.new('RGB',(1254,1254),'red').save(gallery/g.MAIN[0])
+  with self.assertRaises(ValueError): g.validate_ai_effect_import(root,gallery,g.PT)
  def test_quarantine_never_passes(self):
   g.write(self.p/'delivery-status.json',{'galleryState':'LEGACY_QUARANTINED'})
   with self.assertRaisesRegex(ValueError,'LEGACY_QUARANTINED'): g.validate(self.p)

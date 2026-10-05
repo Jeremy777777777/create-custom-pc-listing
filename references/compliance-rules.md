@@ -13,7 +13,7 @@ Seller decisions are in [confirmed-catalog-defaults.md](confirmed-catalog-defaul
 
 ## Image checks
 
-Apply [image-spec.md](image-spec.md): 2000×2000, computer only, no accessories/peripheral context, real model geometry, authentic factory marks preserved, correctly licensed original assets and fixed Windows identities. PT01–PT08 use deterministic transparent OEM logos with catalog visibility/spacing rules and schema 3 evidence. Full-gallery/current-hash evidence must pass; a manifest assertion alone is insufficient.
+Apply [image-spec.md](image-spec.md): Amazon-based size policy, computer only, no accessories/peripheral context, real model geometry, authentic factory marks preserved, correctly licensed original assets and fixed Windows identities. PT01–PT08 use deterministic transparent OEM logos with catalog visibility/spacing rules and schema 3 evidence. Full-gallery/current-hash evidence must pass; a manifest assertion alone is insufficient.
 
 MAIN-STRICT is the default white-background computer image with no added graphics/text. Enhanced MAIN images are complete candidates; do not label them Amazon-approved or replace the channel's default MAIN without current exception evidence. Visual completion, remote upload and channel eligibility are separate.
 

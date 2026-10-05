@@ -6,7 +6,7 @@ Read [gaming-approved-main-fit.md](gaming-approved-main-fit.md) and the current 
 
 Default SCREEN_ONLY: original orange/blue mecha behind six readable graphical cards, accurate dominant front computer, white exterior and neutral shadow. DISPLAY/CPU flank the hero above; GPU/RAM/SSD/OS occupy the lower tier with cyan/orange/lime/cyan/purple/blue accents. All character/card/brand/effect pixels stay inside the real LCD. Use current measured masks and approximate normalized anchors; do not copy 1254px coordinates or require 8–10% top clearance. Adapt square-canvas margins to exact source geometry. Head-only/TOP breakout is an optional separately approved direction.
 
-The exact supplied 1237×937 front is imported without altering bytes under approved-slot-exception.json. New generated files default 2000×2000 from sufficiently detailed sources. Keep existing style approval and verify current product facts; no reference values transfer to other products.
+The exact supplied 1237×937 front is imported without altering bytes under approved-slot-exception.json. New generated files follow image-spec.md's Amazon-based size policy from sufficiently detailed sources. Keep existing style approval and verify current product facts; no reference values transfer to other products.
 
 The old vl1221-approved-v1 PNG/layout and its metadata test are historical only. Normal runs read the new current reference. The new recipe is a visual layout guide, not a completed editable production pack. A flat PNG alone cannot pass reproducibility. Standalone desktop uses the catalog DESKTOP_GRAPHIC_SAFE_ZONE exception with no invented LCD/monitor/head breakout.
 

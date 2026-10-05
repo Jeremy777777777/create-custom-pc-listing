@@ -18,7 +18,7 @@ class WorkflowPolicyTests(unittest.TestCase):
         self.assertIn(WARRANTY, skill)
         self.assertIn('MegaPC Custom', skill)
         self.assertIn('base sold configuration only', skill)
-        self.assertIn('2000×2000', skill)
+        self.assertIn('Amazon-based size policy', skill)
         self.assertIn('PARTIAL_UPDATE', skill)
 
     def test_no_discoverable_skill_in_history(self):

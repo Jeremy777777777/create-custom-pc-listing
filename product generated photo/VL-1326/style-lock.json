@@ -17,5 +17,15 @@
   "recipeStatus": "REBUILD_REQUIRED",
   "recipePath": null,
   "recipeSha256": null,
-  "currentImageQaInherited": false
+  "currentImageQaInherited": false,
+  "mainDirectionApprovalRetained": "B16/BG16 historical direction; MAIN unchanged",
+  "supportingDirectionApproval": {
+    "approvedStyle": "B03/BG03 silver-white + business-blue adaptation",
+    "approvalDate": "2026-10-05",
+    "approvalQuote": "就按照这种风格给我来8张附图吧，记得要把附图的要点加上",
+    "scope": "PT01-PT08",
+    "method": "USER_APPROVED_AI_EFFECT_IMPORT",
+    "record": "approved-ai-effect-import.json",
+    "currentFullQaPass": false
+  }
 }

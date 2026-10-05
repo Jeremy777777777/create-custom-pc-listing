@@ -11,7 +11,7 @@ B17/BG17 is now an optional supported laptop style, with the existing per-produc
 
 ## Compatibility resolutions requiring no override
 
-- Reference previews are 1254px generated concepts; final output remains 2000px, with exact product pixels and deterministic official assets. Approval of appearance does not authorize generated chassis/brand replacements.
+- Reference previews are 1254px generated concepts; final output follows image-spec.md's Amazon-based size policy, with exact product pixels and deterministic official assets. Approval of appearance does not authorize generated chassis/brand replacements.
 - MAIN-STRICT stays product-only white; both enhanced MAIN choices stay white outside LCD and retain distinct Windows modes.
 - PT06 remains white and focused on input details; dark atmosphere applies only where the slot permits it.
 - PT03 still owns the complete base configuration among PT images. PT01 high-level copy must not duplicate display/convertible claims owned by PT04/PT05. Plan unique primary facts rather than relaxing deduplication.

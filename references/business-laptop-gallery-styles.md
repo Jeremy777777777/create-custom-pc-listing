@@ -1,6 +1,6 @@
 # Business B07–B17 / BG07–BG17 creative library
 
-Use [current catalog policy](confirmed-catalog-defaults.md) and [image-spec.md](image-spec.md) for all slot content, 2000px output, computer-only imagery, Windows modes and reviews. Descriptions below define palette and story language; do not infer included software, certifications, battery life or hardware facts from their names. Enhanced scenes stay inside LCD. PT wallpapers/abstract UI may change by task within the same family. Additional devices/peripheral icons never appear. Old 1254px examples and their QA are historical only.
+Use [current catalog policy](confirmed-catalog-defaults.md) and [image-spec.md](image-spec.md) for all slot content, Amazon-based size checks, computer-only imagery, Windows modes and reviews. Descriptions below define palette and story language; do not infer included software, certifications, battery life or hardware facts from their names. Enhanced scenes stay inside LCD. PT wallpapers/abstract UI may change by task within the same family. Additional devices/peripheral icons never appear. Old 1254px examples and their QA are historical only.
 
 ## B07 / BG07 — Clear Collaboration Suite
 

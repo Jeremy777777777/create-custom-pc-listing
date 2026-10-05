@@ -9,7 +9,7 @@ The user approved the two VL-1326 style previews on 2026-10-05 with “我觉得
 - [Enhanced front reference](../assets/business-laptop-reference/graphite-business-20261005/enhanced-front-preview.png): large complete computer on white; LCD contains corporate blue-hour architecture, strong product identity, a concrete hero feature, compact configuration and subordinate Windows identity.
 - [Display reference](../assets/business-laptop-reference/graphite-business-20261005/display-preview.png): dark blue/graphite atmosphere, prominent accurate computer, rich original screen imagery, simple readable heading and three compact feature groups.
 
-Read both images before planning. Match their hierarchy, product prominence, restrained depth and clear feature communication. Do not copy Yoga hardware, numerical facts, scene geometry or precise coordinates to another computer. The previews are flat generated concepts, not exact-product layers, authorized logo originals, current QA or reusable production packs. Their 1254px size is not a final-image exception. Rebuild with accurate sources and deterministic final copy/brands at 2000×2000.
+Read both images before planning. Match their hierarchy, product prominence, restrained depth and clear feature communication. Do not copy Yoga hardware, numerical facts, scene geometry or precise coordinates to another computer. The previews are flat generated concepts, not exact-product layers, authorized logo originals, current QA or reusable production packs. Their native dimensions are evaluated under image-spec.md; preview approval alone does not provide final QA. Rebuild with accurate sources and deterministic final copy/brands at the actual output dimensions meeting image-spec.md.
 
 B17 is an additive selectable direction, not a replacement default. The user explicitly retained existing style selection and per-product preview/approval on 2026-10-05; see [decision record](business-graphite-policy-decisions.md) and catalog policy. Select B17 when requested or when proposed from verified positioning, then obtain that product's preview approval before production. Family appearance approval is not product approval.
 
@@ -120,6 +120,6 @@ Inspect actual final bytes and record observations, not promised PASS:
 - Display image matches the reference's richness and restraint, adapted to actual display facts. Background does not dominate.
 - Gallery varies composition and screen content while preserving palette/type/lighting language; PT06 is white.
 - Internal production notes and decorative page furniture are absent; unique fact ownership passes the unchanged semantic gate.
-- Accurate product geometry, truthful facts, source rights, measured logo spacing, 2000px output, actual review evidence and GitHub delivery pass their existing independent gates.
+- Accurate product geometry, truthful facts, source rights, measured logo spacing, Amazon-based size checks, actual review evidence and GitHub delivery pass their existing independent gates.
 
 Failed appearance returns to the failed layer/slot for correction in the same approved direction. No text prompt alone guarantees quality; reference inspection, layered production and current-output review are required.

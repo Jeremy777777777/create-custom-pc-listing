@@ -14,7 +14,7 @@ The workflow produces research and base-configuration listing workbooks, plus an
 > The original [OEM brand] manufacturer warranty remains valid on factory components. MegaPC provides a 6-month limited warranty on upgraded RAM and SSD components, with a 12-month warranty extension available.
 
 - Images show **the computer only**, with no additional devices/accessories, pack-out or contextual peripheral silhouettes. PT02 may use people/furniture to explain use.
-- All final slots are **2000×2000 RGB**. Preserve geometry; do not enlarge low-resolution sources to claim required fidelity.
+- Final slots follow the [Amazon-based size policy](references/image-spec.md), not a fixed square resolution. Preserve geometry; do not enlarge low-resolution sources to claim required fidelity.
 - Business enhanced MAIN defaults to **front Windows lockup and three-quarter package**, both inside LCD; an approved safe-zone swap is allowed, but the treatments must remain distinct. Gaming uses one fixed package per enhanced choice. MAIN-STRICT and PT01 omit Windows graphic treatments.
 - Requested same-product/same-slot fixes authorize canonical replacement after internal QA. Style changes follow the current approval gate.
 

@@ -24,8 +24,15 @@ def save(im,path,fmt='PNG',metadata=None):
     im.save(tmp,format=fmt.upper(),**extra,**({'quality':95} if fmt.upper()=='JPEG' else {})); tmp.replace(p)
 def load(path):
     with Image.open(path) as im: im.load(); return im.convert('RGBA')
-def normalize(src,out,size=2000,fmt='PNG'):
-    im=load(src); scale=size/max(im.size)
+def check_image_size(size):
+    """Amazon US general pixel range only; never a publication/visual PASS."""
+    if min(size)<=0 or not 500<=max(size)<=10000:
+        raise ValueError(f'Image longest side must be 500–10000 pixels; got {size}')
+    return {'width':size[0],'height':size[1],'zoomEligibleBySize':max(size)>=1000}
+
+def normalize(src,out,size=None,fmt='PNG'):
+    im=load(src); size=max(im.size) if size is None else size
+    check_image_size((size,size)); scale=size/max(im.size)
     if scale>1: raise ValueError('Low-resolution input cannot be upscaled; regenerate the source.')
     wh=tuple(max(1,round(x*scale)) for x in im.size); im=im.resize(wh,Image.Resampling.LANCZOS)
     canvas=Image.new('RGBA',(size,size),'white'); canvas.alpha_composite(im,((size-wh[0])//2,(size-wh[1])//2)); save(canvas,out,fmt)
@@ -131,6 +138,7 @@ def evidence(path,names,directory):
 
 def validate(directory,brand=None,legacy=False,require_final=True,allow_quarantined=False):
     p=Path(directory)
+    sizes={}
     status=p/'delivery-status.json'
     if not allow_quarantined and status.exists() and read(status).get('galleryState')=='LEGACY_QUARANTINED': raise ValueError('Gallery is LEGACY_QUARANTINED; regenerate and supply current review evidence before delivery')
     for name in NAMES:
@@ -140,7 +148,7 @@ def validate(directory,brand=None,legacy=False,require_final=True,allow_quaranti
             if original.format!=expected_format or original.mode not in ('RGB','RGBA'): raise ValueError(f'{name}: expected actual {expected_format} RGB/RGBA image')
             if original.mode=='RGBA' and original.getchannel('A').getextrema()[0]!=255: raise ValueError('All final images must have an opaque background')
         im=load(p/name)
-        if im.size!=(2000,2000): raise ValueError(f'{name}: expected 2000x2000; got {im.size}')
+        check_image_size(im.size); sizes[name]=im.size
     unexpected=[f.name for f in p.iterdir() if f.is_file() and f.suffix.lower() in ('.png','.jpg','.jpeg','.gif','.tif','.tiff') and f.name not in NAMES]
     if unexpected: raise ValueError(f'Unexpected canonical images: {unexpected}')
     qa=read(p/'logo-qa.json')
@@ -168,13 +176,13 @@ def validate(directory,brand=None,legacy=False,require_final=True,allow_quaranti
     vw,vh=bbox[2]-bbox[0],bbox[3]-bbox[1]
     for n in PT:
         cfg=plan['placements'][n]; box=rect(cfg)
-        check_separation(box,cfg['protectedZones'],(2000,2000),max(int(plan.get('minimumClearancePx',0)),int(plan.get('minimumComponentSeparationPx',0))))
+        check_separation(box,cfg['protectedZones'],sizes[n],max(int(plan.get('minimumClearancePx',0)),int(plan.get('minimumComponentSeparationPx',0))))
         w,h=box[2]-box[0],box[3]-box[1]
         if abs(w/h-vw/vh)/(vw/vh)>.02: raise ValueError('Current logo geometry distorts asset')
-        scale=int(plan.get('thumbnailReviewSizePx',200))/2000
-        if scale!=.1: raise ValueError('Thumbnail review must be exactly 200px')
+        scale=200/max(sizes[n])
+        if int(plan.get('thumbnailReviewSizePx',200))!=200: raise ValueError('Thumbnail review must be exactly 200px')
         wide=plan.get('logoVisibilityMode')=='ASPECT_RATIO_WORDMARK'
-        if max(w,h)*scale<20 or max(w,h)>240 or (wide and max(vw,vh)/min(vw,vh)<=2.4) or min(w,h)*scale<(20*min(vw,vh)/max(vw,vh) if wide else 10): raise ValueError('Current logo visibility threshold failed')
+        if max(w,h)*scale<20 or max(w,h)>.12*min(sizes[n]) or (wide and max(vw,vh)/min(vw,vh)<=2.4) or min(w,h)*scale<(20*min(vw,vh)/max(vw,vh) if wide else 10): raise ValueError('Current logo visibility threshold failed')
     evidence(p/'visual-review.json',NAMES,p); evidence(p/'semantic-review.json',PT,p)
     if require_final:
         report=read(p/'final-image-qa.json')
@@ -183,17 +191,20 @@ def validate(directory,brand=None,legacy=False,require_final=True,allow_quaranti
         if actual!=expected or len(report.get('images',[]))!=11: raise ValueError('Stale final QA image hashes')
         for filename,key in [('logo-qa.json','logoQaSha256'),('visual-review.json','visualReviewSha256'),('semantic-review.json','semanticReviewSha256')]:
             if report.get(key)!=digest(p/filename): raise ValueError('Stale final review binding')
-    return [{'file':n,'width':2000,'height':2000,'sha256':digest(p/n)} for n in NAMES]
+    return [{'file':n,**check_image_size(sizes[n]),'sha256':digest(p/n)} for n in NAMES]
 
-def finalize(directory,asset,brand,contact,size=2000,skip=False,slots=None):
-    if size!=2000: raise ValueError('Canonical gallery size is fixed at 2000')
+def finalize(directory,asset,brand,contact,size=None,skip=False,slots=None):
     p=Path(directory); selected=slots or NAMES
     if any(n not in NAMES for n in selected): raise ValueError('Unknown slot')
     # Preflight every selected source before changing any bytes.
     for n in selected:
         src=p/'unbranded'/n if n in PT else p/n
-        if max(load(src).size)<size: raise ValueError('Regenerate low-resolution source before finalization')
-    if not skip:
+        dimensions=load(src).size; check_image_size(dimensions)
+        if size is not None:
+            check_image_size((size,size))
+            if max(dimensions)<size: raise ValueError('Regenerate low-resolution source before finalization')
+    # Native dimensions by default; resizing is explicitly opt-in.
+    if not skip and size is not None:
         for n in selected: normalize(p/'unbranded'/n if n in PT else p/n,p/'unbranded'/n if n in PT else p/n,size,'JPEG' if n.endswith('.jpg') else 'PNG')
     selected_pt=[n for n in selected if n in PT]
     if selected_pt: badges(p,asset,p/'logo-placement.json',brand=brand,slots=selected_pt)
@@ -235,14 +246,17 @@ def partial_checks(p,slots,brand=None):
             src=p/'unbranded'/n
             if src.exists() and digest(src)!=entries[0]['unbrandedSourceSha256']: raise ValueError('Partial source stale')
             cfg=plan['placements'][n]; bounds=rect(cfg); w,h=bounds[2]-bounds[0],bounds[3]-bounds[1]
-            check_separation(bounds,cfg['protectedZones'],(2000,2000),max(int(plan.get('minimumClearancePx',0)),int(plan.get('minimumComponentSeparationPx',0))))
+            with Image.open(p/n) as image: dimensions=image.size
+            check_separation(bounds,cfg['protectedZones'],dimensions,max(int(plan.get('minimumClearancePx',0)),int(plan.get('minimumComponentSeparationPx',0))))
             wide=plan.get('logoVisibilityMode')=='ASPECT_RATIO_WORDMARK'
-            if int(plan.get('thumbnailReviewSizePx',200))!=200 or abs(w/h-vw/vh)/(vw/vh)>.02 or max(w,h)<200 or max(w,h)>240 or min(w,h)<(200*min(vw,vh)/max(vw,vh) if wide else 100): raise ValueError('Partial visible logo size/aspect violation')
+            scale=200/max(dimensions)
+            if int(plan.get('thumbnailReviewSizePx',200))!=200 or abs(w/h-vw/vh)/(vw/vh)>.02 or max(w,h)*scale<20 or max(w,h)>.12*min(dimensions) or min(w,h)*scale<(20*min(vw,vh)/max(vw,vh) if wide else 10): raise ValueError('Partial visible logo size/aspect violation')
             if wide and (max(vw,vh)/min(vw,vh)<=2.4 or not plan.get('logoAssetSourceUrl')): raise ValueError('Invalid official wordmark branch')
     for n in slots:
         with Image.open(p/n) as im:
             im.load()
-            if im.size!=(2000,2000) or im.mode not in ('RGB','RGBA') or im.format!=('JPEG' if n.endswith('.jpg') else 'PNG'): raise ValueError('Partial image format/size mismatch')
+            check_image_size(im.size)
+            if im.mode not in ('RGB','RGBA') or im.format!=('JPEG' if n.endswith('.jpg') else 'PNG'): raise ValueError('Partial image format mismatch')
             if im.mode=='RGBA' and im.getchannel('A').getextrema()[0]!=255: raise ValueError('Partial final image must have an opaque background')
     return inventory
 
@@ -296,11 +310,37 @@ def validate_approved_import(root,p,changed):
         raise ValueError('Untouched slots changed or import review missing')
     print('USER_APPROVED_EXACT_ASSET_IMPORT: one scoped native-size file; remaining gallery NOT PASS; Amazon acceptance user-reported')
 
+def validate_ai_effect_import(root,p,changed):
+    """Narrow VL-1326 user-authorized byte import, not product/brand QA."""
+    receipt=read(p/'approved-ai-effect-import.json')
+    if p.name!='VL-1326' or receipt.get('internalId')!=p.name or receipt.get('schemaVersion')!=1:
+        raise ValueError('AI import authorization is product-specific')
+    if receipt.get('exceptionType')!='USER_APPROVED_AI_EFFECT_IMPORT' or set(changed)!=set(PT):
+        raise ValueError('AI import authorization covers these eight PT files only')
+    if receipt.get('fullGalleryPass') is not False or receipt.get('publicationReadiness')!='NOT_ASSESSED' or not receipt.get('limitations'):
+        raise ValueError('AI import must retain review/publication limitations')
+    authorization=receipt.get('authorization',{})
+    if not all(authorization.get(k) for k in ('aiMethodQuote','replacementQuote','sizePolicyQuote')):
+        raise ValueError('Missing explicit AI/replacement/size authorization')
+    source=p/'ai-gallery-silver-blue-20261005'
+    for name,key in [('approval-and-review.json','sourceReviewSha256'),('native-file-checks.json','sourceFileChecksSha256')]:
+        if receipt.get(key)!=digest(source/name): raise ValueError('AI source review binding stale')
+    checks=read(source/'native-file-checks.json')
+    expected={e['file']:e['sha256'] for e in checks['files']}
+    if set(expected)!=set(PT) or receipt.get('images')!=expected: raise ValueError('Incomplete AI image inventory')
+    for n in PT:
+        if digest(p/n)!=expected[n] or digest(source/n)!=expected[n]: raise ValueError('AI approved bytes changed')
+        with Image.open(p/n) as im:
+            im.load(); check_image_size(im.size)
+            if im.mode!='RGB' or im.format!='PNG': raise ValueError('AI import format mismatch')
+    if receipt.get('unchangedMainSha256')!={n:digest(p/n) for n in MAIN}: raise ValueError('AI import changed MAIN')
+    print('USER_APPROVED_AI_EFFECT_IMPORT: eight hash-bound images imported; full product/brand QA and Amazon readiness NOT certified')
+
 def gate(root,base=None,head='HEAD'):
     root=Path(root)
     changed=[] if not base else subprocess.check_output(['git','diff','--name-only',base,head],cwd=root,text=True).splitlines()
     dirs=gallery_directories(root,changed,full=not base)
-    validated=0; quarantined=0; partial=0; research=0; imports=0
+    validated=0; quarantined=0; partial=0; research=0; imports=0; ai_imports=0
     for p in dirs:
         if not p.is_dir(): continue
         if not any((p/n).exists() for n in NAMES):
@@ -313,20 +353,22 @@ def gate(root,base=None,head='HEAD'):
                 names=[Path(s).name for s in image_changes]
                 if (p/'approved-slot-exception.json').exists() and set(names)=={MAIN[1]}:
                     validate_approved_import(root,p,names); imports+=1
+                elif (p/'approved-ai-effect-import.json').exists() and set(names)==set(PT):
+                    validate_ai_effect_import(root,p,names); ai_imports+=1
                 else:
                     validate_partial(p,names); partial+=1
             quarantined+=1; continue
         validate(p); validated+=1
     print(f'Validated {validated} eligible galleries; {quarantined} quarantined folders excluded, not PASS')
-    summary={'fullGalleriesValidated':validated,'quarantinedNotPassed':quarantined,'partialUpdatesValidated':partial,'approvedExactAssetImports':imports,'researchOnlyFolders':research}
+    summary={'fullGalleriesValidated':validated,'quarantinedNotPassed':quarantined,'partialUpdatesValidated':partial,'approvedExactAssetImports':imports,'approvedAiEffectImportsNotQaPassed':ai_imports,'researchOnlyFolders':research}
     write(root/'gallery-ci-summary.json',summary)
     if os.environ.get('GITHUB_STEP_SUMMARY'):
         with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as f:
-            f.write(f'### Gallery check scope\n\nFull galleries validated: {validated}. Quarantined, NOT PASS: {quarantined}. Scoped partial updates: {partial}. Exact user-approved imports: {imports}. Research-only folders: {research}.\n\nCI success means checks executed successfully; it does not clear quarantine or certify Amazon readiness.\n')
+            f.write(f'### Gallery check scope\n\nFull galleries validated: {validated}. Quarantined, NOT PASS: {quarantined}. Scoped partial updates: {partial}. Exact user-approved imports: {imports}. AI-effect imports, NOT full QA: {ai_imports}. Research-only folders: {research}.\n\nCI success means checks executed successfully; it does not clear quarantine or certify Amazon readiness.\n')
     return summary
 
 def main():
-    ap=argparse.ArgumentParser(); ap.add_argument('operation',choices=['normalize','remove-bg','overlay','badges','validate','finalize','gate','crop','contact','accept']); ap.add_argument('--input'); ap.add_argument('--output'); ap.add_argument('--size',type=int,default=2000); ap.add_argument('--format',default='PNG'); ap.add_argument('--asset'); ap.add_argument('--directory'); ap.add_argument('--plan'); ap.add_argument('--brand'); ap.add_argument('--contact'); ap.add_argument('--slots',nargs='+'); ap.add_argument('--skip-normalization',action='store_true'); ap.add_argument('--allow-legacy',action='store_true'); ap.add_argument('--mask'); ap.add_argument('--style',default='Flat'); ap.add_argument('--padding',type=int,default=18); ap.add_argument('--x',type=int); ap.add_argument('--y',type=int); ap.add_argument('--width',type=int); ap.add_argument('--height',type=int); ap.add_argument('--tolerance',type=int,default=8); ap.add_argument('--full',type=int,default=42); ap.add_argument('--base'); ap.add_argument('--head',default='HEAD'); a=ap.parse_args()
+    ap=argparse.ArgumentParser(); ap.add_argument('operation',choices=['normalize','remove-bg','overlay','badges','validate','finalize','gate','crop','contact','accept']); ap.add_argument('--input'); ap.add_argument('--output'); ap.add_argument('--size',type=int,default=None); ap.add_argument('--format',default='PNG'); ap.add_argument('--asset'); ap.add_argument('--directory'); ap.add_argument('--plan'); ap.add_argument('--brand'); ap.add_argument('--contact'); ap.add_argument('--slots',nargs='+'); ap.add_argument('--skip-normalization',action='store_true'); ap.add_argument('--allow-legacy',action='store_true'); ap.add_argument('--mask'); ap.add_argument('--style',default='Flat'); ap.add_argument('--padding',type=int,default=18); ap.add_argument('--x',type=int); ap.add_argument('--y',type=int); ap.add_argument('--width',type=int); ap.add_argument('--height',type=int); ap.add_argument('--tolerance',type=int,default=8); ap.add_argument('--full',type=int,default=42); ap.add_argument('--base'); ap.add_argument('--head',default='HEAD'); a=ap.parse_args()
     if a.operation=='normalize': normalize(a.input,a.output,a.size,a.format)
     elif a.operation=='remove-bg': remove_background(a.input,a.output,a.tolerance,a.full)
     elif a.operation=='overlay': overlay(a.input,a.asset,a.output,a.x,a.y,a.width,a.height,a.style,a.padding,a.mask)

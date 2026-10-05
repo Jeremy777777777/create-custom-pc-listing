@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VL-1326",
+  "date": "2026-10-05",
+  "exceptionType": "USER_APPROVED_AI_EFFECT_IMPORT",
+  "authorization": {
+    "aiMethodQuote": "允许，使用AI效果图，但是这个效果图就是真是产品的模仿",
+    "replacementQuote": "你把这套8张副图上传替换掉原来在VL-1326的图片",
+    "sizePolicyQuote": "那就现在把2000x2000的规则去掉，我们就把符合amazon的图片规则作为条件放上去"
+  },
+  "unchangedMainSha256": {
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png": "c55e9a0ed75aa7b283444588bbec3a57769463ef14e4a1bbc9b4c7710af018a3",
+    "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": "5045df914ce9e384da93cf03381ac6840209033b689502f65a79097438443376",
+    "MAIN-STRICT.jpg": "52ba061ca0928a2c673b0bc1abf042f16c6056653d1be174a4a87d20a45701e5"
+  },
+  "images": {
+    "PT03.png": "86e15135b65f1f1055c45386c6a51fa8cd7961e1aaa8a1c03464c3d6232a1b47",
+    "PT06.png": "5a77ef306218022ed407a699e4029804b1cd3d3947ecf3b68b71c4d1a16080b1",
+    "PT07.png": "2fe694702ca24f79b31c1e97308a5e747cfb8c56fa67e86fe984de0fcdce3499",
+    "PT08.png": "e27d37542907be2901fe43b69b2bb1f57f09be6141f16073b0d451884dcc23e3",
+    "PT04.png": "912984414c2d3e1012cd2bdf2657d07033b5df3871fec0c99b08a948f73cba33",
+    "PT01.png": "6ecf7f65142f511c4efad7f3287c91f84c57bf56739b70e6e68f83b738b145ed",
+    "PT05.png": "739d07d8bd15eac60abbfa251ba6e66445e6e876cb8e77ed7fcab7ce7421f522",
+    "PT02.png": "13646d69ddc79e51b966712157041bdbb127b307d470ca8fe36c1b3faef72c27"
+  },
+  "sourceFileChecksSha256": "83466615ec9daef08d9eda9c46c6a59be1531c56e919e339133d55611114ea85",
+  "sourceReviewSha256": "afa3f01adcbbdf0f91f02e1d5a648d64e4a076e5a90017c416b151fcf9c8eefe",
+  "fullGalleryPass": false,
+  "strictProductBrandQaPass": false,
+  "publicationReadiness": "NOT_ASSESSED",
+  "limitations": [
+    "AI hardware/brand graphics are approximations, not real photographs or certified factory geometry.",
+    "Exact sensor location, keyboard lettering and chassis details remain unverified.",
+    "Original case records retain production-time policy; image-spec.md governs current dimensions.",
+    "This byte-specific authorization does not change global exact-product/brand production gates."
+  ]
+}

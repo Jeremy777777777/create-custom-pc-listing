@@ -1,6 +1,6 @@
 # VL-<internal-ID> image manifest
 
-Use [current catalog policy](../references/confirmed-catalog-defaults.md). This template records current production evidence; do not fill PASS by copying a prior product. All final files 2000×2000; current product-fact record wins over historical workbooks/images.
+Use [current catalog policy](../references/confirmed-catalog-defaults.md). This template records current production evidence; do not fill PASS by copying a prior product. Final dimensions follow [image-spec.md](../references/image-spec.md); current product-fact record wins over historical workbooks/images.
 
 ## Product and approved style
 
@@ -13,7 +13,7 @@ oem_brand: <verified>
 exact_model_color: <verified>
 final_os: Windows 11 Pro
 retail_media_included: false
-image_size: [2000, 2000]
+image_size: [ACTUAL_WIDTH, ACTUAL_HEIGHT] # decoded output dimensions, per slot if mixed
 audience_style_family: <GAMING|BUSINESS_WORK|STUDENT_STUDY|GENERAL>
 image_style_profile: <profile>
 hero_style_id: <Gxx|Bxx|neutral ID>
@@ -40,7 +40,7 @@ windows_package_asset: assets/branding/windows-11-pro-package.png
 windows_lockup_source_recipe_rights: <fixed asset or deterministic complete mark+text derivative>
 logo_qa_schema_version: 3
 logo_visibility_mode: <STANDARD|ASPECT_RATIO_WORDMARK>
-logo_minimum_component_separation_px: 50 # max(32, 2000*0.025)
+logo_minimum_component_separation_px: ACTUAL_GAP # max(32, ceil(min(width,height)*0.025))
 logo_maximum_visible_long_edge_percent: 12
 thumbnail_size_px: 200
 logo_minimum_visible_long_edge_at_thumbnail_px: 20

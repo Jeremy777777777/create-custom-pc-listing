@@ -16,9 +16,11 @@ This is the single active authority for seller decisions, workbook configuration
 
 ## Computer-only imagery
 
+On 2026-10-05 the user explicitly removed the fixed image-resolution rule and requested Amazon-compliant image conditions instead. The active [Amazon-based size policy](image-spec.md#amazon-based-size-policy--user-decision-2026-10-05) supersedes prior fixed-resolution defaults for MAIN and PT. This is a size-policy update only: style approval, truthful product content, source rights, quality review and publication checks remain independent; historical review states are not upgraded automatically.
+
 Only the computer is displayed as a product. No extra devices or accessories, including adapters, cables, docks, mice, headphones, controllers, standalone monitors or external-device pictograms, even as non-included context. Anonymous people and neutral environments may support a scene without those devices. Internal-component/LCD capability pictograms and approved software identity graphics are permitted information graphics, not accessory depictions. Enhanced MAIN Windows graphics remain entirely inside the real LCD and do not imply a physical retail box is included.
 
-All final MAIN and PT files are **2000×2000**. Do not upscale insufficient source detail or stretch the chassis. Use accurate exact-model views with verified commercial-use rights. Preserve authentic factory chassis marks; additional OEM marks appear only outside the product silhouette in PT01–PT08.
+Final MAIN and PT dimensions follow the Amazon-based size policy in [image-spec.md](image-spec.md); no fixed square resolution is required. Do not upscale insufficient source detail or stretch the chassis. Use accurate exact-model views with verified commercial-use rights. Preserve authentic factory chassis marks; additional OEM marks appear only outside the product silhouette in PT01–PT08.
 
 Business enhanced front defaults to `WINDOWS_11_PRO_LOGO_LOCKUP`, angle to `WINDOWS_11_PRO_PACKAGE`; they may swap for safe fit but must differ. Gaming/Student/General use one fixed package in each enhanced MAIN. All Windows assets and their glow/shadow are LCD-contained. MAIN-STRICT and PT01 use no Windows overlay. Business PT03 may use one lockup in its OS line; other PT slots do not repeat Windows treatment.
 
@@ -71,4 +73,4 @@ Read the current product's style-lock.json when present. A migrated style direct
 
 ## Current Gaming reference — 2026-10-02
 
-For Gaming enhanced MAIN, apply [gaming-approved-main-fit.md](gaming-approved-main-fit.md) before any older generic head-breakout, top-clearance or reference-exclusion instructions. SCREEN_ONLY six-card composition is now the integrated-screen default; HEAD_ONLY is an optional separately approved variation. The exact VL-1221 front supplied and approved by the user is a hash-bound 1237×937 import exception, not a full-gallery PASS or a reusable exception for other files. New generations retain 2000×2000 defaults and independently verified product facts.
+For Gaming enhanced MAIN, apply [gaming-approved-main-fit.md](gaming-approved-main-fit.md) before any older generic head-breakout, top-clearance or reference-exclusion instructions. SCREEN_ONLY six-card composition is now the integrated-screen default; HEAD_ONLY is an optional separately approved variation. The exact VL-1221 front supplied and approved by the user is a hash-bound 1237×937 import exception, not a full-gallery PASS or a reusable exception for other files. New generations follow the current Amazon-based size policy in image-spec.md and independently verified product facts.
