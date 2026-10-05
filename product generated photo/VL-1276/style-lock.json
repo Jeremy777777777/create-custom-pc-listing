@@ -2,10 +2,41 @@
   "schemaVersion": 1,
   "internalId": "VL-1276",
   "style_approval_status": "APPROVED",
-  "approved_style_id": "B08",
-  "approved_supporting_gallery_pack": "BG08",
+  "approved_style_id": "B15",
+  "approved_supporting_gallery_pack": "BG15",
   "audience_style_family": "BUSINESS_WORK",
-  "approvalMigration": {
+  "approval": {
+    "source": "DIRECT_USER_CONFIRMATION_IN_CURRENT_CONVERSATION",
+    "directionQuote": "建筑质感不错",
+    "visualApprovalQuote": "可以的",
+    "recordedAtUtc": "2026-10-05T21:08:09Z",
+    "exactUserMessageTimestamp": null,
+    "scope": "VL-1276 architectural palette and appearance direction only; not hardware verification, a generated-product production exception, final-image QA or Amazon eligibility",
+    "previewPath": "style-previews/architectural-20261005/PT01-style-preview.png",
+    "previewSha256": "983fab3904fad49b4d2ef9a3c1b2ffb9f6ba08329bbe3b775f7a89d84a149404"
+  },
+  "palette": {
+    "chassis": "Preserve original Zabriskie Beige; no recoloring",
+    "backgrounds": ["warm gray", "ivory", "deep charcoal"],
+    "accent": "restrained bronze",
+    "forbidden": ["generic blue-white template", "saturated yellow cast", "luxury gold treatment"]
+  },
+  "requiredMotifs": ["restrained architectural geometry", "diagonal natural light", "matte surfaces", "large accurate product", "clear headline hierarchy"],
+  "boundaries": {
+    "strictMain": "PURE_WHITE_PRODUCT_ONLY",
+    "enhancedMain": "PURE_WHITE_EXTERIOR_LCD_CONTAINED_GRAPHICS",
+    "PT06": "WHITE_BACKGROUND_ACCURATE_INPUT_DETAIL",
+    "computerOnly": true,
+    "finalHardwareSourceMode": "USER_APPROVED_AI_IMITATION_EFFECT_VERSION_WITH_OFFICIAL_REFERENCES",
+    "aiProductReconstructionException": "USER_APPROVED_VL1276_ONLY",
+    "aiApprovalQuote": "是的，AI模仿",
+    "aiScope": "Requested three MAIN alternatives and PT01-PT08 effect artwork for VL-1276 only. Not global hardware/logo permission, exact-geometry QA, publication clearance or blanket CI bypass. Physical connector labels still require authentic reference evidence."
+  },
+  "previousDirection": {
+    "approved_style_id": "B08",
+    "approved_supporting_gallery_pack": "BG08",
+    "supersededBy": "Current user-approved B15/BG15 direction; existing image bytes remain quarantined and unchanged",
+    "approvalMigration": {
     "migratedAt": "2026-10-02",
     "recordedApprovalText": "Style approval: APPROVED by user in this conversation; approval reused without another gate.",
     "recordedApprovalDate": null,
@@ -13,6 +44,7 @@
     "sourceRecord": "history/2026-10-02-pre-policy-update/product-records/VL-1276/image-manifest.md",
     "sourceRecordSha256": "2d98f88eee211087cad2c49e819fff63bda758111313536496f8ca9febe24506",
     "scope": "Direction only; no historical image QA, current recipe approval or asset rights inherited"
+    }
   },
   "recipeStatus": "REBUILD_REQUIRED",
   "recipePath": null,

@@ -1,0 +1,69 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VL-1276",
+  "method": "BUILT_IN_IMAGE_GENERATION",
+  "style": "B15/BG15",
+  "authorizationQuote": "是的，AI模仿",
+  "commonPrompt": "Create ONE square individual polished Amazon laptop merchandising AI-effect image. User authorizes AI imitation of the real product, not fabricated specifications. Product ALWAYS ASUS Zenbook A14 UX3407QA-X1P512 (2025), Zabriskie Beige soft muted beige-taupe chassis, not silver/gray/gold. 14-inch conventional clamshell laptop, 16:10 display, slim black bezel, authentic small centered webcam/IR sensor cluster, no touch/360 hinge/number pad/fingerprint reader invention. Use the official 2025 image for chassis/keyboard/port geometry only, and the approved architectural preview for color/style. Architecture style B15: warm gray, ivory limestone/plaster, deep charcoal, subdued bronze detail, diagonal natural daylight, crisp geometric shadows, matte understated materials. Clean readable charcoal/ivory bold sans typography, large product, original screen imagery in matching neutrals. No blue-white generic template, neon, yellow cast or gold-luxury styling. No other devices/accessories/cables/adapters/mice/phones/docks, no packout, no warranty promotion, no Office or other software entitlement, no invented performance metrics or claims, no copied competitor imagery, no extra processor logos. Preserve small authentic chassis ASUS Zenbook mark where visible. Do not add generated OEM logo outside laptop: identity written plain text 'ASUS Zenbook A14' is allowed for this AI-effect review version; deterministic original identity layers require separate final QA. No STYLE PREVIEW label or page numbers in the finished effect artwork. All requested text spelled exactly; no extra copy. This is an AI-effect review deliverable, not an assertion of pixel-identical physical product or compliance.",
+  "attempts": [
+    {
+      "slot": "MAIN-STRICT",
+      "prompt": "PURE-WHITE PRODUCT-ONLY CANDIDATE. One complete open laptop front-three-quarter view, fills approximately 85-90% canvas width with natural padding and neutral contact shadow. Pure white exterior, no table or architectural background. Screen ONLY an ORIGINAL warm charcoal/ivory architectural abstract wallpaper, NO TEXT NO WINDOWS NO ICONS anywhere. No added badge. Preserve original beige chassis and conventional hinge. This is AI-product-only artwork awaiting exact hardware/publication review, not a certified actual photograph.",
+      "references": [
+        "2025-s2-item_3.webp",
+        "asus-2025-beige-release.jpg",
+        "PT01-style-preview.png"
+      ]
+    },
+    {
+      "slot": "MAIN-ENHANCED-FRONT-CANDIDATE",
+      "prompt": "ENHANCED FRONT: One large complete laptop face-on, frontal keyboard perspective, centered on PURE WHITE outside laptop, natural shadow only. ALL marketing text and architectural scene INSIDE LCD, none outside. Original warm architectural corridor on screen with warm gray cards, charcoal typography. Exact screen text 'ASUS Zenbook A14', 'Work in focus.', '14-inch OLED', 'Snapdragon X Plus', '16GB LPDDR5X', '512GB SSD'. Add image 4 Windows lockup ONCE inside LCD lower corner, subordinate size; preserve original full wording and proportions/color. Do not use its blue as scene palette. No outside text, no repeated Windows, no architectural pedestal outside laptop.",
+      "references": [
+        "2025-s2-item_3.webp",
+        "asus-2025-beige-release.jpg",
+        "PT01-style-preview.png",
+        "windows-11-pro-lockup.png"
+      ]
+    },
+    {
+      "slot": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE",
+      "prompt": "ENHANCED ANGLE: One complete open laptop screen-visible three-quarter view, not rear lid view, angled keyboard visible, PURE WHITE exterior. Entire architecture/marketing content ONLY inside LCD. Original charcoal architectural portal and ivory light geometry, high legibility. Exact screen text 'ASUS Zenbook A14', 'Built around your workday.', 'Snapdragon X Plus', '16GB LPDDR5X', '512GB SSD'. Use image 4 approved Windows package identity ONCE, upright and unwarped as a flat graphic contained inside LCD lower-right. No physical retail box, no exterior labels or decor. Different composition than front but matching warm-neutral palette.",
+      "references": [
+        "2025-s2-item_3.webp",
+        "asus-2025-beige-release.jpg",
+        "PT01-style-preview.png",
+        "windows-11-pro-package.png"
+      ]
+    },
+    {
+      "slot": "PT01",
+      "prompt": "Edit target Image 1 is the exact USER-APPROVED architectural preview. Keep its laptop, geometry, position, beige color, architecture, shadows, typography and headline exactly unchanged. SINGLE CHANGE: remove the footer text 'STYLE PREVIEW — NOT A FINAL LISTING IMAGE' and heal only its stone background cleanly. Preserve headline 'Light to carry.' 'Ready to work.' and identity 'ASUS Zenbook A14'. Do not add specifications or Windows identity. Individual finished effect artwork, not a collage.",
+      "references": [
+        "PT01-style-preview.png"
+      ]
+    },
+    {
+      "slot": "PT02",
+      "prompt": "PT02 OFFICE SCENE / BATTERY OWNER. Original spacious modern architectural work alcove, ivory limewash walls and side-lit warm-gray stone desk; one single OPEN beige Zenbook screen-visible three-quarter on desk, no humans, no mugs, no accessories or other equipment. Large product, not tiny distant laptop. Original neutral abstract document screen; not branded Office. Calm light editorial composition that differs from PT01. Exact large headline 'Your work.' 'A new setting.' Small identity 'ASUS Zenbook A14'. One readable evidence line '70Wh battery'. Do not claim all-day hours or recreate the person in the OEM reference. No CPU/RAM/SSD/Windows/display specs or port map.",
+      "references": [
+        "PT01-style-preview.png",
+        "asus-2025-beige-release.jpg",
+        "2025-s2-item_3.webp"
+      ]
+    },
+    {
+      "slot": "PT03",
+      "prompt": "PT03 SOLE FULL CONFIGURATION OWNER. Deep warm CHARCOAL architectural background with subtle warm light, large accurate beige open Zenbook across lower half, no platforms blocking chassis. Above: readable ivory headline 'Configured for your workday.' Small identity 'ASUS Zenbook A14'. Refined two-column neutral six-module grid, each with very large clear exact text: 'Snapdragon X Plus' / 'X1P-42-100'; 'Qualcomm Adreno' / 'Integrated graphics'; '16GB LPDDR5X' / 'Onboard memory'; '512GB SSD' / 'PCIe 4.0 NVMe'; 'Windows 11 Pro' (use image 4 approved lockup ONCE in this OS row, not repeated on laptop screen). Six modules not mandatory count: five modules is fine, no invented sixth field. No 32GB, 1TB, selectable tiers, external dock, OLED recap, Office, warranty. Use plain CPU/GPU text not campaign logos. The laptop screen contains only original warm architectural abstract wallpaper, no spec duplication. Finish elegant compact editorial layout, highly readable, not giant empty upper area.",
+      "references": [
+        "PT01-style-preview.png",
+        "2025-s2-item_3.webp",
+        "asus-2025-beige-release.jpg",
+        "windows-11-pro-lockup.png"
+      ]
+    }
+  ],
+  "notes": [
+    "Angle first attempt was rejected for non-white exterior; a targeted correction preserves LCD and replaces exterior.",
+    "Outputs are AI-effect review artwork, not strict exact-product/brand QA."
+  ]
+}

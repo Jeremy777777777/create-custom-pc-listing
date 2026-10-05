@@ -12,10 +12,7 @@
     "warrantyTemplate": "MegaPC provides a 1-year limited warranty on the upgraded RAM and SSD components. The original [OEM brand] manufacturer warranty remains valid on all remaining factory components, so you are covered on both the base machine and our upgrades. The original seal has been opened solely for upgrading purposes.",
     "warrantyStatus": "USER_CONFIRMED_CATALOG_POLICY",
     "imageScope": "COMPUTER_ONLY",
-    "finalImageSize": [
-      2000,
-      2000
-    ],
+    "imageSizePolicy": "AMAZON_BASED_NATIVE_SIZE_REFERENCES_IMAGE_SPEC",
     "warrantyWordingConfirmation": "DIRECT_USER_INSTRUCTION_2026-10-05",
     "oemWarrantyApplicabilityReview": "SELLER_MANUAL_PUBLICATION_CHECK",
     "warrantyHeading": "Warranty and Disclosure",
@@ -30,6 +27,35 @@
   ],
   "styleApprovalStatus": "APPROVED_DIRECTION_RECIPE_REBUILD_REQUIRED",
   "revalidationRequired": true,
+  "identity": {
+    "oemBrand": "ASUS",
+    "model": "Zenbook A14",
+    "oemSku": "UX3407QA-X1P512",
+    "color": "Zabriskie Beige",
+    "status": "VERIFIED_USER_LABEL_AND_EXACT_OEM_RELEASE",
+    "sourceMapping": "User supplied MODEL# packaging photograph and confirmed this exact laptop in the VL-1276 regeneration conversation. Barcode, serial number and Microsoft product-key identifiers are not reproduced."
+  },
+  "imageFactEvidence": {
+    "source": "ASUS Computer International exact-SKU release, 2025-03-24",
+    "url": "https://www.prnewswire.com/news-releases/asus-announces-new-zenbook-a14-and-zenbook-s14-configurations-exclusively-available-at-best-buy-in-the-united-states-302408659.html",
+    "checkedOn": "2026-10-05",
+    "appliesTo": "UX3407QA-X1P512",
+    "status": "VERIFIED_EXACT_OEM_RELEASE",
+    "cpu": "Snapdragon X Plus X1P-42-100",
+    "gpu": "Qualcomm Adreno GPU",
+    "memory": "16GB LPDDR5X onboard",
+    "storage": "512GB M.2 NVMe PCIe 4.0 SSD",
+    "display": {"sizeInches": 14, "panel": "OLED", "resolution": [1920, 1200], "refreshHz": 60, "colorGamut": "100% DCI-P3"},
+    "npu": "Qualcomm Hexagon, up to 45 TOPS",
+    "camera": "FHD IR camera",
+    "batteryWh": 70,
+    "weightLb": 2.40,
+    "wireless": "Wi-Fi 6E + Bluetooth 5.3",
+    "ports": ["1x USB 3.2 Gen 2 Type-A, up to 10Gbps", "2x USB4 Gen 3 Type-C, up to 40Gbps, display and power delivery", "1x HDMI 2.1 TMDS", "1x 3.5mm combo audio jack"],
+    "factoryOs": "Windows 11 Home",
+    "sellerDeliveredOs": "Windows 11 Pro; USER_CONFIRMED_CATALOG_POLICY",
+    "notes": "No series X/X Elite/X2, Wi-Fi 7, 32GB, 1TB, sub-1kg or 32-hour battery-test configuration is transferred to this SKU. Keyboard layout/connector geometry additionally use official 2025 chassis reference imagery; gray reference images establish structural guidance only, not sold color."
+  },
   "confirmedHardware": {
     "oemBrand": "ASUS",
     "internalSsdGB": 512,

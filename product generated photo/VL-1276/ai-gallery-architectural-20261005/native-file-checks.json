@@ -1,0 +1,136 @@
+{
+  "internalId": "VL-1276",
+  "scope": "VERSIONED_AI_EFFECT_ARTWORK_ONLY",
+  "reviewedAtUtc": "2026-10-05T21:23:32.203851+00:00",
+  "images": [
+    {
+      "file": "MAIN-STRICT.jpg",
+      "sha256": "a8168d6adad3eb7d72f683946004c900fcd955022877216103163009b7d87197",
+      "width": 1254,
+      "height": 1254,
+      "format": "JPEG",
+      "mode": "RGB",
+      "dpiMetadata": [
+        72,
+        72
+      ],
+      "sizePolicyResult": "DIMENSIONS_ONLY_PASS",
+      "sizeZoomRecommendationMet": true
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "sha256": "60e8cf761bf817a90791e154beb50c99e8fc4bf8b04a65d5d7d1f17c93ff0e1a",
+      "width": 1254,
+      "height": 1254,
+      "format": "PNG",
+      "mode": "RGB",
+      "dpiMetadata": null,
+      "sizePolicyResult": "DIMENSIONS_ONLY_PASS",
+      "sizeZoomRecommendationMet": true
+    },
+    {
+      "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "sha256": "51fc0a579c5bcb976bccf38f3037371d91b23d7d0e2bd5793c2e3ef2a484593c",
+      "width": 1254,
+      "height": 1254,
+      "format": "PNG",
+      "mode": "RGB",
+      "dpiMetadata": null,
+      "sizePolicyResult": "DIMENSIONS_ONLY_PASS",
+      "sizeZoomRecommendationMet": true
+    },
+    {
+      "file": "PT01.png",
+      "sha256": "9b1694585db0300428d91a2bdfb18f6f78c27aa0160a7b8cf08fb2babb2e1a72",
+      "width": 1254,
+      "height": 1254,
+      "format": "PNG",
+      "mode": "RGB",
+      "dpiMetadata": null,
+      "sizePolicyResult": "DIMENSIONS_ONLY_PASS",
+      "sizeZoomRecommendationMet": true
+    },
+    {
+      "file": "PT02.png",
+      "sha256": "72f2cc5de3d818ae11a1b68cae71450b95a27602ebbc2e2ebda9e634c986ba73",
+      "width": 1254,
+      "height": 1254,
+      "format": "PNG",
+      "mode": "RGB",
+      "dpiMetadata": null,
+      "sizePolicyResult": "DIMENSIONS_ONLY_PASS",
+      "sizeZoomRecommendationMet": true
+    },
+    {
+      "file": "PT03.png",
+      "sha256": "882e853c9b5d7d7e814e910d182110eba1a242f8d04cad933127fcf74878f0c7",
+      "width": 1254,
+      "height": 1254,
+      "format": "PNG",
+      "mode": "RGB",
+      "dpiMetadata": null,
+      "sizePolicyResult": "DIMENSIONS_ONLY_PASS",
+      "sizeZoomRecommendationMet": true
+    },
+    {
+      "file": "PT04.png",
+      "sha256": "879bfbf7f13d29ab70621471c226d001f9640ffe81423af6793ec3a7e7c4a323",
+      "width": 1254,
+      "height": 1254,
+      "format": "PNG",
+      "mode": "RGB",
+      "dpiMetadata": null,
+      "sizePolicyResult": "DIMENSIONS_ONLY_PASS",
+      "sizeZoomRecommendationMet": true
+    },
+    {
+      "file": "PT05.png",
+      "sha256": "0832dade56d2c9300fe41db1dd73d53d732af0f1be3bc4ce97bf07991b685eb0",
+      "width": 1254,
+      "height": 1254,
+      "format": "PNG",
+      "mode": "RGB",
+      "dpiMetadata": null,
+      "sizePolicyResult": "DIMENSIONS_ONLY_PASS",
+      "sizeZoomRecommendationMet": true
+    },
+    {
+      "file": "PT06.png",
+      "sha256": "6ab3c90fbf9bec3ff1a0d38cd3f9b78ffd43773d8397e75794016afe62f7003f",
+      "width": 1254,
+      "height": 1254,
+      "format": "PNG",
+      "mode": "RGB",
+      "dpiMetadata": null,
+      "sizePolicyResult": "DIMENSIONS_ONLY_PASS",
+      "sizeZoomRecommendationMet": true
+    },
+    {
+      "file": "PT07.png",
+      "sha256": "704e68ce663a82fb75be365eafffdb5497f9471922324ed144a09156afd914e8",
+      "width": 1254,
+      "height": 1254,
+      "format": "PNG",
+      "mode": "RGB",
+      "dpiMetadata": null,
+      "sizePolicyResult": "DIMENSIONS_ONLY_PASS",
+      "sizeZoomRecommendationMet": true
+    },
+    {
+      "file": "PT08.png",
+      "sha256": "cd9f524e2ff91d9738b6dc2b1299671602795bc892b66923b179838229436a38",
+      "width": 1254,
+      "height": 1254,
+      "format": "PNG",
+      "mode": "RGB",
+      "dpiMetadata": null,
+      "sizePolicyResult": "DIMENSIONS_ONLY_PASS",
+      "sizeZoomRecommendationMet": true
+    }
+  ],
+  "fullGalleryQaPass": false,
+  "strictHardwareBrandQaPass": false,
+  "amazonEligibility": "NOT_ASSESSED",
+  "canonicalImagesReplaced": false,
+  "canonicalImagesByteIdenticalToBase": true
+}

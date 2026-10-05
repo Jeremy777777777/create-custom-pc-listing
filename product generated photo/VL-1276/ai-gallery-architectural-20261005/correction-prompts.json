@@ -1,0 +1,22 @@
+{
+  "internalId": "VL-1276",
+  "scope": "AI_EFFECT_TARGETED_CORRECTIONS",
+  "attempts": [
+    {
+      "slot": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE",
+      "prompt": "Edit ONLY the incorrect physical connectors in image 1. Preserve pure white background, exact screen marketing text, fixed Windows graphic, entire beige laptop shape, size, position and angle unchanged. The viewer-right visible chassis edge is the laptop RIGHT SIDE and must match the LEFT UNIT in official reference image 2: exactly ONE rectangular USB-A connector near rear hinge, not the four connector holes currently shown. Remove extra holes and restore continuous beige sidewall, retain only one accurate USB-A opening near rear hinge. The HDMI/two USB-C/audio set belongs on the LEFT side, which is NOT the side shown in this angle. Do not alter screen contents or white exterior, do not crop. Do not add any other ports or graphics.",
+      "referenceFiles": [
+        "exec-462ae9de-e721-4d2f-b696-d840b16c1c6f.png",
+        "2025-s16-item_1.webp"
+      ]
+    },
+    {
+      "slot": "PT07",
+      "prompt": "Edit ONLY hardware-detail mistakes in image 1. Keep exact scene, beige laptop shape/size/position, headline 'A clearer way to connect.', 'FHD IR camera', 'ASUS Zenbook A14', warm colors, typography and screen wallpaper unchanged. REMOVE the circular camera magnification bubble at upper-right and its diagonal leader, heal background cleanly; no replacement camera diagram, no text changes. Also correct the VISIBLE RIGHT SIDE edge on viewer-right: image 2 official left unit shows the actual RIGHT SIDE. It has ONLY ONE USB-A rectangular opening close to rear hinge, not the four holes currently shown. Replace the extra holes with continuous beige metal and retain only one correctly-shaped USB-A. No left-side HDMI/USB-C/audio on this visible right edge. Preserve all other image content.",
+      "referenceFiles": [
+        "exec-2c1126c3-385b-416f-8393-3c9cb2307145.png",
+        "2025-s16-item_1.webp"
+      ]
+    }
+  ]
+}
