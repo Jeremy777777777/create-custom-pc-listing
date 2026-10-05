@@ -4,7 +4,7 @@ Use [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for the polic
 
 ## Proposal
 
-For a new product or material change select one evidence-supported family and recipe: Gaming G01–G16 + C01–C07 + matching A01–A16/GG01–GG16; Business B01–B16/BG01–BG16; otherwise neutral. Present style ID, reason from 2–4 verified strengths, palette/motifs, slot continuation, boundaries and an original preview labelled `STYLE PREVIEW — NOT A FINAL LISTING IMAGE`. Gaming proposal includes product scale/head boundary and six card zones. Historical galleries are excluded from ordinary proposals; consult only for an explicit historical comparison, never as current compliance/approval evidence or a complete layered template.
+For a new product or material change select one evidence-supported family and recipe: Gaming G01–G16 + C01–C07 + matching A01–A16/GG01–GG16; Business B01–B17/BG01–BG17 (B17/BG17 is laptop-only); otherwise neutral. Present style ID, reason from 2–4 verified strengths, palette/motifs, slot continuation, boundaries and an original preview labelled `STYLE PREVIEW — NOT A FINAL LISTING IMAGE`. Gaming proposal includes product scale/head boundary and six card zones. Historical galleries are excluded from ordinary proposals; consult only for an explicit historical comparison, never as current compliance/approval evidence or a complete layered template. B17's newly approved visual references establish appearance only; they are not historical gallery QA or a complete layered template.
 
 Wait for explicit approval unless user explicitly waives preview/approval. Silence or product-fact confirmation is not style approval. Record product/style IDs, approval source/time and versioned recipe.
 

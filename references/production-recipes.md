@@ -34,6 +34,8 @@ Gaming uses the chosen G scene and matching A material across six enhanced-MAIN 
 
 ## Rebuild and correction
 
+Business Laptop B17/BG17 additionally follows [business-graphite-design-system.md](business-graphite-design-system.md). Inspect its approved front/display references, record their receipt hash and exact-product adaptation, then build actual per-product layers/masks/type/brand placements. Match hierarchy and atmosphere while varying task-specific screens and slot layouts. A flat preview cannot supply exact chassis/brand assets or bypass final resolution, fixed ownership and current-output review.
+
 1. Read current facts and migrated approval. List missing exact views/layers/masks and acquire them autonomously within rights rules.
 2. Create clean exact-product layers and family scene/card layers; keep final text/logos deterministic. Establish current preview/reference and measured recipe; do not load excluded historical images as a fallback.
 3. Render, inspect 100%/200px and verify semantic ownership, geometry, licenses and style. Fix only failed layers; never manufacture review PASS.

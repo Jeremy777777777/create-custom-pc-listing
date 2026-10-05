@@ -45,6 +45,10 @@ PT logos use approved transparent originals, original proportions/colors and mea
 
 New product/style direction requires the style proposal/approval in [style-approval-gate.md](style-approval-gate.md), unless explicitly waived. Existing same-product approval survives research/policy updates and mechanical corrections. Material changes to audience, major palette, scene, hero/pack, layout family or purchase story need reapproval. Replacing a requested same-slot image after internal QA is already authorized; do not require a second approval merely to upload it. A legacy exemplar cannot establish a new product's approval or current compliance.
 
+## Business Laptop optional style addition — 2026-10-05
+
+The user approved the two new Graphite Business visual previews and explicitly chose “不覆盖，只新增为可选风格” and “保留，每款仍先看预览批准”. Add laptop-only B17/BG17 as an optional supported family; preserve B01–B16, existing selection behavior and approved product locks. B17 follows [business-graphite-design-system.md](business-graphite-design-system.md) and its exact appearance-reference receipt. Each new product or material direction change still presents a product-specific preview and waits for explicit approval. This addition grants no final-image, generated-product/logo, resolution, semantic-deduplication or publication exception. No existing gallery is automatically regenerated.
+
 ## Delivery and evidence
 
 Research Excel, Listing Excel and 11 final gallery files share `product generated photo/VL-XXXX/` using the verified internal ID. Research upload does not imply publication readiness. Image-only work does not require recreating Excel. User generation/modification requests authorize GitHub upload and requested same-slot replacement after local QA, unless they explicitly request local-only/concept work. Keep untouched slots byte-identical during targeted adjustments.

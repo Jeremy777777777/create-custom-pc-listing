@@ -1,4 +1,4 @@
-# Business B07–B16 / BG07–BG16 creative library
+# Business B07–B17 / BG07–BG17 creative library
 
 Use [current catalog policy](confirmed-catalog-defaults.md) and [image-spec.md](image-spec.md) for all slot content, 2000px output, computer-only imagery, Windows modes and reviews. Descriptions below define palette and story language; do not infer included software, certifications, battery life or hardware facts from their names. Enhanced scenes stay inside LCD. PT wallpapers/abstract UI may change by task within the same family. Additional devices/peripheral icons never appear. Old 1254px examples and their QA are historical only.
 
@@ -41,5 +41,9 @@ Use [current catalog policy](confirmed-catalog-defaults.md) and [image-spec.md](
 ## B16 / BG16 — Editorial Innovation
 
 适合 AI、科技平台、新一代处理器或创新工作流有充分证据的机型。视觉采用原创 editorial collage：纸张层级、裁切色块、技术网格和自有标题系统；不得复制真实报纸、杂志、文章、人物照片或 IST 的撕纸轮廓。
+
+## B17 / BG17 — Graphite Business, Feature in Focus
+
+Optional laptop-only direction based on the two user-approved 2026-10-05 previews. Graphite/navy corporate atmosphere, large accurate product, direct buyer-benefit headlines, purposeful original screen content and compact factual proof. Enhanced MAIN remains white outside LCD; PT06 retains white input details. Use [business-graphite-design-system.md](business-graphite-design-system.md) for required reference inspection, exact-model adaptation, per-slot construction and fidelity review. The user retained existing style defaults and per-product preview/approval; B17 does not supersede other approved directions.
 
 Use [production-recipes.md](production-recipes.md) for concrete per-slot layouts and the versioned recipe fields; B/BG motifs adapt that plan rather than replacing it.

@@ -73,7 +73,7 @@ Read these current references:
 - `references/hero-composition-variants.md`
 - `references/supporting-gallery-styles.md`
 
-Gaming additionally reads `gaming-hero-styles.md`, `gaming-core-badge-styles.md`, `gaming-main-reproducible-workflow.md`. Business reads `business-work-hero-styles.md`, and B07–B16 also reads `business-laptop-gallery-styles.md`.
+Gaming additionally reads `gaming-hero-styles.md`, `gaming-core-badge-styles.md`, `gaming-main-reproducible-workflow.md`. Business reads `business-work-hero-styles.md`, and B07–B17 also reads `business-laptop-gallery-styles.md`. Business Laptop B17/BG17 reads [business-graphite-design-system.md](references/business-graphite-design-system.md) and its two approved visual references before planning. It adapts exact-product features, screen content and measured layouts, not Yoga-specific copy. B17 is optional: the user retained existing selection and per-product preview/approval in the [2026-10-05 decision record](references/business-graphite-policy-decisions.md).
 
 First verify every required exact-model angle, physical port image, fact and asset right. Search authorized OEM sources autonomously; retailer discovery never grants commercial rights. Confirmed OEM catalog rights apply only to approved OEM originals; other IP stays separately gated. Block production if required material is missing; never fabricate chassis, ports or a completed gallery.
 

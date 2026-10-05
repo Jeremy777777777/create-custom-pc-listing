@@ -96,4 +96,4 @@ Physical PT08: show exact real left/right laptop ports when both exist, or actua
 
 对应 B06，适合学习、家庭办公与入门商务。
 
-B07–B16 route to same-number BG07–BG16 using the motifs in [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md) and slot layouts in [production-recipes.md](production-recipes.md). If PT07 has no unused verified value, use an accurate restrained product/task atmosphere image with no invented claim and explicit manual semantic review.
+B07–B17 route to same-number BG07–BG17 using the motifs in [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md) and slot layouts in [production-recipes.md](production-recipes.md). BG17 laptops additionally use [business-graphite-design-system.md](business-graphite-design-system.md): task-specific screens, clear feature evidence, varied compositions and a white PT06; its preview hardware/specs are not transferable. If PT07 has no unused verified value, use an accurate restrained product/task atmosphere image with no invented claim and explicit manual semantic review.

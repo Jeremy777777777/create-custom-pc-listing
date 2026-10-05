@@ -1,0 +1,29 @@
+{
+  "schemaVersion": 1,
+  "designSystem": "business-graphite-v1",
+  "heroStyleId": "B17",
+  "supportingGalleryPack": "BG17",
+  "approvalStatus": "USER_APPROVED_VISUAL_DIRECTION",
+  "approvalDate": "2026-10-05",
+  "exactApprovalTimestamp": null,
+  "approvalSource": "Current user chat: 我觉得这个改得非常好; request to incorporate the effect into the Business Laptop workflow",
+  "scope": "Visual hierarchy, corporate atmosphere, product prominence and feature communication only. No product-specific fact, generated chassis/logo, image QA, publication eligibility or per-product approval exception inherited.",
+  "referenceProduct": "VL-1326 Lenovo Yoga 7 2-in-1",
+  "referenceRole": "CONCEPT_VISUAL_BASELINE_NOT_CANONICAL",
+  "isLayeredProductionPack": false,
+  "productionCanvas": [2000, 2000],
+  "files": [
+    {
+      "file": "enhanced-front-preview.png",
+      "nativeSize": [1254, 1254],
+      "sha256": "b2a33d7baa5cb25193a6138c5031aefb9cb1175a40afc9b6623cc96dc3013741",
+      "role": "Enhanced MAIN appearance reference; final marketing assets LCD-contained on white"
+    },
+    {
+      "file": "display-preview.png",
+      "nativeSize": [1254, 1254],
+      "sha256": "0ee42eb16f6e25280cddca8e1354f73f0e649e24c4db37bb5d93d076e5b5550c",
+      "role": "PT04 display appearance reference; facts and source pixels adapt per product"
+    }
+  ]
+}

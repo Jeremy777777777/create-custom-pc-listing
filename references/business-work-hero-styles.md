@@ -28,7 +28,7 @@ Light gray/blue technical drafting and abstract task timeline. No docks, externa
 ### B06 — Student-to-Work Toolkit
 Bright blue-green, soft geometry and original notes/calendar abstractions. No unsupported school/course compatibility or bundled software claims.
 
-B07–B16 and matching BG07–BG16 motif descriptions are in [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md). All styles use fixed catalog slot ownership and current style approval; same-product local corrections retain approval.
+B07–B17 and matching BG07–BG17 motif descriptions are in [business-laptop-gallery-styles.md](business-laptop-gallery-styles.md). B17/BG17 is the optional laptop-only [Graphite Business design system](business-graphite-design-system.md): white exterior, original corporate LCD scene, clear product identity, concrete verified feature, compact base configuration and subordinate fixed Windows identity. Inspect its two approved reference images; derive claims and composition from each exact product. All styles use fixed catalog slot ownership and current style approval; same-product local corrections retain approval. Existing defaults and per-product preview approval remain intact.
 
 ## Current recipe and desktop applicability
 

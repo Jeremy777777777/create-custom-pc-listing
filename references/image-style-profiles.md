@@ -6,6 +6,7 @@ Profiles affect palette/type/visual hierarchy, not [catalog policy](confirmed-ca
 | --- | --- | --- |
 | navy-technical-v1 | Navy/white, precise lines and high-contrast simple modules | Technical clarity and specification reading |
 | feature-led-studio-v1 | Bright studio depth, large product and restrained feature hierarchy | Modern lifestyle/product storytelling |
+| graphite-business-v1 | Graphite/navy corporate depth, prominent exact product, purposeful screen imagery, direct feature copy | Business Laptop B17/BG17 only; [reference-driven design system](business-graphite-design-system.md), white MAIN exterior and PT06 |
 
 Choose against verified product positioning and current assets. Record profile, G/B family/continuation, palette, required/forbidden motifs and versioned recipe in approved style lock. Wallpapers may vary by task, with coherent color/visual language. Profiles cannot replace G/C/A or B family direction. See [conversion-hero-styles.md](conversion-hero-styles.md) for layout motifs and [style-approval-gate.md](style-approval-gate.md) for material changes.
 

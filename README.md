@@ -30,6 +30,8 @@ The workflow produces research and base-configuration listing workbooks, plus an
 | Image generation and slot adjustment | [amazon-product-image-workflow.md](references/amazon-product-image-workflow.md) |
 | File/QA/GitHub contract | [final-image-delivery-contract.md](references/final-image-delivery-contract.md) |
 | Current image slot template | [image-manifest-template.md](product%20generated%20photo/image-manifest-template.md) |
+| Reference-driven Business Laptop B17/BG17 | [Graphite Business design system](references/business-graphite-design-system.md) |
+| Business defaults/approval decisions (existing rules retained) | [Policy decisions](references/business-graphite-policy-decisions.md) |
 | Workbook template | [listing-workbook-template.xlsx](assets/listing-workbook-template.xlsx) |
 
 Audience style references define creative recipes only; they do not override policy, factual gates, information ownership, dimensions or delivery rules.
