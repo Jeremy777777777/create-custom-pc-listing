@@ -15,7 +15,7 @@ confirmation_source: direct user confirmation in the project workflow
 
 - Do not set `BLOCKED_BEFORE_PRODUCTION` merely because an OEM's public website does not publish the seller's private authorization record.
 - Public official OEM product pages, manuals, media galleries, and trademark pages may be researched to obtain accurate model facts and identify official product and Logo assets.
-- Use only the correct OEM's official, partner-supplied, seller-owned, or otherwise approved original asset. Never redraw, approximate, recolor, stretch, or substitute an OEM Logo.
+- Use the correct OEM's official, partner-supplied, seller-owned, or otherwise approved original sources. The user confirmed commercial authorization and approved faithful AI reproduction of the official original machine on 2026-10-06; apply [faithful-product-reproduction.md](faithful-product-reproduction.md). Final OEM Logo assets remain approved originals: never redraw, approximate, recolor, stretch, or substitute them.
 - Product imagery must still match the exact model, chassis, color, port layout, keyboard layout, and sold configuration. Authorization never permits inventing hardware geometry.
 - Record the OEM, asset source URL or seller source, local asset path, and `USER_CONFIRMED_CATALOG_WIDE` status in `image-manifest.md`.
 - A workflow may still block when the brand cannot be identified, an asset belongs to a different model/brand, the supplied asset is corrupted or unusable, a specific campaign license is expired or scope-limited, or another third-party right is unresolved.

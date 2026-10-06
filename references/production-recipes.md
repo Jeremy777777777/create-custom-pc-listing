@@ -6,21 +6,21 @@ Apply catalog policy and image-spec first. This is a construction guide, not an 
 
 Keep style-lock.json in the current product folder. Record product ID, G/C/A/GG or B/BG family, approved palette/motifs and approval provenance separately from recipeStatus and current QA. Build recipe.json and layers outside canonical top-level image slots; record a versioned path/hash in the lock and manifest. Missing packs remain REBUILD_REQUIRED until actually built and reviewed.
 
-Recipe fields: canvas [actual_width,actual_height], formFactor, boundaryMode, exact source paths/hashes/rights/model/color, product bbox/protected mask, LCD mask (integrated displays only), optional head mask, layer paths/hashes/z-order, card outer/usable/icon/text bounds, fonts/size/line breaks, Windows mode/source/placement/mask, OEM logo placement/protected zones, deterministic render command, reference path/hash, and actual 100%/200px fidelity/repeat-build results. Coordinates explicitly use output pixels; ratios are dimensionless. Use coordinates measured for each actual output canvas; never reuse another resolution's coordinates without adaptation.
+Recipe fields: canvas [actual_width,actual_height], formFactor, boundaryMode, exact source paths/hashes/rights/model/color, product-layer method (ORIGINAL_PHOTO or AI_FAITHFUL_REPRODUCTION), generation record and reference-bound fidelity review, product bbox/protected mask, LCD mask (integrated displays only), optional head mask, layer paths/hashes/z-order, card outer/usable/icon/text bounds, fonts/size/line breaks, Windows mode/source/placement/mask, OEM logo placement/protected zones, deterministic render command, reference path/hash, and actual 100%/200px fidelity/repeat-build results. Coordinates explicitly use output pixels; ratios are dimensionless. Use coordinates measured for each actual output canvas; never reuse another resolution's coordinates without adaptation.
 
 ## Slot construction plan
 
 | Slot | Composition and reading order | Information boundary |
 | --- | --- | --- |
 | MAIN-STRICT | Accurate complete computer centered on white, neutral contact shadow | No added marketing/Windows/OEM overlays |
-| Enhanced FRONT | Exact front source, strong family scene, legible subordinate cards, one Windows identity | Integrated LCD clipping; desktop approved graphic safe zone |
-| Enhanced ANGLE | Independently sourced matching three-quarter chassis, independently fitted information layers | No perspective warp of Windows asset; no invented angle |
+| Enhanced FRONT | Exact-model front original or fidelity-reviewed AI layer, strong family scene, legible subordinate cards, one Windows identity | Integrated LCD clipping; desktop approved graphic safe zone |
+| Enhanced ANGLE | Matching three-quarter original or official-reference-supported fidelity-reviewed AI chassis, independently fitted information layers | No perspective warp of Windows asset; no invented angle |
 | PT01 | Large accurate hero, one benefit headline and up to three short subordinate reasons | No full config grid or Windows treatment |
 | PT02 | Natural computer-use scene, product readable, one task-specific verified message | Neutral furniture/anonymous person allowed, no extra equipment |
 | PT03 | Ordered complete base CPU/GPU/RAM/SSD/OS modules, readable values and accurate computer | Sole full configuration page; no selectable capacities |
 | PT04 | Product display/form view with concise display or dimension leaders | Avoid input/port recap; no invented size comparisons |
 | PT05 | Original abstract task flow with 2–3 relationships and restrained computer view | Explain practical relationships, not another capacity table |
-| PT06 | White background, accurately sourced input/control closeups and minimal labels | Keyboard/touchpad/controls only; no packout or generated keys |
+| PT06 | White background, accurately sourced input/control closeups and minimal labels | Keyboard/touchpad/controls only; no packout or invented/altered keys; AI input details must pass faithful-product-reproduction.md |
 | PT07 | One remaining verified value, accurate detail view and concise proof | No seller warranty promotion or spec recap |
 | PT08 | Accurate physical side/front/back port views, leaders to real openings, concise type/function labels | Verify side/count/location; wireless footer only if verified |
 
