@@ -1,8 +1,10 @@
 # VL-1221 cinematic supporting-image production pack
 
-The current user approved the dark crimson gaming direction and requested correction against current repository rules. Eight selected PT slots were rebuilt using original HP exact-model product layers, not generated hardware. Final images and clean masters are in `product generated photo/VL-1221/`. All three MAIN files were retained.
+The current user approved the dark crimson gaming direction and requested replacement against current repository rules. Eight PT slots and one enhanced front were rebuilt using original HP exact-model product layers. Final images and clean PT masters are in `product generated photo/VL-1221/`. Strict and angled MAIN retain their bytes. The previous enhanced front and its exact-import receipt are historical only.
 
 `build_gallery.py` reproduces the eight composites from frozen native sources and `sRGB.icc`, using the repository's deterministic badge compositor. Run in the user's Windows `listing-testing` interpreter. It requires Pillow and the installed Windows Bahnschrift font; the Windows font binary is not redistributed. It writes a sibling `gallery/` preview, not canonical replacement or automatic visual acceptance. Current source hashes, measured LCD polygon/mask, proportional product bounds, fonts and layer roles are in `recipe.json`. Repeat render results bind actual final SHA256 hashes.
+
+`build_main.py` reproduces the enhanced front from the exact-model native photo, measured product/LCD masks, the approved original cinematic artwork crop and one original Windows package. Hardware is never enlarged, synthesized or warped. Five specification pairs use the user's flat typography override. `main-recipe.json` and `main-repeat-build-check.json` bind the saved masks, original assets and final bytes. Source coordinates differ from the eight PT recipes and are recorded independently.
 
 Only backgrounds/LCD artwork were generated with the built-in image tool. The exact OEM photo and two actual sides come from the identified 15-fb3093dx datasheet and manufacturer gallery, under the recorded seller OEM merchandising authorization. Authentic physical VICTUS/V marks remain. Final titles, facts, leaders and HP logo are deterministic. No added physical equipment or synthetic real-world performer is depicted.
 
