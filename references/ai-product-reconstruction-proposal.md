@@ -1,30 +1,33 @@
-# AI product reconstruction — proposed workflow update, 2026-10-06
+# AI faithful reproduction of the official product — proposed workflow update, 2026-10-06
 
 Status: PENDING_RULE_REPLACEMENT_DECISION. This is a review proposal, not active production policy. The current user asked to be told about contradictions and to decide whether old rules should be replaced. Until that decision, follow the active catalog policy and image rules.
 
 ## Confirmed user direction
 
-The user confirms commercial-use authorization for the official product reference images and requests AI creation based on those references. The intended production method permits reference-guided reconstruction of the computer itself, rather than requiring the original photograph to be retained as the product layer. This method is intended for all image slots, subject to accurate model-specific evidence and final review. Authorization does not constitute visual QA or publication approval.
+The user confirms commercial-use authorization for the official product reference images and requests AI creation based on those references. The intended production method permits AI-assisted high-fidelity reproduction of the official original computer from its authorized exact-model photographs. The official original machine is the visual target; the AI must preserve its actual design without reinterpretation or redesign. This method is intended for all image slots, subject to accurate model-specific evidence and final review. Authorization does not constitute visual QA or publication approval.
+
+
+User clarification (2026-10-06): **电脑主体必须高度复原官方原机本身。** AI must faithfully reproduce the actual official machine, including its proportions, structure, color/material appearance and visible details. It must not redesign, reinterpret, beautify by altering hardware, mix models or create a merely similar computer. This clarification defines the intended method; the old-rule replacement decisions below remain pending.
 
 ## Proposed policy text
 
-Allow licensed exact-model product photographs and AI-reconstructed product layers as production inputs for MAIN and PT images. For AI reconstruction, provide the authorized official product images as visual references and match the exact model, generation, form factor, color and sold configuration. Do not use text-only generation or another model's chassis as a substitute.
+Allow licensed exact-model product photographs and AI-faithfully-reproduced product layers as production inputs for MAIN and PT images. For AI faithful reproduction, provide the authorized official product images as visual references and match the exact model, generation, form factor, color and sold configuration. Do not use text-only generation or another model's chassis as a substitute.
 
 Reproduce chassis proportions, display borders, hinges, keyboard and touchpad layout, controls, feet/stand, surface details and physical connector types, counts and positions from the reference evidence. An attractive or broadly similar image is insufficient. Do not infer unseen hardware: a missing reference-supported view or detail blocks only the affected output until sourced. Technical specifications remain grounded in the current verified product-fact record.
 
-Keep final OEM/Windows/other brand artwork and specification text as approved original assets and deterministic overlays. Reconstructing the product does not authorize approximating brand artwork. Preserve accurate factory-mark appearance and placement, restoring it from approved artwork if generation damages it.
+Keep final OEM/Windows/other brand artwork and specification text as approved original assets and deterministic overlays. Faithfully reproducing the official original product does not authorize approximating brand artwork. Preserve accurate factory-mark appearance and placement, restoring it from approved artwork if generation damages it.
 
-Before use, compare every reconstructed product view against the exact-model official references at full size, including detail crops for inputs and ports. Record actual observations and discrepancies. Incorrect or unverified features require rework or sourcing, never an automatic PASS. Retain reference URLs/files, model/color match, user-confirmed authorization, source and generated-master hashes, prompt/generation record and final-hash-bound manual review.
+Before use, compare every faithfully reproduced product view against the exact-model official references at full size, including detail crops for inputs and ports. Record actual observations and discrepancies. Incorrect or unverified features require rework or sourcing, never an automatic PASS. Retain reference URLs/files, model/color match, user-confirmed authorization, source and generated-master hashes, prompt/generation record and final-hash-bound manual review.
 
-After acceptance, freeze the reconstructed product layer and its masks for repeatable composition. Reuse those approved layers for the same product and style. All later edits invalidate affected final-file review evidence. Continue existing style approval, slot ownership, computer-only composition, size, brand placement and delivery gates.
+After acceptance, freeze the faithfully reproduced product layer and its masks for repeatable composition. Reuse those approved layers for the same product and style. All later edits invalidate affected final-file review evidence. Continue existing style approval, slot ownership, computer-only composition, size, brand placement and delivery gates.
 
 ## Contradictions requiring the user's decision
 
 | ID | Current rule and location | Proposed replacement |
 | --- | --- | --- |
-| C1 | SKILL.md, Image preflight: rights apply only to approved OEM originals; production uses exact licensed layers and must never redraw the product. brand-authorization-policy.md, Execution rule: use approved original assets. | Permit AI-reconstructed product layers derived from authorized exact-model official references; retain original-only controls for final brand artwork. Record the user's confirmed commercial authorization without asking again. |
-| C2 | gaming-main-reproducible-workflow.md, section 2: ImageGen makes environments/characters/decorations only; the accurate computer must not be regenerated by the model. | Allow reference-guided AI reconstruction when creating or intentionally revising a product layer. After fidelity review, freeze it and retain the layered deterministic rebuild requirements. |
-| C3 | production-recipes.md, PT06: no generated keys. Exact front/angle sources and image-spec.md require sourced physical product views. | Allow reconstructed keyboard, touchpad, angle and port views when every visible physical detail is supported by exact-model visual references and reviewed. Missing-angle or missing-detail evidence continues to block the affected slot. |
+| C1 | SKILL.md, Image preflight: rights apply only to approved OEM originals; production uses exact licensed layers and must never redraw the product. brand-authorization-policy.md, Execution rule: use approved original assets. | Permit AI-faithfully-reproduced product layers derived from authorized exact-model official references; retain original-only controls for final brand artwork. Record the user's confirmed commercial authorization without asking again. |
+| C2 | gaming-main-reproducible-workflow.md, section 2: ImageGen makes environments/characters/decorations only; the accurate computer must not be regenerated by the model. | Allow reference-guided AI faithful reproduction of the official original machine when creating or intentionally revising a product layer. After fidelity review, freeze it and retain the layered deterministic rebuild requirements. |
+| C3 | production-recipes.md, PT06: no generated keys. Exact front/angle sources and image-spec.md require sourced physical product views. | Allow faithfully reproduced keyboard, touchpad, angle and port views when every visible physical detail is supported by exact-model visual references and reviewed. Missing-angle or missing-detail evidence continues to block the affected slot. |
 
 These decisions concern product-generation method only. The proposed text preserves the prohibition on inventing hardware and on generating final logos/specifications. If the user approves only some decisions, enable only that scope and explicitly retain the remaining restrictions.
 

@@ -1,6 +1,6 @@
 # Image production workflow
 
-Pending review: [AI product reconstruction proposal — 2026-10-06](ai-product-reconstruction-proposal.md). The user has requested reference-guided AI product creation and a decision on conflicting old rules. This proposal does not activate a replacement; continue current production rules until the user decides.
+Pending review: [AI faithful official-product reproduction proposal — 2026-10-06](ai-product-reconstruction-proposal.md). The user has requested AI-assisted high-fidelity reproduction of the official original machine and a decision on conflicting old rules. This proposal does not activate a replacement; continue current production rules until the user decides.
 
 1. Read [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md), current product-fact record and [image-spec.md](image-spec.md). Identify exact base SKU, internal VL ID, verified assets and current statuses. Historical generated files are excluded from ordinary runs; consult only for an explicitly requested historical comparison.
 2. Source accurate high-resolution exact-model front/angle/port/input views. OEM official → authorized exact-model retailer → seller photos. Record URL/date/dimensions/SHA-256/model-color match and commercial-use basis. Exhaust independent search before asking for missing views; never invent product geometry.
