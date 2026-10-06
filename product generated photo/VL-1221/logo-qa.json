@@ -1,0 +1,97 @@
+{
+  "schemaVersion": 3,
+  "generatedAtUtc": "2026-10-06T21:02:47.097303+00:00",
+  "brand": "HP",
+  "result": "PASS",
+  "logoAssetSha256": "9e800d0246ed113aa734fd086c6fcb1c6585aee19251d5da2fba3372649d7bbe",
+  "logoAssetPath": "..\\..\\assets\\branding\\hp-logo-blue.png",
+  "visibleLogoAspectRatio": 1.0,
+  "placementPlanSha256": "876ca550b6aae4aaa7bf5ba1e54e19dc11ea2736ac97ff2de962d6d94dd6dcad",
+  "images": [
+    {
+      "file": "PT01.png",
+      "finalImageSha256": "d94fb7e725079e25438b165e326cec031d65802e58269549a85ba09667173df5",
+      "unbrandedSourceSha256": "24b91317acd28fde3c1bbf728bcf2ea83fde083a3fbeb44e434dedafade06818",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT02.png",
+      "finalImageSha256": "075143788b88477fcd062b29a1a5264d6b6696255b3015118a4e0d1028998a94",
+      "unbrandedSourceSha256": "944a739e3ab70a15b96fa495bf196aa4f15eb5e615125e5bb05b4c93c0849d91",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT03.png",
+      "finalImageSha256": "7da4161c900d267fe7f79897847abc79552012e946d61a7cfd19b271b85f6d35",
+      "unbrandedSourceSha256": "bb1979130ea1cb2fb7a2482b57d5a05a60b68a974298a3593d035a844b2e93dd",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT04.png",
+      "finalImageSha256": "953460c346d0e631a54713620189c0abd04219623ebe6099d92e39a09e3256e4",
+      "unbrandedSourceSha256": "2b375307a82f799c34c6c22cb5d85e1acf75f974bb96570cfcdc541bc7cc39a2",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT05.png",
+      "finalImageSha256": "e915b85a7165c7a61813c3535a911ebf3eb36c9eb49d150dd1943bf0d034922e",
+      "unbrandedSourceSha256": "ccf536b8ce31be9706b407e1b0c67d0c9ee097be32a5971f82fb94fa20e92375",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT06.png",
+      "finalImageSha256": "ba01257ba0a9975cdb384cb0ebfb124bce95c213d69effbc9c79f2f8cad0dabe",
+      "unbrandedSourceSha256": "1a011a1dd66a8e7194aa27616a28cea42d5f14941ba6c4fcf41a539aa97d487b",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT07.png",
+      "finalImageSha256": "ba4ab69be3f114d950a0d67018b823564878e8c1b6b8d5bc455b205b5485a7cd",
+      "unbrandedSourceSha256": "35b208b929d374fc72514145c0acf4ea78f32d647ec59e991535d28b5ad760f6",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT08.png",
+      "finalImageSha256": "59525a6ed1f479689de6a38ac8be7a963f466976cb110cc6bf1aef0958f7d268",
+      "unbrandedSourceSha256": "78db95dcaa835a435a828e537f09a23c7ef7c8e552a915e5c49b94a76f8df1d4",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    }
+  ],
+  "reviewer": "Codex multimodal visual inspection in this user-authorized correction session",
+  "reviewedAtUtc": "2026-10-06T21:03:30.321620+00:00",
+  "visualReviewSha256": "6c29eefe04e69341f45a879963508e2a95f2c60e6033eb1fea08193bdb11df77",
+  "visibleLogoDimensionsPx": [
+    128,
+    128
+  ],
+  "thumbnailVisibleDimensionsPx": [
+    20.414673046251995,
+    20.414673046251995
+  ],
+  "visibleLogoCanvasShare": 0.10207336523125997,
+  "minimumMeasuredSeparationPx": 32
+}

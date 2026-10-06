@@ -1,0 +1,16 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VL-1221",
+  "style_approval_status": "APPROVED",
+  "approved_style_id": "G04",
+  "approved_supporting_gallery_pack": "GG04",
+  "gaming_core_layout_id": "C07",
+  "gaming_asset_card_style_id": "A04",
+  "main_content_boundary": "SCREEN_ONLY",
+  "approvedReference": "assets/gaming-main-reference/vl1221-amazon-approved-20261002/approved.png",
+  "approvedReferenceSha256": "f552ae9c395ae16805f9cd390c980985f7072805af00213c0271712d08ab3a48",
+  "recipePath": "assets/gaming-main-reference/vl1221-amazon-approved-20261002/recipe.json",
+  "recipeStatus": "REFERENCE_READY_LAYERED_PACK_REQUIRED",
+  "approvalSource": "Direct user request 2026-10-02 to replace the enhanced front and fit Gaming rules to this accepted image",
+  "currentImageQaInherited": false
+}

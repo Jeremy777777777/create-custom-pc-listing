@@ -12,5 +12,31 @@
   "recipePath": "assets/gaming-main-reference/vl1221-amazon-approved-20261002/recipe.json",
   "recipeStatus": "REFERENCE_READY_LAYERED_PACK_REQUIRED",
   "approvalSource": "Direct user request 2026-10-02 to replace the enhanced front and fit Gaming rules to this accepted image",
-  "currentImageQaInherited": false
+  "currentImageQaInherited": false,
+  "supportingGalleryOverride": {
+    "version": "20261006-cinematic",
+    "scope": [
+      "PT01.png",
+      "PT02.png",
+      "PT03.png",
+      "PT04.png",
+      "PT05.png",
+      "PT06.png",
+      "PT07.png",
+      "PT08.png"
+    ],
+    "status": "APPROVED",
+    "approvalSource": "Direct current user messages: 1221后续的8图也按照这样的风格来做吧; 这个风格是不错的",
+    "palette": [
+      "charcoal",
+      "crimson",
+      "warm white"
+    ],
+    "configurationTreatment": "Flat typography; no configuration frames; no giant VICTUS marketing title. Authentic physical marks preserved.",
+    "recipePath": "assets/production/VL-1221/cinematic-20261006/recipe.json",
+    "recipeSha256": "95c4c40ae47db8925cb1d4289b7df3ff4f9d3b0682329ee3a066dc20d9939301",
+    "recipeStatus": "BUILT_AND_SELECTED_SLOT_REVIEWED",
+    "mainDirectionUnchanged": true,
+    "currentImageQaInherited": false
+  }
 }

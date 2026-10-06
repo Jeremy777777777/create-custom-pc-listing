@@ -1,0 +1,16 @@
+{
+  "tool": "built-in image_gen",
+  "hardwareGeneration": false,
+  "prompts": [
+    {
+      "output": "sources/original-game-scene.png",
+      "prompt": "Create a premium cinematic gaming wallpaper, original science fiction art, landscape composition. Three original futuristic armored explorers in a ruined futuristic city at dusk, charcoal black and restrained crimson lighting, smoky atmosphere, photoreal game cinematic quality, sophisticated muted burgundy and warm gray, central hero. NO text, NO logos, no copyrighted characters, no computers, no electronic devices, no accessories. This is background art only for a laptop display, edge-to-edge landscape scene.",
+      "transparent_background": false
+    },
+    {
+      "output": "sources/table-background.png",
+      "prompt": "Premium gaming laptop campaign background only, square format. Empty matte charcoal tabletop occupying lower half, dark contemporary room, subtle cinematic crimson light from the left and soft gray light from right, abstract dusky burgundy haze in distant background, premium photoreal studio atmosphere, flat tabletop viewed 3/4 from above suitable for placing a real laptop later. Absolutely NO computers, NO devices, NO peripherals, no accessories, no monitors, no furniture other than the tabletop, no humans, no letters, no logos. Very restrained, mostly charcoal gray, not bright neon. Negative space upper third for later text.",
+      "transparent_background": false
+    }
+  ]
+}

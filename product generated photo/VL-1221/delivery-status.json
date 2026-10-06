@@ -1,21 +1,26 @@
 {
-  "schemaVersion": 1,
-  "workflowPolicyVersion": "2026-10-02",
-  "deliveryState": "REWORK_REQUIRED",
-  "galleryState": "LEGACY_QUARANTINED",
-  "reason": "Remaining legacy slots still require current QA. The named enhanced front is an exact user-approved import with a scoped size exception; this does not confer full-gallery PASS.",
-  "imageFilesPreserved": true,
-  "currentQaPass": false,
-  "nextRun": "Read product-facts.json and current active workflow. Generate current base workbook from template; revalidate/regenerate only requested image scope. Do not load historical records as instructions.",
-  "approvedSlotImports": {
-    "MAIN-ENHANCED-FRONT-CANDIDATE.png": {
-      "state": "USER_APPROVED_ASSET_IMPORTED_LOCAL",
-      "sha256": "f552ae9c395ae16805f9cd390c980985f7072805af00213c0271712d08ab3a48",
-      "dimensions": [
-        1237,
-        937
-      ],
-      "amazonApproval": "USER_CONFIRMED_ACCEPTED"
-    }
-  }
+  "schemaVersion": 3,
+  "internalId": "VL-1221",
+  "deliveryScope": "PARTIAL_UPDATE",
+  "selectedSlots": [
+    "PT01.png",
+    "PT02.png",
+    "PT03.png",
+    "PT04.png",
+    "PT05.png",
+    "PT06.png",
+    "PT07.png",
+    "PT08.png"
+  ],
+  "selectedSlotQa": "CURRENT_REQUESTED_SLOT_QA_PASS",
+  "wholeGalleryState": "REWORK_REQUIRED",
+  "fullGalleryPass": false,
+  "publicationEligibility": "NOT_ASSESSED",
+  "githubDelivery": "AWAITING_PUSH_CI_REMOTE_HASH_VERIFICATION",
+  "retainedMainSha256": {
+    "MAIN-STRICT.jpg": "e1a96867b5505341961e18136b874d34fc93a2e2ea1e819c7f00a0dc574d1b61",
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png": "f552ae9c395ae16805f9cd390c980985f7072805af00213c0271712d08ab3a48",
+    "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": "cb270e3a73ec56cd7ff2c38fc2e714e963fb9e2d64920968046cda5c6c69397a"
+  },
+  "updatedAtUtc": "2026-10-06T21:03:30.321620+00:00"
 }

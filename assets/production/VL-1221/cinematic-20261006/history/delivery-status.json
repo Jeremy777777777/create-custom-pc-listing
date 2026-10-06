@@ -1,0 +1,21 @@
+{
+  "schemaVersion": 1,
+  "workflowPolicyVersion": "2026-10-02",
+  "deliveryState": "REWORK_REQUIRED",
+  "galleryState": "LEGACY_QUARANTINED",
+  "reason": "Remaining legacy slots still require current QA. The named enhanced front is an exact user-approved import with a scoped size exception; this does not confer full-gallery PASS.",
+  "imageFilesPreserved": true,
+  "currentQaPass": false,
+  "nextRun": "Read product-facts.json and current active workflow. Generate current base workbook from template; revalidate/regenerate only requested image scope. Do not load historical records as instructions.",
+  "approvedSlotImports": {
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png": {
+      "state": "USER_APPROVED_ASSET_IMPORTED_LOCAL",
+      "sha256": "f552ae9c395ae16805f9cd390c980985f7072805af00213c0271712d08ab3a48",
+      "dimensions": [
+        1237,
+        937
+      ],
+      "amazonApproval": "USER_CONFIRMED_ACCEPTED"
+    }
+  }
+}

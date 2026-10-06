@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 3,
+  "result": "PASS",
+  "reviewer": "Codex multimodal visual inspection in this user-authorized correction session",
+  "reviewedAtUtc": "2026-10-06T21:03:30.321620+00:00",
+  "reviewMethod": "Actual native images opened individually; exact 200px-per-image contact opened and inspected. This is agent visual review, not a claim of independent human certification.",
+  "images": [
+    {
+      "file": "PT01.png",
+      "sha256": "d94fb7e725079e25438b165e326cec031d65802e58269549a85ba09667173df5",
+      "result": "PASS",
+      "notes": "Inspected at native 1254px and in exact 200px contact. Single gaming headline, no specs/OS grid. Complete exact OEM silhouette preserved proportionally; real V and palm-rest marks retained; screen artwork clipped to measured LCD. HP original outside product, no accessory."
+    },
+    {
+      "file": "PT02.png",
+      "sha256": "075143788b88477fcd062b29a1a5264d6b6696255b3015118a4e0d1028998a94",
+      "result": "PASS",
+      "notes": "Inspected native and 200px. Original red-lit empty tabletop and one real OEM laptop; no people/peripherals. Session scene only, no repeated capacities. Original physical marks and screen clipping retained. HP original outside silhouette."
+    },
+    {
+      "file": "PT03.png",
+      "sha256": "7da4161c900d267fe7f79897847abc79552012e946d61a7cfd19b271b85f6d35",
+      "result": "PASS",
+      "notes": "Inspected native and 200px. Sole full base configuration page. Proofread Ryzen 7 7445HS, six cores/up to4.7GHz; RTX4050Laptop6GB;16GBDDR5-5600;512GBPCIeGen4NVMe; seller-confirmedPro. Flat hierarchy, no boxes; OEM geometry and marks preserved. Primary values readable, supporting detail intended for zoom."
+    },
+    {
+      "file": "PT04.png",
+      "sha256": "953460c346d0e631a54713620189c0abd04219623ebe6099d92e39a09e3256e4",
+      "result": "PASS",
+      "notes": "Inspected native and 200px. Display-only facts:15.6-inch IPS,FHD1920x1080,144Hz,anti-glare. No input/port or capacity recap; whole source laptop remains proportional. HP original outside product with clear space."
+    },
+    {
+      "file": "PT05.png",
+      "sha256": "e915b85a7165c7a61813c3535a911ebf3eb36c9eb49d150dd1943bf0d034922e",
+      "result": "PASS",
+      "notes": "Inspected native and 200px. PROCESS→RENDER→DISPLAY relationships and simple arrows; no model/capacity table or peripherals. Genuine chassis, keys, touchpad and factory marks retained. Original scene only within LCD."
+    },
+    {
+      "file": "PT06.png",
+      "sha256": "ba01257ba0a9975cdb384cb0ebfb124bce95c213d69effbc9c79f2f8cad0dabe",
+      "result": "PASS",
+      "notes": "Inspected native and 200px. White background. Native OEM keyboard/deck and touchpad detail crops without synthesized keys or geometric warp. All key groups including numeric keypad visible; no GamePass/game logo, software claim or packout. Full-size/backlit/Imagepad labels verified in datasheet. OEM palm-rest mark retained within crop."
+    },
+    {
+      "file": "PT07.png",
+      "sha256": "ba4ab69be3f114d950a0d67018b823564878e8c1b6b8d5bc455b205b5485a7cd",
+      "result": "PASS",
+      "notes": "Inspected native and 200px. Camera/call fact family uniquely owned.720pHD,temporalnoise reduction,dual-arraydigitalmics verified in OEMdatasheet. Leader ends at actual native webcam in bezel; no invented closeup lens, warranty or config recap. Product and logo separated."
+    },
+    {
+      "file": "PT08.png",
+      "sha256": "59525a6ed1f479689de6a38ac8be7a963f466976cb110cc6bf1aef0958f7d268",
+      "result": "PASS",
+      "notes": "Inspected native and 200px. Both actual OEM side views match exact-model datasheet connector count/types. Left ACsmartpin,USB-A5GbpsSleep&Charge,audio; rightUSB-C5GbpsDP1.4aSleep&Charge,RJ45,USB-A5Gbps,HDMI2.1. Separate leaders reach corresponding retained OEM connector anchors.2USB-A/1USB-C,Wi-Fi6(2x2)/BT5.4 verified. No generic substitute/accessory. Primary labels readable at200px; functions available at zoom."
+    }
+  ]
+}

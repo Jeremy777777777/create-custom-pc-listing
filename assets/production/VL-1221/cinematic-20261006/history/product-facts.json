@@ -12,13 +12,16 @@
     "warrantyTemplate": "MegaPC provides a 1-year limited warranty on the upgraded RAM and SSD components. The original [OEM brand] manufacturer warranty remains valid on all remaining factory components, so you are covered on both the base machine and our upgrades. The original seal has been opened solely for upgrading purposes.",
     "warrantyStatus": "USER_CONFIRMED_CATALOG_POLICY",
     "imageScope": "COMPUTER_ONLY",
+    "finalImageSize": [
+      2000,
+      2000
+    ],
     "warrantyWordingConfirmation": "DIRECT_USER_INSTRUCTION_2026-10-05",
     "oemWarrantyApplicabilityReview": "SELLER_MANUAL_PUBLICATION_CHECK",
     "warrantyHeading": "Warranty and Disclosure",
     "warrantyPolicyPath": "assets/warranty-disclosure-policy.json",
     "sealOpeningDisclosureStatus": "USER_CONFIRMED_CATALOG_POLICY",
-    "sealOpeningAccuracyReview": "SELLER_MANUAL_PUBLICATION_CHECK",
-    "imageSizePolicy": "Amazon longest-side 500–10000; recommendation1000+; native accurate layers, no upscale. 2026-10-05 policy supersedes fixed2000."
+    "sealOpeningAccuracyReview": "SELLER_MANUAL_PUBLICATION_CHECK"
   },
   "unresolvedOperationalChecks": [
     "Windows licence/activation and fixed delivery QA",
@@ -28,6 +31,5 @@
   "styleApprovalStatus": "APPROVED",
   "revalidationRequired": true,
   "styleLock": "style-lock.json",
-  "approvedFrontAssetException": "approved-slot-exception.json",
-  "imageHardwareLedger": "image-hardware-ledger.json"
+  "approvedFrontAssetException": "approved-slot-exception.json"
 }

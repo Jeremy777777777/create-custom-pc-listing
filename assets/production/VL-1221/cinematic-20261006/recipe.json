@@ -1,0 +1,540 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VL-1221",
+  "version": "20261006-cinematic-correction",
+  "formFactor": "laptop",
+  "renderer": "build_gallery.py + repository gallery_engine.py badges",
+  "lcdPolygonSourcePixels": [
+    [
+      23,
+      125
+    ],
+    [
+      547,
+      20
+    ],
+    [
+      643,
+      400
+    ],
+    [
+      150,
+      599
+    ]
+  ],
+  "lcdMaskSha256": "5eed0af71aa31f013bc9392f41ca50bc6493f818c2903c7818820a526093ce21",
+  "sources": [
+    {
+      "file": "lcd-mask.png",
+      "sha256": "5eed0af71aa31f013bc9392f41ca50bc6493f818c2903c7818820a526093ce21",
+      "dimensions": [
+        1117,
+        972
+      ]
+    },
+    {
+      "file": "official-alt5.jpg",
+      "sha256": "c1ff36e222532a9162499c7eee3f3895454bbd965bccf4bc659633cb13ac0db3",
+      "dimensions": [
+        1840,
+        1424
+      ]
+    },
+    {
+      "file": "official-ports.jpg",
+      "sha256": "2ca74044ae491af00b1eac0ebb05bad631fcff74250620d3b06558209b2d38ac",
+      "dimensions": [
+        2000,
+        2000
+      ]
+    },
+    {
+      "file": "original-game-scene.png",
+      "sha256": "c3b5134c400b713711cd720350a6e283a720bf95c54ce42a522e93c4e39994b7",
+      "dimensions": [
+        1672,
+        941
+      ]
+    },
+    {
+      "file": "page0-Iabc20.jpg",
+      "sha256": "7170cb6aa78bebdd11a616a80c2267f402cc7f8735718f160d57d03498cac5c3",
+      "dimensions": [
+        1117,
+        972
+      ]
+    },
+    {
+      "file": "page0-Iabc23.jpg",
+      "sha256": "3dd5dd1f4fea65372f09dfceb3b13bf3c70bb2b621cf2867383452a497a42285",
+      "dimensions": [
+        417,
+        330
+      ]
+    },
+    {
+      "file": "page0-Iabc26.jpg",
+      "sha256": "77ec0ea0d3d2877accbda193c484493f59b25e7d962c51a408789d64be2c7e84",
+      "dimensions": [
+        417,
+        366
+      ]
+    },
+    {
+      "file": "page0-Iabc29.jpg",
+      "sha256": "f7970043728ece8d8c083cdc354cbd3d18a1a80dd41a596d7b925249acefd487",
+      "dimensions": [
+        717,
+        134
+      ]
+    },
+    {
+      "file": "page0-Iabc32.jpg",
+      "sha256": "9485b34b4e2cafd114b75baea4d0737baff8a96117e5d5f1c710762efcc71656",
+      "dimensions": [
+        338,
+        300
+      ]
+    },
+    {
+      "file": "page0-Iabc35.jpg",
+      "sha256": "52155e681766900395bf3c7a5192aaa86901487ccb4ace3b5b462ed834d3ee00",
+      "dimensions": [
+        258,
+        276
+      ]
+    },
+    {
+      "file": "page0-Iabc38.jpg",
+      "sha256": "c1966d8e1371f4fffbc6121e5d75dfa28df3850730a71ef166e2557bd56587df",
+      "dimensions": [
+        530,
+        300
+      ]
+    },
+    {
+      "file": "page0-Iabc41.jpg",
+      "sha256": "a77784c29b4a3b89570bb2224b2cc5c5c9ed776779f043c9d1d4fd1a8f20f5d4",
+      "dimensions": [
+        379,
+        300
+      ]
+    },
+    {
+      "file": "page0-Iabc44.jpg",
+      "sha256": "d002fe92c3835c4f574e9316698a65162f846d459aad88fefaf15c7b879bc1fc",
+      "dimensions": [
+        292,
+        298
+      ]
+    },
+    {
+      "file": "page0-Iabc47.jpg",
+      "sha256": "9b42383c404ba03df4e8b5cb64b3b109b004bb81d2f5bd9dabf6fbbc9cd5bf7b",
+      "dimensions": [
+        185,
+        112
+      ]
+    },
+    {
+      "file": "page0-Iabc50.jpg",
+      "sha256": "ec4d63fe32d4c6cbf35a42d01bb125242e5f58a7871c747b3f4a3c8f8f933dda",
+      "dimensions": [
+        235,
+        300
+      ]
+    },
+    {
+      "file": "page0-Iabc53.jpg",
+      "sha256": "31c4a8cffd1d0be3e1fe919a38dfa890e80b0843cfc8a1b084ed52af82c7db51",
+      "dimensions": [
+        554,
+        300
+      ]
+    },
+    {
+      "file": "ports-left-cutout.png",
+      "sha256": "28b3a72f2b6acea26f7f3cb18aa272fb15a7aeb9ea065909a52d5fcd0a6ca845",
+      "dimensions": [
+        1800,
+        215
+      ]
+    },
+    {
+      "file": "ports-left-native.png",
+      "sha256": "b3d0a327406d63719ddb7f6211bf242ae73b1f3bcb475ce4ad3cdebf6a5ed072",
+      "dimensions": [
+        1800,
+        215
+      ]
+    },
+    {
+      "file": "ports-right-cutout.png",
+      "sha256": "b6bb993873326c1dd381e46de48e67379961b0ebb54e409a682d582a3e578928",
+      "dimensions": [
+        1800,
+        215
+      ]
+    },
+    {
+      "file": "ports-right-native.png",
+      "sha256": "f8f91a57d701f943c7632b1b96ba2ba09b9a858def524966aaa55569da351f61",
+      "dimensions": [
+        1800,
+        215
+      ]
+    },
+    {
+      "file": "product-cutout.png",
+      "sha256": "cbb0c62e7302a3938ad386d198e3de2ad063b9137316102f795aed1b0ca23d96",
+      "dimensions": [
+        1117,
+        972
+      ]
+    },
+    {
+      "file": "screen-replaced.png",
+      "sha256": "6785539c03726b44d93fccd3282e0a6992d457ef92f97eaec6b120198870af71",
+      "dimensions": [
+        1117,
+        972
+      ]
+    },
+    {
+      "file": "table-background.png",
+      "sha256": "44463b75abcccc6a790dab67235658e8f31eff7fc1ab5a07ba980d0123a5ae89",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    }
+  ],
+  "slots": {
+    "PT01.png": {
+      "canvas": [
+        1254,
+        1254
+      ],
+      "boundaryMode": "SCREEN_ONLY",
+      "notes": "High-level gaming purchase reason only; no capacity grid or OS claim.",
+      "productProtectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 110,
+          "y": 328,
+          "width": 1028,
+          "height": 894,
+          "scale": 0.92
+        },
+        {
+          "label": "HEADLINE",
+          "x": 64,
+          "y": 54,
+          "width": 900,
+          "height": 200
+        }
+      ],
+      "layers": [
+        "original-game-scene.png",
+        "product-cutout.png"
+      ],
+      "font": "C:/Windows/Fonts/bahnschrift.ttf",
+      "headlineSize": 64,
+      "bodyMinimumSize": 32,
+      "masterSha256": "24b91317acd28fde3c1bbf728bcf2ea83fde083a3fbeb44e434dedafade06818"
+    },
+    "PT02.png": {
+      "canvas": [
+        1254,
+        1254
+      ],
+      "boundaryMode": "SCREEN_ONLY",
+      "notes": "Original empty-table computer-use scene; no person or external equipment.",
+      "productProtectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 122,
+          "y": 375,
+          "width": 972,
+          "height": 846,
+          "scale": 0.87
+        },
+        {
+          "label": "HEADLINE",
+          "x": 64,
+          "y": 54,
+          "width": 900,
+          "height": 200
+        }
+      ],
+      "layers": [
+        "table-background.png",
+        "product-cutout.png"
+      ],
+      "font": "C:/Windows/Fonts/bahnschrift.ttf",
+      "headlineSize": 64,
+      "bodyMinimumSize": 32,
+      "masterSha256": "944a739e3ab70a15b96fa495bf196aa4f15eb5e615125e5bb05b4c93c0849d91"
+    },
+    "PT03.png": {
+      "canvas": [
+        1254,
+        1254
+      ],
+      "boundaryMode": "SCREEN_ONLY",
+      "notes": "Only complete CPU/GPU/RAM/SSD/OS page. Display belongs to PT04.",
+      "productProtectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 40,
+          "y": 463,
+          "width": 603,
+          "height": 525,
+          "scale": 0.54
+        },
+        {
+          "label": "CONFIGURATION",
+          "x": 655,
+          "y": 310,
+          "width": 550,
+          "height": 800
+        },
+        {
+          "label": "HEADLINE",
+          "x": 64,
+          "y": 54,
+          "width": 900,
+          "height": 200
+        }
+      ],
+      "layers": [
+        "product-cutout.png"
+      ],
+      "font": "C:/Windows/Fonts/bahnschrift.ttf",
+      "headlineSize": 64,
+      "bodyMinimumSize": 32,
+      "masterSha256": "bb1979130ea1cb2fb7a2482b57d5a05a60b68a974298a3593d035a844b2e93dd"
+    },
+    "PT04.png": {
+      "canvas": [
+        1254,
+        1254
+      ],
+      "boundaryMode": "SCREEN_ONLY",
+      "notes": "Display facts uniquely owned here; no input or port recap.",
+      "productProtectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 300,
+          "y": 438,
+          "width": 849,
+          "height": 739,
+          "scale": 0.76
+        },
+        {
+          "label": "DISPLAY_COPY",
+          "x": 64,
+          "y": 330,
+          "width": 240,
+          "height": 655
+        },
+        {
+          "label": "HEADLINE",
+          "x": 64,
+          "y": 54,
+          "width": 900,
+          "height": 200
+        }
+      ],
+      "layers": [
+        "product-cutout.png"
+      ],
+      "font": "C:/Windows/Fonts/bahnschrift.ttf",
+      "headlineSize": 64,
+      "bodyMinimumSize": 32,
+      "masterSha256": "2b375307a82f799c34c6c22cb5d85e1acf75f974bb96570cfcdc541bc7cc39a2"
+    },
+    "PT05.png": {
+      "canvas": [
+        1254,
+        1254
+      ],
+      "boundaryMode": "SCREEN_ONLY",
+      "notes": "Task relationships only; no repeated model names, clocks or capacities.",
+      "productProtectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 225,
+          "y": 520,
+          "width": 804,
+          "height": 700,
+          "scale": 0.72
+        },
+        {
+          "label": "FLOW",
+          "x": 64,
+          "y": 328,
+          "width": 1130,
+          "height": 125
+        },
+        {
+          "label": "HEADLINE",
+          "x": 64,
+          "y": 54,
+          "width": 900,
+          "height": 200
+        }
+      ],
+      "layers": [
+        "product-cutout.png"
+      ],
+      "font": "C:/Windows/Fonts/bahnschrift.ttf",
+      "headlineSize": 64,
+      "bodyMinimumSize": 32,
+      "masterSha256": "ccf536b8ce31be9706b407e1b0c67d0c9ee097be32a5971f82fb94fa20e92375"
+    },
+    "PT06.png": {
+      "canvas": [
+        1254,
+        1254
+      ],
+      "boundaryMode": "SCREEN_ONLY",
+      "notes": "White input-only composition with exact native OEM crops, no generated keys.",
+      "productProtectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_KEYBOARD",
+          "x": 200,
+          "y": 366,
+          "width": 844,
+          "height": 343
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE_TOUCHPAD",
+          "x": 730,
+          "y": 869,
+          "width": 348,
+          "height": 207
+        },
+        {
+          "label": "INPUT_COPY",
+          "x": 64,
+          "y": 775,
+          "width": 600,
+          "height": 340
+        },
+        {
+          "label": "HEADLINE",
+          "x": 64,
+          "y": 54,
+          "width": 900,
+          "height": 200
+        }
+      ],
+      "layers": [
+        "page0-Iabc20.jpg"
+      ],
+      "font": "C:/Windows/Fonts/bahnschrift.ttf",
+      "headlineSize": 64,
+      "bodyMinimumSize": 32,
+      "masterSha256": "1a011a1dd66a8e7194aa27616a28cea42d5f14941ba6c4fcf41a539aa97d487b"
+    },
+    "PT07.png": {
+      "canvas": [
+        1254,
+        1254
+      ],
+      "boundaryMode": "SCREEN_ONLY",
+      "notes": "Unused camera/call value, datasheet camera and microphone facts; no warranty or config recap.",
+      "productProtectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 365,
+          "y": 510,
+          "width": 782,
+          "height": 680,
+          "scale": 0.7
+        },
+        {
+          "label": "CAMERA_COPY",
+          "x": 64,
+          "y": 327,
+          "width": 860,
+          "height": 155
+        },
+        {
+          "label": "HEADLINE",
+          "x": 64,
+          "y": 54,
+          "width": 900,
+          "height": 200
+        }
+      ],
+      "layers": [
+        "product-cutout.png"
+      ],
+      "font": "C:/Windows/Fonts/bahnschrift.ttf",
+      "headlineSize": 64,
+      "bodyMinimumSize": 32,
+      "masterSha256": "35b208b929d374fc72514145c0acf4ea78f32d647ec59e991535d28b5ad760f6"
+    },
+    "PT08.png": {
+      "canvas": [
+        1254,
+        1254
+      ],
+      "boundaryMode": "SCREEN_ONLY",
+      "notes": "Exact-model OEM two-sided physical port views; original connector anchors retained with deterministic leaders/types/count/function labels. Wireless uniquely owned here.",
+      "productProtectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_LEFT",
+          "x": 78,
+          "y": 560,
+          "width": 1098,
+          "height": 131
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE_RIGHT",
+          "x": 78,
+          "y": 925,
+          "width": 1098,
+          "height": 131
+        },
+        {
+          "label": "PORT_COPY_LEFT",
+          "x": 64,
+          "y": 315,
+          "width": 1120,
+          "height": 170
+        },
+        {
+          "label": "PORT_COPY_RIGHT",
+          "x": 64,
+          "y": 735,
+          "width": 1120,
+          "height": 155
+        },
+        {
+          "label": "WIRELESS_COPY",
+          "x": 64,
+          "y": 1080,
+          "width": 1100,
+          "height": 155
+        },
+        {
+          "label": "HEADLINE",
+          "x": 64,
+          "y": 54,
+          "width": 900,
+          "height": 200
+        }
+      ],
+      "layers": [
+        "official-ports.jpg"
+      ],
+      "font": "C:/Windows/Fonts/bahnschrift.ttf",
+      "headlineSize": 64,
+      "bodyMinimumSize": 32,
+      "masterSha256": "78db95dcaa835a435a828e537f09a23c7ef7c8e552a915e5c49b94a76f8df1d4"
+    }
+  }
+}

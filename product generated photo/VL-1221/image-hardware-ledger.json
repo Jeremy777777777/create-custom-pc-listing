@@ -1,0 +1,108 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VL-1221",
+  "exactModel": "HP Victus 15-fb3093dx",
+  "manufacturerProductNumber": "BM4X8UA#ABA",
+  "color": "Mica Silver",
+  "source": "https://files.bbystatic.com/NWkiqvjFNz5Tv/7Nc0o0WA%3D%3D/Datasheet",
+  "sourceFile": "assets/production/VL-1221/cinematic-20261006/sources/HP-15-fb3093dx-datasheet.pdf",
+  "sourceSha256": "b2120392c3269cb60bc08a23f3944d65ed4c27d73d885bc6a7ada0b0eead1f0e",
+  "verifiedAtUtc": "2026-10-06T21:03:30.321620+00:00",
+  "factOwnership": {
+    "PT01.png": [],
+    "PT02.png": [],
+    "PT03.png": [
+      "cpu-model",
+      "cpu-cores",
+      "cpu-max-clock",
+      "gpu-model",
+      "gpu-vram",
+      "ram-capacity",
+      "ram-type-speed",
+      "ssd-capacity",
+      "ssd-interface",
+      "final-os"
+    ],
+    "PT04.png": [
+      "screen-diagonal",
+      "screen-panel",
+      "screen-resolution",
+      "screen-refresh",
+      "screen-finish"
+    ],
+    "PT05.png": [
+      "process-render-display-relationship"
+    ],
+    "PT06.png": [
+      "keyboard-full-size",
+      "keyboard-backlit",
+      "keyboard-numpad",
+      "touchpad-imagepad"
+    ],
+    "PT07.png": [
+      "camera-resolution",
+      "camera-temporal-noise-reduction",
+      "camera-dual-mics"
+    ],
+    "PT08.png": [
+      "left-port-map",
+      "right-port-map",
+      "usb-a-count",
+      "usb-c-count",
+      "usb-speed-function",
+      "hdmi-version",
+      "audio-combo",
+      "ethernet",
+      "ac-port",
+      "wifi",
+      "bluetooth"
+    ]
+  },
+  "installedConfiguration": {
+    "cpu": "AMD Ryzen 7 7445HS",
+    "cpuCores": 6,
+    "cpuMaxGHz": 4.7,
+    "gpu": "NVIDIA GeForce RTX 4050 Laptop GPU",
+    "gpuVramGB": 6,
+    "ramGB": 16,
+    "ramType": "DDR5-5600",
+    "ssdGB": 512,
+    "ssdType": "PCIe Gen4 NVMe M.2",
+    "finalOs": "Windows 11 Pro",
+    "finalOsEvidence": "USER_CONFIRMED_CATALOG_POLICY; factory Home not shown as final OS"
+  },
+  "display": {
+    "inch": 15.6,
+    "resolution": [
+      1920,
+      1080
+    ],
+    "panel": "IPS",
+    "Hz": 144,
+    "finish": "anti-glare"
+  },
+  "camera": {
+    "resolution": "720p HD",
+    "temporalNoiseReduction": true,
+    "microphones": "dual-array digital"
+  },
+  "input": {
+    "keyboard": "full-size backlit moonstone grey with numeric keypad",
+    "touchpad": "HP Imagepad"
+  },
+  "connectivity": {
+    "left": [
+      "AC smart pin",
+      "USB-A 5Gbps HP Sleep and Charge",
+      "3.5mm headphone/mic combo"
+    ],
+    "right": [
+      "USB-C 5Gbps DP1.4a HP Sleep and Charge",
+      "RJ45",
+      "USB-A 5Gbps",
+      "HDMI2.1"
+    ],
+    "wifi": "Wi-Fi6 (2x2)",
+    "bluetooth": "5.4"
+  }
+}

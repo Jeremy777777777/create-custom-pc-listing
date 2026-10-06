@@ -1,12 +1,5 @@
-# VL-1221 — retained historical image bytes
+# VL-1221 current supporting-image correction — 2026-10-06
 
-Policy version: 2026-10-02
+Eight selected PT files retain the user-approved dark crimson gaming direction. Complete configuration appears only in PT03; PT06 is white input detail; PT07 owns camera/call facts; PT08 uses genuine two-sided physical views. All finals are opaque sRGB PNG,1254×1254,72dpi metadata; product layers are native or proportionally downscaled, never AI-rebuilt or enlarged.
 
-Gallery state: LEGACY_QUARANTINED
-Delivery state: REWORK_REQUIRED
-
-These images are retained for recovery, not approved current exemplars. No current FINAL_ASSET_QA_PASS or GITHUB_DELIVERY_VERIFIED is asserted. Read product-facts.json before production, follow current active references and create a new hash-bound manifest/reports when requested images are revalidated. Do not use retired product records as execution instructions.
-
-## Current approved front replacement — 2026-10-02
-
-`MAIN-ENHANCED-FRONT-CANDIDATE.png` is the exact supplied 1237×937 RGB PNG, SHA-256 `f552ae9c395ae16805f9cd390c980985f7072805af00213c0271712d08ab3a48`. User confirms Amazon accepted this image and explicitly requested replacement. Current reference/recipe and style-lock.json retain G04/C07/A04, SCREEN_ONLY and six graphical cards. approved-slot-exception.json binds this single import and all unchanged slots. Amazon acceptance is user-confirmed for this image, not independently queried or transferred to other products. Overall gallery remains REWORK_REQUIRED; no full-gallery PASS or remote delivery is claimed until actually verified.
+Current selected-slot review: CURRENT_REQUESTED_SLOT_QA_PASS / PARTIAL_UPDATE. Whole-gallery state remains REWORK_REQUIRED; the three MAIN bytes are retained and are not approved by this correction. Amazon publication eligibility remains NOT_ASSESSED. Actual inspection and hashes are in visual-review.json/semantic-review.json/logo-qa.json. Scope/ownership is in image-hardware-ledger.json. Source rights, frozen assets, measured LCD mask, recipes and reproducible renderer are under assets/production/VL-1221/cinematic-20261006/. Original sources/masters are included for remote verification. Prior manifest/status/lock/fact records are preserved in the pack history folder.
