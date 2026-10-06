@@ -1,0 +1,159 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VL-1221",
+  "scope": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+  "canvas": [
+    1075,
+    950
+  ],
+  "sourceNativeSize": [
+    2000,
+    2000
+  ],
+  "sourcePath": "sources/official-front.jpg",
+  "sourceUrl": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/273a1534-d598-474e-8d4a-e1b1d7ca3e59.jpg",
+  "sourceSha256": "80896d57c3a5c0a72f9558b9339a1957d97d57d45f4804d3cc6d7475788a5d13",
+  "sourceRights": "USER_CONFIRMED_CATALOG_WIDE: HP original exact-model product photo in manufacturer campaign gallery. All third-party game scene and screen content excluded by measured product/LCD masks.",
+  "productScale": 1,
+  "sourceCrop": [
+    480,
+    540,
+    1555,
+    1490
+  ],
+  "sourceProductOutline": [
+    [
+      617,
+      563
+    ],
+    [
+      626,
+      555
+    ],
+    [
+      1400,
+      555
+    ],
+    [
+      1408,
+      563
+    ],
+    [
+      1409,
+      1081
+    ],
+    [
+      1407,
+      1090
+    ],
+    [
+      1410,
+      1110
+    ],
+    [
+      1443,
+      1200
+    ],
+    [
+      1482,
+      1300
+    ],
+    [
+      1523,
+      1400
+    ],
+    [
+      1533,
+      1430
+    ],
+    [
+      1533,
+      1438
+    ],
+    [
+      1527,
+      1448
+    ],
+    [
+      499,
+      1448
+    ],
+    [
+      491,
+      1438
+    ],
+    [
+      491,
+      1430
+    ],
+    [
+      509,
+      1400
+    ],
+    [
+      543,
+      1300
+    ],
+    [
+      563,
+      1250
+    ],
+    [
+      582,
+      1200
+    ],
+    [
+      605,
+      1150
+    ],
+    [
+      613,
+      1110
+    ],
+    [
+      614,
+      1090
+    ],
+    [
+      616,
+      565
+    ]
+  ],
+  "productMaskSha256": "a51efac86ee4038a9ba8d81183943a0b882f71b2c9c5f4dce410cc7adab43bf6",
+  "sourceLcdRectangle": [
+    627,
+    578,
+    1400,
+    1013
+  ],
+  "lcdMaskSha256": "fa0a1751eba91a0753537ef7ebb2428762c363b9ae2f5fc703d5f341e9892fd7",
+  "screenSceneSource": "sources/approved-cinematic-reference.png",
+  "screenSceneSourceSha256": "2ae382b36bb856515c3fecd207a39d6042b7d6369b0aceaf5b857d1f031d5b29",
+  "screenSceneCrop": [
+    144,
+    49,
+    1296,
+    561
+  ],
+  "screenSceneRole": "Only the original generated cinematic artwork, never reference chassis or generated text/logos.",
+  "font": "Bahnschrift",
+  "fontSha256": "eaad201da94cb323401fdb8cc760650803ddf8fd704cb9fa56317e6c69bc6fd6",
+  "fontSizes": [
+    24,
+    22
+  ],
+  "windowsMode": "WINDOWS_11_PRO_PACKAGE",
+  "windowsAsset": "assets/branding/windows-11-pro-package.png",
+  "windowsAssetSha256": "6f9dc54bdbf084ebe11fb06ec85d610de8ebf766d4ead7781ff5898d6e5c7380",
+  "windowsPlacementSourcePixels": [
+    1310,
+    916,
+    78,
+    85
+  ],
+  "styleOverride": "Direct user no VICTUS marketing title and no configuration frames; preserves exact factory marks and one original Windows package in LCD.",
+  "finalSha256": "4eda429351ffdb308cc59b7f221ee584eea8e86a3e04815c42d44b03f5c96025",
+  "publicationEligibility": "NOT_ASSESSED",
+  "lcdMaskPath": "sources/main-lcd-mask.png",
+  "lcdMaskEncoding": "SHA256 of native binary-mask pixel bytes, before PNG encoding"
+}

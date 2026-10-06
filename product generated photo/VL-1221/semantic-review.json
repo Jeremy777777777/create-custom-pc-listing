@@ -2,10 +2,10 @@
   "schemaVersion": 3,
   "result": "PASS",
   "reviewer": "Codex multimodal visual inspection in this user-authorized correction session",
-  "reviewedAtUtc": "2026-10-06T21:03:30.321620+00:00",
+  "reviewedAtUtc": "2026-10-06T21:22:25.341390+00:00",
   "galleryInventorySha256": {
     "MAIN-STRICT.jpg": "e1a96867b5505341961e18136b874d34fc93a2e2ea1e819c7f00a0dc574d1b61",
-    "MAIN-ENHANCED-FRONT-CANDIDATE.png": "f552ae9c395ae16805f9cd390c980985f7072805af00213c0271712d08ab3a48",
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png": "4eda429351ffdb308cc59b7f221ee584eea8e86a3e04815c42d44b03f5c96025",
     "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": "cb270e3a73ec56cd7ff2c38fc2e714e963fb9e2d64920968046cda5c6c69397a",
     "PT01.png": "d94fb7e725079e25438b165e326cec031d65802e58269549a85ba09667173df5",
     "PT02.png": "075143788b88477fcd062b29a1a5264d6b6696255b3015118a4e0d1028998a94",
@@ -236,7 +236,7 @@
       "overlap": 0.0
     }
   ],
-  "retainedMainScope": "Three MAIN hashes bind retained inventory only; their historical visual/publication QA is not approved by this selected-PT review. Full configuration in MAIN does not establish another PT owner.",
+  "retainedMainScope": "Only strict and angle MAIN hashes remain retained. Enhanced FRONT now selected/reviewed. Its expected MAIN configuration summary is separate from PT primary fact ownership; PT03 remains sole complete supporting configuration page.",
   "images": [
     {
       "file": "PT01.png",
@@ -285,6 +285,12 @@
       "sha256": "59525a6ed1f479689de6a38ac8be7a963f466976cb110cc6bf1aef0958f7d268",
       "result": "PASS",
       "notes": "Primary facts: left-port-map, right-port-map, usb-a-count, usb-c-count, usb-speed-function, hdmi-version, audio-combo, ethernet, ac-port, wifi, bluetooth. Inspected native and 200px. Both actual OEM side views match exact-model datasheet connector count/types. Left ACsmartpin,USB-A5GbpsSleep&Charge,audio; rightUSB-C5GbpsDP1.4aSleep&Charge,RJ45,USB-A5Gbps,HDMI2.1. Separate leaders reach corresponding retained OEM connector anchors.2USB-A/1USB-C,Wi-Fi6(2x2)/BT5.4 verified. No generic substitute/accessory. Primary labels readable at200px; functions available at zoom."
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "sha256": "4eda429351ffdb308cc59b7f221ee584eea8e86a3e04815c42d44b03f5c96025",
+      "result": "PASS",
+      "notes": "Selected enhanced-front screen summary follows verified base facts. Main-summary facts do not create another PT configuration owner; all28 PT pair reviews and PT ownership remain valid, bound to unchanged PT bytes. No new product capabilities or software entitlements are added."
     }
   ]
 }

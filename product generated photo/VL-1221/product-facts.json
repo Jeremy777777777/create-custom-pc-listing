@@ -28,6 +28,6 @@
   "styleApprovalStatus": "APPROVED",
   "revalidationRequired": true,
   "styleLock": "style-lock.json",
-  "approvedFrontAssetException": "approved-slot-exception.json",
-  "imageHardwareLedger": "image-hardware-ledger.json"
+  "imageHardwareLedger": "image-hardware-ledger.json",
+  "historicalApprovedFrontAssetException": "assets/production/VL-1221/cinematic-20261006/history/approved-slot-exception.json"
 }

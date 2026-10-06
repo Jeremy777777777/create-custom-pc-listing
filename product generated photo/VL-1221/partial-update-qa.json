@@ -12,7 +12,8 @@
     "PT05.png",
     "PT06.png",
     "PT07.png",
-    "PT08.png"
+    "PT08.png",
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png"
   ],
   "images": [
     {
@@ -46,11 +47,15 @@
     {
       "file": "PT08.png",
       "sha256": "59525a6ed1f479689de6a38ac8be7a963f466976cb110cc6bf1aef0958f7d268"
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "sha256": "4eda429351ffdb308cc59b7f221ee584eea8e86a3e04815c42d44b03f5c96025"
     }
   ],
   "galleryInventorySha256": {
     "MAIN-STRICT.jpg": "e1a96867b5505341961e18136b874d34fc93a2e2ea1e819c7f00a0dc574d1b61",
-    "MAIN-ENHANCED-FRONT-CANDIDATE.png": "f552ae9c395ae16805f9cd390c980985f7072805af00213c0271712d08ab3a48",
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png": "4eda429351ffdb308cc59b7f221ee584eea8e86a3e04815c42d44b03f5c96025",
     "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": "cb270e3a73ec56cd7ff2c38fc2e714e963fb9e2d64920968046cda5c6c69397a",
     "PT01.png": "d94fb7e725079e25438b165e326cec031d65802e58269549a85ba09667173df5",
     "PT02.png": "075143788b88477fcd062b29a1a5264d6b6696255b3015118a4e0d1028998a94",
@@ -61,7 +66,7 @@
     "PT07.png": "ba4ab69be3f114d950a0d67018b823564878e8c1b6b8d5bc455b205b5485a7cd",
     "PT08.png": "59525a6ed1f479689de6a38ac8be7a963f466976cb110cc6bf1aef0958f7d268"
   },
-  "visualReviewSha256": "6c29eefe04e69341f45a879963508e2a95f2c60e6033eb1fea08193bdb11df77",
-  "semanticReviewSha256": "4f0473acaf4e8b9db8915fd2e1f7d0c20f8e95b40e2a9b1202d3a9e4b853f834",
-  "logoQaSha256": "8992af99ed309d0775d7c73f81f90a8253bfb0362e468f78ab2b424cb375991a"
+  "visualReviewSha256": "adacf0f563d38947962bd937f9ca3ea44fdf3bdf7e79108f257d6de79d5975e9",
+  "semanticReviewSha256": "89a5abe8b85b4e8d75ef6f06e461e1d5ecb12f424db77a5eba7d2dd3e9218c24",
+  "logoQaSha256": "b0dc5a55f145893d594c89bb052c9477ce067ad3e3c21b9531f633901981a746"
 }

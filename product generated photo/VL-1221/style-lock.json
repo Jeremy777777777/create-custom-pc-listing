@@ -38,5 +38,16 @@
     "recipeStatus": "BUILT_AND_SELECTED_SLOT_REVIEWED",
     "mainDirectionUnchanged": true,
     "currentImageQaInherited": false
+  },
+  "mainCinematicOverride": {
+    "scope": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+    "approvalSource": "Current direct user request: 帮我替换掉现在我vl-1221的图片，然后把主图也替换一份",
+    "recipePath": "assets/production/VL-1221/cinematic-20261006/main-recipe.json",
+    "recipeSha256": "39ab7c86dfa6dadf16b13d87bbd09fdd665a784f344a604ac08502b28af77492",
+    "boundary": "SCREEN_ONLY",
+    "configurationTreatment": "User-authorized flat five specification pairs without frames; original Windows package as sixth identity",
+    "styleApprovalStatus": "APPROVED_CURRENT_USER_DIRECTION",
+    "recipeStatus": "BUILT_AND_SELECTED_SLOT_REVIEWED",
+    "currentQaInherited": false
   }
 }

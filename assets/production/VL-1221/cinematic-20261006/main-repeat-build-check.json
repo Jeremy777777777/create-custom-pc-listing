@@ -1,0 +1,5 @@
+{
+  "result": "PASS",
+  "method": "Same frozen sources/ICC, second render byte-identical",
+  "sha256": "4eda429351ffdb308cc59b7f221ee584eea8e86a3e04815c42d44b03f5c96025"
+}

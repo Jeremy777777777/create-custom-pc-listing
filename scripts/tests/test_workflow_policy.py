@@ -3,6 +3,10 @@ import json
 import re
 import unittest
 from pathlib import Path
+import sys
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+from gallery_engine import validate_partial
 
 ROOT = Path(__file__).resolve().parents[2]
 WARRANTY = ('MegaPC provides a 1-year limited warranty on the upgraded RAM and SSD components. '
@@ -54,7 +58,16 @@ class WorkflowPolicyTests(unittest.TestCase):
             self.assertFalse(status.get('currentQaPass', False))
             self.assertNotEqual(status.get('deliveryState'), 'GITHUB_DELIVERY_VERIFIED')
             self.assertFalse((folder/'final-image-qa.json').exists())
-            self.assertFalse((folder/'logo-qa.json').exists())
+            # Quarantine prevents full-gallery PASS; current policy explicitly
+            # allows genuine hash-bound selected-slot QA within that quarantine.
+            if (folder/'partial-update-qa.json').exists():
+                receipt = json.loads((folder/'partial-update-qa.json').read_text(encoding='utf-8'))
+                self.assertEqual(receipt.get('deliveryScope'), 'PARTIAL_UPDATE')
+                self.assertIs(receipt.get('fullGalleryPass'), False)
+                self.assertTrue(receipt.get('selectedSlots'))
+                validate_partial(folder, receipt['selectedSlots'])
+            else:
+                self.assertFalse((folder/'logo-qa.json').exists())
 
 if __name__ == '__main__':
     unittest.main()

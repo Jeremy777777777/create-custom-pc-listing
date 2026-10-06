@@ -4,7 +4,7 @@
   "brand": "HP",
   "result": "PASS",
   "logoAssetSha256": "9e800d0246ed113aa734fd086c6fcb1c6585aee19251d5da2fba3372649d7bbe",
-  "logoAssetPath": "..\\..\\assets\\branding\\hp-logo-blue.png",
+  "logoAssetPath": "../../assets/branding/hp-logo-blue.png",
   "visibleLogoAspectRatio": 1.0,
   "placementPlanSha256": "876ca550b6aae4aaa7bf5ba1e54e19dc11ea2736ac97ff2de962d6d94dd6dcad",
   "images": [
@@ -83,7 +83,7 @@
   ],
   "reviewer": "Codex multimodal visual inspection in this user-authorized correction session",
   "reviewedAtUtc": "2026-10-06T21:03:30.321620+00:00",
-  "visualReviewSha256": "6c29eefe04e69341f45a879963508e2a95f2c60e6033eb1fea08193bdb11df77",
+  "visualReviewSha256": "adacf0f563d38947962bd937f9ca3ea44fdf3bdf7e79108f257d6de79d5975e9",
   "visibleLogoDimensionsPx": [
     128,
     128

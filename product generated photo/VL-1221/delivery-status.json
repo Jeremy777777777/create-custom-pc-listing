@@ -10,7 +10,8 @@
     "PT05.png",
     "PT06.png",
     "PT07.png",
-    "PT08.png"
+    "PT08.png",
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png"
   ],
   "selectedSlotQa": "CURRENT_REQUESTED_SLOT_QA_PASS",
   "wholeGalleryState": "REWORK_REQUIRED",
@@ -19,11 +20,11 @@
   "githubDelivery": "AWAITING_PUSH_CI_REMOTE_HASH_VERIFICATION",
   "retainedMainSha256": {
     "MAIN-STRICT.jpg": "e1a96867b5505341961e18136b874d34fc93a2e2ea1e819c7f00a0dc574d1b61",
-    "MAIN-ENHANCED-FRONT-CANDIDATE.png": "f552ae9c395ae16805f9cd390c980985f7072805af00213c0271712d08ab3a48",
     "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": "cb270e3a73ec56cd7ff2c38fc2e714e963fb9e2d64920968046cda5c6c69397a"
   },
-  "updatedAtUtc": "2026-10-06T21:03:30.321620+00:00",
+  "updatedAtUtc": "2026-10-06T21:22:25.341390+00:00",
   "galleryState": "LEGACY_QUARANTINED",
   "currentQaPass": false,
-  "reworkStatus": "REWORK_REQUIRED"
+  "reworkStatus": "REWORK_REQUIRED",
+  "replacementAuthorization": "Current direct user request: 帮我替换掉现在我vl-1221的图片，然后把主图也替换一份"
 }
