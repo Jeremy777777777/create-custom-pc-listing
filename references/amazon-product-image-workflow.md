@@ -1,5 +1,7 @@
 # Image production workflow
 
+Pending review: [AI product reconstruction proposal — 2026-10-06](ai-product-reconstruction-proposal.md). The user has requested reference-guided AI product creation and a decision on conflicting old rules. This proposal does not activate a replacement; continue current production rules until the user decides.
+
 1. Read [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md), current product-fact record and [image-spec.md](image-spec.md). Identify exact base SKU, internal VL ID, verified assets and current statuses. Historical generated files are excluded from ordinary runs; consult only for an explicitly requested historical comparison.
 2. Source accurate high-resolution exact-model front/angle/port/input views. OEM official → authorized exact-model retailer → seller photos. Record URL/date/dimensions/SHA-256/model-color match and commercial-use basis. Exhaust independent search before asking for missing views; never invent product geometry.
 3. Classify audience from actual positioning/capabilities; select G/C/A→GG, B→BG or neutral profile. Optional Business Laptop B17/BG17 uses [business-graphite-design-system.md](business-graphite-design-system.md) and its approved appearance references; adapt hero, source views and task-specific screens from actual facts. Build fact ownership for PT01–PT08, using fixed slots in catalog policy. Existing selection defaults and per-product preview approval remain intact.
