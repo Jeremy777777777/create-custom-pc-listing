@@ -9,7 +9,7 @@ w=importlib.util.module_from_spec(spec);spec.loader.exec_module(w)
 class WarrantyTests(unittest.TestCase):
     def copy(self,brand):
         body=w.render(brand)
-        return body, body+'\n\nOther verified benefit', '**Computer**\n**Warranty and Disclosure**'+chr(92)+'\n'+body
+        return body, body+'\n\nOther verified benefit', '<strong>Computer</strong><br/><br/><strong>Warranty and Disclosure</strong><br/>'+body
 
     def test_same_policy_for_every_manufacturer(self):
         for brand in ['Lenovo','HP','Dell','ASUS']:
@@ -27,6 +27,26 @@ class WarrantyTests(unittest.TestCase):
             with self.assertRaises(ValueError):w.validate_copy('Lenovo',bullets,changed,body)
         for brand in ['',None,'[OEM brand]','【制造商名】']:
             with self.assertRaises(ValueError):w.render(brand)
+
+    def test_html_sections_preserve_copy_and_reject_broken_format(self):
+        body, bullets, description = self.copy('ASUS')
+        description = description.replace(
+            '<strong>Warranty and Disclosure</strong>',
+            '<strong>Display</strong><br/>OLED &amp; verified detail.<br/><br/>'
+            '<strong>Warranty and Disclosure</strong>')
+        self.assertEqual(w.validate_copy('ASUS', bullets, description, body)['fixedWording'], 'PASS')
+        invalid = [
+            description.replace('<strong>Display</strong>', 'Display'),
+            description.replace('<br/><br/>', '<br/>', 1),
+            description.replace('<br/>', '</br>'),
+            description.replace('</strong>', '', 1),
+            description + '<br/><br/>',
+            '**Computer**\n**Warranty and Disclosure**' + chr(92) + '\n' + body,
+        ]
+        for candidate in invalid:
+            with self.subTest(candidate=candidate):
+                with self.assertRaises(ValueError):
+                    w.validate_copy('ASUS', bullets, candidate, body)
 
     def test_actual_workbook_field_mapping(self):
         body,bullets,description=self.copy('Lenovo');book=openpyxl.Workbook();book.remove(book.active)
