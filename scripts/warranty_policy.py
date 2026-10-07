@@ -1,5 +1,6 @@
 """Exact seller-confirmed copy validation; not OEM/legal/publication clearance."""
 import json
+import re
 from pathlib import Path
 
 POLICY = json.loads((Path(__file__).resolve().parents[1] / 'assets/warranty-disclosure-policy.json').read_text(encoding='utf-8'))
@@ -15,7 +16,11 @@ def validate_copy(manufacturer, bullets, description, warranty):
     expected = render(manufacturer)
     if not isinstance(bullets, str) or bullets.split('\n\n')[0] != expected:
         raise ValueError('Bullet 1 must equal the fixed Warranty and Disclosure paragraph')
-    heading = '**' + POLICY['heading'] + '**' + chr(92) + '\n'
+    # The workbook stores literal HTML, not Excel font styling or Markdown.
+    pattern = r'<strong>[^<>]+</strong><br/><br/>(?:\s*<strong>[^<>]+</strong><br/>[^<>]+?(?:<br/><br/>|$))+'
+    if not isinstance(description, str) or re.fullmatch(pattern, description, re.DOTALL) is None:
+        raise ValueError('Product Description requires strong identity/section headings and br/ separators')
+    heading = '<strong>' + POLICY['heading'] + '</strong><br/>'
     if not isinstance(description, str) or description.count(heading) != 1 or description.split(heading)[-1] != expected:
         raise ValueError('Description must end with the exact Warranty and Disclosure section')
     if warranty != expected:

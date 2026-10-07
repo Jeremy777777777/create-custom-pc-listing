@@ -4,7 +4,7 @@ Apply [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for fixed P
 
 Routing: Gxx→GGxx and Bxx→BGxx; neutral audiences use NEUTRAL. Select by verified positioning, not arbitrary rotation. PT02 may have anonymous licensed/original users; PT05 may have one supporting person if useful. PT06 is computer-only white input details. Original abstract interfaces do not imply software entitlement. Synthetic people follow metadata/identity/manual-contact review. All device depictions are the computer itself.
 
-Physical PT08: show exact real left/right laptop ports when both exist, or actual relevant desktop faces. Use accurately sourced views and connector labels/leaders. Never replace ports with a conceptual external-device network. PT04 owns display/form, PT06 owns keyboard/touchpad/input, PT07 uses remaining verified product value without seller-warranty promotion. Semantic overlap uses canonical facts with explicit denominator, or honest manual rationale as defined in policy.
+Physical PT08: show exact real left/right laptop ports when both exist, or actual relevant desktop faces. Use accurate original views or official-reference-supported AI faithful reproductions under [faithful-product-reproduction.md](faithful-product-reproduction.md), with connector labels/leaders ending at the actual reproduced openings. Reject any changed or unverified type/count/location. Never replace ports with a conceptual external-device network. PT04 owns display/form, PT06 owns keyboard/touchpad/input, PT07 uses remaining verified product value without seller-warranty promotion. Semantic overlap uses canonical facts with explicit denominator, or honest manual rationale as defined in policy.
 
 ## Motif library
 

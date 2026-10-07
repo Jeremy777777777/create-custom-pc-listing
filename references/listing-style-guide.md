@@ -24,23 +24,19 @@ Avoid repeating the same full specification list. Combine adjacent topics as nee
 
 ## Description
 
-Preserve this structure in the workbook, including real newlines, Markdown bold headings and the trailing backslash after section headings:
+Store the following HTML structure as literal text in the workbook's existing Product Description Value cell, following the user's 2026-10-07 decision. Bold the opening identity and every section heading with `<strong>`. Use one `<br/>` between a section heading and its body, and two `<br/><br/>` after the identity and between sections. Actual newlines in the example only make the source readable; the tags control displayed breaks. A single-line HTML string is preferred for reproducible output. Do not use Markdown bold, heading backslashes, `</br>` or Excel-only font styling as the saved description format.
 
-```text
-**MegaPC Custom [Product Type] — Created Using [OEM Model]**
-**[Primary Benefit]**\
-[Verified specification and its practical value.]
-**[Processor / Graphics]**\
-[Verified base hardware and appropriate tasks.]
-**[Memory & Storage]**\
-[Installed base RAM/SSD and actual MegaPC modifications; no selectable tiers.]
-**[Experience & Connectivity]**\
-[Relevant verified computer capabilities.]
-**Windows 11 Pro**\
-[Fixed seller OS; no implied Office or paid Copilot entitlement.]
-**Warranty and Disclosure**\
-[Insert the complete mandatory warranty text without rewriting it.]
+```html
+<strong>MegaPC Custom [Product Type] — Created Using [OEM Model]</strong><br/><br/>
+<strong>[Primary Benefit]</strong><br/>[Verified specification and its practical value.]<br/><br/>
+<strong>[Processor / Graphics]</strong><br/>[Verified base hardware and appropriate tasks.]<br/><br/>
+<strong>[Memory & Storage]</strong><br/>[Installed base RAM/SSD and actual MegaPC modifications; no selectable tiers.]<br/><br/>
+<strong>[Experience & Connectivity]</strong><br/>[Relevant verified computer capabilities.]<br/><br/>
+<strong>Windows 11 Pro</strong><br/>[Fixed seller OS; no implied Office or paid Copilot entitlement.]<br/><br/>
+<strong>Warranty and Disclosure</strong><br/>[Insert the complete mandatory warranty text without rewriting it.]
 ```
+
+Escape special characters in copy when needed (`&amp;`, `&lt;`, `&gt;`); preserve visible facts and punctuation. Do not wrap or rewrite the fixed warranty paragraph, add text after it or add trailing break tags. Validate balanced strong tags, break separators and the exact final warranty paragraph using scripts/warranty_policy.py. The workbook stores HTML text; Excel itself need not render it as formatted text. Amazon publication rendering is a separate check, not a promised outcome of the stored format.
 
 Sections may be combined/omitted when irrelevant; Warranty and Disclosure is last. Do not present OS upgrades as buyer-selectable software customization or state that all software remains factory configured. Other hardware stays factory configured, with actual RAM/storage changes described accurately. No unsupported FPS, battery/runtime, compatibility, thermal or security guarantees. Exact facts must agree across title, bullets, description, attributes and images. Run [compliance-rules.md](compliance-rules.md) before marking publication ready.
 

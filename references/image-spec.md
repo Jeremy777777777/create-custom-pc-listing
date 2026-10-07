@@ -14,11 +14,11 @@ The user removed the fixed 2000×2000 rule for all Listing images. Use the [Amaz
 - Amazon supports JPEG, PNG, TIFF and non-animated GIF and recommends JPEG/RGB. Our existing JPG/PNG slot names, opaque backgrounds and sRGB export convention remain workflow conventions, not claims that Amazon bans other supported formats. The guide also specifies at least 72 dpi: inspect export metadata before publication; missing metadata is a review item, not proof of compliance. DPI does not add pixel detail.
 - Before publication, check current marketplace/category/account requirements. Use MAIN-specific white background, accurate complete product, product fill and no added marketing overlays requirements; enhanced MAIN candidates are not automatically eligible. All images must accurately depict the sold product and avoid prohibited claims/marks. Apply relevant AI-person metadata disclosure when needed.
 
-`check_image_size` verifies only decoded pixel dimensions. It does not establish clarity, truthful hardware/features, licensing, DPI, or Amazon acceptance. Keep those reviews and existing hash-bound evidence gates. This change does not clear quarantined galleries, overwrite styles, approve generated product/logo replacements globally, or retroactively certify older images. It supersedes older fixed-resolution wording; retain historical production receipts as records rather than editing their original claims.
+`check_image_size` verifies only decoded pixel dimensions. It does not establish clarity, truthful hardware/features, licensing, DPI, or Amazon acceptance. Keep those reviews and existing hash-bound evidence gates. This change does not clear quarantined galleries, overwrite styles, approve generated replacements through the size policy, or retroactively certify older images. It supersedes older fixed-resolution wording; retain historical production receipts as records rather than editing their original claims.
 
 Measure masks, logo bounds and thumbnail readability against each actual canvas. Record per-slot width/height in reports; never infer a 2000px canvas from an old recipe.
 
-All 11 final images meet the Amazon-based size policy below, using sRGB, high-quality JPG/PNG with readable 100% and 200px views. Do not stretch the chassis, invent ports/keys, upscale deficient source detail or crop the product. Angle photos must match exact model/color and preserve factory marks. Non-square composition is fit proportionally to canvas; only crops that preserve all product content are allowed.
+All 11 final images meet the Amazon-based size policy below, using sRGB, high-quality JPG/PNG with readable 100% and 200px views. Do not stretch the chassis, invent ports/keys, upscale deficient source detail or crop the product. Original angle photos and AI-faithfully-reproduced product views must match the actual exact model/color and preserve factory marks. Apply [faithful-product-reproduction.md](faithful-product-reproduction.md): visible keyboard/port/geometry differences or unverified details cannot pass, and require correction, sourcing or original-photo fallback. Non-square composition is fit proportionally to canvas; only crops that preserve all product content are allowed.
 
 | File | Required content |
 | --- | --- |
@@ -34,7 +34,7 @@ All 11 final images meet the Amazon-based size policy below, using sRGB, high-qu
 | PT07.png | One unused verified value; no seller warranty/service advertising |
 | PT08.png | Physical port map and accurate connectivity, no external devices |
 
-Laptop PT08 shows both actual sides where both contain ports, with leaders ending on real connector openings and exact type/count/function labels. Do not use generic icons as a substitute for physical views. For other form factors show relevant front/back surfaces. Missing accurate angle assets block that specific output; do not generate plausible hardware.
+Laptop PT08 shows both actual sides where both contain ports, with leaders ending on real connector openings and exact type/count/function labels. Do not use generic icons as a substitute for physical views. For other form factors show relevant front/back surfaces. Missing official reference evidence for the visible angle/details blocks that specific output. AI may faithfully reproduce a supported view under faithful-product-reproduction.md; do not generate plausible unseen hardware.
 
 ## Screen and brand controls
 
