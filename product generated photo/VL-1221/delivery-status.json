@@ -17,7 +17,7 @@
   "wholeGalleryState": "REWORK_REQUIRED",
   "fullGalleryPass": false,
   "publicationEligibility": "NOT_ASSESSED",
-  "githubDelivery": "AWAITING_PUSH_CI_REMOTE_HASH_VERIFICATION",
+  "githubDelivery": "GITHUB_DELIVERY_VERIFIED",
   "retainedMainSha256": {
     "MAIN-STRICT.jpg": "e1a96867b5505341961e18136b874d34fc93a2e2ea1e819c7f00a0dc574d1b61",
     "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": "cb270e3a73ec56cd7ff2c38fc2e714e963fb9e2d64920968046cda5c6c69397a"
@@ -26,5 +26,10 @@
   "galleryState": "LEGACY_QUARANTINED",
   "currentQaPass": false,
   "reworkStatus": "REWORK_REQUIRED",
-  "replacementAuthorization": "Current direct user request: 帮我替换掉现在我vl-1221的图片，然后把主图也替换一份"
+  "replacementAuthorization": "Current direct user request: 帮我替换掉现在我vl-1221的图片，然后把主图也替换一份",
+  "verifiedImageSnapshotCommit": "bbbbf9172ced5afda39e44007b2e3eaf50b0fa62",
+  "verifiedImageSnapshotUrl": "https://github.com/Jeremy777777777/create-custom-pc-listing/tree/bbbbf9172ced5afda39e44007b2e3eaf50b0fa62/product%20generated%20photo/VL-1221",
+  "verificationReceipt": "github-delivery-verification.json",
+  "remoteFileHashesVerified": true,
+  "verifiedAtUtc": "2026-10-07T17:02:05.962607+00:00"
 }

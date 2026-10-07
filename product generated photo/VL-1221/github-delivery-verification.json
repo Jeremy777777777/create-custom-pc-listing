@@ -1,0 +1,398 @@
+{
+  "schemaVersion": 3,
+  "result": "GITHUB_DELIVERY_VERIFIED",
+  "deliveryScope": "PARTIAL_UPDATE",
+  "verifiedAtUtc": "2026-10-07T17:02:05.962607+00:00",
+  "commit": "bbbbf9172ced5afda39e44007b2e3eaf50b0fa62",
+  "commitUrl": "https://github.com/Jeremy777777777/create-custom-pc-listing/commit/bbbbf9172ced5afda39e44007b2e3eaf50b0fa62",
+  "productDirectoryUrl": "https://github.com/Jeremy777777777/create-custom-pc-listing/tree/bbbbf9172ced5afda39e44007b2e3eaf50b0fa62/product%20generated%20photo/VL-1221",
+  "pullRequest": "https://github.com/Jeremy777777777/create-custom-pc-listing/pull/3",
+  "ci": [
+    {
+      "name": "validate",
+      "status": "completed",
+      "conclusion": "success",
+      "html_url": "https://github.com/Jeremy777777777/create-custom-pc-listing/actions/runs/37625047353/job/112804568637"
+    }
+  ],
+  "remoteVerificationMethod": "Authenticated remote branch advertises commit; fetched remote ref; SHA256 of each Git blob at that exact commit compared to current local file. Includes original assets, masks and clean masters, not merely recorded-only source hashes.",
+  "files": [
+    {
+      "path": "product generated photo/VL-1221/PT01.png",
+      "sha256": "d94fb7e725079e25438b165e326cec031d65802e58269549a85ba09667173df5",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/PT02.png",
+      "sha256": "075143788b88477fcd062b29a1a5264d6b6696255b3015118a4e0d1028998a94",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/PT03.png",
+      "sha256": "7da4161c900d267fe7f79897847abc79552012e946d61a7cfd19b271b85f6d35",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/PT04.png",
+      "sha256": "953460c346d0e631a54713620189c0abd04219623ebe6099d92e39a09e3256e4",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/PT05.png",
+      "sha256": "e915b85a7165c7a61813c3535a911ebf3eb36c9eb49d150dd1943bf0d034922e",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/PT06.png",
+      "sha256": "ba01257ba0a9975cdb384cb0ebfb124bce95c213d69effbc9c79f2f8cad0dabe",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/PT07.png",
+      "sha256": "ba4ab69be3f114d950a0d67018b823564878e8c1b6b8d5bc455b205b5485a7cd",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/PT08.png",
+      "sha256": "59525a6ed1f479689de6a38ac8be7a963f466976cb110cc6bf1aef0958f7d268",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/unbranded/PT01.png",
+      "sha256": "24b91317acd28fde3c1bbf728bcf2ea83fde083a3fbeb44e434dedafade06818",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/unbranded/PT02.png",
+      "sha256": "944a739e3ab70a15b96fa495bf196aa4f15eb5e615125e5bb05b4c93c0849d91",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/unbranded/PT03.png",
+      "sha256": "bb1979130ea1cb2fb7a2482b57d5a05a60b68a974298a3593d035a844b2e93dd",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/unbranded/PT04.png",
+      "sha256": "2b375307a82f799c34c6c22cb5d85e1acf75f974bb96570cfcdc541bc7cc39a2",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/unbranded/PT05.png",
+      "sha256": "ccf536b8ce31be9706b407e1b0c67d0c9ee097be32a5971f82fb94fa20e92375",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/unbranded/PT06.png",
+      "sha256": "1a011a1dd66a8e7194aa27616a28cea42d5f14941ba6c4fcf41a539aa97d487b",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/unbranded/PT07.png",
+      "sha256": "35b208b929d374fc72514145c0acf4ea78f32d647ec59e991535d28b5ad760f6",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/unbranded/PT08.png",
+      "sha256": "78db95dcaa835a435a828e537f09a23c7ef7c8e552a915e5c49b94a76f8df1d4",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/.gitattributes",
+      "sha256": "705fd4d6451a31d36b3df7de96f83f30ac976c9b4a6d1e51671d8e2f33e2d0da",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/build_gallery.py",
+      "sha256": "83b85013ae29a5353b00af611e807f2f3a2736c55c6a47c77d1d6fb48569f324",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/build_main.py",
+      "sha256": "40c87085dfbc32e53556e9fb96e78281fe1104c6cdc131e626cc6cfbc3954a65",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/contact-sheet.png",
+      "sha256": "a4f866d8c693ca24f84b3048782ac424a67f8e9c676fba99c78b1aaa5f4817f0",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/imagegen-prompts.json",
+      "sha256": "7e8b9e063a1c65eb47bfdd3f5243d3fbcd47a6d845f80051ed72051af4aeb504",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/main-200px.png",
+      "sha256": "7b190bebf3e93880a9d2a48fc89e2fb3a88f9b0d03caec1847b916ed67ca65d9",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/main-recipe.json",
+      "sha256": "c89681aeb6edb6f9a57e17aa0f45b061e399847681350bc61ed27f53169ae377",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/main-repeat-build-check.json",
+      "sha256": "95c0dbc99c0f42e41eb41b033b6b3d919953ca30e0022aa7c64c441e04f356c7",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/README.md",
+      "sha256": "16ddd257548e1dc39f4c57ef5d924ff1c218700ced7961211886fddc540aabb9",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/recipe.json",
+      "sha256": "95c4c40ae47db8925cb1d4289b7df3ff4f9d3b0682329ee3a066dc20d9939301",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/repeat-build-check.json",
+      "sha256": "7aaaa374f911523df5fa5363338c8581f085aa41afc9d52ec256c513f2f63415",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/source-records.json",
+      "sha256": "79552b863e2a474dfd6500dd2ce24ec6430eca7d57e4fa6885373185a77e03e3",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/history/approved-slot-exception.json",
+      "sha256": "1f81c963a535d984623815f7ca52845736c1f73198b5c7c1baac1921af3895b8",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/history/delivery-status.json",
+      "sha256": "f6caa06a3e845e26f077053d08625d001bfc8fc23f9bcee6af818d4aabc772c6",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/history/image-manifest.md",
+      "sha256": "7fa0e3764dec22058b97ac257b8a94773ae373669f15486ea2531304eeaf2c68",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/history/previous-enhanced-front.png",
+      "sha256": "f552ae9c395ae16805f9cd390c980985f7072805af00213c0271712d08ab3a48",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/history/product-facts.json",
+      "sha256": "25f36d7d3113b3da733b31c7464fd64baab5078921ef8177be92f34f7fe10aee",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/history/style-lock.json",
+      "sha256": "89e3ffcf4640612cf5d620bf73e397f2ea0acb9aab0f1fba2152d1c4af2833d2",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/approved-cinematic-reference.png",
+      "sha256": "2ae382b36bb856515c3fecd207a39d6042b7d6369b0aceaf5b857d1f031d5b29",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/HP-15-fb3093dx-datasheet.pdf",
+      "sha256": "b2120392c3269cb60bc08a23f3944d65ed4c27d73d885bc6a7ada0b0eead1f0e",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/lcd-mask.png",
+      "sha256": "5eed0af71aa31f013bc9392f41ca50bc6493f818c2903c7818820a526093ce21",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/main-lcd-mask.png",
+      "sha256": "f825157a669f72818dc69c7910036a1f2866bd821c8f710502765fa9144f9ee2",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/main-product-mask.png",
+      "sha256": "a51efac86ee4038a9ba8d81183943a0b882f71b2c9c5f4dce410cc7adab43bf6",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/main-product-native-cutout.png",
+      "sha256": "c6fac2210a964fddf62dc7d9146543477644e9fc0f067800b4443cc2b607cfb2",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/main-screen-art.png",
+      "sha256": "9e2ab983e2419fe796c2cee5dcfd2fea3d3283fcd2ba9565b4361aad77930bf3",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/official-alt5.jpg",
+      "sha256": "c1ff36e222532a9162499c7eee3f3895454bbd965bccf4bc659633cb13ac0db3",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/official-front.jpg",
+      "sha256": "80896d57c3a5c0a72f9558b9339a1957d97d57d45f4804d3cc6d7475788a5d13",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/official-ports.jpg",
+      "sha256": "2ca74044ae491af00b1eac0ebb05bad631fcff74250620d3b06558209b2d38ac",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/original-game-scene.png",
+      "sha256": "c3b5134c400b713711cd720350a6e283a720bf95c54ce42a522e93c4e39994b7",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/page0-Iabc20.jpg",
+      "sha256": "7170cb6aa78bebdd11a616a80c2267f402cc7f8735718f160d57d03498cac5c3",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/page0-Iabc23.jpg",
+      "sha256": "3dd5dd1f4fea65372f09dfceb3b13bf3c70bb2b621cf2867383452a497a42285",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/page0-Iabc26.jpg",
+      "sha256": "77ec0ea0d3d2877accbda193c484493f59b25e7d962c51a408789d64be2c7e84",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/page0-Iabc29.jpg",
+      "sha256": "f7970043728ece8d8c083cdc354cbd3d18a1a80dd41a596d7b925249acefd487",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/page0-Iabc32.jpg",
+      "sha256": "9485b34b4e2cafd114b75baea4d0737baff8a96117e5d5f1c710762efcc71656",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/page0-Iabc35.jpg",
+      "sha256": "52155e681766900395bf3c7a5192aaa86901487ccb4ace3b5b462ed834d3ee00",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/page0-Iabc38.jpg",
+      "sha256": "c1966d8e1371f4fffbc6121e5d75dfa28df3850730a71ef166e2557bd56587df",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/page0-Iabc41.jpg",
+      "sha256": "a77784c29b4a3b89570bb2224b2cc5c5c9ed776779f043c9d1d4fd1a8f20f5d4",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/page0-Iabc44.jpg",
+      "sha256": "d002fe92c3835c4f574e9316698a65162f846d459aad88fefaf15c7b879bc1fc",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/page0-Iabc47.jpg",
+      "sha256": "9b42383c404ba03df4e8b5cb64b3b109b004bb81d2f5bd9dabf6fbbc9cd5bf7b",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/page0-Iabc50.jpg",
+      "sha256": "ec4d63fe32d4c6cbf35a42d01bb125242e5f58a7871c747b3f4a3c8f8f933dda",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/page0-Iabc53.jpg",
+      "sha256": "31c4a8cffd1d0be3e1fe919a38dfa890e80b0843cfc8a1b084ed52af82c7db51",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/ports-left-cutout.png",
+      "sha256": "28b3a72f2b6acea26f7f3cb18aa272fb15a7aeb9ea065909a52d5fcd0a6ca845",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/ports-left-native.png",
+      "sha256": "b3d0a327406d63719ddb7f6211bf242ae73b1f3bcb475ce4ad3cdebf6a5ed072",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/ports-right-cutout.png",
+      "sha256": "b6bb993873326c1dd381e46de48e67379961b0ebb54e409a682d582a3e578928",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/ports-right-native.png",
+      "sha256": "f8f91a57d701f943c7632b1b96ba2ba09b9a858def524966aaa55569da351f61",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/product-cutout.png",
+      "sha256": "cbb0c62e7302a3938ad386d198e3de2ad063b9137316102f795aed1b0ca23d96",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/screen-replaced.png",
+      "sha256": "6785539c03726b44d93fccd3282e0a6992d457ef92f97eaec6b120198870af71",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/sRGB.icc",
+      "sha256": "92440dee9bedcb6ad30f44f9f7dae8691d2dcfb160e8d647a20aa8edb042ef54",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/production/VL-1221/cinematic-20261006/sources/table-background.png",
+      "sha256": "44463b75abcccc6a790dab67235658e8f31eff7fc1ab5a07ba980d0123a5ae89",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/MAIN-STRICT.jpg",
+      "sha256": "e1a96867b5505341961e18136b874d34fc93a2e2ea1e819c7f00a0dc574d1b61",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "sha256": "4eda429351ffdb308cc59b7f221ee584eea8e86a3e04815c42d44b03f5c96025",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "sha256": "cb270e3a73ec56cd7ff2c38fc2e714e963fb9e2d64920968046cda5c6c69397a",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/visual-review.json",
+      "sha256": "adacf0f563d38947962bd937f9ca3ea44fdf3bdf7e79108f257d6de79d5975e9",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/semantic-review.json",
+      "sha256": "89a5abe8b85b4e8d75ef6f06e461e1d5ecb12f424db77a5eba7d2dd3e9218c24",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/logo-qa.json",
+      "sha256": "b0dc5a55f145893d594c89bb052c9477ce067ad3e3c21b9531f633901981a746",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/logo-placement.json",
+      "sha256": "876ca550b6aae4aaa7bf5ba1e54e19dc11ea2736ac97ff2de962d6d94dd6dcad",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "product generated photo/VL-1221/partial-update-qa.json",
+      "sha256": "3c639ed11328d25cd641b5d5644222998b08061bdc749ad873baa03543891904",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/branding/hp-logo-blue.png",
+      "sha256": "9e800d0246ed113aa734fd086c6fcb1c6585aee19251d5da2fba3372649d7bbe",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    },
+    {
+      "path": "assets/branding/windows-11-pro-package.png",
+      "sha256": "6f9dc54bdbf084ebe11fb06ec85d610de8ebf766d4ead7781ff5898d6e5c7380",
+      "result": "REMOTE_COMMIT_BYTES_VERIFIED"
+    }
+  ],
+  "wholeGalleryStatus": "REWORK_REQUIRED",
+  "publicationEligibility": "NOT_ASSESSED"
+}
