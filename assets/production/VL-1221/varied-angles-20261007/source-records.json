@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VL-1221",
+  "product": "HP Victus15-fb3093dx / BM4X8UA#ABA / Mica Silver",
+  "method": "ORIGINAL_PHOTO",
+  "authorization": "USER_CONFIRMED_CATALOG_WIDE OEM merchandising. All campaign background and original game LCD pixels excluded from finals. Retailer discovery alone does not establish rights.",
+  "listingUrl": "https://www.bestbuy.com/product/hp-victus-15-6-144hz-full-hd-gaming-laptop-amd-ryzen-7-7445hs-16gb-memory-nvidia-geforce-rtx-4050-512gb-ssd-mica-silver/6623881",
+  "recordedAtUtc": "2026-10-09T12:44:32.152105+00:00",
+  "sources": [
+    {
+      "file": "official-front.jpg",
+      "url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/273a1534-d598-474e-8d4a-e1b1d7ca3e59.jpg",
+      "sha256": "80896d57c3a5c0a72f9558b9339a1957d97d57d45f4804d3cc6d7475788a5d13",
+      "matching": "Exact-model manufacturer gallery view; compare authentic marks, keyboard/numpad, hinges, silhouette, finish and visible connectors; no inferred unseen hardware."
+    },
+    {
+      "file": "official-right-angle.jpg",
+      "url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/1c8b078e-febf-470b-bb3a-134db101e3ad.jpg",
+      "sha256": "7607a7ccd2fd8a098e485694ff321ba648b81e74526e79d8384d01c23dde3ce6",
+      "matching": "Exact-model manufacturer gallery view; compare authentic marks, keyboard/numpad, hinges, silhouette, finish and visible connectors; no inferred unseen hardware."
+    },
+    {
+      "file": "official-rear.jpg",
+      "url": "https://pisces.bbystatic.com/image2/BestBuy_US/images/products/07f2eade-6587-41aa-a4df-5af4ac0b244e.jpg",
+      "sha256": "c1ff36e222532a9162499c7eee3f3895454bbd965bccf4bc659633cb13ac0db3",
+      "matching": "Exact-model manufacturer gallery view; compare authentic marks, keyboard/numpad, hinges, silhouette, finish and visible connectors; no inferred unseen hardware."
+    }
+  ],
+  "generation": "No new AI generation in this correction; original frozen built-in scene/table art from cinematic-20261006/imagegen-prompts.json reused. Hardware and logo are original assets."
+}

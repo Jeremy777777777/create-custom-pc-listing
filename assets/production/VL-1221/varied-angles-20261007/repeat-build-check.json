@@ -1,0 +1,11 @@
+{
+  "result": "PASS",
+  "method": "Second deterministic render using same frozen original photos/masks/scenes/ICC; all five final PNG SHA256 values unchanged",
+  "images": {
+    "PT01.png": "6e4534dd57c8bad2dcc59f9c2865467703865d303dff658ff21b1d00e007c67c",
+    "PT02.png": "1cddabadc1d9162992139c60205be139e44f8f100eb27878667cdb86fc49cbb9",
+    "PT04.png": "153ec311a145154dc65a2116f816418875da67bcd17f0e5b71390b77183254d8",
+    "PT05.png": "c38bd1e5af30dd5ede5cc73ddc23dba9e3af48775b476be4a2d609427623ba20",
+    "PT07.png": "87093c43592097ad58b37ca1e6bdb1b8f06577c079ab3acc0c0d9439e5e0e08a"
+  }
+}

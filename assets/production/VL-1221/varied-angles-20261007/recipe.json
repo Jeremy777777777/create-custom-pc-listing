@@ -1,0 +1,362 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VL-1221",
+  "version": "20261007-varied-angles",
+  "scope": [
+    "PT01.png",
+    "PT02.png",
+    "PT04.png",
+    "PT05.png",
+    "PT07.png"
+  ],
+  "renderer": "build_varied_gallery.py + repository gallery_engine.py badges",
+  "font": "C:/Windows/Fonts/bahnschrift.ttf",
+  "fontSha256": "eaad201da94cb323401fdb8cc760650803ddf8fd704cb9fa56317e6c69bc6fd6",
+  "sources": [
+    {
+      "file": "camera-bezel-native.png",
+      "sha256": "0c8eb81e1c2ff9503818a84b8712cb5e08e2b1555e544e7a5deea678f05b7012"
+    },
+    {
+      "file": "front-clean.png",
+      "sha256": "025b89c0f46411c2a9616eb109d5a1c01f1850cd70447a5e7a7bae8f9def3cac"
+    },
+    {
+      "file": "main-lcd-mask.png",
+      "sha256": "f825157a669f72818dc69c7910036a1f2866bd821c8f710502765fa9144f9ee2"
+    },
+    {
+      "file": "main-product-mask.png",
+      "sha256": "a51efac86ee4038a9ba8d81183943a0b882f71b2c9c5f4dce410cc7adab43bf6"
+    },
+    {
+      "file": "official-angle-campaign.jpg",
+      "sha256": "18800d08c5cf96fa65520207ea068a092fd08ed5cdb30be072caf381e97d4435"
+    },
+    {
+      "file": "official-front.jpg",
+      "sha256": "80896d57c3a5c0a72f9558b9339a1957d97d57d45f4804d3cc6d7475788a5d13"
+    },
+    {
+      "file": "official-opposite-campaign.jpg",
+      "sha256": "1259b0ce39445ca9e08e117e0b9a71d32ed511fe4f7271a55df8aecfa9bcc259"
+    },
+    {
+      "file": "official-opposite.jpg",
+      "sha256": "b56f4266dba169d8b592e6b6004fec581b82c7ac7edf12dd98c99ca9d3d739de"
+    },
+    {
+      "file": "official-rear.jpg",
+      "sha256": "c1ff36e222532a9162499c7eee3f3895454bbd965bccf4bc659633cb13ac0db3"
+    },
+    {
+      "file": "official-right-angle.jpg",
+      "sha256": "7607a7ccd2fd8a098e485694ff321ba648b81e74526e79d8384d01c23dde3ce6"
+    },
+    {
+      "file": "opposite-clean.png",
+      "sha256": "767325c4bbe92d19bd99782004faeaa2c9943b89eea817189315c17d01dfab4c"
+    },
+    {
+      "file": "opposite-lcd-mask.png",
+      "sha256": "aa1bfb239d2a88b62ccc431112bc4a58ab2d7b0cced3e652f76f590f52ac63ac"
+    },
+    {
+      "file": "opposite-product-mask.png",
+      "sha256": "85171e1f3fd111173fbcfadb6e886fa606aae65491fe841c624db346b76f6f42"
+    },
+    {
+      "file": "original-game-scene.png",
+      "sha256": "c3b5134c400b713711cd720350a6e283a720bf95c54ce42a522e93c4e39994b7"
+    },
+    {
+      "file": "product-cutout.png",
+      "sha256": "cbb0c62e7302a3938ad386d198e3de2ad063b9137316102f795aed1b0ca23d96"
+    },
+    {
+      "file": "rear-clean.png",
+      "sha256": "a9b2c970d870ccac099ae0fd59dac7f754084aff6f6d2a1d2f97eb4b8b81b1bc"
+    },
+    {
+      "file": "sRGB.icc",
+      "sha256": "92440dee9bedcb6ad30f44f9f7dae8691d2dcfb160e8d647a20aa8edb042ef54"
+    },
+    {
+      "file": "table-background.png",
+      "sha256": "44463b75abcccc6a790dab67235658e8f31eff7fc1ab5a07ba980d0123a5ae89"
+    }
+  ],
+  "oppositeSourceOutline": [
+    [
+      794,
+      532
+    ],
+    [
+      1355,
+      505
+    ],
+    [
+      1362,
+      511
+    ],
+    [
+      1365,
+      1120
+    ],
+    [
+      1362,
+      1129
+    ],
+    [
+      1353,
+      1128
+    ],
+    [
+      1356,
+      1142
+    ],
+    [
+      1373,
+      1149
+    ],
+    [
+      1380,
+      1167
+    ],
+    [
+      1371,
+      1198
+    ],
+    [
+      1205,
+      1338
+    ],
+    [
+      835,
+      1518
+    ],
+    [
+      826,
+      1518
+    ],
+    [
+      374,
+      1298
+    ],
+    [
+      371,
+      1287
+    ],
+    [
+      739,
+      1027
+    ],
+    [
+      750,
+      1020
+    ],
+    [
+      771,
+      1013
+    ],
+    [
+      784,
+      1010
+    ],
+    [
+      782,
+      549
+    ],
+    [
+      787,
+      538
+    ]
+  ],
+  "oppositeSourceLCD": [
+    [
+      798,
+      552
+    ],
+    [
+      1342,
+      520
+    ],
+    [
+      1342,
+      1026
+    ],
+    [
+      797,
+      947
+    ]
+  ],
+  "frontCrop": [
+    480,
+    540,
+    1555,
+    1490
+  ],
+  "slots": {
+    "PT01.png": {
+      "canvas": [
+        1254,
+        1254
+      ],
+      "cameraView": "Straight front hero, large centered placement; no specs or OS",
+      "productLayerMethod": "ORIGINAL_PHOTO",
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 143,
+          "y": 335,
+          "width": 968,
+          "height": 855
+        },
+        {
+          "label": "HEADLINE",
+          "x": 64,
+          "y": 54,
+          "width": 900,
+          "height": 200
+        }
+      ],
+      "masterSha256": "46edb6b862499ac39849f5982b8239477e6643695c23268000de16aad810a41f"
+    },
+    "PT02.png": {
+      "canvas": [
+        1254,
+        1254
+      ],
+      "cameraView": "Opposite three-quarter view on original empty tabletop; screen rises to the right",
+      "productLayerMethod": "ORIGINAL_PHOTO",
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 215,
+          "y": 375,
+          "width": 830,
+          "height": 849
+        },
+        {
+          "label": "HEADLINE",
+          "x": 64,
+          "y": 54,
+          "width": 900,
+          "height": 200
+        }
+      ],
+      "masterSha256": "ac8ae68dce0bc237997dbe4c6b986b6bc4548d38ca4ee49a4d41603f8a633a3d"
+    },
+    "PT04.png": {
+      "canvas": [
+        1254,
+        1254
+      ],
+      "cameraView": "Centered frontal display, four facts across top, full product below",
+      "productLayerMethod": "ORIGINAL_PHOTO",
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 217,
+          "y": 480,
+          "width": 817,
+          "height": 722
+        },
+        {
+          "label": "DISPLAY_COPY",
+          "x": 64,
+          "y": 330,
+          "width": 1140,
+          "height": 110
+        },
+        {
+          "label": "HEADLINE",
+          "x": 64,
+          "y": 54,
+          "width": 900,
+          "height": 200
+        }
+      ],
+      "masterSha256": "92e7ebc478ab987cdc2ba83d5a26b5e6cced16d05422954ca883fe4d8f872699"
+    },
+    "PT05.png": {
+      "canvas": [
+        1254,
+        1254
+      ],
+      "cameraView": "Original rear three-quarter product; vertical workflow at left; no additional capacities",
+      "productLayerMethod": "ORIGINAL_PHOTO",
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 338,
+          "y": 495,
+          "width": 874,
+          "height": 676
+        },
+        {
+          "label": "FLOW",
+          "x": 64,
+          "y": 380,
+          "width": 260,
+          "height": 610
+        },
+        {
+          "label": "HEADLINE",
+          "x": 64,
+          "y": 54,
+          "width": 900,
+          "height": 200
+        }
+      ],
+      "masterSha256": "6540014420b9dde0ad33e026b4167949d20c64c1bc4009eb3d1fee54dc2638cf"
+    },
+    "PT07.png": {
+      "canvas": [
+        1254,
+        1254
+      ],
+      "cameraView": "Native frontal webcam/bezel detail above lower-left front product; proof copy at right",
+      "productLayerMethod": "ORIGINAL_PHOTO",
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 65,
+          "y": 685,
+          "width": 559,
+          "height": 494
+        },
+        {
+          "label": "PRODUCT_BEZEL_DETAIL",
+          "x": 65,
+          "y": 438,
+          "width": 805,
+          "height": 82
+        },
+        {
+          "label": "CAMERA_COPY",
+          "x": 65,
+          "y": 330,
+          "width": 800,
+          "height": 70
+        },
+        {
+          "label": "CAMERA_BODY",
+          "x": 700,
+          "y": 735,
+          "width": 500,
+          "height": 370
+        },
+        {
+          "label": "HEADLINE",
+          "x": 64,
+          "y": 54,
+          "width": 900,
+          "height": 200
+        }
+      ],
+      "masterSha256": "4caca4ea911e873194095c9c8bafa0b349d0b2c3622673b0f753ac555fd132a6"
+    }
+  },
+  "transformPolicy": "Native hardware or proportional downscale only; never mirror, simulate perspective or synthesize a new product angle"
+}

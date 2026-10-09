@@ -5,9 +5,13 @@
   "selectedSlots": [
     "PT01.png",
     "PT02.png",
+    "PT03.png",
     "PT04.png",
     "PT05.png",
-    "PT07.png"
+    "PT06.png",
+    "PT07.png",
+    "PT08.png",
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png"
   ],
   "wholeGalleryState": "REWORK_REQUIRED",
   "publicationEligibility": "NOT_ASSESSED",
@@ -26,7 +30,7 @@
         96
       ],
       "iccPresent": false,
-      "reviewScope": "UNCHANGED_PREVIOUS_BYTES"
+      "reviewScope": "RETAINED_BYTES_NOT_NEWLY_APPROVED"
     },
     {
       "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
@@ -42,7 +46,7 @@
         72.009
       ],
       "iccPresent": true,
-      "reviewScope": "UNCHANGED_PREVIOUS_BYTES"
+      "reviewScope": "CURRENT_SELECTED_SLOT"
     },
     {
       "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
@@ -55,11 +59,11 @@
       "mode": "RGB",
       "dpi": null,
       "iccPresent": false,
-      "reviewScope": "UNCHANGED_PREVIOUS_BYTES"
+      "reviewScope": "RETAINED_BYTES_NOT_NEWLY_APPROVED"
     },
     {
       "file": "PT01.png",
-      "sha256": "6e4534dd57c8bad2dcc59f9c2865467703865d303dff658ff21b1d00e007c67c",
+      "sha256": "d94fb7e725079e25438b165e326cec031d65802e58269549a85ba09667173df5",
       "size": [
         1254,
         1254
@@ -75,7 +79,7 @@
     },
     {
       "file": "PT02.png",
-      "sha256": "1cddabadc1d9162992139c60205be139e44f8f100eb27878667cdb86fc49cbb9",
+      "sha256": "075143788b88477fcd062b29a1a5264d6b6696255b3015118a4e0d1028998a94",
       "size": [
         1254,
         1254
@@ -103,11 +107,11 @@
         72.009
       ],
       "iccPresent": true,
-      "reviewScope": "UNCHANGED_PREVIOUS_BYTES"
+      "reviewScope": "CURRENT_SELECTED_SLOT"
     },
     {
       "file": "PT04.png",
-      "sha256": "153ec311a145154dc65a2116f816418875da67bcd17f0e5b71390b77183254d8",
+      "sha256": "953460c346d0e631a54713620189c0abd04219623ebe6099d92e39a09e3256e4",
       "size": [
         1254,
         1254
@@ -123,7 +127,7 @@
     },
     {
       "file": "PT05.png",
-      "sha256": "c38bd1e5af30dd5ede5cc73ddc23dba9e3af48775b476be4a2d609427623ba20",
+      "sha256": "e915b85a7165c7a61813c3535a911ebf3eb36c9eb49d150dd1943bf0d034922e",
       "size": [
         1254,
         1254
@@ -151,11 +155,11 @@
         72.009
       ],
       "iccPresent": true,
-      "reviewScope": "UNCHANGED_PREVIOUS_BYTES"
+      "reviewScope": "CURRENT_SELECTED_SLOT"
     },
     {
       "file": "PT07.png",
-      "sha256": "87093c43592097ad58b37ca1e6bdb1b8f06577c079ab3acc0c0d9439e5e0e08a",
+      "sha256": "ba4ab69be3f114d950a0d67018b823564878e8c1b6b8d5bc455b205b5485a7cd",
       "size": [
         1254,
         1254
@@ -183,7 +187,7 @@
         72.009
       ],
       "iccPresent": true,
-      "reviewScope": "UNCHANGED_PREVIOUS_BYTES"
+      "reviewScope": "CURRENT_SELECTED_SLOT"
     }
   ]
 }

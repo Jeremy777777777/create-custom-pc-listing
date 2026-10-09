@@ -49,20 +49,5 @@
     "styleApprovalStatus": "APPROVED_CURRENT_USER_DIRECTION",
     "recipeStatus": "BUILT_AND_SELECTED_SLOT_REVIEWED",
     "currentQaInherited": false
-  },
-  "variedAngleCorrection": {
-    "approvalSource": "Current direct user request: 怎么都是一个朝向，变换一下位置和角度呀，一个朝向很单调",
-    "scope": [
-      "PT01.png",
-      "PT02.png",
-      "PT04.png",
-      "PT05.png",
-      "PT07.png"
-    ],
-    "sameApprovedStyle": true,
-    "recipePath": "assets/production/VL-1221/varied-angles-20261007/recipe.json",
-    "recipeSha256": "f4e2305d757c5d680b0aa693533d295d5311ca544296914706ef49a66ae9c58c",
-    "productMethod": "ORIGINAL_PHOTO",
-    "status": "BUILT_AND_CURRENT_SELECTED_SLOT_REVIEWED"
   }
 }

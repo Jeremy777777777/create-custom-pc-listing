@@ -1,17 +1,17 @@
 {
   "schemaVersion": 3,
-  "generatedAtUtc": "2026-10-09T12:44:31.156777+00:00",
+  "generatedAtUtc": "2026-10-06T21:02:47.097303+00:00",
   "brand": "HP",
   "result": "PASS",
   "logoAssetSha256": "9e800d0246ed113aa734fd086c6fcb1c6585aee19251d5da2fba3372649d7bbe",
   "logoAssetPath": "../../assets/branding/hp-logo-blue.png",
   "visibleLogoAspectRatio": 1.0,
-  "placementPlanSha256": "04a47cd034686eab3d98a3c544e7079ce9f06c741ca9b8c91babb731ad0f8585",
+  "placementPlanSha256": "876ca550b6aae4aaa7bf5ba1e54e19dc11ea2736ac97ff2de962d6d94dd6dcad",
   "images": [
     {
       "file": "PT01.png",
-      "finalImageSha256": "6e4534dd57c8bad2dcc59f9c2865467703865d303dff658ff21b1d00e007c67c",
-      "unbrandedSourceSha256": "46edb6b862499ac39849f5982b8239477e6643695c23268000de16aad810a41f",
+      "finalImageSha256": "d94fb7e725079e25438b165e326cec031d65802e58269549a85ba09667173df5",
+      "unbrandedSourceSha256": "24b91317acd28fde3c1bbf728bcf2ea83fde083a3fbeb44e434dedafade06818",
       "separationPx": 32,
       "geometryGate": "PASS",
       "sourceVerification": "LOCAL_BYTES_VERIFIED",
@@ -19,8 +19,8 @@
     },
     {
       "file": "PT02.png",
-      "finalImageSha256": "1cddabadc1d9162992139c60205be139e44f8f100eb27878667cdb86fc49cbb9",
-      "unbrandedSourceSha256": "ac8ae68dce0bc237997dbe4c6b986b6bc4548d38ca4ee49a4d41603f8a633a3d",
+      "finalImageSha256": "075143788b88477fcd062b29a1a5264d6b6696255b3015118a4e0d1028998a94",
+      "unbrandedSourceSha256": "944a739e3ab70a15b96fa495bf196aa4f15eb5e615125e5bb05b4c93c0849d91",
       "separationPx": 32,
       "geometryGate": "PASS",
       "sourceVerification": "LOCAL_BYTES_VERIFIED",
@@ -37,8 +37,8 @@
     },
     {
       "file": "PT04.png",
-      "finalImageSha256": "153ec311a145154dc65a2116f816418875da67bcd17f0e5b71390b77183254d8",
-      "unbrandedSourceSha256": "92e7ebc478ab987cdc2ba83d5a26b5e6cced16d05422954ca883fe4d8f872699",
+      "finalImageSha256": "953460c346d0e631a54713620189c0abd04219623ebe6099d92e39a09e3256e4",
+      "unbrandedSourceSha256": "2b375307a82f799c34c6c22cb5d85e1acf75f974bb96570cfcdc541bc7cc39a2",
       "separationPx": 32,
       "geometryGate": "PASS",
       "sourceVerification": "LOCAL_BYTES_VERIFIED",
@@ -46,8 +46,8 @@
     },
     {
       "file": "PT05.png",
-      "finalImageSha256": "c38bd1e5af30dd5ede5cc73ddc23dba9e3af48775b476be4a2d609427623ba20",
-      "unbrandedSourceSha256": "6540014420b9dde0ad33e026b4167949d20c64c1bc4009eb3d1fee54dc2638cf",
+      "finalImageSha256": "e915b85a7165c7a61813c3535a911ebf3eb36c9eb49d150dd1943bf0d034922e",
+      "unbrandedSourceSha256": "ccf536b8ce31be9706b407e1b0c67d0c9ee097be32a5971f82fb94fa20e92375",
       "separationPx": 32,
       "geometryGate": "PASS",
       "sourceVerification": "LOCAL_BYTES_VERIFIED",
@@ -64,8 +64,8 @@
     },
     {
       "file": "PT07.png",
-      "finalImageSha256": "87093c43592097ad58b37ca1e6bdb1b8f06577c079ab3acc0c0d9439e5e0e08a",
-      "unbrandedSourceSha256": "4caca4ea911e873194095c9c8bafa0b349d0b2c3622673b0f753ac555fd132a6",
+      "finalImageSha256": "ba4ab69be3f114d950a0d67018b823564878e8c1b6b8d5bc455b205b5485a7cd",
+      "unbrandedSourceSha256": "35b208b929d374fc72514145c0acf4ea78f32d647ec59e991535d28b5ad760f6",
       "separationPx": 32,
       "geometryGate": "PASS",
       "sourceVerification": "LOCAL_BYTES_VERIFIED",
@@ -81,9 +81,9 @@
       "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
     }
   ],
-  "reviewer": "Codex actual multimodal native and exact 200px inspection; not independent human certification",
-  "reviewedAtUtc": "2026-10-09T12:44:32.152105+00:00",
-  "visualReviewSha256": "512ee63c852022302b313c5272c6bfc3a09e58e03240b90a4a0b52d102eac4d0",
+  "reviewer": "Codex multimodal visual inspection in this user-authorized correction session",
+  "reviewedAtUtc": "2026-10-06T21:03:30.321620+00:00",
+  "visualReviewSha256": "adacf0f563d38947962bd937f9ca3ea44fdf3bdf7e79108f257d6de79d5975e9",
   "visibleLogoDimensionsPx": [
     128,
     128

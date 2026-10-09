@@ -1,63 +1,39 @@
 {
   "schemaVersion": 3,
   "result": "PASS",
-  "reviewer": "Codex multimodal visual inspection in this user-authorized correction session",
-  "reviewedAtUtc": "2026-10-06T21:22:25.341390+00:00",
-  "reviewMethod": "Actual native images opened individually; exact 200px-per-image contact opened and inspected. This is agent visual review, not a claim of independent human certification.",
+  "reviewer": "Codex actual multimodal native and exact 200px inspection; not independent human certification",
+  "reviewedAtUtc": "2026-10-09T12:44:32.152105+00:00",
+  "reviewMethod": "Opened five changed final images at native size and the exact 200px-per-image full-gallery contact sheet. Checked style, changed camera views, product fidelity, source-game removal, LCD clipping, text and original logo separation. Unchanged slots retain recorded bytes.",
   "images": [
     {
       "file": "PT01.png",
-      "sha256": "d94fb7e725079e25438b165e326cec031d65802e58269549a85ba09667173df5",
+      "sha256": "6e4534dd57c8bad2dcc59f9c2865467703865d303dff658ff21b1d00e007c67c",
       "result": "PASS",
-      "notes": "Inspected at native 1254px and in exact 200px contact. Single gaming headline, no specs/OS grid. Complete exact OEM silhouette preserved proportionally; real V and palm-rest marks retained; screen artwork clipped to measured LCD. HP original outside product, no accessory."
+      "notes": "Actual native1254 and200px review. Large straight front hero replaces the repeated left three-quarter. Authorized exact-model original front geometry and keyboard/numpad/Imagepad preserved by measured photo mask, native1075x950 layer downscaled0.9. Authentic bezelV and palm-restmark retained. Entire source game LCD is replaced with frozen original crimson art; no game logo, capacities, OS or peripherals. Headline and original HP logo separated."
     },
     {
       "file": "PT02.png",
-      "sha256": "075143788b88477fcd062b29a1a5264d6b6696255b3015118a4e0d1028998a94",
+      "sha256": "1cddabadc1d9162992139c60205be139e44f8f100eb27878667cdb86fc49cbb9",
       "result": "PASS",
-      "notes": "Inspected native and 200px. Original red-lit empty tabletop and one real OEM laptop; no people/peripherals. Session scene only, no repeated capacities. Original physical marks and screen clipping retained. HP original outside silhouette."
-    },
-    {
-      "file": "PT03.png",
-      "sha256": "7da4161c900d267fe7f79897847abc79552012e946d61a7cfd19b271b85f6d35",
-      "result": "PASS",
-      "notes": "Inspected native and 200px. Sole full base configuration page. Proofread Ryzen 7 7445HS, six cores/up to4.7GHz; RTX4050Laptop6GB;16GBDDR5-5600;512GBPCIeGen4NVMe; seller-confirmedPro. Flat hierarchy, no boxes; OEM geometry and marks preserved. Primary values readable, supporting detail intended for zoom."
+      "notes": "Actual native1254 and200px review after edge correction. Different official opposite three-quarter camera view, never a mirrored prior product. Keyboard/right-side connectors, rearward screen inclination, factoryV and palm-restmark compared against original official-right-angle.jpg. Measured native outline excludes campaign background; new original art fully replaces original game screen and all game logos. Native1050x1075 layer downscaled0.79. Laptop positioned to right on empty original tabletop; no peripherals or repeated numerical claims. Fine source-photo antialiasing retained, no invented geometry."
     },
     {
       "file": "PT04.png",
-      "sha256": "953460c346d0e631a54713620189c0abd04219623ebe6099d92e39a09e3256e4",
+      "sha256": "153ec311a145154dc65a2116f816418875da67bcd17f0e5b71390b77183254d8",
       "result": "PASS",
-      "notes": "Inspected native and 200px. Display-only facts:15.6-inch IPS,FHD1920x1080,144Hz,anti-glare. No input/port or capacity recap; whole source laptop remains proportional. HP original outside product with clear space."
+      "notes": "Actual native1254 and200px review. Straight-front whole-product view below four horizontal display facts creates different hierarchy from PT01. Accurate15.6-inchIPS,144Hz,FHD1920x1080,anti-glare text proofread; no capacity/input/port recap. Exact-model native front photo downscaled0.76 with authentic marks, measured LCD art mask, no external devices. Logo/copy/product clear spacing."
     },
     {
       "file": "PT05.png",
-      "sha256": "e915b85a7165c7a61813c3535a911ebf3eb36c9eb49d150dd1943bf0d034922e",
+      "sha256": "c38bd1e5af30dd5ede5cc73ddc23dba9e3af48775b476be4a2d609427623ba20",
       "result": "PASS",
-      "notes": "Inspected native and 200px. PROCESS→RENDER→DISPLAY relationships and simple arrows; no model/capacity table or peripherals. Genuine chassis, keys, touchpad and factory marks retained. Original scene only within LCD."
-    },
-    {
-      "file": "PT06.png",
-      "sha256": "ba01257ba0a9975cdb384cb0ebfb124bce95c213d69effbc9c79f2f8cad0dabe",
-      "result": "PASS",
-      "notes": "Inspected native and 200px. White background. Native OEM keyboard/deck and touchpad detail crops without synthesized keys or geometric warp. All key groups including numeric keypad visible; no GamePass/game logo, software claim or packout. Full-size/backlit/Imagepad labels verified in datasheet. OEM palm-rest mark retained within crop."
+      "notes": "Actual native1254 and200px review. Genuine rear three-quarter from exact-model official AltView5, native1840x1424 downscaled0.475. LidV, rearVICTUSphysicalmark, hinge/vent/visible keyboard/right-connector geometry match original photo; no mirroring or invented back surface. VerticalPROCESS→RENDER→DISPLAY relationship at left instead of another hero clone; no clocks/capacities/thermal claim. Original HP logo separated."
     },
     {
       "file": "PT07.png",
-      "sha256": "ba4ab69be3f114d950a0d67018b823564878e8c1b6b8d5bc455b205b5485a7cd",
+      "sha256": "87093c43592097ad58b37ca1e6bdb1b8f06577c079ab3acc0c0d9439e5e0e08a",
       "result": "PASS",
-      "notes": "Inspected native and 200px. Camera/call fact family uniquely owned.720pHD,temporalnoise reduction,dual-arraydigitalmics verified in OEMdatasheet. Leader ends at actual native webcam in bezel; no invented closeup lens, warranty or config recap. Product and logo separated."
-    },
-    {
-      "file": "PT08.png",
-      "sha256": "59525a6ed1f479689de6a38ac8be7a963f466976cb110cc6bf1aef0958f7d268",
-      "result": "PASS",
-      "notes": "Inspected native and 200px. Both actual OEM side views match exact-model datasheet connector count/types. Left ACsmartpin,USB-A5GbpsSleep&Charge,audio; rightUSB-C5GbpsDP1.4aSleep&Charge,RJ45,USB-A5Gbps,HDMI2.1. Separate leaders reach corresponding retained OEM connector anchors.2USB-A/1USB-C,Wi-Fi6(2x2)/BT5.4 verified. No generic substitute/accessory. Primary labels readable at200px; functions available at zoom."
-    },
-    {
-      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
-      "sha256": "4eda429351ffdb308cc59b7f221ee584eea8e86a3e04815c42d44b03f5c96025",
-      "result": "PASS",
-      "notes": "Actual native1075x950 and200px inspection. Exact HP15-fb3093dx factory product photo preserved at native scale, no generated chassis/keys; genuine bezelV and palm-restVICTUS marks retained. Complete computer on white with neutral shadow. Approved crimson cinematic artwork reused only within LCD; no giant VICTUS marketing text or configuration frames. Five proofread configuration pairs and exactly one original Windows11Propackage entirelyLCD-contained. Factory game logos and colorful campaign exterior excluded by measured mask. Primary labels visible at200px; zoom provides exact small labels. Enhanced candidate publication eligibility NOT_ASSESSED."
+      "notes": "Actual native1254 and200px review after source-game removal from detail strip. Native805x82 frontal bezel/webcam detail with leader on genuine central lens, and smaller straight-front device lowerleft with camera/microphone copy right. Native front hardware not upscaled or generated; strip includes only frozen replacement LCDart below genuine bezel.720pHD,temporalnoise reduction,dual-arraydigitalmicrophones retain existing verified fact ownership. Detail lens is intentionally native small; primary camera label readable in thumbnail and fine detail at full size. No seller warranty/OS/configuration recap."
     }
   ]
 }
