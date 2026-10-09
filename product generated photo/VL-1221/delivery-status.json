@@ -13,13 +13,13 @@
   "wholeGalleryState": "REWORK_REQUIRED",
   "fullGalleryPass": false,
   "publicationEligibility": "NOT_ASSESSED",
-  "githubDelivery": "AWAITING_CURRENT_REVISION_PUSH_CI_REMOTE_HASH_VERIFICATION",
+  "githubDelivery": "GITHUB_DELIVERY_VERIFIED",
   "retainedMainSha256": {
     "MAIN-STRICT.jpg": "e1a96867b5505341961e18136b874d34fc93a2e2ea1e819c7f00a0dc574d1b61",
     "MAIN-ENHANCED-FRONT-CANDIDATE.png": "4eda429351ffdb308cc59b7f221ee584eea8e86a3e04815c42d44b03f5c96025",
     "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": "cb270e3a73ec56cd7ff2c38fc2e714e963fb9e2d64920968046cda5c6c69397a"
   },
-  "updatedAtUtc": "2026-10-09T12:44:32.152105+00:00",
+  "updatedAtUtc": "2026-10-09T08:44:32.152105-04:00",
   "galleryState": "LEGACY_QUARANTINED",
   "currentQaPass": false,
   "reworkStatus": "REWORK_REQUIRED",
@@ -31,5 +31,10 @@
     "PT03.png": "7da4161c900d267fe7f79897847abc79552012e946d61a7cfd19b271b85f6d35",
     "PT06.png": "ba01257ba0a9975cdb384cb0ebfb124bce95c213d69effbc9c79f2f8cad0dabe",
     "PT08.png": "59525a6ed1f479689de6a38ac8be7a963f466976cb110cc6bf1aef0958f7d268"
-  }
+  },
+  "verifiedImageSnapshotCommit": "c7fd908900728fb363a11ab441099d67bc2a2a8a",
+  "verificationReceipt": "github-delivery-verification.json",
+  "verifiedImageSnapshotUrl": "https://github.com/Jeremy777777777/create-custom-pc-listing/tree/c7fd908900728fb363a11ab441099d67bc2a2a8a/product%20generated%20photo/VL-1221",
+  "verifiedAtUtc": "2026-10-09T09:04:38.357396-04:00",
+  "remoteFileHashesVerified": true
 }
