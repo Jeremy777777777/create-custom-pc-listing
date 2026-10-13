@@ -1,0 +1,22 @@
+{
+  "remoteCommit": "8081cecf11b7780ca4804aabec46f4779eda4bd3",
+  "remoteBranchVerified": true,
+  "artifactFilesVerified": 51,
+  "ciRuns": [
+    {
+      "id": 38464597204,
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jeremy777777777/create-custom-pc-listing/actions/runs/38464597204",
+      "headSha": "8081cecf11b7780ca4804aabec46f4779eda4bd3",
+      "name": "Validate current gallery delivery"
+    }
+  ],
+  "deliveryState": "GITHUB_DELIVERY_VERIFIED",
+  "deliveryScope": "SINGLE_SLOT_USER_APPROVED_IMPORT",
+  "slot": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+  "sha256": "eb720f70b39c393ddd73f7705c9de6bd2b9e22fa1c0117d086dd62b0298b4a3a",
+  "ciScope": "Repository CI passed; VD discovery excluded by existing VL-only glob. Selected image dimensions, format, exact approved bytes and ten unchanged images explicitly checked locally.",
+  "fullGalleryStrictQaPass": false,
+  "publicationEligibility": "NOT_ASSESSED"
+}

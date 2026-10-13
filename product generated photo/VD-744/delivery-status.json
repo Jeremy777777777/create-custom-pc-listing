@@ -1,22 +1,22 @@
 {
   "internalId": "VD-744",
   "galleryState": "USER_APPROVED_ANGLE_IMPORT_STRICT_REVALIDATION_REQUIRED",
-  "deliveryState": "PENDING_GITHUB_VERIFICATION",
+  "deliveryState": "GITHUB_DELIVERY_VERIFIED",
   "deliveryScope": "SINGLE_SLOT_USER_APPROVED_IMPORT",
   "currentQaPass": false,
   "amazonEligibility": "NOT_ASSESSED",
   "factsCompleteness": "REVIEW_REQUIRED",
-  "reason": "One selected angle replaced; ten other images unchanged. Prior full-gallery strict QA does not certify imported AI branding/hardware.",
+  "reason": "Requested angle import verified against remote Git bytes; applicable CI passed. Ten other image hashes unchanged. Strict artwork/publication gates remain separate.",
   "nextRun": "Retain this user-selected angle unless requested otherwise; assess strict publication gates separately.",
-  "lastVerifiedArtifactCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
-  "remoteFilesVerified": 49,
+  "lastVerifiedArtifactCommit": "8081cecf11b7780ca4804aabec46f4779eda4bd3",
+  "remoteFilesVerified": 51,
   "remoteCi": [
     {
-      "id": 38460558551,
+      "id": 38464597204,
       "status": "completed",
       "conclusion": "success",
-      "url": "https://github.com/Jeremy777777777/create-custom-pc-listing/actions/runs/38460558551",
-      "headSha": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "url": "https://github.com/Jeremy777777777/create-custom-pc-listing/actions/runs/38464597204",
+      "headSha": "8081cecf11b7780ca4804aabec46f4779eda4bd3",
       "name": "Validate current gallery delivery"
     }
   ],
