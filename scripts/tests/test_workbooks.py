@@ -18,8 +18,33 @@ class WorkbookChecks(unittest.TestCase):
         for status in ('TBD', 'SOURCE_UNAVAILABLE', 'NOT_APPLICABLE', 'CONFLICT'):
             module.check_fcc_id_value(None, status)
 
-    def test_canonical_template_keeps_fcc_fields_and_evidence_inputs(self):
-        module.check_fcc_template(Path(__file__).parents[2]/'assets/listing-workbook-template.xlsx')
+    def test_canonical_template_keeps_fcc_fields_and_research_statuses(self):
+        module.check_template_inputs(Path(__file__).parents[2]/'assets/listing-workbook-template.xlsx')
+
+    def test_current_workbook_discovery_includes_non_vl_ids_without_history(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp)
+            expected=[]
+            for name in ('VL-123', 'VA-456', 'VD-744'):
+                path=root/'product generated photo'/name/'research.xlsx'
+                path.parent.mkdir(parents=True);path.touch();expected.append(path)
+            for rel in ('history/product generated photo/VD-744/old.xlsx',
+                        'product generated photo/VD-744/scratch/experiment.xlsx'):
+                path=root/rel;path.parent.mkdir(parents=True);path.touch()
+            self.assertEqual(module.current_workbooks(root),sorted(expected))
+
+    def test_ui_prompts_are_optional_but_status_vocabulary_is_consistent(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            path=Path(tmp)/'template.xlsx'
+            book=openpyxl.load_workbook(Path(__file__).parents[2]/'assets/listing-workbook-template.xlsx')
+            for sheet in book:
+                for validation in sheet.data_validations.dataValidation:
+                    validation.prompt=None;validation.showInputMessage=False
+            book.save(path);module.check_template_inputs(path)
+            book.worksheets[0].data_validations.dataValidation[0].formula1='"VERIFIED,NOT VERIFIED"'
+            book.save(path);book.close()
+            with self.assertRaisesRegex(ValueError,'Status dropdown'):
+                module.check_template_inputs(path)
 
     def test_accepts_status_dispositions_but_rejects_structure_and_missing_evidence(self):
         with tempfile.TemporaryDirectory() as tmp:

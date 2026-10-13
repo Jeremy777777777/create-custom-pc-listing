@@ -40,7 +40,7 @@ Audience style references define creative recipes only; they do not override pol
 
 ## Product output
 
-Use `product generated photo/VL-XXXX/` for the verified internal ID. Research Review XLSX creates/reuses this folder immediately; later listing workbooks, 11 image slots and current QA records share it. Research upload is not release readiness.
+Use `product generated photo/<internal-id>/`, preserving the verified ID and prefix (for example VL-1221 or VD-744). Research Review XLSX creates/reuses this folder immediately; later listing workbooks, 11 image slots and current QA records share it. Research upload is not release readiness.
 
 Read `product-facts.json` and `delivery-status.json` before legacy outputs. Existing gallery images retained during this migration are **LEGACY_QUARANTINED / REWORK_REQUIRED**, not current approved templates or complete deliveries. No fresh visual approval or QA is fabricated. New runs regenerate/revalidate requested deliverables from accurate licensed sources and current clean masters.
 

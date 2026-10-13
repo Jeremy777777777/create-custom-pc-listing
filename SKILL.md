@@ -36,7 +36,7 @@ Optional sources:
 
 Use `MYSTORE_ONLY`, `CHECKLIST_ONLY` or `MYSTORE_AND_CHECKLIST`. Locate the exact requested product, not the whole catalog. Preserve original records, source URLs, timestamps, product IDs, tracker sheet/row, name, internal VL/VA identifier and quantity. Match by verified identity and configuration; do not merge fuzzy matches or expand an unconfirmed range. A missing source may be replaced by independent authoritative evidence.
 
-Confirm the canonical internal ID before writing `product generated photo/VL-XXXX/`. Do not substitute an ERP number, ASIN or OEM model. Confirm Quantity's business meaning before using it as Amazon available inventory. Read an existing folder's current `product-facts.json` and `delivery-status.json` before looking at any previous output. `LEGACY_QUARANTINED` means historical images must be revalidated, not reused as approved styles or uploaded as current finished output.
+Confirm the canonical internal ID before writing `product generated photo/<internal-id>/` (for example VL-1221 or VD-744). Preserve the verified prefix; do not invent a VL alias or substitute an ERP number, ASIN or OEM model. Confirm Quantity's business meaning before using it as Amazon available inventory. Read an existing folder's current `product-facts.json` and `delivery-status.json` before looking at any previous output. `LEGACY_QUARANTINED` means historical images must be revalidated, not reused as approved styles or uploaded as current finished output.
 
 ## 2. Research and field validation
 
@@ -44,7 +44,7 @@ Read `references/research-attribute-coverage.md`, `references/confirmed-catalog-
 
 Research exact OEM SKU/model/region/colour, installed CPU/GPU/RAM/internal SSD, display, wireless, physical ports, input, camera/audio/security, dimensions/weight, power/battery, pack-out and regulatory attributes. Distinguish installed values from capabilities and maximums. Use exact ERP/assembly records for sold configuration, exact OEM evidence for physical facts, and component sources only for the component. Retailer/Amazon pages discover omissions and differences; they do not independently verify specifications or asset rights.
 
-For full listing research and FCC-field corrections, apply [FCC lookup and workbook mapping](references/fcc-research-workflow.md). Research the host authorization route and actual installed radio separately; populate the existing FCC/SDoC template fields with evidence and honest unresolved statuses. Optional-module FCC IDs and an SDoC host must not be conflated. This does not add unrelated compliance work to image-only edits.
+For full listing research and FCC-field corrections, apply [FCC lookup and workbook mapping](references/fcc-research-workflow.md); image-only edits do not require unrelated compliance research.
 
 Review up to three accessible high-quality exact/related Amazon listings for coverage and original information organisation. Do not force three unsuitable results or copy text/images. Save searches, date, URLs and differences.
 

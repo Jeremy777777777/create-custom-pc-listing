@@ -1,4 +1,4 @@
-"""Check template topology only; never infer factual, seller or publication readiness."""
+"""Check workbook structure and obvious FCC ID placeholders; never authenticate compliance."""
 import argparse
 import json
 import os
@@ -7,14 +7,16 @@ import openpyxl
 from warranty_policy import validate_workbook_copy
 
 SHEETS = ['Product Details', 'Offer', 'Safety&Compliance']
+RESEARCH_STATUSES = ('VERIFIED', 'INPUT_UNVERIFIED', 'CONFLICT', 'TBD',
+                     'SOURCE_UNAVAILABLE', 'NOT_APPLICABLE')
 FCC_FIELDS = ('FCC Radio Frequency Emission Compliance',
               'Radio Frequency Emission & Authorization Status', 'FCC ID',
               'SDoC Contact Name', 'SDoC Contact US Mailing Address',
               'SDoC Contact Email Address', 'SDOC Contact US Phone Number')
 
 
-def check_fcc_template(path):
-    """Confirm FCC inputs exist; this never authenticates a product or grant."""
+def check_template_inputs(path):
+    """Check required FCC inputs and the shared research status vocabulary."""
     book = openpyxl.load_workbook(path)
     try:
         sheet = book['Safety&Compliance']
@@ -24,11 +26,13 @@ def check_fcc_template(path):
         col = headers.index('FCC ID') + 1
         if sheet.cell(3, col).number_format != '@':
             raise ValueError('Template FCC ID Value must use text formatting')
-        for row in (3, 5):
-            cell = sheet.cell(row, col)
-            if not any(cell.coordinate in validation and validation.showInputMessage
-                       and validation.prompt for validation in sheet.data_validations.dataValidation):
-                raise ValueError('Template FCC ID needs Value/Source evidence prompts')
+        for tab in book:
+            for column in range(2, tab.max_column + 1):
+                cell = tab.cell(4, column)
+                if not any(cell.coordinate in validation and validation.type == 'list'
+                           and validation.formula1 == '"' + ','.join(RESEARCH_STATUSES) + '"'
+                           for validation in tab.data_validations.dataValidation):
+                    raise ValueError('Template Status dropdown must match research statuses')
     finally:
         book.close()
 
@@ -84,11 +88,16 @@ def check_output(path, topology, manufacturer=None):
     finally:
         book.close()
 
+def current_workbooks(root):
+    # Immediate canonical product folders only; history/ and nested scratch are excluded.
+    return sorted((Path(root)/'product generated photo').glob('*/*.xlsx'))
+
+
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--directory',default='.');args=ap.parse_args()
     root=Path(args.directory);topology=template_topology(root/'assets/listing-workbook-template.xlsx')
-    check_fcc_template(root/'assets/listing-workbook-template.xlsx')
-    outputs=sorted((root/'product generated photo').glob('VL-*/*.xlsx'))
+    check_template_inputs(root/'assets/listing-workbook-template.xlsx')
+    outputs=current_workbooks(root)
     for path in outputs:
         manufacturer=None
         if '_LISTING_' in path.stem.upper():
