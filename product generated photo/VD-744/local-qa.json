@@ -1,0 +1,26 @@
+{
+  "interpreter": "C:\\Users\\jerem\\anaconda3\\envs\\listing-testing\\python.exe",
+  "scope": "Explicit direct VD-744 checks; repository glob VL-* does not include this ERP VD ID.",
+  "files": [
+    {
+      "file": "VD-744_LISTING_DRAFT_20261013.xlsx",
+      "sha256": "8b5c5db83e103fb3b98472cfe2cbab5cb9539dbad47dd7be1fa972867748b200",
+      "fields": 294,
+      "templateStructure": "PASS",
+      "dataValidationCountsPreserved": true,
+      "warrantyHtmlCopy": "PASS",
+      "factualCompleteness": "REVIEW_REQUIRED"
+    },
+    {
+      "file": "VD-744_RESEARCH_REVIEW_20261013.xlsx",
+      "sha256": "aafe484d18d58c16b2400189e884f98ded9ccb5be4b9f61b7dd7fb5e473f373c",
+      "fields": 294,
+      "templateStructure": "PASS",
+      "dataValidationCountsPreserved": true,
+      "warrantyHtmlCopy": "NOT_APPLICABLE",
+      "factualCompleteness": "REVIEW_REQUIRED"
+    }
+  ],
+  "visualReview": "Three sheets rendered; long value/source rows expanded; copy columns widened.",
+  "publicationReadinessInferred": false
+}

@@ -1,0 +1,38 @@
+{
+  "stage": "RESEARCH_REVIEW_AND_LISTING_DRAFT",
+  "readiness": "REVIEW_REQUIRED",
+  "productId": "VD-744",
+  "erpProductId": 20744,
+  "sourceMode": "MYSTORE_ONLY",
+  "workflowCommit": "c43f943bdc4a2e17b0a8026a8093eaad6e0b68f1",
+  "policyVersion": "2026-10-02 baseline; warranty 2026-10-05; HTML 2026-10-07",
+  "baseConfiguration": "PD-844: 16GB DDR5 / 256GB SSD / Ultra 7 265T / Win 11 Pro",
+  "sheets": {
+    "Product Details": {
+      "total": 195,
+      "TBD": 91,
+      "VERIFIED": 85,
+      "NOT_APPLICABLE": 19
+    },
+    "Offer": {
+      "total": 43,
+      "TBD": 42,
+      "VERIFIED": 1
+    },
+    "Safety&Compliance": {
+      "total": 56,
+      "TBD": 52,
+      "VERIFIED": 4
+    }
+  },
+  "criticalUnresolved": [
+    "Actual per-unit modification/seal-opening record",
+    "Seller listing brand, SKU, GTIN and marketplace custom configuration setup",
+    "Installed wireless module/versions and optional I/O",
+    "Exact unit weight, dimensions field mapping, power adapter and pack-out",
+    "Battery/coin-cell and applicable regulatory evidence",
+    "Exact sold-unit rear optional I/O match; official standard-view reference available"
+  ],
+  "gallery": "STYLE_APPROVED_B01_BG01_PRODUCTION_IN_PROGRESS",
+  "publication": "NOT_CLEARED"
+}

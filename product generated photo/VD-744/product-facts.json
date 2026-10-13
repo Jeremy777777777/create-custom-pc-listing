@@ -1,0 +1,80 @@
+{
+  "identity": {
+    "internalId": "VD-744",
+    "erpProductId": 20744,
+    "oemBrand": "Dell",
+    "oemModel": "QCM1250",
+    "cpu": "Intel Core Ultra 7 265T",
+    "formFactor": "Micro desktop",
+    "color": "Black"
+  },
+  "selectedBaseConfiguration": {
+    "id": "PD-844",
+    "erpProductId": 200844,
+    "ramGB": 16,
+    "ssdGB": 256,
+    "source": "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/200844",
+    "selection": "User requested lowest configuration on 2026-10-13"
+  },
+  "customization": {
+    "status": "USER_CONFIRMED",
+    "areas": [
+      "RAM",
+      "SSD"
+    ],
+    "saleTierMatrix": null
+  },
+  "exactErpChildren": [
+    {
+      "id": "PD-844",
+      "productId": 200844,
+      "ramGB": 16,
+      "ssdGB": 256
+    },
+    {
+      "id": "PD-850",
+      "ramGB": 32,
+      "ssdGB": 512
+    },
+    {
+      "id": "PD-852",
+      "productId": 200852,
+      "ramGB": 16,
+      "ssdGB": 512
+    }
+  ],
+  "sourceMapping": {
+    "mode": "MYSTORE_ONLY",
+    "erpUrl": "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/20744",
+    "internalIdRaw": "VD-744",
+    "trackerRow": null,
+    "vlVaMapping": null,
+    "reason": "ERP provides exact VD internal ID. No VL alias invented.",
+    "readDate": "2026-10-13"
+  },
+  "platform": {
+    "ramSlots": 2,
+    "supportedRamMaximumGB": 64,
+    "ssdSlots": 2,
+    "ssdSlotFormats": "M.2 2230/2280",
+    "dimensionsMm": {
+      "height": 182,
+      "width": 36,
+      "depth": 178
+    },
+    "weightKgRange": [
+      1.16,
+      1.4
+    ],
+    "weightDisposition": "Range is not an exact sold-unit weight"
+  },
+  "inventoryDisposition": "ERP on-hand/reserved/relationships span children; not Amazon inventory commitment",
+  "policy": "2026-10-02 baseline; warranty 2026-10-05; HTML 2026-10-07",
+  "styleApproval": {
+    "status": "APPROVED",
+    "hero": "B01",
+    "pack": "BG01",
+    "source": "Direct user: 批准这个风格",
+    "date": "2026-10-13"
+  }
+}
