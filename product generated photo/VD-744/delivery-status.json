@@ -1,11 +1,23 @@
 {
   "internalId": "VD-744",
   "galleryState": "CURRENT_REVIEWED",
-  "deliveryState": "READY_FOR_GITHUB_DELIVERY",
+  "deliveryState": "GITHUB_DELIVERY_VERIFIED",
   "deliveryScope": "FULL_GALLERY",
   "currentQaPass": true,
   "amazonEligibility": "NOT_ASSESSED",
   "factsCompleteness": "REVIEW_REQUIRED",
-  "reason": "Current full-gallery bytes and supplied hash-bound reviews passed local acceptance; remote delivery remains unverified.",
-  "nextRun": "Commit/push, await applicable CI and verify remote file hashes before claiming GITHUB_DELIVERY_VERIFIED."
+  "reason": "49 committed artifact files verified against remote commit; applicable repository CI success. Factual/publication readiness remains separate.",
+  "nextRun": "Use current facts and approved B01/BG01 lock for requested same-product edits; seller must resolve publication fields before Seller Central submission.",
+  "lastVerifiedArtifactCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+  "remoteFilesVerified": 49,
+  "remoteCi": [
+    {
+      "id": 38460558551,
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jeremy777777777/create-custom-pc-listing/actions/runs/38460558551",
+      "headSha": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "name": "Validate current gallery delivery"
+    }
+  ]
 }

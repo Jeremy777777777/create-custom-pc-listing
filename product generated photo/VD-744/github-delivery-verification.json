@@ -1,0 +1,315 @@
+{
+  "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+  "remoteBranchVerified": true,
+  "artifactFilesVerified": 49,
+  "files": [
+    {
+      "path": "assets/production/VD-744/b01-20261013/approved-style-preview.png",
+      "sha256": "0ad0d5ed2beac1beb943386bdb45893a0641a19d97053ccccf7a57cadbaa3ef4",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "assets/production/VD-744/b01-20261013/build-gallery.py",
+      "sha256": "1cb35229b2b7e073242aec2e9688a69cef27b417257ef4fb177312aa57f97657",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "assets/production/VD-744/b01-20261013/dell-qcm1250-angle.png",
+      "sha256": "a60d609b269619d3a047cf7667e94e8c777b3d502e2f55ef99ac60aa27f312fe",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "assets/production/VD-744/b01-20261013/dell-qcm1250-front-native.png",
+      "sha256": "4ddf4a7943ef8598cb062715f7e26012916f6af90198dbef3ce11007b5740b93",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "assets/production/VD-744/b01-20261013/dell-qcm1250-front-reference.png",
+      "sha256": "8595c94bbf9a1efbaf502a561e0bde1cdbe3eec3125aa263ea6a146f51f70130",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "assets/production/VD-744/b01-20261013/dell-qcm1250-left.png",
+      "sha256": "293cf650d94b73bab23b52e5bacb47a07ac6b7485b88874c5fe2da5d008a8902",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "assets/production/VD-744/b01-20261013/dell-qcm1250-rear.png",
+      "sha256": "7871f4056651112d31936e4a599bcf63bee3627ea8ed388582e75ef1bb452dad",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "assets/production/VD-744/b01-20261013/gallery-contact.png",
+      "sha256": "080a927565b1ab2eda10a4cef2d030cb1b2bc5ab0c8d2de18e045011979e6166",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "assets/production/VD-744/b01-20261013/office-background.png",
+      "sha256": "e387ee4e4fc10a968088dc5ca78a8ed7dc2910918a10564669c117d8e5004a87",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "assets/production/VD-744/b01-20261013/recipe.json",
+      "sha256": "ddef9166a7b16d5f2a40965f3be93df41b592afd09da2d6773ca6da401efd21e",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "assets/production/VD-744/b01-20261013/repeat-render.json",
+      "sha256": "517abeb340088d2d39c5ad5ae051355ae1fb1e543225225fbe1f6c49a9b2ccef",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "assets/production/VD-744/b01-20261013/source-rights.json",
+      "sha256": "8dcce482c8c79615e0c9b22421847826196e2d83631f139c2901e31748e46c5a",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "assets/production/VD-744/b01-20261013/thumbnails-200.png",
+      "sha256": "e9fc9ca1605c582a5b2152b098f56ac89386f394952c2df63aabb389c6aff813",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "sha256": "11ac77b97799e6fcd75f4653cba13549df5b939393ef185d23e0a9c1a6957cdb",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "sha256": "0ce792263a609d713ea69ed2fbf4c3476da980d213380b6d5aa8d894c7df43ed",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/MAIN-STRICT.jpg",
+      "sha256": "147316275b36e2c9bfff76ff62f8647478571ebd7d84b5933bf54545e8c12858",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/PT01.png",
+      "sha256": "7ed43193cc4e34df4555555a06f102de749e077a28eaa666f4f20e1df5154aa5",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/PT02.png",
+      "sha256": "4fc00053a629049709c04d1c3391fe128b4518bb6a371a8037ec87839bf615e0",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/PT03.png",
+      "sha256": "c3cd32898bf0f230759279e20f42e1d403f9a212102e5a66af40653857c43303",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/PT04.png",
+      "sha256": "34d5d838de3930a76cd49094897785610fa557eb2228db6111ac2043688c64e5",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/PT05.png",
+      "sha256": "afb8a4038d3c90d6b17f300f8a67845ad773d08b722e0afe4715da2b66730d09",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/PT06.png",
+      "sha256": "0b55146ce87a9065c5b4f1f216f5ba58e121666082baa18827f141231e180dca",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/PT07.png",
+      "sha256": "164eb8799587c2e08b4deaf918a97095d995bededc531cab4cbad908c9765653",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/PT08.png",
+      "sha256": "3e04714d95c8218f3e548db0259745fc1a131365aa1a78f7b9e6bfb1393944a7",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/README.md",
+      "sha256": "7cdf7278055837142227d6f45e9a636a365d91782c446dd124b119146c346a65",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/VD-744_LISTING_DRAFT_20261013.xlsx",
+      "sha256": "cf6528764ce5caa06c045334a938c8d57b51345fdb436360bdc9328ff263a367",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/VD-744_RESEARCH_REVIEW_20261013.xlsx",
+      "sha256": "ecd3b79e24a3d5f5ac77f144419a27fd2d075db059be0c09392255adc97583e2",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/coverage-summary.json",
+      "sha256": "869dc0c305cd3350ac4ecd70680edf09252b0970a8ee6f692eba3a2c243929e5",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/delivery-status.json",
+      "sha256": "90b9cb753794696c7410cd98286708ae459789baad4161f925683f5a9c5e01fe",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/final-image-qa.json",
+      "sha256": "f6625ecd13e5fa1a69df876814738f1a258e36a7b00ca2b0c4310a203c4c5d8d",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/image-manifest.md",
+      "sha256": "aebee3176fcb031cabce9fb4b71f52a1954419be751c2f83a0e632b78f802f26",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/listing-copy-draft.md",
+      "sha256": "2eaefc96a7ad08e3f2b44fc29aaad64c44e1236dcfca572b05784516b48a32dc",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/local-qa.json",
+      "sha256": "33b84974eaa4af34f656b5364279b3e5a78f00a78b23e05681003ee4a4f4fa9e",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/logo-placement.json",
+      "sha256": "0a495bf8df49b7e5cf9cc7d6236fedf43c7814117543ec4e8c50abe67ef77729",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/logo-qa.json",
+      "sha256": "5d2e6eab2a41ae1c2c5522d818dd9e3acd7253057116154ab7001ea9cb381312",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/product-facts.json",
+      "sha256": "8290fadc629f1b6be4f2ea088865d14142a22ff0a2c11cda1eb25a5613eb5fe2",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/research-ledger.json",
+      "sha256": "b66509016f8a36f2a0669408c9e14cac4f69a08a4cbd90f591c5b346372397ec",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/research-review.md",
+      "sha256": "fe34febb907d9399a081569d2fc32452dede2e557ad3d5dbb8887ba972271a13",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/semantic-review.json",
+      "sha256": "93c8fe5d37efc90c55b39877ac6e26aa6de6541c3ad7aeee89df4a128ca4756b",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/style-lock.json",
+      "sha256": "77a8c40468fb47837a235e19559ff263503f123f1256fa130fc114d170cd5a6b",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/unbranded/PT01.png",
+      "sha256": "98dc37790d43d3c19b06988c44a2e147566a8c8688bdcde3ebc6e6bc4145504b",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/unbranded/PT02.png",
+      "sha256": "509e1b3d167748c8b2715cfdfb13ef935c1991f6b6ff394ffcaf878c63e8183a",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/unbranded/PT03.png",
+      "sha256": "b04dfe2d8b0a71b550fde06fac15294f4dd1d106b62b927be67f0a88f89e1732",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/unbranded/PT04.png",
+      "sha256": "eb69afe168fc71b2528112f1f17232f9059fd254b61c46290c73a7ed8d24aac8",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/unbranded/PT05.png",
+      "sha256": "b398bed7432171fbb16598b979b3e986a975c8f84f1a377b112dd8d12d37ea48",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/unbranded/PT06.png",
+      "sha256": "b436c3f80ce979503957fb9b4db7992f9d754b240ebd704b71621c2d86daee8a",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/unbranded/PT07.png",
+      "sha256": "0c6c143d8fd51dded7546943af6deea70d3dc6039c7e233c6b99d445d734a1de",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/unbranded/PT08.png",
+      "sha256": "1f5809b956ed4ea8239e87cadc9d5b659d4a14883f439220277d7c799719c676",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    },
+    {
+      "path": "product generated photo/VD-744/visual-review.json",
+      "sha256": "d785dc300abbe162a8fea79f55900949a5d2cc1aeb83dc5177e414252ee3f6c3",
+      "remoteCommit": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "comparison": "REMOTE_GIT_BLOB_EQUALS_COMMITTED_LOCAL_BLOB"
+    }
+  ],
+  "ciRuns": [
+    {
+      "id": 38460558551,
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jeremy777777777/create-custom-pc-listing/actions/runs/38460558551",
+      "headSha": "b4f497f029c41b81c0101028a17bfde477126de7",
+      "name": "Validate current gallery delivery"
+    }
+  ],
+  "ciScope": "Repository CI uses existing VL discovery. VD-744 workbook and gallery validation were explicitly run locally.",
+  "deliveryScope": "RESEARCH_LISTING_DRAFT_AND_11_REFERENCE_ARTWORK_IMAGES",
+  "publication": "NOT_CLEARED",
+  "deliveryState": "GITHUB_DELIVERY_VERIFIED"
+}
