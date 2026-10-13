@@ -7,6 +7,39 @@ import openpyxl
 from warranty_policy import validate_workbook_copy
 
 SHEETS = ['Product Details', 'Offer', 'Safety&Compliance']
+FCC_FIELDS = ('FCC Radio Frequency Emission Compliance',
+              'Radio Frequency Emission & Authorization Status', 'FCC ID',
+              'SDoC Contact Name', 'SDoC Contact US Mailing Address',
+              'SDoC Contact Email Address', 'SDOC Contact US Phone Number')
+
+
+def check_fcc_template(path):
+    """Confirm FCC inputs exist; this never authenticates a product or grant."""
+    book = openpyxl.load_workbook(path)
+    try:
+        sheet = book['Safety&Compliance']
+        headers = [cell.value for cell in sheet[1]]
+        if any(headers.count(field) != 1 for field in FCC_FIELDS):
+            raise ValueError('Template requires one of each FCC/SDoC field')
+        col = headers.index('FCC ID') + 1
+        if sheet.cell(3, col).number_format != '@':
+            raise ValueError('Template FCC ID Value must use text formatting')
+        for row in (3, 5):
+            cell = sheet.cell(row, col)
+            if not any(cell.coordinate in validation and validation.showInputMessage
+                       and validation.prompt for validation in sheet.data_validations.dataValidation):
+                raise ValueError('Template FCC ID needs Value/Source evidence prompts')
+    finally:
+        book.close()
+
+
+def check_fcc_id_value(value, status):
+    if str(status).strip().upper() != 'VERIFIED':
+        return
+    placeholders = {'', 'TBD', 'N/A', 'NA', 'NONE', 'YES', 'NO', 'FCC',
+                    'FCC ID', 'SDOC', 'NOT APPLICABLE', 'NOT_APPLICABLE'}
+    if not isinstance(value, str) or value.strip().upper() in placeholders:
+        raise ValueError('VERIFIED FCC ID requires an actual text identifier, not a blank/placeholder')
 
 def template_topology(path):
     book = openpyxl.load_workbook(path, data_only=False)
@@ -44,6 +77,8 @@ def check_output(path, topology, manufacturer=None):
             for c in range(2,sheet.max_column+1):
                 if not sheet.cell(4,c).value or not sheet.cell(5,c).value:
                     raise ValueError(f'{path}: {sheet.title}/{sheet.cell(1,c).value} lacks Status/Source or disposition')
+                if sheet.title == 'Safety&Compliance' and sheet.cell(1,c).value == 'FCC ID':
+                    check_fcc_id_value(sheet.cell(3,c).value, sheet.cell(4,c).value)
         if manufacturer is not None:
             validate_workbook_copy(book, manufacturer)
     finally:
@@ -52,6 +87,7 @@ def check_output(path, topology, manufacturer=None):
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--directory',default='.');args=ap.parse_args()
     root=Path(args.directory);topology=template_topology(root/'assets/listing-workbook-template.xlsx')
+    check_fcc_template(root/'assets/listing-workbook-template.xlsx')
     outputs=sorted((root/'product generated photo').glob('VL-*/*.xlsx'))
     for path in outputs:
         manufacturer=None

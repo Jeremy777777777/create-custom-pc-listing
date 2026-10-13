@@ -19,6 +19,8 @@ MAIN-STRICT is the default white-background computer image with no added graphic
 
 ## Source verification
 
+For FCC equipment authorization research, follow [fcc-research-workflow.md](fcc-research-workflow.md). Distinguish host SDoC/certification from actual installed transmitter grants; keep evidence scope and responsible-party details tied to the sold configuration. Unresolved applicable FCC fields remain explicit compliance gaps, not assumed approval or a reason to fabricate an ID.
+
 Use current official Amazon/account guidance for publication decisions and official component/OEM sources for product facts. OEM Windows Home and platform capacity limits do not override confirmed sold Pro/base capacities. New genuine external policy conflicts should be explained specifically, not hidden by reverting to archived seller rules.
 
 The confirmed warranty wording requires no additional approval/source citation for review outputs. OEM applicability is a seller manual publication check, not a research/copy-production blocker. For standalone desktop enhanced candidates apply the DESKTOP_GRAPHIC_SAFE_ZONE exception in catalog policy; never imply Amazon acceptance.

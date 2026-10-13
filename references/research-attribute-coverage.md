@@ -74,6 +74,8 @@ ledger 至少记录：`sheet`、`attribute`、`definition`、`applicability`、`
 - SKU、Quantity、Handling Time、价格上下限、List/Sale Price、Tax Code、Shipping Template、Gift Options、发布日期等是卖家运营或账户字段；不能通过 OEM 网页猜测。缺少时以 `TBD` + `SELLER_INPUT_REQUIRED` 列出所需卖家输入。
 - 电池运输、Dangerous Goods、FCC/SDoC、Proposition 65、监管 ID、Compliance Media、Safety Attestation、全球配送、BAA/TAA 等必须来自适用的 OEM 监管文件、标签/实物证据或卖家法务/物流决定。不得以网页未提及为理由填 `No` 或 `NOT_APPLICABLE`。
 
+FCC 按 [查找与模板映射流程](fcc-research-workflow.md) 主动研究：先绑定准确整机/监管型号及实际安装无线模块，再查 OEM 美国合规文件、标签和 FCC 官方授权记录。模板已有 AD–AJ 的 FCC/SDoC 字段，逐列记录 Value、Status、Source；整机 SDoC 与模块 FCC ID 分开，不从可选网卡列表猜测已安装模块。未解决的适用 FCC 证据属于合规缺口，不能用空白或笼统 N/A 静默跳过。
+
 ## 3. 来源检索顺序与最低检索动作
 
 对适用产品字段依次尝试：

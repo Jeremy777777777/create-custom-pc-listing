@@ -10,6 +10,17 @@ spec=importlib.util.spec_from_file_location('workbooks',Path(__file__).parents[1
 module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
 
 class WorkbookChecks(unittest.TestCase):
+    def test_verified_fcc_id_cannot_be_blank_placeholder_or_number(self):
+        for value in (None, '', 'TBD', 'N/A', 'SDoC', 'Yes', 'FCC', 12345):
+            with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'actual text identifier'):
+                module.check_fcc_id_value(value, 'VERIFIED')
+        module.check_fcc_id_value('TEST-MODULE-ID', 'VERIFIED')  # Text only, not grant validation.
+        for status in ('TBD', 'SOURCE_UNAVAILABLE', 'NOT_APPLICABLE', 'CONFLICT'):
+            module.check_fcc_id_value(None, status)
+
+    def test_canonical_template_keeps_fcc_fields_and_evidence_inputs(self):
+        module.check_fcc_template(Path(__file__).parents[2]/'assets/listing-workbook-template.xlsx')
+
     def test_accepts_status_dispositions_but_rejects_structure_and_missing_evidence(self):
         with tempfile.TemporaryDirectory() as tmp:
             path=Path(tmp)/'template.xlsx'; book=openpyxl.Workbook();book.remove(book.active)
