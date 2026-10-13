@@ -1,4 +1,4 @@
-import importlib.util, json, tempfile, unittest
+import importlib.util, json, tempfile, unittest, shutil
 from unittest.mock import patch
 from pathlib import Path
 from PIL import Image
@@ -149,6 +149,31 @@ class Tests(unittest.TestCase):
   for changed in ['references/image-spec.md','SKILL.md','README.md','assets/listing-workbook-template.xlsx','product generated photo/image-manifest-template.md']:
    self.assertEqual(g.gallery_directories(root,[changed]),[gallery])
   self.assertEqual(g.gallery_directories(root,['history/old.md']),[])
+ def test_gallery_discovery_preserves_non_vl_prefixes(self):
+  dirs=[]
+  for name in ['VL-1234','VA-456','VD-744']:
+   p=self.p/'product generated photo'/name;p.mkdir(parents=True);dirs.append(p)
+  self.assertEqual(g.gallery_directories(self.p,[],full=True),sorted(dirs))
+  self.assertEqual(g.gallery_directories(self.p,['product generated photo/VD-744/PT01.png']),[dirs[2]])
+  self.assertEqual(g.gallery_directories(self.p,['history/product generated photo/VD-744/PT01.png']),[])
+ def test_vd744_frozen_import_rejects_changes_and_never_claims_full_qa(self):
+  original=Path(__file__).parents[2]/'product generated photo'/'VD-744'
+  p=self.p/'product generated photo'/'VD-744';p.mkdir(parents=True)
+  for name in g.NAMES+['approved-angle-import.json','delivery-status.json']:
+   shutil.copyfile(original/name,p/name)
+  result=g.gate(self.p)
+  self.assertEqual(result['approvedAngleImportsNotQaPassed'],1)
+  self.assertEqual(result['fullGalleriesValidated'],0)
+  with self.assertRaisesRegex(ValueError,'scope'):g.validate_vd744_angle_import(p,['PT01.png'])
+  target=p/g.MAIN[2];approved=target.read_bytes();target.write_bytes(b'changed image')
+  with self.assertRaisesRegex(ValueError,'bytes changed'):g.validate_vd744_angle_import(p,[])
+  target.write_bytes(approved)
+  (p/'PT01.png').write_bytes(b'changed unrelated slot')
+  with self.assertRaisesRegex(ValueError,'other slots'):g.validate_vd744_angle_import(p,[])
+  shutil.copyfile(original/'PT01.png',p/'PT01.png')
+  receipt=g.read(p/'approved-angle-import.json');receipt['fullGalleryStrictQaPass']=True
+  g.write(p/'approved-angle-import.json',receipt)
+  with self.assertRaisesRegex(ValueError,'frozen authorization'):g.validate_vd744_angle_import(p,[])
  def test_quarantine_summary_does_not_claim_full_pass(self):
   gallery=self.p/'product generated photo'/'VL-1234';gallery.mkdir(parents=True)
   (gallery/g.MAIN[0]).write_bytes(b'unchanged legacy bytes')

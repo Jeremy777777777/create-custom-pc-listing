@@ -288,8 +288,32 @@ def crop(src,out,x,y,w,h):
 
 def gallery_directories(root,changed,full=False):
     if full or any(s in ('SKILL.md','README.md') or s.startswith(('scripts/','.github/','references/','assets/')) or s=='product generated photo/image-manifest-template.md' for s in changed):
-        return list((root/'product generated photo').glob('VL-*'))
-    return sorted({root/Path(*Path(s).parts[:2]) for s in changed if s.startswith('product generated photo/VL-')})
+        return sorted(p for p in (root/'product generated photo').glob('*') if p.is_dir())
+    return sorted({root/Path(*Path(s).parts[:2]) for s in changed
+                   if s.startswith('product generated photo/') and len(Path(s).parts)>=3})
+
+
+def validate_vd744_angle_import(p,changed):
+    """Frozen 2026-10-13 user-selected asset; no product/brand QA or general exception."""
+    if p.name!='VD-744' or not set(changed).issubset({MAIN[2]}):
+        raise ValueError('VD-744 angle approval does not cover this product/scope')
+    receipt_path=p/'approved-angle-import.json'
+    frozen='3f50bff08538ac0bbf2841d36fecba875b10e2cc132d4dcca68b7d84e4de5693'
+    if hashlib.sha256(receipt_path.read_bytes().replace(b'\r\n',b'\n')).hexdigest()!=frozen:
+        raise ValueError('VD-744 approval record differs from frozen authorization')
+    receipt=read(receipt_path); name=receipt['slot']
+    if digest(p/name)!=receipt['sha256']:
+        raise ValueError('VD-744 approved image bytes changed')
+    if {n:digest(p/n) for n in NAMES if n!=name}!=receipt['unchangedImages']:
+        raise ValueError('VD-744 import cannot authorize changes to other slots')
+    with Image.open(p/name) as im:
+        im.load(); check_image_size(im.size)
+        if im.format!='PNG' or list(im.size)!=[receipt['width'],receipt['height']] or im.mode!=receipt['mode']:
+            raise ValueError('VD-744 approved image format changed')
+    status=read(p/'delivery-status.json')
+    if status.get('currentQaPass') is not False or status.get('amazonEligibility')!='NOT_ASSESSED':
+        raise ValueError('VD-744 import must retain strict QA/publication limitations')
+    print('USER_APPROVED_VD744_ANGLE_IMPORT: frozen angle and ten retained hashes verified; strict QA and Amazon eligibility NOT certified')
 
 def validate_approved_import(root,p,changed):
     receipt=read(p/'approved-slot-exception.json'); name=receipt.get('file')
@@ -385,12 +409,18 @@ def gate(root,base=None,head='HEAD'):
     root=Path(root)
     changed=[] if not base else subprocess.check_output(['git','diff','--name-only',base,head],cwd=root,text=True).splitlines()
     dirs=gallery_directories(root,changed,full=not base)
-    validated=0; quarantined=0; partial=0; research=0; imports=0; ai_imports=0
+    validated=0; quarantined=0; partial=0; research=0; imports=0; ai_imports=0; angle_imports=0
     for p in dirs:
         if not p.is_dir(): continue
         if not any((p/n).exists() for n in NAMES):
             print(f'Research-only folder excluded from gallery validation: {p}'); research+=1; continue
         status=p/'delivery-status.json'
+        if p.name=='VD-744' and (p/'approved-angle-import.json').exists():
+            relative=p.relative_to(root).as_posix()+'/'
+            names=[Path(s).name for s in changed if s.startswith(relative)
+                   and Path(s).parent.as_posix()==relative.rstrip('/')
+                   and Path(s).suffix.lower() in ('.png','.jpg','.jpeg')]
+            validate_vd744_angle_import(p,names); angle_imports+=1; continue
         if status.exists() and read(status).get('galleryState')=='LEGACY_QUARANTINED':
             relative=p.relative_to(root).as_posix()+'/'
             image_changes=[s for s in changed if s.startswith(relative) and Path(s).parent.as_posix()==relative.rstrip('/') and Path(s).suffix.lower() in ('.png','.jpg','.jpeg')]
@@ -406,12 +436,12 @@ def gate(root,base=None,head='HEAD'):
                     validate_partial(p,names); partial+=1
             quarantined+=1; continue
         validate(p); validated+=1
-    print(f'Validated {validated} eligible galleries; {quarantined} quarantined folders excluded, not PASS')
-    summary={'fullGalleriesValidated':validated,'quarantinedNotPassed':quarantined,'partialUpdatesValidated':partial,'approvedExactAssetImports':imports,'approvedAiEffectImportsNotQaPassed':ai_imports,'researchOnlyFolders':research}
+    print(f'Validated {validated} eligible galleries; {quarantined} quarantined folders excluded; {angle_imports} scoped angle imports, not strict QA PASS')
+    summary={'fullGalleriesValidated':validated,'quarantinedNotPassed':quarantined,'partialUpdatesValidated':partial,'approvedExactAssetImports':imports,'approvedAiEffectImportsNotQaPassed':ai_imports,'approvedAngleImportsNotQaPassed':angle_imports,'researchOnlyFolders':research}
     write(root/'gallery-ci-summary.json',summary)
     if os.environ.get('GITHUB_STEP_SUMMARY'):
         with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as f:
-            f.write(f'### Gallery check scope\n\nFull galleries validated: {validated}. Quarantined, NOT PASS: {quarantined}. Scoped partial updates: {partial}. Exact user-approved imports: {imports}. AI-effect imports, NOT full QA: {ai_imports}. Research-only folders: {research}.\n\nCI success means checks executed successfully; it does not clear quarantine or certify Amazon readiness.\n')
+            f.write(f'### Gallery check scope\n\nFull galleries validated: {validated}. Quarantined, NOT PASS: {quarantined}. Scoped partial updates: {partial}. Exact user-approved imports: {imports}. AI-effect imports, NOT full QA: {ai_imports}. Angle imports, NOT strict QA: {angle_imports}. Research-only folders: {research}.\n\nCI success means checks executed successfully; it does not clear quarantine or certify Amazon readiness.\n')
     return summary
 
 def main():

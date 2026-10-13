@@ -10,8 +10,17 @@ spec=importlib.util.spec_from_file_location('workbooks',Path(__file__).parents[1
 module=importlib.util.module_from_spec(spec);spec.loader.exec_module(module)
 
 class WorkbookChecks(unittest.TestCase):
+    def test_status_and_source_are_real_dispositions_not_whitespace(self):
+        for status, source in [(' ', 'OEM'), ('NOT VERIFIED', 'OEM'),
+                               ('SELLER_INPUT_REQUIRED', 'OEM'), ('VERIFIED', ' \n\t')]:
+            with self.subTest(status=status, source=source), self.assertRaises(ValueError):
+                module.check_field_disposition(status, source)
+        for status in module.RESEARCH_STATUSES:
+            module.check_field_disposition(status, 'Specific evidence or unresolved disposition')
+
     def test_verified_fcc_id_cannot_be_blank_placeholder_or_number(self):
-        for value in (None, '', 'TBD', 'N/A', 'SDoC', 'Yes', 'FCC', 12345):
+        for value in (None, '', 'TBD', 'N/A', 'SDoC', 'Yes', 'FCC', 12345,
+                      'UNKNOWN', 'PENDING', '=A1', 'NOT FOUND'):
             with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'actual text identifier'):
                 module.check_fcc_id_value(value, 'VERIFIED')
         module.check_fcc_id_value('TEST-MODULE-ID', 'VERIFIED')  # Text only, not grant validation.

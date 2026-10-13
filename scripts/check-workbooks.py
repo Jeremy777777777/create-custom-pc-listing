@@ -41,9 +41,18 @@ def check_fcc_id_value(value, status):
     if str(status).strip().upper() != 'VERIFIED':
         return
     placeholders = {'', 'TBD', 'N/A', 'NA', 'NONE', 'YES', 'NO', 'FCC',
-                    'FCC ID', 'SDOC', 'NOT APPLICABLE', 'NOT_APPLICABLE'}
-    if not isinstance(value, str) or value.strip().upper() in placeholders:
+                    'FCC ID', 'SDOC', 'NOT APPLICABLE', 'NOT_APPLICABLE',
+                    'UNKNOWN', 'PENDING', 'NOT FOUND', 'SOURCE_UNAVAILABLE'}
+    if (not isinstance(value, str) or value.strip().upper() in placeholders
+            or value.lstrip().startswith('=')):
         raise ValueError('VERIFIED FCC ID requires an actual text identifier, not a blank/placeholder')
+
+
+def check_field_disposition(status, source):
+    if status not in RESEARCH_STATUSES:
+        raise ValueError('Status must be one of the six research statuses')
+    if not isinstance(source, str) or not source.strip():
+        raise ValueError('Source or disposition must contain non-whitespace text')
 
 def template_topology(path):
     book = openpyxl.load_workbook(path, data_only=False)
@@ -81,6 +90,7 @@ def check_output(path, topology, manufacturer=None):
             for c in range(2,sheet.max_column+1):
                 if not sheet.cell(4,c).value or not sheet.cell(5,c).value:
                     raise ValueError(f'{path}: {sheet.title}/{sheet.cell(1,c).value} lacks Status/Source or disposition')
+                check_field_disposition(sheet.cell(4,c).value, sheet.cell(5,c).value)
                 if sheet.title == 'Safety&Compliance' and sheet.cell(1,c).value == 'FCC ID':
                     check_fcc_id_value(sheet.cell(3,c).value, sheet.cell(4,c).value)
         if manufacturer is not None:
