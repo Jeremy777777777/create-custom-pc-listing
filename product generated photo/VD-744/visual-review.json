@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "result": "PASS",
+  "result": "PARTIAL_USER_APPROVED_IMPORT",
   "reviewer": "Codex (direct inspection of original-size images and 200px contact sheet)",
   "reviewedAtUtc": "2026-10-13T20:02:29.877904+00:00",
   "scope": "Artwork fidelity to exact-model official references, composition, typography and declared base facts. Seller actual-unit/fulfillment and Amazon publication checks remain separate.",
@@ -19,9 +19,9 @@
     },
     {
       "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
-      "sha256": "0ce792263a609d713ea69ed2fbf4c3476da980d213380b6d5aa8d894c7df43ed",
-      "result": "PASS",
-      "notes": "Inspected original-size output and 200px thumbnail: accurate official angled view, no invented surface, silver factory mark and front connectors retained. Independent navy safe zone does not intersect chassis. One fixed Windows package, correct base capacities, no external devices. Secondary specifications are read at full size."
+      "sha256": "eb720f70b39c393ddd73f7705c9de6bd2b9e22fa1c0117d086dd62b0298b4a3a",
+      "result": "USER_APPROVED_IMPORT_REVIEWED",
+      "notes": "Direct original-size review: Dell Pro Micro QCM1250, Intel Core Ultra 7 265T, Windows 11 Pro, 20 Cores, Up to 5.3 GHz, Intel AI Boost / 13 TOPS NPU present. Keyboard/mouse retained by explicit user request; no RAM/SSD text. This is the exact user-selected AI marketing image, not a deterministic brand composition or independently certified pack-out/hardware depiction."
     },
     {
       "file": "PT01.png",
@@ -71,5 +71,6 @@
       "result": "PASS",
       "notes": "Inspected corrected original-size output and 200px thumbnail: official standard rear and true front photographs, leader endpoints visually checked at actual headset/USB/Ethernet/HDMI/DP openings. Front USB-C is 10Gbps, front USB-A 5Gbps, rear two USB2 and two USB-A 5Gbps; standard single HDMI and DP agree with ERP parent notes. No optional I/O claim and no wireless-generation guess. Labels enlarged after initial thumbnail check. Optional rear module on the actual fulfilled unit remains a seller pre-publication match check; these are exact-model standard OEM views."
     }
-  ]
+  ],
+  "updatedAtUtc": "2026-10-13T20:38:33.818072+00:00"
 }

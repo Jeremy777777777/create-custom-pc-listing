@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VD-744",
+  "deliveryScope": "SINGLE_SLOT_USER_APPROVED_IMPORT",
+  "slot": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+  "sha256": "eb720f70b39c393ddd73f7705c9de6bd2b9e22fa1c0117d086dd62b0298b4a3a",
+  "previousSha256": "0ce792263a609d713ea69ed2fbf4c3476da980d213380b6d5aa8d894c7df43ed",
+  "width": 1254,
+  "height": 1254,
+  "mode": "RGB",
+  "reviewedAtUtc": "2026-10-13T20:38:33.818072+00:00",
+  "userAuthorization": "Direct user: \u8fd9\u5f20\u56fe\u5e2e\u6211\u66ff\u6362\u6389\u52a0\u5f3a\u7248\u768445\u5ea6\u7684\u56fein github",
+  "requestedOverrides": [
+    "Keyboard and mouse visible",
+    "Side-panel marketing overlay",
+    "No RAM/SSD on this image",
+    "Complete QCM1250 model and Windows 11 Pro",
+    "Intel Core Ultra 7 badge and verified CPU details"
+  ],
+  "visualReview": "Direct original-size review: Dell Pro Micro QCM1250, Intel Core Ultra 7 265T, Windows 11 Pro, 20 Cores, Up to 5.3 GHz, Intel AI Boost / 13 TOPS NPU present. Keyboard/mouse retained by explicit user request; no RAM/SSD text. This is the exact user-selected AI marketing image, not a deterministic brand composition or independently certified pack-out/hardware depiction.",
+  "unchangedImages": {
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png": "11ac77b97799e6fcd75f4653cba13549df5b939393ef185d23e0a9c1a6957cdb",
+    "MAIN-STRICT.jpg": "147316275b36e2c9bfff76ff62f8647478571ebd7d84b5933bf54545e8c12858",
+    "PT01.png": "7ed43193cc4e34df4555555a06f102de749e077a28eaa666f4f20e1df5154aa5",
+    "PT02.png": "4fc00053a629049709c04d1c3391fe128b4518bb6a371a8037ec87839bf615e0",
+    "PT03.png": "c3cd32898bf0f230759279e20f42e1d403f9a212102e5a66af40653857c43303",
+    "PT04.png": "34d5d838de3930a76cd49094897785610fa557eb2228db6111ac2043688c64e5",
+    "PT05.png": "afb8a4038d3c90d6b17f300f8a67845ad773d08b722e0afe4715da2b66730d09",
+    "PT06.png": "0b55146ce87a9065c5b4f1f216f5ba58e121666082baa18827f141231e180dca",
+    "PT07.png": "164eb8799587c2e08b4deaf918a97095d995bededc531cab4cbad908c9765653",
+    "PT08.png": "3e04714d95c8218f3e548db0259745fc1a131365aa1a78f7b9e6bfb1393944a7"
+  },
+  "fullGalleryStrictQaPass": false,
+  "publicationEligibility": "NOT_ASSESSED",
+  "generationMethod": "built-in imagegen",
+  "prompt": "# Restore Windows and complete model\n\nMethod: built-in imagegen edit.\nOutput: VD-744-main-QCM1250-windows-pro.png\nVisual review: Dell Pro Micro QCM1250 and Windows 11 Pro present; CPU and three feature modules retained; keyboard/mouse retained; no RAM/SSD text.\n\n## Prompt\n\nUse case: precise-object-edit. Edit the supplied current Dell desktop marketing product image. Make exactly two corrections: (1) restore a clear blue four-pane Windows symbol with exact white text \"Windows 11 Pro\" on the computer's side panel; (2) complete the product model heading to read \"Dell\" then \"Pro Micro\" then \"QCM1250\", with \"Business Desktop\" retained as the subtitle. The exact full model is Dell Pro Micro QCM1250. Keep the existing Intel Core Ultra 7 official-style badge and adjacent exact CPU text \"Intel Core Ultra 7 265T\". Preserve all three existing feature modules with exact text \"20 Cores\", \"Up to 5.3 GHz\", \"Intel AI Boost\" and \"13 TOPS NPU\". Fit Windows 11 Pro as an additional compact row below the Intel processor block, modestly tighten vertical spacing of the lower feature rows to fit everything legibly on the side panel. All graphic text is a perspective-aligned marketing overlay, not a factory engraving. Preserve black chassis shape, front ports, Dell grille emblem, full black keyboard, black wired mouse, cables, white studio background, shadows, overall composition, image proportions and high quality. Do not remove any existing features. Absolutely no RAM, SSD, DDR5, memory, storage capacity, 16GB, 256GB or other capacity text/icons. No extra accessories or new claims.\n",
+  "officialIntelAssetSource": "https://www.intel.com/content/www/us/en/products/sku/241065/intel-core-ultra-7-processor-265t-30m-cache-up-to-5-30-ghz/specifications.html",
+  "limitations": [
+    "Frozen user-approved AI image: deterministic final-brand/overlay gates not asserted",
+    "Actual keyboard/mouse pack-out not independently verified",
+    "Previous full-gallery certificate covers prior commit only"
+  ]
+}

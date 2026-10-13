@@ -23,5 +23,14 @@
   ],
   "recipePath": "../../assets/production/VD-744/b01-20261013/recipe.json",
   "recipeSha256": "5beb454e39da06ae7ab82fcd034e1bb23d2097850835d1aac98958557f2d9f08",
-  "style_fidelity_review": "PASS"
+  "style_fidelity_review": "B01_BG01_RETAINED_EXCEPT_EXPLICIT_ANGLE_OVERRIDE",
+  "slotOverrides": {
+    "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": {
+      "approvalDate": "2026-10-13",
+      "approvalSource": "Direct user: \u8fd9\u5f20\u56fe\u5e2e\u6211\u66ff\u6362\u6389\u52a0\u5f3a\u7248\u768445\u5ea6\u7684\u56fein github",
+      "boundaryMode": "USER_APPROVED_SIDE_PANEL_MARKETING",
+      "assetMode": "FROZEN_USER_SELECTED_AI_IMAGE",
+      "importRecord": "approved-angle-import.json"
+    }
+  }
 }

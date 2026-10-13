@@ -1,6 +1,6 @@
 {
   "schemaVersion": 3,
-  "result": "PASS",
+  "result": "REQUIRES_STRICT_REVALIDATION",
   "generatedAtUtc": "2026-10-13T20:02:32.004327+00:00",
   "images": [
     {
@@ -19,10 +19,10 @@
     },
     {
       "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
-      "width": 1600,
-      "height": 1600,
+      "width": 1254,
+      "height": 1254,
       "zoomEligibleBySize": true,
-      "sha256": "0ce792263a609d713ea69ed2fbf4c3476da980d213380b6d5aa8d894c7df43ed"
+      "sha256": "eb720f70b39c393ddd73f7705c9de6bd2b9e22fa1c0117d086dd62b0298b4a3a"
     },
     {
       "file": "PT01.png",
@@ -82,6 +82,9 @@
     }
   ],
   "logoQaSha256": "ac14fdbc2f8d0ab67c9ff9505c94a6a2d6b4ba0200441d52b0937f727daa398c",
-  "visualReviewSha256": "ebc11503198a8ad2590726544f81424d6aac716c47b0dcb6d0bcc20cdc10d5ba",
-  "semanticReviewSha256": "ba375af10f105b320d434244db7171b8b24a2722e26f97f83450080cf5e1e733"
+  "visualReviewSha256": "d6c8fa41bf018a4219c8a3fa6d7ced36fd80e89f7f8f6827b696fdae5980cdb6",
+  "semanticReviewSha256": "ba375af10f105b320d434244db7171b8b24a2722e26f97f83450080cf5e1e733",
+  "deliveryScope": "SINGLE_SLOT_USER_APPROVED_IMPORT",
+  "updatedAtUtc": "2026-10-13T20:38:33.818072+00:00",
+  "approvedImportSha256": "066ed0366522545a517baa81ab3ee3521b9de1648844a9f2249d8bfe79610965"
 }
