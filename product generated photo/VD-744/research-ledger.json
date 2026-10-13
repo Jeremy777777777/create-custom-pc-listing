@@ -2206,16 +2206,18 @@
     "definition": "The attribute indicates the Flash Memory of the product",
     "applicability": "APPLICABLE_OR_REQUIRES_EXACT_CONFIGURATION",
     "research_question": "The attribute indicates the Flash Memory of the product",
-    "candidate_values": [],
-    "final_value": null,
+    "candidate_values": [
+      256
+    ],
+    "final_value": 256,
     "unit": null,
     "exact_model_or_configuration": "VD-744 / PD-844 / QCM1250 / Core Ultra 7 265T / 16GB DDR5 / 256GB SSD",
     "sources_attempted": [
-      "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/20744; https://www.dell.com/en-us/shop/desktops/spd/dellpromicroqcm1250"
+      "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/200844"
     ],
     "source_date": "2026-10-13",
-    "status": "TBD",
-    "reason": "SELLER_INPUT_REQUIRED: select the base sold configuration. Exact ERP child candidates: PD-844 16GB/256GB; PD-850 32GB/512GB; PD-852 16GB/512GB. User confirmed RAM/SSD customization, not a selected baseline or sale tier matrix.",
+    "status": "VERIFIED",
+    "reason": "Exact PD-844 256GB SSD; excludes any external or optional storage.",
     "conflict_notes": "Related OptiPlex 7020 and QBM1250/Micro Plus listings excluded. Parent inventory is shared across configurations."
   },
   {
@@ -3000,16 +3002,18 @@
     "definition": "The length, width and thickness of the item in ready to use condition.",
     "applicability": "APPLICABLE_OR_REQUIRES_EXACT_CONFIGURATION",
     "research_question": "The length, width and thickness of the item in ready to use condition.",
-    "candidate_values": [],
-    "final_value": null,
+    "candidate_values": [
+      "36 x 182 x 178 mm (horizontal x vertical x front-to-back)"
+    ],
+    "final_value": "36 x 182 x 178 mm (horizontal x vertical x front-to-back)",
     "unit": null,
     "exact_model_or_configuration": "VD-744 / PD-844 / QCM1250 / Core Ultra 7 265T / 16GB DDR5 / 256GB SSD",
     "sources_attempted": [
-      "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/20744; https://www.dell.com/en-us/shop/desktops/spd/dellpromicroqcm1250"
+      "https://www.dell.com/en-us/shop/desktops/spd/dellpromicroqcm1250"
     ],
     "source_date": "2026-10-13",
-    "status": "TBD",
-    "reason": "TBD: Dell reports chassis 182mm high x 36mm wide x 178mm deep. Confirm mapping of laptop-oriented template horizontal/vertical/thickness definitions to this desktop before numeric export.",
+    "status": "VERIFIED",
+    "reason": "Upright orientation, as shown in official product views.",
     "conflict_notes": "Related OptiPlex 7020 and QBM1250/Micro Plus listings excluded. Parent inventory is shared across configurations."
   },
   {
@@ -3019,16 +3023,18 @@
     "definition": "Provide the length of the item placed in the manner it is expected to be used. The length is measured along the horizontal edge.",
     "applicability": "APPLICABLE_OR_REQUIRES_EXACT_CONFIGURATION",
     "research_question": "Provide the length of the item placed in the manner it is expected to be used. The length is measured along the horizontal edge.",
-    "candidate_values": [],
-    "final_value": null,
+    "candidate_values": [
+      36
+    ],
+    "final_value": 36,
     "unit": null,
     "exact_model_or_configuration": "VD-744 / PD-844 / QCM1250 / Core Ultra 7 265T / 16GB DDR5 / 256GB SSD",
     "sources_attempted": [
-      "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/20744; https://www.dell.com/en-us/shop/desktops/spd/dellpromicroqcm1250"
+      "https://www.dell.com/en-us/shop/desktops/spd/dellpromicroqcm1250"
     ],
     "source_date": "2026-10-13",
-    "status": "TBD",
-    "reason": "TBD: Dell reports chassis 182mm high x 36mm wide x 178mm deep. Confirm mapping of laptop-oriented template horizontal/vertical/thickness definitions to this desktop before numeric export.",
+    "status": "VERIFIED",
+    "reason": "Upright chassis horizontal width.",
     "conflict_notes": "Related OptiPlex 7020 and QBM1250/Micro Plus listings excluded. Parent inventory is shared across configurations."
   },
   {
@@ -3038,16 +3044,18 @@
     "definition": "Select the unit of measure for the item length.",
     "applicability": "APPLICABLE_OR_REQUIRES_EXACT_CONFIGURATION",
     "research_question": "Select the unit of measure for the item length.",
-    "candidate_values": [],
-    "final_value": null,
-    "unit": null,
+    "candidate_values": [
+      "Millimeters"
+    ],
+    "final_value": "Millimeters",
+    "unit": "Millimeters",
     "exact_model_or_configuration": "VD-744 / PD-844 / QCM1250 / Core Ultra 7 265T / 16GB DDR5 / 256GB SSD",
     "sources_attempted": [
-      "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/20744; https://www.dell.com/en-us/shop/desktops/spd/dellpromicroqcm1250"
+      "https://www.dell.com/en-us/shop/desktops/spd/dellpromicroqcm1250"
     ],
     "source_date": "2026-10-13",
-    "status": "TBD",
-    "reason": "TBD: Dell reports chassis 182mm high x 36mm wide x 178mm deep. Confirm mapping of laptop-oriented template horizontal/vertical/thickness definitions to this desktop before numeric export.",
+    "status": "VERIFIED",
+    "reason": "Exact model/platform evidence; final sold-unit applicability retained separately.",
     "conflict_notes": "Related OptiPlex 7020 and QBM1250/Micro Plus listings excluded. Parent inventory is shared across configurations."
   },
   {
@@ -3057,16 +3065,18 @@
     "definition": "Provide the thickness of the item measured as the distance between the front and back surface when in fully folded position.",
     "applicability": "APPLICABLE_OR_REQUIRES_EXACT_CONFIGURATION",
     "research_question": "Provide the thickness of the item measured as the distance between the front and back surface when in fully folded position.",
-    "candidate_values": [],
-    "final_value": null,
+    "candidate_values": [
+      178
+    ],
+    "final_value": 178,
     "unit": null,
     "exact_model_or_configuration": "VD-744 / PD-844 / QCM1250 / Core Ultra 7 265T / 16GB DDR5 / 256GB SSD",
     "sources_attempted": [
-      "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/20744; https://www.dell.com/en-us/shop/desktops/spd/dellpromicroqcm1250"
+      "https://www.dell.com/en-us/shop/desktops/spd/dellpromicroqcm1250"
     ],
     "source_date": "2026-10-13",
-    "status": "TBD",
-    "reason": "TBD: Dell reports chassis 182mm high x 36mm wide x 178mm deep. Confirm mapping of laptop-oriented template horizontal/vertical/thickness definitions to this desktop before numeric export.",
+    "status": "VERIFIED",
+    "reason": "Chassis depth.",
     "conflict_notes": "Related OptiPlex 7020 and QBM1250/Micro Plus listings excluded. Parent inventory is shared across configurations."
   },
   {
@@ -3076,16 +3086,18 @@
     "definition": "Select the unit of measure for the item thickness.",
     "applicability": "APPLICABLE_OR_REQUIRES_EXACT_CONFIGURATION",
     "research_question": "Select the unit of measure for the item thickness.",
-    "candidate_values": [],
-    "final_value": null,
-    "unit": null,
+    "candidate_values": [
+      "Millimeters"
+    ],
+    "final_value": "Millimeters",
+    "unit": "Millimeters",
     "exact_model_or_configuration": "VD-744 / PD-844 / QCM1250 / Core Ultra 7 265T / 16GB DDR5 / 256GB SSD",
     "sources_attempted": [
-      "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/20744; https://www.dell.com/en-us/shop/desktops/spd/dellpromicroqcm1250"
+      "https://www.dell.com/en-us/shop/desktops/spd/dellpromicroqcm1250"
     ],
     "source_date": "2026-10-13",
-    "status": "TBD",
-    "reason": "TBD: Dell reports chassis 182mm high x 36mm wide x 178mm deep. Confirm mapping of laptop-oriented template horizontal/vertical/thickness definitions to this desktop before numeric export.",
+    "status": "VERIFIED",
+    "reason": "Exact model/platform evidence; final sold-unit applicability retained separately.",
     "conflict_notes": "Related OptiPlex 7020 and QBM1250/Micro Plus listings excluded. Parent inventory is shared across configurations."
   },
   {
@@ -3095,16 +3107,18 @@
     "definition": "Provide the width of the item placed in the manner it is expected to be used. The width is measured along the vertical edge.",
     "applicability": "APPLICABLE_OR_REQUIRES_EXACT_CONFIGURATION",
     "research_question": "Provide the width of the item placed in the manner it is expected to be used. The width is measured along the vertical edge.",
-    "candidate_values": [],
-    "final_value": null,
+    "candidate_values": [
+      182
+    ],
+    "final_value": 182,
     "unit": null,
     "exact_model_or_configuration": "VD-744 / PD-844 / QCM1250 / Core Ultra 7 265T / 16GB DDR5 / 256GB SSD",
     "sources_attempted": [
-      "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/20744; https://www.dell.com/en-us/shop/desktops/spd/dellpromicroqcm1250"
+      "https://www.dell.com/en-us/shop/desktops/spd/dellpromicroqcm1250"
     ],
     "source_date": "2026-10-13",
-    "status": "TBD",
-    "reason": "TBD: Dell reports chassis 182mm high x 36mm wide x 178mm deep. Confirm mapping of laptop-oriented template horizontal/vertical/thickness definitions to this desktop before numeric export.",
+    "status": "VERIFIED",
+    "reason": "Upright chassis vertical height.",
     "conflict_notes": "Related OptiPlex 7020 and QBM1250/Micro Plus listings excluded. Parent inventory is shared across configurations."
   },
   {
@@ -3114,16 +3128,18 @@
     "definition": "Select the unit of measure for the item width.",
     "applicability": "APPLICABLE_OR_REQUIRES_EXACT_CONFIGURATION",
     "research_question": "Select the unit of measure for the item width.",
-    "candidate_values": [],
-    "final_value": null,
-    "unit": null,
+    "candidate_values": [
+      "Millimeters"
+    ],
+    "final_value": "Millimeters",
+    "unit": "Millimeters",
     "exact_model_or_configuration": "VD-744 / PD-844 / QCM1250 / Core Ultra 7 265T / 16GB DDR5 / 256GB SSD",
     "sources_attempted": [
-      "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/20744; https://www.dell.com/en-us/shop/desktops/spd/dellpromicroqcm1250"
+      "https://www.dell.com/en-us/shop/desktops/spd/dellpromicroqcm1250"
     ],
     "source_date": "2026-10-13",
-    "status": "TBD",
-    "reason": "TBD: Dell reports chassis 182mm high x 36mm wide x 178mm deep. Confirm mapping of laptop-oriented template horizontal/vertical/thickness definitions to this desktop before numeric export.",
+    "status": "VERIFIED",
+    "reason": "Exact model/platform evidence; final sold-unit applicability retained separately.",
     "conflict_notes": "Related OptiPlex 7020 and QBM1250/Micro Plus listings excluded. Parent inventory is shared across configurations."
   },
   {

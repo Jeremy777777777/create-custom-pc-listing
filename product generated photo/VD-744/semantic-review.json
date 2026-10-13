@@ -1,0 +1,282 @@
+{
+  "schemaVersion": 3,
+  "result": "PASS",
+  "reviewer": "Codex (direct cross-gallery content inspection)",
+  "reviewedAtUtc": "2026-10-13T20:02:29.877904+00:00",
+  "images": [
+    {
+      "file": "PT01.png",
+      "sha256": "7ed43193cc4e34df4555555a06f102de749e077a28eaa666f4f20e1df5154aa5",
+      "result": "PASS",
+      "notes": "Primary story is black restrained exterior/appearance. The professional-space phrase is audience context, not a second office capability or specification list."
+    },
+    {
+      "file": "PT02.png",
+      "sha256": "4fc00053a629049709c04d1c3391fe128b4518bb6a371a8037ec87839bf615e0",
+      "result": "PASS",
+      "notes": "Primary contribution is a concrete office environment/use scene. No hardware quantities or software application claims; does not restate the appearance page."
+    },
+    {
+      "file": "PT03.png",
+      "sha256": "c3cd32898bf0f230759279e20f42e1d403f9a212102e5a66af40653857c43303",
+      "result": "PASS",
+      "notes": "Only PT owning complete CPU/GPU/RAM/SSD/OS base facts. Other PT pages do not repeat this configuration set."
+    },
+    {
+      "file": "PT04.png",
+      "sha256": "34d5d838de3930a76cd49094897785610fa557eb2228db6111ac2043688c64e5",
+      "result": "PASS",
+      "notes": "Owns three chassis dimensions and overall form. It does not repeat capacities, ports, input control or NPU performance."
+    },
+    {
+      "file": "PT05.png",
+      "sha256": "afb8a4038d3c90d6b17f300f8a67845ad773d08b722e0afe4715da2b66730d09",
+      "result": "PASS",
+      "notes": "Generic original task relationship, with no measurable hardware fact. Manual comparison with PT02: process steps versus physical use scene, no repeated specification/entitlement. Numeric overlap undefined because primary fact list is empty."
+    },
+    {
+      "file": "PT06.png",
+      "sha256": "0b55146ce87a9065c5b4f1f216f5ba58e121666082baa18827f141231e180dca",
+      "result": "PASS",
+      "notes": "Owns the photographed physical power button/control. Ports visible naturally in reference are not labeled or promoted here; PT08 owns connector facts."
+    },
+    {
+      "file": "PT07.png",
+      "sha256": "164eb8799587c2e08b4deaf918a97095d995bededc531cab4cbad908c9765653",
+      "result": "PASS",
+      "notes": "Owns NPU identity and 13 TOPS, not CPU turbo/core recap. CPU model in identity or the product itself is not repeated primary information."
+    },
+    {
+      "file": "PT08.png",
+      "sha256": "3e04714d95c8218f3e548db0259745fc1a131365aa1a78f7b9e6bfb1393944a7",
+      "result": "PASS",
+      "notes": "Owns standard physical port counts/types and generic Wi-Fi/Bluetooth support. No RAM/SSD/OS/dimension/NPU or seller warranty recap."
+    }
+  ],
+  "pairwiseReview": [
+    {
+      "a": "PT01.png",
+      "b": "PT02.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Primary story is black restrained exterior/appearance. The professional-space phrase is audience context, not a second office capability or specification list. Primary contribution is a concrete office environment/use scene. No hardware quantities or software application claims; does not restate the appearance page. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT01.png",
+      "b": "PT03.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Primary story is black restrained exterior/appearance. The professional-space phrase is audience context, not a second office capability or specification list. Only PT owning complete CPU/GPU/RAM/SSD/OS base facts. Other PT pages do not repeat this configuration set. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT01.png",
+      "b": "PT04.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Primary story is black restrained exterior/appearance. The professional-space phrase is audience context, not a second office capability or specification list. Owns three chassis dimensions and overall form. It does not repeat capacities, ports, input control or NPU performance. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT01.png",
+      "b": "PT05.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Primary story is black restrained exterior/appearance. The professional-space phrase is audience context, not a second office capability or specification list. Generic original task relationship, with no measurable hardware fact. Manual comparison with PT02: process steps versus physical use scene, no repeated specification/entitlement. Numeric overlap undefined because primary fact list is empty. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT01.png",
+      "b": "PT06.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Primary story is black restrained exterior/appearance. The professional-space phrase is audience context, not a second office capability or specification list. Owns the photographed physical power button/control. Ports visible naturally in reference are not labeled or promoted here; PT08 owns connector facts. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT01.png",
+      "b": "PT07.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Primary story is black restrained exterior/appearance. The professional-space phrase is audience context, not a second office capability or specification list. Owns NPU identity and 13 TOPS, not CPU turbo/core recap. CPU model in identity or the product itself is not repeated primary information. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT01.png",
+      "b": "PT08.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Primary story is black restrained exterior/appearance. The professional-space phrase is audience context, not a second office capability or specification list. Owns standard physical port counts/types and generic Wi-Fi/Bluetooth support. No RAM/SSD/OS/dimension/NPU or seller warranty recap. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT02.png",
+      "b": "PT03.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Primary contribution is a concrete office environment/use scene. No hardware quantities or software application claims; does not restate the appearance page. Only PT owning complete CPU/GPU/RAM/SSD/OS base facts. Other PT pages do not repeat this configuration set. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT02.png",
+      "b": "PT04.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Primary contribution is a concrete office environment/use scene. No hardware quantities or software application claims; does not restate the appearance page. Owns three chassis dimensions and overall form. It does not repeat capacities, ports, input control or NPU performance. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT02.png",
+      "b": "PT05.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Primary contribution is a concrete office environment/use scene. No hardware quantities or software application claims; does not restate the appearance page. Generic original task relationship, with no measurable hardware fact. Manual comparison with PT02: process steps versus physical use scene, no repeated specification/entitlement. Numeric overlap undefined because primary fact list is empty. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT02.png",
+      "b": "PT06.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Primary contribution is a concrete office environment/use scene. No hardware quantities or software application claims; does not restate the appearance page. Owns the photographed physical power button/control. Ports visible naturally in reference are not labeled or promoted here; PT08 owns connector facts. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT02.png",
+      "b": "PT07.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Primary contribution is a concrete office environment/use scene. No hardware quantities or software application claims; does not restate the appearance page. Owns NPU identity and 13 TOPS, not CPU turbo/core recap. CPU model in identity or the product itself is not repeated primary information. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT02.png",
+      "b": "PT08.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Primary contribution is a concrete office environment/use scene. No hardware quantities or software application claims; does not restate the appearance page. Owns standard physical port counts/types and generic Wi-Fi/Bluetooth support. No RAM/SSD/OS/dimension/NPU or seller warranty recap. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT03.png",
+      "b": "PT04.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Only PT owning complete CPU/GPU/RAM/SSD/OS base facts. Other PT pages do not repeat this configuration set. Owns three chassis dimensions and overall form. It does not repeat capacities, ports, input control or NPU performance. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT03.png",
+      "b": "PT05.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Only PT owning complete CPU/GPU/RAM/SSD/OS base facts. Other PT pages do not repeat this configuration set. Generic original task relationship, with no measurable hardware fact. Manual comparison with PT02: process steps versus physical use scene, no repeated specification/entitlement. Numeric overlap undefined because primary fact list is empty. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT03.png",
+      "b": "PT06.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Only PT owning complete CPU/GPU/RAM/SSD/OS base facts. Other PT pages do not repeat this configuration set. Owns the photographed physical power button/control. Ports visible naturally in reference are not labeled or promoted here; PT08 owns connector facts. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT03.png",
+      "b": "PT07.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Only PT owning complete CPU/GPU/RAM/SSD/OS base facts. Other PT pages do not repeat this configuration set. Owns NPU identity and 13 TOPS, not CPU turbo/core recap. CPU model in identity or the product itself is not repeated primary information. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT03.png",
+      "b": "PT08.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Only PT owning complete CPU/GPU/RAM/SSD/OS base facts. Other PT pages do not repeat this configuration set. Owns standard physical port counts/types and generic Wi-Fi/Bluetooth support. No RAM/SSD/OS/dimension/NPU or seller warranty recap. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT04.png",
+      "b": "PT05.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Owns three chassis dimensions and overall form. It does not repeat capacities, ports, input control or NPU performance. Generic original task relationship, with no measurable hardware fact. Manual comparison with PT02: process steps versus physical use scene, no repeated specification/entitlement. Numeric overlap undefined because primary fact list is empty. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT04.png",
+      "b": "PT06.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Owns three chassis dimensions and overall form. It does not repeat capacities, ports, input control or NPU performance. Owns the photographed physical power button/control. Ports visible naturally in reference are not labeled or promoted here; PT08 owns connector facts. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT04.png",
+      "b": "PT07.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Owns three chassis dimensions and overall form. It does not repeat capacities, ports, input control or NPU performance. Owns NPU identity and 13 TOPS, not CPU turbo/core recap. CPU model in identity or the product itself is not repeated primary information. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT04.png",
+      "b": "PT08.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Owns three chassis dimensions and overall form. It does not repeat capacities, ports, input control or NPU performance. Owns standard physical port counts/types and generic Wi-Fi/Bluetooth support. No RAM/SSD/OS/dimension/NPU or seller warranty recap. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT05.png",
+      "b": "PT06.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Generic original task relationship, with no measurable hardware fact. Manual comparison with PT02: process steps versus physical use scene, no repeated specification/entitlement. Numeric overlap undefined because primary fact list is empty. Owns the photographed physical power button/control. Ports visible naturally in reference are not labeled or promoted here; PT08 owns connector facts. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT05.png",
+      "b": "PT07.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Generic original task relationship, with no measurable hardware fact. Manual comparison with PT02: process steps versus physical use scene, no repeated specification/entitlement. Numeric overlap undefined because primary fact list is empty. Owns NPU identity and 13 TOPS, not CPU turbo/core recap. CPU model in identity or the product itself is not repeated primary information. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT05.png",
+      "b": "PT08.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Generic original task relationship, with no measurable hardware fact. Manual comparison with PT02: process steps versus physical use scene, no repeated specification/entitlement. Numeric overlap undefined because primary fact list is empty. Owns standard physical port counts/types and generic Wi-Fi/Bluetooth support. No RAM/SSD/OS/dimension/NPU or seller warranty recap. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT06.png",
+      "b": "PT07.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Owns the photographed physical power button/control. Ports visible naturally in reference are not labeled or promoted here; PT08 owns connector facts. Owns NPU identity and 13 TOPS, not CPU turbo/core recap. CPU model in identity or the product itself is not repeated primary information. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT06.png",
+      "b": "PT08.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Owns the photographed physical power button/control. Ports visible naturally in reference are not labeled or promoted here; PT08 owns connector facts. Owns standard physical port counts/types and generic Wi-Fi/Bluetooth support. No RAM/SSD/OS/dimension/NPU or seller warranty recap. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    },
+    {
+      "a": "PT07.png",
+      "b": "PT08.png",
+      "reviewMethod": "MANUAL_REVIEW",
+      "numericOverlap": null,
+      "result": "PASS",
+      "reason": "Read both current outputs. Owns NPU identity and 13 TOPS, not CPU turbo/core recap. CPU model in identity or the product itself is not repeated primary information. Owns standard physical port counts/types and generic Wi-Fi/Bluetooth support. No RAM/SSD/OS/dimension/NPU or seller warranty recap. Subjective appearance and generic task/use context do not support a reliable numeric overlap denominator; no percentage asserted."
+    }
+  ]
+}

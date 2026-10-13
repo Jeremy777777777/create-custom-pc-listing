@@ -13,7 +13,7 @@ ERP confirms QCM1250 / Core Ultra 7 265T / black / Micro desktop / Wi-Fi / Bluet
 - Two SO-DIMM slots and supported 64GB platform configuration: https://www.dell.com/support/manuals/en-ky/dell-pro-qcm1250-micro/dell_pro_micro_qcm1250_om/memory-matrix?guid=guid-dccdc68a-e27e-458d-9f3a-27e2e619155b&lang=en-us
 - Motherboard coin cell: https://www.dell.com/support/manuals/en-us/dell-pro-qcm1250-micro/dell_pro_micro_qcm1250_om/installing-the-coin-cell-battery?guid=guid-a9e82ee4-f149-459c-9773-606010282f77&lang=en-us
 
-Dell page default purchase configuration is i5-14500T. Its installed RAM speed, wireless card, pack-out and price do not establish this Ultra 7 sold unit. Standard chassis ports are separated from optional rear I/O. Chassis dimensions are recorded in facts; laptop-oriented template axes require mapping. Minimum/maximum weight is not exact unit weight. CPU memory maximum does not replace Dell system maximum.
+Dell page default purchase configuration is i5-14500T. Its installed RAM speed, wireless card, pack-out and price do not establish this Ultra 7 sold unit. Standard chassis ports are separated from optional rear I/O. Chassis dimensions mapped in upright orientation: horizontal 36mm, vertical 182mm, front-to-back 178mm. Minimum/maximum weight is not exact unit weight. CPU memory maximum does not replace Dell system maximum.
 
 ## Amazon coverage review
 
@@ -24,8 +24,8 @@ Searches on 2026-10-13: site.amazon.com QCM1250 265T; site.amazon.com/dp/ Dell P
 - Actual per-unit modification/seal-opening record
 - Seller listing brand, SKU, GTIN and marketplace custom configuration setup
 - Installed wireless module/versions and optional I/O
-- Exact unit weight, dimensions field mapping, power adapter and pack-out
+- Exact unit weight, power adapter and pack-out
 - Battery/coin-cell and applicable regulatory evidence
 - Exact sold-unit rear optional I/O match; official standard-view reference available
 
-Seller warranty is the fixed 2026-10-05 paragraph; obsolete ERP six-month/extension fields do not override it. Actual OEM coverage and seal/customization consistency remain seller publication checks. Every one of the 294 template fields has a status/source/disposition; this is structural research coverage, not factual completeness. B01/BG01 style approved directly by the user on 2026-10-13; image production proceeds separately.
+Seller warranty is the fixed 2026-10-05 paragraph; obsolete ERP six-month/extension fields do not override it. Actual OEM coverage and seal/customization consistency remain seller publication checks. Every one of the 294 template fields has a status/source/disposition; this is structural research coverage, not factual completeness. B01/BG01 style approved directly by the user on 2026-10-13; 11 images now produced and reviewed as exact-model standard-reference artwork.

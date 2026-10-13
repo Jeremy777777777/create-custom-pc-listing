@@ -4,7 +4,7 @@
   "files": [
     {
       "file": "VD-744_LISTING_DRAFT_20261013.xlsx",
-      "sha256": "8b5c5db83e103fb3b98472cfe2cbab5cb9539dbad47dd7be1fa972867748b200",
+      "sha256": "cf6528764ce5caa06c045334a938c8d57b51345fdb436360bdc9328ff263a367",
       "fields": 294,
       "templateStructure": "PASS",
       "dataValidationCountsPreserved": true,
@@ -13,7 +13,7 @@
     },
     {
       "file": "VD-744_RESEARCH_REVIEW_20261013.xlsx",
-      "sha256": "aafe484d18d58c16b2400189e884f98ded9ccb5be4b9f61b7dd7fb5e473f373c",
+      "sha256": "ecd3b79e24a3d5f5ac77f144419a27fd2d075db059be0c09392255adc97583e2",
       "fields": 294,
       "templateStructure": "PASS",
       "dataValidationCountsPreserved": true,
@@ -22,5 +22,12 @@
     }
   ],
   "visualReview": "Three sheets rendered; long value/source rows expanded; copy columns widened.",
-  "publicationReadinessInferred": false
+  "publicationReadinessInferred": false,
+  "repositoryUnitTests": {
+    "count": 24,
+    "result": "PASS",
+    "environment": "listing-testing Python 3.12.14"
+  },
+  "galleryDirectValidation": "PASS: scripts/gallery_engine.py validate --directory product generated photo/VD-744 --brand Dell",
+  "repositoryDiscoveryLimitation": "Default workbook/gallery discovery targets VL-*; this VD folder was checked directly."
 }

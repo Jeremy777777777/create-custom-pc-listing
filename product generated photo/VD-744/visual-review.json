@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 3,
+  "result": "PASS",
+  "reviewer": "Codex (direct inspection of original-size images and 200px contact sheet)",
+  "reviewedAtUtc": "2026-10-13T20:02:29.877904+00:00",
+  "scope": "Artwork fidelity to exact-model official references, composition, typography and declared base facts. Seller actual-unit/fulfillment and Amazon publication checks remain separate.",
+  "images": [
+    {
+      "file": "MAIN-STRICT.jpg",
+      "sha256": "147316275b36e2c9bfff76ff62f8647478571ebd7d84b5933bf54545e8c12858",
+      "result": "PASS",
+      "notes": "Inspected original-size output: complete sourced black QCM1250, factory silver Dell mark, side fasteners, front power/headset/USB geometry preserved. White outside silhouette with neutral contact shadow; no extra text, asset or accessories. 200px product remains identifiable."
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "sha256": "11ac77b97799e6fcd75f4653cba13549df5b939393ef185d23e0a9c1a6957cdb",
+      "result": "PASS",
+      "notes": "Inspected original-size output and 200px thumbnail: true OEM front view, complete protected chassis, white exterior. Navy safe-zone panel stays separated from the machine. CPU, 16GB DDR5 and 256GB SSD agree with PD-844; one unwarped fixed Windows package in the separate safe zone. Fine package wording is intended for full-size inspection."
+    },
+    {
+      "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "sha256": "0ce792263a609d713ea69ed2fbf4c3476da980d213380b6d5aa8d894c7df43ed",
+      "result": "PASS",
+      "notes": "Inspected original-size output and 200px thumbnail: accurate official angled view, no invented surface, silver factory mark and front connectors retained. Independent navy safe zone does not intersect chassis. One fixed Windows package, correct base capacities, no external devices. Secondary specifications are read at full size."
+    },
+    {
+      "file": "PT01.png",
+      "sha256": "7ed43193cc4e34df4555555a06f102de749e077a28eaa666f4f20e1df5154aa5",
+      "result": "PASS",
+      "notes": "Inspected original-size output and 200px thumbnail: sourced opposite angle, accurate black material/vents/mark. Appearance-focused purchase story; no Windows or full specification grid. Blue OEM logo is separate, clearly visible, proportionate, and not a sticker on the product."
+    },
+    {
+      "file": "PT02.png",
+      "sha256": "4fc00053a629049709c04d1c3391fe128b4518bb6a371a8037ec87839bf615e0",
+      "result": "PASS",
+      "notes": "Inspected original-size output and 200px thumbnail: exact original computer placed on empty office desk; base contacts desk plane. Original AI architecture/furniture contains no additional devices, accessories or people. Product remains readable, palette agrees with approved B01/BG01, OEM mark is unobstructed."
+    },
+    {
+      "file": "PT03.png",
+      "sha256": "c3cd32898bf0f230759279e20f42e1d403f9a212102e5a66af40653857c43303",
+      "result": "PASS",
+      "notes": "Inspected original-size output and 200px thumbnail: sole full base configuration page, Ultra 7 265T / 20 cores / up to 5.3GHz / integrated Intel Graphics / 16GB DDR5 / 256GB SSD. One complete fixed Windows 11 Pro lockup in OS line. No alternative capacity tiers; headline and primary capacities remain distinguishable in thumbnail, fine explanatory lines require zoom."
+    },
+    {
+      "file": "PT04.png",
+      "sha256": "34d5d838de3930a76cd49094897785610fa557eb2228db6111ac2043688c64e5",
+      "result": "PASS",
+      "notes": "Inspected original-size output and 200px thumbnail: 182mm height aligns with upright product-height line, 178mm depth and 36mm width match OEM chassis dimensions. No exact weight invented and no input/port recap. True source proportions retained. Minor dimension captions are intended for full-size reading."
+    },
+    {
+      "file": "PT05.png",
+      "sha256": "afb8a4038d3c90d6b17f300f8a67845ad773d08b722e0afe4715da2b66730d09",
+      "result": "PASS",
+      "notes": "Inspected original-size output and 200px thumbnail: three original abstract work steps, no copied application UI or software entitlement. Small exact-product view is supporting rather than a second configuration table; no benchmark or throughput promise. Header/cards are distinguishable; supporting copy is read at full size."
+    },
+    {
+      "file": "PT06.png",
+      "sha256": "0b55146ce87a9065c5b4f1f216f5ba58e121666082baa18827f141231e180dca",
+      "result": "PASS",
+      "notes": "Inspected corrected original-size output and 200px thumbnail: power button visible in both exact front and accurate original-photo detail crop; blue leader connects corresponding power-control areas. Previous vents-only crop rejected and replaced. White background, no keyboard/accessory invention, no port specification labels."
+    },
+    {
+      "file": "PT07.png",
+      "sha256": "164eb8799587c2e08b4deaf918a97095d995bededc531cab4cbad908c9765653",
+      "result": "PASS",
+      "notes": "Inspected original-size output and 200px thumbnail: dedicated Intel AI Boost NPU up to 13 TOPS (INT8), explicitly conditioned on supported workloads. Does not claim Copilot+ or paid software. Product photo retains authentic mark and geometry. Major NPU value remains readable at 200px; explanatory context requires full size."
+    },
+    {
+      "file": "PT08.png",
+      "sha256": "3e04714d95c8218f3e548db0259745fc1a131365aa1a78f7b9e6bfb1393944a7",
+      "result": "PASS",
+      "notes": "Inspected corrected original-size output and 200px thumbnail: official standard rear and true front photographs, leader endpoints visually checked at actual headset/USB/Ethernet/HDMI/DP openings. Front USB-C is 10Gbps, front USB-A 5Gbps, rear two USB2 and two USB-A 5Gbps; standard single HDMI and DP agree with ERP parent notes. No optional I/O claim and no wireless-generation guess. Labels enlarged after initial thumbnail check. Optional rear module on the actual fulfilled unit remains a seller pre-publication match check; these are exact-model standard OEM views."
+    }
+  ]
+}

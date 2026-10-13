@@ -1,0 +1,27 @@
+{
+  "internalId": "VD-744",
+  "style_approval_status": "APPROVED",
+  "approved_style_id": "B01",
+  "approved_supporting_gallery_pack": "BG01",
+  "profile": "navy-technical-v1",
+  "palette": [
+    "#10243A",
+    "#FFFFFF",
+    "#246DDB"
+  ],
+  "approvalSource": "Direct user reply: \u6279\u51c6\u8fd9\u4e2a\u98ce\u683c",
+  "approvalDate": "2026-10-13",
+  "recipeVersion": "vd744-b01-v1",
+  "recipeStatus": "BUILT_AND_DIRECTLY_REVIEWED",
+  "boundaryMode": "DESKTOP_GRAPHIC_SAFE_ZONE",
+  "formFactor": "STANDALONE_DESKTOP",
+  "forbidden": [
+    "External devices/accessories",
+    "Invented LCD",
+    "Office/paid software entitlement",
+    "Seller warranty advertising in gallery"
+  ],
+  "recipePath": "../../assets/production/VD-744/b01-20261013/recipe.json",
+  "recipeSha256": "5beb454e39da06ae7ab82fcd034e1bb23d2097850835d1aac98958557f2d9f08",
+  "style_fidelity_review": "PASS"
+}

@@ -1,0 +1,165 @@
+{
+  "schemaVersion": 3,
+  "generatedAtUtc": "2026-10-13T19:57:07.649701+00:00",
+  "brand": "Dell",
+  "result": "PASS",
+  "logoAssetSha256": "7022f17d03a2277b67ef40d26e30a7b7476daf7edbb450879c81ddd82e6f78d1",
+  "logoAssetPath": "..\\..\\assets\\branding\\dell-logo-blue-transparent.png",
+  "visibleLogoAspectRatio": 1.0040160642570282,
+  "placementPlanSha256": "af392e868f442e291fd132e6150ab5310cbe0f07e29833805fa037409febbfb5",
+  "images": [
+    {
+      "file": "PT01.png",
+      "finalImageSha256": "7ed43193cc4e34df4555555a06f102de749e077a28eaa666f4f20e1df5154aa5",
+      "unbrandedSourceSha256": "98dc37790d43d3c19b06988c44a2e147566a8c8688bdcde3ebc6e6bc4145504b",
+      "separationPx": 40,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)",
+      "visibleLogoBounds": {
+        "x": 1352,
+        "y": 72,
+        "width": 176,
+        "height": 175
+      },
+      "visibleLongEdgeAt200px": 22.0,
+      "visibleShortEdgeAt200px": 21.875,
+      "authenticFactoryMarkReview": "Preserved in original OEM product layers; inspected in current output.",
+      "sourceMasterSha256": "98dc37790d43d3c19b06988c44a2e147566a8c8688bdcde3ebc6e6bc4145504b"
+    },
+    {
+      "file": "PT02.png",
+      "finalImageSha256": "4fc00053a629049709c04d1c3391fe128b4518bb6a371a8037ec87839bf615e0",
+      "unbrandedSourceSha256": "509e1b3d167748c8b2715cfdfb13ef935c1991f6b6ff394ffcaf878c63e8183a",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)",
+      "visibleLogoBounds": {
+        "x": 1014,
+        "y": 54,
+        "width": 132,
+        "height": 131
+      },
+      "visibleLongEdgeAt200px": 22.0,
+      "visibleShortEdgeAt200px": 21.833333333333332,
+      "authenticFactoryMarkReview": "Preserved in original OEM product layers; inspected in current output.",
+      "sourceMasterSha256": "509e1b3d167748c8b2715cfdfb13ef935c1991f6b6ff394ffcaf878c63e8183a"
+    },
+    {
+      "file": "PT03.png",
+      "finalImageSha256": "c3cd32898bf0f230759279e20f42e1d403f9a212102e5a66af40653857c43303",
+      "unbrandedSourceSha256": "b04dfe2d8b0a71b550fde06fac15294f4dd1d106b62b927be67f0a88f89e1732",
+      "separationPx": 40,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)",
+      "visibleLogoBounds": {
+        "x": 1352,
+        "y": 72,
+        "width": 176,
+        "height": 175
+      },
+      "visibleLongEdgeAt200px": 22.0,
+      "visibleShortEdgeAt200px": 21.875,
+      "authenticFactoryMarkReview": "Preserved in original OEM product layers; inspected in current output.",
+      "sourceMasterSha256": "b04dfe2d8b0a71b550fde06fac15294f4dd1d106b62b927be67f0a88f89e1732"
+    },
+    {
+      "file": "PT04.png",
+      "finalImageSha256": "34d5d838de3930a76cd49094897785610fa557eb2228db6111ac2043688c64e5",
+      "unbrandedSourceSha256": "eb69afe168fc71b2528112f1f17232f9059fd254b61c46290c73a7ed8d24aac8",
+      "separationPx": 40,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)",
+      "visibleLogoBounds": {
+        "x": 1352,
+        "y": 72,
+        "width": 176,
+        "height": 175
+      },
+      "visibleLongEdgeAt200px": 22.0,
+      "visibleShortEdgeAt200px": 21.875,
+      "authenticFactoryMarkReview": "Preserved in original OEM product layers; inspected in current output.",
+      "sourceMasterSha256": "eb69afe168fc71b2528112f1f17232f9059fd254b61c46290c73a7ed8d24aac8"
+    },
+    {
+      "file": "PT05.png",
+      "finalImageSha256": "afb8a4038d3c90d6b17f300f8a67845ad773d08b722e0afe4715da2b66730d09",
+      "unbrandedSourceSha256": "b398bed7432171fbb16598b979b3e986a975c8f84f1a377b112dd8d12d37ea48",
+      "separationPx": 40,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)",
+      "visibleLogoBounds": {
+        "x": 1352,
+        "y": 72,
+        "width": 176,
+        "height": 175
+      },
+      "visibleLongEdgeAt200px": 22.0,
+      "visibleShortEdgeAt200px": 21.875,
+      "authenticFactoryMarkReview": "Preserved in original OEM product layers; inspected in current output.",
+      "sourceMasterSha256": "b398bed7432171fbb16598b979b3e986a975c8f84f1a377b112dd8d12d37ea48"
+    },
+    {
+      "file": "PT06.png",
+      "finalImageSha256": "0b55146ce87a9065c5b4f1f216f5ba58e121666082baa18827f141231e180dca",
+      "unbrandedSourceSha256": "b436c3f80ce979503957fb9b4db7992f9d754b240ebd704b71621c2d86daee8a",
+      "separationPx": 40,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)",
+      "visibleLogoBounds": {
+        "x": 1352,
+        "y": 72,
+        "width": 176,
+        "height": 175
+      },
+      "visibleLongEdgeAt200px": 22.0,
+      "visibleShortEdgeAt200px": 21.875,
+      "authenticFactoryMarkReview": "Preserved in original OEM product layers; inspected in current output.",
+      "sourceMasterSha256": "b436c3f80ce979503957fb9b4db7992f9d754b240ebd704b71621c2d86daee8a"
+    },
+    {
+      "file": "PT07.png",
+      "finalImageSha256": "164eb8799587c2e08b4deaf918a97095d995bededc531cab4cbad908c9765653",
+      "unbrandedSourceSha256": "0c6c143d8fd51dded7546943af6deea70d3dc6039c7e233c6b99d445d734a1de",
+      "separationPx": 40,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)",
+      "visibleLogoBounds": {
+        "x": 1352,
+        "y": 72,
+        "width": 176,
+        "height": 175
+      },
+      "visibleLongEdgeAt200px": 22.0,
+      "visibleShortEdgeAt200px": 21.875,
+      "authenticFactoryMarkReview": "Preserved in original OEM product layers; inspected in current output.",
+      "sourceMasterSha256": "0c6c143d8fd51dded7546943af6deea70d3dc6039c7e233c6b99d445d734a1de"
+    },
+    {
+      "file": "PT08.png",
+      "finalImageSha256": "3e04714d95c8218f3e548db0259745fc1a131365aa1a78f7b9e6bfb1393944a7",
+      "unbrandedSourceSha256": "1f5809b956ed4ea8239e87cadc9d5b659d4a14883f439220277d7c799719c676",
+      "separationPx": 40,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)",
+      "visibleLogoBounds": {
+        "x": 1352,
+        "y": 72,
+        "width": 176,
+        "height": 175
+      },
+      "visibleLongEdgeAt200px": 22.0,
+      "visibleShortEdgeAt200px": 21.875,
+      "authenticFactoryMarkReview": "Preserved in original OEM product layers; inspected in current output.",
+      "sourceMasterSha256": "1f5809b956ed4ea8239e87cadc9d5b659d4a14883f439220277d7c799719c676"
+    }
+  ],
+  "visualReviewSha256": "ebc11503198a8ad2590726544f81424d6aac716c47b0dcb6d0bcc20cdc10d5ba"
+}

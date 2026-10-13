@@ -1,0 +1,15 @@
+{
+  "oem": "Dell",
+  "authorizationStatus": "USER_CONFIRMED_CATALOG_WIDE",
+  "holder": "MegaPC / J-Tech Digital",
+  "officialPage": "https://www.dell.com/en-us/shop/desktops/spd/dellpromicroqcm1250",
+  "date": "2026-10-13",
+  "physicalLayers": "Original exact-model OEM photos; alpha trim and proportional downsize only, factory marks preserved.",
+  "sourceNativeFront": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/page/landing-page/windows-11/2025/windows-11-update-desktop-pro-qcm1250-micro-black.png?fmt=png-alpha&qlt=100",
+  "rearSource": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/desktops/dell-pro/qcm1250/media-gallery/desktop-pro-qcm1250-micro-black-gallery-2.psd",
+  "sideSource": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/desktops/dell-pro/qcm1250/media-gallery/desktop-pro-qcm1250-micro-black-gallery-3.psd",
+  "angleSource": "https://i.dell.com/assetlink/img/global/desktop-pro-qcm1250-micro-black-gallery-1-dl11avy1-original.png",
+  "AI": "Built-in imagegen; empty synthetic office background only. No synthetic performer. Style preview is reference only, not reused as product pixels.",
+  "fixedAssets": "Repository active Dell transparent logo, Windows 11 Pro package and lockup; hashes in recipe/QA.",
+  "verificationLimit": "Exact sold-unit optional rear module has not been photographed; standard OEM chassis ports only. Do not infer an optional module from these images."
+}

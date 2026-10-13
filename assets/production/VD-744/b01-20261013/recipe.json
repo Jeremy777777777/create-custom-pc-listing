@@ -1,0 +1,991 @@
+{
+  "version": "vd744-b01-v1",
+  "method": "ORIGINAL_PHOTO + deterministic typography/approved brand assets; AI empty office background only",
+  "fonts": {
+    "regular": "C:\\Windows\\Fonts\\arial.ttf",
+    "regularSha256": "b3658eadae55e682b5f69eb64c439c1ecc8f196c0bb8d4756d145d13bc86476a",
+    "bold": "C:\\Windows\\Fonts\\arialbd.ttf",
+    "boldSha256": "e8f4e3baf6cc35fed6fcce3a540e8b39e8f6cda1d22a28f2ec8f526fef7a43f5",
+    "fontFilesUploaded": false
+  },
+  "sources": {
+    "approved-style-preview.png": {
+      "sha256": "0ad0d5ed2beac1beb943386bdb45893a0641a19d97053ccccf7a57cadbaa3ef4",
+      "dimensions": [
+        1586,
+        992
+      ]
+    },
+    "dell-qcm1250-angle.png": {
+      "sha256": "a60d609b269619d3a047cf7667e94e8c777b3d502e2f55ef99ac60aa27f312fe",
+      "dimensions": [
+        1600,
+        1600
+      ]
+    },
+    "dell-qcm1250-front-native.png": {
+      "sha256": "4ddf4a7943ef8598cb062715f7e26012916f6af90198dbef3ce11007b5740b93",
+      "dimensions": [
+        1400,
+        1075
+      ]
+    },
+    "dell-qcm1250-front-reference.png": {
+      "sha256": "8595c94bbf9a1efbaf502a561e0bde1cdbe3eec3125aa263ea6a146f51f70130",
+      "dimensions": [
+        1600,
+        1600
+      ]
+    },
+    "dell-qcm1250-left.png": {
+      "sha256": "293cf650d94b73bab23b52e5bacb47a07ac6b7485b88874c5fe2da5d008a8902",
+      "dimensions": [
+        1600,
+        1600
+      ]
+    },
+    "dell-qcm1250-rear.png": {
+      "sha256": "7871f4056651112d31936e4a599bcf63bee3627ea8ed388582e75ef1bb452dad",
+      "dimensions": [
+        1600,
+        1600
+      ]
+    },
+    "office-background.png": {
+      "sha256": "e387ee4e4fc10a968088dc5ca78a8ed7dc2910918a10564669c117d8e5004a87",
+      "dimensions": [
+        1254,
+        1254
+      ]
+    }
+  },
+  "layout": {
+    "MAIN-STRICT.jpg": {
+      "canvas": [
+        1600,
+        1600
+      ],
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 316,
+          "y": 80,
+          "width": 982,
+          "height": 1420
+        }
+      ],
+      "productLayers": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 316,
+          "y": 80,
+          "width": 982,
+          "height": 1420,
+          "sourceSize": [
+            1106,
+            1600
+          ],
+          "scale": 0.8875
+        }
+      ]
+    },
+    "enhancedFrontWindows": {
+      "x": 640,
+      "y": 545,
+      "width": 170,
+      "height": 186
+    },
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png": {
+      "canvas": [
+        1000,
+        1000
+      ],
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 120,
+          "y": 55,
+          "width": 262,
+          "height": 880
+        },
+        {
+          "label": "TEXT",
+          "x": 505,
+          "y": 240,
+          "width": 297,
+          "height": 96
+        },
+        {
+          "label": "TEXT",
+          "x": 505,
+          "y": 365,
+          "width": 240,
+          "height": 35
+        },
+        {
+          "label": "TEXT",
+          "x": 505,
+          "y": 420,
+          "width": 233,
+          "height": 68
+        }
+      ],
+      "productLayers": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 120,
+          "y": 55,
+          "width": 262,
+          "height": 880,
+          "sourceSize": [
+            278,
+            935
+          ],
+          "scale": 0.9411764705882353
+        }
+      ]
+    },
+    "enhancedAngleWindows": {
+      "x": 1180,
+      "y": 900,
+      "width": 230,
+      "height": 252
+    },
+    "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": {
+      "canvas": [
+        1600,
+        1600
+      ],
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 70,
+          "y": 90,
+          "width": 982,
+          "height": 1420
+        },
+        {
+          "label": "TEXT",
+          "x": 1130,
+          "y": 355,
+          "width": 244,
+          "height": 136
+        },
+        {
+          "label": "TEXT",
+          "x": 1130,
+          "y": 530,
+          "width": 222,
+          "height": 96
+        },
+        {
+          "label": "TEXT",
+          "x": 1130,
+          "y": 690,
+          "width": 208,
+          "height": 88
+        }
+      ],
+      "productLayers": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 70,
+          "y": 90,
+          "width": 982,
+          "height": 1420,
+          "sourceSize": [
+            1106,
+            1600
+          ],
+          "scale": 0.8875
+        }
+      ]
+    },
+    "PT01.png": {
+      "canvas": [
+        1600,
+        1600
+      ],
+      "protectedZones": [
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 65,
+          "width": 337,
+          "height": 30
+        },
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 125,
+          "width": 1001,
+          "height": 71
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 120,
+          "y": 360,
+          "width": 760,
+          "height": 1100
+        },
+        {
+          "label": "TEXT",
+          "x": 930,
+          "y": 495,
+          "width": 427,
+          "height": 162
+        },
+        {
+          "label": "TEXT",
+          "x": 930,
+          "y": 740,
+          "width": 419,
+          "height": 92
+        },
+        {
+          "label": "TEXT",
+          "x": 930,
+          "y": 1170,
+          "width": 365,
+          "height": 66
+        }
+      ],
+      "productLayers": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 120,
+          "y": 360,
+          "width": 760,
+          "height": 1100,
+          "sourceSize": [
+            1106,
+            1600
+          ],
+          "scale": 0.6875
+        }
+      ]
+    },
+    "PT02.png": {
+      "canvas": [
+        1200,
+        1200
+      ],
+      "protectedZones": [
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 65,
+          "width": 150,
+          "height": 30
+        },
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 125,
+          "width": 606,
+          "height": 58
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 350,
+          "y": 340,
+          "width": 484,
+          "height": 700
+        }
+      ],
+      "productLayers": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 350,
+          "y": 340,
+          "width": 484,
+          "height": 700,
+          "sourceSize": [
+            1106,
+            1600
+          ],
+          "scale": 0.4375
+        }
+      ]
+    },
+    "PT03.png": {
+      "canvas": [
+        1600,
+        1600
+      ],
+      "protectedZones": [
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 65,
+          "width": 286,
+          "height": 30
+        },
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 125,
+          "width": 983,
+          "height": 71
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 170,
+          "y": 480,
+          "width": 268,
+          "height": 900
+        },
+        {
+          "label": "TEXT",
+          "x": 655,
+          "y": 378,
+          "width": 147,
+          "height": 27
+        },
+        {
+          "label": "TEXT",
+          "x": 655,
+          "y": 417,
+          "width": 489,
+          "height": 54
+        },
+        {
+          "label": "TEXT",
+          "x": 655,
+          "y": 480,
+          "width": 339,
+          "height": 37
+        },
+        {
+          "label": "TEXT",
+          "x": 655,
+          "y": 613,
+          "width": 122,
+          "height": 27
+        },
+        {
+          "label": "TEXT",
+          "x": 655,
+          "y": 652,
+          "width": 309,
+          "height": 54
+        },
+        {
+          "label": "TEXT",
+          "x": 655,
+          "y": 715,
+          "width": 265,
+          "height": 37
+        },
+        {
+          "label": "TEXT",
+          "x": 655,
+          "y": 848,
+          "width": 103,
+          "height": 27
+        },
+        {
+          "label": "TEXT",
+          "x": 655,
+          "y": 887,
+          "width": 376,
+          "height": 54
+        },
+        {
+          "label": "TEXT",
+          "x": 655,
+          "y": 950,
+          "width": 313,
+          "height": 37
+        },
+        {
+          "label": "TEXT",
+          "x": 655,
+          "y": 1083,
+          "width": 114,
+          "height": 27
+        },
+        {
+          "label": "TEXT",
+          "x": 655,
+          "y": 1122,
+          "width": 255,
+          "height": 54
+        },
+        {
+          "label": "TEXT",
+          "x": 655,
+          "y": 1185,
+          "width": 338,
+          "height": 37
+        },
+        {
+          "label": "TEXT",
+          "x": 655,
+          "y": 1340,
+          "width": 236,
+          "height": 27
+        },
+        {
+          "label": "WINDOWS_IDENTITY",
+          "x": 1020,
+          "y": 1310,
+          "width": 449,
+          "height": 200
+        }
+      ],
+      "productLayers": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 170,
+          "y": 480,
+          "width": 268,
+          "height": 900,
+          "sourceSize": [
+            278,
+            935
+          ],
+          "scale": 0.9625668449197861
+        }
+      ]
+    },
+    "PT04.png": {
+      "canvas": [
+        1600,
+        1600
+      ],
+      "protectedZones": [
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 65,
+          "width": 300,
+          "height": 30
+        },
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 125,
+          "width": 1000,
+          "height": 71
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 540,
+          "y": 340,
+          "width": 760,
+          "height": 1099
+        },
+        {
+          "label": "TEXT",
+          "x": 80,
+          "y": 790,
+          "width": 155,
+          "height": 100
+        },
+        {
+          "label": "TEXT",
+          "x": 80,
+          "y": 1390,
+          "width": 233,
+          "height": 41
+        },
+        {
+          "label": "TEXT",
+          "x": 1040,
+          "y": 1460,
+          "width": 211,
+          "height": 41
+        }
+      ],
+      "productLayers": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 540,
+          "y": 340,
+          "width": 760,
+          "height": 1099,
+          "sourceSize": [
+            1106,
+            1600
+          ],
+          "scale": 0.6871609403254972
+        }
+      ]
+    },
+    "PT05.png": {
+      "canvas": [
+        1600,
+        1600
+      ],
+      "protectedZones": [
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 65,
+          "width": 159,
+          "height": 30
+        },
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 125,
+          "width": 765,
+          "height": 71
+        },
+        {
+          "label": "TEXT",
+          "x": 140,
+          "y": 450,
+          "width": 34,
+          "height": 35
+        },
+        {
+          "label": "TEXT",
+          "x": 140,
+          "y": 525,
+          "width": 188,
+          "height": 46
+        },
+        {
+          "label": "TEXT",
+          "x": 140,
+          "y": 620,
+          "width": 190,
+          "height": 70
+        },
+        {
+          "label": "TEXT",
+          "x": 640,
+          "y": 450,
+          "width": 34,
+          "height": 35
+        },
+        {
+          "label": "TEXT",
+          "x": 640,
+          "y": 525,
+          "width": 198,
+          "height": 46
+        },
+        {
+          "label": "TEXT",
+          "x": 640,
+          "y": 620,
+          "width": 258,
+          "height": 70
+        },
+        {
+          "label": "TEXT",
+          "x": 1140,
+          "y": 450,
+          "width": 34,
+          "height": 35
+        },
+        {
+          "label": "TEXT",
+          "x": 1140,
+          "y": 525,
+          "width": 169,
+          "height": 46
+        },
+        {
+          "label": "TEXT",
+          "x": 1140,
+          "y": 620,
+          "width": 226,
+          "height": 70
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 650,
+          "y": 1000,
+          "width": 346,
+          "height": 500
+        }
+      ],
+      "productLayers": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 650,
+          "y": 1000,
+          "width": 346,
+          "height": 500,
+          "sourceSize": [
+            1106,
+            1600
+          ],
+          "scale": 0.3125
+        }
+      ]
+    },
+    "PT06.png": {
+      "canvas": [
+        1600,
+        1600
+      ],
+      "protectedZones": [
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 65,
+          "width": 256,
+          "height": 30
+        },
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 125,
+          "width": 732,
+          "height": 71
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 315,
+          "y": 440,
+          "width": 268,
+          "height": 900
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE_CONTROL_DETAIL",
+          "x": 980,
+          "y": 410,
+          "width": 370,
+          "height": 700
+        },
+        {
+          "label": "TEXT",
+          "x": 100,
+          "y": 1390,
+          "width": 149,
+          "height": 38
+        },
+        {
+          "label": "TEXT",
+          "x": 950,
+          "y": 1390,
+          "width": 303,
+          "height": 38
+        }
+      ],
+      "productLayers": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 315,
+          "y": 440,
+          "width": 268,
+          "height": 900,
+          "sourceSize": [
+            278,
+            935
+          ],
+          "scale": 0.9625668449197861
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE_CONTROL_DETAIL",
+          "x": 980,
+          "y": 410,
+          "width": 370,
+          "height": 700,
+          "sourceSize": [
+            370,
+            700
+          ],
+          "scale": 1.0
+        }
+      ]
+    },
+    "PT07.png": {
+      "canvas": [
+        1600,
+        1600
+      ],
+      "protectedZones": [
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 65,
+          "width": 294,
+          "height": 30
+        },
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 125,
+          "width": 843,
+          "height": 71
+        },
+        {
+          "label": "TEXT",
+          "x": 120,
+          "y": 405,
+          "width": 450,
+          "height": 83
+        },
+        {
+          "label": "TEXT",
+          "x": 120,
+          "y": 540,
+          "width": 611,
+          "height": 104
+        },
+        {
+          "label": "TEXT",
+          "x": 120,
+          "y": 680,
+          "width": 472,
+          "height": 41
+        },
+        {
+          "label": "TEXT",
+          "x": 120,
+          "y": 785,
+          "width": 457,
+          "height": 44
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 1040,
+          "y": 430,
+          "width": 380,
+          "height": 550
+        },
+        {
+          "label": "TEXT",
+          "x": 100,
+          "y": 1130,
+          "width": 663,
+          "height": 57
+        },
+        {
+          "label": "TEXT",
+          "x": 100,
+          "y": 1240,
+          "width": 738,
+          "height": 90
+        }
+      ],
+      "productLayers": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 1040,
+          "y": 430,
+          "width": 380,
+          "height": 550,
+          "sourceSize": [
+            1106,
+            1600
+          ],
+          "scale": 0.34375
+        }
+      ]
+    },
+    "PT08.png": {
+      "canvas": [
+        1600,
+        1600
+      ],
+      "protectedZones": [
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 65,
+          "width": 318,
+          "height": 30
+        },
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 125,
+          "width": 877,
+          "height": 71
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 420,
+          "y": 420,
+          "width": 250,
+          "height": 840
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 1000,
+          "y": 420,
+          "width": 248,
+          "height": 840
+        },
+        {
+          "label": "TEXT",
+          "x": 420,
+          "y": 330,
+          "width": 95,
+          "height": 32
+        },
+        {
+          "label": "TEXT",
+          "x": 1000,
+          "y": 330,
+          "width": 78,
+          "height": 32
+        },
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 540,
+          "width": 180,
+          "height": 108
+        },
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 710,
+          "width": 157,
+          "height": 108
+        },
+        {
+          "label": "TEXT",
+          "x": 70,
+          "y": 880,
+          "width": 183,
+          "height": 108
+        },
+        {
+          "label": "TEXT",
+          "x": 1290,
+          "y": 450,
+          "width": 187,
+          "height": 108
+        },
+        {
+          "label": "TEXT",
+          "x": 1290,
+          "y": 610,
+          "width": 254,
+          "height": 54
+        },
+        {
+          "label": "TEXT",
+          "x": 1290,
+          "y": 765,
+          "width": 224,
+          "height": 108
+        },
+        {
+          "label": "TEXT",
+          "x": 1290,
+          "y": 930,
+          "width": 195,
+          "height": 54
+        },
+        {
+          "label": "TEXT",
+          "x": 1290,
+          "y": 1080,
+          "width": 257,
+          "height": 108
+        },
+        {
+          "label": "TEXT",
+          "x": 80,
+          "y": 1430,
+          "width": 569,
+          "height": 50
+        }
+      ],
+      "productLayers": [
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 420,
+          "y": 420,
+          "width": 250,
+          "height": 840,
+          "sourceSize": [
+            278,
+            935
+          ],
+          "scale": 0.8983957219251337
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE",
+          "x": 1000,
+          "y": 420,
+          "width": 248,
+          "height": 840,
+          "sourceSize": [
+            473,
+            1600
+          ],
+          "scale": 0.525
+        }
+      ]
+    }
+  },
+  "primaryFactOwnership": {
+    "MAIN-STRICT.jpg": [],
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png": [
+      "base.cpu",
+      "base.ram",
+      "base.ssd",
+      "base.os"
+    ],
+    "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": [
+      "base.cpu",
+      "base.ram",
+      "base.ssd",
+      "base.os"
+    ],
+    "PT01.png": [
+      "appearance.black",
+      "appearance.restrained"
+    ],
+    "PT02.png": [
+      "use.officeScene"
+    ],
+    "PT03.png": [
+      "base.cpu",
+      "base.gpu",
+      "base.ram",
+      "base.ssd",
+      "base.os"
+    ],
+    "PT04.png": [
+      "chassis.height",
+      "chassis.depth",
+      "chassis.width"
+    ],
+    "PT05.png": [],
+    "PT06.png": [
+      "input.powerButton"
+    ],
+    "PT07.png": [
+      "npu.intelAiBoost",
+      "npu.peak13Tops"
+    ],
+    "PT08.png": [
+      "ports.standard",
+      "wireless.support"
+    ]
+  },
+  "rebuild": "Run build-gallery.py in the listing-testing environment, then gallery_engine.py finalize; identical frozen fonts and source layers required.",
+  "publication": "Enhanced MAIN are candidates; no Amazon acceptance claimed.",
+  "brandingSources": {
+    "dell-logo-blue-transparent.png": {
+      "repositoryPath": "assets/branding/dell-logo-blue-transparent.png",
+      "sha256": "7022f17d03a2277b67ef40d26e30a7b7476daf7edbb450879c81ddd82e6f78d1"
+    },
+    "windows-11-pro-package.png": {
+      "repositoryPath": "assets/branding/windows-11-pro-package.png",
+      "sha256": "6f9dc54bdbf084ebe11fb06ec85d610de8ebf766d4ead7781ff5898d6e5c7380"
+    },
+    "windows-11-pro-lockup.png": {
+      "repositoryPath": "assets/branding/windows-11-pro-lockup.png",
+      "sha256": "3a70dbe456a1c2478d46fa0105b3e89b0097854be78fbc0bd4c1888e019a5586"
+    }
+  },
+  "fixedSoftwareAssetModes": {
+    "enhancedFront": "WINDOWS_11_PRO_PACKAGE",
+    "enhancedAngle": "WINDOWS_11_PRO_PACKAGE",
+    "PT03": "WINDOWS_11_PRO_LOGO_LOCKUP",
+    "reason": "Approved standalone desktop safe-zone exception; no LCD exists."
+  }
+}

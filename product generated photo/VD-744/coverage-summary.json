@@ -10,8 +10,8 @@
   "sheets": {
     "Product Details": {
       "total": 195,
-      "TBD": 91,
-      "VERIFIED": 85,
+      "TBD": 83,
+      "VERIFIED": 93,
       "NOT_APPLICABLE": 19
     },
     "Offer": {
@@ -29,10 +29,11 @@
     "Actual per-unit modification/seal-opening record",
     "Seller listing brand, SKU, GTIN and marketplace custom configuration setup",
     "Installed wireless module/versions and optional I/O",
-    "Exact unit weight, dimensions field mapping, power adapter and pack-out",
+    "Exact unit weight, power adapter and pack-out",
     "Battery/coin-cell and applicable regulatory evidence",
     "Exact sold-unit rear optional I/O match; official standard-view reference available"
   ],
-  "gallery": "STYLE_APPROVED_B01_BG01_PRODUCTION_IN_PROGRESS",
-  "publication": "NOT_CLEARED"
+  "gallery": "CURRENT_ARTWORK_REVIEWED",
+  "publication": "NOT_CLEARED",
+  "galleryQa": "PASS for official-reference artwork; physical-unit and publication checks separate"
 }
