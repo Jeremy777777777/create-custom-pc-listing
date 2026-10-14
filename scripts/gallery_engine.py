@@ -221,6 +221,44 @@ def validate(directory,brand=None,legacy=False,require_final=True,allow_quaranti
             if report.get(key)!=digest(p/filename): raise ValueError('Stale final review binding')
     return [{'file':n,**check_image_size(sizes[n]),'sha256':digest(p/n)} for n in NAMES]
 
+def commit_outputs(outputs):
+    """Prepare all replacements and backups, roll back committed files on failure."""
+    pending={}; backups={}; committed=[]; recovery_failed=False
+    if len({Path(dst).resolve() for _,dst in outputs})!=len(outputs): raise ValueError('Duplicate output target')
+    def temporary(parent):
+        fd,name=tempfile.mkstemp(prefix='.listing-write-',suffix='.tmp',dir=parent)
+        os.close(fd);return Path(name)
+    try:
+        for source,destination in outputs:
+            target=Path(destination)
+            if target.is_symlink() or target.exists() and not target.is_file(): raise ValueError('Output must be a regular file')
+            staged=temporary(target.parent);pending[target]=staged
+            shutil.copyfile(source,staged)
+            backups[target]=None
+            if target.exists():
+                backup=temporary(target.parent);backups[target]=backup
+                shutil.copyfile(target,backup)
+        for target,staged in pending.items():
+            os.replace(staged,target);committed.append(target)
+    except Exception:
+        failures=[]
+        for target in reversed(committed):
+            try:
+                if backups[target] is None: target.unlink(missing_ok=True)
+                else: os.replace(backups[target],target)
+            except OSError as exc: failures.append(str(target)+': '+str(exc))
+        if failures:
+            recovery_failed=True
+            locations=[str(p) for p in backups.values() if p is not None and p.exists()]
+            raise OSError('Rollback incomplete; retained recovery backups: '+', '.join(locations)+'; '+ '; '.join(failures))
+        raise
+    finally:
+        for staged in pending.values(): staged.unlink(missing_ok=True)
+        if not recovery_failed:
+            for backup in backups.values():
+                if backup is not None: backup.unlink(missing_ok=True)
+
+
 def finalize(directory,asset,brand,contact,size=None,skip=False,slots=None):
     p=Path(directory); selected=slots or NAMES
     if len(set(selected))!=len(selected) or any(n not in NAMES for n in selected): raise ValueError('Unknown or duplicate slot')
@@ -256,13 +294,14 @@ def finalize(directory,asset,brand,contact,size=None,skip=False,slots=None):
         # Store asset path relative to final destination, not temporary staging.
         if selected_pt:
             qa=read(staging/'logo-qa.json'); qa['logoAssetPath']=os.path.relpath(Path(asset).resolve(),p.resolve()); write(staging/'logo-qa.json',qa)
-        for n in selected: shutil.copyfile(staging/n,p/n)
+        outputs=[(staging/n,p/n) for n in selected]
         if selected_pt:
             # Copy bytes, retaining the hashes recorded by badges.
             for n in selected_pt:
-                shutil.copyfile(staging/'unbranded'/n,p/'unbranded'/n)
-            shutil.copyfile(staging/'logo-qa.json',p/'logo-qa.json')
-        shutil.copyfile(sheet,contact)
+                outputs.append((staging/'unbranded'/n,p/'unbranded'/n))
+            outputs.append((staging/'logo-qa.json',p/'logo-qa.json'))
+        outputs.append((sheet,contact))
+        commit_outputs(outputs)
     print('PREPARED: supply current hash-bound visual-review.json and semantic-review.json, then run accept; no delivery PASS claimed.')
 
 def accept(directory,brand=None,slots=None):
@@ -465,15 +504,19 @@ def validate_vl1276_ai_gallery_import(root,p,changed):
 
 def gate(root,base=None,head='HEAD'):
     root=Path(root)
-    changed=[] if not base else subprocess.check_output(['git','diff','--name-only',base,head],cwd=root,text=True).splitlines()
+    changed=[] if not base else subprocess.check_output(['git','diff','--no-renames','--name-only',base,head],cwd=root,text=True).splitlines()
+    for path in changed:
+        parts=Path(path).parts
+        if len(parts)==3 and parts[0]=='product generated photo' and parts[2] in NAMES and not (root/path).is_file():
+            raise ValueError('Canonical gallery slot deleted or renamed: '+path)
     dirs=gallery_directories(root,changed,full=not base)
-    validated=0; quarantined=0; partial=0; research=0; imports=0; ai_imports=0; angle_imports=0
+    validated=0; quarantined=0; partial=0; research=0; imports=0; ai_imports=0; angle_imports=0; historical_partial=0
     for p in dirs:
         if not p.is_dir(): continue
         status=p/'delivery-status.json'
         state=read(status) if status.exists() else {}
         if not any((p/n).exists() for n in NAMES):
-            if state.get('currentQaPass') or state.get('galleryState')=='CURRENT_REVIEWED' or state.get('deliveryScope')=='FULL_GALLERY': raise ValueError('Completed gallery has no canonical images')
+            if state.get('currentQaPass') or state.get('galleryState') in ('CURRENT_REVIEWED','LEGACY_QUARANTINED','USER_APPROVED_ANGLE_IMPORT_STRICT_REVALIDATION_REQUIRED') or state.get('deliveryScope') in ('FULL_GALLERY','PARTIAL_UPDATE'): raise ValueError('Existing or completed gallery has no canonical images')
             print(f'Research-only folder excluded from gallery validation: {p}'); research+=1; continue
         status=p/'delivery-status.json'
         if p.name=='VD-744' and state.get('galleryState')=='USER_APPROVED_ANGLE_IMPORT_STRICT_REVALIDATION_REQUIRED' and (p/'approved-angle-import.json').exists():
@@ -495,14 +538,29 @@ def gate(root,base=None,head='HEAD'):
                     validate_vl1276_ai_gallery_import(root,p,names); ai_imports+=1
                 else:
                     validate_partial(p,names); partial+=1
+            elif (p/'partial-update-qa.json').exists() or state.get('deliveryScope')=='PARTIAL_UPDATE':
+                visual=p/'visual-review.json'
+                binding=read(visual).get('reviewInputsSha256') if visual.exists() else None
+                inputs={p/name for name in ('product-facts.json','style-lock.json','partial-update-qa.json','visual-review.json','semantic-review.json','logo-qa.json','logo-placement.json')}
+                style_path=p/'style-lock.json'
+                if style_path.exists():
+                    recipe=read(style_path).get('recipePath')
+                    if recipe: inputs.add(root/recipe if str(recipe).startswith('assets/') else p/recipe)
+                changed_inputs={str((root/path).resolve()) for path in changed}
+                relevant=bool({str(path.resolve()) for path in inputs}&changed_inputs)
+                if binding or relevant:
+                    validate_partial(p,[]); partial+=1
+                else:
+                    historical_partial+=1
+                    print('HISTORICAL_PARTIAL_REVIEW_NOT_CURRENT: '+p.name+'; no input-bound current partial PASS')
             quarantined+=1; continue
         validate(p); validated+=1
     print(f'Validated {validated} eligible galleries; {quarantined} quarantined folders excluded; {angle_imports} scoped angle imports, not strict QA PASS')
-    summary={'fullGalleriesValidated':validated,'quarantinedNotPassed':quarantined,'partialUpdatesValidated':partial,'approvedExactAssetImports':imports,'approvedAiEffectImportsNotQaPassed':ai_imports,'approvedAngleImportsNotQaPassed':angle_imports,'researchOnlyFolders':research}
+    summary={'fullGalleriesValidated':validated,'quarantinedNotPassed':quarantined,'partialUpdatesValidated':partial,'historicalPartialReviewsNotCurrent':historical_partial,'approvedExactAssetImports':imports,'approvedAiEffectImportsNotQaPassed':ai_imports,'approvedAngleImportsNotQaPassed':angle_imports,'researchOnlyFolders':research}
     write(root/'gallery-ci-summary.json',summary)
     if os.environ.get('GITHUB_STEP_SUMMARY'):
         with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as f:
-            f.write(f'### Gallery check scope\n\nFull galleries validated: {validated}. Quarantined, NOT PASS: {quarantined}. Scoped partial updates: {partial}. Exact user-approved imports: {imports}. AI-effect imports, NOT full QA: {ai_imports}. Angle imports, NOT strict QA: {angle_imports}. Research-only folders: {research}.\n\nCI success means checks executed successfully; it does not clear quarantine or certify Amazon readiness.\n')
+            f.write(f'### Gallery check scope\n\nFull galleries validated: {validated}. Quarantined, NOT PASS: {quarantined}. Scoped partial updates: {partial}. Historical partial reviews, NOT CURRENT: {historical_partial}. Exact user-approved imports: {imports}. AI-effect imports, NOT full QA: {ai_imports}. Angle imports, NOT strict QA: {angle_imports}. Research-only folders: {research}.\n\nCI success means checks executed successfully; it does not clear quarantine or certify Amazon readiness.\n')
     return summary
 
 def main():

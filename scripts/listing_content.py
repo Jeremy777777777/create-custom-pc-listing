@@ -15,20 +15,85 @@ CAPACITY_PAIRS = {
 SPEED_PAIRS = {'Memory Speed':'Memory Speed Unit', 'Memory Clock Speed':'Memory Clock Speed Unit',
                'CPU Base Speed':'CPU Base Speed Unit', 'CPU Model Speed Maximum':'CPU Model Speed Maximum Unit'}
 CAPACITY_UNITS = {'kb':1/1024**2, 'mb':1/1024, 'gb':1, 'tb':1024}
-SPEED_UNITS = {'mhz':1, 'ghz':1000, 'mt/s':1}
+SPEED_UNITS = {'mhz':1, 'ghz':1000}
+FIELD_UNITS = {
+    'RAM Memory Installed': {'gb','mb'}, 'Hard Disk Size': {'gb','tb'},
+    'Memory Speed': {'mhz'}, 'Memory Clock Speed': {'mhz','ghz'},
+    'CPU Base Speed': {'mhz','ghz'}, 'CPU Model Speed Maximum': {'mhz','ghz'},
+}
+# Explicit current-template rules. Wording in Definition is not a type declaration.
+COUNT_FIELDS = {
+    'Product Details': {'Number of Items','Item Package Quantity','Processor Count','Model Year',
+        'Total HDMI Ports','Total Thunderbolt Ports','Total USB 2.0 Ports','Total USB 3.0 Ports',
+        'Total USB Ports','USB Port Quantity','Number of USB ports','Audio Connector Quantity',
+        'Supported Monitor Maximum Quantity','RAM Memory Slot Total Count','HDMI Port Quantity',
+        'Number of HDMI ports','Available M2 Slot Count'},
+    'Offer': {'Maximum Order Quantity'},
+    'Safety&Compliance': {'Number of Batteries','Number of Lithium-ion Cells'},
+}
+NUMERIC_FIELDS = {
+    'Product Details': {'Voltage','Memory Storage Capacity','Computer Memory Size','CPU Base Speed',
+                       'Flash Memory Installed Size','Item Weight','Unit Count'},
+    'Offer': {'Item Package Length','Item Package Width','Item Package Height'},
+    'Safety&Compliance': {'Battery Charge Time','Battery Weight'},
+}
+
+
+def cpu_text(value):
+    value=re.sub(r'\((?:r|tm)\)|[®™©]', ' ', str(value), flags=re.I)
+    return ' '.join(re.findall(r'[a-z0-9]+',value.casefold()))
+
+
+def capacity_mentions(text):
+    """Common installed-capacity wording; unparsed claims still need human review."""
+    amount=r'(?P<amount>\d+(?:\.\d+)?)\s*(?P<unit>GB|TB|MB)\b'
+    labels=r'RAM|Memory|LPDDR\dX?|DDR\dX?|SSD|Solid[ -]State[ -]Drive'
+    kind=r'(?P<kind>'+labels+r')\b'
+    modifiers=r'(?:(?:DDR\dX?|LPDDR\dX?|SO-DIMM|SDRAM|NVMe|PCIe(?:[ -]*(?:Gen\s*)?\d(?:\.\d)?)?|M\.2(?:\s*\d{4})?|internal|installed|system|unified)[\s-]+){0,6}'
+    assigned_labels=set()
+    for reverse,pattern in enumerate((amount+r'[\s-]*'+modifiers+kind,kind+r'\s*[:=-]?\s*'+modifiers+amount)):
+        for match in re.finditer(pattern,text,re.I):
+            # Cache and graphics memory are not installed system RAM.
+            prefix=text[max(0,match.start()-24):match.start()]
+            if re.search(r'(?:cache|graphics|video|gpu)\s*$',prefix,re.I): continue
+            if reverse and match.start('kind') in assigned_labels: continue
+            if not reverse:
+                prior=re.search(r'\b('+labels+r')\b\s*[:=-]?\s*$',prefix,re.I)
+                # In "RAM: 16GB SSD: 256GB", 16GB belongs to the prior RAM
+                # label. In "16GB RAM 256GB SSD", RAM is already assigned.
+                if prior and max(0,match.start()-24)+prior.start(1) not in assigned_labels: continue
+                assigned_labels.add(match.start('kind'))
+            label=match['kind'].casefold()
+            yield float(match['amount'])*CAPACITY_UNITS[match['unit'].casefold()], 'ram' if label in ('ram','memory') or label.startswith(('ddr','lpddr')) else 'ssd'
+
+
+def base_spec_fragments(product):
+    """Use these verified-base fragments when composing new listing copy."""
+    base=product['selectedBaseConfiguration']
+    for key in ('ramGB','ssdGB'):
+        if type(base.get(key)) not in (int,float) or not math.isfinite(base[key]) or base[key]<=0:
+            raise ValueError('Verified positive base capacity required: '+key)
+    return {'ram':f"{base['ramGB']:g}GB RAM",'ssd':f"{base['ssdGB']:g}GB SSD"}
 
 
 def validate_listing(projected, product, definitions=None):
     values = {field:record['value'] for (sheet,field),record in projected.items() if sheet=='Product Details'}
-    for key,definition in (definitions or {}).items():
-        value=projected[key]['value']
+    for key,record in projected.items():
+        value=record['value']
         if value is None: continue
-        definition=str(definition).casefold()
-        if 'numeric value' in definition or 'number of ' in definition:
+        if key[1] in COUNT_FIELDS.get(key[0],set()):
             if type(value) not in (int,float) or not math.isfinite(value) or value<0:
-                raise ValueError('Template Definition requires a nonnegative number: '+str(key))
-            if 'number of ' in definition and int(value)!=value:
-                raise ValueError('Template Definition requires an integer count: '+str(key))
+                raise ValueError('Expected a nonnegative numeric count: '+str(key))
+            if int(value)!=value: raise ValueError('Expected an integer count: '+str(key))
+        elif key[1] in NUMERIC_FIELDS.get(key[0],set()):
+            if type(value) not in (int,float) or not math.isfinite(value) or value<0:
+                raise ValueError('Expected a nonnegative numeric value: '+str(key))
+    resolution=values.get('Resolution')
+    if resolution is not None and (not isinstance(resolution,str) or re.fullmatch(r'\s*[1-9]\d*\s*[x×]\s*[1-9]\d*\s*(?:pixels|px)?\s*',resolution,re.I) is None):
+        raise ValueError('Resolution must contain positive width x height')
+    refresh=values.get('Display Refresh Rate in Hertz')
+    if refresh is not None and (type(refresh) not in (int,float) or not math.isfinite(refresh) or refresh<=0):
+        raise ValueError('Display refresh rate must be positive; fractional Hz is permitted')
     for field,unit in values.items():
         if field.endswith(' Unit') and field[:-5] in values:
             value=values[field[:-5]]
@@ -66,19 +131,26 @@ def validate_listing(projected, product, definitions=None):
         if type(value) not in (int,float) or not math.isfinite(value) or value<=0:
             raise ValueError('Expected a positive numeric value: '+field)
         units=CAPACITY_UNITS if field in CAPACITY_PAIRS else SPEED_UNITS
-        if not isinstance(unit,str) or unit.strip().casefold() not in units:
+        if not isinstance(unit,str) or unit.strip().casefold() not in FIELD_UNITS.get(field,set(units)):
             raise ValueError('Missing or unsupported unit: '+unit_field)
         normalized[field]=value*units[unit.strip().casefold()]
-    for field,value in values.items():
-        # Numeric template counts/sizes must never accept bool, negative or fractional counts.
-        if value is not None and (field.endswith('Count') or field in ('Processor Count','Model Year')):
-            if type(value) not in (int,float) or not math.isfinite(value) or value<0 or int(value)!=value:
-                raise ValueError('Expected a nonnegative integer: '+field)
     ram=normalized['RAM Memory Installed']
     if 'Computer Memory Size' in normalized and ram!=normalized['Computer Memory Size']:
         raise ValueError('Installed RAM aliases disagree after unit conversion')
     if 'RAM Memory Maximum Size' in normalized and ram>normalized['RAM Memory Maximum Size']:
         raise ValueError('Installed RAM exceeds verified supported maximum')
+    maximum_alias=values.get('Ram Memory Maximum Size')
+    if maximum_alias is not None:
+        unit=values.get('RAM Memory Maximum Size Unit')
+        if isinstance(maximum_alias,str):
+            match=re.fullmatch(r'\s*(\d+(?:\.\d+)?)\s*(GB|MB|TB)\s*',maximum_alias,re.I)
+            if not match: raise ValueError('RAM maximum alias requires explicit numeric capacity and unit')
+            maximum_alias=float(match[1]);unit=match[2]
+        if type(maximum_alias) not in (int,float) or not math.isfinite(maximum_alias) or maximum_alias<=0 or not isinstance(unit,str) or unit.strip().casefold() not in CAPACITY_UNITS:
+            raise ValueError('RAM maximum alias requires a positive capacity and verified unit')
+        maximum=maximum_alias*CAPACITY_UNITS[unit.strip().casefold()]
+        if maximum<ram or ('RAM Memory Maximum Size' in normalized and maximum!=normalized['RAM Memory Maximum Size']):
+            raise ValueError('Maximum RAM aliases disagree or installed RAM exceeds maximum')
     for key,actual in [('ramGB',ram),('ssdGB',normalized['Hard Disk Size'])]:
         expected=base.get(key)
         if type(expected) not in (int,float) or expected!=actual:
@@ -87,12 +159,22 @@ def validate_listing(projected, product, definitions=None):
     for field in ('Item Name','Bullet Point','Product Description'):
         text=values.get(field,'')
         if not isinstance(text,str): raise ValueError('Expected listing text: '+field)
-        for amount,unit,kind in re.findall(r'(?i)\b(\d+(?:\.\d+)?)\s*(GB|TB|MB)\s*(?:DDR\d\s*)?(RAM|SSD)\b',text):
-            capacity=float(amount)*CAPACITY_UNITS[unit.casefold()]
-            expected=ram if kind.casefold()=='ram' else normalized['Hard Disk Size']
+        for capacity,kind in capacity_mentions(text):
+            expected=ram if kind=='ram' else normalized['Hard Disk Size']
             if capacity!=expected: raise ValueError('Listing copy includes another RAM/SSD configuration: '+field)
-    if cpu and str(values['CPU Model Number']).casefold() not in str(cpu).casefold():
-        raise ValueError('Workbook CPU model differs from product facts')
+    if not isinstance(cpu,str) or not cpu.strip(): raise ValueError('Verified CPU identity required in product facts')
+    canonical=' '+cpu_text(cpu)+' '
+    aliases=identity.get('cpuFieldAliases',{})
+    if not isinstance(aliases,dict) or any(field not in ('CPU Model','CPU Model Number','CPU Model Manufacturer')
+        or not isinstance(names,list) or any(not isinstance(name,str) or not cpu_text(name) for name in names)
+        for field,names in aliases.items()):
+        raise ValueError('CPU aliases require supported field names and lists of verified text equivalents')
+    for field in ('CPU Model','CPU Model Number','CPU Model Manufacturer'):
+        value=values.get(field)
+        if value is None: continue
+        accepted=aliases.get(field,[])
+        if not isinstance(value,str) or not cpu_text(value) or (' '+cpu_text(value)+' ' not in canonical and cpu_text(value) not in [cpu_text(a) for a in accepted]):
+            raise ValueError('Workbook CPU family/model/manufacturer differs from product facts: '+field)
     # Ambiguous grouping fields (e.g. Ram Memory) and storage-vs-RAM labels are
     # deliberately not equated. Their Definition and evidence require review.
     return {'content':'PASS','sourceAuthenticationInferred':False}
