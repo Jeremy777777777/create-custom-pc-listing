@@ -1,0 +1,1032 @@
+[
+  {
+    "text": "16-inch",
+    "bbox": [
+      131,
+      59,
+      268,
+      90
+    ],
+    "fontSize": 43
+  },
+  {
+    "text": "165Hz",
+    "bbox": [
+      52,
+      163,
+      177,
+      198
+    ],
+    "fontSize": 49
+  },
+  {
+    "text": "Ryzen 9",
+    "bbox": [
+      131,
+      303,
+      282,
+      343
+    ],
+    "fontSize": 43
+  },
+  {
+    "text": "8940HX",
+    "bbox": [
+      52,
+      407,
+      221,
+      442
+    ],
+    "fontSize": 49
+  },
+  {
+    "text": "RTX 5070 Ti",
+    "bbox": [
+      131,
+      547,
+      336,
+      575
+    ],
+    "fontSize": 40
+  },
+  {
+    "text": "Laptop GPU",
+    "bbox": [
+      52,
+      651,
+      311,
+      697
+    ],
+    "fontSize": 49
+  },
+  {
+    "text": "16GB",
+    "bbox": [
+      965,
+      59,
+      1057,
+      90
+    ],
+    "fontSize": 43
+  },
+  {
+    "text": "DDR5",
+    "bbox": [
+      886,
+      163,
+      1009,
+      198
+    ],
+    "fontSize": 49
+  },
+  {
+    "text": "1TB",
+    "bbox": [
+      965,
+      303,
+      1028,
+      334
+    ],
+    "fontSize": 43
+  },
+  {
+    "text": "NVMe SSD",
+    "bbox": [
+      886,
+      407,
+      1118,
+      442
+    ],
+    "fontSize": 49
+  },
+  {
+    "text": "16-inch",
+    "bbox": [
+      113,
+      61,
+      318,
+      107
+    ],
+    "fontSize": 64
+  },
+  {
+    "text": "165Hz",
+    "bbox": [
+      52,
+      155,
+      218,
+      202
+    ],
+    "fontSize": 65
+  },
+  {
+    "text": "Ryzen 9",
+    "bbox": [
+      113,
+      304,
+      338,
+      364
+    ],
+    "fontSize": 64
+  },
+  {
+    "text": "8940HX",
+    "bbox": [
+      52,
+      398,
+      276,
+      446
+    ],
+    "fontSize": 65
+  },
+  {
+    "text": "RTX",
+    "bbox": [
+      113,
+      549,
+      222,
+      594
+    ],
+    "fontSize": 64
+  },
+  {
+    "text": "5070 Ti",
+    "bbox": [
+      52,
+      642,
+      256,
+      690
+    ],
+    "fontSize": 65
+  },
+  {
+    "text": "16GB",
+    "bbox": [
+      947,
+      61,
+      1083,
+      107
+    ],
+    "fontSize": 64
+  },
+  {
+    "text": "DDR5",
+    "bbox": [
+      886,
+      155,
+      1049,
+      202
+    ],
+    "fontSize": 65
+  },
+  {
+    "text": "1TB",
+    "bbox": [
+      947,
+      305,
+      1040,
+      350
+    ],
+    "fontSize": 64
+  },
+  {
+    "text": "SSD",
+    "bbox": [
+      886,
+      399,
+      1009,
+      445
+    ],
+    "fontSize": 65
+  },
+  {
+    "text": "MEGAPC CUSTOM  /  ROG STRIX G16",
+    "bbox": [
+      60,
+      44,
+      378,
+      63
+    ],
+    "fontSize": 20
+  },
+  {
+    "text": "GAMING POWER. STRIX STYLE.",
+    "bbox": [
+      60,
+      104,
+      935,
+      149
+    ],
+    "fontSize": 64
+  },
+  {
+    "text": "Performance-focused design, customized by MegaPC.",
+    "bbox": [
+      60,
+      184,
+      684,
+      209
+    ],
+    "fontSize": 26
+  },
+  {
+    "text": "PT01  /  VL-1121",
+    "bbox": [
+      60,
+      1147,
+      180,
+      1164
+    ],
+    "fontSize": 18
+  },
+  {
+    "text": "ECLIPSE GRAY  /  AURA SYNC LIGHT BAR",
+    "bbox": [
+      86,
+      982,
+      711,
+      1014
+    ],
+    "fontSize": 34
+  },
+  {
+    "text": "MEGAPC CUSTOM  /  ROG STRIX G16",
+    "bbox": [
+      60,
+      48,
+      378,
+      67
+    ],
+    "fontSize": 20
+  },
+  {
+    "text": "YOUR GAME.",
+    "bbox": [
+      59,
+      111,
+      431,
+      158
+    ],
+    "fontSize": 66
+  },
+  {
+    "text": "YOUR SPACE.",
+    "bbox": [
+      59,
+      180,
+      460,
+      227
+    ],
+    "fontSize": 66
+  },
+  {
+    "text": "A focused setup for immersive laptop gaming.",
+    "bbox": [
+      60,
+      271,
+      658,
+      298
+    ],
+    "fontSize": 29
+  },
+  {
+    "text": "MEGAPC CUSTOM  /  ROG STRIX G16",
+    "bbox": [
+      60,
+      44,
+      378,
+      63
+    ],
+    "fontSize": 20
+  },
+  {
+    "text": "THE POWER INSIDE",
+    "bbox": [
+      59,
+      104,
+      621,
+      149
+    ],
+    "fontSize": 64
+  },
+  {
+    "text": "Your 16GB / 1TB base configuration.",
+    "bbox": [
+      59,
+      182,
+      467,
+      209
+    ],
+    "fontSize": 26
+  },
+  {
+    "text": "PT03  /  VL-1121",
+    "bbox": [
+      60,
+      1147,
+      184,
+      1164
+    ],
+    "fontSize": 18
+  },
+  {
+    "text": "AMD RYZEN 9",
+    "bbox": [
+      824,
+      292,
+      936,
+      305
+    ],
+    "fontSize": 18
+  },
+  {
+    "text": "8940HX",
+    "bbox": [
+      824,
+      323,
+      938,
+      346
+    ],
+    "fontSize": 33
+  },
+  {
+    "text": "16 cores / 32 threads",
+    "bbox": [
+      824,
+      368,
+      999,
+      386
+    ],
+    "fontSize": 19
+  },
+  {
+    "text": "NVIDIA GEFORCE",
+    "bbox": [
+      824,
+      443,
+      966,
+      456
+    ],
+    "fontSize": 18
+  },
+  {
+    "text": "RTX 5070 Ti",
+    "bbox": [
+      824,
+      474,
+      994,
+      497
+    ],
+    "fontSize": 33
+  },
+  {
+    "text": "12GB GDDR7 Laptop GPU",
+    "bbox": [
+      824,
+      521,
+      1030,
+      538
+    ],
+    "fontSize": 19
+  },
+  {
+    "text": "MEMORY",
+    "bbox": [
+      824,
+      594,
+      897,
+      607
+    ],
+    "fontSize": 18
+  },
+  {
+    "text": "16GB DDR5",
+    "bbox": [
+      824,
+      625,
+      987,
+      648
+    ],
+    "fontSize": 33
+  },
+  {
+    "text": "Installed memory",
+    "bbox": [
+      824,
+      672,
+      972,
+      689
+    ],
+    "fontSize": 19
+  },
+  {
+    "text": "STORAGE",
+    "bbox": [
+      824,
+      745,
+      903,
+      758
+    ],
+    "fontSize": 18
+  },
+  {
+    "text": "1TB SSD",
+    "bbox": [
+      824,
+      776,
+      943,
+      799
+    ],
+    "fontSize": 33
+  },
+  {
+    "text": "PCIe 4.0 NVMe",
+    "bbox": [
+      824,
+      823,
+      947,
+      836
+    ],
+    "fontSize": 19
+  },
+  {
+    "text": "OPERATING SYSTEM",
+    "bbox": [
+      824,
+      896,
+      991,
+      909
+    ],
+    "fontSize": 18
+  },
+  {
+    "text": "Windows 11 Pro",
+    "bbox": [
+      824,
+      927,
+      1050,
+      950
+    ],
+    "fontSize": 33
+  },
+  {
+    "text": "Seller-delivered OS",
+    "bbox": [
+      824,
+      973,
+      993,
+      987
+    ],
+    "fontSize": 19
+  },
+  {
+    "text": "Created using ASUS ROG Strix G16 G614",
+    "bbox": [
+      64,
+      943,
+      472,
+      964
+    ],
+    "fontSize": 23
+  },
+  {
+    "text": "MEGAPC CUSTOM  /  ROG STRIX G16",
+    "bbox": [
+      60,
+      44,
+      378,
+      63
+    ],
+    "fontSize": 20
+  },
+  {
+    "text": "MORE ROOM TO PLAY",
+    "bbox": [
+      60,
+      104,
+      680,
+      149
+    ],
+    "fontSize": 64
+  },
+  {
+    "text": "A 16:10 canvas for games and everyday multitasking.",
+    "bbox": [
+      60,
+      184,
+      668,
+      209
+    ],
+    "fontSize": 26
+  },
+  {
+    "text": "PT04  /  VL-1121",
+    "bbox": [
+      60,
+      1147,
+      184,
+      1164
+    ],
+    "fontSize": 18
+  },
+  {
+    "text": "16-inch",
+    "bbox": [
+      62,
+      933,
+      262,
+      979
+    ],
+    "fontSize": 63
+  },
+  {
+    "text": "WUXGA DISPLAY",
+    "bbox": [
+      62,
+      1002,
+      228,
+      1018
+    ],
+    "fontSize": 22
+  },
+  {
+    "text": "165Hz",
+    "bbox": [
+      438,
+      933,
+      599,
+      979
+    ],
+    "fontSize": 63
+  },
+  {
+    "text": "REFRESH RATE",
+    "bbox": [
+      438,
+      1002,
+      591,
+      1018
+    ],
+    "fontSize": 22
+  },
+  {
+    "text": "100%",
+    "bbox": [
+      814,
+      932,
+      948,
+      979
+    ],
+    "fontSize": 63
+  },
+  {
+    "text": "sRGB COLOR",
+    "bbox": [
+      814,
+      1002,
+      942,
+      1018
+    ],
+    "fontSize": 22
+  },
+  {
+    "text": "1920 x 1200  /  IPS-level  /  Anti-glare",
+    "bbox": [
+      60,
+      242,
+      543,
+      271
+    ],
+    "fontSize": 29
+  },
+  {
+    "text": "MEGAPC CUSTOM  /  ROG STRIX G16",
+    "bbox": [
+      60,
+      44,
+      378,
+      63
+    ],
+    "fontSize": 20
+  },
+  {
+    "text": "FROM PLAY TO PROJECT",
+    "bbox": [
+      60,
+      104,
+      767,
+      149
+    ],
+    "fontSize": 64
+  },
+  {
+    "text": "Hardware that works together across demanding tasks.",
+    "bbox": [
+      60,
+      184,
+      708,
+      209
+    ],
+    "fontSize": 26
+  },
+  {
+    "text": "PT05  /  VL-1121",
+    "bbox": [
+      60,
+      1147,
+      184,
+      1164
+    ],
+    "fontSize": 18
+  },
+  {
+    "text": "01",
+    "bbox": [
+      76,
+      938,
+      92,
+      951
+    ],
+    "fontSize": 18
+  },
+  {
+    "text": "GAME",
+    "bbox": [
+      117,
+      933,
+      188,
+      952
+    ],
+    "fontSize": 27
+  },
+  {
+    "text": "CPU + GPU",
+    "bbox": [
+      76,
+      975,
+      168,
+      988
+    ],
+    "fontSize": 19
+  },
+  {
+    "text": "Run game logic and render your world.",
+    "bbox": [
+      76,
+      1005,
+      372,
+      1022
+    ],
+    "fontSize": 17
+  },
+  {
+    "text": "02",
+    "bbox": [
+      441,
+      938,
+      460,
+      951
+    ],
+    "fontSize": 18
+  },
+  {
+    "text": "CREATE",
+    "bbox": [
+      482,
+      933,
+      579,
+      952
+    ],
+    "fontSize": 27
+  },
+  {
+    "text": "GPU + MEMORY",
+    "bbox": [
+      441,
+      975,
+      572,
+      988
+    ],
+    "fontSize": 19
+  },
+  {
+    "text": "Build scenes and work across applications.",
+    "bbox": [
+      441,
+      1005,
+      753,
+      1021
+    ],
+    "fontSize": 16
+  },
+  {
+    "text": "03",
+    "bbox": [
+      806,
+      938,
+      826,
+      951
+    ],
+    "fontSize": 18
+  },
+  {
+    "text": "KEEP MOVING",
+    "bbox": [
+      847,
+      933,
+      1017,
+      952
+    ],
+    "fontSize": 27
+  },
+  {
+    "text": "SSD + MEMORY",
+    "bbox": [
+      806,
+      975,
+      937,
+      988
+    ],
+    "fontSize": 19
+  },
+  {
+    "text": "Load projects and switch between tasks.",
+    "bbox": [
+      806,
+      1005,
+      1119,
+      1022
+    ],
+    "fontSize": 17
+  },
+  {
+    "text": "MEGAPC CUSTOM  /  ROG STRIX G16",
+    "bbox": [
+      60,
+      44,
+      378,
+      63
+    ],
+    "fontSize": 20
+  },
+  {
+    "text": "CONTROL AT YOUR FINGERTIPS",
+    "bbox": [
+      60,
+      104,
+      965,
+      149
+    ],
+    "fontSize": 64
+  },
+  {
+    "text": "Backlit keyboard, dedicated hotkeys and a spacious touchpad.",
+    "bbox": [
+      60,
+      184,
+      778,
+      209
+    ],
+    "fontSize": 26
+  },
+  {
+    "text": "PT06  /  VL-1121",
+    "bbox": [
+      60,
+      1147,
+      183,
+      1164
+    ],
+    "fontSize": 18
+  },
+  {
+    "text": "DEDICATED HOTKEYS",
+    "bbox": [
+      62,
+      285,
+      284,
+      301
+    ],
+    "fontSize": 23
+  },
+  {
+    "text": "MULTITOUCH TOUCHPAD",
+    "bbox": [
+      797,
+      933,
+      1042,
+      949
+    ],
+    "fontSize": 22
+  },
+  {
+    "text": "4-ZONE RGB BACKLIT KEYBOARD",
+    "bbox": [
+      528,
+      277,
+      878,
+      293
+    ],
+    "fontSize": 23
+  },
+  {
+    "text": "MEGAPC CUSTOM  /  ROG STRIX G16",
+    "bbox": [
+      60,
+      44,
+      378,
+      63
+    ],
+    "fontSize": 20
+  },
+  {
+    "text": "ENGINEERED FOR AIRFLOW",
+    "bbox": [
+      60,
+      104,
+      867,
+      149
+    ],
+    "fontSize": 64
+  },
+  {
+    "text": "ROG Intelligent Cooling supports demanding gaming sessions.",
+    "bbox": [
+      60,
+      184,
+      783,
+      209
+    ],
+    "fontSize": 26
+  },
+  {
+    "text": "PT07  /  VL-1121",
+    "bbox": [
+      60,
+      1147,
+      183,
+      1164
+    ],
+    "fontSize": 18
+  },
+  {
+    "text": "PURPOSEFUL VENTILATION. PERFORMANCE IN FOCUS.",
+    "bbox": [
+      86,
+      971,
+      855,
+      993
+    ],
+    "fontSize": 31
+  },
+  {
+    "text": "MEGAPC CUSTOM  /  ROG STRIX G16",
+    "bbox": [
+      60,
+      44,
+      378,
+      63
+    ],
+    "fontSize": 20
+  },
+  {
+    "text": "CONNECT WITH CONFIDENCE",
+    "bbox": [
+      60,
+      104,
+      903,
+      149
+    ],
+    "fontSize": 64
+  },
+  {
+    "text": "Physical ports on both sides. Wireless built in.",
+    "bbox": [
+      60,
+      184,
+      596,
+      209
+    ],
+    "fontSize": 26
+  },
+  {
+    "text": "PT08  /  VL-1121",
+    "bbox": [
+      60,
+      1147,
+      184,
+      1164
+    ],
+    "fontSize": 18
+  },
+  {
+    "text": "LEFT SIDE",
+    "bbox": [
+      60,
+      282,
+      162,
+      298
+    ],
+    "fontSize": 22
+  },
+  {
+    "text": "RIGHT SIDE",
+    "bbox": [
+      60,
+      682,
+      173,
+      698
+    ],
+    "fontSize": 22
+  },
+  {
+    "text": "DC power",
+    "bbox": [
+      60,
+      329,
+      157,
+      350
+    ],
+    "fontSize": 22
+  },
+  {
+    "text": "RJ45 LAN",
+    "bbox": [
+      236,
+      329,
+      334,
+      345
+    ],
+    "fontSize": 22
+  },
+  {
+    "text": "HDMI",
+    "bbox": [
+      450,
+      329,
+      502,
+      345
+    ],
+    "fontSize": 22
+  },
+  {
+    "text": "2x USB4 Type-C",
+    "bbox": [
+      660,
+      329,
+      820,
+      350
+    ],
+    "fontSize": 22
+  },
+  {
+    "text": "3.5mm audio",
+    "bbox": [
+      937,
+      329,
+      1064,
+      345
+    ],
+    "fontSize": 22
+  },
+  {
+    "text": "USB4: up to 40Gbps; DisplayPort on both USB-C ports.",
+    "bbox": [
+      60,
+      568,
+      640,
+      590
+    ],
+    "fontSize": 24
+  },
+  {
+    "text": "Power Delivery supported on one USB-C port.",
+    "bbox": [
+      60,
+      605,
+      551,
+      627
+    ],
+    "fontSize": 24
+  },
+  {
+    "text": "2x USB-A  /  USB 3.2 Gen 2",
+    "bbox": [
+      375,
+      712,
+      697,
+      737
+    ],
+    "fontSize": 27
+  },
+  {
+    "text": "Wi-Fi 6E   +   Bluetooth",
+    "bbox": [
+      60,
+      996,
+      430,
+      1022
+    ],
+    "fontSize": 36
+  }
+]

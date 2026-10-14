@@ -1,0 +1,24 @@
+{
+  "schemaVersion": 1,
+  "status": "APPROVED",
+  "approvalQuote": "\u53ef\u4ee5",
+  "approvalDate": "2026-10-14",
+  "exactApprovalTimestampKnown": false,
+  "style": "G07 Esports Precision Grid / C02 configuration rails / A07 / GG07",
+  "boundaryMode": "SCREEN_ONLY",
+  "headBreakout": false,
+  "productLayerMethod": "ORIGINAL_PHOTO",
+  "generatedHardware": false,
+  "palette": [
+    "graphite",
+    "icy cyan",
+    "lime accents"
+  ],
+  "configuration": [
+    "16GB DDR5",
+    "1TB internal SSD",
+    "Windows 11 Pro"
+  ],
+  "approvalPreview": "review/STYLE-PREVIEW-G07-v1.png",
+  "recipePath": "production-pack/recipe.json"
+}

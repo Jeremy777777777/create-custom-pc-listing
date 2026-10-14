@@ -1,0 +1,86 @@
+{
+  "schemaVersion": 3,
+  "generatedAtUtc": "2026-10-14T20:10:20.401016+00:00",
+  "brand": "ASUS",
+  "result": "PASS",
+  "logoAssetSha256": "68062a3ac4ff838d3438819323cca0651a2960e49eef6e4ab2aaa66ac582a8c7",
+  "logoAssetPath": "assets/asus-logo.png",
+  "visibleLogoAspectRatio": 4.829710144927536,
+  "placementPlanSha256": "e805fc57f55f38b7fca8d777c985157ab959259a962409571f396bf2190c21c9",
+  "images": [
+    {
+      "file": "PT01.png",
+      "finalImageSha256": "ad6437e5255f7718e6361ff547603367fc6bb3d48300a0fd2e30e5796d5e1582",
+      "unbrandedSourceSha256": "edf906e0470d91156b4f3bfa1e90023355c594ea35ec81614e4a030912bbf451",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master); preserve pixel data, encode PNG with 96 dpi metadata"
+    },
+    {
+      "file": "PT02.png",
+      "finalImageSha256": "b700d5e983c3be54c8bb79fac1fa339209f3ea804c7be30f1e85ee02a78ed446",
+      "unbrandedSourceSha256": "2a95226d9c6b3d20837a049833981b488f5ba7d477ef9037949c21f748a2ec9b",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master); preserve pixel data, encode PNG with 96 dpi metadata"
+    },
+    {
+      "file": "PT03.png",
+      "finalImageSha256": "7289446341cd96a48eb5527ea87dc7bba92c7e7e36acf7b18880d53b5a6a6f2f",
+      "unbrandedSourceSha256": "e4e9cfb57177f09feebfd4e3a6b3659d1f2f2ae832550b7f4abbc53df5dd7a7e",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master); preserve pixel data, encode PNG with 96 dpi metadata"
+    },
+    {
+      "file": "PT04.png",
+      "finalImageSha256": "3453f27799b7be048d4efd6246ee03a759ce768be2cdc71b5c94ca1623b83456",
+      "unbrandedSourceSha256": "3314f2c7495443701ed2bf1b4f79d4964d3789b00d70a606ad4decf2ac9a2c56",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master); preserve pixel data, encode PNG with 96 dpi metadata"
+    },
+    {
+      "file": "PT05.png",
+      "finalImageSha256": "07dbf7df808dac2dc288530b55b2c22dd5db17f12c32cf237a1e70ec80102927",
+      "unbrandedSourceSha256": "7bc8feab06e289cb5d7096f27a8d9277e020f6db41967d9054b49cadebb7b0e8",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master); preserve pixel data, encode PNG with 96 dpi metadata"
+    },
+    {
+      "file": "PT06.png",
+      "finalImageSha256": "007cb888fd7a7d9310335e71491da545babd7ac33fc44c6fe883b2aa94bb9dec",
+      "unbrandedSourceSha256": "52ae2e5d9ebf5230b188b986d7d1d3355b6cae4f72270de38dc477c952ebb8eb",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master); preserve pixel data, encode PNG with 96 dpi metadata"
+    },
+    {
+      "file": "PT07.png",
+      "finalImageSha256": "c34de0a8fb9207882ab5cb3c566fd122eb6f72a0a6d8b1e4ffed8b74095e8428",
+      "unbrandedSourceSha256": "5f82ba6879b1a5b31feb7e1f2752bbf98693e11f856faf47164c53fdaed71d4a",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master); preserve pixel data, encode PNG with 96 dpi metadata"
+    },
+    {
+      "file": "PT08.png",
+      "finalImageSha256": "6f7cb5686acc80f822fbb29ceffddaf2fb6ea140c9d314ec13c62cd62650266c",
+      "unbrandedSourceSha256": "f00d0554b345ea39f715c7b3de95d4a08ea04518bfa7ab22ad33826a20a6b81d",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master); preserve pixel data, encode PNG with 96 dpi metadata"
+    }
+  ],
+  "visualReviewSha256": "8e8d7ad311337a1f5187762d1e5550456bfd31099db0acda3153dbd7da28e03b",
+  "bindingMigration": "Plan content unchanged; current engine hashes JSON with UTF-8 LF normalization. Current geometry independently validated during acceptance."
+}

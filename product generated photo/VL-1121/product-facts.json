@@ -1,0 +1,30 @@
+{
+  "schemaVersion": 1,
+  "productId": "VL-1121",
+  "asin": "B0H9Z6NKVV",
+  "inputUrl": "https://www.amazon.com/dp/B0H9Z6NKVV",
+  "identity": "ASUS ROG Strix G16 (2025) G614PR",
+  "matchedOemReferenceSku": "G614PR-G16.R95070TI",
+  "referencePartNumber": "90NR0NJ7-M002W0",
+  "soldSerialBindingVerified": false,
+  "cpu": "AMD Ryzen 9 8940HX",
+  "gpu": "NVIDIA GeForce RTX 5070 Ti Laptop GPU 12GB GDDR7",
+  "ram": "16GB DDR5",
+  "internalStorage": "1TB NVMe SSD",
+  "os": "Windows 11 Pro",
+  "soldConfigurationBasis": "User accepted proposed 16GB + 1TB configuration with 可以; OS per current confirmed seller catalog policy.",
+  "display": {
+    "diagonalInches": 16,
+    "resolution": "1920x1200",
+    "refreshHz": 165,
+    "type": "IPS-level, anti-glare",
+    "sRGB": "100%"
+  },
+  "displayConflictResolution": "Tracker 1920x1080 superseded by matching ASUS reference SKU specification and Amazon 1920x1200 listing.",
+  "identityBasis": "Listing Status Tracker row 20 contains exact ASIN; raw quantity 49 is not available inventory.",
+  "sources": [
+    "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/",
+    "https://www.asus.com/us/laptops/for-gaming/rog-republic-of-gamers/filter?Category=Core-gaming-and-esports&Series=ROG-Republic-of-Gamers&Spec=134078"
+  ],
+  "includes": "Computer only; no added accessory, warranty or bundled application claims."
+}

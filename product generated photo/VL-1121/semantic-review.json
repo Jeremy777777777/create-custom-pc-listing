@@ -1,0 +1,285 @@
+{
+  "schemaVersion": 3,
+  "result": "PASS",
+  "reviewer": "Codex \u2014 actual model visual inspection (not a human certification)",
+  "reviewedAtUtc": "2026-10-14T20:14:30.134485+00:00",
+  "method": "Manual model review of all 28 PT pairs for equivalent primary selling claims; generic computer identity is shared. No invented numeric overlap score. PT03 owns base configuration; display, context, task relationships, input, cooling and ports have distinct primary jobs. Shared computer imagery does not itself repeat a selling claim.",
+  "images": [
+    {
+      "file": "PT01.png",
+      "sha256": "ad6437e5255f7718e6361ff547603367fc6bb3d48300a0fd2e30e5796d5e1582",
+      "result": "PASS",
+      "notes": "Purchase reason: Eclipse Gray chassis and Aura Sync light bar; computer identity consistent with original source."
+    },
+    {
+      "file": "PT02.png",
+      "sha256": "b700d5e983c3be54c8bb79fac1fa339209f3ea804c7be30f1e85ee02a78ed446",
+      "result": "PASS",
+      "notes": "Home gaming context: actual computer composited onto an original empty desk; no included accessory implication."
+    },
+    {
+      "file": "PT03.png",
+      "sha256": "7289446341cd96a48eb5527ea87dc7bba92c7e7e36acf7b18880d53b5a6a6f2f",
+      "result": "PASS",
+      "notes": "Only full base configuration panel: Ryzen 9 8940HX, RTX 5070 Ti Laptop GPU, 16GB DDR5, 1TB NVMe, Windows 11 Pro."
+    },
+    {
+      "file": "PT04.png",
+      "sha256": "3453f27799b7be048d4efd6246ee03a759ce768be2cdc71b5c94ca1623b83456",
+      "result": "PASS",
+      "notes": "Display panel: 16-inch, 1920x1200 IPS-level anti-glare, 165Hz, 100% sRGB; exact reference SKU supports these facts."
+    },
+    {
+      "file": "PT05.png",
+      "sha256": "07dbf7df808dac2dc288530b55b2c22dd5db17f12c32cf237a1e70ec80102927",
+      "result": "PASS",
+      "notes": "Task relationships explain CPU/GPU, GPU/memory and SSD/memory roles without repeating full base specification panel. Original abstract viewport is illustrative."
+    },
+    {
+      "file": "PT06.png",
+      "sha256": "007cb888fd7a7d9310335e71491da545babd7ac33fc44c6fe883b2aa94bb9dec",
+      "result": "PASS",
+      "notes": "Original ordinary-touchpad keyboard crop on white. Leaders point to dedicated hotkeys, 4-zone keyboard and actual touchpad. No optional NumberPad claim."
+    },
+    {
+      "file": "PT07.png",
+      "sha256": "c34de0a8fb9207882ab5cb3c566fd122eb6f72a0a6d8b1e4ffed8b74095e8428",
+      "result": "PASS",
+      "notes": "Original rear vent photo supports cooling presentation; no invented performance percentage or thermal measurement."
+    },
+    {
+      "file": "PT08.png",
+      "sha256": "6f7cb5686acc80f822fbb29ceffddaf2fb6ea140c9d314ec13c62cd62650266c",
+      "result": "PASS",
+      "notes": "Actual left/right port openings match leaders. Two USB4 Type-C, two USB-A, HDMI, LAN, power and audio; DisplayPort both Type-C, PD one. Wireless fact separately supported."
+    }
+  ],
+  "pairs": [
+    {
+      "slots": [
+        "PT01.png",
+        "PT02.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT01.png",
+        "PT03.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT01.png",
+        "PT04.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT01.png",
+        "PT05.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT01.png",
+        "PT06.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT01.png",
+        "PT07.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT01.png",
+        "PT08.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT02.png",
+        "PT03.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT02.png",
+        "PT04.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT02.png",
+        "PT05.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT02.png",
+        "PT06.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT02.png",
+        "PT07.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT02.png",
+        "PT08.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT03.png",
+        "PT04.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT03.png",
+        "PT05.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT03.png",
+        "PT06.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT03.png",
+        "PT07.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT03.png",
+        "PT08.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT04.png",
+        "PT05.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT04.png",
+        "PT06.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT04.png",
+        "PT07.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT04.png",
+        "PT08.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT05.png",
+        "PT06.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT05.png",
+        "PT07.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT05.png",
+        "PT08.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT06.png",
+        "PT07.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT06.png",
+        "PT08.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    },
+    {
+      "slots": [
+        "PT07.png",
+        "PT08.png"
+      ],
+      "result": "PASS",
+      "basis": "Distinct primary selling jobs; compare the corresponding per-image notes. Generic gaming identity and product identity are contextual, while technical claims retain their meaning."
+    }
+  ],
+  "reviewInputsSha256": "716967bf35b7f6bc27e7536d25611d973ab3c3ae02010ffa3c1cc9e54bf0e1fc",
+  "currentPolicyReview": "Re-reviewed current full gallery against 2026-10-14 validation refinement; unchanged final image bytes and supported product facts. This is actual model review, not human certification."
+}

@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 1,
+  "version": "vl1121-g07-c02-a07-v1",
+  "formFactor": "LAPTOP",
+  "boundaryMode": "SCREEN_ONLY",
+  "configurationCardCategories": [
+    "DISPLAY",
+    "CPU",
+    "GPU",
+    "RAM",
+    "SSD",
+    "OS"
+  ],
+  "styleApprovalQuote": "可以",
+  "soldConfigurationApprovalQuote": "可以",
+  "productLayerMethod": "ORIGINAL_PHOTO",
+  "sourceFront": "source-assets/exact-pr-official.png",
+  "sourceAngle": "source-assets/store-input.png",
+  "frontLcdCorners": [
+    [
+      388,
+      419
+    ],
+    [
+      1609,
+      419
+    ],
+    [
+      1609,
+      1181
+    ],
+    [
+      388,
+      1181
+    ]
+  ],
+  "angleLcdCorners": [
+    [
+      405,
+      200
+    ],
+    [
+      942,
+      219
+    ],
+    [
+      872,
+      611
+    ],
+    [
+      336,
+      549
+    ]
+  ],
+  "font": "C:/Windows/Fonts/bahnschrift.ttf",
+  "fontSha256": "eaad201da94cb323401fdb8cc760650803ddf8fd704cb9fa56317e6c69bc6fd6",
+  "scriptSha256": "203db7ed68db35b10b265a25150a5f9cff21edf7f660c7ce6a4ffce23aada226",
+  "assets": {
+    "source-assets\\exact-pr-official.png": "1ae18c217cd0b204d797038e1196c5d8436e570d8591cf60b0fee9493cadb8cb",
+    "source-assets\\store-input.png": "378e573190cf969065500e659a361029a0f1dcb5a1beb87c20ebc01ebb001c08",
+    "source-assets\\store-angle.png": "5d501df85110125f83fd847ec7845a6b11cf5ceb0db75b293c7857d69de0be32",
+    "source-assets\\ports-left.png": "66cc4cb72a359609def5ad10c2d0c06d259e156629c650c8e9d44283735eb4d8",
+    "source-assets\\ports-right.png": "abac62d558cf8a33f18f58ca5a60aa2327b0074f60296441603da0d41e97c745",
+    "source-assets\\rear.png": "c78d827fe8ce8a744ecb49b96770033bfc8ff50e54aa5e8c11fb05b919dd7858",
+    "source-assets\\asus-logo.png": "68062a3ac4ff838d3438819323cca0651a2960e49eef6e4ab2aaa66ac582a8c7",
+    "source-assets\\cpu.png": "109693810bc81adafc4a45d136a450e073c7c26ae092073747879506778663be",
+    "source-assets\\gpu.png": "e79d72cdf7ab3135d7c983dec46d7fb8cd5f6c961fa7cfcf5a21310baa042c90",
+    "source-assets\\windows-11-pro-package.png": "6f9dc54bdbf084ebe11fb06ec85d610de8ebf766d4ead7781ff5898d6e5c7380",
+    "screen-G07.png": "44a4d71ddc5cb7cb545123bfe2bfec8cd7b506f4d2a806da523504a6f344154e",
+    "room-GG07.png": "d500cc035505246660407553cad12d829e23ff4a49c171bae72a0591e6e773f5"
+  },
+  "geometryRecord": "geometry.json",
+  "deterministicRender": "python -X utf8 production-pack/render_gallery.py <product-directory>",
+  "generatedHardware": false
+}

@@ -1,0 +1,336 @@
+{
+  "schemaVersion": 3,
+  "brand": "ASUS",
+  "logoRole": "OEM base-product identifier",
+  "logoAssetSourceUrl": "https://www.asus.com/media/img/2017/images/n-logo-asus.svg",
+  "logoVisibilityMode": "ASPECT_RATIO_WORDMARK",
+  "minimumClearancePx": 32,
+  "minimumComponentSeparationPx": 32,
+  "thumbnailReviewSizePx": 200,
+  "placements": {
+    "PT01.png": {
+      "x": 1008,
+      "y": 1120,
+      "width": 132,
+      "height": 27,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 125,
+          "y": 237,
+          "width": 950,
+          "height": 723,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "label": "HEADLINE",
+          "x": 60,
+          "y": 44,
+          "width": 1080,
+          "height": 190
+        },
+        {
+          "label": "BENEFIT",
+          "x": 60,
+          "y": 965,
+          "width": 1080,
+          "height": 73
+        },
+        {
+          "label": "COPY_FOOTER",
+          "x": 60,
+          "y": 1135,
+          "width": 500,
+          "height": 35
+        }
+      ]
+    },
+    "PT02.png": {
+      "x": 1008,
+      "y": 1120,
+      "width": 132,
+      "height": 27,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 150,
+          "y": 350,
+          "width": 900,
+          "height": 617,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "label": "HEADLINE",
+          "x": 60,
+          "y": 48,
+          "width": 1080,
+          "height": 270
+        },
+        {
+          "label": "COPY_FOOTER",
+          "x": 60,
+          "y": 1135,
+          "width": 500,
+          "height": 35
+        }
+      ]
+    },
+    "PT03.png": {
+      "x": 1008,
+      "y": 1120,
+      "width": 132,
+      "height": 27,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 60,
+          "y": 390,
+          "width": 630,
+          "height": 480,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "label": "SPECIFICATIONS",
+          "x": 738,
+          "y": 275,
+          "width": 402,
+          "height": 740
+        },
+        {
+          "label": "HEADLINE",
+          "x": 60,
+          "y": 44,
+          "width": 1080,
+          "height": 190
+        },
+        {
+          "label": "COPY_FOOTER",
+          "x": 60,
+          "y": 1135,
+          "width": 500,
+          "height": 35
+        }
+      ]
+    },
+    "PT04.png": {
+      "x": 1008,
+      "y": 1120,
+      "width": 132,
+      "height": 27,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 190,
+          "y": 285,
+          "width": 820,
+          "height": 624,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "label": "DISPLAY_FACTS",
+          "x": 60,
+          "y": 927,
+          "width": 1080,
+          "height": 112
+        },
+        {
+          "label": "HEADLINE",
+          "x": 60,
+          "y": 44,
+          "width": 1080,
+          "height": 240
+        },
+        {
+          "label": "COPY_FOOTER",
+          "x": 60,
+          "y": 1135,
+          "width": 500,
+          "height": 35
+        }
+      ]
+    },
+    "PT05.png": {
+      "x": 1008,
+      "y": 1120,
+      "width": 132,
+      "height": 27,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 200,
+          "y": 325,
+          "width": 800,
+          "height": 549,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "label": "TASK_FLOW",
+          "x": 60,
+          "y": 924,
+          "width": 1075,
+          "height": 119
+        },
+        {
+          "label": "HEADLINE",
+          "x": 60,
+          "y": 44,
+          "width": 1080,
+          "height": 190
+        },
+        {
+          "label": "COPY_FOOTER",
+          "x": 60,
+          "y": 1135,
+          "width": 500,
+          "height": 35
+        }
+      ]
+    },
+    "PT06.png": {
+      "x": 1008,
+      "y": 1120,
+      "width": 132,
+      "height": 27,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 229,
+          "y": 357,
+          "width": 742,
+          "height": 505,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "label": "INPUT_LABELS_TOP",
+          "x": 60,
+          "y": 270,
+          "width": 1080,
+          "height": 63
+        },
+        {
+          "label": "INPUT_LABELS_BOTTOM",
+          "x": 795,
+          "y": 920,
+          "width": 345,
+          "height": 45
+        },
+        {
+          "label": "HEADLINE",
+          "x": 60,
+          "y": 44,
+          "width": 1080,
+          "height": 190
+        },
+        {
+          "label": "COPY_FOOTER",
+          "x": 60,
+          "y": 1135,
+          "width": 500,
+          "height": 35
+        }
+      ]
+    },
+    "PT07.png": {
+      "x": 1008,
+      "y": 1120,
+      "width": 132,
+      "height": 27,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 165,
+          "y": 285,
+          "width": 870,
+          "height": 624,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "label": "COOLING_CLAIM",
+          "x": 60,
+          "y": 948,
+          "width": 1080,
+          "height": 91
+        },
+        {
+          "label": "HEADLINE",
+          "x": 60,
+          "y": 44,
+          "width": 1080,
+          "height": 190
+        },
+        {
+          "label": "COPY_FOOTER",
+          "x": 60,
+          "y": 1135,
+          "width": 500,
+          "height": 35
+        }
+      ]
+    },
+    "PT08.png": {
+      "x": 1008,
+      "y": 1120,
+      "width": 132,
+      "height": 27,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 60,
+          "y": 378,
+          "width": 1080,
+          "height": 143,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 60,
+          "y": 776,
+          "width": 1080,
+          "height": 143,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "label": "PORT_LABELS",
+          "x": 60,
+          "y": 280,
+          "width": 1080,
+          "height": 70
+        },
+        {
+          "label": "CONNECTIVITY_COPY",
+          "x": 60,
+          "y": 560,
+          "width": 1080,
+          "height": 75
+        },
+        {
+          "label": "USB_LABELS",
+          "x": 375,
+          "y": 680,
+          "width": 650,
+          "height": 65
+        },
+        {
+          "label": "WIRELESS",
+          "x": 60,
+          "y": 990,
+          "width": 800,
+          "height": 50
+        },
+        {
+          "label": "HEADLINE",
+          "x": 60,
+          "y": 44,
+          "width": 1080,
+          "height": 190
+        },
+        {
+          "label": "COPY_FOOTER",
+          "x": 60,
+          "y": 1135,
+          "width": 500,
+          "height": 35
+        }
+      ]
+    }
+  }
+}

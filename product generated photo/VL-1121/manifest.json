@@ -1,0 +1,52 @@
+{
+  "schemaVersion": 1,
+  "productId": "VL-1121",
+  "createdAtUtc": "2026-10-14T20:13:02.292448+00:00",
+  "images": [
+    {
+      "file": "MAIN-STRICT.jpg",
+      "sha256": "3b3e69ea22c9152f1c26c4d2ea743d366dfdab5c6b9811505fd068d4330ac893"
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "sha256": "fb2683ad55accb9e943fd5f3a3c9051add885ac2ef176ff55e3aadc5242b63f5"
+    },
+    {
+      "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "sha256": "3cefcf879dd8b984e1b3b71dd85f3789a9064eba2fae2a7f8accc3b2d459ed6b"
+    },
+    {
+      "file": "PT01.png",
+      "sha256": "ad6437e5255f7718e6361ff547603367fc6bb3d48300a0fd2e30e5796d5e1582"
+    },
+    {
+      "file": "PT02.png",
+      "sha256": "b700d5e983c3be54c8bb79fac1fa339209f3ea804c7be30f1e85ee02a78ed446"
+    },
+    {
+      "file": "PT03.png",
+      "sha256": "7289446341cd96a48eb5527ea87dc7bba92c7e7e36acf7b18880d53b5a6a6f2f"
+    },
+    {
+      "file": "PT04.png",
+      "sha256": "3453f27799b7be048d4efd6246ee03a759ce768be2cdc71b5c94ca1623b83456"
+    },
+    {
+      "file": "PT05.png",
+      "sha256": "07dbf7df808dac2dc288530b55b2c22dd5db17f12c32cf237a1e70ec80102927"
+    },
+    {
+      "file": "PT06.png",
+      "sha256": "007cb888fd7a7d9310335e71491da545babd7ac33fc44c6fe883b2aa94bb9dec"
+    },
+    {
+      "file": "PT07.png",
+      "sha256": "c34de0a8fb9207882ab5cb3c566fd122eb6f72a0a6d8b1e4ffed8b74095e8428"
+    },
+    {
+      "file": "PT08.png",
+      "sha256": "6f7cb5686acc80f822fbb29ceffddaf2fb6ea140c9d314ec13c62cd62650266c"
+    }
+  ],
+  "mainChoice": "Select one of three MAIN alternatives; enhanced files remain candidates. PT01–PT08 are the eight supporting images."
+}

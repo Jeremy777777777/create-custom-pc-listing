@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "rightsBasis": "Current workflow user-confirmed catalog-wide OEM product-image authorization; seller assertion, not independent license verification. Windows package is the repository fixed approved asset.",
+  "hardwareGenerated": false,
+  "originalArt": [
+    "screen-G07.png",
+    "room-GG07.png"
+  ],
+  "graphics": "CPU/GPU neutral ASUS pictograms, no third-party campaign logos. ASUS original SVG rasterized with sharp; original vector retained.",
+  "assets": [
+    {
+      "file": "production-pack/source-assets/exact-pr-official.png",
+      "url": "https://dlcdnwebimgs.asus.com/gain/10DEE269-0AA9-4DB8-A555-4696BC4F5767/w2000",
+      "sha256": "1ae18c217cd0b204d797038e1196c5d8436e570d8591cf60b0fee9493cadb8cb"
+    },
+    {
+      "file": "production-pack/source-assets/store-input.png",
+      "url": "https://estore.asus.com/media/catalog/product/9/d/9d9bb46c3a7d29de5f943f3abb334288_13.png",
+      "sha256": "378e573190cf969065500e659a361029a0f1dcb5a1beb87c20ebc01ebb001c08"
+    },
+    {
+      "file": "production-pack/source-assets/store-angle.png",
+      "url": "https://estore.asus.com/media/catalog/product/c/1/c18683d5df1b991e3e7ff8f1ed4bf63f_12.png",
+      "sha256": "5d501df85110125f83fd847ec7845a6b11cf5ceb0db75b293c7857d69de0be32"
+    },
+    {
+      "file": "production-pack/source-assets/ports-left.png",
+      "url": "https://dlcdnwebimgs.asus.com/gain/12892CB6-ABBD-460F-92C4-0F82F9CA2DBC/w2000/h1464",
+      "sha256": "66cc4cb72a359609def5ad10c2d0c06d259e156629c650c8e9d44283735eb4d8"
+    },
+    {
+      "file": "production-pack/source-assets/ports-right.png",
+      "url": "https://dlcdnwebimgs.asus.com/gain/8F9025CD-0783-4E84-8411-2C73AF3B2600/w2000/h1464",
+      "sha256": "abac62d558cf8a33f18f58ca5a60aa2327b0074f60296441603da0d41e97c745"
+    },
+    {
+      "file": "production-pack/source-assets/rear.png",
+      "url": "https://dlcdnwebimgs.asus.com/gain/E3594C67-9A4B-40FE-ACE8-337EDCBA69C8/w2000/h1464",
+      "sha256": "c78d827fe8ce8a744ecb49b96770033bfc8ff50e54aa5e8c11fb05b919dd7858"
+    },
+    {
+      "file": "production-pack/source-assets/asus-logo.svg",
+      "url": "https://www.asus.com/media/img/2017/images/n-logo-asus.svg",
+      "sha256": "e3844c7b98dfdc8684c4a01024e4d2d12940f5437cd62dbab9b51639dc67ee1a"
+    },
+    {
+      "file": "production-pack/source-assets/cpu.svg",
+      "url": "https://dlcdnwebimgs.asus.com/files/media/601ee339-f392-4b62-87c3-972107bda726/v1/img/kv/cpu.svg",
+      "sha256": "b24f5f849e7b2b17bce61cce3dfbe6c7c4a1a80e3f5c552d291b2a7e78ce1e37"
+    },
+    {
+      "file": "production-pack/source-assets/gpu.svg",
+      "url": "https://dlcdnwebimgs.asus.com/files/media/601ee339-f392-4b62-87c3-972107bda726/v1/img/kv/gpu.svg",
+      "sha256": "0deb592e82c181ba5f9ba595cb8471c6b2b9c27eb4186b3b7339d637d57e1d67"
+    }
+  ]
+}
