@@ -82,13 +82,15 @@ FCC 的 ERP 现有／历史序列号 → OEM 出厂配置 → 无线 part／准�
 
 对适用产品字段依次尝试：
 
-1. 能绑定 MyStore 产品 ID、`VL-`、采购/装配记录或实际基础销售配置的卖家一手资料。
-2. 匹配准确 OEM 型号和料号的产品页、datasheet、maintenance/service guide、regulatory/safety guide 与随箱清单。
+1. 能绑定 MyStore 产品 ID、内部 ID、采购/装配记录或实际基础销售配置的卖家一手资料；主动查关联现有／历史序列号，按 [序列号研究流程](serial-number-product-research.md)建立目标配置及批次匹配。
+2. 通过 serial/service tag 查询 OEM 官网 Original Configuration / As Built / Parts / BOM，逐项核对硬件 part；结合匹配准确 OEM 型号和料号的产品页、datasheet、maintenance/service guide、regulatory/safety guide 与随箱清单。原厂值与升级后销售值分开保存，不能把历史机器或可选部件当作当前实装。
 3. CPU、GPU、无线模块等部件厂商的官方规格，只用于部件本身；不能反推整机一定启用全部能力。
 4. 实物铭牌、接口照片、系统信息或包装标签，用于解决官网与实际 SKU 的差异。
 5. Amazon 同款/竞品和其他经销商页面，只用于发现遗漏字段与冲突，不单独建立 `VERIFIED` 产品事实。
 
 对 Critical Product Facts 中仍为空的字段，至少记录已尝试的查询、页面或文档。找不到权威值时保留 `TBD` 并写明搜索范围；不要把“未找到”改成“没有”。
+
+Research summary 同时说明序列号查询是否尝试、现有／历史证据范围、补齐的字段、原厂与销售配置的已解释差异、仍需补证的属性及访问失败。序列号路径不可访问时继续独立官方资料研究，不以缺少序列号为由停止所有字段检索。
 
 ## 4. 语义和一致性检查
 

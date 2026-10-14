@@ -4,6 +4,8 @@ Workflow addition approved by the user on 2026-10-13; ERP serial-first lookup an
 
 ## Standard path: ERP serial → OEM configuration → part → FCC ID
 
+For all other PC attributes, use [serial-number-product-research.md](serial-number-product-research.md). Reuse the same unit aliases and OEM configuration evidence; the rules below add FCC-specific module/authorization validation and candidate ranking, not a second product fact ledger.
+
 Perform this path proactively before asking the user for a serial number or label. This is an evidence-gathering procedure, not an assumption that every OEM exposes configuration data or that every unit has the same radio.
 
 1. **Find a linked unit in ERP.** Open the exact requested product and its linked child configurations, current inventory/serial records, and relevant historical purchase/receipt/sales records. Read only the minimum records necessary to identify the relevant unit or hardware batch. Prefer a current unit tied to the target sold configuration; next use a historical unit tied to the same OEM SKU/batch; then a related unit as a discovery lead only. Record whether the serial is CURRENT, HISTORICAL or USER_SUPPLIED and how it links to the ERP/internal product and target configuration. A multi-configuration parent, similar name or same CPU alone is not a unit match. Deduplicate repeated serials; do not guess missing serials or scan unrelated inventory. Historical ERP transaction records are permitted evidence here; archived workflow instructions/assets remain excluded under SKILL.md.
