@@ -25,7 +25,7 @@ The workflow produces research and base-configuration listing workbooks, plus an
 | Routing, research, workbooks and delivery | [SKILL.md](SKILL.md) |
 | Seller assertions and precedence | [confirmed-catalog-defaults.md](references/confirmed-catalog-defaults.md) |
 | Complete attribute research | [research-attribute-coverage.md](references/research-attribute-coverage.md) |
-| FCC host/module lookup and existing template columns | [fcc-research-workflow.md](references/fcc-research-workflow.md) |
+| FCC: ERP serial → OEM configuration/part → module ID, ranked candidates and template mapping | [fcc-research-workflow.md](references/fcc-research-workflow.md) |
 | English base listing copy | [listing-style-guide.md](references/listing-style-guide.md) |
 | Separate publication/account checks | [compliance-rules.md](references/compliance-rules.md) |
 | Image generation and slot adjustment | [amazon-product-image-workflow.md](references/amazon-product-image-workflow.md) |

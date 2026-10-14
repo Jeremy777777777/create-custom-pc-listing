@@ -76,7 +76,7 @@ ledger 至少记录：`sheet`、`attribute`、`definition`、`applicability`、`
 - SKU、Quantity、Handling Time、价格上下限、List/Sale Price、Tax Code、Shipping Template、Gift Options、发布日期等是卖家运营或账户字段；不能通过 OEM 网页猜测。缺少时以 `TBD` + `SELLER_INPUT_REQUIRED` 列出所需卖家输入。
 - 电池运输、Dangerous Goods、FCC/SDoC、Proposition 65、监管 ID、Compliance Media、Safety Attestation、全球配送、BAA/TAA 等必须来自适用的 OEM 监管文件、标签/实物证据或卖家法务/物流决定。不得以网页未提及为理由填 `No` 或 `NOT_APPLICABLE`。
 
-FCC 的检索步骤、整机／模块证据范围及模板字段映射见 [FCC 研究流程](fcc-research-workflow.md)。
+FCC 的 ERP 现有／历史序列号 → OEM 出厂配置 → 无线 part／准确模块 → FCC ID 标准路径、整机／模块证据范围及模板字段映射见 [FCC 研究流程](fcc-research-workflow.md)。无法完全确认时，提供有证据支持的最可能候选、排序理由及最小补证动作，以 `INPUT_UNVERIFIED` 保留；冲突／并列候选不得强选，候选不能自动导出为已确认的 marketplace 值。
 
 ## 3. 来源检索顺序与最低检索动作
 

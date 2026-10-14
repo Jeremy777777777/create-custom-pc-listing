@@ -51,6 +51,8 @@ See [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for the activ
 
 ## 字段级交叉验证
 
+FCC 研究优先从准确产品下的现有库存或历史采购／收货／销售记录中取得关联 serial/service tag，再到 OEM 官网查出厂硬件 BOM、无线网卡 part 和 FCC ID。现有目标配置优先，历史同 SKU／批次次之；父产品或同 CPU 不证明网卡相同。按 [FCC 标准流程](fcc-research-workflow.md)记录匹配范围、候选排序及待确认项；原始序列号及含序列号的官网 URL 留在私有证据中，公开仓库仅保留脱敏引用。
+
 对每个字段保留双方候选值，而不是先合并整条记录：
 
 - 值一致且两条记录确实映射到同一产品时，可把一致性记为辅助证据；是否达到 `VERIFIED` 仍取决于该字段的权威来源。
