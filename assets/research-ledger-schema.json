@@ -1,0 +1,49 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "Scoped PC research ledger v1",
+  "type": "object",
+  "required": ["schemaVersion", "productId", "configurationId", "facts", "fields"],
+  "additionalProperties": false,
+  "properties": {
+    "schemaVersion": {"const": 1},
+    "productId": {"type": "string", "pattern": "\\S"},
+    "configurationId": {"type": "string", "pattern": "\\S"},
+    "facts": {"type": "array", "items": {"$ref": "#/$defs/fact"}},
+    "fields": {"type": "array", "items": {"$ref": "#/$defs/field"}}
+  },
+  "$defs": {
+    "value": {"type": ["string", "number", "boolean", "null"]},
+    "text": {"type": "string", "pattern": "\\S"},
+    "fact": {
+      "type": "object",
+      "required": ["id", "sheet", "attribute", "configurationId", "fact_scope", "status", "final_value", "source"],
+      "additionalProperties": false,
+      "properties": {
+        "id": {"$ref": "#/$defs/text"},
+        "sheet": {"$ref": "#/$defs/text"},
+        "attribute": {"$ref": "#/$defs/text"},
+        "configurationId": {"$ref": "#/$defs/text"},
+        "fact_scope": {"enum": ["FACTORY", "CURRENT_UNIT", "SOLD_BASE", "PLATFORM_CAPABILITY"]},
+        "status": {"enum": ["VERIFIED", "INPUT_UNVERIFIED", "CONFLICT", "TBD", "SOURCE_UNAVAILABLE", "NOT_APPLICABLE"]},
+        "final_value": {"$ref": "#/$defs/value"},
+        "source": {"$ref": "#/$defs/text"},
+        "recommended_candidate": {"$ref": "#/$defs/value"},
+        "transfer_basis": {"$ref": "#/$defs/text"},
+        "applies_to_sold_configuration": {"type": "boolean"},
+        "evidence_scope": {"enum": ["HOST", "RADIO_MODULE", "UNRESOLVED"]},
+        "authorization_route": {"enum": ["SDoC", "certification", "unresolved"]},
+        "evidence": {"type": "object", "description": "Sanitized unit/part/source/review metadata; private serials must not be published."}
+      }
+    },
+    "field": {
+      "type": "object",
+      "required": ["sheet", "attribute", "selected_fact"],
+      "additionalProperties": false,
+      "properties": {
+        "sheet": {"$ref": "#/$defs/text"},
+        "attribute": {"$ref": "#/$defs/text"},
+        "selected_fact": {"$ref": "#/$defs/text"}
+      }
+    }
+  }
+}

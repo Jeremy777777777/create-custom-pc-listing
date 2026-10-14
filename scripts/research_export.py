@@ -1,0 +1,186 @@
+"""Project scoped evidence into a workbook or check a reviewed export; never publish."""
+import argparse
+import hashlib
+import json
+import math
+from pathlib import Path
+
+import openpyxl
+from jsonschema import Draft202012Validator
+from research_values import check_fcc_id_value
+
+ROOT = Path(__file__).resolve().parents[1]
+# These existing template fields describe capability rather than installed capacity.
+# All unlisted fields require SOLD_BASE evidence. Offer 'maximum price' is not hardware capability.
+CAPABILITY_FIELDS = {
+    ('Product Details', name) for name in (
+        'Ram Memory Maximum Size', 'RAM Memory Maximum Size', 'RAM Memory Maximum Size Unit',
+        'Display Maximum Resolution', 'Display Resolution Maximum', 'Display Resolution Maximum Unit',
+        'Supported Monitor Maximum Quantity', 'CPU Model Speed Maximum', 'CPU Model Speed Maximum Unit',
+        'Maximum Display Brightness')
+}
+
+
+def load_ledger(path):
+    data = json.loads(Path(path).read_text(encoding='utf-8-sig'))
+    validate_ledger(data)
+    return data
+
+
+def validate_ledger(data):
+    schema = json.loads((ROOT/'assets/research-ledger-schema.json').read_text(encoding='utf-8'))
+    errors = list(Draft202012Validator(schema).iter_errors(data))
+    if errors:
+        error = errors[0]
+        raise ValueError('Scoped ledger schema: ' + '/'.join(map(str, error.absolute_path))
+                         + ' violates ' + str(error.validator))
+    facts = {}
+    for fact in data['facts']:
+        if fact['id'] in facts:
+            raise ValueError('Duplicate fact ID: ' + fact['id'])
+        if fact['status'] not in ('VERIFIED', 'NOT_APPLICABLE') and fact['final_value'] is not None:
+            raise ValueError('Unresolved fact must keep final_value null: ' + fact['id'])
+        if fact['status'] == 'NOT_APPLICABLE' and fact['final_value'] is not None:
+            raise ValueError('NOT_APPLICABLE must have a null value and source disposition')
+        value = fact['final_value']
+        if isinstance(value, float) and not math.isfinite(value):
+            raise ValueError('Research values must be finite: ' + fact['id'])
+        if fact['status'] == 'VERIFIED' and (value is None or isinstance(value, str) and not value.strip()):
+            raise ValueError('VERIFIED fact requires a value: ' + fact['id'])
+        if isinstance(value, str) and value.lstrip().startswith('='):
+            raise ValueError('Formula is not a research value: ' + fact['id'])
+        facts[fact['id']] = fact
+    seen = set()
+    for field in data['fields']:
+        key = (field['sheet'], field['attribute'])
+        if key in seen:
+            raise ValueError('Duplicate field mapping: ' + str(key))
+        seen.add(key)
+        fact = facts.get(field['selected_fact'])
+        if fact is None or (fact['sheet'], fact['attribute']) != key:
+            raise ValueError('Missing or mismatched selected fact: ' + str(key))
+        if fact['configurationId'] != data['configurationId']:
+            raise ValueError('Selected fact belongs to another configuration: ' + str(key))
+        allowed = {'SOLD_BASE', 'PLATFORM_CAPABILITY'} if key in CAPABILITY_FIELDS else {'SOLD_BASE'}
+        if fact['fact_scope'] not in allowed:
+            raise ValueError('Selected field requires sold/capability evidence, not factory/current-unit facts: ' + str(key))
+        if fact['fact_scope'] == 'SOLD_BASE' and fact['status'] == 'VERIFIED':
+            if fact.get('applies_to_sold_configuration') is not True or not fact.get('transfer_basis', '').strip():
+                raise ValueError('Verified sold fact needs applicability and transfer_basis: ' + str(key))
+        if key == ('Safety&Compliance', 'FCC ID') and fact['status'] == 'VERIFIED':
+            check_fcc_id_value(fact['final_value'], 'VERIFIED')
+            if fact.get('evidence_scope') not in ('HOST', 'RADIO_MODULE') or fact.get('authorization_route') != 'certification':
+                raise ValueError('Verified FCC ID needs matched host/module certification scope')
+    return facts
+
+
+def project(data, field_keys, mode='draft'):
+    if mode not in ('draft', 'export'):
+        raise ValueError('Unknown projection mode')
+    facts = validate_ledger(data)
+    expected = list(field_keys)
+    mapped = {(f['sheet'], f['attribute']): facts[f['selected_fact']] for f in data['fields']}
+    if len(expected) != len(set(expected)) or set(mapped) != set(expected):
+        raise ValueError('Ledger field mappings must cover the exact current template')
+    projected = {}
+    for key in expected:
+        fact = mapped[key]
+        candidate = fact.get('recommended_candidate')
+        if mode == 'export':
+            if fact['status'] not in ('VERIFIED', 'NOT_APPLICABLE'):
+                raise ValueError('Export blocked by unresolved field: ' + str(key))
+            if candidate is not None:
+                raise ValueError('Export blocked by recommended candidate: ' + str(key))
+        value = fact['final_value']
+        source = fact['source']
+        if mode == 'draft' and candidate is not None:
+            if fact['status'] != 'INPUT_UNVERIFIED' or key != ('Safety&Compliance', 'FCC ID'):
+                raise ValueError('Only INPUT_UNVERIFIED FCC research cells may show a recommended candidate')
+            value = candidate
+            if not isinstance(value, str) or not value.strip() or value.lstrip().startswith('='):
+                raise ValueError('FCC candidate must be a nonempty text identifier')
+            source = 'MOST_LIKELY_CANDIDATE — NOT CONFIRMED; ' + source
+        projected[key] = {'value': value, 'status': fact['status'], 'source': source,
+                          'fact_id': fact['id'], 'fact_scope': fact['fact_scope']}
+    return projected
+
+
+def workbook_fields(book):
+    return [(sheet.title, cell.value) for sheet in book for cell in list(sheet[1])[1:]]
+
+
+def verify_workbook(book, data, mode='draft'):
+    result = project(data, workbook_fields(book), mode)
+    for sheet in book:
+        for column in range(2, sheet.max_column + 1):
+            key = (sheet.title, sheet.cell(1, column).value)
+            field = result[key]
+            if (sheet.cell(3, column).value, sheet.cell(4, column).value, sheet.cell(5, column).value) != (
+                    field['value'], field['status'], field['source']):
+                raise ValueError('Workbook differs from scoped ledger projection: ' + str(key))
+            if sheet.cell(3, column).data_type == 'f':
+                raise ValueError('Formula cannot be exported: ' + str(key))
+    return result
+
+
+def run(template, ledger, workbook, mode, product_id=None, configuration_id=None):
+    input_hashes = {name: hashlib.sha256(Path(path).read_bytes()).hexdigest()
+                    for name, path in (('workbook', workbook), ('ledger', ledger))}
+    # Import only at execution time; check-workbooks can use verify_workbook without a cycle.
+    import importlib.util
+    spec = importlib.util.spec_from_file_location('workbook_checks', ROOT/'scripts/check-workbooks.py')
+    checks = importlib.util.module_from_spec(spec)
+    spec.loader.exec_module(checks)
+    manufacturer = None
+    if '_LISTING_' in Path(workbook).stem.upper():
+        product = json.loads((Path(workbook).parent/'product-facts.json').read_text(encoding='utf-8-sig'))
+        manufacturer = product.get('identity', {}).get('oemBrand')
+        if not manufacturer:
+            raise ValueError('Listing workbook requires OEM brand for existing copy checks')
+    checks.check_output(workbook, checks.template_topology(template), manufacturer)
+    data = load_ledger(ledger)
+    if mode == 'export' and (not product_id or not configuration_id):
+        raise ValueError('Export requires explicit target product ID and configuration ID')
+    if product_id is not None and product_id != data['productId']:
+        raise ValueError('Ledger belongs to another target product')
+    if configuration_id is not None and configuration_id != data['configurationId']:
+        raise ValueError('Ledger belongs to another target configuration')
+    book = openpyxl.load_workbook(workbook, data_only=False)
+    try:
+        projected = verify_workbook(book, data, mode)
+    finally:
+        book.close()
+    for name, path in (('workbook', workbook), ('ledger', ledger)):
+        if hashlib.sha256(Path(path).read_bytes()).hexdigest() != input_hashes[name]:
+            raise ValueError('Input changed during validation: ' + name)
+    return {'result': 'EXPORT_EVIDENCE_CHECK_PASS' if mode == 'export' else 'DRAFT_PROJECTION_PASS',
+            'productId': data['productId'], 'configurationId': data['configurationId'],
+            'workbookSha256': input_hashes['workbook'],
+            'ledgerSha256': input_hashes['ledger'],
+            'amazonEligibilityAssessed': False,
+            'fields': [{'sheet': k[0], 'attribute': k[1], **v} for k,v in projected.items()]}
+
+
+def main():
+    import sys
+    # Keep redirected JSON deterministic on Windows as well as Linux.
+    for stream in (sys.stdout, sys.stderr):
+        if hasattr(stream, 'reconfigure'):
+            stream.reconfigure(encoding='utf-8')
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--template', type=Path, default=ROOT/'assets/listing-workbook-template.xlsx')
+    parser.add_argument('--ledger', type=Path, required=True)
+    parser.add_argument('--workbook', type=Path, required=True)
+    parser.add_argument('--mode', choices=['draft', 'export'], default='draft')
+    parser.add_argument('--product-id', help='Required for export: independently selected target')
+    parser.add_argument('--configuration-id', help='Required for export: target base configuration')
+    args = parser.parse_args()
+    try:
+        result = run(args.template, args.ledger, args.workbook, args.mode, args.product_id, args.configuration_id)
+    except (ValueError, OSError, json.JSONDecodeError) as error:
+        parser.exit(1, str(error) + '\n')
+    print(json.dumps(result, indent=2, ensure_ascii=False))
+
+
+if __name__ == '__main__':
+    main()

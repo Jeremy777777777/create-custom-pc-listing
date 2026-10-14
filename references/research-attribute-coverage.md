@@ -17,6 +17,8 @@ ledger 至少记录：`sheet`、`attribute`、`definition`、`applicability`、`
 
 模板三个工作表的 Status 下拉菜单使用上述六种状态，与 ledger 一致；`SELLER_INPUT_REQUIRED` 是原因／责任说明，不是第七种状态。已有产品工作簿不因模板菜单更新而自动改写或重新认定事实。
 
+新研究采用 [分范围 ledger、字段映射与导出校验](research-ledger-projection.md)：同一 ledger 内分开保存 FACTORY／CURRENT_UNIT／SOLD_BASE／PLATFORM_CAPABILITY 事实，字段映射到明确的销售配置事实。Status／Source 结构通过不代表可导出；正式导出须通过独立 export-mode 检查。旧数组 ledger 保留研究稿兼容性，补齐范围证据前不得用于正式导出。
+
 ## 2. 必须主动研究的产品属性族
 
 以下是最低覆盖面，不取代当前模板中的新增字段。字段名称变化时按 Definition 和语义映射，不能只按相似文字猜测。

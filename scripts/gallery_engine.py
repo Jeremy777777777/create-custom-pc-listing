@@ -115,7 +115,7 @@ def badges(directory,asset,planpath,out=None,brand=None,slots=None):
         if thumb!=200: raise ValueError('Thumbnail review must be exactly 200px')
         factor=thumb/max(im.size)
         long=max(w,h)*factor; short=min(w,h)*factor
-        if long<20 or max(w,h)>.12*min(im.size): raise ValueError('Logo visible long edge threshold')
+        if long<20 or max(w,h)>.12*max(im.size): raise ValueError('Logo visible long edge threshold')
         wide=plan.get('logoVisibilityMode')=='ASPECT_RATIO_WORDMARK'
         if wide and not plan.get('logoAssetSourceUrl'): raise ValueError('Wordmark requires official source URL')
         if wide and max(mark.size)/min(mark.size)<=2.4: raise ValueError('Wide-wordmark mode requires measured aspect ratio >2.4')

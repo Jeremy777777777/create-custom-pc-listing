@@ -48,6 +48,8 @@ Research ledger additions for this chain: `unit_evidence_alias`, `serial_source_
 
 Before Seller Central or other marketplace export, independently verify that only VERIFIED identifiers applicable to the sold configuration are exported. Never auto-promote a candidate because it was placed in AF, approved as a research recommendation, or passed structure tests. Candidate research is a valid deliverable and does not block other independently verified research work; it remains an explicit FCC publication gap.
 
+Use [scoped ledger/projection and export evidence check](research-ledger-projection.md) for new records and run its mandatory export-mode check before publication/export. Detailed ranking/source fields belong inside the fact's `evidence`; schema `recommended_candidate` is the research-only preferred value. Draft AF uses that candidate plus the automatic Source warning; final_value stays null. A verified selection needs SOLD_BASE applicability, transfer basis, HOST/RADIO_MODULE scope and certification route. Legacy ledgers are not automatically upgraded to verified scoped evidence.
+
 ## Find evidence for the exact sold computer
 
 1. Record the ERP/internal ID, OEM model/SKU, regulatory model/type and region. Where a radio is installed, identify its exact Wi-Fi/Bluetooth/WWAN module from assembly records, OEM configuration, module/host labels or electronic regulatory labels. If installation is unknown, record that gap and research the host in parallel. A list of optional radios is not installation evidence. Do not expose serial numbers or private labels in public GitHub records.

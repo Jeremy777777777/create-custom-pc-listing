@@ -27,6 +27,8 @@ ImageGen 可制作原创环境、角色和非品牌卡片装饰，也可依据�
 
 ## 3. Graphic-led cards, not text boxes
 
+Form-factor override: DISPLAY means the actual integrated display on laptops/AIOs. For standalone desktops, the corresponding card is FORM FACTOR, with an accurate chassis silhouette and verified dimensions or form-factor name. Apply the catalog's six-category desktop mapping and DESKTOP_GRAPHIC_SAFE_ZONE; LCD/size icons and LCD clipping below apply only to integrated displays. Never use a monitor icon or a screen-size value for a standalone desktop.
+
 - 每卡先有能辨认的图形，再有必要规格。Display 为电脑LCD/尺寸图标，禁止独立外接显示器；CPU/GPU 为获准组件资产；RAM 为内存条；SSD 为存储图标；OS 使用固定完整 Windows 11 Pro 文件。不得以 DISPLAY/CPU/STORAGE 类别标题代替图形。
 - 默认 G04/A04 对应获批青橙机甲画面：display 蓝、CPU 橙、GPU 绿、RAM 青、SSD 紫、OS 蓝。其他 G/A 保持多样性，不强制全部变成此配色。
 - 逐卡记录外轮廓四角、可用内区、图标框、规格框、层级和倾斜方向。初始内边距取卡片短边的 6–10%；最终以视觉 fit 为准，不能挤压 Logo、切字或让字贴发光边。

@@ -28,6 +28,8 @@ When PT07 has no unused defensible fact, use an accurate restrained product/task
 
 ## Family continuation
 
+Gaming recipe.json must record `configurationCardCategories`: DISPLAY/CPU/GPU/RAM/SSD/OS for integrated-display computers, FORM FACTOR/CPU/GPU/RAM/SSD/OS for standalone desktops. The desktop FORM FACTOR card uses chassis imagery and verified dimensions or form-factor name, with fact IDs and source; it does not depict a monitor. Follow the catalog's 2026-10-14 mapping before generic Display-card descriptions.
+
 Use the Gxx/Axx/GGxx and Bxx/BGxx motif descriptions as palette/material rules. Apply the same typography, accent colors, line weight and card materials across the slot plan, while changing layout/screen content to serve each slot. B07 collaboration uses soft-blue links; B08 graphite/cobalt technical drafting; B09 navy/silver ordered modules; B10 charcoal/blue-purple AI abstraction; B11 graphite/blue-green privacy layers; B12 blue-gray city horizon; B13 restrained scenic depth; B14 cyan city networks; B15 neutral architectural geometry; B16 paper layers/color blocks/technical grids. These motifs never prove software entitlements or hardware claims.
 
 Gaming uses the chosen G scene and matching A material across six enhanced-MAIN cards, then GG palette/motifs on PT. No-head scenes stay within LCD; desktop has no breakout. B01/BG01 can use generic original office abstractions without Office inclusion. Software-branded graphics/claims require separate verified rights/entitlements.

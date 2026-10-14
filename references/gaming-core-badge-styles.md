@@ -1,10 +1,10 @@
 # Gaming graphical configuration cards
 
-Apply [catalog policy](confirmed-catalog-defaults.md), [image-spec.md](image-spec.md) and [gaming-main-reproducible-workflow.md](gaming-main-reproducible-workflow.md). Each enhanced MAIN has six graphical display/CPU/GPU/RAM/SSD/OS cards built from frozen approved layers and base facts. LCD/internal-component pictograms represent capabilities; do not depict standalone external monitors or peripheral products. CPU/GPU/Windows assets require approved originals and rights; do not generate their marks. Text-only category labels are not graphical assets. PT01 does not copy six-card full configuration or Windows identity.
+Apply [catalog policy](confirmed-catalog-defaults.md), [image-spec.md](image-spec.md) and [gaming-main-reproducible-workflow.md](gaming-main-reproducible-workflow.md). Each enhanced MAIN has six graphical cards built from frozen approved layers and base facts: DISPLAY/CPU/GPU/RAM/SSD/OS for integrated-display computers, FORM FACTOR/CPU/GPU/RAM/SSD/OS for standalone desktops. LCD/internal-component pictograms represent capabilities; do not depict standalone external monitors or peripheral products. CPU/GPU/Windows assets require approved originals and rights; do not generate their marks. Text-only category labels are not graphical assets. PT01 does not copy six-card full configuration or Windows identity.
 
 ## C layout motifs
 
-C01–C06 can arrange/group six cards differently but cannot omit their categories. All card/effect pixels stay LCD-contained; MAIN exterior stays white. Card shape/skin is driven by matching G→A; use a versioned approved recipe with icon/text usable bounds, coordinates, z-order and reading path.
+C01–C06 can arrange/group six cards differently but cannot omit their applicable categories. Integrated-display computers use DISPLAY / CPU / GPU / RAM / SSD / OS; standalone desktops use FORM FACTOR / CPU / GPU / RAM / SSD / OS under the catalog's desktop mapping. FORM FACTOR uses an accurate chassis silhouette and verified dimensions or form-factor name, never a monitor or screen-size claim. Record the mapping in recipe.json and fact ownership. Card/effect pixels stay LCD-contained for integrated displays and within the approved graphic safe zone for desktops; MAIN exterior stays white. Card shape/skin is driven by matching G→A; use a versioned approved recipe with icon/text usable bounds, coordinates, z-order and reading path.
 
 | ID | Composition motif |
 | --- | --- |

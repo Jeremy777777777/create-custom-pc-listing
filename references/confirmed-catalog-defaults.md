@@ -34,7 +34,7 @@ Final MAIN and PT dimensions follow the Amazon-based size policy in [image-spec.
 
 Business enhanced front defaults to `WINDOWS_11_PRO_LOGO_LOCKUP`, angle to `WINDOWS_11_PRO_PACKAGE`; they may swap for safe fit but must differ. Gaming/Student/General use one fixed package in each enhanced MAIN. All Windows assets and their glow/shadow are LCD-contained. MAIN-STRICT and PT01 use no Windows overlay. Business PT03 may use one lockup in its OS line; other PT slots do not repeat Windows treatment.
 
-Gaming front defaults to the current SCREEN_ONLY accepted-reference composition: approximately 97–100% product width when naturally feasible, with margins adapted to the real chassis/aspect ratio; angle independently adapted. No mandatory 8–10% top clearance or head breakout. A separately approved HEAD_ONLY variation may cross TOP at most 12% of the product bounding-box area; shoulders, arms, hands, particles and all information always stay LCD-contained. No-head themes stay inside the LCD. Six graphical display/CPU/GPU/RAM/SSD/OS cards use frozen layers and approved G/C/A composition. A flat PNG is a visual reference, not a reusable layered template.
+Gaming front on integrated-display computers defaults to the current SCREEN_ONLY accepted-reference composition: approximately 97–100% product width when naturally feasible, with margins adapted to the real chassis/aspect ratio; angle independently adapted. No mandatory 8–10% top clearance or head breakout. A separately approved HEAD_ONLY variation may cross TOP at most 12% of the product bounding-box area; shoulders, arms, hands, particles and all information always stay LCD-contained. No-head themes stay inside the LCD. Their six graphical display/CPU/GPU/RAM/SSD/OS cards use frozen layers and approved G/C/A composition; standalone desktops use the FORM FACTOR substitution and safe zones defined below. A flat PNG is a visual reference, not a reusable layered template.
 
 ## Slot ownership and semantic review
 
@@ -76,6 +76,10 @@ On 2026-10-05 the user explicitly replaced the previous 6-month/optional-extensi
 ## Form-factor boundary
 
 LCD rules apply to laptops and all-in-one computers with a real integrated display. A standalone tower/SFF/mini PC has no LCD: do not add a monitor or fabricate a screen. For its two enhanced MAIN candidates, use accurate front/three-quarter chassis views on white, with the scene, six Gaming cards and one Windows package per candidate in a separate approved graphic safe zone outside the protected chassis. This is information graphics, not included peripherals or retail media. No head breakout applies. This DESKTOP_GRAPHIC_SAFE_ZONE exception overrides universal SCREEN_ONLY wording only for these two candidates; MAIN-STRICT stays product-only, and enhanced publication eligibility remains independent. Obtain a product-specific composition approval before first use; never infer approval from a laptop recipe.
+
+## Desktop Gaming card content — clarification 2026-10-14
+
+For Gaming laptops/AIOs with an integrated display, the six enhanced-MAIN categories are DISPLAY / CPU / GPU / RAM / SSD / OS. For standalone Gaming desktops, replace DISPLAY with FORM FACTOR: accurate chassis silhouette plus verified chassis dimensions or a verified form-factor name. The six categories become FORM FACTOR / CPU / GPU / RAM / SSD / OS; no screen-size value, monitor icon or invented integrated display. If dimensions are unresolved, use only the verified form-factor name. Keep all other categories and the approved desktop graphic-safe-zone composition. This is a form-factor mapping, not permission to omit categories or invent a fact; it supersedes unqualified display-card wording in the Gaming references. Existing approved frozen imports are unchanged.
 
 ## Approval migration
 

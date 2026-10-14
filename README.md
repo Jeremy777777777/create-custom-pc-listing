@@ -25,6 +25,7 @@ The workflow produces research and base-configuration listing workbooks, plus an
 | Routing, research, workbooks and delivery | [SKILL.md](SKILL.md) |
 | Seller assertions and precedence | [confirmed-catalog-defaults.md](references/confirmed-catalog-defaults.md) |
 | Complete attribute research | [research-attribute-coverage.md](references/research-attribute-coverage.md) |
+| Scoped facts, template projection and mandatory pre-export evidence checks | [research-ledger-projection.md](references/research-ledger-projection.md) / [JSON schema](assets/research-ledger-schema.json) |
 | PC information: ERP current/historical serial → OEM as-built parts → sold-configuration reconciliation | [serial-number-product-research.md](references/serial-number-product-research.md) |
 | FCC: ERP serial → OEM configuration/part → module ID, ranked candidates and template mapping | [fcc-research-workflow.md](references/fcc-research-workflow.md) |
 | English base listing copy | [listing-style-guide.md](references/listing-style-guide.md) |

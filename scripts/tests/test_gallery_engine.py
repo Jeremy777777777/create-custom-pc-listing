@@ -39,6 +39,19 @@ class Tests(unittest.TestCase):
   for pos in ((5,5),(10,10),(8,8)): self.assertEqual(im.getpixel(pos)[3],255)
   black=self.image('black.png',(20,20),'black'); im=Image.open(black); im.putpixel((10,10),(255,255,255,255)); im.save(black)
   g.remove_background(black,self.p/'white-ink.png'); im=Image.open(self.p/'white-ink.png'); self.assertEqual(im.getpixel((0,0))[3],0); self.assertEqual(im.getpixel((10,10))[3],255)
+ def test_badges_follow_canvas_long_edge_on_landscape_and_portrait(self):
+  (self.p/'unbranded').mkdir()
+  logo=Image.new('RGBA',(202,102),(0,0,0,0)); logo.paste((0,0,255,255),(1,1,201,101)); logo.save(self.p/'logo.png')
+  for size in [(1600,900),(900,1600),(1600,1600)]:
+   with self.subTest(size=size):
+    Image.new('RGBA',size,'white').save(self.p/'unbranded/PT02.png')
+    cfg={'x':64,'y':64,'width':176,'height':88,'style':'transparent','protectedZones':[{'x':400,'y':300,'width':300,'height':400,'label':'PRODUCT_SILHOUETTE'}]}
+    plan={'brand':'OEM','logoRole':'OEM base-product identifier','placements':{'PT02.png':cfg}}
+    g.write(self.p/'plan.json',plan); g.badges(self.p,self.p/'logo.png',self.p/'plan.json',slots=['PT02.png'])
+    with Image.open(self.p/'PT02.png') as output: self.assertEqual(output.size,size)
+    for width,height in [(208,104),(144,72)]:
+     cfg.update(width=width,height=height); g.write(self.p/'plan.json',plan)
+     with self.assertRaisesRegex(ValueError,'long edge threshold'): g.badges(self.p,self.p/'logo.png',self.p/'plan.json',slots=['PT02.png'])
  def test_spacing_enforces_percent_and_zone(self):
   with self.assertRaises(ValueError): g.check_separation((40,100,240,300),[],(2000,2000),32)
   with self.assertRaises(ValueError): g.check_separation((100,100,300,300),[{'x':345,'y':100,'width':100,'height':100}],(2000,2000),32)

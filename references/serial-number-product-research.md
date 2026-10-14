@@ -14,6 +14,8 @@ User-approved research method — 2026-10-14. This supplements all PC attribute 
 
 ## Field-level evidence and status
 
+New ledgers implement these scopes through [research-ledger-projection.md](research-ledger-projection.md) and its JSON schema. Keep FACTORY and SOLD_BASE as separate fact records in the same ledger; the template selects the applicable sold record, not whichever scope happens to be VERIFIED. Detailed unit/part/source metadata below lives under each fact's `evidence`; final value, scope, status and applicability use the schema's explicit fields.
+
 Extend ledger entries with `unit_evidence_alias`, `serial_source_kind` (CURRENT / HISTORICAL / USER_SUPPLIED), `erp_record_reference`, `target_configuration`, `batch_match_basis`, `oem_configuration_source`, `oem_part_number`, `part_description`, `part_quantity`, `fact_scope` (FACTORY / CURRENT_UNIT / SOLD_BASE / PLATFORM_CAPABILITY), `factory_value`, `current_or_sold_value`, `modification_evidence`, `transfer_basis`, `sources_attempted`, `reviewed_date`, `status`, `reason` and `next_action` as relevant. Preserve raw and normalized values, source document/page/date and access outcome. These are evidence metadata, not additional workbook headers or status vocabulary.
 
 - VERIFIED requires evidence supporting the precise field and stated scope; a verified FACTORY value is not automatically a verified SOLD_BASE value.

@@ -5,6 +5,7 @@ import os
 from pathlib import Path
 import openpyxl
 from warranty_policy import validate_workbook_copy
+from research_values import check_fcc_id_value
 
 SHEETS = ['Product Details', 'Offer', 'Safety&Compliance']
 RESEARCH_STATUSES = ('VERIFIED', 'INPUT_UNVERIFIED', 'CONFLICT', 'TBD',
@@ -35,17 +36,6 @@ def check_template_inputs(path):
                     raise ValueError('Template Status dropdown must match research statuses')
     finally:
         book.close()
-
-
-def check_fcc_id_value(value, status):
-    if str(status).strip().upper() != 'VERIFIED':
-        return
-    placeholders = {'', 'TBD', 'N/A', 'NA', 'NONE', 'YES', 'NO', 'FCC',
-                    'FCC ID', 'SDOC', 'NOT APPLICABLE', 'NOT_APPLICABLE',
-                    'UNKNOWN', 'PENDING', 'NOT FOUND', 'SOURCE_UNAVAILABLE'}
-    if (not isinstance(value, str) or value.strip().upper() in placeholders
-            or value.lstrip().startswith('=')):
-        raise ValueError('VERIFIED FCC ID requires an actual text identifier, not a blank/placeholder')
 
 
 def check_field_disposition(status, source):
@@ -95,6 +85,14 @@ def check_output(path, topology, manufacturer=None):
                     check_fcc_id_value(sheet.cell(3,c).value, sheet.cell(4,c).value)
         if manufacturer is not None:
             validate_workbook_copy(book, manufacturer)
+        ledger_path = path.parent/'research-ledger.json'
+        if ledger_path.exists():
+            ledger = json.loads(ledger_path.read_text(encoding='utf-8-sig'))
+            if isinstance(ledger, dict):
+                from research_export import verify_workbook
+                verify_workbook(book, ledger, mode='draft')
+            elif not isinstance(ledger, list):
+                raise ValueError('Research ledger must be a legacy array or scoped object')
     finally:
         book.close()
 
@@ -108,6 +106,8 @@ def main():
     root=Path(args.directory);topology=template_topology(root/'assets/listing-workbook-template.xlsx')
     check_template_inputs(root/'assets/listing-workbook-template.xlsx')
     outputs=current_workbooks(root)
+    scoped_checked=0
+    legacy_not_assessed=0
     for path in outputs:
         manufacturer=None
         if '_LISTING_' in path.stem.upper():
@@ -115,8 +115,16 @@ def main():
             manufacturer=facts.get('identity',{}).get('oemBrand')
             if not manufacturer: raise ValueError(f'{path}: OEM brand required for warranty copy check')
         check_output(path,topology,manufacturer)
+        ledger_path=path.parent/'research-ledger.json'
+        if ledger_path.exists():
+            if isinstance(json.loads(ledger_path.read_text(encoding='utf-8-sig')), dict):
+                scoped_checked+=1
+            else:
+                legacy_not_assessed+=1
     summary={'templateStructure':'PASS','currentOutputsStructureChecked':len(outputs),
-             'historicalOutputsExcluded':True,'factOrPublicationReadinessInferred':False}
+             'historicalOutputsExcluded':True,'factOrPublicationReadinessInferred':False,
+             'scopedDraftProjectionChecked':scoped_checked,
+             'legacyLedgerScopeNotAssessed':legacy_not_assessed}
     (root/'workbook-ci-summary.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(summary))
     if os.environ.get('GITHUB_STEP_SUMMARY'):
