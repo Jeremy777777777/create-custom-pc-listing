@@ -151,17 +151,20 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
             raise ValueError('Export requires the current canonical template; alternate/old templates are draft-only')
         checks.check_template_inputs(canonical_template)
     product = None
+    metadata_report = None
     manufacturer = None
+    data = load_ledger(ledger)
     listing_stage = stage == 'LISTING_DRAFT' if stage else '_LISTING_' in workbook.stem.upper()
     if mode == 'export' or listing_stage:
         facts_path=workbook.parent/'product-facts.json'
         input_hashes['productFacts']=hashlib.sha256(facts_path.read_bytes()).hexdigest()
-        product = json.loads(facts_path.read_text(encoding='utf-8-sig'))
-        manufacturer = product.get('identity', {}).get('oemBrand')
+        from product_metadata import listing_view
+        raw_product = json.loads(facts_path.read_text(encoding='utf-8-sig'))
+        product,metadata_report = listing_view(raw_product,data)
+        manufacturer = product['identity'].get('oemBrand')
         if not manufacturer:
             raise ValueError('Listing workbook requires OEM brand for existing copy checks')
     checks.check_output(workbook, checks.template_topology(template), manufacturer)
-    data = load_ledger(ledger)
     if mode == 'export' and (not product_id or not configuration_id):
         raise ValueError('Export requires explicit target product ID and configuration ID')
     if product_id is not None and product_id != data['productId']:
@@ -192,7 +195,7 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
             'ledgerSha256': input_hashes['ledger'],
             'templateSha256': input_hashes['template'],
             'stage': stage or ('LISTING_DRAFT' if listing_stage else 'RESEARCH_REVIEW'),
-            'amazonEligibilityAssessed': False,
+            'amazonEligibilityAssessed': False, 'metadataView': metadata_report,
             'fields': [{'sheet': k[0], 'attribute': k[1], **v} for k,v in projected.items()]}
 
 

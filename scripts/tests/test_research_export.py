@@ -181,7 +181,7 @@ class ResearchExportTests(unittest.TestCase):
                     self.assertEqual(r.run(r.ROOT/'assets/listing-workbook-template.xlsx', ledger, path,
                                           'draft', stage='RESEARCH_REVIEW')['result'], 'DRAFT_PROJECTION_PASS')
             (root/'product-facts.json').write_text('{}', encoding='utf-8')
-            with self.assertRaisesRegex(ValueError, 'OEM brand'):
+            with self.assertRaisesRegex(ValueError, 'PRODUCT_METADATA_REQUIRED.*oemBrand'):
                 self.export_run(ledger, path)
 
     def test_export_binds_current_template_and_its_hash(self):

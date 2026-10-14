@@ -116,7 +116,13 @@ def main():
         manufacturer=None
         if '_LISTING_' in path.stem.upper():
             facts=json.loads((path.parent/'product-facts.json').read_text(encoding='utf-8-sig'))
-            manufacturer=facts.get('identity',{}).get('oemBrand')
+            ledger_path=path.parent/'research-ledger.json'
+            if ledger_path.exists() and isinstance(json.loads(ledger_path.read_text(encoding='utf-8-sig')),dict):
+                from product_metadata import listing_view
+                from research_export import load_ledger
+                facts,_=listing_view(facts,load_ledger(ledger_path))
+            identity=facts.get('identity',{})
+            manufacturer=identity.get('oemBrand') if isinstance(identity,dict) else None
             if not manufacturer: raise ValueError(f'{path}: OEM brand required for warranty copy check')
         check_output(path,topology,manufacturer)
         ledger_path=path.parent/'research-ledger.json'

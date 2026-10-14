@@ -114,12 +114,19 @@ def logo_geometry(plan,cfg,logo,size):
     if min(w,h)*scale<(20*min(vw,vh)/max(vw,vh) if wide else 10): raise ValueError('Logo visible short edge threshold')
     return gap
 
-def review_inputs(directory):
+def review_inputs(directory,include_research=True):
     """Semantic JSON binding excludes volatile offer/logistics data, never supplies PASS."""
     p=Path(directory); facts=read(p/'product-facts.json'); style=read(p/'style-lock.json')
     if style.get('style_approval_status',style.get('status'))!='APPROVED': raise ValueError('Current approved style lock required')
     relevant={k:v for k,v in facts.items() if k not in ('offer','Offer','inventory','researchLog','updatedAtUtc','delivery')}
     inputs={'productFacts':relevant,'styleLock':style}
+    ledger_path=p/'research-ledger.json'
+    if include_research and ledger_path.exists():
+        ledger=read(ledger_path)
+        if isinstance(ledger,dict):
+            from product_metadata import hardware_projection
+            if ledger.get('productId')!=p.name: raise ValueError('Image research belongs to another product folder')
+            inputs['researchHardware']=hardware_projection(ledger,facts)
     recipe=style.get('recipePath')
     root=Path(__file__).resolve().parents[1]
     if recipe: inputs['recipe']=read(root/recipe if str(recipe).startswith('assets/') else p/recipe)
@@ -156,7 +163,7 @@ def badges(directory,asset,planpath,out=None,brand=None,slots=None):
     # Geometry cannot prove visual quality. A human must supply hash-bound evidence for final PASS.
     write(dest/'logo-qa.json',{'schemaVersion':3,'generatedAtUtc':datetime.now(timezone.utc).isoformat(),'brand':plan['brand'],'result':'AWAITING_VISUAL_REVIEW','logoAssetSha256':digest(asset),'logoAssetPath':os.path.relpath(Path(asset).resolve(),dest.resolve()),'visibleLogoAspectRatio':mark.width/mark.height,'placementPlanSha256':digest(planpath),'images':list(entries.values())})
 
-def evidence(path,names,directory):
+def evidence(path,names,directory,preserve_unbound_research=False):
     report=read(path)
     if report.get('schemaVersion',0)<3 or report.get('result')!='PASS' or not report.get('reviewer') or not report.get('reviewedAtUtc'): raise ValueError(f'Missing current human review evidence: {path}')
     if not isinstance(report.get('reviewer'),str) or not report['reviewer'].strip(): raise ValueError('Reviewer must contain text')
@@ -164,7 +171,10 @@ def evidence(path,names,directory):
         timestamp=datetime.fromisoformat(report['reviewedAtUtc'].replace('Z','+00:00'))
         if timestamp.tzinfo is None or timestamp.utcoffset().total_seconds()!=0: raise ValueError('UTC time required')
     except (ValueError,TypeError,AttributeError): raise ValueError('Review requires an ISO UTC timestamp')
-    if not report.get('reviewInputsSha256') or report['reviewInputsSha256']!=review_inputs(directory): raise ValueError('Review facts/style/recipe/policy binding stale or absent')
+    binding=report.get('reviewInputsSha256')
+    preserving=preserve_unbound_research and binding and binding==review_inputs(directory,include_research=False)
+    if not preserving and (not binding or binding!=review_inputs(directory)):
+        raise ValueError('Review facts/research/style/recipe/policy binding stale or absent')
     entries=report.get('images',[])
     if len(entries)!=len(names) or {e.get('file') for e in entries}!=set(names): raise ValueError(f'Incomplete evidence: {path}')
     for name in names:
@@ -172,7 +182,7 @@ def evidence(path,names,directory):
         if entry.get('sha256','').lower()!=digest(Path(directory)/name) or entry.get('result')!='PASS' or not isinstance(entry.get('notes'),str) or not entry['notes'].strip(): raise ValueError(f'Stale or incomplete evidence: {name}')
     return report
 
-def validate(directory,brand=None,legacy=False,require_final=True,allow_quarantined=False):
+def validate(directory,brand=None,legacy=False,require_final=True,allow_quarantined=False,preserve_unbound_research=False):
     p=Path(directory)
     sizes={}
     status=p/'delivery-status.json'
@@ -211,7 +221,7 @@ def validate(directory,brand=None,legacy=False,require_final=True,allow_quaranti
     if not bbox: raise ValueError('Empty visible logo')
     vw,vh=bbox[2]-bbox[0],bbox[3]-bbox[1]
     for n in PT: logo_geometry(plan,plan['placements'][n],logo,sizes[n])
-    evidence(p/'visual-review.json',NAMES,p); evidence(p/'semantic-review.json',PT,p)
+    evidence(p/'visual-review.json',NAMES,p,preserve_unbound_research); evidence(p/'semantic-review.json',PT,p,preserve_unbound_research)
     if require_final:
         report=read(p/'final-image-qa.json')
         if report.get('schemaVersion',0)<3 or report.get('result')!='PASS': raise ValueError('Missing final QA')
@@ -320,9 +330,9 @@ def accept(directory,brand=None,slots=None):
             status.pop(key,None)
         write(p/'delivery-status.json',status)
 
-def partial_checks(p,slots,brand=None):
+def partial_checks(p,slots,brand=None,preserve_unbound_research=False):
     if not slots or any(n not in NAMES for n in slots) or len(set(slots))!=len(slots): raise ValueError('Invalid partial scope')
-    evidence(p/'visual-review.json',slots,p); evidence(p/'semantic-review.json',slots,p)
+    evidence(p/'visual-review.json',slots,p,preserve_unbound_research); evidence(p/'semantic-review.json',slots,p,preserve_unbound_research)
     inventory={n:digest(p/n) for n in NAMES}
     if read(p/'semantic-review.json').get('galleryInventorySha256')!=inventory: raise ValueError('Partial semantic review must bind all current gallery bytes')
     selected_pt=[n for n in slots if n in PT]
@@ -359,10 +369,10 @@ def accept_partial(p,slots,brand=None):
         for key in ('verifiedRemoteCommit','githubDeliveryVerifiedAtUtc','remoteDeliveryRecord'): status.pop(key,None)
         write(p/'delivery-status.json',status)
 
-def validate_partial(p,changed):
+def validate_partial(p,changed,preserve_unbound_research=False):
     report=read(p/'partial-update-qa.json'); slots=report.get('selectedSlots',[])
     if report.get('schemaVersion',0)<3 or report.get('result')!='PARTIAL_UPDATE_REVIEWED' or report.get('deliveryScope')!='PARTIAL_UPDATE' or report.get('retainedLegacyGallery')!=True or report.get('fullGalleryPass')!=False or not set(changed).issubset(set(slots)): raise ValueError('Missing current partial update receipt')
-    inventory=partial_checks(p,slots)
+    inventory=partial_checks(p,slots,preserve_unbound_research=preserve_unbound_research)
     if report.get('galleryInventorySha256')!=inventory or {e['file']:e['sha256'] for e in report.get('images',[])}!={n:inventory[n] for n in slots}: raise ValueError('Partial receipt stale')
     for filename,key in [('visual-review.json','visualReviewSha256'),('semantic-review.json','semanticReviewSha256')]:
         if report.get(key)!=digest(p/filename): raise ValueError('Partial review binding stale')
@@ -502,6 +512,19 @@ def validate_vl1276_ai_gallery_import(root,p,changed):
         raise ValueError('Strict QA quarantine must be retained')
     print('USER_APPROVED_VL1276_ELEVEN_AI_IMPORT: approved bytes replaced; strict QA and Amazon readiness NOT certified')
 
+def unbound_research_review(p):
+    """Identify preserved pre-ledger reviews; never turn them into source-bound PASS."""
+    ledger=p/'research-ledger.json'
+    if not ledger.exists() or not isinstance(read(ledger),dict): return False
+    if read(ledger).get('productId')!=p.name: raise ValueError('Image research belongs to another product folder')
+    from product_metadata import hardware_projection
+    hardware_projection(read(ledger))  # Check ledger integrity without claiming it was reviewed.
+    previous=review_inputs(p,include_research=False)
+    for name in ('visual-review.json','semantic-review.json'):
+        if not (p/name).exists() or read(p/name).get('reviewInputsSha256')!=previous: return False
+    return True
+
+
 def gate(root,base=None,head='HEAD'):
     root=Path(root)
     changed=[] if not base else subprocess.check_output(['git','diff','--no-renames','--name-only',base,head],cwd=root,text=True).splitlines()
@@ -511,6 +534,7 @@ def gate(root,base=None,head='HEAD'):
             raise ValueError('Canonical gallery slot deleted or renamed: '+path)
     dirs=gallery_directories(root,changed,full=not base)
     validated=0; quarantined=0; partial=0; research=0; imports=0; ai_imports=0; angle_imports=0; historical_partial=0
+    research_unbound=0; research_unbound_partial=0
     for p in dirs:
         if not p.is_dir(): continue
         status=p/'delivery-status.json'
@@ -549,18 +573,29 @@ def gate(root,base=None,head='HEAD'):
                 changed_inputs={str((root/path).resolve()) for path in changed}
                 relevant=bool({str(path.resolve()) for path in inputs}&changed_inputs)
                 if binding or relevant:
-                    validate_partial(p,[]); partial+=1
+                    if unbound_research_review(p):
+                        validate_partial(p,[],preserve_unbound_research=True); research_unbound_partial+=1
+                        print('HISTORICAL_RESEARCH_UNBOUND_PARTIAL: '+p.name+'; NOT current source-bound QA')
+                    else:
+                        validate_partial(p,[]); partial+=1
                 else:
                     historical_partial+=1
                     print('HISTORICAL_PARTIAL_REVIEW_NOT_CURRENT: '+p.name+'; no input-bound current partial PASS')
             quarantined+=1; continue
-        validate(p); validated+=1
+        prefix=p.relative_to(root).as_posix()+'/'
+        changed_images=[path for path in changed if path.startswith(prefix) and Path(path).parent==Path(prefix) and Path(path).name in NAMES]
+        if not changed_images and unbound_research_review(p):
+            validate(p,preserve_unbound_research=True); research_unbound+=1
+            print('HISTORICAL_RESEARCH_UNBOUND_GALLERY: '+p.name+'; cached-fact/image preservation only, NOT current source-bound QA')
+        else:
+            validate(p); validated+=1
     print(f'Validated {validated} eligible galleries; {quarantined} quarantined folders excluded; {angle_imports} scoped angle imports, not strict QA PASS')
-    summary={'fullGalleriesValidated':validated,'quarantinedNotPassed':quarantined,'partialUpdatesValidated':partial,'historicalPartialReviewsNotCurrent':historical_partial,'approvedExactAssetImports':imports,'approvedAiEffectImportsNotQaPassed':ai_imports,'approvedAngleImportsNotQaPassed':angle_imports,'researchOnlyFolders':research}
+    summary={'fullGalleriesValidated':validated,'quarantinedNotPassed':quarantined,'partialUpdatesValidated':partial,'historicalPartialReviewsNotCurrent':historical_partial,'historicalResearchUnboundGalleries':research_unbound,'historicalResearchUnboundPartialReviews':research_unbound_partial,'approvedExactAssetImports':imports,'approvedAiEffectImportsNotQaPassed':ai_imports,'approvedAngleImportsNotQaPassed':angle_imports,'researchOnlyFolders':research}
     write(root/'gallery-ci-summary.json',summary)
     if os.environ.get('GITHUB_STEP_SUMMARY'):
         with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as f:
             f.write(f'### Gallery check scope\n\nFull galleries validated: {validated}. Quarantined, NOT PASS: {quarantined}. Scoped partial updates: {partial}. Historical partial reviews, NOT CURRENT: {historical_partial}. Exact user-approved imports: {imports}. AI-effect imports, NOT full QA: {ai_imports}. Angle imports, NOT strict QA: {angle_imports}. Research-only folders: {research}.\n\nCI success means checks executed successfully; it does not clear quarantine or certify Amazon readiness.\n')
+            f.write(f'\nHistorical research-unbound galleries: {research_unbound}; historical research-unbound partial reviews: {research_unbound_partial}. These are preservation checks, NOT current source-bound PASS.\n')
     return summary
 
 def main():

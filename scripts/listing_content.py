@@ -1,6 +1,7 @@
 """Formal export content checks; drafts keep unresolved evidence without invented values."""
 import math
 import re
+from product_metadata import exact_cpu_model
 
 CAPACITY_PAIRS = {
     'RAM Memory Installed': 'RAM Memory Installed Size Unit',
@@ -45,26 +46,44 @@ def cpu_text(value):
 
 
 def capacity_mentions(text):
-    """Common installed-capacity wording; unparsed claims still need human review."""
+    """Associate each capacity once, within its clause; distinguish RAM/VRAM/cache/storage."""
     amount=r'(?P<amount>\d+(?:\.\d+)?)\s*(?P<unit>GB|TB|MB)\b'
-    labels=r'RAM|Memory|LPDDR\dX?|DDR\dX?|SSD|Solid[ -]State[ -]Drive'
-    kind=r'(?P<kind>'+labels+r')\b'
-    modifiers=r'(?:(?:DDR\dX?|LPDDR\dX?|SO-DIMM|SDRAM|NVMe|PCIe(?:[ -]*(?:Gen\s*)?\d(?:\.\d)?)?|M\.2(?:\s*\d{4})?|internal|installed|system|unified)[\s-]+){0,6}'
-    assigned_labels=set()
-    for reverse,pattern in enumerate((amount+r'[\s-]*'+modifiers+kind,kind+r'\s*[:=-]?\s*'+modifiers+amount)):
-        for match in re.finditer(pattern,text,re.I):
-            # Cache and graphics memory are not installed system RAM.
-            prefix=text[max(0,match.start()-24):match.start()]
-            if re.search(r'(?:cache|graphics|video|gpu)\s*$',prefix,re.I): continue
-            if reverse and match.start('kind') in assigned_labels: continue
-            if not reverse:
-                prior=re.search(r'\b('+labels+r')\b\s*[:=-]?\s*$',prefix,re.I)
-                # In "RAM: 16GB SSD: 256GB", 16GB belongs to the prior RAM
-                # label. In "16GB RAM 256GB SSD", RAM is already assigned.
-                if prior and max(0,match.start()-24)+prior.start(1) not in assigned_labels: continue
-                assigned_labels.add(match.start('kind'))
-            label=match['kind'].casefold()
-            yield float(match['amount'])*CAPACITY_UNITS[match['unit'].casefold()], 'ram' if label in ('ram','memory') or label.startswith(('ddr','lpddr')) else 'ssd'
+    labels=r'\b(?:RAM|Memory|LPDDR\dX?|DDR\dX?|GDDR\dX?|VRAM|GPU|Graphics|Video|Cache|SSD|NVMe|HDD|Storage|Solid[ -]State[ -]Drive)\b'
+    def category(fragment):
+        if re.search(r'\b(?:GDDR\dX?|VRAM|GPU|Graphics|Video)\b',fragment,re.I): return 'vram'
+        if re.search(r'\bCache\b',fragment,re.I): return 'cache'
+        if re.search(r'\b(?:SSD|NVMe|HDD|Storage|Solid[ -]State[ -]Drive)\b',fragment,re.I): return 'ssd'
+        return 'ram'
+    gap_words=r'[\s-]*(?:(?:PCIe|Gen\d|M\.2|\d{4}|\d+(?:\.\d+)?|card|system|installed|internal|SO-DIMM|SDRAM|L[123])[\s-]*)*'
+    def cluster(matches,fragment,reverse=False):
+        if not matches: return []
+        ordered=list(reversed(matches)) if reverse else matches
+        result=[ordered[0]]
+        for item in ordered[1:]:
+            gap=fragment[item.end():result[-1].start()] if reverse else fragment[result[-1].end():item.start()]
+            if re.fullmatch(gap_words,gap,re.I) is None: break
+            result.append(item)
+        return list(reversed(result)) if reverse else result
+    for clause in re.split(r';|\n|<br\s*/?>|(?<!\d),(?!\d)|\|',text,flags=re.I):
+        capacities=list(re.finditer(amount,clause,re.I));assigned=set()
+        for index,match in enumerate(capacities):
+            left=capacities[index-1].end() if index else 0
+            right=capacities[index+1].start() if index+1<len(capacities) else len(clause)
+            preceding=[m for m in re.finditer(labels,clause[left:match.start()],re.I) if left+m.start() not in assigned]
+            following=list(re.finditer(labels,clause[match.end():right],re.I))
+            preceding=cluster(preceding,clause[left:match.start()],True)
+            following=cluster(following,clause[match.end():right])
+            # Reverse wording requires a directly preceding label (RAM: 16GB),
+            # not an unrelated noun elsewhere in the sentence.
+            reverse=preceding and re.fullmatch(r'[\s:=\-]*',clause[left+preceding[-1].end():match.start()]) is not None
+            if reverse:
+                start=left+preceding[0].start();fragment=clause[start:match.start()]
+                assigned.update(left+m.start() for m in preceding)
+            elif following:
+                start=match.end()+following[0].start();fragment=clause[start:match.end()+following[-1].end()]
+                assigned.update(match.end()+m.start() for m in following)
+            else: continue
+            yield float(match['amount'])*CAPACITY_UNITS[match['unit'].casefold()],category(fragment)
 
 
 def base_spec_fragments(product):
@@ -160,10 +179,11 @@ def validate_listing(projected, product, definitions=None):
         text=values.get(field,'')
         if not isinstance(text,str): raise ValueError('Expected listing text: '+field)
         for capacity,kind in capacity_mentions(text):
-            expected=ram if kind=='ram' else normalized['Hard Disk Size']
-            if capacity!=expected: raise ValueError('Listing copy includes another RAM/SSD configuration: '+field)
+            expected={'ram':ram,'ssd':normalized['Hard Disk Size'],'vram':normalized.get('Graphics Ram Size')}.get(kind)
+            if expected is not None and capacity!=expected: raise ValueError('Listing copy includes another RAM/SSD configuration or VRAM size: '+field)
     if not isinstance(cpu,str) or not cpu.strip(): raise ValueError('Verified CPU identity required in product facts')
     canonical=' '+cpu_text(cpu)+' '
+    model_anchor=cpu_text(exact_cpu_model(cpu))
     aliases=identity.get('cpuFieldAliases',{})
     if not isinstance(aliases,dict) or any(field not in ('CPU Model','CPU Model Number','CPU Model Manufacturer')
         or not isinstance(names,list) or any(not isinstance(name,str) or not cpu_text(name) for name in names)
@@ -175,6 +195,9 @@ def validate_listing(projected, product, definitions=None):
         accepted=aliases.get(field,[])
         if not isinstance(value,str) or not cpu_text(value) or (' '+cpu_text(value)+' ' not in canonical and cpu_text(value) not in [cpu_text(a) for a in accepted]):
             raise ValueError('Workbook CPU family/model/manufacturer differs from product facts: '+field)
+        if field=='CPU Model Number' and ' '+model_anchor+' ' not in ' '+cpu_text(value)+' ':
+            if cpu_text(value) not in [cpu_text(a) for a in accepted]:
+                raise ValueError('Exact CPU model number required; manufacturer/family is insufficient')
     # Ambiguous grouping fields (e.g. Ram Memory) and storage-vs-RAM labels are
     # deliberately not equated. Their Definition and evidence require review.
     return {'content':'PASS','sourceAuthenticationInferred':False}
