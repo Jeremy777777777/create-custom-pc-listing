@@ -2,12 +2,15 @@
   "schemaVersion": 1,
   "productId": "VL-1121",
   "galleryState": "CURRENT_REVIEWED",
-  "deliveryState": "READY_FOR_GITHUB_DELIVERY",
+  "deliveryState": "GITHUB_DELIVERY_VERIFIED",
   "currentQaPass": true,
   "amazonEligibility": "NOT_ASSESSED",
   "enhancedMainEligibility": "CANDIDATES_REQUIRING_SELLER_REVIEW",
   "workbookStage": "NOT_REQUESTED_IMAGE_ONLY",
   "deliveryScope": "FULL_GALLERY",
-  "reason": "Current full-gallery bytes and supplied hash-bound reviews passed local acceptance; remote delivery remains unverified.",
-  "nextRun": "Commit/push, await applicable CI and verify remote file hashes before claiming GITHUB_DELIVERY_VERIFIED."
+  "reason": "All delivered image and production bytes match fetched GitHub commit; applicable CI passed.",
+  "nextRun": "Commit/push, await applicable CI and verify remote file hashes before claiming GITHUB_DELIVERY_VERIFIED.",
+  "verifiedRemoteCommit": "122831c13edf4c41213265d391bb0cb8f3d40dc3",
+  "githubDeliveryVerifiedAtUtc": "2026-10-14T20:18:18.501202+00:00",
+  "remoteDeliveryRecord": "github-delivery-record.json"
 }

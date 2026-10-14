@@ -1,0 +1,417 @@
+{
+  "schemaVersion": 1,
+  "result": "GITHUB_DELIVERY_VERIFIED",
+  "verifiedAtUtc": "2026-10-14T20:18:18.501202+00:00",
+  "verifiedRemoteCommit": "122831c13edf4c41213265d391bb0cb8f3d40dc3",
+  "method": "After successful push and network fetch, read every file from fetched origin commit with git cat-file; compare raw SHA256/bytes to local accepted artifacts.",
+  "commitUrl": "https://github.com/Jeremy777777777/create-custom-pc-listing/commit/122831c13edf4c41213265d391bb0cb8f3d40dc3",
+  "productDirectoryUrl": "https://github.com/Jeremy777777777/create-custom-pc-listing/tree/122831c13edf4c41213265d391bb0cb8f3d40dc3/product%20generated%20photo/VL-1121",
+  "ci": {
+    "runId": 38630737383,
+    "conclusion": "success",
+    "url": "https://github.com/Jeremy777777777/create-custom-pc-listing/actions/runs/38630737383"
+  },
+  "files": [
+    {
+      "file": ".gitattributes",
+      "sha256": "8b9c3028d6467ff3be7c793141927841d70f47f52d0590677438f488ca154992",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "asset-source-records.json",
+      "sha256": "0139c536e04a9b0c657defbfaa9fed05adda84f38cfc47df2dec89f7e0413983",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "delivery-status.json",
+      "sha256": "a19e276d7e7b18fb313bcba69a91c72f971c31ad56b5128661b91b64c976a7be",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "final-image-qa.json",
+      "sha256": "3376fa660190e0b93f279c243b1723e7897650e346e31e534716b6f96b3a6f00",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "logo-placement.json",
+      "sha256": "5d2d41b2bbfff1024994f82933b79c4ce523431f0500df4528506de414ebd4c6",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "logo-qa.json",
+      "sha256": "faedde71f0034b9d47aa73d4db91945ecd76d9fd8081bb7a070f22d19d2dfcce",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "sha256": "fb2683ad55accb9e943fd5f3a3c9051add885ac2ef176ff55e3aadc5242b63f5",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "sha256": "3cefcf879dd8b984e1b3b71dd85f3789a9064eba2fae2a7f8accc3b2d459ed6b",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "MAIN-STRICT.jpg",
+      "sha256": "3b3e69ea22c9152f1c26c4d2ea743d366dfdab5c6b9811505fd068d4330ac893",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "manifest.json",
+      "sha256": "5ae917d19b7367ff74a0ac81515b802b9f8774ff1edfc5e043aa3b3ff0a70f29",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "product-facts.json",
+      "sha256": "7866d966b396c73c756b1175b4731cd955b757f2118cd9ebde7cd3817d88e6ac",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "PT01.png",
+      "sha256": "ad6437e5255f7718e6361ff547603367fc6bb3d48300a0fd2e30e5796d5e1582",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "PT02.png",
+      "sha256": "b700d5e983c3be54c8bb79fac1fa339209f3ea804c7be30f1e85ee02a78ed446",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "PT03.png",
+      "sha256": "7289446341cd96a48eb5527ea87dc7bba92c7e7e36acf7b18880d53b5a6a6f2f",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "PT04.png",
+      "sha256": "3453f27799b7be048d4efd6246ee03a759ce768be2cdc71b5c94ca1623b83456",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "PT05.png",
+      "sha256": "07dbf7df808dac2dc288530b55b2c22dd5db17f12c32cf237a1e70ec80102927",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "PT06.png",
+      "sha256": "007cb888fd7a7d9310335e71491da545babd7ac33fc44c6fe883b2aa94bb9dec",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "PT07.png",
+      "sha256": "c34de0a8fb9207882ab5cb3c566fd122eb6f72a0a6d8b1e4ffed8b74095e8428",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "PT08.png",
+      "sha256": "6f7cb5686acc80f822fbb29ceffddaf2fb6ea140c9d314ec13c62cd62650266c",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "README.md",
+      "sha256": "48f1eab1b9679122e54da42ca298d34d4dfba4f07289baa06a662ff0f26cb31a",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "semantic-review.json",
+      "sha256": "731be34af4bab58d35893eb97728223051dbb33a1f88aa037015cd417f50c4fa",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "style-lock.json",
+      "sha256": "01d80fb7ef2537b227c22f9a5949e4d80bb311ea48d7e5581a76bd7a1b37ae04",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "visual-review.json",
+      "sha256": "753d77a8aad83a4c456307bcd96b0b70e138d833ce577142a7997f25ed8566dc",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "assets/asus-logo.png",
+      "sha256": "68062a3ac4ff838d3438819323cca0651a2960e49eef6e4ab2aaa66ac582a8c7",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/automatic-image-checks.json",
+      "sha256": "3e60e1839caf1de292140edd37d9bbb54eb024b1977f2e4fd09a46bdb4858860",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/geometry.json",
+      "sha256": "e81270321dd4ba84d4754fdec5f6d0074bc8d0100d5deffce5f7d1bbf4142c92",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/recipe.json",
+      "sha256": "c2f40fda60ae838ab8be2c51492d7208051c15942fed6bd7fc85e5c47efa57be",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/render_gallery.py",
+      "sha256": "203db7ed68db35b10b265a25150a5f9cff21edf7f660c7ce6a4ffce23aada226",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/room-GG07.png",
+      "sha256": "d500cc035505246660407553cad12d829e23ff4a49c171bae72a0591e6e773f5",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/screen-G07.png",
+      "sha256": "44a4d71ddc5cb7cb545123bfe2bfec8cd7b506f4d2a806da523504a6f344154e",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/text-bounds.json",
+      "sha256": "b29e181d91a0439f5822fd65ed781a5721e1be6e1243960e062ba6fe49ee03d0",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "review/gallery-contact.png",
+      "sha256": "9473ef3de10b4681f62006ef4d2f1403bdb9850e7fa9eca623b21a6f94757b2e",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "review/STYLE-PREVIEW-G07-v1.png",
+      "sha256": "5f6aeb2ce83fc1ca76cec6a1ae484c69e89a8ebdba22bf0cc3494f7618e12855",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "review/thumbnail-review-200px.png",
+      "sha256": "ec095c110590bbe95edb7b685c5c26c8398f70b5349bbb4c94aef866f38ab6c1",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "unbranded/PT01.png",
+      "sha256": "edf906e0470d91156b4f3bfa1e90023355c594ea35ec81614e4a030912bbf451",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "unbranded/PT02.png",
+      "sha256": "2a95226d9c6b3d20837a049833981b488f5ba7d477ef9037949c21f748a2ec9b",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "unbranded/PT03.png",
+      "sha256": "e4e9cfb57177f09feebfd4e3a6b3659d1f2f2ae832550b7f4abbc53df5dd7a7e",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "unbranded/PT04.png",
+      "sha256": "3314f2c7495443701ed2bf1b4f79d4964d3789b00d70a606ad4decf2ac9a2c56",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "unbranded/PT05.png",
+      "sha256": "7bc8feab06e289cb5d7096f27a8d9277e020f6db41967d9054b49cadebb7b0e8",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "unbranded/PT06.png",
+      "sha256": "52ae2e5d9ebf5230b188b986d7d1d3355b6cae4f72270de38dc477c952ebb8eb",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "unbranded/PT07.png",
+      "sha256": "5f82ba6879b1a5b31feb7e1f2752bbf98693e11f856faf47164c53fdaed71d4a",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "unbranded/PT08.png",
+      "sha256": "f00d0554b345ea39f715c7b3de95d4a08ea04518bfa7ab22ad33826a20a6b81d",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/angle-lcd-mask.png",
+      "sha256": "c44ca58448f1150d9090112c19057bebd8123d2d8559211708484b630c4dbf71",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/angle-original.rgba.png",
+      "sha256": "bae4409b86eeb1050f12501281159fd3a6630624c0b1b998941da83618ce26a6",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/angle-scene.rgba.png",
+      "sha256": "bcda5ceaa0ba30ff47fb03793a77db8bb2f4b426aebf0becd3291fc8af832191",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/angle-screen.rgba.png",
+      "sha256": "ca0919674e353b8034e3bda2756a099df74327e4d6515b57cfe6ffb82bef9256",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/card-cpu-16GB-angle.png",
+      "sha256": "0d4e83806fa7efa541c73f5a8c40a465ef3a2a0017e550d48f490099ea91ddf6",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/card-cpu-16GB.png",
+      "sha256": "7c1f44b266c3112c0cbc6b2e0f3df0cd984253221ec508d394dd81757b1aa3bc",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/card-display-16GB-angle.png",
+      "sha256": "31ecf5e54dc30f7aa298bc049ea7b6789b68763b3142b0e7a293ca97167d2533",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/card-display-16GB.png",
+      "sha256": "93a11767d2f18c85eeac75c25fc3449c82f5c4b9aaf481b973213f2969088520",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/card-gpu-16GB-angle.png",
+      "sha256": "d7f37b589987fbc2adcac14f2fa358aef3eeb87d9680dc54d72d9a010331ce82",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/card-gpu-16GB.png",
+      "sha256": "564922dfbf8dce597ea8e20f86324d45d47103c7318822c461140995ff483acb",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/card-os-16GB-angle.png",
+      "sha256": "694c1566642138e334359dfd10eaa2c8a924a4ee29976ae625ea2ace55436a9d",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/card-os-16GB.png",
+      "sha256": "694c1566642138e334359dfd10eaa2c8a924a4ee29976ae625ea2ace55436a9d",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/card-ram-16GB-angle.png",
+      "sha256": "1ddbee472dbd3baa366afc6c11578957be34914bb8824ebdb5e1a63e60b8a711",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/card-ram-16GB.png",
+      "sha256": "d2483d11363ae358105b6d278c1c9d26a8130a40c10455c375b93f9508c1f669",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/card-ssd-16GB-angle.png",
+      "sha256": "ea9b0f8d4b236a42fb1b99d10b66dbdbe1eb1c778f80d575edcfd079bec97940",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/card-ssd-16GB.png",
+      "sha256": "bfd6f15fd3a3cb3b0726fa61e84db1566812b653923782b54ffa2811c5cce165",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/front-enhanced.rgba.png",
+      "sha256": "eb37d8eeaaa3db7e3579e6eec2bc0bd70570ad6cfe6af0d4d1b4bb45446b37c2",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/front-lcd-mask.png",
+      "sha256": "90c6c5a20e6cbd65bffef10691607b1b978d8e398a25b679517aff5b917d1ea6",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/front-original.rgba.png",
+      "sha256": "c70369bc3b93dc1ea857a1cc7b129c03a7b145a7e9fe11fb8765786356ed7296",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/front-scene.rgba.png",
+      "sha256": "92cd56ee2cc0c921440d5dc3a3eeba0a8d03a3eaf2461b3d6c5f78a59162c585",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/input-detail-original.rgba.png",
+      "sha256": "5119a6d60735075ccd0b7ceb43273000666fb626c5b10733ae774475a1b98c6d",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/screen-cards-16GB-angle.png",
+      "sha256": "4639c86d767cdf1f9b2b35a913e49befbd4da6697e5c18a7d6b86baae865a985",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/screen-cards-16GB.png",
+      "sha256": "7d7d0ef224f6341e53421b3a43dab95d76267514c9977b92bd01bcffe3b589d0",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/layers/task-viewport.png",
+      "sha256": "df76abd325454eeccbf98dc0bfeaa69875ee2deff6641b9fc9343f751e0711f3",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/source-assets/asus-logo.png",
+      "sha256": "68062a3ac4ff838d3438819323cca0651a2960e49eef6e4ab2aaa66ac582a8c7",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/source-assets/asus-logo.svg",
+      "sha256": "e3844c7b98dfdc8684c4a01024e4d2d12940f5437cd62dbab9b51639dc67ee1a",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/source-assets/cpu.png",
+      "sha256": "109693810bc81adafc4a45d136a450e073c7c26ae092073747879506778663be",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/source-assets/cpu.svg",
+      "sha256": "b24f5f849e7b2b17bce61cce3dfbe6c7c4a1a80e3f5c552d291b2a7e78ce1e37",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/source-assets/exact-pr-official.png",
+      "sha256": "1ae18c217cd0b204d797038e1196c5d8436e570d8591cf60b0fee9493cadb8cb",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/source-assets/exact-pr-spec-extract.json",
+      "sha256": "6b25ac188a2eabd07fef80515e923c1761b5d69fa8203aa27260b5d62e4e269d",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/source-assets/gpu.png",
+      "sha256": "e79d72cdf7ab3135d7c983dec46d7fb8cd5f6c961fa7cfcf5a21310baa042c90",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/source-assets/gpu.svg",
+      "sha256": "0deb592e82c181ba5f9ba595cb8471c6b2b9c27eb4186b3b7339d637d57e1d67",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/source-assets/ports-left.png",
+      "sha256": "66cc4cb72a359609def5ad10c2d0c06d259e156629c650c8e9d44283735eb4d8",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/source-assets/ports-right.png",
+      "sha256": "abac62d558cf8a33f18f58ca5a60aa2327b0074f60296441603da0d41e97c745",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/source-assets/rear.png",
+      "sha256": "c78d827fe8ce8a744ecb49b96770033bfc8ff50e54aa5e8c11fb05b919dd7858",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/source-assets/store-angle.png",
+      "sha256": "5d501df85110125f83fd847ec7845a6b11cf5ceb0db75b293c7857d69de0be32",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/source-assets/store-input.png",
+      "sha256": "378e573190cf969065500e659a361029a0f1dcb5a1beb87c20ebc01ebb001c08",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "production-pack/source-assets/windows-11-pro-package.png",
+      "sha256": "6f9dc54bdbf084ebe11fb06ec85d610de8ebf766d4ead7781ff5898d6e5c7380",
+      "remoteBytesMatch": true
+    }
+  ],
+  "amazonEligibility": "NOT_ASSESSED"
+}
