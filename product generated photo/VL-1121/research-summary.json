@@ -1,0 +1,977 @@
+{
+  "schemaVersion": 1,
+  "stage": "RESEARCH_REVIEW",
+  "productId": "VL-1121",
+  "configurationId": "VL-1121-BASE-16GB-1TB-W11PRO",
+  "createdAtUtc": "2026-10-14T20:25:40.456571+00:00",
+  "workflowPolicy": "2026-10-02 baseline; 2026-10-14 research refinement",
+  "readiness": "RESEARCH_DRAFT_WITH_OPEN_ITEMS",
+  "exportEligible": false,
+  "templateFieldCount": 294,
+  "coverage": {
+    "Product Details": {
+      "TBD": 49,
+      "VERIFIED": 133,
+      "INPUT_UNVERIFIED": 11,
+      "NOT_APPLICABLE": 2
+    },
+    "Offer": {
+      "TBD": 41,
+      "VERIFIED": 2
+    },
+    "Safety&Compliance": {
+      "TBD": 35,
+      "VERIFIED": 11,
+      "INPUT_UNVERIFIED": 4,
+      "SOURCE_UNAVAILABLE": 4,
+      "NOT_APPLICABLE": 2
+    }
+  },
+  "criticalOpenItems": [
+    "Exact sold retail SKU/region binding",
+    "Actual RAM module speed and occupied slots",
+    "AC adapter/cord and full sold pack-out",
+    "Wireless installed module and FCC/US SDoC chain",
+    "Display luminance/touch exclusion and security version details",
+    "Actual RAM/SSD customization record despite factory/sold nominal capacities matching"
+  ],
+  "sellerInputs": [
+    "SKU/GTIN/brand mapping",
+    "Available inventory commitment (tracker quantity 49 is not inventory)",
+    "Condition, pricing, handling/shipping/account fields",
+    "Package dimensions/weight and battery shipment/charge-state evidence",
+    "Country of origin and applicable legal/regulatory attestations"
+  ],
+  "erp": {
+    "authorization": "User replied 都使用 to ERP+official source choice",
+    "access": "SUCCESS",
+    "searches": [
+      "VL-1121: no matches",
+      "1121: four unrelated products, not merged",
+      "G614PR: no matches"
+    ],
+    "serialLookup": "No target record/serial identified; OEM serial BOM not performed, no invented lookup result.",
+    "mode": "CHECKLIST_ONLY + authorized ERP mapping attempt + independent OEM research"
+  },
+  "sourceMapping": {
+    "trackerRow": 20,
+    "sheet": "Listing Status Tracker",
+    "productId": "VL-1121",
+    "asin": "B0H9Z6NKVV",
+    "rawQuantity": 49,
+    "rawQuantityMeaning": "Unconfirmed; not mapped to Offer Quantity",
+    "displayConflict": "Tracker 1920x1080 superseded by matching ASUS 1920x1200 165Hz reference",
+    "exactSoldSerialBinding": false
+  },
+  "amazonCoverage": [
+    {
+      "asin": "B0H9Z6NKVV",
+      "access": "Web fetch failed this run; previous session input preserved",
+      "role": "User input, not independent fact authority"
+    },
+    {
+      "asin": "B0FX4PGX2N",
+      "access": "Accessible title and attributes",
+      "difference": "Same CPU/GPU family, 64GB/2TB differs from approved 16GB/1TB; capacities not transferred",
+      "organisation": "CPU/GPU/display first, then installed capacities and OS; use original wording later."
+    },
+    {
+      "asin": "B0GF877LQ5",
+      "access": "Fetch failed",
+      "role": "Related discovery lead only, not forced into comparison"
+    }
+  ],
+  "fcc": {
+    "result": "MOST_LIKELY_CANDIDATE — NOT CONFIRMED",
+    "candidate": "MSQ-MT7922A22M",
+    "confidence": "LOW",
+    "officialGrantLookup": "SOURCE_UNAVAILABLE",
+    "marketplaceExport": "BLOCKED_PENDING_VERIFICATION"
+  },
+  "gallery": {
+    "imagesChanged": false,
+    "productFactsChanged": false,
+    "priorGalleryDeliveryReceiptPreserved": true
+  },
+  "sources": {
+    "oem": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0",
+    "panel": "https://www.asus.com/us/laptops/for-gaming/rog-republic-of-gamers/filter?Category=Core-gaming-and-esports&Series=ROG-Republic-of-Gamers&Spec=134078",
+    "cpu": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html",
+    "gpu": "https://www.nvidia.com/en-us/geforce/laptops/50-series/",
+    "manual": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR",
+    "driver": "https://www.asus.com/me-en/supportonly/g614pr/helpdesk_download/",
+    "support": "https://www.asus.com/us/supportonly/g614pr/helpdesk_emi/",
+    "policy": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY",
+    "user": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts.",
+    "tracker": "https://docs.google.com/spreadsheets/d/11qeinso-6eRYgSVLQlRdteOZL8vsZE9IBfZcVMBXEkE/edit?gid=621896540#gid=621896540; Listing Status Tracker row 20 (previously read this session)",
+    "erp": "Authorized MyStore ERP visible product search: VL-1121 and G614PR returned no matches; numeric 1121 returned unrelated products. No exact product/child record or serial was identified.",
+    "fcc": "https://apps.fcc.gov/oetcf/eas/reports/GenericSearch.cfm; official lookup failed to return usable content during this run.",
+    "fccLead": "https://fccid.io/MSQ-MT7922A22M/RF-Exposure-Info/USSC252088001-FCC-SAR-8242747.pdf; discovery-only mirrored filing names G614PR host. Not independently authenticated FCC grant or installed-unit evidence."
+  },
+  "unresolvedFields": [
+    {
+      "sheet": "Product Details",
+      "attribute": "Customizations",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: confirm Amazon Custom enrollment and the actual listing setting. Catalog customized identity does not establish account configuration."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Name",
+      "status": "TBD",
+      "reason": "Research-only stage. Original customer copy/keywords will be authored in LISTING_DRAFT from reconciled verified facts; no competing capacities."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Highlight",
+      "status": "TBD",
+      "reason": "Research-only stage. Original customer copy/keywords will be authored in LISTING_DRAFT from reconciled verified facts; no competing capacities."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Brand Name",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: confirm marketplace Brand Name/brand registry value; ASUS is verified OEM, MegaPC Custom is the mandatory title identity."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "External Product ID",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: GTIN/barcode and ID type for this customized offer. Input ASIN is a reference, not a GTIN."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Type Keyword",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: current marketplace item-type keyword from the account schema."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Product Description",
+      "status": "TBD",
+      "reason": "Research-only stage. Original customer copy/keywords will be authored in LISTING_DRAFT from reconciled verified facts; no competing capacities."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Bullet Point",
+      "status": "TBD",
+      "reason": "Research-only stage. Original customer copy/keywords will be authored in LISTING_DRAFT from reconciled verified facts; no competing capacities."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Generic Keyword",
+      "status": "TBD",
+      "reason": "Research-only stage. Original customer copy/keywords will be authored in LISTING_DRAFT from reconciled verified facts; no competing capacities."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Display Resolution Maximum",
+      "status": "TBD",
+      "reason": "Definition expects a numeric maximum-resolution mapping and unit; do not compress a 2D resolution into an invented scalar. Built-in native resolution is 1920x1200."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Display Resolution Maximum Unit",
+      "status": "TBD",
+      "reason": "Definition expects a numeric maximum-resolution mapping and unit; do not compress a 2D resolution into an invented scalar. Built-in native resolution is 1920x1200."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Part Number",
+      "status": "INPUT_UNVERIFIED",
+      "reason": "Matched ASUS reference part 90NR0NJ7-M002W0 and SKU G614PR-G16.R95070TI; no target-unit label/BOM binding."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Chipset Type",
+      "status": "TBD",
+      "reason": "AMD Dragon Range identifies CPU platform, not a documented motherboard chipset marketing value."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Cellular Technology",
+      "status": "TBD",
+      "reason": "No cellular module is identified in the exact specification; absence cannot be asserted solely from omission. Check unit/BOM."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Memory Speed",
+      "status": "INPUT_UNVERIFIED",
+      "reason": "Factory reference has 2x8GB DDR5 operating at 5200 MT/s (DIMMs rated 5600); sold RAM speed needs installed module/BIOS record after customization. Do not advertise 5600 as operating speed."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Memory Speed Unit",
+      "status": "INPUT_UNVERIFIED",
+      "reason": "Factory reference has 2x8GB DDR5 operating at 5200 MT/s (DIMMs rated 5600); sold RAM speed needs installed module/BIOS record after customization. Do not advertise 5600 as operating speed."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Touch Screen Type",
+      "status": "INPUT_UNVERIFIED",
+      "reason": "Matching regional G614PR official store filters list non-touch variants; exact US sold-panel touch exclusion is not explicit in selected source. Do not infer from missing mention."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Graphics Card Interface",
+      "status": "TBD",
+      "reason": "Laptop discrete GPU is integrated on the mainboard. Exact motherboard-to-GPU bus implementation not specified; desktop card interface cannot be transferred."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Compatible Devices",
+      "status": "TBD",
+      "reason": "Exact source value not established for Compatible Devices. Reviewed OEM spec/manual, CPU/component sources and target mapping; retain unresolved rather than infer."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Memory Clock Speed",
+      "status": "TBD",
+      "reason": "True DRAM clock is not DDR effective transfer rate. Neither actual clock nor post-customization module state is verified. Do not convert 5200 MT/s to an asserted 5.2 GHz clock."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Memory Clock Speed Unit",
+      "status": "TBD",
+      "reason": "True DRAM clock is not DDR effective transfer rate. Neither actual clock nor post-customization module state is verified. Do not convert 5200 MT/s to an asserted 5.2 GHz clock."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Finish Type",
+      "status": "TBD",
+      "reason": "Eclipse Gray is a verified color, not a documented material/finish classification."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Product Site Launch Date",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: actual marketplace launch date, not model year."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Software Included",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: verify any included license and term. OEM trial/subscription promotions are region/time/activation dependent and do not establish a sold Office or security entitlement."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Included Components",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: confirm sold pack-out, AC adapter/cord and any additional contents. OEM explicitly says charger inclusion varies by region/model. Computer-only image scope does not settle actual package contents."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Biometric Security Feature",
+      "status": "TBD",
+      "reason": "OEM lists firmware TPM and BIOS passwords but no exact TPM version or unit-bound biometric specification. No inferred fingerprint/IR absence."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Target Region",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: target offer region and physical regional SKU. Amazon.com source suggests US, but does not prove unit country version."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Version for Country",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: target offer region and physical regional SKU. Amazon.com source suggests US, but does not prove unit country version."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "LAN Port Bandwidth",
+      "status": "INPUT_UNVERIFIED",
+      "reason": "ASUS model driver lists RTL8111H; actual LAN part and operating bandwidth not unit-bound. Do not assert competitor 2.5GbE."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Number of Ports",
+      "status": "INPUT_UNVERIFIED",
+      "reason": "Physical inventory has 7 signal I/O ports (4 USB+HDMI+RJ45+audio), 8 including DC input. Template does not define power inclusion; marketplace grouping needs review."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Total Thunderbolt Ports",
+      "status": "TBD",
+      "reason": "USB4 is not automatically Thunderbolt-certified. OEM inventory does not identify a Thunderbolt port; retain unknown certification rather than copy competitor claim."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Rapid Charging Performance",
+      "status": "TBD",
+      "reason": "Manual specifies USB PD up to 100W input; no exact sold-unit full-charge time or fast-charge percentage/time test established."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Repairability Index",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: target-market repairability obligations and matching model certificate; no exact index found."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Repairability Index Criteria Table URL",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: target-market repairability obligations and matching model certificate; no exact index found."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Repairability Index Regulation",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: target-market repairability obligations and matching model certificate; no exact index found."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Repairability Index Value",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: target-market repairability obligations and matching model certificate; no exact index found."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Keyboard Layout",
+      "status": "INPUT_UNVERIFIED",
+      "reason": "US matching reference photos show QWERTY; target-unit regional keyboard label/layout not serial-bound."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Software Update Supported to Date",
+      "status": "TBD",
+      "reason": "No explicit guaranteed software-update support end date in current OEM sources."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Maximum Display Brightness",
+      "status": "INPUT_UNVERIFIED",
+      "reason": "300 nits appears in retailer/user discovery leads; exact ASUS SKU source reviewed does not state luminance. Need panel part or exact OEM datasheet."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Display Brightness Unit",
+      "status": "INPUT_UNVERIFIED",
+      "reason": "300 nits appears in retailer/user discovery leads; exact ASUS SKU source reviewed does not state luminance. Need panel part or exact OEM datasheet."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Office Productivity Software Included",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: verify any included license and term. OEM trial/subscription promotions are region/time/activation dependent and do not establish a sold Office or security entitlement."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Office Productivity Software License Agreement Term",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: verify any included license and term. OEM trial/subscription promotions are region/time/activation dependent and do not establish a sold Office or security entitlement."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Office Productivity Software Included Title",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: verify any included license and term. OEM trial/subscription promotions are region/time/activation dependent and do not establish a sold Office or security entitlement."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Internet Security Software Included",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: verify any included license and term. OEM trial/subscription promotions are region/time/activation dependent and do not establish a sold Office or security entitlement."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Internet Security Software License Agreement Term",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: verify any included license and term. OEM trial/subscription promotions are region/time/activation dependent and do not establish a sold Office or security entitlement."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Internet Security Software Included Title",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: verify any included license and term. OEM trial/subscription promotions are region/time/activation dependent and do not establish a sold Office or security entitlement."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Supported Monitor Maximum Quantity",
+      "status": "TBD",
+      "reason": "CPU maximum 4 displays is a component limit, not proven complete-laptop supported monitor quantity."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "HDMI Type",
+      "status": "INPUT_UNVERIFIED",
+      "reason": "HDMI connector is verified, but HDMI 2.1 version lead from related regional store not exact sold SKU datasheet."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Virtual Reality Ready",
+      "status": "TBD",
+      "reason": "GPU capability is not a whole-system VR certification; no target configuration validation found."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Available M2 Slot Count",
+      "status": "INPUT_UNVERIFIED",
+      "reason": "OEM has two M.2 slots including used. Reference has one 1TB SSD; actual sold drive count/occupied slots not independently confirmed."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Screen Bezel Thickness",
+      "status": "TBD",
+      "reason": "No exact panel bezel measurement in matching OEM documentation; measure sold unit or obtain drawing."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Compatible Flash Memory Type",
+      "status": "TBD",
+      "reason": "No built-in card reader appears in complete I/O inventory; external reader compatibility is not an installed flash reader type. Do not copy SD media support into SSD fields."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Government Contract Name and Number",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: applicable government contract and verified contract identifiers, or explicit not-applicable disposition."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Government Contract Name",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: applicable government contract and verified contract identifiers, or explicit not-applicable disposition."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Government Contract Number",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: applicable government contract and verified contract identifiers, or explicit not-applicable disposition."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "TPM Version",
+      "status": "TBD",
+      "reason": "OEM lists firmware TPM and BIOS passwords but no exact TPM version or unit-bound biometric specification. No inferred fingerprint/IR absence."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Merch Manufacturing Method",
+      "status": "TBD",
+      "reason": "OEM laptop platform verified; marketplace manufacturing-method taxonomy and customization description require seller mapping."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Neural Processor Configuration",
+      "status": "TBD",
+      "reason": "AMD exact CPU page lists no dedicated NPU model/TOPS. Do not confuse RTX GPU AI TOPS or Copilot key with an NPU/Copilot+ certification."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "NPU Processor",
+      "status": "TBD",
+      "reason": "AMD exact CPU page lists no dedicated NPU model/TOPS. Do not confuse RTX GPU AI TOPS or Copilot key with an NPU/Copilot+ certification."
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "NPU TOPS",
+      "status": "TBD",
+      "reason": "AMD exact CPU page lists no dedicated NPU model/TOPS. Do not confuse RTX GPU AI TOPS or Copilot key with an NPU/Copilot+ certification."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "SKU",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm SKU for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Product Type",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Product Type for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Quantity",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Quantity for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Handling Time",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Handling Time for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Restock Date",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Restock Date for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Minimum Advertised Price",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Minimum Advertised Price for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Your Price",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Your Price for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Currency Conversion",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Currency Conversion for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Minimum Seller Allowed Price",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Minimum Seller Allowed Price for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Maximum Seller Allowed Price",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Maximum Seller Allowed Price for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Sale Price",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Sale Price for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Sale Start Date",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Sale Start Date for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Sale End Date",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Sale End Date for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Offering Release Date",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Offering Release Date for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Condition",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Item Condition for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "List Price",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm List Price for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Product Tax Code",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Product Tax Code for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Merchant Release Date",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Merchant Release Date for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Shipping Template",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Shipping Template for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Maximum Order Quantity",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Maximum Order Quantity for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Gift Options",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Gift Options for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Offering Can Be Gift Messaged",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Offering Can Be Gift Messaged for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Is Gift Wrap Available",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Is Gift Wrap Available for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Supplemental Condition Information",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Supplemental Condition Information for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Accessories",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Accessories for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Battery Life Percentage",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Battery Life Percentage for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Cosmetic",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Cosmetic for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Features",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Features for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Functional Condition",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Functional Condition for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Packaging",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Packaging for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Renewed Grade",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Renewed Grade for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Source Type",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Source Type for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Package Dimensions",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Item Package Dimensions for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Package Length",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Item Package Length for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Package Length Unit",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Package Length Unit for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Package Width",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Item Package Width for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Package Width Unit",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Package Width Unit for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Package Height",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Item Package Height for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Package Height Unit",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Package Height Unit for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Package Weight",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Package Weight for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Package Weight Unit",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Package Weight Unit for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Country/Region of Origin",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Country/Region of Origin for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Life",
+      "status": "TBD",
+      "reason": "No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Average Battery Life Unit",
+      "status": "TBD",
+      "reason": "No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Average Life Standby",
+      "status": "TBD",
+      "reason": "No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Average Standby Battery Life",
+      "status": "TBD",
+      "reason": "No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Average Standby Battery Life Unit",
+      "status": "TBD",
+      "reason": "No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Charging Time",
+      "status": "TBD",
+      "reason": "No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Charge Time",
+      "status": "TBD",
+      "reason": "No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery charge time",
+      "status": "TBD",
+      "reason": "No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Weight",
+      "status": "TBD",
+      "reason": "No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Weight Unit",
+      "status": "TBD",
+      "reason": "No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Number of Lithium-ion Cells",
+      "status": "TBD",
+      "reason": "Definition refers to cells not contained in an encased battery. OEM four-cell pack is encased; confirm marketplace accepted field convention instead of treating four bare cells as sold."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Lithium Battery Packaging",
+      "status": "INPUT_UNVERIFIED",
+      "reason": "SELLER_INPUT_REQUIRED: confirm battery installed in the actual shipped unit. OEM internal battery supports in-equipment candidate but transport pack-out is not inspected."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Lamp Warranty",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Lamp Warranty for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Dangerous Goods Regulations",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Dangerous Goods Regulations for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Is This Product Subject To Buyer Age Restrictions",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Is This Product Subject To Buyer Age Restrictions for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "California Proposition 65",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm California Proposition 65 for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "California Proposition 65 Warning Type",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm California Proposition 65 Warning Type for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "FCC Radio Frequency Emission Compliance",
+      "status": "INPUT_UNVERIFIED",
+      "reason": "Model manual contains FCC interference/RF notices, but exact sold US host authorization/SDoC and installed-module chain remain unverified."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Radio Frequency Emission & Authorization Status",
+      "status": "INPUT_UNVERIFIED",
+      "reason": "Model manual contains FCC interference/RF notices, but exact sold US host authorization/SDoC and installed-module chain remain unverified."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "FCC ID",
+      "status": "INPUT_UNVERIFIED",
+      "reason": "Most-likely module FCC lead MSQ-MT7922A22M: ASUS G614PR driver names MT7922/AW-XB530NF and mirrored SAR filing names G614PR host. No ERP unit match, exact installed suffix or authenticated FCC grant. Research candidate only."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "SDoC Contact Name",
+      "status": "SOURCE_UNAVAILABLE",
+      "reason": "Matching US SDoC not retrieved from official ASUS source. Mirror-only contact leads are not verified responsible-party evidence. Need official declaration applying to sold SKU."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "SDoC Contact US Mailing Address",
+      "status": "SOURCE_UNAVAILABLE",
+      "reason": "Matching US SDoC not retrieved from official ASUS source. Mirror-only contact leads are not verified responsible-party evidence. Need official declaration applying to sold SKU."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "SDoC Contact Email Address",
+      "status": "SOURCE_UNAVAILABLE",
+      "reason": "Matching US SDoC not retrieved from official ASUS source. Mirror-only contact leads are not verified responsible-party evidence. Need official declaration applying to sold SKU."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "SDOC Contact US Phone Number",
+      "status": "SOURCE_UNAVAILABLE",
+      "reason": "Matching US SDoC not retrieved from official ASUS source. Mirror-only contact leads are not verified responsible-party evidence. Need official declaration applying to sold SKU."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Regulatory Compliance Certification",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Regulatory Compliance Certification for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Compliance Regulation Type",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Compliance Regulation Type for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Regulatory Identification",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Regulatory Identification for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Responsible Person's Email or Electronic Address",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Responsible Person's Email or Electronic Address for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Compliance Media",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Compliance Media for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Compliance Media Content Type",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Compliance Media Content Type for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Compliance Media Language",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Compliance Media Language for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Compliance Media Source Location",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Compliance Media Source Location for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Safety Attestation",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: safety attestation. OEM manual contains safety warnings, so do not automatically enter yes/no."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Manufacturer’s Email or Electronic Address",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Manufacturer’s Email or Electronic Address for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Ships Globally",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Ships Globally for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Has Replaceable Battery",
+      "status": "TBD",
+      "reason": "Battery is internal; service replacement versus consumer replaceability must follow marketplace definition and actual service guide."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Has Less than 30 Percent State of Charge",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Has Less than 30 Percent State of Charge for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Installation Device Type",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: shipment battery installation type; computer is not a vehicle/vessel but exact permitted field value needs account schema."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Is OEM Sourced Product",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm Is OEM Sourced Product for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "GHS Chemical H Code",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm GHS Chemical H Code for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "BAA/TAA Regulation Compliance",
+      "status": "TBD",
+      "reason": "SELLER_INPUT_REQUIRED: Confirm BAA/TAA Regulation Compliance for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices."
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Modified Product",
+      "status": "TBD",
+      "reason": "Catalog confirms customized product, but this Definition asks actual hardware changes from factory. Both factory and approved sold base are 16GB/1TB; exact changes require assembly record, not invented upgrades."
+    }
+  ]
+}

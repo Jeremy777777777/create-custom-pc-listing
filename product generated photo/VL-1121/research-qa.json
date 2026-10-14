@@ -1,0 +1,2659 @@
+{
+  "productFactsSha256": null,
+  "result": "DRAFT_PROJECTION_PASS",
+  "productId": "VL-1121",
+  "configurationId": "VL-1121-BASE-16GB-1TB-W11PRO",
+  "workbookSha256": "2763afa0b5063f2c54f2691fc9f55fb42f428f81237ced8da4e60da2bcb7439b",
+  "ledgerSha256": "de34af622bc07138e8a450f6ed01945a03a8197843280e2b6bbcf386f1d3e698",
+  "templateSha256": "8fd91b0fef3a5c68c0d4fa03c99234049f4cc1947aad6f2912bb6558106729a5",
+  "stage": "RESEARCH_REVIEW",
+  "amazonEligibilityAssessed": false,
+  "fields": [
+    {
+      "sheet": "Product Details",
+      "attribute": "Customizations",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: confirm Amazon Custom enrollment and the actual listing setting. Catalog customized identity does not establish account configuration.",
+      "fact_id": "field-001",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Name",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | Research-only stage. Original customer copy/keywords will be authored in LISTING_DRAFT from reconciled verified facts; no competing capacities.",
+      "fact_id": "field-002",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Highlight",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | Research-only stage. Original customer copy/keywords will be authored in LISTING_DRAFT from reconciled verified facts; no competing capacities.",
+      "fact_id": "field-003",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Brand Name",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: confirm marketplace Brand Name/brand registry value; ASUS is verified OEM, MegaPC Custom is the mandatory title identity.",
+      "fact_id": "field-004",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "External Product ID",
+      "value": null,
+      "status": "TBD",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: GTIN/barcode and ID type for this customized offer. Input ASIN is a reference, not a GTIN.",
+      "fact_id": "field-005",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Type Keyword",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: current marketplace item-type keyword from the account schema.",
+      "fact_id": "field-006",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Model Number",
+      "value": "G614PR",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Verified model family; exact retail suffix is a matched reference, not unit-bound.",
+      "fact_id": "field-007",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Model Name",
+      "value": "ROG Strix G16",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-008",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Manufacturer",
+      "value": "ASUS",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-009",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Model Year",
+      "value": 2025,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-010",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Product Description",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | Research-only stage. Original customer copy/keywords will be authored in LISTING_DRAFT from reconciled verified facts; no competing capacities.",
+      "fact_id": "field-011",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Bullet Point",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | Research-only stage. Original customer copy/keywords will be authored in LISTING_DRAFT from reconciled verified facts; no competing capacities.",
+      "fact_id": "field-012",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Generic Keyword",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | Research-only stage. Original customer copy/keywords will be authored in LISTING_DRAFT from reconciled verified facts; no competing capacities.",
+      "fact_id": "field-013",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Special Features",
+      "value": "165Hz display; 4-zone RGB keyboard; USB4; Wi-Fi 6E",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-014",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Number of Items",
+      "value": 1,
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | One computer per sold unit; no multipack claim.",
+      "fact_id": "field-015",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Package Quantity",
+      "value": 1,
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | One computer per sold unit; no multipack claim.",
+      "fact_id": "field-016",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Display",
+      "value": "16-inch IPS-level anti-glare, 1920x1200, 165Hz",
+      "status": "VERIFIED",
+      "source": "https://www.asus.com/us/laptops/for-gaming/rog-republic-of-gamers/filter?Category=Core-gaming-and-esports&Series=ROG-Republic-of-Gamers&Spec=134078 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-017",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Display Maximum Resolution",
+      "value": "1920x1200",
+      "status": "VERIFIED",
+      "source": "https://www.asus.com/us/laptops/for-gaming/rog-republic-of-gamers/filter?Category=Core-gaming-and-esports&Series=ROG-Republic-of-Gamers&Spec=134078 | Reviewed 2026-10-14 | Built-in panel maximum/native resolution only; external display maximum is not established.",
+      "fact_id": "field-018",
+      "fact_scope": "PLATFORM_CAPABILITY"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Display Refresh Rate in Hertz",
+      "value": 165,
+      "status": "VERIFIED",
+      "source": "https://www.asus.com/us/laptops/for-gaming/rog-republic-of-gamers/filter?Category=Core-gaming-and-esports&Series=ROG-Republic-of-Gamers&Spec=134078 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-019",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Display Resolution Maximum",
+      "value": null,
+      "status": "TBD",
+      "source": "https://www.asus.com/us/laptops/for-gaming/rog-republic-of-gamers/filter?Category=Core-gaming-and-esports&Series=ROG-Republic-of-Gamers&Spec=134078 | Reviewed 2026-10-14 | Definition expects a numeric maximum-resolution mapping and unit; do not compress a 2D resolution into an invented scalar. Built-in native resolution is 1920x1200.",
+      "fact_id": "field-020",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Display Resolution Maximum Unit",
+      "value": null,
+      "status": "TBD",
+      "source": "https://www.asus.com/us/laptops/for-gaming/rog-republic-of-gamers/filter?Category=Core-gaming-and-esports&Series=ROG-Republic-of-Gamers&Spec=134078 | Reviewed 2026-10-14 | Definition expects a numeric maximum-resolution mapping and unit; do not compress a 2D resolution into an invented scalar. Built-in native resolution is 1920x1200.",
+      "fact_id": "field-021",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Screen Size",
+      "value": 16,
+      "status": "VERIFIED",
+      "source": "https://www.asus.com/us/laptops/for-gaming/rog-republic-of-gamers/filter?Category=Core-gaming-and-esports&Series=ROG-Republic-of-Gamers&Spec=134078 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-022",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Display Size Unit",
+      "value": "Inches",
+      "status": "VERIFIED",
+      "source": "https://www.asus.com/us/laptops/for-gaming/rog-republic-of-gamers/filter?Category=Core-gaming-and-esports&Series=ROG-Republic-of-Gamers&Spec=134078 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-023",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Display Technology",
+      "value": "IPS-level",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-024",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Display Type",
+      "value": "IPS-level",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-025",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Color",
+      "value": "Eclipse Gray",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Current approved product identity and original OEM photos agree.",
+      "fact_id": "field-026",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Size",
+      "value": "16-inch laptop",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-027",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Part Number",
+      "value": null,
+      "status": "INPUT_UNVERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Matched ASUS reference part 90NR0NJ7-M002W0 and SKU G614PR-G16.R95070TI; no target-unit label/BOM binding.",
+      "fact_id": "field-028",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Warranty Type",
+      "value": "Limited",
+      "status": "VERIFIED",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | Seller policy; does not independently certify OEM warranty applicability.",
+      "fact_id": "field-029",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Number of Cells",
+      "value": 4,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Four cells inside one encased battery, not four separate batteries.",
+      "fact_id": "field-030",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Graphics Processor Manufacturer",
+      "value": "NVIDIA",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-031",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Color Gamut",
+      "value": "100% sRGB",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-032",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Color Gamut Name",
+      "value": "sRGB",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-033",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Color Gamut Value",
+      "value": 100,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-034",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Graphics Description",
+      "value": "Dedicated",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-035",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Keyboard Description",
+      "value": "Backlit chiclet keyboard, 4-zone RGB, dedicated hotkeys, Copilot key",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-036",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Bluetooth support?",
+      "value": true,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-037",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Chipset Type",
+      "value": null,
+      "status": "TBD",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | AMD Dragon Range identifies CPU platform, not a documented motherboard chipset marketing value.",
+      "fact_id": "field-038",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Processor Count",
+      "value": 16,
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | Physical CPU cores, not 32 threads.",
+      "fact_id": "field-039",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Screen Surface Description",
+      "value": "Anti-glare",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-040",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "RAM Type",
+      "value": "DDR5 SO-DIMM",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-041",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Speaker Description",
+      "value": "Two speakers with Smart Amplifier",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-042",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Cellular Technology",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | No cellular module is identified in the exact specification; absence cannot be asserted solely from omission. Check unit/BOM.",
+      "fact_id": "field-043",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Memory Speed",
+      "value": null,
+      "status": "INPUT_UNVERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Factory reference has 2x8GB DDR5 operating at 5200 MT/s (DIMMs rated 5600); sold RAM speed needs installed module/BIOS record after customization. Do not advertise 5600 as operating speed.",
+      "fact_id": "field-044",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Memory Speed Unit",
+      "value": null,
+      "status": "INPUT_UNVERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Factory reference has 2x8GB DDR5 operating at 5200 MT/s (DIMMs rated 5600); sold RAM speed needs installed module/BIOS record after customization. Do not advertise 5600 as operating speed.",
+      "fact_id": "field-045",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Series Number",
+      "value": "G614",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-046",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Hardware Interface",
+      "value": "USB4 Type-C; USB 3.2 Gen 2 Type-A; HDMI; RJ45; 3.5mm audio",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-047",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Touch Screen Type",
+      "value": null,
+      "status": "INPUT_UNVERIFIED",
+      "source": "https://www.asus.com/us/laptops/for-gaming/rog-republic-of-gamers/filter?Category=Core-gaming-and-esports&Series=ROG-Republic-of-Gamers&Spec=134078 | Reviewed 2026-10-14 | Matching regional G614PR official store filters list non-touch variants; exact US sold-panel touch exclusion is not explicit in selected source. Do not infer from missing mention.",
+      "fact_id": "field-048",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Resolution",
+      "value": "1920x1200",
+      "status": "VERIFIED",
+      "source": "https://www.asus.com/us/laptops/for-gaming/rog-republic-of-gamers/filter?Category=Core-gaming-and-esports&Series=ROG-Republic-of-Gamers&Spec=134078 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-049",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Video Output",
+      "value": "HDMI output; DisplayPort over both USB4 Type-C ports",
+      "status": "VERIFIED",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | ",
+      "fact_id": "field-050",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Audio Output Type",
+      "value": "Built-in speakers; 3.5mm combination audio",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-051",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Camera Description",
+      "value": "1080p FHD camera",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-052",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Graphics Coprocessor",
+      "value": "NVIDIA GeForce RTX 5070 Ti Laptop GPU",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-053",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Has Color Screen",
+      "value": true,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-054",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Connectivity Technology",
+      "value": "Wi-Fi; Bluetooth; Ethernet; USB; HDMI",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-055",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Form Factor",
+      "value": "Clamshell laptop",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-056",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Voltage",
+      "value": 20,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Nominal DC adapter output, not AC mains input.",
+      "fact_id": "field-057",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Voltage Unit",
+      "value": "Volts DC",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-058",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Memory Storage Capacity",
+      "value": 1,
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | Installed internal storage, excluding external/cloud accessories.",
+      "fact_id": "field-059",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Memory Storage Capacity Unit",
+      "value": "TB",
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | ",
+      "fact_id": "field-060",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Native Resolution",
+      "value": "1920x1200",
+      "status": "VERIFIED",
+      "source": "https://www.asus.com/us/laptops/for-gaming/rog-republic-of-gamers/filter?Category=Core-gaming-and-esports&Series=ROG-Republic-of-Gamers&Spec=134078 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-061",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Operating System",
+      "value": "Windows 11 Pro",
+      "status": "VERIFIED",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | Sold OS; OEM reference Windows 11 Home retained separately. Activation/license evidence remains fulfillment review.",
+      "fact_id": "field-062",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Wireless Communication Standard",
+      "value": "802.11ax",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-063",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Graphics Card Interface",
+      "value": null,
+      "status": "TBD",
+      "source": "https://www.nvidia.com/en-us/geforce/laptops/50-series/ | Reviewed 2026-10-14 | Laptop discrete GPU is integrated on the mainboard. Exact motherboard-to-GPU bus implementation not specified; desktop card interface cannot be transferred.",
+      "fact_id": "field-064",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Compatible Devices",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | Exact source value not established for Compatible Devices. Reviewed OEM spec/manual, CPU/component sources and target mapping; retain unresolved rather than infer.",
+      "fact_id": "field-065",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Wireless Communication Technology",
+      "value": "Wi-Fi; Bluetooth",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-066",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Memory Clock Speed",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | True DRAM clock is not DDR effective transfer rate. Neither actual clock nor post-customization module state is verified. Do not convert 5200 MT/s to an asserted 5.2 GHz clock.",
+      "fact_id": "field-067",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Memory Clock Speed Unit",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | True DRAM clock is not DDR effective transfer rate. Neither actual clock nor post-customization module state is verified. Do not convert 5200 MT/s to an asserted 5.2 GHz clock.",
+      "fact_id": "field-068",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Ram Memory",
+      "value": "16GB DDR5",
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | ",
+      "fact_id": "field-069",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "RAM Memory Installed",
+      "value": 16,
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | ",
+      "fact_id": "field-070",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "RAM Memory Installed Size Unit",
+      "value": "GB",
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | ",
+      "fact_id": "field-071",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Ram Memory Maximum Size",
+      "value": 64,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Platform supported maximum; not installed or a selectable sold tier.",
+      "fact_id": "field-072",
+      "fact_scope": "PLATFORM_CAPABILITY"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "RAM Memory Maximum Size",
+      "value": 64,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Platform supported maximum; not installed or a selectable sold tier.",
+      "fact_id": "field-073",
+      "fact_scope": "PLATFORM_CAPABILITY"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "RAM Memory Maximum Size Unit",
+      "value": "GB",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-074",
+      "fact_scope": "PLATFORM_CAPABILITY"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "RAM Memory Technology",
+      "value": "DDR5 SO-DIMM",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-075",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Finish Type",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Eclipse Gray is a verified color, not a documented material/finish classification.",
+      "fact_id": "field-076",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Microphone Form Factor",
+      "value": "Built-in array microphone",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-077",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Unit Count",
+      "value": 1,
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | One computer per sold unit; no multipack claim.",
+      "fact_id": "field-078",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Unit Count Type",
+      "value": "Count",
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | ",
+      "fact_id": "field-079",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Product Site Launch Date",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: actual marketplace launch date, not model year.",
+      "fact_id": "field-080",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Software Included",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: verify any included license and term. OEM trial/subscription promotions are region/time/activation dependent and do not establish a sold Office or security entitlement.",
+      "fact_id": "field-081",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Human Interface Input",
+      "value": "Keyboard; touchpad",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-082",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Included Components",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: confirm sold pack-out, AC adapter/cord and any additional contents. OEM explicitly says charger inclusion varies by region/model. Computer-only image scope does not settle actual package contents.",
+      "fact_id": "field-083",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Specific Uses for Product",
+      "value": "Gaming; content creation; multitasking",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Use-case inference from CPU/GPU/display capabilities and OEM gaming positioning; not a benchmark promise.",
+      "fact_id": "field-084",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Recommended Uses For Product",
+      "value": "Gaming; content creation; multitasking",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Use-case inference from CPU/GPU/display capabilities and OEM gaming positioning; not a benchmark promise.",
+      "fact_id": "field-085",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Audio features",
+      "value": "Dolby Atmos; Smart Amp; AI noise cancellation; headphone Hi-Res certification",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-086",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Biometric Security Feature",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | OEM lists firmware TPM and BIOS passwords but no exact TPM version or unit-bound biometric specification. No inferred fingerprint/IR absence.",
+      "fact_id": "field-087",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Cache Memory",
+      "value": "80MB L2+L3 cache",
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | 16MB L2 plus 64MB L3; L1 separately recorded, not included in marketed 80MB.",
+      "fact_id": "field-088",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Cache Memory Installed Size",
+      "value": 80,
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-089",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Cache Memory Installed Size Unit",
+      "value": "MB",
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-090",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Computer Memory",
+      "value": "16GB DDR5",
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | ",
+      "fact_id": "field-091",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "RAM Size",
+      "value": 16,
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | ",
+      "fact_id": "field-092",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Computer Memory Size",
+      "value": 16,
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | ",
+      "fact_id": "field-093",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Computer Memory Size Unit",
+      "value": "GB",
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | ",
+      "fact_id": "field-094",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Cpu Model",
+      "value": "AMD Ryzen 9",
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-095",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "CPU Model",
+      "value": "AMD Ryzen 9",
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-096",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "CPU Model Generation",
+      "value": "Ryzen 8000 Series (Zen 4)",
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-097",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "CPU L1 Cache",
+      "value": 1024,
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-098",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "CPU L1 Cache Unit",
+      "value": "KB",
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-099",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "CPU L2 Cache",
+      "value": 16,
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-100",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "CPU L2 Cache Unit",
+      "value": "MB",
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-101",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "CPU L3 Cache",
+      "value": 64,
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-102",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "CPU L3 Cache Unit",
+      "value": "MB",
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-103",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "CPU Model Manufacturer",
+      "value": "AMD",
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-104",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "CPU Model Number",
+      "value": "8940HX",
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-105",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Processor Speed",
+      "value": 2.4,
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-106",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "CPU Base Speed",
+      "value": 2.4,
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-107",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "CPU Base Speed Unit",
+      "value": "GHz",
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-108",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "CPU Model Speed Maximum",
+      "value": 5.3,
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-109",
+      "fact_scope": "PLATFORM_CAPABILITY"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "CPU Model Speed Maximum Unit",
+      "value": "GHz",
+      "status": "VERIFIED",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | ",
+      "fact_id": "field-110",
+      "fact_scope": "PLATFORM_CAPABILITY"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Flash Memory",
+      "value": "1TB internal NVMe SSD",
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | ",
+      "fact_id": "field-111",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Flash Memory Installed Size",
+      "value": 1,
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | ",
+      "fact_id": "field-112",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Flash Memory Installed Size Unit",
+      "value": "TB",
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | ",
+      "fact_id": "field-113",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Graphics Ram",
+      "value": "12GB GDDR7",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-114",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Graphics Card Ram",
+      "value": "12GB GDDR7",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-115",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Graphics Ram Size",
+      "value": 12,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-116",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Graphics Ram Size Unit",
+      "value": "GB",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-117",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Hard Disk",
+      "value": "1TB internal NVMe SSD",
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | ",
+      "fact_id": "field-118",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Hard Disk Description",
+      "value": "SSD",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-119",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Hard Disk Interface",
+      "value": "PCIe NVMe",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Internal storage interface, not USB port version.",
+      "fact_id": "field-120",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Hard Disk Rotational Speed",
+      "value": null,
+      "status": "NOT_APPLICABLE",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Solid-state NVMe storage has no rotational RPM; do not enter an HDD speed.",
+      "fact_id": "field-121",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Hard Disk Rotational Speed Unit",
+      "value": null,
+      "status": "NOT_APPLICABLE",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Solid-state NVMe storage has no rotational RPM; do not enter an HDD speed.",
+      "fact_id": "field-122",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Hard-Drive Size",
+      "value": 1,
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | Installed internal storage, excluding external/cloud accessories.",
+      "fact_id": "field-123",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Hard Disk Size",
+      "value": 1,
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | Installed internal storage, excluding external/cloud accessories.",
+      "fact_id": "field-124",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Hard Disk Size Unit",
+      "value": "TB",
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | ",
+      "fact_id": "field-125",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Audio Recording",
+      "value": true,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Built-in microphone supports recording; no software license implied.",
+      "fact_id": "field-126",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Webcam Capability",
+      "value": true,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-127",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Notebook Pointing Device Description",
+      "value": "Multitouch touchpad",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-128",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Optical Storage Device",
+      "value": "No optical drive",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Complete chassis I/O and original photos show no optical drive; internal storage is SSD.",
+      "fact_id": "field-129",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Power Device",
+      "value": "280W AC adapter platform specification",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Capability/specification only; adapter inclusion in sold package is not verified.",
+      "fact_id": "field-130",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Target Region",
+      "value": null,
+      "status": "TBD",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: target offer region and physical regional SKU. Amazon.com source suggests US, but does not prove unit country version.",
+      "fact_id": "field-131",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Version for Country",
+      "value": null,
+      "status": "TBD",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: target offer region and physical regional SKU. Amazon.com source suggests US, but does not prove unit country version.",
+      "fact_id": "field-132",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "LAN Port Bandwidth",
+      "value": null,
+      "status": "INPUT_UNVERIFIED",
+      "source": "https://www.asus.com/me-en/supportonly/g614pr/helpdesk_download/ | Reviewed 2026-10-14 | ASUS model driver lists RTL8111H; actual LAN part and operating bandwidth not unit-bound. Do not assert competitor 2.5GbE.",
+      "fact_id": "field-133",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Control Method",
+      "value": "Keyboard; touchpad",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-134",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Number of Ports",
+      "value": null,
+      "status": "INPUT_UNVERIFIED",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | Physical inventory has 7 signal I/O ports (4 USB+HDMI+RJ45+audio), 8 including DC input. Template does not define power inclusion; marketplace grouping needs review.",
+      "fact_id": "field-135",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Total Ethernet Ports",
+      "value": 1,
+      "status": "VERIFIED",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | ",
+      "fact_id": "field-136",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Total HDMI Ports",
+      "value": 1,
+      "status": "VERIFIED",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | ",
+      "fact_id": "field-137",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Total Thunderbolt Ports",
+      "value": null,
+      "status": "TBD",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | USB4 is not automatically Thunderbolt-certified. OEM inventory does not identify a Thunderbolt port; retain unknown certification rather than copy competitor claim.",
+      "fact_id": "field-138",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Total USB 2.0 Ports",
+      "value": 0,
+      "status": "VERIFIED",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | No dedicated USB 2.0 connectors in complete port inventory; backward compatibility does not add a physical port.",
+      "fact_id": "field-139",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Total USB 3.0 Ports",
+      "value": 2,
+      "status": "VERIFIED",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | USB 3.x Type-A connector count (3.2 Gen 2); both USB4 Type-C connectors recorded separately, not four USB 3.0 connectors.",
+      "fact_id": "field-140",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Total USB Ports",
+      "value": 4,
+      "status": "VERIFIED",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | ",
+      "fact_id": "field-141",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "USB Port Quantity",
+      "value": 4,
+      "status": "VERIFIED",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | ",
+      "fact_id": "field-142",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Number of USB ports",
+      "value": 4,
+      "status": "VERIFIED",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | ",
+      "fact_id": "field-143",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "USB Type",
+      "value": "2x USB4 Type-C; 2x USB 3.2 Gen 2 Type-A",
+      "status": "VERIFIED",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | ",
+      "fact_id": "field-144",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Rapid Charging Performance",
+      "value": null,
+      "status": "TBD",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | Manual specifies USB PD up to 100W input; no exact sold-unit full-charge time or fast-charge percentage/time test established.",
+      "fact_id": "field-145",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Repairability Index",
+      "value": null,
+      "status": "TBD",
+      "source": "https://www.asus.com/us/supportonly/g614pr/helpdesk_emi/ | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: target-market repairability obligations and matching model certificate; no exact index found.",
+      "fact_id": "field-146",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Repairability Index Criteria Table URL",
+      "value": null,
+      "status": "TBD",
+      "source": "https://www.asus.com/us/supportonly/g614pr/helpdesk_emi/ | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: target-market repairability obligations and matching model certificate; no exact index found.",
+      "fact_id": "field-147",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Repairability Index Regulation",
+      "value": null,
+      "status": "TBD",
+      "source": "https://www.asus.com/us/supportonly/g614pr/helpdesk_emi/ | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: target-market repairability obligations and matching model certificate; no exact index found.",
+      "fact_id": "field-148",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Repairability Index Value",
+      "value": null,
+      "status": "TBD",
+      "source": "https://www.asus.com/us/supportonly/g614pr/helpdesk_emi/ | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: target-market repairability obligations and matching model certificate; no exact index found.",
+      "fact_id": "field-149",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Keyboard Layout",
+      "value": null,
+      "status": "INPUT_UNVERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | US matching reference photos show QWERTY; target-unit regional keyboard label/layout not serial-bound.",
+      "fact_id": "field-150",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Dimensions L x W x Thickness",
+      "value": "35.4 x 26.4 x 2.26–3.04 cm (W x D x H)",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-151",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Length Horizontal Edge",
+      "value": 35.4,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Horizontal left-to-right edge in normal use.",
+      "fact_id": "field-152",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Length Unit",
+      "value": "Centimeters",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-153",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Thickness Front to Back",
+      "value": 3.04,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Closed thickness varies 2.26–3.04 cm; maximum used for numeric field.",
+      "fact_id": "field-154",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Thickness Unit",
+      "value": "Centimeters",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-155",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Width Vertical Edge",
+      "value": 26.4,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Front-to-back footprint depth in normal use.",
+      "fact_id": "field-156",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Width Unit",
+      "value": "Centimeters",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-157",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Software Update Supported to Date",
+      "value": null,
+      "status": "TBD",
+      "source": "https://www.asus.com/us/supportonly/g614pr/helpdesk_emi/ | Reviewed 2026-10-14 | No explicit guaranteed software-update support end date in current OEM sources.",
+      "fact_id": "field-158",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Maximum Display Brightness",
+      "value": null,
+      "status": "INPUT_UNVERIFIED",
+      "source": "https://www.asus.com/us/laptops/for-gaming/rog-republic-of-gamers/filter?Category=Core-gaming-and-esports&Series=ROG-Republic-of-Gamers&Spec=134078 | Reviewed 2026-10-14 | 300 nits appears in retailer/user discovery leads; exact ASUS SKU source reviewed does not state luminance. Need panel part or exact OEM datasheet.",
+      "fact_id": "field-159",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Display Brightness Unit",
+      "value": null,
+      "status": "INPUT_UNVERIFIED",
+      "source": "https://www.asus.com/us/laptops/for-gaming/rog-republic-of-gamers/filter?Category=Core-gaming-and-esports&Series=ROG-Republic-of-Gamers&Spec=134078 | Reviewed 2026-10-14 | 300 nits appears in retailer/user discovery leads; exact ASUS SKU source reviewed does not state luminance. Need panel part or exact OEM datasheet.",
+      "fact_id": "field-160",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Bluetooth Version",
+      "value": "5.2",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | OEM specifies Bluetooth 5.2; available features/version depend on OS and drivers. No claim of 5.3.",
+      "fact_id": "field-161",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Office Productivity Software Included",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: verify any included license and term. OEM trial/subscription promotions are region/time/activation dependent and do not establish a sold Office or security entitlement.",
+      "fact_id": "field-162",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Office Productivity Software License Agreement Term",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: verify any included license and term. OEM trial/subscription promotions are region/time/activation dependent and do not establish a sold Office or security entitlement.",
+      "fact_id": "field-163",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Office Productivity Software Included Title",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: verify any included license and term. OEM trial/subscription promotions are region/time/activation dependent and do not establish a sold Office or security entitlement.",
+      "fact_id": "field-164",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Internet Security Software Included",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: verify any included license and term. OEM trial/subscription promotions are region/time/activation dependent and do not establish a sold Office or security entitlement.",
+      "fact_id": "field-165",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Internet Security Software License Agreement Term",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: verify any included license and term. OEM trial/subscription promotions are region/time/activation dependent and do not establish a sold Office or security entitlement.",
+      "fact_id": "field-166",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Internet Security Software Included Title",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: verify any included license and term. OEM trial/subscription promotions are region/time/activation dependent and do not establish a sold Office or security entitlement.",
+      "fact_id": "field-167",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Audio Connector Input Output",
+      "value": "Input/output",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-168",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Audio Connector Type",
+      "value": "3.5mm combination audio jack",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-169",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Audio Connector Input Output Functionality",
+      "value": "Headphone output and microphone input",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-170",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Audio Connector Quantity",
+      "value": 1,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-171",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Supported Monitor Maximum Quantity",
+      "value": null,
+      "status": "TBD",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | CPU maximum 4 displays is a component limit, not proven complete-laptop supported monitor quantity.",
+      "fact_id": "field-172",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Wi-Fi Generation",
+      "value": "Wi-Fi 6E",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-173",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Touchpad Feature",
+      "value": "Multitouch touchpad",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-174",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "RAM Memory Slot Total Count",
+      "value": 2,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-175",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "HDMI Port Quantity",
+      "value": 1,
+      "status": "VERIFIED",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | ",
+      "fact_id": "field-176",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Number of HDMI ports",
+      "value": 1,
+      "status": "VERIFIED",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | ",
+      "fact_id": "field-177",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "HDMI Type",
+      "value": null,
+      "status": "INPUT_UNVERIFIED",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | HDMI connector is verified, but HDMI 2.1 version lead from related regional store not exact sold SKU datasheet.",
+      "fact_id": "field-178",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Model Series",
+      "value": "G614",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-179",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Virtual Reality Ready",
+      "value": null,
+      "status": "TBD",
+      "source": "https://www.nvidia.com/en-us/geforce/laptops/50-series/ | Reviewed 2026-10-14 | GPU capability is not a whole-system VR certification; no target configuration validation found.",
+      "fact_id": "field-180",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Available M2 Slot Count",
+      "value": null,
+      "status": "INPUT_UNVERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | OEM has two M.2 slots including used. Reference has one 1TB SSD; actual sold drive count/occupied slots not independently confirmed.",
+      "fact_id": "field-181",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Screen Bezel Thickness",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | No exact panel bezel measurement in matching OEM documentation; measure sold unit or obtain drawing.",
+      "fact_id": "field-182",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Compatible Flash Memory Type",
+      "value": null,
+      "status": "TBD",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | No built-in card reader appears in complete I/O inventory; external reader compatibility is not an installed flash reader type. Do not copy SD media support into SSD fields.",
+      "fact_id": "field-183",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Number of Packs",
+      "value": 1,
+      "status": "VERIFIED",
+      "source": "Direct user confirmation in this conversation: 16GB + 1TB proposal accepted with 可以; input ASIN B0H9Z6NKVV; verified existing current product facts. | Reviewed 2026-10-14 | One computer per sold unit; no multipack claim.",
+      "fact_id": "field-184",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Operating System Family",
+      "value": "Windows",
+      "status": "VERIFIED",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | ",
+      "fact_id": "field-185",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Government Contract Name and Number",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: applicable government contract and verified contract identifiers, or explicit not-applicable disposition.",
+      "fact_id": "field-186",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Government Contract Name",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: applicable government contract and verified contract identifiers, or explicit not-applicable disposition.",
+      "fact_id": "field-187",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Government Contract Number",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: applicable government contract and verified contract identifiers, or explicit not-applicable disposition.",
+      "fact_id": "field-188",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Weight",
+      "value": 2.5,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-189",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Item Weight Unit",
+      "value": "Kilograms",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-190",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "TPM Version",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | OEM lists firmware TPM and BIOS passwords but no exact TPM version or unit-bound biometric specification. No inferred fingerprint/IR absence.",
+      "fact_id": "field-191",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Merch Manufacturing Method",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | OEM laptop platform verified; marketplace manufacturing-method taxonomy and customization description require seller mapping.",
+      "fact_id": "field-192",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "Neural Processor Configuration",
+      "value": null,
+      "status": "TBD",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | AMD exact CPU page lists no dedicated NPU model/TOPS. Do not confuse RTX GPU AI TOPS or Copilot key with an NPU/Copilot+ certification.",
+      "fact_id": "field-193",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "NPU Processor",
+      "value": null,
+      "status": "TBD",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | AMD exact CPU page lists no dedicated NPU model/TOPS. Do not confuse RTX GPU AI TOPS or Copilot key with an NPU/Copilot+ certification.",
+      "fact_id": "field-194",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Product Details",
+      "attribute": "NPU TOPS",
+      "value": null,
+      "status": "TBD",
+      "source": "https://www.amd.com/en/products/processors/laptop/ryzen/8000-series/amd-ryzen-9-8940hx.html | Reviewed 2026-10-14 | AMD exact CPU page lists no dedicated NPU model/TOPS. Do not confuse RTX GPU AI TOPS or Copilot key with an NPU/Copilot+ certification.",
+      "fact_id": "field-195",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "SKU",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm SKU for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-196",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Product Type",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Product Type for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-197",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Quantity",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Quantity for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-198",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Handling Time",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Handling Time for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-199",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Restock Date",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Restock Date for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-200",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Minimum Advertised Price",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Minimum Advertised Price for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-201",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Your Price",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Your Price for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-202",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Currency Conversion",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Currency Conversion for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-203",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Minimum Seller Allowed Price",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Minimum Seller Allowed Price for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-204",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Maximum Seller Allowed Price",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Maximum Seller Allowed Price for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-205",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Sale Price",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Sale Price for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-206",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Sale Start Date",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Sale Start Date for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-207",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Sale End Date",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Sale End Date for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-208",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Offering Release Date",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Offering Release Date for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-209",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Condition",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Item Condition for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-210",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "List Price",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm List Price for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-211",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Product Tax Code",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Product Tax Code for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-212",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Merchant Release Date",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Merchant Release Date for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-213",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Shipping Template",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Shipping Template for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-214",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Maximum Order Quantity",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Maximum Order Quantity for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-215",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Gift Options",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Gift Options for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-216",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Offering Can Be Gift Messaged",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Offering Can Be Gift Messaged for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-217",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Is Gift Wrap Available",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Is Gift Wrap Available for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-218",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Supplemental Condition Information",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Supplemental Condition Information for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-219",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Accessories",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Accessories for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-220",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Battery Life Percentage",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Battery Life Percentage for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-221",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Cosmetic",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Cosmetic for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-222",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Features",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Features for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-223",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Functional Condition",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Functional Condition for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-224",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Packaging",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Packaging for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-225",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Renewed Grade",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Renewed Grade for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-226",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Source Type",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Source Type for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-227",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Package Dimensions",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Item Package Dimensions for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-228",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Package Length",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Item Package Length for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-229",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Package Length Unit",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Package Length Unit for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-230",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Package Width",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Item Package Width for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-231",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Package Width Unit",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Package Width Unit for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-232",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Package Height",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Item Package Height for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-233",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Package Height Unit",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Package Height Unit for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-234",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Package Weight",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Package Weight for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-235",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Package Weight Unit",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Package Weight Unit for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-236",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Display Weight",
+      "value": 2.5,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-237",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Offer",
+      "attribute": "Item Display Weight Unit",
+      "value": "Kilograms",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-238",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Country/Region of Origin",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Country/Region of Origin for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-239",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Warranty Description",
+      "value": "MegaPC provides a 1-year limited warranty on the upgraded RAM and SSD components. The original ASUS manufacturer warranty remains valid on all remaining factory components, so you are covered on both the base machine and our upgrades. The original seal has been opened solely for upgrading purposes.",
+      "status": "VERIFIED",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | Mandatory confirmed seller policy wording; not a new assertion of actual RAM/SSD modification records or OEM coverage verification.",
+      "fact_id": "field-240",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Are batteries required?",
+      "value": true,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-241",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery",
+      "value": "90Wh, 4-cell lithium-ion, internal",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-242",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Life",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh.",
+      "fact_id": "field-243",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Average Battery Life Unit",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh.",
+      "fact_id": "field-244",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Average Life Standby",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh.",
+      "fact_id": "field-245",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Average Standby Battery Life",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh.",
+      "fact_id": "field-246",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Average Standby Battery Life Unit",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh.",
+      "fact_id": "field-247",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Cell Composition",
+      "value": "Lithium-ion",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-248",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Charging Time",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh.",
+      "fact_id": "field-249",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Charge Time",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh.",
+      "fact_id": "field-250",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery charge time",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh.",
+      "fact_id": "field-251",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Weight",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh.",
+      "fact_id": "field-252",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Weight Unit",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | No matching measured battery life/standby/full-charge time or bare-pack weight in exact spec/manual. Need battery part and OEM test protocol; do not infer from 90Wh.",
+      "fact_id": "field-253",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Number of Batteries",
+      "value": 1,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-254",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Type",
+      "value": "Internal rechargeable lithium-ion battery",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-255",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Number of Lithium-ion Cells",
+      "value": null,
+      "status": "TBD",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Definition refers to cells not contained in an encased battery. OEM four-cell pack is encased; confirm marketplace accepted field convention instead of treating four bare cells as sold.",
+      "fact_id": "field-256",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Lithium Battery",
+      "value": "Lithium-ion battery",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-257",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Lithium-Battery Energy Content",
+      "value": 90,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-258",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Lithium Battery Energy Content",
+      "value": 90,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-259",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Lithium Battery Energy Content Unit",
+      "value": "Watt-hours",
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-260",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Lithium Battery Packaging",
+      "value": null,
+      "status": "INPUT_UNVERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: confirm battery installed in the actual shipped unit. OEM internal battery supports in-equipment candidate but transport pack-out is not inspected.",
+      "fact_id": "field-261",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Lamp Warranty",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Lamp Warranty for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-262",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Dangerous Goods Regulations",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Dangerous Goods Regulations for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-263",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Is This Product Subject To Buyer Age Restrictions",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Is This Product Subject To Buyer Age Restrictions for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-264",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "California Proposition 65",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm California Proposition 65 for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-265",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "California Proposition 65 Warning Type",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm California Proposition 65 Warning Type for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-266",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "FCC Radio Frequency Emission Compliance",
+      "value": null,
+      "status": "INPUT_UNVERIFIED",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | Model manual contains FCC interference/RF notices, but exact sold US host authorization/SDoC and installed-module chain remain unverified.",
+      "fact_id": "field-267",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Radio Frequency Emission & Authorization Status",
+      "value": null,
+      "status": "INPUT_UNVERIFIED",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | Model manual contains FCC interference/RF notices, but exact sold US host authorization/SDoC and installed-module chain remain unverified.",
+      "fact_id": "field-268",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "FCC ID",
+      "value": "MSQ-MT7922A22M",
+      "status": "INPUT_UNVERIFIED",
+      "source": "MOST_LIKELY_CANDIDATE — NOT CONFIRMED; https://fccid.io/MSQ-MT7922A22M/RF-Exposure-Info/USSC252088001-FCC-SAR-8242747.pdf; discovery-only mirrored filing names G614PR host. Not independently authenticated FCC grant or installed-unit evidence. | Reviewed 2026-10-14 | Most-likely module FCC lead MSQ-MT7922A22M: ASUS G614PR driver names MT7922/AW-XB530NF and mirrored SAR filing names G614PR host. No ERP unit match, exact installed suffix or authenticated FCC grant. Research candidate only.",
+      "fact_id": "field-269",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "SDoC Contact Name",
+      "value": null,
+      "status": "SOURCE_UNAVAILABLE",
+      "source": "https://www.asus.com/us/supportonly/g614pr/helpdesk_emi/ | Reviewed 2026-10-14 | Matching US SDoC not retrieved from official ASUS source. Mirror-only contact leads are not verified responsible-party evidence. Need official declaration applying to sold SKU.",
+      "fact_id": "field-270",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "SDoC Contact US Mailing Address",
+      "value": null,
+      "status": "SOURCE_UNAVAILABLE",
+      "source": "https://www.asus.com/us/supportonly/g614pr/helpdesk_emi/ | Reviewed 2026-10-14 | Matching US SDoC not retrieved from official ASUS source. Mirror-only contact leads are not verified responsible-party evidence. Need official declaration applying to sold SKU.",
+      "fact_id": "field-271",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "SDoC Contact Email Address",
+      "value": null,
+      "status": "SOURCE_UNAVAILABLE",
+      "source": "https://www.asus.com/us/supportonly/g614pr/helpdesk_emi/ | Reviewed 2026-10-14 | Matching US SDoC not retrieved from official ASUS source. Mirror-only contact leads are not verified responsible-party evidence. Need official declaration applying to sold SKU.",
+      "fact_id": "field-272",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "SDOC Contact US Phone Number",
+      "value": null,
+      "status": "SOURCE_UNAVAILABLE",
+      "source": "https://www.asus.com/us/supportonly/g614pr/helpdesk_emi/ | Reviewed 2026-10-14 | Matching US SDoC not retrieved from official ASUS source. Mirror-only contact leads are not verified responsible-party evidence. Need official declaration applying to sold SKU.",
+      "fact_id": "field-273",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Regulatory Compliance Certification",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Regulatory Compliance Certification for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-274",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Compliance Regulation Type",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Compliance Regulation Type for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-275",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Regulatory Identification",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Regulatory Identification for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-276",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Responsible Person's Email or Electronic Address",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Responsible Person's Email or Electronic Address for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-277",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Compliance Media",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Compliance Media for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-278",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Compliance Media Content Type",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Compliance Media Content Type for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-279",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Compliance Media Language",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Compliance Media Language for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-280",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Compliance Media Source Location",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Compliance Media Source Location for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-281",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Safety Attestation",
+      "value": null,
+      "status": "TBD",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: safety attestation. OEM manual contains safety warnings, so do not automatically enter yes/no.",
+      "fact_id": "field-282",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Manufacturer’s Email or Electronic Address",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Manufacturer’s Email or Electronic Address for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-283",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Ships Globally",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Ships Globally for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-284",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Contains Battery or Cell",
+      "value": true,
+      "status": "VERIFIED",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | ",
+      "fact_id": "field-285",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Has Replaceable Battery",
+      "value": null,
+      "status": "TBD",
+      "source": "https://dlcdnets.asus.com/pub/ASUS/GamingNB/G614FR/0409_E24176_G614P_G614F_A.pdf?model=G614FR | Reviewed 2026-10-14 | Battery is internal; service replacement versus consumer replaceability must follow marketplace definition and actual service guide.",
+      "fact_id": "field-286",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Non-Lithium Battery Energy Content",
+      "value": null,
+      "status": "NOT_APPLICABLE",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Exact OEM configuration uses lithium-ion; non-lithium energy field does not apply to that documented pack.",
+      "fact_id": "field-287",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Non-Lithium Battery Energy Content Unit",
+      "value": null,
+      "status": "NOT_APPLICABLE",
+      "source": "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/?config=90NR0NJ7-M002W0 | Reviewed 2026-10-14 | Exact OEM configuration uses lithium-ion; non-lithium energy field does not apply to that documented pack.",
+      "fact_id": "field-288",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Has Less than 30 Percent State of Charge",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Has Less than 30 Percent State of Charge for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-289",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Battery Installation Device Type",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: shipment battery installation type; computer is not a vehicle/vessel but exact permitted field value needs account schema.",
+      "fact_id": "field-290",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Is OEM Sourced Product",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm Is OEM Sourced Product for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-291",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "GHS Chemical H Code",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm GHS Chemical H Code for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-292",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "BAA/TAA Regulation Compliance",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | SELLER_INPUT_REQUIRED: Confirm BAA/TAA Regulation Compliance for this exact sold offer. OEM hardware specifications cannot establish account, logistics, legal or fulfillment choices.",
+      "fact_id": "field-293",
+      "fact_scope": "SOLD_BASE"
+    },
+    {
+      "sheet": "Safety&Compliance",
+      "attribute": "Modified Product",
+      "value": null,
+      "status": "TBD",
+      "source": "references/confirmed-catalog-defaults.md; USER_CONFIRMED_CATALOG_POLICY | Reviewed 2026-10-14 | Catalog confirms customized product, but this Definition asks actual hardware changes from factory. Both factory and approved sold base are 16GB/1TB; exact changes require assembly record, not invented upgrades.",
+      "fact_id": "field-294",
+      "fact_scope": "SOLD_BASE"
+    }
+  ]
+}
