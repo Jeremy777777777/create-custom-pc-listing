@@ -39,3 +39,6 @@ A previous delivery record certifies its recorded commit only. After editing, cr
 ## Current Gaming reference — 2026-10-02
 
 For Gaming enhanced MAIN, apply [gaming-approved-main-fit.md](gaming-approved-main-fit.md) before any older generic head-breakout, top-clearance or reference-exclusion instructions. SCREEN_ONLY six-card composition is now the integrated-screen default; HEAD_ONLY is an optional separately approved variation. The exact VL-1221 front supplied and approved by the user is a hash-bound 1237×937 import exception, not a full-gallery PASS or a reusable exception for other files. New generations follow the current Amazon-based size policy in image-spec.md and independently verified product facts.
+# Current validation refinement — 2026-10-14
+
+Apply [workflow validation boundaries](workflow-validation-boundaries.md) for the shared geometry gate, mandatory supplied reviewInputsSha256, UTC review metadata, staged finalization and frozen-import lifecycle. Historical reviews lacking these bindings remain preserved but cannot authorize new changed-slot delivery. Compute the binding at actual review time; never refresh old PASS records automatically.

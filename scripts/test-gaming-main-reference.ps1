@@ -1,8 +1,10 @@
 param(
     [string]$RecipePath = (Join-Path $PSScriptRoot '../assets/gaming-main-reference/vl1221-approved-v1/layout.json'),
+    [switch]$HistoricalOnly,
     [switch]$SelfTest
 )
 $ErrorActionPreference = 'Stop'
+if (-not $HistoricalOnly) { throw 'This validates an archived HEAD_ONLY reference. Use -HistoricalOnly explicitly; current production follows SCREEN_ONLY policy and gallery_engine.py.' }
 
 function Assert-Reference($Recipe, [string]$BaseDirectory) {
     if ($Recipe.schema_version -ne 1) { throw 'Unsupported recipe schema.' }

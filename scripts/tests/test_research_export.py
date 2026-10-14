@@ -112,6 +112,17 @@ class ResearchExportTests(unittest.TestCase):
             ('Product Details', 'Product Description'): '<strong>Synthetic Product</strong><br/><br/>'
                 '<strong>Warranty and Disclosure</strong><br/>' + warranty,
             ('Safety&Compliance', 'Warranty Description'): warranty,
+            ('Product Details','Item Name'): 'MegaPC Custom Desktop Created Using Dell QCM1250 16GB RAM 256GB SSD Win 11 Pro',
+            ('Product Details','Model Number'): 'QCM1250',
+            ('Product Details','Model Name'): 'Pro Micro',
+            ('Product Details','Manufacturer'): 'Dell',
+            ('Product Details','CPU Model'): 'Core Ultra 7',
+            ('Product Details','CPU Model Number'): '265T',
+            ('Product Details','RAM Memory Installed'): 16,
+            ('Product Details','RAM Memory Installed Size Unit'): 'GB',
+            ('Product Details','Hard Disk Size'): 256,
+            ('Product Details','Hard Disk Size Unit'): 'GB',
+            ('Product Details','Operating System'): 'Windows 11 Pro',
         } if copy_present else {}
         for index, key in enumerate(r.workbook_fields(book)):
             fact = self.ledger(key)['facts'][0]
@@ -128,7 +139,7 @@ class ResearchExportTests(unittest.TestCase):
         path, ledger = root/name, root/'ledger.json'
         book.save(path)
         ledger.write_text(json.dumps(data), encoding='utf-8')
-        (root/'product-facts.json').write_text(json.dumps({'identity': {'oemBrand': 'Dell'}}), encoding='utf-8')
+        (root/'product-facts.json').write_text(json.dumps({'identity': {'internalId':'TEST-PC','oemBrand':'Dell','oemModel':'QCM1250','cpu':'Intel Core Ultra 7 265T'},'selectedBaseConfiguration':{'id':'BASE-A','ramGB':16,'ssdGB':256}}), encoding='utf-8')
         return book, data, path, ledger
 
     def export_run(self, ledger, path, template=None, stage='LISTING_DRAFT'):
@@ -201,15 +212,15 @@ class ResearchExportTests(unittest.TestCase):
             root = Path(scratch)
             book, data, path, ledger = self.full_fixture(root)
             fact = next(f for f in data['facts'] if f['attribute']=='RAM Memory Installed')
-            fact.update(status='VERIFIED', final_value=1)
+            fact.update(status='VERIFIED', final_value=16)
             column = next(c.column for c in book['Product Details'][1] if c.value=='RAM Memory Installed')
             book['Product Details'].cell(4,column).value = 'VERIFIED'
             ledger.write_text(json.dumps(data), encoding='utf-8')
-            for value in (True, '1', False):
+            for value in (True, '16', False):
                 book['Product Details'].cell(3,column).value = value; book.save(path)
                 with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'differs'):
                     self.export_run(ledger, path)
-            book['Product Details'].cell(3,column).value = 1.0; book.save(path)
+            book['Product Details'].cell(3,column).value = 16.0; book.save(path)
             self.assertEqual(self.export_run(ledger, path)['result'], 'EXPORT_EVIDENCE_CHECK_PASS')
             fact['final_value'] = True; ledger.write_text(json.dumps(data), encoding='utf-8')
             with self.assertRaisesRegex(ValueError, 'differs'):

@@ -99,6 +99,8 @@ Use exact licensed original product layers or AI layers that pass the official-o
 
 ## 5. QA, updates and GitHub delivery
 
+Apply [workflow validation boundaries](references/workflow-validation-boundaries.md) for export identity/content checks, review-input binding, import lifecycle, snapshot preservation and local tool selection. These refine the existing stages without changing the workbook or gallery structure.
+
 Follow `references/final-image-delivery-contract.md` for script commands, report schemas and current-byte binding. Automation checks decoded image dimensions/format, exact slot set, geometry, hashes and supplied review evidence; manual reviews verify product appearance, rights, style, spelling, ports, semantic ownership and 100%/200px readability. Never invent manual PASS, unmeasured overlap percentages, or fresh QA for quarantined historical bytes.
 
 Same-slot updates use that slot's clean master and preserve all unrelated bytes. Any changed image invalidates its hash-bound reports and delivery record. An update may reuse unchanged review evidence only if the underlying bytes and relevant facts/policy remain unchanged. Finalization is not permission to rewrite unrelated slots. When the existing gallery is quarantined, complete and QA only the requested slots using the partial-update contract; retain overall REWORK_REQUIRED and state deliveryScope PARTIAL_UPDATE. Hash-bound partial-update-qa.json proves only changed slots and cross-gallery content review; it cannot confer full-gallery PASS. CI may accept that scoped update without pretending unchanged legacy slots passed the current standard.

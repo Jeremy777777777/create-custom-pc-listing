@@ -1,0 +1,2 @@
+*.json text eol=lf
+"product generated photo/**/workbook-snapshots/**" -text

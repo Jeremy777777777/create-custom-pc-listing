@@ -37,7 +37,9 @@ Push-Location -LiteralPath $listingRepo
 try {
     Invoke-ListingPython -Arguments @('-c', 'import sys; from pathlib import Path; assert Path(sys.prefix).name == "listing-testing" and sys.version_info[:2] == (3, 12), "Wrong Listing environment"; print("Listing interpreter:", sys.executable)')
     Invoke-ListingPython -Arguments @('-m', 'unittest', 'discover', '-s', 'scripts/tests', '-v')
-    Invoke-ListingPython -Arguments @('scripts/check-workbooks.py', '--directory', '.')
+    $workbookArgs = @('scripts/check-workbooks.py', '--directory', '.')
+    if ($Base) { $workbookArgs += @('--base', $Base, '--head', $Head) }
+    Invoke-ListingPython -Arguments $workbookArgs
     if ($GalleryGate) {
         $gateArgs = @('scripts/gallery_engine.py', 'gate', '--directory', '.')
         if ($Base) { $gateArgs += @('--base', $Base, '--head', $Head) }

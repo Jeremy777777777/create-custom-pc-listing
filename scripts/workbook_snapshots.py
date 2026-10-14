@@ -2,6 +2,7 @@
 import hashlib
 import json
 import re
+import subprocess
 from pathlib import Path
 
 
@@ -61,3 +62,24 @@ def check_snapshots(root):
                 raise ValueError('Snapshot product ID differs from its product folder')
             checked += 1
     return checked
+
+
+def check_snapshot_history(root, base=None, head=None):
+    """Existing bundles are append-only relative to the trusted Git base tree."""
+    if bool(base)!=bool(head): raise ValueError('Snapshot history requires both base and head')
+    if not base: return
+    def tree(revision):
+        raw=subprocess.check_output(['git','ls-tree','-rz',revision],cwd=root)
+        result={}
+        for entry in raw.split(b'\0'):
+            if not entry: continue
+            metadata,name=entry.split(b'\t',1); path=name.decode('utf-8')
+            if path.startswith('product generated photo/') and '/workbook-snapshots/' in path:
+                result[path]=metadata.split()[2]
+        return result
+    before,after=tree(base),tree(head)
+    for path,blob in before.items():
+        if after.get(path)!=blob: raise ValueError('Historical snapshot changed/deleted: '+path)
+    old_bundles={str(Path(p).parent).replace('\\','/') for p in before}
+    for path in after.keys()-before.keys():
+        if str(Path(path).parent).replace('\\','/') in old_bundles: raise ValueError('Cannot append files to an existing snapshot bundle')

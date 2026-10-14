@@ -6,7 +6,7 @@ from pathlib import Path
 import openpyxl
 from warranty_policy import validate_workbook_copy
 from research_values import check_fcc_id_value
-from workbook_snapshots import check_snapshots
+from workbook_snapshots import check_snapshots, check_snapshot_history
 
 SHEETS = ['Product Details', 'Offer', 'Safety&Compliance']
 RESEARCH_STATUSES = ('VERIFIED', 'INPUT_UNVERIFIED', 'CONFLICT', 'TBD',
@@ -104,11 +104,12 @@ def current_workbooks(root):
 
 
 def main():
-    ap=argparse.ArgumentParser();ap.add_argument('--directory',default='.');args=ap.parse_args()
+    ap=argparse.ArgumentParser();ap.add_argument('--directory',default='.');ap.add_argument('--base');ap.add_argument('--head');args=ap.parse_args()
     root=Path(args.directory);topology=template_topology(root/'assets/listing-workbook-template.xlsx')
     check_template_inputs(root/'assets/listing-workbook-template.xlsx')
     outputs=current_workbooks(root)
     snapshot_count=check_snapshots(root)
+    check_snapshot_history(root,args.base,args.head)
     scoped_checked=0
     legacy_not_assessed=0
     for path in outputs:

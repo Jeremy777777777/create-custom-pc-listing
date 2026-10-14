@@ -127,7 +127,7 @@ def verify_workbook(book, data, mode='draft'):
             if not all(same_cell_value(sheet.cell(row, column).value, field[name])
                        for row, name in ((3, 'value'), (4, 'status'), (5, 'source'))):
                 raise ValueError('Workbook differs from scoped ledger projection: ' + str(key))
-            if sheet.cell(3, column).data_type == 'f':
+            if any(sheet.cell(row, column).data_type == 'f' for row in (3,4,5)):
                 raise ValueError('Formula cannot be exported: ' + str(key))
     return result
 
@@ -150,10 +150,13 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
         if input_hashes['template'] != hashlib.sha256(canonical_template.read_bytes()).hexdigest():
             raise ValueError('Export requires the current canonical template; alternate/old templates are draft-only')
         checks.check_template_inputs(canonical_template)
+    product = None
     manufacturer = None
     listing_stage = stage == 'LISTING_DRAFT' if stage else '_LISTING_' in workbook.stem.upper()
     if mode == 'export' or listing_stage:
-        product = json.loads((Path(workbook).parent/'product-facts.json').read_text(encoding='utf-8-sig'))
+        facts_path=workbook.parent/'product-facts.json'
+        input_hashes['productFacts']=hashlib.sha256(facts_path.read_bytes()).hexdigest()
+        product = json.loads(facts_path.read_text(encoding='utf-8-sig'))
         manufacturer = product.get('identity', {}).get('oemBrand')
         if not manufacturer:
             raise ValueError('Listing workbook requires OEM brand for existing copy checks')
@@ -165,15 +168,25 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
         raise ValueError('Ledger belongs to another target product')
     if configuration_id is not None and configuration_id != data['configurationId']:
         raise ValueError('Ledger belongs to another target configuration')
+    if mode == 'export':
+        if product.get('identity',{}).get('internalId')!=data['productId'] or product.get('selectedBaseConfiguration',{}).get('id')!=data['configurationId']:
+            raise ValueError('Product facts identity/configuration differs from export target')
     book = openpyxl.load_workbook(workbook, data_only=False)
     try:
         projected = verify_workbook(book, data, mode)
+        if mode == 'export':
+            from listing_content import validate_listing
+            definitions={(sheet.title,sheet.cell(1,c).value):sheet.cell(2,c).value
+                         for sheet in book for c in range(2,sheet.max_column+1)}
+            validate_listing(projected,product,definitions)
     finally:
         book.close()
     for name, path in (('workbook', workbook), ('ledger', ledger), ('template', template)):
         if hashlib.sha256(Path(path).read_bytes()).hexdigest() != input_hashes[name]:
             raise ValueError('Input changed during validation: ' + name)
-    return {'result': 'EXPORT_EVIDENCE_CHECK_PASS' if mode == 'export' else 'DRAFT_PROJECTION_PASS',
+    if product is not None and hashlib.sha256(facts_path.read_bytes()).hexdigest()!=input_hashes['productFacts']:
+        raise ValueError('Input changed during validation: productFacts')
+    return {'productFactsSha256':input_hashes.get('productFacts'), 'result': 'EXPORT_EVIDENCE_CHECK_PASS' if mode == 'export' else 'DRAFT_PROJECTION_PASS',
             'productId': data['productId'], 'configurationId': data['configurationId'],
             'workbookSha256': input_hashes['workbook'],
             'ledgerSha256': input_hashes['ledger'],

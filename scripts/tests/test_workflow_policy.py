@@ -65,7 +65,14 @@ class WorkflowPolicyTests(unittest.TestCase):
                 self.assertEqual(receipt.get('deliveryScope'), 'PARTIAL_UPDATE')
                 self.assertIs(receipt.get('fullGalleryPass'), False)
                 self.assertTrue(receipt.get('selectedSlots'))
-                validate_partial(folder, receipt['selectedSlots'])
+                visual=json.loads((folder/'visual-review.json').read_text(encoding='utf-8'))
+                if visual.get('reviewInputsSha256'):
+                    validate_partial(folder, receipt['selectedSlots'])
+                else:
+                    # Preserve old approvals without inventing missing fact/style
+                    # review. A new changed-slot delivery must supply fresh bindings.
+                    with self.assertRaisesRegex(ValueError, 'binding stale or absent'):
+                        validate_partial(folder, receipt['selectedSlots'])
             else:
                 self.assertFalse((folder/'logo-qa.json').exists())
 

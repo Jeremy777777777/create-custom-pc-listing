@@ -4,7 +4,10 @@ from pathlib import Path
 from PIL import Image
 spec=importlib.util.spec_from_file_location('engine',Path(__file__).parents[1]/'gallery_engine.py'); g=importlib.util.module_from_spec(spec); spec.loader.exec_module(g)
 class Tests(unittest.TestCase):
- def setUp(self): self.tmp=tempfile.TemporaryDirectory(); self.p=Path(self.tmp.name)
+ def setUp(self):
+  self.tmp=tempfile.TemporaryDirectory(); self.p=Path(self.tmp.name)
+  g.write(self.p/'product-facts.json',{'identity':{'internalId':'TEST','cpu':'Synthetic CPU'},'selectedBaseConfiguration':{'id':'BASE','ramGB':16}})
+  g.write(self.p/'style-lock.json',{'status':'APPROVED','recipeVersion':'fixture-v1'})
  def tearDown(self): self.tmp.cleanup()
  def image(self,name,size,color='white'):
   p=self.p/name; Image.new('RGB' if p.suffix=='.jpg' else 'RGBA',size,color).save(p); return p
@@ -26,8 +29,9 @@ class Tests(unittest.TestCase):
   g.normalize(source,out)
   with Image.open(out) as image: self.assertEqual(image.size,(1254,1254))
   main=self.image(g.MAIN[0],(1254,937)); before=g.digest(main)
-  with patch.object(g,'contact_sheet'):
-   g.finalize(self.p,None,None,None,slots=[g.MAIN[0]])
+  for n in g.NAMES[1:]: self.image(n,(1254,937))
+  with patch.object(g,'contact_sheet',side_effect=lambda p,out: Image.new('RGB',(10,10)).save(out)):
+   g.finalize(self.p,None,None,self.p.parent/(self.p.name+'-contact.png'),slots=[g.MAIN[0]])
   self.assertEqual(g.digest(main),before)
  def test_background_preserves_black_white_enclosed_and_red(self):
   src=self.image('ink.png',(20,20)); im=Image.open(src); pix=im.load()
@@ -65,7 +69,7 @@ class Tests(unittest.TestCase):
   self.assertEqual(Image.open(out).getpixel((19,19))[:3],(0,0,0))
   with self.assertRaises(ValueError): g.overlay(out,asset,out,20,20,20,20)
  def test_evidence_does_not_infer_pass_and_binds_bytes(self):
-  im=self.image('PT01.png',(20,20)); evidence=self.p/'e.json'; g.write(evidence,{'schemaVersion':3,'result':'PASS','reviewer':'tester','reviewedAtUtc':'2026-10-02','images':[{'file':'PT01.png','sha256':g.digest(im),'result':'PASS','notes':'Inspected'}]})
+  im=self.image('PT01.png',(20,20)); evidence=self.p/'e.json'; g.write(evidence,{'schemaVersion':3,'result':'PASS','reviewInputsSha256':g.review_inputs(self.p),'reviewer':'tester','reviewedAtUtc':'2026-10-02T12:00:00Z','images':[{'file':'PT01.png','sha256':g.digest(im),'result':'PASS','notes':'Inspected'}]})
   g.evidence(evidence,['PT01.png'],self.p); Image.new('RGBA',(20,20),'red').save(im)
   with self.assertRaises(ValueError): g.evidence(evidence,['PT01.png'],self.p)
  def test_full_validator_main_hash_and_non_destructive(self):
@@ -76,9 +80,9 @@ class Tests(unittest.TestCase):
   # Logo asset is external to the canonical folder, as required by directory hygiene.
   external=self.p.parent/(self.p.name+'-logo.png'); external.write_bytes(logo.read_bytes()); logo.unlink(); self.addCleanup(external.unlink)
   cfg={'x':64,'y':64,'width':126,'height':63,'style':'transparent','protectedZones':[{'x':300,'y':300,'width':700,'height':700,'label':'PRODUCT_SILHOUETTE'}]}
-  g.write(self.p/'logo-placement.json',{'brand':'OEM','placements':{n:cfg for n in g.PT},'minimumClearancePx':50,'minimumComponentSeparationPx':50})
+  g.write(self.p/'logo-placement.json',{'brand':'OEM','logoRole':'OEM base-product identifier','placements':{n:cfg for n in g.PT},'minimumClearancePx':50,'minimumComponentSeparationPx':50})
   g.write(self.p/'logo-qa.json',{'schemaVersion':3,'generatedAtUtc':'now','brand':'OEM','logoAssetPath':'../'+external.name,'logoAssetSha256':g.digest(external),'placementPlanSha256':g.digest(self.p/'logo-placement.json'),'images':[{'file':n,'geometryGate':'PASS','commandRecord':'test fixture clean master','finalImageSha256':g.digest(self.p/n),'unbrandedSourceSha256':g.digest(self.p/'unbranded'/n)} for n in g.PT]})
-  for f,names in [('visual-review.json',g.NAMES),('semantic-review.json',g.PT)]: g.write(self.p/f,{'schemaVersion':3,'result':'PASS','reviewer':'tester','reviewedAtUtc':'now','images':[{'file':n,'sha256':g.digest(self.p/n),'result':'PASS','notes':'Actual inspection'} for n in names]})
+  for f,names in [('visual-review.json',g.NAMES),('semantic-review.json',g.PT)]: g.write(self.p/f,{'schemaVersion':3,'result':'PASS','reviewInputsSha256':g.review_inputs(self.p),'reviewer':'tester','reviewedAtUtc':'2026-10-14T12:00:00+00:00','images':[{'file':n,'sha256':g.digest(self.p/n),'result':'PASS','notes':'Actual inspection'} for n in names]})
   images=g.validate(self.p,require_final=False)
   self.assertEqual((images[0]['width'],images[0]['height']),(2400,1800))
   self.assertEqual((images[3]['width'],images[3]['height']),(1254,1254))
@@ -108,7 +112,7 @@ class Tests(unittest.TestCase):
   g.write(self.p/'delivery-status.json',{'galleryState':'LEGACY_QUARANTINED'})
   inventory={n:g.digest(self.p/n) for n in g.NAMES}
   for f in ['visual-review.json','semantic-review.json']:
-   g.write(self.p/f,{'schemaVersion':3,'result':'PASS','reviewer':'test','reviewedAtUtc':'now','galleryInventorySha256':inventory,'images':[{'file':'PT02.png','sha256':inventory['PT02.png'],'result':'PASS','notes':'Actual selected-slot inspection'}]})
+   g.write(self.p/f,{'schemaVersion':3,'result':'PASS','reviewInputsSha256':g.review_inputs(self.p),'reviewer':'test','reviewedAtUtc':'2026-10-14T12:00:00+00:00','galleryInventorySha256':inventory,'images':[{'file':'PT02.png','sha256':inventory['PT02.png'],'result':'PASS','notes':'Actual selected-slot inspection'}]})
   g.accept(self.p,slots=['PT02.png']); g.validate_partial(self.p,['PT02.png'])
   self.assertEqual(g.read(self.p/'delivery-status.json')['galleryState'],'LEGACY_QUARANTINED')
   with self.assertRaises(ValueError): g.validate_partial(self.p,['PT05.png'])
@@ -123,7 +127,7 @@ class Tests(unittest.TestCase):
   g.write(source/'approval-and-review.json',{'strictGalleryQaPass':False})
   receipt={'schemaVersion':1,'internalId':'VL-1326','exceptionType':'USER_APPROVED_AI_EFFECT_IMPORT','authorization':{'aiMethodQuote':'explicit method approval','replacementQuote':'explicit byte replacement','sizePolicyQuote':'explicit size rule change'},'fullGalleryPass':False,'publicationReadiness':'NOT_ASSESSED','limitations':['AI approximation'],'sourceReviewSha256':g.digest(source/'approval-and-review.json'),'sourceFileChecksSha256':g.digest(source/'native-file-checks.json'),'images':hashes,'unchangedMainSha256':{n:g.digest(gallery/n) for n in g.MAIN}}
   g.write(gallery/'approved-ai-effect-import.json',receipt)
-  g.validate_ai_effect_import(root,gallery,g.PT)
+  with patch.object(g,'frozen_import'): g.validate_ai_effect_import(root,gallery,g.PT)
   with self.assertRaises(ValueError): g.validate_ai_effect_import(root,gallery,[g.PT[0]])
   receipt['fullGalleryPass']=True; g.write(gallery/'approved-ai-effect-import.json',receipt)
   with self.assertRaises(ValueError): g.validate_ai_effect_import(root,gallery,g.PT)
@@ -200,7 +204,7 @@ class Tests(unittest.TestCase):
   ref=root/'assets'/'approved.png';ref.parent.mkdir();ref.write_bytes((gallery/g.MAIN[1]).read_bytes())
   receipt={'schemaVersion':1,'internalId':'VL-1221','file':g.MAIN[1],'exceptionType':'USER_APPROVED_EXACT_ASSET_IMPORT','authorizationSource':'test explicit import','fullGalleryPass':False,'sha256':g.digest(ref),'referenceSha256':g.digest(ref),'referencePath':'assets/approved.png','dimensions':[1237,937],'mode':'RGB','unchangedCanonicalSha256':{n:g.digest(gallery/n) for n in g.NAMES if n!=g.MAIN[1]},'visualReview':{'notes':'fixture review'}}
   g.write(gallery/'approved-slot-exception.json',receipt)
-  g.validate_approved_import(root,gallery,[g.MAIN[1]])
+  with patch.object(g,'frozen_import'): g.validate_approved_import(root,gallery,[g.MAIN[1]])
   with self.assertRaises(ValueError):g.validate_approved_import(root,gallery,[g.MAIN[1],'PT01.png'])
   Image.new('RGB',(1237,937),'red').save(gallery/'PT01.png')
   with self.assertRaises(ValueError):g.validate_approved_import(root,gallery,[g.MAIN[1]])

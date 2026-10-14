@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """Portable deterministic image operations; review evidence is supplied by humans, never inferred."""
-import argparse, hashlib, json, math, os, subprocess, sys
+import argparse, hashlib, json, math, os, subprocess, sys, tempfile, shutil
 from pathlib import Path
 from datetime import datetime, timezone
 from collections import deque
@@ -9,10 +9,14 @@ MAIN=['MAIN-STRICT.jpg','MAIN-ENHANCED-FRONT-CANDIDATE.png','MAIN-ENHANCED-THREE
 PT=[f'PT{i:02}.png' for i in range(1,9)]
 NAMES=MAIN+PT
 
-def digest(path): return hashlib.sha256(Path(path).read_bytes()).hexdigest()
+def digest(path):
+    path=Path(path); data=path.read_bytes()
+    # Review/recipe JSON is UTF-8 LF-normalized; image assets always bind raw bytes.
+    if path.suffix.lower()=='.json': data=data.replace(b'\r\n',b'\n')
+    return hashlib.sha256(data).hexdigest()
 def read(path): return json.loads(Path(path).read_text(encoding='utf-8-sig'))
 def write(path,obj):
-    p=Path(path); p.parent.mkdir(parents=True,exist_ok=True); tmp=p.with_name(p.name+'.tmp'); tmp.write_text(json.dumps(obj,indent=2)+'\n'); tmp.replace(p)
+    p=Path(path); p.parent.mkdir(parents=True,exist_ok=True); tmp=p.with_name(p.name+'.tmp'); tmp.write_text(json.dumps(obj,indent=2)+'\n',encoding='utf-8',newline='\n'); tmp.replace(p)
 def save(im,path,fmt='PNG',metadata=None):
     p=Path(path); p.parent.mkdir(parents=True,exist_ok=True); tmp=p.with_name(p.name+'.tmp')
     if fmt.upper() in ('JPEG','JPG'): im=im.convert('RGB')
@@ -91,6 +95,45 @@ def check_separation(box,zones,size,requested):
         if x-gap<zr and r+gap>zx and y-gap<zb and b+gap>zy: raise ValueError('Logo protected-zone separation violation')
     return gap
 
+def logo_geometry(plan,cfg,logo,size):
+    if plan.get('logoRole')!='OEM base-product identifier': raise ValueError('Invalid logo role')
+    if cfg.get('style')!='transparent': raise ValueError('Use approved transparent treatment')
+    alpha=logo.getchannel('A'); bbox=alpha.getbbox()
+    if not bbox or alpha.getextrema()[0]==255: raise ValueError('Use approved transparent asset with visible ink')
+    vw,vh=bbox[2]-bbox[0],bbox[3]-bbox[1]
+    zones=cfg.get('protectedZones',[])
+    if not zones or not any(str(z.get('label','')).startswith('PRODUCT_SILHOUETTE') for z in zones): raise ValueError('Missing product silhouette protection')
+    box=rect(cfg); w,h=box[2]-box[0],box[3]-box[1]
+    if abs(w/h-vw/vh)/(vw/vh)>.02: raise ValueError('Logo aspect ratio mismatch after alpha trimming')
+    gap=check_separation(box,zones,size,max(int(plan.get('minimumClearancePx',0)),int(plan.get('minimumComponentSeparationPx',0))))
+    if int(plan.get('thumbnailReviewSizePx',200))!=200: raise ValueError('Thumbnail review must be exactly 200px')
+    wide=plan.get('logoVisibilityMode')=='ASPECT_RATIO_WORDMARK'
+    if wide and (max(vw,vh)/min(vw,vh)<=2.4 or not plan.get('logoAssetSourceUrl')): raise ValueError('Invalid official wordmark branch')
+    scale=200/max(size)
+    if max(w,h)*scale<20 or max(w,h)>.12*max(size): raise ValueError('Logo visible long edge threshold')
+    if min(w,h)*scale<(20*min(vw,vh)/max(vw,vh) if wide else 10): raise ValueError('Logo visible short edge threshold')
+    return gap
+
+def review_inputs(directory):
+    """Semantic JSON binding excludes volatile offer/logistics data, never supplies PASS."""
+    p=Path(directory); facts=read(p/'product-facts.json'); style=read(p/'style-lock.json')
+    if style.get('style_approval_status',style.get('status'))!='APPROVED': raise ValueError('Current approved style lock required')
+    relevant={k:v for k,v in facts.items() if k not in ('offer','Offer','inventory','researchLog','updatedAtUtc','delivery')}
+    inputs={'productFacts':relevant,'styleLock':style}
+    recipe=style.get('recipePath')
+    root=Path(__file__).resolve().parents[1]
+    if recipe: inputs['recipe']=read(root/recipe if str(recipe).startswith('assets/') else p/recipe)
+    for name in ('confirmed-catalog-defaults.md','image-spec.md','final-image-delivery-contract.md','faithful-product-reproduction.md','workflow-validation-boundaries.md'):
+        inputs[name]=(root/'references'/name).read_text(encoding='utf-8-sig').replace('\r\n','\n')
+    return hashlib.sha256(json.dumps(inputs,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()).hexdigest()
+
+def frozen_import(p,filename):
+    registry=read(Path(__file__).resolve().parents[1]/'assets/frozen-import-records.json')
+    expected=registry.get(p.name+'/'+filename)
+    actual=hashlib.sha256((p/filename).read_bytes().replace(b'\r\n',b'\n')).hexdigest()
+    if not expected or actual!=expected: raise ValueError('Import authorization differs from frozen approved record')
+
+
 def badges(directory,asset,planpath,out=None,brand=None,slots=None):
     p=Path(directory); dest=Path(out or directory); plan=read(planpath)
     if not plan.get('brand') or (brand and plan['brand']!=brand): raise ValueError('Unverified brand')
@@ -105,21 +148,8 @@ def badges(directory,asset,planpath,out=None,brand=None,slots=None):
     for name in slots or PT:
         if name not in PT: raise ValueError('Badges apply only to PT slots')
         source=p/'unbranded'/name; im=load(source); cfg=plan['placements'][name]
-        if cfg.get('style')!='transparent': raise ValueError('Portable compositor requires transparent treatment; badge exception needs separate approved renderer')
-        zones=cfg.get('protectedZones',[])
-        if not zones or not any(z.get('label','').startswith('PRODUCT_SILHOUETTE') for z in zones): raise ValueError('Missing product silhouette protection')
-        box=rect(cfg); x,y,r,b=box; w,h=r-x,b-y
-        if abs(w/h-mark.width/mark.height)/(mark.width/mark.height)>.02: raise ValueError('Logo aspect ratio mismatch after alpha trimming')
-        gap=check_separation(box,zones,im.size,max(int(plan.get('minimumClearancePx',0)),int(plan.get('minimumComponentSeparationPx',0))))
-        thumb=int(plan.get('thumbnailReviewSizePx',200))
-        if thumb!=200: raise ValueError('Thumbnail review must be exactly 200px')
-        factor=thumb/max(im.size)
-        long=max(w,h)*factor; short=min(w,h)*factor
-        if long<20 or max(w,h)>.12*max(im.size): raise ValueError('Logo visible long edge threshold')
-        wide=plan.get('logoVisibilityMode')=='ASPECT_RATIO_WORDMARK'
-        if wide and not plan.get('logoAssetSourceUrl'): raise ValueError('Wordmark requires official source URL')
-        if wide and max(mark.size)/min(mark.size)<=2.4: raise ValueError('Wide-wordmark mode requires measured aspect ratio >2.4')
-        if short<(20*min(mark.size)/max(mark.size) if wide else 10): raise ValueError('Logo visible short edge threshold')
+        gap=logo_geometry(plan,cfg,load(asset),im.size)
+        x,y,r,b=rect(cfg); w,h=r-x,b-y
         im.alpha_composite(mark.resize((w,h),Image.Resampling.LANCZOS),(x,y)); prepared.append((name,im,source,gap))
     for name,im,source,gap in prepared:
         save(im,dest/name); entries[name]={'file':name,'finalImageSha256':digest(dest/name),'unbrandedSourceSha256':digest(source),'separationPx':gap,'geometryGate':'PASS','sourceVerification':'LOCAL_BYTES_VERIFIED','commandRecord':'gallery_engine.py badges (from clean unbranded master)'}
@@ -129,11 +159,17 @@ def badges(directory,asset,planpath,out=None,brand=None,slots=None):
 def evidence(path,names,directory):
     report=read(path)
     if report.get('schemaVersion',0)<3 or report.get('result')!='PASS' or not report.get('reviewer') or not report.get('reviewedAtUtc'): raise ValueError(f'Missing current human review evidence: {path}')
+    if not isinstance(report.get('reviewer'),str) or not report['reviewer'].strip(): raise ValueError('Reviewer must contain text')
+    try:
+        timestamp=datetime.fromisoformat(report['reviewedAtUtc'].replace('Z','+00:00'))
+        if timestamp.tzinfo is None or timestamp.utcoffset().total_seconds()!=0: raise ValueError('UTC time required')
+    except (ValueError,TypeError,AttributeError): raise ValueError('Review requires an ISO UTC timestamp')
+    if not report.get('reviewInputsSha256') or report['reviewInputsSha256']!=review_inputs(directory): raise ValueError('Review facts/style/recipe/policy binding stale or absent')
     entries=report.get('images',[])
     if len(entries)!=len(names) or {e.get('file') for e in entries}!=set(names): raise ValueError(f'Incomplete evidence: {path}')
     for name in names:
         entry=next(e for e in entries if e['file']==name)
-        if entry.get('sha256','').lower()!=digest(Path(directory)/name) or entry.get('result')!='PASS' or not entry.get('notes'): raise ValueError(f'Stale or incomplete evidence: {name}')
+        if entry.get('sha256','').lower()!=digest(Path(directory)/name) or entry.get('result')!='PASS' or not isinstance(entry.get('notes'),str) or not entry['notes'].strip(): raise ValueError(f'Stale or incomplete evidence: {name}')
     return report
 
 def validate(directory,brand=None,legacy=False,require_final=True,allow_quarantined=False):
@@ -174,15 +210,7 @@ def validate(directory,brand=None,legacy=False,require_final=True,allow_quaranti
     logo=load(asset); bbox=logo.getchannel('A').getbbox()
     if not bbox: raise ValueError('Empty visible logo')
     vw,vh=bbox[2]-bbox[0],bbox[3]-bbox[1]
-    for n in PT:
-        cfg=plan['placements'][n]; box=rect(cfg)
-        check_separation(box,cfg['protectedZones'],sizes[n],max(int(plan.get('minimumClearancePx',0)),int(plan.get('minimumComponentSeparationPx',0))))
-        w,h=box[2]-box[0],box[3]-box[1]
-        if abs(w/h-vw/vh)/(vw/vh)>.02: raise ValueError('Current logo geometry distorts asset')
-        scale=200/max(sizes[n])
-        if int(plan.get('thumbnailReviewSizePx',200))!=200: raise ValueError('Thumbnail review must be exactly 200px')
-        wide=plan.get('logoVisibilityMode')=='ASPECT_RATIO_WORDMARK'
-        if max(w,h)*scale<20 or max(w,h)>.12*min(sizes[n]) or (wide and max(vw,vh)/min(vw,vh)<=2.4) or min(w,h)*scale<(20*min(vw,vh)/max(vw,vh) if wide else 10): raise ValueError('Current logo visibility threshold failed')
+    for n in PT: logo_geometry(plan,plan['placements'][n],logo,sizes[n])
     evidence(p/'visual-review.json',NAMES,p); evidence(p/'semantic-review.json',PT,p)
     if require_final:
         report=read(p/'final-image-qa.json')
@@ -195,7 +223,7 @@ def validate(directory,brand=None,legacy=False,require_final=True,allow_quaranti
 
 def finalize(directory,asset,brand,contact,size=None,skip=False,slots=None):
     p=Path(directory); selected=slots or NAMES
-    if any(n not in NAMES for n in selected): raise ValueError('Unknown slot')
+    if len(set(selected))!=len(selected) or any(n not in NAMES for n in selected): raise ValueError('Unknown or duplicate slot')
     # Preflight every selected source before changing any bytes.
     for n in selected:
         src=p/'unbranded'/n if n in PT else p/n
@@ -203,12 +231,38 @@ def finalize(directory,asset,brand,contact,size=None,skip=False,slots=None):
         if size is not None:
             check_image_size((size,size))
             if max(dimensions)<size: raise ValueError('Regenerate low-resolution source before finalization')
-    # Native dimensions by default; resizing is explicitly opt-in.
-    if not skip and size is not None:
-        for n in selected: normalize(p/'unbranded'/n if n in PT else p/n,p/'unbranded'/n if n in PT else p/n,size,'JPEG' if n.endswith('.jpg') else 'PNG')
-    selected_pt=[n for n in selected if n in PT]
-    if selected_pt: badges(p,asset,p/'logo-placement.json',brand=brand,slots=selected_pt)
-    contact_sheet(p,contact)
+    if not contact: raise ValueError('Contact sheet output is required before finalization')
+    contact=Path(contact).resolve()
+    if contact.suffix.lower()!='.png': raise ValueError('Contact sheet output must be PNG')
+    if contact.is_relative_to(p.resolve()): raise ValueError('Contact sheet must be outside canonical product files')
+    if contact.exists() and not contact.is_file(): raise ValueError('Contact output must be a regular file')
+    contact.parent.mkdir(parents=True,exist_ok=True)
+    with tempfile.TemporaryFile(dir=contact.parent): pass
+    with tempfile.TemporaryDirectory(prefix='listing-finalize-') as scratch:
+        staging=Path(scratch)/'gallery'; staging.mkdir()
+        selected_pt=[n for n in selected if n in PT]
+        for n in NAMES:
+            if (p/n).exists(): shutil.copyfile(p/n,staging/n)
+            elif n not in selected_pt: raise ValueError('Missing retained gallery slot: '+n)
+        if selected_pt:
+            (staging/'unbranded').mkdir()
+            for n in selected_pt: shutil.copyfile(p/'unbranded'/n,staging/'unbranded'/n)
+            shutil.copyfile(p/'logo-placement.json',staging/'logo-placement.json')
+            if (p/'logo-qa.json').exists(): shutil.copyfile(p/'logo-qa.json',staging/'logo-qa.json')
+        if not skip and size is not None:
+            for n in selected: normalize(staging/'unbranded'/n if n in PT else staging/n,staging/'unbranded'/n if n in PT else staging/n,size,'JPEG' if n.endswith('.jpg') else 'PNG')
+        if selected_pt: badges(staging,asset,staging/'logo-placement.json',brand=brand,slots=selected_pt)
+        sheet=Path(scratch)/'contact.png'; contact_sheet(staging,sheet)
+        # Store asset path relative to final destination, not temporary staging.
+        if selected_pt:
+            qa=read(staging/'logo-qa.json'); qa['logoAssetPath']=os.path.relpath(Path(asset).resolve(),p.resolve()); write(staging/'logo-qa.json',qa)
+        for n in selected: shutil.copyfile(staging/n,p/n)
+        if selected_pt:
+            # Copy bytes, retaining the hashes recorded by badges.
+            for n in selected_pt:
+                shutil.copyfile(staging/'unbranded'/n,p/'unbranded'/n)
+            shutil.copyfile(staging/'logo-qa.json',p/'logo-qa.json')
+        shutil.copyfile(sheet,contact)
     print('PREPARED: supply current hash-bound visual-review.json and semantic-review.json, then run accept; no delivery PASS claimed.')
 
 def accept(directory,brand=None,slots=None):
@@ -245,13 +299,8 @@ def partial_checks(p,slots,brand=None):
             if len(entries)!=1 or entries[0].get('geometryGate')!='PASS' or entries[0].get('finalImageSha256')!=inventory[n] or not entries[0].get('commandRecord') or not entries[0].get('unbrandedSourceSha256'): raise ValueError('Partial logo evidence incomplete')
             src=p/'unbranded'/n
             if src.exists() and digest(src)!=entries[0]['unbrandedSourceSha256']: raise ValueError('Partial source stale')
-            cfg=plan['placements'][n]; bounds=rect(cfg); w,h=bounds[2]-bounds[0],bounds[3]-bounds[1]
             with Image.open(p/n) as image: dimensions=image.size
-            check_separation(bounds,cfg['protectedZones'],dimensions,max(int(plan.get('minimumClearancePx',0)),int(plan.get('minimumComponentSeparationPx',0))))
-            wide=plan.get('logoVisibilityMode')=='ASPECT_RATIO_WORDMARK'
-            scale=200/max(dimensions)
-            if int(plan.get('thumbnailReviewSizePx',200))!=200 or abs(w/h-vw/vh)/(vw/vh)>.02 or max(w,h)*scale<20 or max(w,h)>.12*min(dimensions) or min(w,h)*scale<(20*min(vw,vh)/max(vw,vh) if wide else 10): raise ValueError('Partial visible logo size/aspect violation')
-            if wide and (max(vw,vh)/min(vw,vh)<=2.4 or not plan.get('logoAssetSourceUrl')): raise ValueError('Invalid official wordmark branch')
+            logo_geometry(plan,plan['placements'][n],logo,dimensions)
     for n in slots:
         with Image.open(p/n) as im:
             im.load()
@@ -263,6 +312,13 @@ def partial_checks(p,slots,brand=None):
 def accept_partial(p,slots,brand=None):
     inventory=partial_checks(p,slots,brand)
     write(p/'partial-update-qa.json',{'schemaVersion':3,'result':'PARTIAL_UPDATE_REVIEWED','deliveryScope':'PARTIAL_UPDATE','retainedLegacyGallery':True,'fullGalleryPass':False,'selectedSlots':slots,'images':[{'file':n,'sha256':inventory[n]} for n in slots],'galleryInventorySha256':inventory,'visualReviewSha256':digest(p/'visual-review.json'),'semanticReviewSha256':digest(p/'semantic-review.json'),'logoQaSha256':digest(p/'logo-qa.json') if any(n in PT for n in slots) else None})
+    if (p/'delivery-status.json').exists():
+        status=read(p/'delivery-status.json')
+        status.update(galleryState='LEGACY_QUARANTINED',deliveryScope='PARTIAL_UPDATE',currentQaPass=False,
+                      deliveryState='READY_FOR_SCOPED_GITHUB_DELIVERY',selectedSlots=slots,
+                      reason='Selected slots reviewed; retained gallery remains quarantined. Prior import receipts are historical.')
+        for key in ('verifiedRemoteCommit','githubDeliveryVerifiedAtUtc','remoteDeliveryRecord'): status.pop(key,None)
+        write(p/'delivery-status.json',status)
 
 def validate_partial(p,changed):
     report=read(p/'partial-update-qa.json'); slots=report.get('selectedSlots',[])
@@ -316,6 +372,7 @@ def validate_vd744_angle_import(p,changed):
     print('USER_APPROVED_VD744_ANGLE_IMPORT: frozen angle and ten retained hashes verified; strict QA and Amazon eligibility NOT certified')
 
 def validate_approved_import(root,p,changed):
+    frozen_import(p,'approved-slot-exception.json')
     receipt=read(p/'approved-slot-exception.json'); name=receipt.get('file')
     if receipt.get('schemaVersion')!=1 or receipt.get('internalId')!=p.name or name!=MAIN[1] or set(changed)!={name}:
         raise ValueError('Approved import exception does not cover this scope')
@@ -336,6 +393,7 @@ def validate_approved_import(root,p,changed):
 
 def validate_ai_effect_import(root,p,changed):
     """Narrow VL-1326 user-authorized byte import, not product/brand QA."""
+    frozen_import(p,'approved-ai-effect-import.json')
     receipt=read(p/'approved-ai-effect-import.json')
     if p.name!='VL-1326' or receipt.get('internalId')!=p.name or receipt.get('schemaVersion')!=1:
         raise ValueError('AI import authorization is product-specific')
@@ -412,10 +470,13 @@ def gate(root,base=None,head='HEAD'):
     validated=0; quarantined=0; partial=0; research=0; imports=0; ai_imports=0; angle_imports=0
     for p in dirs:
         if not p.is_dir(): continue
+        status=p/'delivery-status.json'
+        state=read(status) if status.exists() else {}
         if not any((p/n).exists() for n in NAMES):
+            if state.get('currentQaPass') or state.get('galleryState')=='CURRENT_REVIEWED' or state.get('deliveryScope')=='FULL_GALLERY': raise ValueError('Completed gallery has no canonical images')
             print(f'Research-only folder excluded from gallery validation: {p}'); research+=1; continue
         status=p/'delivery-status.json'
-        if p.name=='VD-744' and (p/'approved-angle-import.json').exists():
+        if p.name=='VD-744' and state.get('galleryState')=='USER_APPROVED_ANGLE_IMPORT_STRICT_REVALIDATION_REQUIRED' and (p/'approved-angle-import.json').exists():
             relative=p.relative_to(root).as_posix()+'/'
             names=[Path(s).name for s in changed if s.startswith(relative)
                    and Path(s).parent.as_posix()==relative.rstrip('/')
@@ -426,11 +487,11 @@ def gate(root,base=None,head='HEAD'):
             image_changes=[s for s in changed if s.startswith(relative) and Path(s).parent.as_posix()==relative.rstrip('/') and Path(s).suffix.lower() in ('.png','.jpg','.jpeg')]
             if image_changes:
                 names=[Path(s).name for s in image_changes]
-                if (p/'approved-slot-exception.json').exists() and set(names)=={MAIN[1]}:
+                if state.get('deliveryScope')!='PARTIAL_UPDATE' and (p/'approved-slot-exception.json').exists() and set(names)=={MAIN[1]}:
                     validate_approved_import(root,p,names); imports+=1
-                elif (p/'approved-ai-effect-import.json').exists() and set(names)==set(PT):
+                elif state.get('deliveryScope')=='USER_APPROVED_AI_EFFECT_IMPORT' and (p/'approved-ai-effect-import.json').exists() and set(names)==set(PT):
                     validate_ai_effect_import(root,p,names); ai_imports+=1
-                elif p.name=='VL-1276' and (p/'approved-ai-gallery-import.json').exists() and set(names)==set(NAMES):
+                elif state.get('deliveryScope')!='PARTIAL_UPDATE' and p.name=='VL-1276' and (p/'approved-ai-gallery-import.json').exists() and set(names)==set(NAMES):
                     validate_vl1276_ai_gallery_import(root,p,names); ai_imports+=1
                 else:
                     validate_partial(p,names); partial+=1

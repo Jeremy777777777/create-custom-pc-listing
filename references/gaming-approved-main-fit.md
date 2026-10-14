@@ -14,7 +14,7 @@ Use the supplied normalized anchors as approximate starting points only; measure
 
 1. Load this current reference directly during normal Gaming runs; it is not excluded historical imagery. Read exact product facts and style lock. This request approves VL-1221's reference direction; a new product follows its normal style proposal unless waived.
 2. Obtain matching accurate licensed front/angle photos, construct actual product/LCD protected masks and a clean scene. Never ask ImageGen to invent the chassis or final words/logos.
-3. Generate only original scene/mecha and non-brand card skins. Compose all final figures/type and approved OEM/component/Windows assets deterministically. Retain complete product/scene/card/icon/text layers, fonts, coordinates, masks, source hashes and render command.
+3. Generate official-reference-supported faithful product layers, original scene/mecha and non-brand card skins; apply deterministic final text and official logos. Compose all final figures/type and approved OEM/component/Windows assets deterministically. Retain complete product/scene/card/icon/text layers, fonts, coordinates, masks, source hashes and render command.
 4. Inspect side-by-side with the current reference at native size and 200px: product dominance, white exterior, SCREEN_ONLY, mecha depth, six color-coded cards, readable labels, complete unwarped Windows identity and preserved factory marks. Fix failed layers locally; freeze the accepted layers.
 5. Repeat the build with identical inputs and compare final pixels. Test changing only RAM text, verify differences stay within that content area, then restore actual RAM. A reference PNG and approximate recipe are not a finished layered pack or a guarantee of identical generation.
 
