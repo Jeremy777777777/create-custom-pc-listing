@@ -1,0 +1,65 @@
+{
+  "schemaVersion": 1,
+  "deliveryScope": "RESEARCH_REVIEW",
+  "result": "GITHUB_DELIVERY_VERIFIED",
+  "verifiedRemoteCommit": "ea41ac42053324612996f810526cca6c3df2b4f2",
+  "verifiedAtUtc": "2026-10-14T20:29:37.978286+00:00",
+  "productId": "VL-1121",
+  "configurationId": "VL-1121-BASE-16GB-1TB-W11PRO",
+  "productDirectoryUrl": "https://github.com/Jeremy777777777/create-custom-pc-listing/tree/ea41ac42053324612996f810526cca6c3df2b4f2/product%20generated%20photo/VL-1121",
+  "workbookUrl": "https://github.com/Jeremy777777777/create-custom-pc-listing/blob/ea41ac42053324612996f810526cca6c3df2b4f2/product%20generated%20photo/VL-1121/VL-1121_RESEARCH_REVIEW.xlsx",
+  "ci": {
+    "runId": 38632328642,
+    "conclusion": "success",
+    "url": "https://github.com/Jeremy777777777/create-custom-pc-listing/actions/runs/38632328642"
+  },
+  "method": "Network fetch confirms origin commit; every research artifact read with git cat-file and compared to local raw bytes.",
+  "files": [
+    {
+      "file": "VL-1121_RESEARCH_REVIEW.xlsx",
+      "sha256": "2763afa0b5063f2c54f2691fc9f55fb42f428f81237ced8da4e60da2bcb7439b",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "research-ledger.json",
+      "sha256": "de34af622bc07138e8a450f6ed01945a03a8197843280e2b6bbcf386f1d3e698",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "research-summary.json",
+      "sha256": "f98547813f92f311c5d3b6eb48a01ea1d81e5de1b5d61b4b609fcded97ef8ed8",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "RESEARCH_SUMMARY.md",
+      "sha256": "085afe21447518d8d064804471825adca9b73005b6cd9e08ac43b311f0929a7b",
+      "remoteBytesMatch": true
+    },
+    {
+      "file": "research-qa.json",
+      "sha256": "3fbd41d5f091e0ee77daa5202dd77cb8e441877e161717d9834d8d07423757bf",
+      "remoteBytesMatch": true
+    }
+  ],
+  "templateFieldsCovered": 294,
+  "draftProjection": "PASS",
+  "templateHeadersDefinitions": "UNCHANGED",
+  "templateValidationRulesPreserved": {
+    "Product Details": 1,
+    "Offer": 1,
+    "Safety&Compliance": 3
+  },
+  "visualReview": "Representative identity/display/offer/FCC ranges inspected; actual model inspection. Unverified statuses use amber and candidate source warning.",
+  "imagesChanged": false,
+  "elevenImageHashesUnchanged": true,
+  "productFactsChanged": false,
+  "exportEligible": false,
+  "amazonEligibility": "NOT_ASSESSED",
+  "researchReadiness": "DRAFT_WITH_EXPLICIT_OPEN_ITEMS",
+  "criticalOpenItems": [
+    "Target SKU/serial and installed radio binding",
+    "FCC grant and US SDoC applicability",
+    "Actual RAM speed/occupancy and hardware modification records",
+    "Sold pack-out and shipment/account fields"
+  ]
+}
