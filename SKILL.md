@@ -60,6 +60,8 @@ Apply current confirmed policy resolutions before classifying conflicts: OEM Hom
 
 As soon as the mapped internal ID and a real Research Review workbook exist, upload it to the product folder; do not wait for imagery or publication readiness. Never overwrite the source template. Use explicit stage filenames and true review statuses.
 
+All top-level product workbooks are current and must match the current ledger. Preserve superseded stages with their original ledger/template and immutable hashes under [workbook stage snapshots](references/workbook-stage-snapshots.md); CI checks their preserved bytes rather than latest-field projection. Historical snapshots never become export-eligible. Export requires explicit LISTING_DRAFT stage, the current canonical template and OEM identity/copy checks regardless of filename.
+
 Read `references/listing-style-guide.md` and `references/compliance-rules.md`. Write original English copy only from verified base facts and the confirmed seller policy:
 - Title starts `MegaPC Custom`, references the OEM model using `Created Using`, describes only installed base RAM/SSD and relevant verified features, and ends `Win 11 Pro`. Maximum 200 characters; no optional capacity lists.
 - Default to five bullets, with the complete mandatory warranty paragraph as bullet 1. Store five paragraphs in the single Bullet Point cell, separated by exactly one blank line. Publish-time export splits paragraphs; do not add template columns.

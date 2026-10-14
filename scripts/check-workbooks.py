@@ -6,6 +6,7 @@ from pathlib import Path
 import openpyxl
 from warranty_policy import validate_workbook_copy
 from research_values import check_fcc_id_value
+from workbook_snapshots import check_snapshots
 
 SHEETS = ['Product Details', 'Offer', 'Safety&Compliance']
 RESEARCH_STATUSES = ('VERIFIED', 'INPUT_UNVERIFIED', 'CONFLICT', 'TBD',
@@ -97,7 +98,8 @@ def check_output(path, topology, manufacturer=None):
         book.close()
 
 def current_workbooks(root):
-    # Immediate canonical product folders only; history/ and nested scratch are excluded.
+    # Immediate files are declared current. Explicit historical bundles live under
+    # workbook-snapshots/<revision>/ and receive hash checks, never current projection.
     return sorted((Path(root)/'product generated photo').glob('*/*.xlsx'))
 
 
@@ -106,6 +108,7 @@ def main():
     root=Path(args.directory);topology=template_topology(root/'assets/listing-workbook-template.xlsx')
     check_template_inputs(root/'assets/listing-workbook-template.xlsx')
     outputs=current_workbooks(root)
+    snapshot_count=check_snapshots(root)
     scoped_checked=0
     legacy_not_assessed=0
     for path in outputs:
@@ -124,7 +127,8 @@ def main():
     summary={'templateStructure':'PASS','currentOutputsStructureChecked':len(outputs),
              'historicalOutputsExcluded':True,'factOrPublicationReadinessInferred':False,
              'scopedDraftProjectionChecked':scoped_checked,
-             'legacyLedgerScopeNotAssessed':legacy_not_assessed}
+             'legacyLedgerScopeNotAssessed':legacy_not_assessed,
+             'historicalSnapshotBundlesHashChecked':snapshot_count}
     (root/'workbook-ci-summary.json').write_text(json.dumps(summary,indent=2)+'\n',encoding='utf-8')
     print(json.dumps(summary))
     if os.environ.get('GITHUB_STEP_SUMMARY'):

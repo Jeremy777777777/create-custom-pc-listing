@@ -109,30 +109,50 @@ def workbook_fields(book):
     return [(sheet.title, cell.value) for sheet in book for cell in list(sheet[1])[1:]]
 
 
+def same_cell_value(actual, expected):
+    """Allow Excel's int/float round trip without conflating Boolean and number."""
+    if isinstance(expected, bool) or isinstance(actual, bool):
+        return type(actual) is type(expected) and actual == expected
+    if isinstance(expected, (int, float)):
+        return isinstance(actual, (int, float)) and math.isfinite(actual) and actual == expected
+    return type(actual) is type(expected) and actual == expected
+
+
 def verify_workbook(book, data, mode='draft'):
     result = project(data, workbook_fields(book), mode)
     for sheet in book:
         for column in range(2, sheet.max_column + 1):
             key = (sheet.title, sheet.cell(1, column).value)
             field = result[key]
-            if (sheet.cell(3, column).value, sheet.cell(4, column).value, sheet.cell(5, column).value) != (
-                    field['value'], field['status'], field['source']):
+            if not all(same_cell_value(sheet.cell(row, column).value, field[name])
+                       for row, name in ((3, 'value'), (4, 'status'), (5, 'source'))):
                 raise ValueError('Workbook differs from scoped ledger projection: ' + str(key))
             if sheet.cell(3, column).data_type == 'f':
                 raise ValueError('Formula cannot be exported: ' + str(key))
     return result
 
 
-def run(template, ledger, workbook, mode, product_id=None, configuration_id=None):
+def run(template, ledger, workbook, mode, product_id=None, configuration_id=None, stage=None):
+    template, ledger, workbook = map(Path, (template, ledger, workbook))
+    canonical_template = ROOT/'assets/listing-workbook-template.xlsx'
     input_hashes = {name: hashlib.sha256(Path(path).read_bytes()).hexdigest()
-                    for name, path in (('workbook', workbook), ('ledger', ledger))}
+                    for name, path in (('workbook', workbook), ('ledger', ledger), ('template', template))}
     # Import only at execution time; check-workbooks can use verify_workbook without a cycle.
     import importlib.util
     spec = importlib.util.spec_from_file_location('workbook_checks', ROOT/'scripts/check-workbooks.py')
     checks = importlib.util.module_from_spec(spec)
     spec.loader.exec_module(checks)
+    if mode == 'export':
+        if stage != 'LISTING_DRAFT':
+            raise ValueError('Export requires explicit LISTING_DRAFT stage')
+        if any(part.casefold() == 'workbook-snapshots' for part in workbook.resolve().parts):
+            raise ValueError('Historical workbook snapshots cannot be exported')
+        if input_hashes['template'] != hashlib.sha256(canonical_template.read_bytes()).hexdigest():
+            raise ValueError('Export requires the current canonical template; alternate/old templates are draft-only')
+        checks.check_template_inputs(canonical_template)
     manufacturer = None
-    if '_LISTING_' in Path(workbook).stem.upper():
+    listing_stage = stage == 'LISTING_DRAFT' if stage else '_LISTING_' in workbook.stem.upper()
+    if mode == 'export' or listing_stage:
         product = json.loads((Path(workbook).parent/'product-facts.json').read_text(encoding='utf-8-sig'))
         manufacturer = product.get('identity', {}).get('oemBrand')
         if not manufacturer:
@@ -150,13 +170,15 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
         projected = verify_workbook(book, data, mode)
     finally:
         book.close()
-    for name, path in (('workbook', workbook), ('ledger', ledger)):
+    for name, path in (('workbook', workbook), ('ledger', ledger), ('template', template)):
         if hashlib.sha256(Path(path).read_bytes()).hexdigest() != input_hashes[name]:
             raise ValueError('Input changed during validation: ' + name)
     return {'result': 'EXPORT_EVIDENCE_CHECK_PASS' if mode == 'export' else 'DRAFT_PROJECTION_PASS',
             'productId': data['productId'], 'configurationId': data['configurationId'],
             'workbookSha256': input_hashes['workbook'],
             'ledgerSha256': input_hashes['ledger'],
+            'templateSha256': input_hashes['template'],
+            'stage': stage or ('LISTING_DRAFT' if listing_stage else 'RESEARCH_REVIEW'),
             'amazonEligibilityAssessed': False,
             'fields': [{'sheet': k[0], 'attribute': k[1], **v} for k,v in projected.items()]}
 
@@ -174,9 +196,11 @@ def main():
     parser.add_argument('--mode', choices=['draft', 'export'], default='draft')
     parser.add_argument('--product-id', help='Required for export: independently selected target')
     parser.add_argument('--configuration-id', help='Required for export: target base configuration')
+    parser.add_argument('--stage', choices=['RESEARCH_REVIEW', 'LISTING_DRAFT'],
+                        help='Export requires explicit LISTING_DRAFT; filenames cannot grant export eligibility')
     args = parser.parse_args()
     try:
-        result = run(args.template, args.ledger, args.workbook, args.mode, args.product_id, args.configuration_id)
+        result = run(args.template, args.ledger, args.workbook, args.mode, args.product_id, args.configuration_id, args.stage)
     except (ValueError, OSError, json.JSONDecodeError) as error:
         parser.exit(1, str(error) + '\n')
     print(json.dumps(result, indent=2, ensure_ascii=False))

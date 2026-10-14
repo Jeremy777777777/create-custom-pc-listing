@@ -6,6 +6,8 @@ Seller decisions are in [confirmed-catalog-defaults.md](confirmed-catalog-defaul
 
 Before workbook-based marketplace export or saved publication, run the mandatory [scoped export evidence check](research-ledger-projection.md). Require the exact target IDs, current workbook/ledger hashes and a successful export-mode result; draft-mode/structure PASS cannot substitute. This gate checks recorded evidence and does not replace factual or marketplace eligibility review.
 
+Export also requires explicit LISTING_DRAFT stage, current canonical template/hash and mandatory OEM/copy/warranty validation independently of filename. Research Review and [historical snapshots](workbook-stage-snapshots.md) cannot confer publication eligibility. Do not use a smaller alternate template to reduce field coverage.
+
 - Exact `MegaPC Custom` title prefix, OEM model identified via Created Using, accurate base RAM/SSD only, Win 11 Pro ending, appropriate title length.
 - Bullet 1, Description's final Warranty and Disclosure section and Warranty Description use the identical mandatory OEM/MegaPC wording, with verified OEM brand substituted. Seller policy is already confirmed; do not reopen coverage or invent terms.
 - Actual RAM/storage modification disclosure is accurate; all computers are customized. No invented upgrade options, CPU/GPU/screen customization or software bundle. Fixed Windows 11 Pro is the sold system, not a selectable software customization.

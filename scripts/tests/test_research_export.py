@@ -10,10 +10,11 @@ from pathlib import Path
 import openpyxl
 sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
 import research_export as r
+from warranty_policy import render
 
 
 class ResearchExportTests(unittest.TestCase):
-    def ledger(self, key=('Product Details', 'RAM Memory Size')):
+    def ledger(self, key=('Product Details', 'RAM Memory Installed')):
         return {'schemaVersion': 1, 'productId': 'TEST-PC', 'configurationId': 'BASE-A',
                 'facts': [{'id': 'sold', 'sheet': key[0], 'attribute': key[1],
                            'configurationId': 'BASE-A', 'fact_scope': 'SOLD_BASE',
@@ -26,7 +27,7 @@ class ResearchExportTests(unittest.TestCase):
         factory = copy.deepcopy(data['facts'][0])
         factory.update(id='factory', fact_scope='FACTORY', final_value=16)
         data['facts'].append(factory)
-        key = ('Product Details', 'RAM Memory Size')
+        key = ('Product Details', 'RAM Memory Installed')
         self.assertEqual(r.project(data, [key], 'export')[key]['value'], 32)
         data['fields'][0]['selected_fact'] = 'factory'
         with self.assertRaisesRegex(ValueError, 'not factory'):
@@ -36,7 +37,7 @@ class ResearchExportTests(unittest.TestCase):
         data = self.ledger()
         data['facts'][0].update(fact_scope='PLATFORM_CAPABILITY', final_value=64)
         with self.assertRaises(ValueError):
-            r.project(data, [('Product Details', 'RAM Memory Size')])
+            r.project(data, [('Product Details', 'RAM Memory Installed')])
         key = ('Product Details', 'RAM Memory Maximum Size')
         data['facts'][0]['attribute'] = data['fields'][0]['attribute'] = key[1]
         self.assertEqual(r.project(data, [key], 'export')[key]['value'], 64)
@@ -84,13 +85,13 @@ class ResearchExportTests(unittest.TestCase):
             if change == 'wrong_config': data['facts'][0]['configurationId'] = 'BASE-B'
             if change == 'missing_basis': data['facts'][0].pop('transfer_basis')
             with self.subTest(change=change), self.assertRaises(ValueError):
-                r.project(data, [('Product Details', 'RAM Memory Size')])
+                r.project(data, [('Product Details', 'RAM Memory Installed')])
         with self.assertRaisesRegex(ValueError, 'exact current template'):
             r.project(self.ledger(), [])
 
     def test_unresolved_draft_allowed_and_na_is_blank(self):
         data = self.ledger()
-        key = ('Product Details', 'RAM Memory Size')
+        key = ('Product Details', 'RAM Memory Installed')
         data['facts'][0].update(status='TBD', final_value=None)
         self.assertIsNone(r.project(data, [key])[key]['value'])
         with self.assertRaises(ValueError): r.project(data, [key], 'export')
@@ -102,28 +103,46 @@ class ResearchExportTests(unittest.TestCase):
             r.validate_ledger([{'private': 'DO-NOT-PRINT'}])
         self.assertNotIn('DO-NOT-PRINT', str(error.exception))
 
+    def full_fixture(self, root, name='review.xlsx', copy_present=True):
+        book = openpyxl.load_workbook(r.ROOT/'assets/listing-workbook-template.xlsx')
+        data = {'schemaVersion': 1, 'productId': 'TEST-PC', 'configurationId': 'BASE-A', 'facts': [], 'fields': []}
+        warranty = render('Dell')
+        copy_values = {
+            ('Product Details', 'Bullet Point'): warranty + '\n\nSynthetic bullet' * 4,
+            ('Product Details', 'Product Description'): '<strong>Synthetic Product</strong><br/><br/>'
+                '<strong>Warranty and Disclosure</strong><br/>' + warranty,
+            ('Safety&Compliance', 'Warranty Description'): warranty,
+        } if copy_present else {}
+        for index, key in enumerate(r.workbook_fields(book)):
+            fact = self.ledger(key)['facts'][0]
+            fact.update(id=str(index), status='VERIFIED' if key in copy_values else 'NOT_APPLICABLE',
+                        final_value=copy_values.get(key))
+            data['facts'].append(fact)
+            data['fields'].append({'sheet': key[0], 'attribute': key[1], 'selected_fact': str(index)})
+        for sheet in book:
+            for col in range(2, sheet.max_column + 1):
+                key = (sheet.title, sheet.cell(1, col).value)
+                sheet.cell(3, col).value = copy_values.get(key)
+                sheet.cell(4, col).value = 'VERIFIED' if key in copy_values else 'NOT_APPLICABLE'
+                sheet.cell(5, col).value = 'Synthetic fixture'
+        path, ledger = root/name, root/'ledger.json'
+        book.save(path)
+        ledger.write_text(json.dumps(data), encoding='utf-8')
+        (root/'product-facts.json').write_text(json.dumps({'identity': {'oemBrand': 'Dell'}}), encoding='utf-8')
+        return book, data, path, ledger
+
+    def export_run(self, ledger, path, template=None, stage='LISTING_DRAFT'):
+        return r.run(template or r.ROOT/'assets/listing-workbook-template.xlsx', ledger, path,
+                     'export', 'TEST-PC', 'BASE-A', stage)
+
     def test_cli_checks_workbook_tampering_and_target_identity(self):
         with tempfile.TemporaryDirectory() as scratch:
             root = Path(scratch)
-            book = openpyxl.load_workbook(r.ROOT/'assets/listing-workbook-template.xlsx')
-            data = {'schemaVersion': 1, 'productId': 'TEST-PC', 'configurationId': 'BASE-A', 'facts': [], 'fields': []}
-            for index, key in enumerate(r.workbook_fields(book)):
-                fact = self.ledger(key)['facts'][0]
-                fact.update(id=str(index), status='NOT_APPLICABLE', final_value=None)
-                data['facts'].append(fact)
-                data['fields'].append({'sheet': key[0], 'attribute': key[1], 'selected_fact': str(index)})
-            for sheet in book:
-                for col in range(2, sheet.max_column + 1):
-                    sheet.cell(3, col).value = None
-                    sheet.cell(4, col).value = 'NOT_APPLICABLE'
-                    sheet.cell(5, col).value = 'Synthetic fixture'
-            path = root/'review.xlsx'
-            book.save(path)
-            ledger = root/'ledger.json'
-            ledger.write_text(json.dumps(data), encoding='utf-8')
+            book, data, path, ledger = self.full_fixture(root)
             (root/'research-ledger.json').write_text(json.dumps(data), encoding='utf-8')
             command = [sys.executable, str(r.ROOT/'scripts/research_export.py'), '--ledger', str(ledger),
-                       '--workbook', str(path), '--mode', 'export', '--product-id', 'TEST-PC', '--configuration-id', 'BASE-A']
+                       '--workbook', str(path), '--mode', 'export', '--product-id', 'TEST-PC',
+                       '--stage', 'LISTING_DRAFT', '--configuration-id', 'BASE-A']
             passed = subprocess.run(command, capture_output=True, text=True, encoding='utf-8')
             self.assertEqual(passed.returncode, 0, passed.stderr)
             self.assertFalse(json.loads(passed.stdout)['amazonEligibilityAssessed'])
@@ -134,6 +153,68 @@ class ResearchExportTests(unittest.TestCase):
             failed = subprocess.run(command, capture_output=True, text=True, encoding='utf-8')
             self.assertNotEqual(failed.returncode, 0)
             self.assertIn('differs from scoped ledger', failed.stderr)
+
+    def test_export_checks_copy_regardless_of_filename_and_requires_stage(self):
+        with tempfile.TemporaryDirectory() as scratch:
+            root = Path(scratch)
+            for name in ('review.xlsx', 'RESEARCH_REVIEW.xlsx', 'TEST_LISTING_DRAFT.xlsx'):
+                with self.subTest(name=name):
+                    book, data, path, ledger = self.full_fixture(root, name, copy_present=False)
+                    book.close()
+                    with self.assertRaisesRegex(ValueError, 'Bullet 1'):
+                        self.export_run(ledger, path)
+                    with self.assertRaisesRegex(ValueError, 'explicit LISTING_DRAFT'):
+                        self.export_run(ledger, path, stage='RESEARCH_REVIEW')
+                    with self.assertRaisesRegex(ValueError, 'explicit LISTING_DRAFT'):
+                        self.export_run(ledger, path, stage=None)
+                    self.assertEqual(r.run(r.ROOT/'assets/listing-workbook-template.xlsx', ledger, path,
+                                          'draft', stage='RESEARCH_REVIEW')['result'], 'DRAFT_PROJECTION_PASS')
+            (root/'product-facts.json').write_text('{}', encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, 'OEM brand'):
+                self.export_run(ledger, path)
+
+    def test_export_binds_current_template_and_its_hash(self):
+        import hashlib
+        with tempfile.TemporaryDirectory() as scratch:
+            root = Path(scratch)
+            book, data, path, ledger = self.full_fixture(root)
+            book.close()
+            canonical = r.ROOT/'assets/listing-workbook-template.xlsx'
+            same = root/'same-template.xlsx'; same.write_bytes(canonical.read_bytes())
+            result = self.export_run(ledger, path, same)
+            self.assertEqual(result['templateSha256'], hashlib.sha256(canonical.read_bytes()).hexdigest())
+            old = root/'old-template.xlsx'
+            changed = openpyxl.load_workbook(canonical)
+            changed['Product Details'].cell(2,2).value = 'Old definition'
+            changed.save(old); changed.close()
+            with self.assertRaisesRegex(ValueError, 'canonical template'):
+                self.export_run(ledger, path, old)
+            short = openpyxl.Workbook(); short.remove(short.active)
+            for sheet_name in ('Product Details', 'Offer', 'Safety&Compliance'):
+                short.create_sheet(sheet_name).append(['Field / Attribute', 'One field'])
+            short.save(old); short.close()
+            with self.assertRaisesRegex(ValueError, 'canonical template'):
+                self.export_run(ledger, path, old)
+
+    def test_workbook_type_changes_fail_but_numeric_round_trip_passes(self):
+        with tempfile.TemporaryDirectory() as scratch:
+            root = Path(scratch)
+            book, data, path, ledger = self.full_fixture(root)
+            fact = next(f for f in data['facts'] if f['attribute']=='RAM Memory Installed')
+            fact.update(status='VERIFIED', final_value=1)
+            column = next(c.column for c in book['Product Details'][1] if c.value=='RAM Memory Installed')
+            book['Product Details'].cell(4,column).value = 'VERIFIED'
+            ledger.write_text(json.dumps(data), encoding='utf-8')
+            for value in (True, '1', False):
+                book['Product Details'].cell(3,column).value = value; book.save(path)
+                with self.subTest(value=value), self.assertRaisesRegex(ValueError, 'differs'):
+                    self.export_run(ledger, path)
+            book['Product Details'].cell(3,column).value = 1.0; book.save(path)
+            self.assertEqual(self.export_run(ledger, path)['result'], 'EXPORT_EVIDENCE_CHECK_PASS')
+            fact['final_value'] = True; ledger.write_text(json.dumps(data), encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, 'differs'):
+                self.export_run(ledger, path)
+            book.close()
 
 
 if __name__ == '__main__':
