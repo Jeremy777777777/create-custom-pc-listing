@@ -12,7 +12,7 @@
   "ram": "16GB DDR5",
   "internalStorage": "1TB NVMe SSD",
   "os": "Windows 11 Pro",
-  "soldConfigurationBasis": "User accepted proposed 16GB + 1TB configuration with 可以; OS per current confirmed seller catalog policy.",
+  "soldConfigurationBasis": "User accepted proposed 16GB + 1TB configuration with \u53ef\u4ee5; OS per current confirmed seller catalog policy.",
   "display": {
     "diagonalInches": 16,
     "resolution": "1920x1200",
@@ -26,5 +26,9 @@
     "https://rog.asus.com/us/laptops/rog-strix/rog-strix-g16-2025-g614/spec/",
     "https://www.asus.com/us/laptops/for-gaming/rog-republic-of-gamers/filter?Category=Core-gaming-and-esports&Series=ROG-Republic-of-Gamers&Spec=134078"
   ],
-  "includes": "Computer only; no added accessory, warranty or bundled application claims."
+  "includes": "Computer only; no added accessory, warranty or bundled application claims.",
+  "sellerPolicy": {
+    "warrantyTemplate": "MegaPC provides a 1-year limited warranty on the upgraded RAM and SSD components. The original [OEM brand] manufacturer warranty remains valid on all remaining factory components, so you are covered on both the base machine and our upgrades. The original seal has been opened solely for upgrading purposes.",
+    "source": "Current repository confirmed-catalog-defaults.md; retained as policy metadata, not an image warranty claim."
+  }
 }

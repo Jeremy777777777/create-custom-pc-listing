@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "result": "PASS",
-  "generatedAtUtc": "2026-10-14T20:14:30.596765+00:00",
+  "generatedAtUtc": "2026-10-14T20:16:23.489102+00:00",
   "images": [
     {
       "file": "MAIN-STRICT.jpg",
@@ -81,7 +81,7 @@
       "sha256": "6f7cb5686acc80f822fbb29ceffddaf2fb6ea140c9d314ec13c62cd62650266c"
     }
   ],
-  "logoQaSha256": "5e4ff6fc0afeb0f55241bd5c427b0c4baaaf84468fbeae45e337e0c6f860b402",
-  "visualReviewSha256": "8e8d7ad311337a1f5187762d1e5550456bfd31099db0acda3153dbd7da28e03b",
-  "semanticReviewSha256": "ebde7a3956f74749d6227acc179189347c06e556fd5362839d68c5e7b5147c2c"
+  "logoQaSha256": "faedde71f0034b9d47aa73d4db91945ecd76d9fd8081bb7a070f22d19d2dfcce",
+  "visualReviewSha256": "753d77a8aad83a4c456307bcd96b0b70e138d833ce577142a7997f25ed8566dc",
+  "semanticReviewSha256": "731be34af4bab58d35893eb97728223051dbb33a1f88aa037015cd417f50c4fa"
 }

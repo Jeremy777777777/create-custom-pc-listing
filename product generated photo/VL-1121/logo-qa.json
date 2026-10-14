@@ -81,6 +81,6 @@
       "commandRecord": "gallery_engine.py badges (from clean unbranded master); preserve pixel data, encode PNG with 96 dpi metadata"
     }
   ],
-  "visualReviewSha256": "8e8d7ad311337a1f5187762d1e5550456bfd31099db0acda3153dbd7da28e03b",
+  "visualReviewSha256": "753d77a8aad83a4c456307bcd96b0b70e138d833ce577142a7997f25ed8566dc",
   "bindingMigration": "Plan content unchanged; current engine hashes JSON with UTF-8 LF normalization. Current geometry independently validated during acceptance."
 }

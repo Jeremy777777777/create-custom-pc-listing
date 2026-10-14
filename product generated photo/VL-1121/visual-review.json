@@ -2,7 +2,7 @@
   "schemaVersion": 3,
   "result": "PASS",
   "reviewer": "Codex \u2014 actual model visual inspection (not a human certification)",
-  "reviewedAtUtc": "2026-10-14T20:14:30.131035+00:00",
+  "reviewedAtUtc": "2026-10-14T20:16:23.064123+00:00",
   "method": "Final full-size images and 200px thumbnail sheet inspected. Main headlines, product silhouette and OEM wordmark checked at thumbnail scale; detailed specifications checked at full size. No seller/Amazon publication approval implied.",
   "images": [
     {
@@ -72,6 +72,6 @@
       "notes": "Actual left/right port openings match leaders. Two USB4 Type-C, two USB-A, HDMI, LAN, power and audio; DisplayPort both Type-C, PD one. Wireless fact separately supported."
     }
   ],
-  "reviewInputsSha256": "716967bf35b7f6bc27e7536d25611d973ab3c3ae02010ffa3c1cc9e54bf0e1fc",
+  "reviewInputsSha256": "c1e3114ed35bcacb96479c41f7d6ad0b63511d5c50f7ac24a7ef14765f20b0f1",
   "currentPolicyReview": "Re-reviewed current full gallery against 2026-10-14 validation refinement; unchanged final image bytes and supported product facts. This is actual model review, not human certification."
 }
