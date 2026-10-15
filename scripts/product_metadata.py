@@ -30,10 +30,14 @@ def hardware_projection(ledger,product=None):
         check_image_cache(selected,product)
     keys=('id','status','final_value','fact_scope','configurationId','source',
           'applies_to_sold_configuration','transfer_basis')
-    return {'productId':ledger['productId'],'configurationId':ledger['configurationId'],
+    projection={'productId':ledger['productId'],'configurationId':ledger['configurationId'],
             'hardware':[{'sheet':sheet,'attribute':field,**{k:fact[k] for k in keys if k in fact}}
                         for (sheet,field),fact in sorted(selected.items())
                         if sheet=='Product Details' and field not in NON_IMAGE_FIELDS]}
+    from research_handoff import storage_dependency_projection
+    dependencies=storage_dependency_projection(ledger)
+    if dependencies is not None: projection['storageDependencies']=dependencies
+    return projection
 
 
 def check_image_cache(selected,product):

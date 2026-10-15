@@ -118,6 +118,71 @@ class CopyTests(unittest.TestCase):
 
 
 class ResearchImageTests(unittest.TestCase):
+    def storage_ledger(self):
+        ledger=self.ledger();ledger['facts']=[];ledger['fields']=[]
+        for fid,attribute,value in (('base','Hard Disk Size',256),('base-unit','Hard Disk Size Unit','GB'),
+                                    ('total','Memory Storage Capacity',1280),('total-unit','Memory Storage Capacity Unit','GB'),
+                                    ('secondary','Secondary internal drive capacity',1024)):
+            fact={'id':fid,'sheet':'Product Details','attribute':attribute,'configurationId':'BASE',
+                  'fact_scope':'SOLD_BASE','status':'VERIFIED','final_value':value,
+                  'source':'Synthetic exact sold storage source','applies_to_sold_configuration':True,'transfer_basis':'Synthetic assembly'}
+            if fid=='secondary':fact['evidence']={'storage_medium':'INTERNAL_HDD','capacity_unit':'GB'}
+            if fid=='total':fact['evidence']={'storage_scope':'INTERNAL_TOTAL','storage_component_fact_ids':['base','secondary']}
+            ledger['facts'].append(fact)
+            if fid!='secondary':ledger['fields'].append({'sheet':fact['sheet'],'attribute':attribute,'selected_fact':fid})
+        return ledger
+
+    def test_storage_dependencies_bind_media_count_capacity_units_state_and_source(self):
+        original=self.storage_ledger();baseline=hardware_projection(original)
+        for key,value in (('storage_medium','INTERNAL_SSD'),('capacity_unit','TB'),('oem_part_number','SYNTHETIC-NEW-PART'),('source','Changed source'),
+                          ('final_value',512),('status','TBD'),('transfer_basis','Changed installation basis')):
+            altered=copy.deepcopy(original);extra=altered['facts'][-1]
+            if key in ('storage_medium','capacity_unit','oem_part_number'):extra['evidence'][key]=value
+            else:extra[key]=value
+            if key=='status':extra['final_value']=None
+            with self.subTest(key=key):self.assertNotEqual(hardware_projection(altered),baseline)
+        altered=copy.deepcopy(original);extra=altered['facts'][-1];extra['final_value']=512
+        another=copy.deepcopy(extra);another.update(id='third',attribute='Additional internal drive capacity 3')
+        altered['facts'].append(another);altered['facts'][2]['evidence']['storage_component_fact_ids'].append('third')
+        self.assertNotEqual(hardware_projection(altered),baseline)
+        altered=copy.deepcopy(original);altered['facts'][-1]['evidence']['researchLog']='Changed unrelated note'
+        alternative=copy.deepcopy(altered['facts'][-1]);alternative.update(id='factory',fact_scope='FACTORY',final_value=2048)
+        altered['facts'].append(alternative)
+        self.assertEqual(hardware_projection(altered),baseline)
+        altered['facts'][2]['evidence']['storage_component_fact_ids'].reverse()
+        altered['facts'].reverse();self.assertEqual(hardware_projection(altered),baseline)
+
+    def test_same_total_drive_change_makes_actual_partial_review_stale_without_rewriting(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            p=Path(tmp)/'TEST';p.mkdir();fixture=gf.GalleryBoundaries()
+            try:
+                fixture.build(p);original=self.storage_ledger();g.write(p/'research-ledger.json',original)
+                fixture.reviews(p,['PT03.png'])
+                g.write(p/'delivery-status.json',{'galleryState':'LEGACY_QUARANTINED','currentQaPass':False})
+                g.accept(p,slots=['PT03.png']);g.validate_partial(p,['PT03.png'])
+                before={n:(p/n).read_bytes() for n in ('visual-review.json','semantic-review.json','partial-update-qa.json','delivery-status.json')}
+                for change in ('media','count'):
+                    altered=copy.deepcopy(original);extra=altered['facts'][-1]
+                    if change=='media':extra['evidence']['storage_medium']='INTERNAL_SSD'
+                    else:
+                        extra['final_value']=512;third=copy.deepcopy(extra)
+                        third.update(id='third',attribute='Additional internal drive capacity 3');altered['facts'].append(third)
+                        altered['facts'][2]['evidence']['storage_component_fact_ids'].append('third')
+                    g.write(p/'research-ledger.json',altered)
+                    with self.subTest(change=change),self.assertRaisesRegex(ValueError,'binding stale'):
+                        g.validate_partial(p,['PT03.png'])
+                self.assertEqual(before,{n:(p/n).read_bytes() for n in before})
+            finally:fixture.doCleanups()
+
+    def test_invalid_storage_dependency_graph_cannot_create_an_image_binding(self):
+        for change in ('missing','wrong_config','wrong_role','duplicate'):
+            ledger=self.storage_ledger();extra=ledger['facts'][-1];refs=ledger['facts'][2]['evidence']['storage_component_fact_ids']
+            if change=='missing':refs[-1]='absent'
+            if change=='wrong_config':extra['configurationId']='OTHER'
+            if change=='wrong_role':extra['attribute']='RAM Memory Installed'
+            if change=='duplicate':refs.append('secondary')
+            with self.subTest(change=change),self.assertRaises(ValueError):hardware_projection(ledger)
+
     def test_equivalent_resolution_dimensions_pass_but_actual_change_does_not(self):
         selected={('Product Details','Resolution'):{'status':'VERIFIED','final_value':'1920 x 1080'}}
         for resolution in ('1920×1080','1920X1080 px','1920 x 1080 pixels'):

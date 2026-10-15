@@ -51,9 +51,9 @@ def internal_storage_total(data):
     return configuration['totalGB'] if configuration else None
 
 
-def internal_storage_configuration(data):
-    """Return verified per-drive media/capacities as well as their internal total."""
-    from product_metadata import CAPACITY_UNITS,selected_facts
+def storage_component_records(data):
+    """Resolve the same explicit drive dependency graph for exports and image bindings."""
+    from product_metadata import selected_facts
     selected=selected_facts(data)
     total=selected.get(('Product Details','Memory Storage Capacity'))
     if total is None: return None
@@ -65,22 +65,57 @@ def internal_storage_configuration(data):
     base=selected.get(('Product Details','Hard Disk Size'))
     base_unit=selected.get(('Product Details','Hard Disk Size Unit'))
     if base is None or base['id'] not in ids: raise ValueError('Storage total must include the selected base drive')
-    facts={f['id']:f for f in data['facts']};total_gb=0;devices=[]
+    facts={f['id']:f for f in data['facts']};components=[]
     for fid in ids:
         fact=facts.get(fid)
         if fact is None: raise ValueError('Missing storage component fact: '+fid)
-        meta=fact.get('evidence',{})
         if (fact['sheet']!='Product Details' or fact['configurationId']!=data['configurationId']
-            or fact['status']!='VERIFIED' or fact['fact_scope']!='SOLD_BASE'
-            or fact.get('applies_to_sold_configuration') is not True or not fact.get('transfer_basis','').strip()):
-            raise ValueError('Storage components require verified applicable SOLD_BASE evidence')
-        if fid==base['id']:
-            unit=base_unit['final_value'] if base_unit and base_unit['status']=='VERIFIED' else None
-            medium='ssd'  # Existing selectedBaseConfiguration.ssdGB is the base SSD contract.
-        else:
+            or fact['fact_scope']!='SOLD_BASE'):
+            raise ValueError('Storage components require matching SOLD_BASE scope/configuration')
+        if fid!=base['id']:
             if ((fact['sheet'],fact['attribute']) in selected or
                 re.fullmatch(r'(?:Secondary|Additional) internal drive capacity(?: .+)?',fact['attribute']) is None):
                 raise ValueError('Storage component requires a dedicated drive-capacity fact, not RAM/VRAM/cache or another template field')
+        components.append(fact)
+    return {'baseId':base['id'],'baseUnit':base_unit,'components':components}
+
+
+def storage_dependency_projection(data):
+    """Bind referenced hardware/state/source metadata; exclude unrelated research notes."""
+    records=storage_component_records(data)
+    if records is None: return None
+    keys=('id','sheet','attribute','status','final_value','fact_scope','configurationId','source',
+          'applies_to_sold_configuration','transfer_basis')
+    hardware_keys=('oem_part_number','part_description','part_quantity','drive_model','storage_interface',
+                   'storage_form_factor','installation_basis','modification_evidence','replacement_check')
+    components=[]
+    for fact in sorted(records['components'],key=lambda fact:fact['id']):
+        meta=fact.get('evidence',{})
+        components.append({**{key:fact[key] for key in keys if key in fact},
+                           'storageMedium':meta.get('storage_medium'),
+                           'capacityUnit':meta.get('capacity_unit'),
+                           'hardwareEvidence':{key:meta[key] for key in hardware_keys if key in meta},
+                           'isBaseDrive':fact['id']==records['baseId']})
+    unit=records['baseUnit']
+    return {'scope':'INTERNAL_TOTAL','components':components,
+            'baseUnitFact':{key:unit[key] for key in keys if key in unit} if unit else None}
+
+
+def internal_storage_configuration(data):
+    """Return verified per-drive media/capacities as well as their internal total."""
+    from product_metadata import CAPACITY_UNITS
+    records=storage_component_records(data)
+    if records is None: return None
+    base_unit=records['baseUnit'];total_gb=0;devices=[]
+    for fact in records['components']:
+        fid=fact['id'];meta=fact.get('evidence',{})
+        if (fact['status']!='VERIFIED' or fact.get('applies_to_sold_configuration') is not True
+            or not fact.get('transfer_basis','').strip()):
+            raise ValueError('Storage components require verified applicable SOLD_BASE evidence')
+        if fid==records['baseId']:
+            unit=base_unit['final_value'] if base_unit and base_unit['status']=='VERIFIED' else None
+            medium='ssd'  # Existing selectedBaseConfiguration.ssdGB is the base SSD contract.
+        else:
             if meta.get('storage_medium') not in ('INTERNAL_SSD','INTERNAL_HDD'):
                 raise ValueError('Storage component must identify internal SSD/HDD, not external/cloud/unknown media')
             unit=meta.get('capacity_unit')
