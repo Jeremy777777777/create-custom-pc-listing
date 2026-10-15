@@ -154,7 +154,7 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
     metadata_report = None
     manufacturer = None
     data = load_ledger(ledger)
-    from research_handoff import check_product_location,coverage_summary,internal_storage_total
+    from research_handoff import check_product_location,coverage_summary,internal_storage_configuration
     check_product_location(workbook,data['productId'])
     listing_stage = stage == 'LISTING_DRAFT' if stage else '_LISTING_' in workbook.stem.upper()
     if mode == 'export' or listing_stage:
@@ -183,7 +183,8 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
             from listing_content import validate_listing
             definitions={(sheet.title,sheet.cell(1,c).value):sheet.cell(2,c).value
                          for sheet in book for c in range(2,sheet.max_column+1)}
-            validate_listing(projected,product,definitions,storage_total_gb=internal_storage_total(data))
+            storage=internal_storage_configuration(data)
+            validate_listing(projected,product,definitions,storage_total_gb=storage['totalGB'] if storage else None,storage_configuration=storage)
     finally:
         book.close()
     for name, path in (('workbook', workbook), ('ledger', ledger), ('template', template)):
@@ -223,6 +224,8 @@ def main():
         result = run(args.template, args.ledger, args.workbook, args.mode, args.product_id, args.configuration_id, args.stage)
         if args.summary_output:
             output=args.summary_output
+            from research_handoff import check_product_location
+            check_product_location(output,result['productId'])
             if not output.name.endswith('.research-summary.json'):
                 raise ValueError('Summary output must end with .research-summary.json')
             if output.exists():
@@ -231,6 +234,7 @@ def main():
                     raise ValueError('Summary output would overwrite an unrelated artifact')
             summary={k:result[k] for k in ('productId','configurationId','stage','workbookSha256','ledgerSha256','templateSha256','productFactsSha256','coverageSummary')}
             summary['artifactRole']='RESEARCH_COVERAGE_SUMMARY'
+            summary['workbookFile']=args.workbook.name
             from gallery_engine import write
             write(output,summary)
     except (ValueError, OSError, json.JSONDecodeError) as error:

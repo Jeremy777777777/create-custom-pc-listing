@@ -8,7 +8,7 @@ import sys
 import tempfile
 import unittest
 import test_research_export as ef
-from research_handoff import check_product_location,coverage_summary,internal_storage_total
+from research_handoff import check_product_location,coverage_summary,internal_storage_total,check_research_summaries
 import research_export as r
 
 spec=importlib.util.spec_from_file_location('checks_handoff',r.ROOT/'scripts/check-workbooks.py')
@@ -16,6 +16,76 @@ checks=importlib.util.module_from_spec(spec);spec.loader.exec_module(checks)
 
 
 class HandoffTests(unittest.TestCase):
+    def save(self,data,path,ledger):
+        import openpyxl
+        book=openpyxl.load_workbook(path);projected=r.project(data,r.workbook_fields(book))
+        for sheet in book:
+            for col in range(2,sheet.max_column+1):
+                record=projected[(sheet.title,sheet.cell(1,col).value)]
+                for row,key in ((3,'value'),(4,'status'),(5,'source')):sheet.cell(row,col).value=record[key]
+        book.save(path);book.close();ledger.write_text(json.dumps(data))
+
+    def test_memory_and_template_fields_cannot_be_storage_components(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            helper,data,path,ledger=self.fixture(Path(tmp),components=True)
+            for field in ('RAM Memory Installed','Graphics Ram Size','Cache Memory Installed Size'):
+                altered=copy.deepcopy(data)
+                fact=next(f for f in altered['facts'] if f['attribute']==field)
+                fact.update(status='VERIFIED',final_value=16,evidence={'capacity_unit':'GB','storage_medium':'INTERNAL_SSD'})
+                total=next(f for f in altered['facts'] if f['attribute']=='Memory Storage Capacity')
+                total['evidence']['storage_component_fact_ids'][-1]=fact['id']
+                with self.subTest(field=field),self.assertRaisesRegex(ValueError,'dedicated drive-capacity'):
+                    internal_storage_total(altered)
+            data['facts'][-1]['attribute']='GPU capacity masquerading as disk'
+            with self.assertRaisesRegex(ValueError,'dedicated drive-capacity'):internal_storage_total(data)
+
+    def test_mixed_drive_copy_and_explicit_total_match_actual_media_and_devices(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            helper,data,path,ledger=self.fixture(Path(tmp),capacity=1280,components=True)
+            data['facts'][-1]['final_value']=1024
+            data['facts'][-1]['evidence']['storage_medium']='INTERNAL_HDD'
+            fields={f['attribute']:f for f in data['facts'] if f['sheet']=='Product Details'}
+            original=fields['Item Name']['final_value']
+            for suffix,valid in ((' + 1TB HDD',True),(' + HDD: 1TB',True),(' 1.25TB total internal storage',True),
+                                 (' + 2TB HDD',False),(' + 1TB SSD',False),(' 1.25TB SSD',False),(' 2TB total storage',False)):
+                fields['Item Name']['final_value']=original.replace(' Win 11 Pro',suffix+' Win 11 Pro')
+                self.save(data,path,ledger)
+                if valid:
+                    with self.subTest(suffix=suffix):self.assertEqual(helper.export_run(ledger,path)['result'],'EXPORT_EVIDENCE_CHECK_PASS')
+                else:
+                    with self.subTest(suffix=suffix),self.assertRaisesRegex(ValueError,'storage medium/total'):
+                        helper.export_run(ledger,path)
+
+    def test_summary_freshness_binds_identity_inputs_and_counts_without_rewriting(self):
+        import shutil
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);p=root/'product generated photo/TEST-PC';p.mkdir(parents=True)
+            (root/'assets').mkdir();shutil.copyfile(r.ROOT/'assets/listing-workbook-template.xlsx',root/'assets/listing-workbook-template.xlsx')
+            helper=ef.ResearchExportTests();book,data,path,ledger=helper.full_fixture(p);book.close()
+            ledger=ledger.rename(p/'research-ledger.json')
+            report=r.run(r.ROOT/'assets/listing-workbook-template.xlsx',ledger,path,'draft')
+            summary={k:report[k] for k in ('productId','configurationId','stage','workbookSha256','ledgerSha256','templateSha256','productFactsSha256','coverageSummary')}
+            summary.update(artifactRole='RESEARCH_COVERAGE_SUMMARY',workbookFile=path.name)
+            output=p/'TEST-PC.research-summary.json';output.write_text(json.dumps(summary))
+            self.assertEqual(check_research_summaries(root),1)
+            for key,value in (('productId','OTHER'),('configurationId','OTHER'),('workbookSha256','0'*64),('ledgerSha256','0'*64),
+                              ('templateSha256','0'*64),('workbookFile','../outside.xlsx'),('coverageSummary',{})):
+                altered=copy.deepcopy(summary);altered[key]=value;output.write_text(json.dumps(altered));before=output.read_bytes()
+                with self.subTest(key=key),self.assertRaises(ValueError):check_research_summaries(root)
+                self.assertEqual(before,output.read_bytes())
+            output.write_text(json.dumps(summary));data['facts'][0]['evidence']={'reason':'Changed source details'}
+            ledger.write_text(json.dumps(data))
+            result=subprocess.run([sys.executable,str(r.ROOT/'scripts/check-workbooks.py'),'--directory',str(root)],capture_output=True,text=True)
+            self.assertNotEqual(result.returncode,0);self.assertIn('Research summary is stale',result.stderr)
+            # The normal generation command can explicitly refresh a stale summary.
+            subprocess.run([sys.executable,str(r.ROOT/'scripts/research_export.py'),'--ledger',str(ledger),'--workbook',str(path),
+                            '--summary-output',str(output)],check=True,capture_output=True)
+            self.assertEqual(check_research_summaries(root),1)
+            wrong=root/'product generated photo/OTHER/review.research-summary.json'
+            result=subprocess.run([sys.executable,str(r.ROOT/'scripts/research_export.py'),'--ledger',str(ledger),'--workbook',str(path),
+                                   '--summary-output',str(wrong)],capture_output=True)
+            self.assertNotEqual(result.returncode,0);self.assertFalse(wrong.exists())
+
     def test_canonical_directory_matches_ledger_and_facts_without_restricting_scratch(self):
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);p=root/'product generated photo/WRONG';p.mkdir(parents=True)

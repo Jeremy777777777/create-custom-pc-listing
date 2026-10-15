@@ -135,7 +135,10 @@ def main():
                 scoped_checked+=1
             else:
                 legacy_not_assessed+=1
+    from research_handoff import check_research_summaries
+    summaries_checked=check_research_summaries(root)
     summary={'templateStructure':'PASS','currentOutputsStructureChecked':len(outputs),
+             'researchSummariesFreshnessChecked':summaries_checked,
              'historicalOutputsExcluded':True,'factOrPublicationReadinessInferred':False,
              'scopedDraftProjectionChecked':scoped_checked,
              'legacyLedgerScopeNotAssessed':legacy_not_assessed,

@@ -60,13 +60,18 @@ def cpu_claims(text):
             yield match[1] if match.lastindex else match[0]
 
 
-def capacity_mentions(text):
+def capacity_mentions(text,detailed_storage=False):
     """Associate each capacity once, within its clause; distinguish RAM/VRAM/cache/storage."""
     amount=r'(?P<amount>\d+(?:\.\d+)?)\s*(?P<unit>GB|TB|MB)\b'
-    labels=r'\b(?:RAM|Memory|LPDDR\dX?|DDR\dX?|GDDR\dX?|VRAM|GPU|Graphics|Video|Cache|SSD|NVMe|HDD|Storage|Solid[ -]State[ -]Drive)\b'
+    labels=r'\b(?:(?:Total|Combined)[ -]+(?:Internal[ -]+)?Storage|RAM|Memory|LPDDR\dX?|DDR\dX?|GDDR\dX?|VRAM|GPU|Graphics|Video|Cache|SSD|NVMe|HDD|Storage|Solid[ -]State[ -]Drive)\b'
     def category(fragment):
         if re.search(r'\b(?:GDDR\dX?|VRAM|GPU|Graphics|Video)\b',fragment,re.I): return 'vram'
         if re.search(r'\bCache\b',fragment,re.I): return 'cache'
+        if detailed_storage:
+            if re.search(r'\b(?:Total|Combined)[ -]+(?:Internal[ -]+)?Storage\b',fragment,re.I): return 'total_storage'
+            if re.search(r'\bHDD\b',fragment,re.I): return 'hdd'
+            if re.search(r'\b(?:SSD|NVMe|Solid[ -]State[ -]Drive)\b',fragment,re.I): return 'ssd'
+            if re.search(r'\bStorage\b',fragment,re.I): return 'storage'
         if re.search(r'\b(?:SSD|NVMe|HDD|Storage|Solid[ -]State[ -]Drive)\b',fragment,re.I): return 'ssd'
         return 'ram'
     gap_words=r'[\s-]*(?:(?:PCIe|Gen\d|M\.2|\d{4}|\d+(?:\.\d+)?|card|system|installed|internal|SO-DIMM|SDRAM|L[123])[\s-]*)*'
@@ -115,7 +120,7 @@ def base_spec_fragments(product):
     return {'ram':f"{base['ramGB']:g}GB RAM",'ssd':f"{base['ssdGB']:g}GB SSD"}
 
 
-def validate_listing(projected, product, definitions=None,storage_total_gb=None):
+def validate_listing(projected, product, definitions=None,storage_total_gb=None,storage_configuration=None):
     values = {field:record['value'] for (sheet,field),record in projected.items() if sheet=='Product Details'}
     for key,record in projected.items():
         value=record['value']
@@ -199,11 +204,19 @@ def validate_listing(projected, product, definitions=None,storage_total_gb=None)
         if normalized['Memory Storage Capacity']!=expected:
             raise ValueError('Internal storage capacity fields disagree; reconcile verified component scope and units')
     cpu=identity.get('cpu')
+    devices=storage_configuration['devices'] if storage_configuration else [{'medium':'ssd','capacityGB':normalized['Hard Disk Size']}]
+    total=storage_configuration['totalGB'] if storage_configuration else normalized['Hard Disk Size']
+    storage_allowed={'ssd':{d['capacityGB'] for d in devices if d['medium']=='ssd'},
+                     'hdd':{d['capacityGB'] for d in devices if d['medium']=='hdd'},
+                     'storage':{d['capacityGB'] for d in devices}|{total},'total_storage':{total}}
     for field in ('Item Name','Bullet Point','Product Description'):
         text=values.get(field,'')
         if not isinstance(text,str): raise ValueError('Expected listing text: '+field)
-        for capacity,kind in capacity_mentions(text):
-            expected={'ram':ram,'ssd':normalized['Hard Disk Size'],'vram':normalized.get('Graphics Ram Size')}.get(kind)
+        for capacity,kind in capacity_mentions(text,detailed_storage=True):
+            if kind in storage_allowed:
+                if capacity not in storage_allowed[kind]: raise ValueError('Listing copy includes another RAM/SSD configuration or incorrect storage medium/total: '+field)
+                continue
+            expected={'ram':ram,'vram':normalized.get('Graphics Ram Size')}.get(kind)
             if expected is not None and capacity!=expected: raise ValueError('Listing copy includes another RAM/SSD configuration or VRAM size: '+field)
     if not isinstance(cpu,str) or not cpu.strip(): raise ValueError('Verified CPU identity required in product facts')
     canonical=' '+cpu_text(cpu)+' '
