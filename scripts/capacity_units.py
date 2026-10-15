@@ -1,5 +1,15 @@
 """Field-specific capacity conventions; installed drive labels are decimal, not OS space."""
 from decimal import Decimal
+import re
+
+CAPACITY_NUMBER=r'\d[\d,]*(?:\.\d+)?'
+
+
+def capacity_number(text):
+    """English listing numbers may use valid thousands separators, never decimal commas."""
+    if re.fullmatch(r'(?:\d+|\d{1,3}(?:,\d{3})+)(?:\.\d+)?',text) is None:
+        raise ValueError('Capacity number has invalid thousands separators')
+    return text.replace(',','')
 MEMORY_CAPACITY_UNITS={'kb':1/1024**2,'mb':1/1024,'gb':1,'tb':1024}
 STORAGE_CAPACITY_UNITS={'kb':1/1000**2,'mb':1/1000,'gb':1,'tb':1000}
 STORAGE_FIELDS={'Hard Disk Size','Memory Storage Capacity','Flash Memory Installed Size'}

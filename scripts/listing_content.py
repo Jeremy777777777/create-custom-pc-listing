@@ -2,7 +2,7 @@
 import math
 import re
 from product_metadata import exact_cpu_model
-from capacity_units import capacity_units,MEMORY_CAPACITY_UNITS,STORAGE_CAPACITY_UNITS,scaled_capacity
+from capacity_units import capacity_units,MEMORY_CAPACITY_UNITS,STORAGE_CAPACITY_UNITS,scaled_capacity,CAPACITY_NUMBER,capacity_number
 
 CAPACITY_PAIRS = {
     'RAM Memory Installed': 'RAM Memory Installed Size Unit',
@@ -62,7 +62,7 @@ def cpu_claims(text):
 
 def capacity_mentions(text,detailed_storage=False):
     """Associate each capacity once, within its clause; distinguish RAM/VRAM/cache/storage."""
-    amount=r'(?P<amount>\d+(?:\.\d+)?)\s*(?P<unit>GiB|TiB|MiB|GB|TB|MB)\b'
+    amount=r'(?<![\w.,])(?P<amount>'+CAPACITY_NUMBER+r')\s*(?P<unit>GiB|TiB|MiB|GB|TB|MB)\b'
     labels=r'\b(?:(?:Total|Combined)[ -]+(?:Internal[ -]+)?Storage|RAM|Memory|LPDDR\dX?|DDR\dX?|GDDR\dX?|VRAM|GPU|Graphics|Video|Cache|SSD|NVMe|HDD|Storage|Solid[ -]State[ -]Drive)\b'
     def category(fragment):
         if re.search(r'\b(?:GDDR\dX?|VRAM|GPU|Graphics|Video)\b',fragment,re.I): return 'vram'
@@ -113,7 +113,7 @@ def capacity_mentions(text,detailed_storage=False):
             unit=match['unit'].casefold()
             if 'i' in unit and units is STORAGE_CAPACITY_UNITS:
                 raise ValueError('Binary/system storage capacity must be reconciled separately from nominal sold storage')
-            yield scaled_capacity(match['amount'],units[unit.replace('i','')]),kind
+            yield scaled_capacity(capacity_number(match['amount']),units[unit.replace('i','')]),kind
 
 
 def base_spec_fragments(product):

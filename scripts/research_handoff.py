@@ -18,9 +18,8 @@ def check_product_location(workbook,product_id,product=None):
         raise ValueError('Workbook product directory differs from ledger target or is not top-level')
     if product is not None:
         if not isinstance(product,dict): raise ValueError('Product facts must be an object for directory identity checking')
-        identity=product.get('identity',{})
-        pid=identity.get('internalId') if isinstance(identity,dict) else None
-        pid=pid or product.get('productId') or product.get('internalId')
+        from product_identity import product_id as resolve_product_id
+        pid=resolve_product_id(product)
         if pid is not None and pid!=product_id:
             raise ValueError('Product directory/ledger/product-facts identity differs')
 
@@ -72,6 +71,9 @@ def storage_component_records(data):
         if (fact['sheet']!='Product Details' or fact['configurationId']!=data['configurationId']
             or fact['fact_scope']!='SOLD_BASE'):
             raise ValueError('Storage components require matching SOLD_BASE scope/configuration')
+        quantity=fact.get('evidence',{}).get('part_quantity',1)
+        if fact['status']=='VERIFIED' and (type(quantity) not in (int,float,str) or quantity not in (1,'1')):
+            raise ValueError('Each storage component must describe one physical drive; split quantity-bearing BOM facts into per-drive facts')
         if fid!=base['id']:
             if ((fact['sheet'],fact['attribute']) in selected or
                 re.fullmatch(r'(?:Secondary|Additional) internal drive capacity(?: .+)?',fact['attribute']) is None):

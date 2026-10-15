@@ -2,7 +2,8 @@
 import copy
 import re
 
-from capacity_units import capacity_units,STORAGE_FIELDS,check_nominal_storage_basis,scaled_capacity
+from capacity_units import capacity_units,STORAGE_FIELDS,check_nominal_storage_basis,scaled_capacity,CAPACITY_NUMBER,capacity_number
+from product_identity import product_id
 NON_IMAGE_FIELDS={
     'Customizations','Item Name','Bullet Point','Product Description','Generic Keyword',
     'External Product ID','External Product ID Type','Item Package Quantity','Number of Items',
@@ -22,9 +23,7 @@ def hardware_projection(ledger,product=None):
     for (sheet,field),fact in selected.items():
         if sheet=='Product Details' and field in STORAGE_FIELDS: check_nominal_storage_basis(fact)
     if product is not None:
-        identity=product.get('identity',{})
-        pid=identity.get('internalId') if isinstance(identity,dict) else None
-        pid=pid or product.get('productId') or product.get('internalId')
+        pid=product_id(product)
         if pid and pid!=ledger['productId']: raise ValueError('Image research belongs to another product')
         base=product.get('selectedBaseConfiguration',{})
         if isinstance(base,dict) and base.get('id') and base['id']!=ledger['configurationId']:
@@ -75,10 +74,10 @@ def check_image_cache(selected,product):
         units=capacity_units(field)
         cached=base.get(key)
         if cached is None and isinstance(product.get(raw_key),str):
-            match=re.search(r'(\d+(?:\.\d+)?)\s*(GiB|MiB|TiB|GB|MB|TB)\b',product[raw_key],re.I)
+            match=re.search(r'(?<![\w.,])('+CAPACITY_NUMBER+r')\s*(GiB|MiB|TiB|GB|MB|TB)\b',product[raw_key],re.I)
             if match and key=='ssdGB' and 'i' in match[2].casefold():
                 raise ValueError('Image storage cache has binary/system capacity; reconcile nominal drive evidence')
-            if match: cached=scaled_capacity(match[1],units[match[2].casefold().replace('i','')])
+            if match: cached=scaled_capacity(capacity_number(match[1]),units[match[2].casefold().replace('i','')])
         fact,unit=selected.get(('Product Details',field)),selected.get(('Product Details',unit_field))
         if cached is None or fact is None: continue
         if field in STORAGE_FIELDS: check_nominal_storage_basis(fact)
@@ -109,7 +108,7 @@ def listing_view(raw,ledger):
     view=copy.deepcopy(raw);view['identity']=copy.deepcopy(identity) if isinstance(identity,dict) else {}
     identity=view['identity']
     selected=selected_facts(ledger);provenance={};missing=[]
-    pid=identity.get('internalId') or raw.get('productId') or raw.get('internalId')
+    pid=product_id(raw)
     if not isinstance(pid,str) or not pid.strip(): missing.append('identity.internalId / productId')
     elif pid!=ledger['productId']: raise ValueError('Product facts identity differs from ledger product')
     else: identity['internalId']=pid
