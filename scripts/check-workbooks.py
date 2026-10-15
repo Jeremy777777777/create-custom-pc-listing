@@ -91,6 +91,10 @@ def check_output(path, topology, manufacturer=None):
             ledger = json.loads(ledger_path.read_text(encoding='utf-8-sig'))
             if isinstance(ledger, dict):
                 from research_export import verify_workbook
+                from research_handoff import check_product_location
+                facts_path=path.parent/'product-facts.json'
+                product=json.loads(facts_path.read_text(encoding='utf-8-sig')) if facts_path.exists() else None
+                check_product_location(path,ledger.get('productId'),product)
                 verify_workbook(book, ledger, mode='draft')
             elif not isinstance(ledger, list):
                 raise ValueError('Research ledger must be a legacy array or scoped object')

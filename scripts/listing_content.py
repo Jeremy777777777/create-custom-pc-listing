@@ -115,7 +115,7 @@ def base_spec_fragments(product):
     return {'ram':f"{base['ramGB']:g}GB RAM",'ssd':f"{base['ssdGB']:g}GB SSD"}
 
 
-def validate_listing(projected, product, definitions=None):
+def validate_listing(projected, product, definitions=None,storage_total_gb=None):
     values = {field:record['value'] for (sheet,field),record in projected.items() if sheet=='Product Details'}
     for key,record in projected.items():
         value=record['value']
@@ -194,6 +194,10 @@ def validate_listing(projected, product, definitions=None):
         expected=base.get(key)
         if type(expected) not in (int,float) or expected!=actual:
             raise ValueError('Workbook sold capacity differs from selected base: '+key)
+    if 'Memory Storage Capacity' in normalized:
+        expected=normalized['Hard Disk Size'] if storage_total_gb is None else storage_total_gb
+        if normalized['Memory Storage Capacity']!=expected:
+            raise ValueError('Internal storage capacity fields disagree; reconcile verified component scope and units')
     cpu=identity.get('cpu')
     for field in ('Item Name','Bullet Point','Product Description'):
         text=values.get(field,'')

@@ -154,6 +154,8 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
     metadata_report = None
     manufacturer = None
     data = load_ledger(ledger)
+    from research_handoff import check_product_location,coverage_summary,internal_storage_total
+    check_product_location(workbook,data['productId'])
     listing_stage = stage == 'LISTING_DRAFT' if stage else '_LISTING_' in workbook.stem.upper()
     if mode == 'export' or listing_stage:
         facts_path=workbook.parent/'product-facts.json'
@@ -181,7 +183,7 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
             from listing_content import validate_listing
             definitions={(sheet.title,sheet.cell(1,c).value):sheet.cell(2,c).value
                          for sheet in book for c in range(2,sheet.max_column+1)}
-            validate_listing(projected,product,definitions)
+            validate_listing(projected,product,definitions,storage_total_gb=internal_storage_total(data))
     finally:
         book.close()
     for name, path in (('workbook', workbook), ('ledger', ledger), ('template', template)):
@@ -196,6 +198,7 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
             'templateSha256': input_hashes['template'],
             'stage': stage or ('LISTING_DRAFT' if listing_stage else 'RESEARCH_REVIEW'),
             'amazonEligibilityAssessed': False, 'metadataView': metadata_report,
+            'coverageSummary':coverage_summary(data,projected),
             'fields': [{'sheet': k[0], 'attribute': k[1], **v} for k,v in projected.items()]}
 
 
@@ -214,9 +217,22 @@ def main():
     parser.add_argument('--configuration-id', help='Required for export: target base configuration')
     parser.add_argument('--stage', choices=['RESEARCH_REVIEW', 'LISTING_DRAFT'],
                         help='Export requires explicit LISTING_DRAFT; filenames cannot grant export eligibility')
+    parser.add_argument('--summary-output',type=Path,help='Write a standalone research coverage JSON after successful checking')
     args = parser.parse_args()
     try:
         result = run(args.template, args.ledger, args.workbook, args.mode, args.product_id, args.configuration_id, args.stage)
+        if args.summary_output:
+            output=args.summary_output
+            if not output.name.endswith('.research-summary.json'):
+                raise ValueError('Summary output must end with .research-summary.json')
+            if output.exists():
+                previous=json.loads(output.read_text(encoding='utf-8-sig'))
+                if not isinstance(previous,dict) or previous.get('artifactRole')!='RESEARCH_COVERAGE_SUMMARY' or previous.get('productId')!=result['productId']:
+                    raise ValueError('Summary output would overwrite an unrelated artifact')
+            summary={k:result[k] for k in ('productId','configurationId','stage','workbookSha256','ledgerSha256','templateSha256','productFactsSha256','coverageSummary')}
+            summary['artifactRole']='RESEARCH_COVERAGE_SUMMARY'
+            from gallery_engine import write
+            write(output,summary)
     except (ValueError, OSError, json.JSONDecodeError) as error:
         parser.exit(1, str(error) + '\n')
     print(json.dumps(result, indent=2, ensure_ascii=False))
