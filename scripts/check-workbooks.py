@@ -111,6 +111,8 @@ def current_workbooks(root):
 def main():
     ap=argparse.ArgumentParser();ap.add_argument('--directory',default='.');ap.add_argument('--base');ap.add_argument('--head');args=ap.parse_args()
     root=Path(args.directory);topology=template_topology(root/'assets/listing-workbook-template.xlsx')
+    from research_history import check_research_ledger_history
+    check_research_ledger_history(root,args.base,args.head)
     check_template_inputs(root/'assets/listing-workbook-template.xlsx')
     outputs=current_workbooks(root)
     snapshot_count=check_snapshots(root)

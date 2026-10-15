@@ -1,7 +1,7 @@
 """Formal export content checks; drafts keep unresolved evidence without invented values."""
 import math
 import re
-from product_metadata import exact_cpu_model
+from product_metadata import cpu_text,cpu_aliases,cpu_field_matches,check_base_storage_medium
 from capacity_units import capacity_units,MEMORY_CAPACITY_UNITS,STORAGE_CAPACITY_UNITS,scaled_capacity,CAPACITY_NUMBER,capacity_number
 
 CAPACITY_PAIRS = {
@@ -38,11 +38,6 @@ NUMERIC_FIELDS = {
     'Offer': {'Item Package Length','Item Package Width','Item Package Height'},
     'Safety&Compliance': {'Battery Charge Time','Battery Weight'},
 }
-
-
-def cpu_text(value):
-    value=re.sub(r'\((?:r|tm)\)|[®™©]', ' ', str(value), flags=re.I)
-    return ' '.join(re.findall(r'[a-z0-9]+',value.casefold()))
 
 
 def cpu_claims(text):
@@ -157,6 +152,8 @@ def validate_listing(projected, product, definitions=None,storage_total_gb=None,
                   'RAM Memory Installed','RAM Memory Installed Size Unit','Hard Disk Size','Hard Disk Size Unit','Operating System'):
         required(field)
     identity=product['identity']; base=product['selectedBaseConfiguration']
+    check_base_storage_medium({key:{'status':record['status'],'final_value':record['value']}
+                              for key,record in projected.items()})
     for field in ('Model Number','Model Name','Manufacturer','CPU Model','CPU Model Number','Operating System'):
         if not isinstance(values[field],str): raise ValueError('Expected literal text: '+field)
     title=required('Item Name')
@@ -225,21 +222,12 @@ def validate_listing(projected, product, definitions=None,storage_total_gb=None,
             if expected is not None and capacity!=expected: raise ValueError('Listing copy includes another RAM/SSD configuration or VRAM size: '+field)
     if not isinstance(cpu,str) or not cpu.strip(): raise ValueError('Verified CPU identity required in product facts')
     canonical=' '+cpu_text(cpu)+' '
-    model_anchor=cpu_text(exact_cpu_model(cpu))
-    aliases=identity.get('cpuFieldAliases',{})
-    if not isinstance(aliases,dict) or any(field not in ('CPU Model','CPU Model Number','CPU Model Manufacturer')
-        or not isinstance(names,list) or any(not isinstance(name,str) or not cpu_text(name) for name in names)
-        for field,names in aliases.items()):
-        raise ValueError('CPU aliases require supported field names and lists of verified text equivalents')
+    aliases=cpu_aliases(identity)
     for field in ('CPU Model','CPU Model Number','CPU Model Manufacturer'):
         value=values.get(field)
         if value is None: continue
-        accepted=aliases.get(field,[])
-        if not isinstance(value,str) or not cpu_text(value) or (' '+cpu_text(value)+' ' not in canonical and cpu_text(value) not in [cpu_text(a) for a in accepted]):
-            raise ValueError('Workbook CPU family/model/manufacturer differs from product facts: '+field)
-        if field=='CPU Model Number' and ' '+model_anchor+' ' not in ' '+cpu_text(value)+' ':
-            if cpu_text(value) not in [cpu_text(a) for a in accepted]:
-                raise ValueError('Exact CPU model number required; manufacturer/family is insufficient')
+        if not cpu_field_matches(field,value,cpu,aliases):
+            raise ValueError('Exact CPU model/family/manufacturer differs from product facts: '+field)
     copy_aliases=[cpu_text(alias) for alias in aliases.get('CPU Model Number',[])]
     for field in ('Item Name','Bullet Point','Product Description'):
         for claim in cpu_claims(values.get(field,'')):

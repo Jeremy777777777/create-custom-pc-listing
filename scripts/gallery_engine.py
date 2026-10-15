@@ -116,7 +116,10 @@ def logo_geometry(plan,cfg,logo,size):
 
 def review_inputs(directory,include_research=True):
     """Semantic JSON binding excludes volatile offer/logistics data, never supplies PASS."""
-    p=Path(directory); facts=read(p/'product-facts.json'); style=read(p/'style-lock.json')
+    p=Path(directory)
+    from research_history import check_product_research_history
+    check_product_research_history(p)
+    facts=read(p/'product-facts.json'); style=read(p/'style-lock.json')
     if style.get('style_approval_status',style.get('status'))!='APPROVED': raise ValueError('Current approved style lock required')
     relevant={k:v for k,v in facts.items() if k not in ('offer','Offer','inventory','researchLog','updatedAtUtc','delivery')}
     inputs={'productFacts':relevant,'styleLock':style}
@@ -527,9 +530,13 @@ def unbound_research_review(p):
 
 def gate(root,base=None,head='HEAD'):
     root=Path(root)
+    from research_history import check_research_ledger_history
+    check_research_ledger_history(root,base,head if base else None)
     changed=[] if not base else subprocess.check_output(['git','diff','--no-renames','--name-only',base,head],cwd=root,text=True).splitlines()
     for path in changed:
         parts=Path(path).parts
+        if len(parts)==3 and parts[0]=='product generated photo' and parts[2]=='research-ledger.json' and not (root/path).is_file():
+            raise ValueError('Research ledger removed; historical review cannot become current: '+path)
         if len(parts)==3 and parts[0]=='product generated photo' and parts[2] in NAMES and not (root/path).is_file():
             raise ValueError('Canonical gallery slot deleted or renamed: '+path)
     dirs=gallery_directories(root,changed,full=not base)

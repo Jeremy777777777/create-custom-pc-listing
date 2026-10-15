@@ -86,6 +86,8 @@ def storage_dependency_projection(data):
     """Bind referenced hardware/state/source metadata; exclude unrelated research notes."""
     records=storage_component_records(data)
     if records is None: return None
+    from product_metadata import selected_facts,check_base_storage_medium
+    check_base_storage_medium(selected_facts(data))
     keys=('id','sheet','attribute','status','final_value','fact_scope','configurationId','source',
           'applies_to_sold_configuration','transfer_basis')
     hardware_keys=('oem_part_number','part_description','part_quantity','drive_model','storage_interface',
@@ -108,6 +110,8 @@ def internal_storage_configuration(data):
     from capacity_units import STORAGE_CAPACITY_UNITS,check_nominal_storage_basis,scaled_capacity
     records=storage_component_records(data)
     if records is None: return None
+    from product_metadata import selected_facts,check_base_storage_medium
+    check_base_storage_medium(selected_facts(data))
     base_unit=records['baseUnit'];total_gb=0;devices=[]
     for fact in records['components']:
         check_nominal_storage_basis(fact)

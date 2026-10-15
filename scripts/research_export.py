@@ -136,6 +136,8 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
     template, ledger, workbook = map(Path, (template, ledger, workbook))
     from workbook_paths import resolve_workbook_path
     workbook=resolve_workbook_path(workbook)
+    from research_history import check_product_research_history
+    check_product_research_history(workbook.parent)
     canonical_template = ROOT/'assets/listing-workbook-template.xlsx'
     input_hashes = {name: hashlib.sha256(Path(path).read_bytes()).hexdigest()
                     for name, path in (('workbook', workbook), ('ledger', ledger), ('template', template))}
