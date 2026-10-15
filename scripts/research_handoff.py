@@ -87,7 +87,7 @@ def storage_dependency_projection(data):
     keys=('id','sheet','attribute','status','final_value','fact_scope','configurationId','source',
           'applies_to_sold_configuration','transfer_basis')
     hardware_keys=('oem_part_number','part_description','part_quantity','drive_model','storage_interface',
-                   'storage_form_factor','installation_basis','modification_evidence','replacement_check')
+                   'storage_form_factor','installation_basis','modification_evidence','replacement_check','capacity_basis')
     components=[]
     for fact in sorted(records['components'],key=lambda fact:fact['id']):
         meta=fact.get('evidence',{})
@@ -103,11 +103,12 @@ def storage_dependency_projection(data):
 
 def internal_storage_configuration(data):
     """Return verified per-drive media/capacities as well as their internal total."""
-    from product_metadata import CAPACITY_UNITS
+    from capacity_units import STORAGE_CAPACITY_UNITS,check_nominal_storage_basis,scaled_capacity
     records=storage_component_records(data)
     if records is None: return None
     base_unit=records['baseUnit'];total_gb=0;devices=[]
     for fact in records['components']:
+        check_nominal_storage_basis(fact)
         fid=fact['id'];meta=fact.get('evidence',{})
         if (fact['status']!='VERIFIED' or fact.get('applies_to_sold_configuration') is not True
             or not fact.get('transfer_basis','').strip()):
@@ -123,7 +124,7 @@ def internal_storage_configuration(data):
         value=fact['final_value'];unit=str(unit).strip().casefold()
         if type(value) not in (int,float) or not math.isfinite(value) or value<=0 or unit not in ('gb','tb'):
             raise ValueError('Storage component requires positive numeric GB/TB capacity')
-        capacity=value*CAPACITY_UNITS[unit];total_gb+=capacity
+        capacity=scaled_capacity(value,STORAGE_CAPACITY_UNITS[unit]);total_gb+=capacity
         devices.append({'factId':fid,'capacityGB':capacity,'medium':medium})
     return {'totalGB':total_gb,'devices':devices}
 

@@ -41,13 +41,13 @@ class HandoffTests(unittest.TestCase):
 
     def test_mixed_drive_copy_and_explicit_total_match_actual_media_and_devices(self):
         with tempfile.TemporaryDirectory() as tmp:
-            helper,data,path,ledger=self.fixture(Path(tmp),capacity=1280,components=True)
-            data['facts'][-1]['final_value']=1024
+            helper,data,path,ledger=self.fixture(Path(tmp),capacity=1256,components=True)
+            data['facts'][-1]['final_value']=1000
             data['facts'][-1]['evidence']['storage_medium']='INTERNAL_HDD'
             fields={f['attribute']:f for f in data['facts'] if f['sheet']=='Product Details'}
             original=fields['Item Name']['final_value']
-            for suffix,valid in ((' + 1TB HDD',True),(' + HDD: 1TB',True),(' 1.25TB total internal storage',True),
-                                 (' + 2TB HDD',False),(' + 1TB SSD',False),(' 1.25TB SSD',False),(' 2TB total storage',False)):
+            for suffix,valid in ((' + 1TB HDD',True),(' + HDD: 1TB',True),(' 1.256TB total internal storage',True),
+                                 (' + 2TB HDD',False),(' + 1TB SSD',False),(' 1.256TB SSD',False),(' 2TB total storage',False),(' 1.25TB total storage',False)):
                 fields['Item Name']['final_value']=original.replace(' Win 11 Pro',suffix+' Win 11 Pro')
                 self.save(data,path,ledger)
                 if valid:
@@ -123,7 +123,7 @@ class HandoffTests(unittest.TestCase):
         return helper,data,path,ledger
 
     def test_storage_alias_unit_conversion_and_mismatch(self):
-        for capacity,unit,valid in ((256,'GB',True),(.25,'TB',True),(512,'GB',False)):
+        for capacity,unit,valid in ((256,'GB',True),(.256,'TB',True),(.25,'TB',False),(512,'GB',False)):
             with tempfile.TemporaryDirectory() as tmp:
                 helper,data,path,ledger=self.fixture(Path(tmp),capacity,unit=unit)
                 if valid:self.assertEqual(helper.export_run(ledger,path)['result'],'EXPORT_EVIDENCE_CHECK_PASS')

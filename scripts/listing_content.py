@@ -2,6 +2,7 @@
 import math
 import re
 from product_metadata import exact_cpu_model
+from capacity_units import capacity_units,MEMORY_CAPACITY_UNITS,STORAGE_CAPACITY_UNITS,scaled_capacity
 
 CAPACITY_PAIRS = {
     'RAM Memory Installed': 'RAM Memory Installed Size Unit',
@@ -15,7 +16,6 @@ CAPACITY_PAIRS = {
 }
 SPEED_PAIRS = {'Memory Speed':'Memory Speed Unit', 'Memory Clock Speed':'Memory Clock Speed Unit',
                'CPU Base Speed':'CPU Base Speed Unit', 'CPU Model Speed Maximum':'CPU Model Speed Maximum Unit'}
-CAPACITY_UNITS = {'kb':1/1024**2, 'mb':1/1024, 'gb':1, 'tb':1024}
 SPEED_UNITS = {'mhz':1, 'ghz':1000}
 FIELD_UNITS = {
     'RAM Memory Installed': {'gb','mb'}, 'Hard Disk Size': {'gb','tb'},
@@ -62,7 +62,7 @@ def cpu_claims(text):
 
 def capacity_mentions(text,detailed_storage=False):
     """Associate each capacity once, within its clause; distinguish RAM/VRAM/cache/storage."""
-    amount=r'(?P<amount>\d+(?:\.\d+)?)\s*(?P<unit>GB|TB|MB)\b'
+    amount=r'(?P<amount>\d+(?:\.\d+)?)\s*(?P<unit>GiB|TiB|MiB|GB|TB|MB)\b'
     labels=r'\b(?:(?:Total|Combined)[ -]+(?:Internal[ -]+)?Storage|RAM|Memory|LPDDR\dX?|DDR\dX?|GDDR\dX?|VRAM|GPU|Graphics|Video|Cache|SSD|NVMe|HDD|Storage|Solid[ -]State[ -]Drive)\b'
     def category(fragment):
         if re.search(r'\b(?:GDDR\dX?|VRAM|GPU|Graphics|Video)\b',fragment,re.I): return 'vram'
@@ -108,7 +108,12 @@ def capacity_mentions(text,detailed_storage=False):
                 start=match.end()+following[0].start();fragment=clause[start:match.end()+following[-1].end()]
                 assigned.update(match.end()+m.start() for m in following)
             else: continue
-            yield float(match['amount'])*CAPACITY_UNITS[match['unit'].casefold()],category(fragment)
+            kind=category(fragment)
+            units=MEMORY_CAPACITY_UNITS if kind in ('ram','vram','cache') else STORAGE_CAPACITY_UNITS
+            unit=match['unit'].casefold()
+            if 'i' in unit and units is STORAGE_CAPACITY_UNITS:
+                raise ValueError('Binary/system storage capacity must be reconciled separately from nominal sold storage')
+            yield scaled_capacity(match['amount'],units[unit.replace('i','')]),kind
 
 
 def base_spec_fragments(product):
@@ -174,10 +179,10 @@ def validate_listing(projected, product, definitions=None,storage_total_gb=None,
         if value is None and unit is None: continue
         if type(value) not in (int,float) or not math.isfinite(value) or value<=0:
             raise ValueError('Expected a positive numeric value: '+field)
-        units=CAPACITY_UNITS if field in CAPACITY_PAIRS else SPEED_UNITS
+        units=capacity_units(field) if field in CAPACITY_PAIRS else SPEED_UNITS
         if not isinstance(unit,str) or unit.strip().casefold() not in FIELD_UNITS.get(field,set(units)):
             raise ValueError('Missing or unsupported unit: '+unit_field)
-        normalized[field]=value*units[unit.strip().casefold()]
+        normalized[field]=scaled_capacity(value,units[unit.strip().casefold()]) if field in CAPACITY_PAIRS else value*units[unit.strip().casefold()]
     ram=normalized['RAM Memory Installed']
     if 'Computer Memory Size' in normalized and ram!=normalized['Computer Memory Size']:
         raise ValueError('Installed RAM aliases disagree after unit conversion')
@@ -190,9 +195,9 @@ def validate_listing(projected, product, definitions=None,storage_total_gb=None,
             match=re.fullmatch(r'\s*(\d+(?:\.\d+)?)\s*(GB|MB|TB)\s*',maximum_alias,re.I)
             if not match: raise ValueError('RAM maximum alias requires explicit numeric capacity and unit')
             maximum_alias=float(match[1]);unit=match[2]
-        if type(maximum_alias) not in (int,float) or not math.isfinite(maximum_alias) or maximum_alias<=0 or not isinstance(unit,str) or unit.strip().casefold() not in CAPACITY_UNITS:
+        if type(maximum_alias) not in (int,float) or not math.isfinite(maximum_alias) or maximum_alias<=0 or not isinstance(unit,str) or unit.strip().casefold() not in MEMORY_CAPACITY_UNITS:
             raise ValueError('RAM maximum alias requires a positive capacity and verified unit')
-        maximum=maximum_alias*CAPACITY_UNITS[unit.strip().casefold()]
+        maximum=maximum_alias*MEMORY_CAPACITY_UNITS[unit.strip().casefold()]
         if maximum<ram or ('RAM Memory Maximum Size' in normalized and maximum!=normalized['RAM Memory Maximum Size']):
             raise ValueError('Maximum RAM aliases disagree or installed RAM exceeds maximum')
     for key,actual in [('ramGB',ram),('ssdGB',normalized['Hard Disk Size'])]:

@@ -2,7 +2,7 @@
 import copy
 import re
 
-CAPACITY_UNITS={'kb':1/1024**2,'mb':1/1024,'gb':1,'tb':1024}
+from capacity_units import capacity_units,STORAGE_FIELDS,check_nominal_storage_basis,scaled_capacity
 NON_IMAGE_FIELDS={
     'Customizations','Item Name','Bullet Point','Product Description','Generic Keyword',
     'External Product ID','External Product ID Type','Item Package Quantity','Number of Items',
@@ -19,6 +19,8 @@ def selected_facts(ledger):
 def hardware_projection(ledger,product=None):
     """Bind selected hardware facts, not offer values, research notes or factory alternatives."""
     selected=selected_facts(ledger)
+    for (sheet,field),fact in selected.items():
+        if sheet=='Product Details' and field in STORAGE_FIELDS: check_nominal_storage_basis(fact)
     if product is not None:
         identity=product.get('identity',{})
         pid=identity.get('internalId') if isinstance(identity,dict) else None
@@ -37,6 +39,9 @@ def hardware_projection(ledger,product=None):
     from research_handoff import storage_dependency_projection
     dependencies=storage_dependency_projection(ledger)
     if dependencies is not None: projection['storageDependencies']=dependencies
+    bases={field:fact['evidence']['capacity_basis'] for (sheet,field),fact in selected.items()
+           if sheet=='Product Details' and field in STORAGE_FIELDS and 'capacity_basis' in fact.get('evidence',{})}
+    if bases: projection['storageCapacityBasis']=bases
     return projection
 
 
@@ -67,16 +72,20 @@ def check_image_cache(selected,product):
     for key,raw_key,field,unit_field in [('ramGB','ram','RAM Memory Installed','RAM Memory Installed Size Unit'),
                                         ('ssdGB','internalStorage','Hard Disk Size','Hard Disk Size Unit'),
                                         ('vramGB','gpu','Graphics Ram Size','Graphics Ram Size Unit')]:
+        units=capacity_units(field)
         cached=base.get(key)
         if cached is None and isinstance(product.get(raw_key),str):
-            match=re.search(r'(\d+(?:\.\d+)?)\s*(GB|MB|TB)\b',product[raw_key],re.I)
-            if match: cached=float(match[1])*CAPACITY_UNITS[match[2].casefold()]
+            match=re.search(r'(\d+(?:\.\d+)?)\s*(GiB|MiB|TiB|GB|MB|TB)\b',product[raw_key],re.I)
+            if match and key=='ssdGB' and 'i' in match[2].casefold():
+                raise ValueError('Image storage cache has binary/system capacity; reconcile nominal drive evidence')
+            if match: cached=scaled_capacity(match[1],units[match[2].casefold().replace('i','')])
         fact,unit=selected.get(('Product Details',field)),selected.get(('Product Details',unit_field))
         if cached is None or fact is None: continue
+        if field in STORAGE_FIELDS: check_nominal_storage_basis(fact)
         if fact['status']!='VERIFIED' or unit is None or unit['status']!='VERIFIED' or type(fact['final_value']) not in (int,float):
             raise ValueError('Image cache/research capacity unresolved: '+field)
         measure=str(unit['final_value']).strip().casefold()
-        if type(cached) not in (int,float) or measure not in CAPACITY_UNITS or cached!=fact['final_value']*CAPACITY_UNITS[measure]:
+        if type(cached) not in (int,float) or measure not in units or cached!=scaled_capacity(fact['final_value'],units[measure]):
             raise ValueError('Image cache/research capacity conflict: '+field)
     cpu=identity.get('cpu') or product.get('cpu')
     if isinstance(cpu,str):
@@ -131,9 +140,13 @@ def listing_view(raw,ledger):
     for key,field,unit_field in [('ramGB','RAM Memory Installed','RAM Memory Installed Size Unit'),
                                 ('ssdGB','Hard Disk Size','Hard Disk Size Unit')]:
         value,unit=verified(field),verified(unit_field)
+        units=capacity_units(field)
+        if field in STORAGE_FIELDS:
+            fact=selected.get(('Product Details',field))
+            if fact: check_nominal_storage_basis(fact)
         normalized=None
-        if type(value) in (int,float) and isinstance(unit,str) and unit.strip().casefold() in CAPACITY_UNITS:
-            normalized=value*CAPACITY_UNITS[unit.strip().casefold()]
+        if type(value) in (int,float) and isinstance(unit,str) and unit.strip().casefold() in units:
+            normalized=scaled_capacity(value,units[unit.strip().casefold()])
         if key not in base and normalized is not None: base[key]=normalized
         elif normalized is not None and (type(base.get(key)) not in (int,float) or base[key]!=normalized):
             raise ValueError('Product facts and selected research disagree: '+field)

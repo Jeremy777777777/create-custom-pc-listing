@@ -181,6 +181,11 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
         projected = verify_workbook(book, data, mode)
         if mode == 'export':
             from listing_content import validate_listing
+            from capacity_units import STORAGE_FIELDS,check_nominal_storage_basis
+            selected={f['id']:f for f in data['facts']}
+            for mapping in data['fields']:
+                if mapping['sheet']=='Product Details' and mapping['attribute'] in STORAGE_FIELDS:
+                    check_nominal_storage_basis(selected[mapping['selected_fact']])
             definitions={(sheet.title,sheet.cell(1,c).value):sheet.cell(2,c).value
                          for sheet in book for c in range(2,sheet.max_column+1)}
             storage=internal_storage_configuration(data)
