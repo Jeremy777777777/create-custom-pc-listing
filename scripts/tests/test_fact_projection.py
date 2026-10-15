@@ -10,7 +10,7 @@ import test_edge_case_repairs as er
 import test_workflow_hardening as gf
 import gallery_engine as g
 import research_export as r
-from product_metadata import listing_view,hardware_projection
+from product_metadata import listing_view,hardware_projection,exact_cpu_model,check_image_cache
 from listing_content import capacity_mentions
 
 
@@ -53,6 +53,42 @@ class MetadataTests(unittest.TestCase):
 
 
 class CopyTests(unittest.TestCase):
+    def test_cpu_copy_checks_title_bullets_and_html_without_treating_gpu_as_cpu(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            helper=ef.ResearchExportTests();book,data,path,ledger=helper.full_fixture(Path(tmp));book.close()
+            values={f['attribute']:f['final_value'] for f in data['facts'] if f['sheet']=='Product Details'}
+        helper=er.ExportRepairs()
+        for field in ('Item Name','Bullet Point','Product Description'):
+            # Preserve required warranty/HTML/title framing while changing CPU copy.
+            text=values[field]
+            if field=='Item Name': text=text.replace(' Win 11 Pro',' Intel Core Ultra 5 235T Win 11 Pro')
+            elif field=='Bullet Point': text=text.replace('\n\n','\n\nIntel Core Ultra 5 235T. ',1)
+            else: text=text.replace('Synthetic Product','Synthetic Product Intel Core Ultra 5 235T',1)
+            with self.subTest(field=field),self.assertRaisesRegex(ValueError,'copy CPU'):
+                helper.check({field:text})
+        for cpu in ('Intel Core Ultra 7 265T','Core Ultra 7 265T','CPU: 265T'):
+            title=values['Item Name'].replace(' Win 11 Pro',' '+cpu+' Win 11 Pro')
+            self.assertEqual(helper.check({'Item Name':title})['result'],'EXPORT_EVIDENCE_CHECK_PASS')
+        title=values['Item Name'].replace(' Win 11 Pro',' NVIDIA RTX 5070 Win 11 Pro')
+        self.assertEqual(helper.check({'Item Name':title})['result'],'EXPORT_EVIDENCE_CHECK_PASS')
+
+    def test_cpu_suffix_specs_do_not_become_model_and_ambiguity_is_blocked(self):
+        for cpu in ('Intel Core Ultra 7 265T Processor 20 Cores 35W',
+                    'Intel Core Ultra 7 265T 24MB Cache 5.3 GHz 20-core'):
+            self.assertEqual(exact_cpu_model(cpu),'265T')
+            self.assertEqual(er.ExportRepairs().check({}, {'cpu':cpu})['result'],'EXPORT_EVIDENCE_CHECK_PASS')
+        with self.assertRaisesRegex(ValueError,'Exact CPU'):
+            exact_cpu_model('Intel Core Ultra 7 265T or 235T')
+
+    def test_mixed_reverse_ram_labels_are_consumed_once(self):
+        for text in ('RAM: 16GB DDR5 256GB SSD','RAM: 16GB DDR5 SSD: 256GB',
+                     'Memory: 16GB DDR5 RAM 256GB NVMe SSD'):
+            self.assertEqual(list(capacity_mentions(text)),[(16.0,'ram'),(256.0,'ssd')])
+            title='MegaPC Custom Created Using Dell QCM1250 '+text+' Win 11 Pro'
+            self.assertEqual(er.ExportRepairs().check({'Item Name':title})['result'],'EXPORT_EVIDENCE_CHECK_PASS')
+            with self.assertRaisesRegex(ValueError,'configuration'):
+                er.ExportRepairs().check({'Item Name':title.replace('256GB','512GB')})
+
     def test_specific_cpu_field_cannot_contain_only_family_or_manufacturer(self):
         helper=er.ExportRepairs()
         for model in ('Intel','Core Ultra 7','Ultra 7','7'):
@@ -82,6 +118,14 @@ class CopyTests(unittest.TestCase):
 
 
 class ResearchImageTests(unittest.TestCase):
+    def test_equivalent_resolution_dimensions_pass_but_actual_change_does_not(self):
+        selected={('Product Details','Resolution'):{'status':'VERIFIED','final_value':'1920 x 1080'}}
+        for resolution in ('1920×1080','1920X1080 px','1920 x 1080 pixels'):
+            check_image_cache(selected,{'display':{'resolution':resolution}})
+        for resolution in ('1080x1920','2560x1440','1920x0','FHD'):
+            with self.subTest(resolution=resolution),self.assertRaises(ValueError):
+                check_image_cache(selected,{'display':{'resolution':resolution}})
+
     def ledger(self):
         fact={'id':'wifi','sheet':'Product Details','attribute':'Wireless Communication Standard',
               'configurationId':'BASE','fact_scope':'SOLD_BASE','status':'VERIFIED','final_value':'Wi-Fi 6',

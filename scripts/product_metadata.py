@@ -54,7 +54,8 @@ def check_image_cache(selected,product):
         if fact['status']!='VERIFIED' or normalizer(cached)!=normalizer(fact['final_value']):
             raise ValueError('Image cache/research conflict or unresolved selected fact: '+field)
     for field,value in [('Manufacturer',identity.get('oemBrand')),('Model Number',identity.get('oemModel')),
-                        ('Operating System',product.get('os')),('Resolution',display.get('resolution'))]: compare(field,value)
+                        ('Operating System',product.get('os'))]: compare(field,value)
+    compare('Resolution',display.get('resolution'),resolution_dimensions)
     compare('Display Refresh Rate in Hertz',display.get('refreshHz'),number)
     wireless=product.get('wireless')
     if isinstance(wireless,str): compare('Wireless Communication Standard',wireless,wifi)
@@ -143,9 +144,21 @@ def exact_cpu_model(cpu):
     text=re.sub(r'\([^)]*\)|[®™©]',' ',cpu)
     apple=re.search(r'\bM\d+\s*(?:Pro|Max|Ultra)?\b',text,re.I)
     if apple: return apple.group().strip()
-    tokens=re.findall(r'\b[a-z]*\d+[a-z0-9]*\b',text,re.I)
     qualcomm=re.search(r'\bX[12][A-Z]-\d{2}-\d{3}\b',text,re.I)
     if qualcomm: return qualcomm.group()
-    if not tokens or len(re.sub(r'\D','',tokens[-1]))<2:
+    # Specifications appended to a CPU name are not model numbers. Keep an
+    # ambiguous identity explicit rather than choosing its last number.
+    text=re.sub(r'\b\d+(?:\.\d+)?[\s-]*(?:w(?:atts)?|[mg]hz|[kmgt]b|cores?|threads?)\b',' ',text,flags=re.I)
+    tokens=[token for token in re.findall(r'\b[a-z]*\d+[a-z0-9]*\b',text,re.I)
+            if len(re.sub(r'\D','',token))>=2]
+    tokens=list({token.casefold():token for token in tokens}.values())
+    if len(tokens)!=1:
         raise ValueError('Exact CPU model metadata required; family/manufacturer is insufficient')
-    return tokens[-1]
+    return tokens[0]
+
+
+def resolution_dimensions(value):
+    """Normalize only the supported width/height spelling, never guess a resolution."""
+    match=re.fullmatch(r'\s*([1-9]\d*)\s*[x×]\s*([1-9]\d*)\s*(?:pixels|px)?\s*',str(value),re.I)
+    if not match: raise ValueError('Resolution must contain positive width x height')
+    return tuple(map(int,match.groups()))

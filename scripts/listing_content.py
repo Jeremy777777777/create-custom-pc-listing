@@ -45,6 +45,21 @@ def cpu_text(value):
     return ' '.join(re.findall(r'[a-z0-9]+',value.casefold()))
 
 
+def cpu_claims(text):
+    """Recognize explicit CPU identities; ordinary numbers/GPU models are not CPU claims."""
+    text=cpu_text(re.sub(r'<[^>]+>',' ',text))
+    patterns=(
+        r'\b(?:intel )?(?:core (?:ultra [3579]|i[3579])|processor|celeron|pentium)(?: processor)? (?:\d{3,5}[a-z]{0,4}|[nug]\d{2,4})\b',
+        r'\b(?:amd )?ryzen (?:ai )?[3579] (?:hx |pro )?\d{3,5}[a-z]{0,4}\b',
+        r'\b(?:apple )?m\d+ (?:pro|max|ultra)\b|\bapple m\d+\b',
+        r'\b(?:qualcomm )?snapdragon x\d[a-z] \d{2} \d{3}\b',
+        r'\b(?:cpu|processor) (\d{3,5}[a-z]{0,4}|[nug]\d{2,4})\b',
+    )
+    for pattern in patterns:
+        for match in re.finditer(pattern,text):
+            yield match[1] if match.lastindex else match[0]
+
+
 def capacity_mentions(text):
     """Associate each capacity once, within its clause; distinguish RAM/VRAM/cache/storage."""
     amount=r'(?P<amount>\d+(?:\.\d+)?)\s*(?P<unit>GB|TB|MB)\b'
@@ -79,6 +94,11 @@ def capacity_mentions(text):
             if reverse:
                 start=left+preceding[0].start();fragment=clause[start:match.start()]
                 assigned.update(left+m.start() for m in preceding)
+                # Consume same-role suffix labels too (RAM: 16GB DDR5), but
+                # leave a different next role (SSD:) available for its amount.
+                for label in following:
+                    if category(label[0])!=category(fragment): break
+                    assigned.add(match.end()+label.start())
             elif following:
                 start=match.end()+following[0].start();fragment=clause[start:match.end()+following[-1].end()]
                 assigned.update(match.end()+m.start() for m in following)
@@ -198,6 +218,11 @@ def validate_listing(projected, product, definitions=None):
         if field=='CPU Model Number' and ' '+model_anchor+' ' not in ' '+cpu_text(value)+' ':
             if cpu_text(value) not in [cpu_text(a) for a in accepted]:
                 raise ValueError('Exact CPU model number required; manufacturer/family is insufficient')
+    copy_aliases=[cpu_text(alias) for alias in aliases.get('CPU Model Number',[])]
+    for field in ('Item Name','Bullet Point','Product Description'):
+        for claim in cpu_claims(values.get(field,'')):
+            if ' '+cpu_text(claim)+' ' not in canonical and cpu_text(claim) not in copy_aliases:
+                raise ValueError('Listing copy CPU differs from verified CPU identity: '+field)
     # Ambiguous grouping fields (e.g. Ram Memory) and storage-vs-RAM labels are
     # deliberately not equated. Their Definition and evidence require review.
     return {'content':'PASS','sourceAuthenticationInferred':False}
