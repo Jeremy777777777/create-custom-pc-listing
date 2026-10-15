@@ -104,7 +104,8 @@ def check_output(path, topology, manufacturer=None):
 def current_workbooks(root):
     # Immediate files are declared current. Explicit historical bundles live under
     # workbook-snapshots/<revision>/ and receive hash checks, never current projection.
-    return sorted((Path(root)/'product generated photo').glob('*/*.xlsx'))
+    from workbook_paths import current_product_artifacts
+    return current_product_artifacts(root,'.xlsx')
 
 
 def main():

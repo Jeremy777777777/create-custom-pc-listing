@@ -134,6 +134,8 @@ def verify_workbook(book, data, mode='draft'):
 
 def run(template, ledger, workbook, mode, product_id=None, configuration_id=None, stage=None):
     template, ledger, workbook = map(Path, (template, ledger, workbook))
+    from workbook_paths import resolve_workbook_path
+    workbook=resolve_workbook_path(workbook)
     canonical_template = ROOT/'assets/listing-workbook-template.xlsx'
     input_hashes = {name: hashlib.sha256(Path(path).read_bytes()).hexdigest()
                     for name, path in (('workbook', workbook), ('ledger', ledger), ('template', template))}
@@ -231,7 +233,7 @@ def main():
             output=args.summary_output
             from research_handoff import check_product_location
             check_product_location(output,result['productId'])
-            if not output.name.endswith('.research-summary.json'):
+            if not output.name.casefold().endswith('.research-summary.json'):
                 raise ValueError('Summary output must end with .research-summary.json')
             if output.exists():
                 previous=json.loads(output.read_text(encoding='utf-8-sig'))
@@ -239,7 +241,8 @@ def main():
                     raise ValueError('Summary output would overwrite an unrelated artifact')
             summary={k:result[k] for k in ('productId','configurationId','stage','workbookSha256','ledgerSha256','templateSha256','productFactsSha256','coverageSummary')}
             summary['artifactRole']='RESEARCH_COVERAGE_SUMMARY'
-            summary['workbookFile']=args.workbook.name
+            from workbook_paths import resolve_workbook_path
+            summary['workbookFile']=resolve_workbook_path(args.workbook).name
             from gallery_engine import write
             write(output,summary)
     except (ValueError, OSError, json.JSONDecodeError) as error:

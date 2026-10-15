@@ -134,8 +134,9 @@ def internal_storage_configuration(data):
 def check_research_summaries(root):
     """Read-only freshness checking of delivered summaries; never refresh stale conclusions."""
     from research_export import run,load_ledger
+    from workbook_paths import current_product_artifacts,files_with_suffix,resolve_workbook_path
     root=Path(root);checked=0
-    for path in sorted((root/'product generated photo').glob('*/*.research-summary.json')):
+    for path in current_product_artifacts(root,'.research-summary.json'):
         summary=json.loads(path.read_text(encoding='utf-8-sig'))
         if not isinstance(summary,dict) or summary.get('artifactRole')!='RESEARCH_COVERAGE_SUMMARY':
             raise ValueError('Invalid research summary artifact role: '+str(path))
@@ -145,13 +146,13 @@ def check_research_summaries(root):
             raise ValueError('Research summary product/configuration is stale: '+str(path))
         name=summary.get('workbookFile')
         if name is not None:
-            if not isinstance(name,str) or Path(name).name!=name or any(c in name for c in '/\\:') or not name.endswith('.xlsx'):
+            if not isinstance(name,str) or Path(name).name!=name or any(c in name for c in '/\\:') or not name.casefold().endswith('.xlsx'):
                 raise ValueError('Research summary workbook must be a local XLSX filename')
-            workbook=path.parent/name
+            workbook=resolve_workbook_path(path.parent/name)
         else:
             # Preserve summaries from the first implementation when the old hash
             # identifies exactly one current workbook; never guess by filename.
-            matches=[p for p in path.parent.glob('*.xlsx') if hashlib.sha256(p.read_bytes()).hexdigest()==summary.get('workbookSha256')]
+            matches=[p for p in files_with_suffix(path.parent,'.xlsx') if hashlib.sha256(p.read_bytes()).hexdigest()==summary.get('workbookSha256')]
             if len(matches)!=1: raise ValueError('Research summary workbook binding is stale or ambiguous')
             workbook=matches[0]
         if summary.get('stage') not in ('RESEARCH_REVIEW','LISTING_DRAFT'):
