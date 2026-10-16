@@ -1,0 +1,104 @@
+{
+  "version": 1,
+  "slots": [
+    {
+      "file": "PT01.png",
+      "protectedMask": "production-v1/layers/masks/PT01-protected.png",
+      "sha256": "c00200648aee9fc8eb83d5ffadcaa1c2fe08721e1bfcb2af0a8baf600fb84754",
+      "type": "CONSERVATIVE_PRODUCT_BOUNDING_RECTANGLE_NOT_AN_ALPHA_SILHOUETTE",
+      "layersBackToFront": [
+        "Original architectural/background composition",
+        "Exact OEM product plus LCD content",
+        "Deterministic text",
+        "Original deterministic OEM mark in reserved negative space"
+      ]
+    },
+    {
+      "file": "PT02.png",
+      "protectedMask": "production-v1/layers/masks/PT02-protected.png",
+      "sha256": "469d43c3ece3a36d3a8f5ad32eea6374aca714608aa39457f8b6d0950df2d351",
+      "type": "CONSERVATIVE_PRODUCT_BOUNDING_RECTANGLE_NOT_AN_ALPHA_SILHOUETTE",
+      "layersBackToFront": [
+        "Original architectural/background composition",
+        "Exact OEM product plus LCD content",
+        "Deterministic text",
+        "Original deterministic OEM mark in reserved negative space"
+      ]
+    },
+    {
+      "file": "PT03.png",
+      "protectedMask": "production-v1/layers/masks/PT03-protected.png",
+      "sha256": "a47891674a0e40f5a8948ff9204ec117a5a546853829d30b471852a6305deb39",
+      "type": "CONSERVATIVE_PRODUCT_BOUNDING_RECTANGLE_NOT_AN_ALPHA_SILHOUETTE",
+      "layersBackToFront": [
+        "Original architectural/background composition",
+        "Exact OEM product plus LCD content",
+        "Deterministic text",
+        "Original deterministic OEM mark in reserved negative space"
+      ]
+    },
+    {
+      "file": "PT04.png",
+      "protectedMask": "production-v1/layers/masks/PT04-protected.png",
+      "sha256": "0db5937e3bdd31b88fe1172a509f4927fb549964876531cd22e512cedc9ba09c",
+      "type": "CONSERVATIVE_PRODUCT_BOUNDING_RECTANGLE_NOT_AN_ALPHA_SILHOUETTE",
+      "layersBackToFront": [
+        "Original architectural/background composition",
+        "Exact OEM product plus LCD content",
+        "Deterministic text",
+        "Original deterministic OEM mark in reserved negative space"
+      ]
+    },
+    {
+      "file": "PT05.png",
+      "protectedMask": "production-v1/layers/masks/PT05-protected.png",
+      "sha256": "e948a2173504e7f472660a3d9f42fbdbae9554148c93b4a0d4175cc03d264258",
+      "type": "CONSERVATIVE_PRODUCT_BOUNDING_RECTANGLE_NOT_AN_ALPHA_SILHOUETTE",
+      "layersBackToFront": [
+        "Original architectural/background composition",
+        "Exact OEM product plus LCD content",
+        "Deterministic text",
+        "Original deterministic OEM mark in reserved negative space"
+      ]
+    },
+    {
+      "file": "PT06.png",
+      "protectedMask": "production-v1/layers/masks/PT06-protected.png",
+      "sha256": "6dd82f19972c10830dc78917f22ac7bd592a4b1e60b75ee11dcd8b06a990a562",
+      "type": "CONSERVATIVE_PRODUCT_BOUNDING_RECTANGLE_NOT_AN_ALPHA_SILHOUETTE",
+      "layersBackToFront": [
+        "Original architectural/background composition",
+        "Exact OEM product plus LCD content",
+        "Deterministic text",
+        "Original deterministic OEM mark in reserved negative space"
+      ]
+    },
+    {
+      "file": "PT07.png",
+      "protectedMask": "production-v1/layers/masks/PT07-protected.png",
+      "sha256": "d0b499d3191ba209c9a99196cd050aefd42bba599867176077cdda7807927a77",
+      "type": "CONSERVATIVE_PRODUCT_BOUNDING_RECTANGLE_NOT_AN_ALPHA_SILHOUETTE",
+      "layersBackToFront": [
+        "Original architectural/background composition",
+        "Exact OEM product plus LCD content",
+        "Deterministic text",
+        "Original deterministic OEM mark in reserved negative space"
+      ]
+    },
+    {
+      "file": "PT08.png",
+      "protectedMask": "production-v1/layers/masks/PT08-protected.png",
+      "sha256": "e949b495749f285bb4635d16f56ebefc54526af0da63313f8f9dbc84266b6296",
+      "type": "CONSERVATIVE_PRODUCT_BOUNDING_RECTANGLE_NOT_AN_ALPHA_SILHOUETTE",
+      "layersBackToFront": [
+        "Original architectural/background composition",
+        "Exact OEM product plus LCD content",
+        "Deterministic text",
+        "Original deterministic OEM mark in reserved negative space"
+      ]
+    }
+  ],
+  "sourceAlphaMasks": "Original/cropped official product alpha retained in front-cutout.png and official angle front.png. Conservative protected rectangles intentionally contain those silhouettes.",
+  "logoPlan": "../logo-placement.json",
+  "mainLcdBoundaries": "recipe.json and boundary-check.json"
+}

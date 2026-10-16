@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 3,
+  "result": "PASS",
+  "reviewer": "Codex multimodal visual inspection in this chat (not a separate human certification)",
+  "reviewedAtUtc": "2026-10-16T20:56:41.298322+00:00",
+  "reviewInputsSha256": "ae0c6c47fb18fc64b148e4616a1355e2915ba0d3d91b82b9b28eab5737effad0",
+  "reviewMethod": "Actual native-size image inspection plus actual 200px thumbnail sheet. Earlier defects corrected and changed bytes re-inspected. No automated assertion of artistic/factual quality.",
+  "images": [
+    {
+      "file": "MAIN-STRICT.jpg",
+      "sha256": "fadda38934024191266e5b3ac4c246c2e723aacfb4a405ecfe6744632affa029",
+      "result": "PASS",
+      "notes": "Inspected at native 1120\u00d7950 and 200px thumbnail. Complete unchanged OEM physical computer centered on white; native keyboard, camera bump, hinges, chassis mark and proportions match CT1_01. Only neutral floor matte removed. No added text, Windows or OEM overlay. Abstract OEM wallpaper retained. Physical side ports NOT_VISIBLE."
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "sha256": "645a01e460bdcfe038bef92788bd9a3fbbfb34e61e447ac7c45b5bb62277f902",
+      "result": "PASS",
+      "notes": "Inspected native and 200px. Same OEM chassis/input as strict, no added device or outside-LCD content. Original architectural LCD scene and deterministic complete white Windows 11 Pro lockup inside measured LCD. Chassis marks preserved. Title/identity readable, fine descriptor is for full-size reading. Ports NOT_VISIBLE."
+    },
+    {
+      "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "sha256": "ede342b6b4f38568df20055a2b343f04b8d40865a6a5563193b95f4a7043fd8f",
+      "result": "PASS",
+      "notes": "Inspected native 640\u00d7540 and 200px, compared against official Lenovo three-quarter reference front.png. Corrected LCD polygon to preserve inner bezel, lower frame, keyboard and left-side HDMI/TB/USB region. Original Windows package sits once, without perspective deformation, entirely inside LCD. Complete physical computer and factory marks preserved. Source detail retained at native scale; zoom recommendation not met by size, general 500px minimum met. Right-side ports NOT_VISIBLE."
+    },
+    {
+      "file": "PT01.png",
+      "sha256": "5637e10380baeab615dbfc312d15fb594565f256160a7fbbdb30cda285a546ce",
+      "result": "PASS",
+      "notes": "Inspected native and 200px. B15 architectural stage, large original OEM computer, readable two-line headline and red original Lenovo shape. Corrected headline/product collision and white matte corners. No Windows/full configuration, accessories or warranty. Keyboard/chassis marks match original, ports NOT_VISIBLE."
+    },
+    {
+      "file": "PT02.png",
+      "sha256": "8efbb4abeb934842f72b0b0a252305696a52f127645cc018f5f1963967b1a276",
+      "result": "PASS",
+      "notes": "Inspected native and 200px. Original synthetic architectural workspace, neutral stone desk and background plant, only laptop as electronic/product subject. Dark upper gradient supports white headline; no headline overlap. Original front hardware unchanged, architectural LCD mirrored only as original screen content, not physical computer. No app entitlements, synthetic person or extra device. Ports NOT_VISIBLE."
+    },
+    {
+      "file": "PT03.png",
+      "sha256": "7e6b7072fa395c48f3bde5ecc7d8a1bb98783cb02693681adcb7da2ebd7ed541",
+      "result": "PASS",
+      "notes": "Inspected native and 200px. CPU Ultra 7 265H, RTX PRO 2000 Blackwell/8GB GDDR7, 64GB DDR5, 1TB internal SSD and Windows 11 Pro present once, no alternate tiers. OEM front/input/marks preserved. Primary specification hierarchy visible at thumbnail; detailed GPU suffix read at native size. No marketing brand approximations or external devices. Ports NOT_VISIBLE."
+    },
+    {
+      "file": "PT04.png",
+      "sha256": "88b6b2d94b92ded9bd91dc5d096fd27292c13bfca68fb08c28b8132fe68dbeaf",
+      "result": "PASS",
+      "notes": "Inspected native and 200px. Display owns 16-inch/WUXGA IPS/1920\u00d71200/16:10/anti-glare/non-touch only, without unverified brightness/gamut. Complete unchanged OEM front. Text/product separation and original Lenovo overlay checked. No repeated capacity grid, Windows or input/port callouts. Ports NOT_VISIBLE."
+    },
+    {
+      "file": "PT05.png",
+      "sha256": "ec58c15cfdf5b1e18d4c75cb8faf49d9675584e7ed63e43464a89eb67f5c2976",
+      "result": "PASS",
+      "notes": "Inspected native and 200px. MODEL\u2192VISUALIZE\u2192REFINE relationship, original abstract drafting LCD, no proprietary UI or numerical component recap. Original physical front hardware/marks unchanged. Three-stage hierarchy and headline visible at thumbnail; smaller explanatory copy read at full size. Ports NOT_VISIBLE."
+    },
+    {
+      "file": "PT06.png",
+      "sha256": "4b52b27657879661fb1aa3c1629d36ab0216a7bdde7fac4bfcb4733527aa9159",
+      "result": "PASS",
+      "notes": "Inspected native and 200px against CT2_06 and current-unit US-English backlit/numpad parts evidence. White background, lossless rotation/crop of official keyboard/touchpad/TrackPoint; exact key shapes/legends, numeric keypad, three pointing buttons and original ThinkPad mark preserved. No generated keys or changed controls, no screen software UI. Ports/display NOT_VISIBLE."
+    },
+    {
+      "file": "PT07.png",
+      "sha256": "17e4224a89466667f312ea97db7a8d13a7fa50c396571467a76d14737fe377c3",
+      "result": "PASS",
+      "notes": "Inspected native and 200px. Distinct 90Wh battery fact and conditional Rapid Charge statement, footnote present and proofread at native size. No promised runtime, warranty or spec recap. Actual original chassis/input/mark preserved; dark architectural screen is decorative only. Primary 90Wh/Rapid Charge message visible at thumbnail; condition requires full-size reading. Ports NOT_VISIBLE."
+    },
+    {
+      "file": "PT08.png",
+      "sha256": "c28d06d920d8ac0c60293f4badd768640c6976acfd7e6746669a622f9b7ccbde",
+      "result": "PASS",
+      "notes": "Inspected native and 200px against exact official CT2_01/02 pixel crops and PSREF overview. Both actual side connector regions shown; HDMI, both TB4 openings, USB-A each side, audio, SD and RJ-45 leaders end at real openings. Optional SIM/smart-card region excluded rather than guessed. Wi-Fi/Bluetooth existence only, no unverified version. Headline/brand and physical structure visible at thumbnail; detailed port labels intentionally read at full size. No generic peripheral substitute. Keyboard/front camera NOT_VISIBLE."
+    }
+  ]
+}

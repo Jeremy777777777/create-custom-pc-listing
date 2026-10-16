@@ -1,0 +1,17 @@
+{
+  "result": "IDENTICAL_RENDER_HASHES",
+  "files": {
+    "MAIN-STRICT.jpg": "fadda38934024191266e5b3ac4c246c2e723aacfb4a405ecfe6744632affa029",
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png": "645a01e460bdcfe038bef92788bd9a3fbbfb34e61e447ac7c45b5bb62277f902",
+    "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": "ede342b6b4f38568df20055a2b343f04b8d40865a6a5563193b95f4a7043fd8f",
+    "PT01.png": "313a59b07ff64e35f580ac5d89a8e57a7e275edbcd24475d022cbda9506469ec",
+    "PT02.png": "a86c5cfa7fb01ac91105649b19b2ff78e62711753d3162ac1e59e115601c4664",
+    "PT03.png": "ecadf49c2bd518aa6ec9b1fc05f6eea926ac6e2a7294feecee37716cc889644f",
+    "PT04.png": "1d6a5847ca0e16116800aa679bba2e25f6c61ef3503a7dd89e06e87f392ac77d",
+    "PT05.png": "528857cbcf5438c7838dae3cce396b55068d31e96e634d3eba4db3d00215a08b",
+    "PT06.png": "348fde4892c50e5dfaeb58abccbb7e0220645c36e35f19d2016d29fd883fa6ac",
+    "PT07.png": "92f5f3e6217a9e07e484a7c1f50e4d7cb4305548516467db14a46ed2ad63ecce",
+    "PT08.png": "9bc7bf3418768834ebe73e8847e7f969e73bce438272b360013cd3e547d45c54"
+  },
+  "scope": "Three MAIN files and eight unbranded PT masters; same saved original scene/source inputs, not an AI rerun."
+}

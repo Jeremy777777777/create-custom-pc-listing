@@ -1,0 +1,72 @@
+[
+  {
+    "file": "ThinkPad_P16v_Gen_3_Intel_CT1_01.png",
+    "url": "https://psrefstuff.lenovo.com/syspool/Sys/Image/ThinkPad/ThinkPad_P16v_Gen_3_Intel/Compressedimage/ThinkPad_P16v_Gen_3_Intel_CT1_01.png",
+    "size": [
+      2000,
+      1200
+    ],
+    "sha256": "aff4cc49169c74b2690e60149089c81769bdabe0f77d1a4e7162d9cb9abf12f7",
+    "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+  },
+  {
+    "file": "ThinkPad_P16v_Gen_3_Intel_CT2_01.png",
+    "url": "https://psrefstuff.lenovo.com/syspool/Sys/Image/ThinkPad/ThinkPad_P16v_Gen_3_Intel/Compressedimage/ThinkPad_P16v_Gen_3_Intel_CT2_01.png",
+    "size": [
+      2000,
+      1200
+    ],
+    "sha256": "e8f5d97330be7852768edf687fef219956fe5f539c22558cd3bec2dc52d12998",
+    "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+  },
+  {
+    "file": "ThinkPad_P16v_Gen_3_Intel_CT2_02.png",
+    "url": "https://psrefstuff.lenovo.com/syspool/Sys/Image/ThinkPad/ThinkPad_P16v_Gen_3_Intel/Compressedimage/ThinkPad_P16v_Gen_3_Intel_CT2_02.png",
+    "size": [
+      2000,
+      1200
+    ],
+    "sha256": "f2fc1d181c2d4e064b3f0f7bba5c6ce796cb846c2e4292ed93706527e6637d83",
+    "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+  },
+  {
+    "file": "ThinkPad_P16v_Gen_3_Intel_CT2_03.png",
+    "url": "https://psrefstuff.lenovo.com/syspool/Sys/Image/ThinkPad/ThinkPad_P16v_Gen_3_Intel/Compressedimage/ThinkPad_P16v_Gen_3_Intel_CT2_03.png",
+    "size": [
+      2000,
+      1200
+    ],
+    "sha256": "f2bede48455e9b24d830a7bbf33974ebcf019807100cb8578d7077b5ba1d150c",
+    "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+  },
+  {
+    "file": "ThinkPad_P16v_Gen_3_Intel_CT2_04.png",
+    "url": "https://psrefstuff.lenovo.com/syspool/Sys/Image/ThinkPad/ThinkPad_P16v_Gen_3_Intel/Compressedimage/ThinkPad_P16v_Gen_3_Intel_CT2_04.png",
+    "size": [
+      2000,
+      1200
+    ],
+    "sha256": "8c11095d0b489a8f978d58c879abcf5bd9782d4c5bd3824ba603305ccc00bff6",
+    "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+  },
+  {
+    "file": "ThinkPad_P16v_Gen_3_Intel_CT2_05.png",
+    "url": "https://psrefstuff.lenovo.com/syspool/Sys/Image/ThinkPad/ThinkPad_P16v_Gen_3_Intel/Compressedimage/ThinkPad_P16v_Gen_3_Intel_CT2_05.png",
+    "size": [
+      2000,
+      1200
+    ],
+    "sha256": "acd2109a71fdecdc06b71131cbcf963acf00cbeb1264f7927d3ef4df723ae7b7",
+    "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+  },
+  {
+    "file": "ThinkPad_P16v_Gen_3_Intel_CT2_06.png",
+    "url": "https://psrefstuff.lenovo.com/syspool/Sys/Image/ThinkPad/ThinkPad_P16v_Gen_3_Intel/Compressedimage/ThinkPad_P16v_Gen_3_Intel_CT2_06.png",
+    "size": [
+      2000,
+      1200
+    ],
+    "sha256": "8a01da42a1535b4df44fb12c423cd583caef06c77f3b1b2bd99f0950ca08b357",
+    "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+  }
+]

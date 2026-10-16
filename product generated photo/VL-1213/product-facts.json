@@ -1,0 +1,106 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VL-1213",
+  "workflowPolicyVersion": "2026-10-02",
+  "currentRecordRole": "IMAGE_ONLY_VERIFIED_FACT_RECORD",
+  "identity": {
+    "internalId": "VL-1213",
+    "oemBrand": "Lenovo",
+    "model": "ThinkPad P16v Gen 3",
+    "color": "Black"
+  },
+  "inputASIN": "B0HC4D4X9M",
+  "sourceMapping": {
+    "mode": "MYSTORE_ONLY_WITH_AMAZON_INPUT",
+    "erpProductId": 31213,
+    "listingId": 115154069,
+    "linkedCurrentPhysicalConfiguration": "PL-1254",
+    "erpUrl": "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/31213",
+    "mappingBasis": "Exact requested ASIN explicitly appears under VL-1213; linked current child names 64GB DDR5 and 1TB internal SSD."
+  },
+  "selectedBaseConfiguration": {
+    "id": "VL-1213-64GB-1TB",
+    "cpu": "Intel Core Ultra 7 265H",
+    "gpu": "NVIDIA RTX PRO 2000 Blackwell Generation",
+    "vram": "8GB GDDR7",
+    "ram": {
+      "capacity": 64,
+      "unit": "GB",
+      "type": "DDR5"
+    },
+    "internalStorage": {
+      "capacity": 1,
+      "unit": "TB",
+      "medium": "SSD",
+      "measurementBasis": "DECIMAL_NOMINAL"
+    },
+    "os": "Windows 11 Pro",
+    "basis": "Current ERP physical child PL-1254 explicitly identifies 64GB DDR5 / 1TB SSD. Style approval is recorded separately, not used as factual evidence."
+  },
+  "display": {
+    "sizeInches": 16,
+    "resolution": "1920x1200",
+    "aspectRatio": "16:10",
+    "technology": "IPS",
+    "surface": "Anti-glare",
+    "touch": false,
+    "brightnessNits": null,
+    "colorGamut": null
+  },
+  "input": {
+    "keyboardLayout": "US English",
+    "backlit": true,
+    "numericKeypad": true,
+    "trackPoint": true,
+    "touchpad": true,
+    "oemParts": [
+      "5N21Q49827",
+      "5M11T54117"
+    ]
+  },
+  "battery": {
+    "capacityWh": 90,
+    "oemPart": "5B11M90137",
+    "rapidCharge": "Up to 80% in 1 hour with supported adapter; actual charging varies"
+  },
+  "ports": {
+    "left": [
+      "HDMI 2.1",
+      "Thunderbolt 4",
+      "Thunderbolt 4",
+      "USB-A"
+    ],
+    "rightStandardRear": [
+      "3.5mm combo audio",
+      "SD Express 7.0",
+      "USB-A",
+      "GbE RJ-45",
+      "Kensington Nano Security Slot"
+    ],
+    "optionalPorts": "Not asserted; excluded from detail crop"
+  },
+  "sources": {
+    "erp": "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/31213",
+    "oem": "https://www.lenovo.com/us/en/p/LEN101T0145",
+    "psref": "https://psref.lenovo.com/Product/ThinkPad/ThinkPad_P16v_Gen_3_Intel",
+    "specification": "https://psref.lenovo.com/syspool/Sys/PDF/ThinkPad/ThinkPad_P16v_Gen_3_Intel/ThinkPad_P16v_Gen_3_Intel_Spec.pdf",
+    "asBuilt": "Private ERP-linked current-unit query inspected 2026-10-16; public receipt omits serial and private URL. Keyboards and 90Wh battery confirmed."
+  },
+  "unresolvedOperationalChecks": [
+    "Marketplace/category/account publication review",
+    "Windows license and fulfillment activation",
+    "No independent brightness/gamut or optional SIM/smartcard/wireless-version claim"
+  ],
+  "sellerPolicy": {
+    "customized": true,
+    "listingTitlePrefix": "MegaPC Custom",
+    "excelConfigurationScope": "BASE_ONLY",
+    "finalOperatingSystem": "Windows 11 Pro",
+    "operatingSystemPolicyStatus": "USER_CONFIRMED_CATALOG_POLICY",
+    "warrantyTemplate": "MegaPC provides a 1-year limited warranty on the upgraded RAM and SSD components. The original [OEM brand] manufacturer warranty remains valid on all remaining factory components, so you are covered on both the base machine and our upgrades. The original seal has been opened solely for upgrading purposes.",
+    "warrantyStatus": "USER_CONFIRMED_CATALOG_POLICY",
+    "warrantyWordingConfirmation": "DIRECT_USER_INSTRUCTION_2026-10-05",
+    "imageScope": "COMPUTER_ONLY",
+    "oemWarrantyApplicabilityReview": "SELLER_MANUAL_PUBLICATION_CHECK"
+  }
+}

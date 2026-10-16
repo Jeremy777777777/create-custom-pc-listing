@@ -1,0 +1,347 @@
+{
+  "version": "VL-1213-B15-BG15-v1",
+  "formFactor": "LAPTOP",
+  "boundaryMode": "SCREEN_ONLY",
+  "method": "Original authorized OEM product pixels; AI only in original scene assets; deterministic typography and identity composition",
+  "slots": {
+    "MAIN-STRICT.jpg": {
+      "canvas": [
+        1120,
+        950
+      ],
+      "sourceMethod": "ORIGINAL_PHOTO",
+      "productBounds": [
+        34,
+        45,
+        1027,
+        816
+      ],
+      "screen": "Unmodified OEM reference"
+    },
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png": {
+      "canvas": [
+        1120,
+        950
+      ],
+      "boundaryMode": "SCREEN_ONLY",
+      "sourceMethod": "ORIGINAL_PHOTO",
+      "lcdPolygon": [
+        [
+          181,
+          73
+        ],
+        [
+          914,
+          73
+        ],
+        [
+          914,
+          531
+        ],
+        [
+          181,
+          531
+        ]
+      ],
+      "windowsMode": "WINDOWS_11_PRO_LOGO_LOCKUP",
+      "windowsAsset": "layers/windows-lockup-transparent.png",
+      "windowsRectInScreen": [
+        28,
+        354,
+        236,
+        78
+      ]
+    },
+    "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": {
+      "canvas": [
+        640,
+        540
+      ],
+      "boundaryMode": "SCREEN_ONLY",
+      "sourceMethod": "ORIGINAL_PHOTO",
+      "originalDetailPreserved": true,
+      "lcdPolygonSource": [
+        [
+          22,
+          113
+        ],
+        [
+          331,
+          102
+        ],
+        [
+          379,
+          276
+        ],
+        [
+          90,
+          361
+        ]
+      ],
+      "windowsMode": "WINDOWS_11_PRO_PACKAGE",
+      "windowsRectInSource": [
+        112,
+        260,
+        70,
+        77
+      ],
+      "perspectiveCoefficients": [
+        1.6574785167122368,
+        -0.45446991587271013,
+        14.890573125947036,
+        0.06565428113648925,
+        1.844288442834105,
+        -209.84898822525662,
+        -0.0009639636294685032,
+        0.0002697094081003945
+      ],
+      "note": "Architecture and text mapped to measured real LCD. Original fixed Windows package composited afterward, original aspect ratio, without perspective warp; corners inside LCD."
+    },
+    "PT01.png": {
+      "canvas": [
+        1536,
+        1024
+      ],
+      "productZones": [
+        {
+          "x": 768,
+          "y": 155,
+          "width": 660,
+          "height": 524,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 70,
+          "y": 110,
+          "width": 1100,
+          "height": 490,
+          "label": "HEADLINE"
+        }
+      ],
+      "sourceMethod": "ORIGINAL_PHOTO",
+      "notes": "High-level professional workstation purchase positioning. No Windows, full configuration grid or duplicated numerical facts. Original OEM front, original architectural scene."
+    },
+    "PT02.png": {
+      "canvas": [
+        1536,
+        1024
+      ],
+      "productZones": [
+        {
+          "x": 630,
+          "y": 292,
+          "width": 700,
+          "height": 556,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 70,
+          "y": 110,
+          "width": 1130,
+          "height": 150,
+          "label": "HEADLINE"
+        }
+      ],
+      "sourceMethod": "ORIGINAL_PHOTO",
+      "notes": "Original synthetic studio context and furniture, with the actual computer as the sole device. No people, peripherals, included software or duration claim. Different use narrative from PT01."
+    },
+    "PT03.png": {
+      "canvas": [
+        1536,
+        1024
+      ],
+      "productZones": [
+        {
+          "x": 70,
+          "y": 327,
+          "width": 650,
+          "height": 516,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 805,
+          "y": 300,
+          "width": 650,
+          "height": 670,
+          "label": "CONFIGURATION_TEXT"
+        },
+        {
+          "x": 70,
+          "y": 110,
+          "width": 1130,
+          "height": 150,
+          "label": "HEADLINE"
+        }
+      ],
+      "sourceMethod": "ORIGINAL_PHOTO",
+      "notes": "Sole full base CPU/GPU/VRAM/RAM/internal SSD/OS page. ERP linked PL-1254 64GB/1TB; no alternate capacities. Product screen is original generic architecture and no repeated Windows graphic."
+    },
+    "PT04.png": {
+      "canvas": [
+        1536,
+        1024
+      ],
+      "productZones": [
+        {
+          "x": 730,
+          "y": 290,
+          "width": 740,
+          "height": 588,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 70,
+          "y": 110,
+          "width": 1120,
+          "height": 150,
+          "label": "HEADLINE"
+        },
+        {
+          "x": 70,
+          "y": 310,
+          "width": 620,
+          "height": 370,
+          "label": "DISPLAY_TEXT"
+        }
+      ],
+      "sourceMethod": "ORIGINAL_PHOTO",
+      "notes": "Display and form ownership only; no brightness/color-gamut assumption, keyboard detail, ports or installed capacity recap."
+    },
+    "PT05.png": {
+      "canvas": [
+        1536,
+        1024
+      ],
+      "productZones": [
+        {
+          "x": 460,
+          "y": 510,
+          "width": 600,
+          "height": 477,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 70,
+          "y": 110,
+          "width": 1150,
+          "height": 150,
+          "label": "HEADLINE"
+        },
+        {
+          "x": 70,
+          "y": 310,
+          "width": 1385,
+          "height": 190,
+          "label": "WORKFLOW_TEXT"
+        }
+      ],
+      "sourceMethod": "ORIGINAL_PHOTO",
+      "notes": "Generic original model/visualize/refine task relationship. No benchmark, app compatibility, included software or numerical hardware recap. Manual semantic review required for nonnumeric narrative."
+    },
+    "PT06.png": {
+      "canvas": [
+        1536,
+        1024
+      ],
+      "productZones": [
+        {
+          "x": 230,
+          "y": 310,
+          "width": 1000,
+          "height": 769,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 70,
+          "y": 110,
+          "width": 1100,
+          "height": 190,
+          "label": "INPUT_TEXT"
+        }
+      ],
+      "sourceMethod": "ORIGINAL_PHOTO",
+      "notes": "White background and unchanged official input pixels. As-built confirms US English black backlit numeric keyboard FRU 5N21Q49827 / 5M11T54117. Source 90-degree lossless rotation and crop excludes software UI."
+    },
+    "PT07.png": {
+      "canvas": [
+        1536,
+        1024
+      ],
+      "productZones": [
+        {
+          "x": 780,
+          "y": 262,
+          "width": 660,
+          "height": 524,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 70,
+          "y": 110,
+          "width": 1120,
+          "height": 150,
+          "label": "HEADLINE"
+        },
+        {
+          "x": 70,
+          "y": 280,
+          "width": 660,
+          "height": 440,
+          "label": "BATTERY_TEXT"
+        }
+      ],
+      "sourceMethod": "ORIGINAL_PHOTO",
+      "notes": "Unused value: exact as-built 90Wh battery FRU 5B11M90137 plus OEM Rapid Charge capability; conditional charge claim, no runtime promise, no warranty or configuration recap. No adapter depicted."
+    },
+    "PT08.png": {
+      "canvas": [
+        1536,
+        1024
+      ],
+      "productZones": [
+        {
+          "x": 318,
+          "y": 362,
+          "width": 910,
+          "height": 100,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 525,
+          "y": 690,
+          "width": 485,
+          "height": 95,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 70,
+          "y": 110,
+          "width": 1120,
+          "height": 150,
+          "label": "HEADLINE"
+        }
+      ],
+      "sourceMethod": "ORIGINAL_PHOTO",
+      "notes": "Actual official left-side and rear-right connector-detail crops. Labels terminate on real openings; two leaders point to the two Thunderbolt connectors. No generic external devices. Optional smart-card/SIM area excluded; wireless existence verified by ERP, no unverified version claim. Two USB-A shown on two sides."
+    }
+  },
+  "frontSourceCrop": [
+    490,
+    215,
+    1517,
+    1050
+  ],
+  "angleSourceCrop": [
+    0,
+    15,
+    584,
+    569
+  ],
+  "fonts": [
+    "Arial",
+    "Arial Bold"
+  ],
+  "generationRecord": "generation-prompts.json",
+  "sourceLedger": "sources.json",
+  "brandOverlayPlan": "../logo-placement.json"
+}

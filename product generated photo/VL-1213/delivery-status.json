@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VL-1213",
+  "galleryState": "CURRENT_REVIEWED",
+  "currentQaPass": true,
+  "deliveryScope": "FULL_GALLERY",
+  "deliveryState": "READY_FOR_GITHUB_DELIVERY",
+  "amazonMainEligibility": "NOT_ASSESSED",
+  "reason": "Current full-gallery bytes and supplied hash-bound reviews passed local acceptance; remote delivery remains unverified.",
+  "nextRun": "Commit/push, await applicable CI and verify remote file hashes before claiming GITHUB_DELIVERY_VERIFIED."
+}

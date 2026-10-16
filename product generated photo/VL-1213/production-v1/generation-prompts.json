@@ -1,0 +1,18 @@
+{
+  "tool": "Built-in ImageGen",
+  "hardwareMethod": "ORIGINAL_PHOTO; no generated chassis used in final slots",
+  "prompts": [
+    [
+      "architectural-stage",
+      "Use case: product-mockup. Create one premium empty architectural product-photography stage background, landscape 3:2. No product, no computer, no text, no logos, no symbols, no devices, no accessories, no people. B15 Architectural Precision style: graphite concrete, dark navy, gray metal, restrained icy-blue drafting lines. Composition: spacious dark upper-left negative area for white headline, medium-gray illuminated low plinth running across the lower half for later deterministic placement of a real black laptop, straight horizontal top surface visible, no objects on the plinth. Architectural vertical plane and a few concrete volumes on far right, subtle thin blue lines on far right only. Sophisticated studio side-light from upper left separates the future black laptop from charcoal surfaces. Elegant editorial luxury industrial design photography. No excessive neon, no tiny noisy grids. Lighting and shadow physically plausible. Landscape high-resolution output."
+    ],
+    [
+      "natural-workspace",
+      "Use case: photorealistic-natural. Create one premium empty architecture studio workspace photography background landscape 3:2, to composite a real laptop later. No laptop or any electronic equipment in this image. No people, no hands, no text, no logos, no books, paper, pens, lamps, cables, cup, mouse, monitors or accessories. Wide uninterrupted medium-light gray stone desktop fills lower 55 percent of image, perspective shallow and camera nearly level suitable for a front-facing laptop. Upper half shows sophisticated contemporary architectural office: diffuse daylight from tall windows on the far right, graphite concrete wall with subtle structural rhythm, very soft unfocused original modern city geometry outside. Upper-left dark navy-gray negative space reserved for white headline. Keep center-lower tabletop completely empty and evenly illuminated. Restrained cool-gray, graphite, slight icy blue accent family B15/BG15. Calm professional mood, real optical depth, no exaggerated futuristic neon. High-end editorial photography."
+    ],
+    [
+      "architectural-screen",
+      "Use case: illustration-story. Create one original landscape 16:10 architectural design visualization to be placed inside the LCD of a professional mobile workstation. No laptop, no devices, no logos, no text, no UI, no icons. Exact visual family: graphite-black and dark navy background, realistic pale concrete original cantilevered modern building massing on right-center, elegant thin icy-blue technical wireframe contours and drafting construction lines concentrated to the right, restrained soft reflections. Empty dark navy negative space in bottom-left quarter to later place approved Windows identity graphic without obscuring architecture. The building should be refined, human-scaled, believable, architecturally interesting, not copied from any known architect. Strong separation and crisp professional engineering aesthetics, beautiful dimensional lighting, no colorful neon. High-resolution landscape."
+    ]
+  ]
+}

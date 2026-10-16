@@ -1,0 +1,65 @@
+{
+  "PT01.png": {
+    "primaryFactIds": [],
+    "notes": "High-level professional workstation purchase positioning. No Windows, full configuration grid or duplicated numerical facts. Original OEM front, original architectural scene."
+  },
+  "PT02.png": {
+    "primaryFactIds": [],
+    "notes": "Original synthetic studio context and furniture, with the actual computer as the sole device. No people, peripherals, included software or duration claim. Different use narrative from PT01."
+  },
+  "PT03.png": {
+    "primaryFactIds": [
+      "cpu",
+      "gpu",
+      "vram",
+      "ram",
+      "ssd",
+      "os"
+    ],
+    "notes": "Sole full base CPU/GPU/VRAM/RAM/internal SSD/OS page. ERP linked PL-1254 64GB/1TB; no alternate capacities. Product screen is original generic architecture and no repeated Windows graphic."
+  },
+  "PT04.png": {
+    "primaryFactIds": [
+      "displaySize",
+      "displayResolution",
+      "displayRatio",
+      "displaySurface",
+      "displayTouch"
+    ],
+    "notes": "Display and form ownership only; no brightness/color-gamut assumption, keyboard detail, ports or installed capacity recap."
+  },
+  "PT05.png": {
+    "primaryFactIds": [],
+    "notes": "Generic original model/visualize/refine task relationship. No benchmark, app compatibility, included software or numerical hardware recap. Manual semantic review required for nonnumeric narrative."
+  },
+  "PT06.png": {
+    "primaryFactIds": [
+      "keyboardLayout",
+      "keyboardBacklight",
+      "numericKeypad",
+      "trackPoint",
+      "touchpad"
+    ],
+    "notes": "White background and unchanged official input pixels. As-built confirms US English black backlit numeric keyboard FRU 5N21Q49827 / 5M11T54117. Source 90-degree lossless rotation and crop excludes software UI."
+  },
+  "PT07.png": {
+    "primaryFactIds": [
+      "batteryCapacity",
+      "rapidCharge"
+    ],
+    "notes": "Unused value: exact as-built 90Wh battery FRU 5B11M90137 plus OEM Rapid Charge capability; conditional charge claim, no runtime promise, no warranty or configuration recap. No adapter depicted."
+  },
+  "PT08.png": {
+    "primaryFactIds": [
+      "hdmi",
+      "thunderbolt",
+      "usbA",
+      "audioJack",
+      "sdReader",
+      "ethernet",
+      "wifi",
+      "bluetooth"
+    ],
+    "notes": "Actual official left-side and rear-right connector-detail crops. Labels terminate on real openings; two leaders point to the two Thunderbolt connectors. No generic external devices. Optional smart-card/SIM area excluded; wireless existence verified by ERP, no unverified version claim. Two USB-A shown on two sides."
+  }
+}

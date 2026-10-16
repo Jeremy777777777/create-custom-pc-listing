@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 3,
+  "generatedAtUtc": "2026-10-16T20:50:59.985690+00:00",
+  "brand": "Lenovo",
+  "result": "PASS",
+  "logoAssetSha256": "c24c552dbdd6398cc55ef5205cd51561f65b03b3f1d9ed6a8b0f3895f99e017d",
+  "logoAssetPath": "production-v1\\references\\lenovo-logo-transparent.png",
+  "visibleLogoAspectRatio": 2.998046875,
+  "placementPlanSha256": "f3645eb0e2960b4d9bfa61f9c3c1a117ba9b5c64bd78934b3118578acab29d24",
+  "images": [
+    {
+      "file": "PT01.png",
+      "finalImageSha256": "5637e10380baeab615dbfc312d15fb594565f256160a7fbbdb30cda285a546ce",
+      "unbrandedSourceSha256": "313a59b07ff64e35f580ac5d89a8e57a7e275edbcd24475d022cbda9506469ec",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT02.png",
+      "finalImageSha256": "8efbb4abeb934842f72b0b0a252305696a52f127645cc018f5f1963967b1a276",
+      "unbrandedSourceSha256": "a86c5cfa7fb01ac91105649b19b2ff78e62711753d3162ac1e59e115601c4664",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT03.png",
+      "finalImageSha256": "7e6b7072fa395c48f3bde5ecc7d8a1bb98783cb02693681adcb7da2ebd7ed541",
+      "unbrandedSourceSha256": "ecadf49c2bd518aa6ec9b1fc05f6eea926ac6e2a7294feecee37716cc889644f",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT04.png",
+      "finalImageSha256": "88b6b2d94b92ded9bd91dc5d096fd27292c13bfca68fb08c28b8132fe68dbeaf",
+      "unbrandedSourceSha256": "1d6a5847ca0e16116800aa679bba2e25f6c61ef3503a7dd89e06e87f392ac77d",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT05.png",
+      "finalImageSha256": "ec58c15cfdf5b1e18d4c75cb8faf49d9675584e7ed63e43464a89eb67f5c2976",
+      "unbrandedSourceSha256": "528857cbcf5438c7838dae3cce396b55068d31e96e634d3eba4db3d00215a08b",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT06.png",
+      "finalImageSha256": "4b52b27657879661fb1aa3c1629d36ab0216a7bdde7fac4bfcb4733527aa9159",
+      "unbrandedSourceSha256": "348fde4892c50e5dfaeb58abccbb7e0220645c36e35f19d2016d29fd883fa6ac",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT07.png",
+      "finalImageSha256": "17e4224a89466667f312ea97db7a8d13a7fa50c396571467a76d14737fe377c3",
+      "unbrandedSourceSha256": "92f5f3e6217a9e07e484a7c1f50e4d7cb4305548516467db14a46ed2ad63ecce",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT08.png",
+      "finalImageSha256": "c28d06d920d8ac0c60293f4badd768640c6976acfd7e6746669a622f9b7ccbde",
+      "unbrandedSourceSha256": "9bc7bf3418768834ebe73e8847e7f969e73bce438272b360013cd3e547d45c54",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    }
+  ],
+  "visualReviewSha256": "f2c3e15558c8284e0ad9fa7cb08ab0336e06ba9706f86afcba7918ef058f1316"
+}

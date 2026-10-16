@@ -1,0 +1,85 @@
+{
+  "result": "PASS",
+  "frontOutsideLcdDifference": null,
+  "angleOutsideLcdDifference": null,
+  "method": "Pixel comparison against original product on same white canvas; binary measured LCD masks exclude all changed pixels. Does not independently prove polygon fidelity; that was visually reviewed.",
+  "images": [
+    {
+      "file": "MAIN-STRICT.jpg",
+      "sha256": "fadda38934024191266e5b3ac4c246c2e723aacfb4a405ecfe6744632affa029",
+      "width": 1120,
+      "height": 950,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "sha256": "645a01e460bdcfe038bef92788bd9a3fbbfb34e61e447ac7c45b5bb62277f902",
+      "width": 1120,
+      "height": 950,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "sha256": "ede342b6b4f38568df20055a2b343f04b8d40865a6a5563193b95f4a7043fd8f",
+      "width": 640,
+      "height": 540,
+      "zoomEligibleBySize": false
+    },
+    {
+      "file": "PT01.png",
+      "sha256": "5637e10380baeab615dbfc312d15fb594565f256160a7fbbdb30cda285a546ce",
+      "width": 1536,
+      "height": 1024,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "PT02.png",
+      "sha256": "8efbb4abeb934842f72b0b0a252305696a52f127645cc018f5f1963967b1a276",
+      "width": 1536,
+      "height": 1024,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "PT03.png",
+      "sha256": "7e6b7072fa395c48f3bde5ecc7d8a1bb98783cb02693681adcb7da2ebd7ed541",
+      "width": 1536,
+      "height": 1024,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "PT04.png",
+      "sha256": "88b6b2d94b92ded9bd91dc5d096fd27292c13bfca68fb08c28b8132fe68dbeaf",
+      "width": 1536,
+      "height": 1024,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "PT05.png",
+      "sha256": "ec58c15cfdf5b1e18d4c75cb8faf49d9675584e7ed63e43464a89eb67f5c2976",
+      "width": 1536,
+      "height": 1024,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "PT06.png",
+      "sha256": "4b52b27657879661fb1aa3c1629d36ab0216a7bdde7fac4bfcb4733527aa9159",
+      "width": 1536,
+      "height": 1024,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "PT07.png",
+      "sha256": "17e4224a89466667f312ea97db7a8d13a7fa50c396571467a76d14737fe377c3",
+      "width": 1536,
+      "height": 1024,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "PT08.png",
+      "sha256": "c28d06d920d8ac0c60293f4badd768640c6976acfd7e6746669a622f9b7ccbde",
+      "width": 1536,
+      "height": 1024,
+      "zoomEligibleBySize": true
+    }
+  ]
+}

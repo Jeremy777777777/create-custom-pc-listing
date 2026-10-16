@@ -1,0 +1,266 @@
+{
+  "pairs": [
+    {
+      "slots": [
+        "PT01.png",
+        "PT02.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT01.png",
+        "PT03.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT01.png",
+        "PT04.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT01.png",
+        "PT05.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT01.png",
+        "PT06.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT01.png",
+        "PT07.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT01.png",
+        "PT08.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT02.png",
+        "PT03.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT02.png",
+        "PT04.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT02.png",
+        "PT05.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT02.png",
+        "PT06.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT02.png",
+        "PT07.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT02.png",
+        "PT08.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT03.png",
+        "PT04.png"
+      ],
+      "sharedPrimaryFactIds": [],
+      "smallerFactCount": 5,
+      "overlap": 0.0,
+      "result": "PASS"
+    },
+    {
+      "slots": [
+        "PT03.png",
+        "PT05.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT03.png",
+        "PT06.png"
+      ],
+      "sharedPrimaryFactIds": [],
+      "smallerFactCount": 5,
+      "overlap": 0.0,
+      "result": "PASS"
+    },
+    {
+      "slots": [
+        "PT03.png",
+        "PT07.png"
+      ],
+      "sharedPrimaryFactIds": [],
+      "smallerFactCount": 2,
+      "overlap": 0.0,
+      "result": "PASS"
+    },
+    {
+      "slots": [
+        "PT03.png",
+        "PT08.png"
+      ],
+      "sharedPrimaryFactIds": [],
+      "smallerFactCount": 6,
+      "overlap": 0.0,
+      "result": "PASS"
+    },
+    {
+      "slots": [
+        "PT04.png",
+        "PT05.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT04.png",
+        "PT06.png"
+      ],
+      "sharedPrimaryFactIds": [],
+      "smallerFactCount": 5,
+      "overlap": 0.0,
+      "result": "PASS"
+    },
+    {
+      "slots": [
+        "PT04.png",
+        "PT07.png"
+      ],
+      "sharedPrimaryFactIds": [],
+      "smallerFactCount": 2,
+      "overlap": 0.0,
+      "result": "PASS"
+    },
+    {
+      "slots": [
+        "PT04.png",
+        "PT08.png"
+      ],
+      "sharedPrimaryFactIds": [],
+      "smallerFactCount": 5,
+      "overlap": 0.0,
+      "result": "PASS"
+    },
+    {
+      "slots": [
+        "PT05.png",
+        "PT06.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT05.png",
+        "PT07.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT05.png",
+        "PT08.png"
+      ],
+      "mode": "MANUAL_REVIEW",
+      "result": "PASS",
+      "rationale": "Reviewed actual copy and scene: PT01 professional purchase positioning, PT02 workspace context, PT05 concept/visualize/refine process. No duplicate primary numerical specification; identity/navigation excluded. Narrative ownership distinct. No numeric overlap assigned to a zero-fact denominator."
+    },
+    {
+      "slots": [
+        "PT06.png",
+        "PT07.png"
+      ],
+      "sharedPrimaryFactIds": [],
+      "smallerFactCount": 2,
+      "overlap": 0.0,
+      "result": "PASS"
+    },
+    {
+      "slots": [
+        "PT06.png",
+        "PT08.png"
+      ],
+      "sharedPrimaryFactIds": [],
+      "smallerFactCount": 5,
+      "overlap": 0.0,
+      "result": "PASS"
+    },
+    {
+      "slots": [
+        "PT07.png",
+        "PT08.png"
+      ],
+      "sharedPrimaryFactIds": [],
+      "smallerFactCount": 2,
+      "overlap": 0.0,
+      "result": "PASS"
+    }
+  ]
+}

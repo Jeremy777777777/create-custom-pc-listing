@@ -1,0 +1,96 @@
+{
+  "schemaVersion": 3,
+  "result": "PASS",
+  "reviewer": "Codex multimodal visual inspection in this chat (not a separate human certification)",
+  "reviewedAtUtc": "2026-10-16T20:56:41.298322+00:00",
+  "reviewInputsSha256": "ae0c6c47fb18fc64b148e4616a1355e2915ba0d3d91b82b9b28eab5737effad0",
+  "images": [
+    {
+      "file": "PT01.png",
+      "sha256": "5637e10380baeab615dbfc312d15fb594565f256160a7fbbdb30cda285a546ce",
+      "result": "PASS",
+      "notes": "High-level professional workstation purchase positioning. No Windows, full configuration grid or duplicated numerical facts. Original OEM front, original architectural scene.",
+      "primaryFactIds": []
+    },
+    {
+      "file": "PT02.png",
+      "sha256": "8efbb4abeb934842f72b0b0a252305696a52f127645cc018f5f1963967b1a276",
+      "result": "PASS",
+      "notes": "Original synthetic studio context and furniture, with the actual computer as the sole device. No people, peripherals, included software or duration claim. Different use narrative from PT01.",
+      "primaryFactIds": []
+    },
+    {
+      "file": "PT03.png",
+      "sha256": "7e6b7072fa395c48f3bde5ecc7d8a1bb98783cb02693681adcb7da2ebd7ed541",
+      "result": "PASS",
+      "notes": "Sole full base CPU/GPU/VRAM/RAM/internal SSD/OS page. ERP linked PL-1254 64GB/1TB; no alternate capacities. Product screen is original generic architecture and no repeated Windows graphic.",
+      "primaryFactIds": [
+        "cpu",
+        "gpu",
+        "vram",
+        "ram",
+        "ssd",
+        "os"
+      ]
+    },
+    {
+      "file": "PT04.png",
+      "sha256": "88b6b2d94b92ded9bd91dc5d096fd27292c13bfca68fb08c28b8132fe68dbeaf",
+      "result": "PASS",
+      "notes": "Display and form ownership only; no brightness/color-gamut assumption, keyboard detail, ports or installed capacity recap.",
+      "primaryFactIds": [
+        "displaySize",
+        "displayResolution",
+        "displayRatio",
+        "displaySurface",
+        "displayTouch"
+      ]
+    },
+    {
+      "file": "PT05.png",
+      "sha256": "ec58c15cfdf5b1e18d4c75cb8faf49d9675584e7ed63e43464a89eb67f5c2976",
+      "result": "PASS",
+      "notes": "Generic original model/visualize/refine task relationship. No benchmark, app compatibility, included software or numerical hardware recap. Manual semantic review required for nonnumeric narrative.",
+      "primaryFactIds": []
+    },
+    {
+      "file": "PT06.png",
+      "sha256": "4b52b27657879661fb1aa3c1629d36ab0216a7bdde7fac4bfcb4733527aa9159",
+      "result": "PASS",
+      "notes": "White background and unchanged official input pixels. As-built confirms US English black backlit numeric keyboard FRU 5N21Q49827 / 5M11T54117. Source 90-degree lossless rotation and crop excludes software UI.",
+      "primaryFactIds": [
+        "keyboardLayout",
+        "keyboardBacklight",
+        "numericKeypad",
+        "trackPoint",
+        "touchpad"
+      ]
+    },
+    {
+      "file": "PT07.png",
+      "sha256": "17e4224a89466667f312ea97db7a8d13a7fa50c396571467a76d14737fe377c3",
+      "result": "PASS",
+      "notes": "Unused value: exact as-built 90Wh battery FRU 5B11M90137 plus OEM Rapid Charge capability; conditional charge claim, no runtime promise, no warranty or configuration recap. No adapter depicted.",
+      "primaryFactIds": [
+        "batteryCapacity",
+        "rapidCharge"
+      ]
+    },
+    {
+      "file": "PT08.png",
+      "sha256": "c28d06d920d8ac0c60293f4badd768640c6976acfd7e6746669a622f9b7ccbde",
+      "result": "PASS",
+      "notes": "Actual official left-side and rear-right connector-detail crops. Labels terminate on real openings; two leaders point to the two Thunderbolt connectors. No generic external devices. Optional smart-card/SIM area excluded; wireless existence verified by ERP, no unverified version claim. Two USB-A shown on two sides.",
+      "primaryFactIds": [
+        "hdmi",
+        "thunderbolt",
+        "usbA",
+        "audioJack",
+        "sdReader",
+        "ethernet",
+        "wifi",
+        "bluetooth"
+      ]
+    }
+  ]
+}

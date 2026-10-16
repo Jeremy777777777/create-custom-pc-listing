@@ -1,0 +1,32 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VL-1213",
+  "style_approval_status": "APPROVED",
+  "approved_style_id": "B15",
+  "approved_supporting_gallery_pack": "BG15",
+  "audience_style_family": "BUSINESS_WORK",
+  "image_style_profile": "navy-technical-v1",
+  "palette": [
+    "Graphite",
+    "Cool gray",
+    "Dark navy",
+    "Icy blue"
+  ],
+  "approval": {
+    "quote": "\u6279\u51c6",
+    "source": "Direct user message in this chat, after the B15/BG15 two-panel preview",
+    "date": "2026-10-16",
+    "scope": "Product-specific B15/BG15 direction; production and factual QA remain independent"
+  },
+  "recipeStatus": "BUILT_REVIEWED",
+  "recipePath": "production-v1/recipe.json",
+  "recipeSha256": "df7e408f98bff9a92b11710296b8fc867af502b160b2f5f8734ec16dbf7f82fa",
+  "mainBoundary": "SCREEN_ONLY",
+  "forbidden": [
+    "External devices",
+    "Accessories",
+    "Invented hardware",
+    "Unverified software entitlements",
+    "Seller warranty promotion"
+  ]
+}

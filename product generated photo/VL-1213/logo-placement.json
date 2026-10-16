@@ -1,0 +1,231 @@
+{
+  "schemaVersion": 3,
+  "brand": "Lenovo",
+  "logoRole": "OEM base-product identifier",
+  "logoAssetSourceUrl": "https://media.lenovobrandworld.fiestic.com/2022/06/08010946/LenovoLogo_POS-Red-H.png",
+  "logoVisibilityMode": "ASPECT_RATIO_WORDMARK",
+  "minimumClearancePx": 32,
+  "minimumComponentSeparationPx": 32,
+  "thumbnailReviewSizePx": 200,
+  "placements": {
+    "PT01.png": {
+      "x": 1288,
+      "y": 58,
+      "width": 168,
+      "height": 56,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 768,
+          "y": 155,
+          "width": 660,
+          "height": 524,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 70,
+          "y": 110,
+          "width": 1100,
+          "height": 490,
+          "label": "HEADLINE"
+        }
+      ]
+    },
+    "PT02.png": {
+      "x": 1288,
+      "y": 58,
+      "width": 168,
+      "height": 56,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 630,
+          "y": 292,
+          "width": 700,
+          "height": 556,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 70,
+          "y": 110,
+          "width": 1130,
+          "height": 150,
+          "label": "HEADLINE"
+        }
+      ]
+    },
+    "PT03.png": {
+      "x": 1288,
+      "y": 58,
+      "width": 168,
+      "height": 56,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 70,
+          "y": 327,
+          "width": 650,
+          "height": 516,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 805,
+          "y": 300,
+          "width": 650,
+          "height": 670,
+          "label": "CONFIGURATION_TEXT"
+        },
+        {
+          "x": 70,
+          "y": 110,
+          "width": 1130,
+          "height": 150,
+          "label": "HEADLINE"
+        }
+      ]
+    },
+    "PT04.png": {
+      "x": 1288,
+      "y": 58,
+      "width": 168,
+      "height": 56,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 730,
+          "y": 290,
+          "width": 740,
+          "height": 588,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 70,
+          "y": 110,
+          "width": 1120,
+          "height": 150,
+          "label": "HEADLINE"
+        },
+        {
+          "x": 70,
+          "y": 310,
+          "width": 620,
+          "height": 370,
+          "label": "DISPLAY_TEXT"
+        }
+      ]
+    },
+    "PT05.png": {
+      "x": 1288,
+      "y": 58,
+      "width": 168,
+      "height": 56,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 460,
+          "y": 510,
+          "width": 600,
+          "height": 477,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 70,
+          "y": 110,
+          "width": 1150,
+          "height": 150,
+          "label": "HEADLINE"
+        },
+        {
+          "x": 70,
+          "y": 310,
+          "width": 1385,
+          "height": 190,
+          "label": "WORKFLOW_TEXT"
+        }
+      ]
+    },
+    "PT06.png": {
+      "x": 1288,
+      "y": 58,
+      "width": 168,
+      "height": 56,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 230,
+          "y": 310,
+          "width": 1000,
+          "height": 769,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 70,
+          "y": 110,
+          "width": 1100,
+          "height": 190,
+          "label": "INPUT_TEXT"
+        }
+      ]
+    },
+    "PT07.png": {
+      "x": 1288,
+      "y": 58,
+      "width": 168,
+      "height": 56,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 780,
+          "y": 262,
+          "width": 660,
+          "height": 524,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 70,
+          "y": 110,
+          "width": 1120,
+          "height": 150,
+          "label": "HEADLINE"
+        },
+        {
+          "x": 70,
+          "y": 280,
+          "width": 660,
+          "height": 440,
+          "label": "BATTERY_TEXT"
+        }
+      ]
+    },
+    "PT08.png": {
+      "x": 1288,
+      "y": 58,
+      "width": 168,
+      "height": 56,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 318,
+          "y": 362,
+          "width": 910,
+          "height": 100,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 525,
+          "y": 690,
+          "width": 485,
+          "height": 95,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 70,
+          "y": 110,
+          "width": 1120,
+          "height": 150,
+          "label": "HEADLINE"
+        }
+      ]
+    }
+  }
+}
