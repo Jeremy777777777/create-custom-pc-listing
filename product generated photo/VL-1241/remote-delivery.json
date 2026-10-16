@@ -1,0 +1,309 @@
+{
+  "result": "GITHUB_DELIVERY_VERIFIED",
+  "commit": "bbf12540c09e99fcbc6ca802376e0dcb081c0ff2",
+  "currentRemoteMain": "bbf12540c09e99fcbc6ca802376e0dcb081c0ff2",
+  "scope": "FULL_GALLERY_VL-1241",
+  "remoteFilesVerified": 57,
+  "canonicalImageCount": 11,
+  "files": [
+    {
+      "path": "product generated photo/VL-1241/.gitattributes",
+      "sha256": "f38d4e0faef967af83b09e4ec020cfd8c28247233861127b5825004ae31069ed",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "sha256": "8f8c2e37c3c57248f1b62c5c13c6d33c97ed41aaa40e93f173dca1f91104ccf9",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "sha256": "7bb53936bd3cda98fe193ad9060163ab770c963890911e9beae124835da2fdcc",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/MAIN-STRICT.jpg",
+      "sha256": "49db68319cbc58a78ffc7725976f7dd558f7a751e7a28c4b233d8763294c947d",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/PT01.png",
+      "sha256": "7c06932538195696488952a7f7c19d52efdff3aaaa918b42eecd3f8b6380f9ea",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/PT02.png",
+      "sha256": "d81f60ae818d787652d2aa50495d4e2f655bd07f44bd99437621af6878186d5e",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/PT03.png",
+      "sha256": "d146773b26d3fd3139900b8fbb75e44a5ea63491bb2d741117c4ce2ed668b848",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/PT04.png",
+      "sha256": "97100bde18dae56a8126b7424d196c26cab509b6ff5da55c511b38faca7cdead",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/PT05.png",
+      "sha256": "5c4e83d9a0d42aa87ed97242cc9b22e27399db67bbe5a6506f214f0530334c33",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/PT06.png",
+      "sha256": "8b0158e18434111ba18e73916a8e82794716f8a1839b07c441956d2b17b4e357",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/PT07.png",
+      "sha256": "8c3f9d18574671cbb8d33be8e7748c046e957bd308afe63767a0c48cfd29ec9a",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/PT08.png",
+      "sha256": "7d39da46c469b95c9333eb8300f33c24a5862e9d6f3f46ab20b57c60203ec432",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/README.md",
+      "sha256": "b5fb14327f754fcfed4d39a5bd4c485fda1fcec5dd28662ea2e838caec11e15d",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/delivery-status.json",
+      "sha256": "06f04f789714149b3723dbaadfa676d8f89c34cdc3f6ac0e28cd71a7c0dfe068",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/final-image-qa.json",
+      "sha256": "1edb333d2aac4e094b45907e860d92c5357b609ddf5f82841bf7a62f01dc72bf",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/image-manifest.md",
+      "sha256": "b160c83be140e7072a32f45b3a825158ae82b25fca1171f8dd11bdb5e3b30c7b",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/logo-placement.json",
+      "sha256": "5fd79f8604afd4fe7c5514b91f9dd921b7de8b106668372cdd85967324c29c6b",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/logo-qa.json",
+      "sha256": "6889a3874a6fe91071088915558c14366f9963b65f0af7f9404d497ac851fa2b",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/product-facts.json",
+      "sha256": "8e825c8c5bc28f39821d8f2466ae8a09e92fdfa4adea72ab7ff8ba1e14999e28",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/file-inspection.json",
+      "sha256": "f8fbcf5d6e11c5ceb3a1b7c5b860ba5c83475df3a05f98aac0d6e4491eeae5a9",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/finish-metadata.py",
+      "sha256": "818553cf90d6b2f074ca384112b7f8d452303f50ffc9b34fa027346ab37f4e33",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/generation-prompts.json",
+      "sha256": "2f61fdb317c640f1c8ca628b5a32d051bfbdd7de3e5acd2b0c21d7722c378653",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/masters/angle-clean.png",
+      "sha256": "8ebc869bb583635cd270cf18cd3216c1bd735fa420a9e84c0d7606ff5ccbdc2c",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/masters/angle-lcd-mask.png",
+      "sha256": "b4758cc49a73fe09f99f47dc4dcaa6a286dd89726ec0a855cbca49629d54be0b",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/masters/enhanced-angle-lcd-mask.png",
+      "sha256": "55e43c1a5fcb668adea97a2b17e1f95919ad5c14f37fad21eace0e016fd16593",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/masters/front-clean.png",
+      "sha256": "96157a3391a15a38208949182b47f30488ce30fda6e087e154cf09a7b6e77400",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/masters/front-lcd-mask.png",
+      "sha256": "77de0bdf6daf9bd4eeda769c30b5af0aaf640c6d2014114597c4c37e1133a9bc",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/rebuild-qa.json",
+      "sha256": "b7581025b1871fd795d205e66b3af64dc78a2d1d1001deb1ae30a5a70e283b50",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/recipe.json",
+      "sha256": "3ccde80ebd2d88146bd1ed9a96aaaaf08e9d5a5daf41a994d15fa81f70a02655",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/render.py",
+      "sha256": "50a652de367421ddbc463563860bfc7e601e90e301b74438ce641831d306785b",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/source-urls.json",
+      "sha256": "1c507de819f6ae68189257ffb4a6603cdad2e0fd35111b40db957dc4063adaa4",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/sources/Yoga_Slim_7_14Q8X9_CT1_01.png",
+      "sha256": "ae07a750188f7fb17f3f044a42c0b3eec078b609454458f9629988752beb0695",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/sources/angle.png",
+      "sha256": "29aa0862ca0e933b74b546e78c58ad95532c124544fac65e09276b9375dedcdc",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/sources/b10-office.png",
+      "sha256": "debc7bc8678c67a466071197d572dd9ff53db2deb8e6b0561ff4d04056117b6b",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/sources/b10-studio.png",
+      "sha256": "9a5fa775807eb3ffa28c27c7bfc99aaefd9c2e6196a2fadd622151ca0b68ecd1",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/sources/front.png",
+      "sha256": "09bff364dae6143f932d9029bbbc2eb5f85ed1eef3f9e088e527b5cdd95d9b7c",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/sources/keyboard.png",
+      "sha256": "ed5c13a2ccbc0e191ab3b527433912af2d2aaefcd81bca23207c01d1ea6416f1",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/sources/left.png",
+      "sha256": "e70762250e8cb7cc10c8bb0f31b9f0f662e07f058286458c1148ad5e43ea24ee",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/sources/lenovo-official.png",
+      "sha256": "e7667aff80eea977cfe4369ab44b0ae1a5739d43a310394f465371aebeaeaa63",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/sources/lenovo-official.svg",
+      "sha256": "2885afce6875a297c634f3368b1fe5f3f15c7d653ed182e1a2e19dfab1b51890",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/sources/lid.png",
+      "sha256": "88abe9774921b4bb84d5062480cda2026d9b75e3ea12bd432e443085ff13c22f",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/sources/oled-art.png",
+      "sha256": "dff1b57411d341ebd759739b0bf8ef800a9df5670b3dfba055812e4056249109",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/sources/right.png",
+      "sha256": "18d756a5cebe80fcbe05459b4698638610466a855c27bca8a070143520e76496",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/sources/windows-11-pro-lockup.png",
+      "sha256": "3a70dbe456a1c2478d46fa0105b3e89b0097854be78fbc0bd4c1888e019a5586",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/sources/windows-11-pro-package.png",
+      "sha256": "6f9dc54bdbf084ebe11fb06ec85d610de8ebf766d4ead7781ff5898d6e5c7380",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/production/style-preview.png",
+      "sha256": "d5cd91b22b7a514d823ddce2c742b24d550c049975fed594129a0e8c646048b6",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/semantic-review.json",
+      "sha256": "b41449cc76d655c2e0035286e4091f076dfc546f83a41483c3150ff42fdfd4bd",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/style-lock.json",
+      "sha256": "0f2236e4f8b395f4e7c2650c11e13f7cfea225c07ca19bd2725030748ccc4c33",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/unbranded/PT01.png",
+      "sha256": "5677d1dd9d16333f6f24346097b923d26b68acea0c76e578974af188ae187e00",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/unbranded/PT02.png",
+      "sha256": "1c2e09dc7764eddba3c1204caac0101139d5d13fce28f3576cc07706cb5f2aec",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/unbranded/PT03.png",
+      "sha256": "56d5b1e5b0fded5de6460f9e5c4e2a51c61494c0be38e75e7fc1485e92ae3cab",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/unbranded/PT04.png",
+      "sha256": "11eaf86c231504783a231a27f65951e7db3ee223a402581d31003d7c3f662f64",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/unbranded/PT05.png",
+      "sha256": "80e2d391369f0846c6e4c6dffe586493d7237a53a373f2eec5134259e0ac787e",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/unbranded/PT06.png",
+      "sha256": "95b5ad6a15778ac92400c4c2d62dc10aa760ca3b8e8ad45964784327e7c7ae97",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/unbranded/PT07.png",
+      "sha256": "7d827ba73de506f80417b958773c76d540295d5f73dc2ed5cb2b54246be4b999",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/unbranded/PT08.png",
+      "sha256": "848a993abdee20b9f63de0d6b85f9b612a10322f31a73602cbb7fa425ac8e3b5",
+      "remoteCurrentPathMatch": true
+    },
+    {
+      "path": "product generated photo/VL-1241/visual-review.json",
+      "sha256": "9efb1b47f39a6f9f26c04b07a9587d45cb4773e3cc5bee4cd6e0ae4f0320ad3a",
+      "remoteCurrentPathMatch": true
+    }
+  ],
+  "ci": [
+    {
+      "id": 38968625642,
+      "name": "Validate current gallery delivery",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jeremy777777777/create-custom-pc-listing/actions/runs/38968625642",
+      "headSha": "bbf12540c09e99fcbc6ca802376e0dcb081c0ff2"
+    }
+  ],
+  "amazonPublicationStatus": "NOT_ASSESSED",
+  "mastersRemoteVerification": "ALL_UPLOADED_INPUTS_AND_MASTERS_HASH_VERIFIED",
+  "recordRole": "VERIFICATION_OF_REFERENCED_COMMIT_NOT_SELF_CERTIFICATION_OF_THIS_RECEIPT_COMMIT",
+  "verifiedAtUtc": "2026-10-16T21:23:28.244505+00:00"
+}

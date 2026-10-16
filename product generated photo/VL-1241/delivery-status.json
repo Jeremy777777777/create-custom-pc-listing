@@ -2,10 +2,13 @@
   "schemaVersion": 1,
   "workflowPolicyVersion": "2026-10-02",
   "galleryState": "CURRENT_REVIEWED",
-  "deliveryState": "READY_FOR_GITHUB_DELIVERY",
+  "deliveryState": "GITHUB_DELIVERY_VERIFIED",
   "deliveryScope": "FULL_GALLERY",
   "currentQaPass": true,
   "amazonPublicationStatus": "NOT_ASSESSED",
-  "reason": "Current full-gallery bytes and supplied hash-bound reviews passed local acceptance; remote delivery remains unverified.",
-  "nextRun": "Commit/push, await applicable CI and verify remote file hashes before claiming GITHUB_DELIVERY_VERIFIED."
+  "reason": "Eleven gallery files and all uploaded sources/masters verified at referenced commit; applicable GitHub CI succeeded. Receipt commit has its own subsequent CI/remote verification outside this referenced-commit receipt.",
+  "nextRun": "Preserve current image bytes and approved direction. A future changed image or relevant fact requires fresh scoped review and delivery verification.",
+  "verifiedRemoteCommit": "bbf12540c09e99fcbc6ca802376e0dcb081c0ff2",
+  "githubDeliveryVerifiedAtUtc": "2026-10-16T21:23:28.244505+00:00",
+  "remoteDeliveryRecord": "remote-delivery.json"
 }
