@@ -33,4 +33,6 @@ On the user's Windows setup, from the repository root:
 
 Rendering resets review readiness and does not manufacture new review approval. Reinspect any changed bytes and bind fresh evidence before `accept`. The tested rebuild used the saved actual inputs and produced identical hashes for all three MAIN files and eight unbranded PT masters; an AI rerun is not a reproducibility claim. Arial/Arial Bold are system font dependencies.
 
+Before repository acceptance, store `logo-qa.json.logoAssetPath` as the portable relative path `production-v1/references/lenovo-logo-transparent.png`. Windows finalization may emit backslashes; normalize this metadata path to forward slashes before `accept` so Linux CI reads the same original asset. The path-only correction does not change any image bytes; final QA must bind the corrected logo-QA record.
+
 Publication/fulfillment follow-up remains separate: current Amazon account/category rules and Windows licensing/activation. Final GitHub verification is performed after push and applicable CI, against the delivered commit and current file hashes.
