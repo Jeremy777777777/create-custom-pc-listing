@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "result": "PIXEL_IDENTICAL",
+  "checks": [
+    {
+      "file": "MAIN-STRICT.jpg",
+      "decodedPixelIdentity": true,
+      "originalSha256": "49db68319cbc58a78ffc7725976f7dd558f7a751e7a28c4b233d8763294c947d",
+      "rebuildSha256": "49db68319cbc58a78ffc7725976f7dd558f7a751e7a28c4b233d8763294c947d"
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "decodedPixelIdentity": true,
+      "originalSha256": "8f8c2e37c3c57248f1b62c5c13c6d33c97ed41aaa40e93f173dca1f91104ccf9",
+      "rebuildSha256": "8f8c2e37c3c57248f1b62c5c13c6d33c97ed41aaa40e93f173dca1f91104ccf9"
+    },
+    {
+      "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "decodedPixelIdentity": true,
+      "originalSha256": "7bb53936bd3cda98fe193ad9060163ab770c963890911e9beae124835da2fdcc",
+      "rebuildSha256": "7bb53936bd3cda98fe193ad9060163ab770c963890911e9beae124835da2fdcc"
+    },
+    {
+      "file": "unbranded/PT01.png",
+      "decodedPixelIdentity": true,
+      "originalSha256": "5677d1dd9d16333f6f24346097b923d26b68acea0c76e578974af188ae187e00",
+      "rebuildSha256": "5677d1dd9d16333f6f24346097b923d26b68acea0c76e578974af188ae187e00"
+    },
+    {
+      "file": "unbranded/PT02.png",
+      "decodedPixelIdentity": true,
+      "originalSha256": "1c2e09dc7764eddba3c1204caac0101139d5d13fce28f3576cc07706cb5f2aec",
+      "rebuildSha256": "1c2e09dc7764eddba3c1204caac0101139d5d13fce28f3576cc07706cb5f2aec"
+    },
+    {
+      "file": "unbranded/PT03.png",
+      "decodedPixelIdentity": true,
+      "originalSha256": "56d5b1e5b0fded5de6460f9e5c4e2a51c61494c0be38e75e7fc1485e92ae3cab",
+      "rebuildSha256": "56d5b1e5b0fded5de6460f9e5c4e2a51c61494c0be38e75e7fc1485e92ae3cab"
+    },
+    {
+      "file": "unbranded/PT04.png",
+      "decodedPixelIdentity": true,
+      "originalSha256": "11eaf86c231504783a231a27f65951e7db3ee223a402581d31003d7c3f662f64",
+      "rebuildSha256": "11eaf86c231504783a231a27f65951e7db3ee223a402581d31003d7c3f662f64"
+    },
+    {
+      "file": "unbranded/PT05.png",
+      "decodedPixelIdentity": true,
+      "originalSha256": "80e2d391369f0846c6e4c6dffe586493d7237a53a373f2eec5134259e0ac787e",
+      "rebuildSha256": "80e2d391369f0846c6e4c6dffe586493d7237a53a373f2eec5134259e0ac787e"
+    },
+    {
+      "file": "unbranded/PT06.png",
+      "decodedPixelIdentity": true,
+      "originalSha256": "95b5ad6a15778ac92400c4c2d62dc10aa760ca3b8e8ad45964784327e7c7ae97",
+      "rebuildSha256": "95b5ad6a15778ac92400c4c2d62dc10aa760ca3b8e8ad45964784327e7c7ae97"
+    },
+    {
+      "file": "unbranded/PT07.png",
+      "decodedPixelIdentity": true,
+      "originalSha256": "7d827ba73de506f80417b958773c76d540295d5f73dc2ed5cb2b54246be4b999",
+      "rebuildSha256": "7d827ba73de506f80417b958773c76d540295d5f73dc2ed5cb2b54246be4b999"
+    },
+    {
+      "file": "unbranded/PT08.png",
+      "decodedPixelIdentity": true,
+      "originalSha256": "848a993abdee20b9f63de0d6b85f9b612a10322f31a73602cbb7fa425ac8e3b5",
+      "rebuildSha256": "848a993abdee20b9f63de0d6b85f9b612a10322f31a73602cbb7fa425ac8e3b5"
+    }
+  ],
+  "scope": "3 MAIN and 8 clean PT masters; logo composition separately validated by gallery_engine"
+}

@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "workflowPolicyVersion": "2026-10-02",
+  "internalId": "VL-1241",
+  "identity": {
+    "internalId": "VL-1241",
+    "oemBrand": "Lenovo",
+    "model": "Yoga Slim 7x 14Q8X9",
+    "oemSku": "83ED0001US",
+    "color": "Cosmic Blue",
+    "status": "VERIFIED_EXACT_OEM_AND_ERP"
+  },
+  "sourceMapping": {
+    "inputAsin": "B0HC4D9RYQ",
+    "inputUrl": "https://www.amazon.com/dp/B0HC4D9RYQ",
+    "erpProductId": 31241,
+    "erpUrl": "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/31241",
+    "erpListingId": 115163056,
+    "sellerSku": "C1-GQUH-DPRP",
+    "matchingEvidence": "ERP Listing Variants explicitly contains input ASIN under VL-1241; PL-1290 base is 16GB / 512GB",
+    "checkedOn": "2026-10-16"
+  },
+  "selectedBaseConfiguration": {
+    "id": "VL-1241-16GB-512GB",
+    "installedRamGB": 16,
+    "internalSsdGB": 512,
+    "scope": "BASE_SOLD_CONFIGURATION",
+    "source": "ERP PL-1290 16GB / 512GB; input ASIN technical summary 16GB / 512GB; exact OEM 83ED0001US"
+  },
+  "imageFactEvidence": {
+    "url": "https://psref.lenovo.com/Detail/Yoga_Slim_7_14Q8X9?M=83ED0001US",
+    "checkedOn": "2026-10-16",
+    "status": "VERIFIED_EXACT_OEM",
+    "cpu": "Snapdragon X Elite X1E-78-100",
+    "cpuCores": 12,
+    "gpu": "Qualcomm Adreno integrated",
+    "memory": "16GB soldered LPDDR5x-8448; not upgradeable",
+    "storage": "512GB M.2 2242 PCIe 4.0x4 NVMe",
+    "display": "14.5-inch 2944x1840 OLED touchscreen, 90Hz",
+    "npu": "Qualcomm Hexagon up to 45 TOPS",
+    "keyboard": "Backlit English US",
+    "touchpad": "80 x 135mm glass precision touchpad",
+    "dimensionsMm": [
+      325,
+      225.15,
+      12.9
+    ],
+    "camera": "FHD 1080p + IR with E-shutter; Windows Hello facial recognition",
+    "ports": "Left 2x and right 1x USB-C USB4 40Gbps, PD3.1 and DisplayPort1.4",
+    "wireless": "Wi-Fi 7 + Bluetooth 5.4",
+    "fingerprintReader": false,
+    "factoryOs": "Windows 11 Home on ARM"
+  },
+  "sellerPolicy": {
+    "customized": true,
+    "finalOperatingSystem": "Windows 11 Pro",
+    "operatingSystemPolicyStatus": "USER_CONFIRMED_CATALOG_POLICY",
+    "imageScope": "COMPUTER_ONLY",
+    "oemBrandAuthorizationStatus": "USER_CONFIRMED_CATALOG_WIDE",
+    "warrantyTemplate": "MegaPC provides a 1-year limited warranty on the upgraded RAM and SSD components. The original [OEM brand] manufacturer warranty remains valid on all remaining factory components, so you are covered on both the base machine and our upgrades. The original seal has been opened solely for upgrading purposes.",
+    "warrantyStatus": "USER_CONFIRMED_CATALOG_POLICY"
+  },
+  "resolvedDifferences": [
+    "ERP Fingerprint Yes contradicted by exact OEM No; use exact OEM and exclude fingerprint claim.",
+    "Amazon title enumerates 512GB/1TB; base imagery represents 512GB only.",
+    "Factory Home and Amazon factory-only OS copy differ from fixed seller Pro policy. Apply current seller policy; retain publication copy review."
+  ],
+  "unresolvedOperationalChecks": [
+    "Seller final OS activation/fulfillment and Amazon page copy consistency",
+    "Amazon enhanced MAIN publication eligibility"
+  ],
+  "styleLock": "style-lock.json"
+}

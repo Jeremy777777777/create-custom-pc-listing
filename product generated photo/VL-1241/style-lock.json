@@ -1,0 +1,37 @@
+{
+  "schemaVersion": 1,
+  "internalId": "VL-1241",
+  "style_approval_status": "APPROVED",
+  "approved_style_id": "B10",
+  "approved_supporting_gallery_pack": "BG10",
+  "audience_style_family": "BUSINESS_CREATOR_PRODUCTIVITY",
+  "approval": {
+    "source": "DIRECT_USER_MESSAGE_CURRENT_CHAT",
+    "quote": "\u7ee7\u7eed",
+    "scope": "User approved displayed B10/BG10 product-specific style preview following explicit request for direction approval.",
+    "recordedAtUtc": "2026-10-16T21:02:01.533519+00:00",
+    "previewSha256": "d5cd91b22b7a514d823ddce2c742b24d550c049975fed594129a0e8c646048b6",
+    "previewPath": "production/style-preview.png"
+  },
+  "palette": [
+    "charcoal",
+    "cool white",
+    "restrained blue-violet",
+    "original Cosmic Blue chassis"
+  ],
+  "requiredMotifs": [
+    "large accurate original product",
+    "spacious editorial type",
+    "restrained blue-violet architectural light",
+    "original abstract task screens"
+  ],
+  "boundaries": {
+    "strictMain": "PURE_WHITE_PRODUCT_ONLY",
+    "enhancedMain": "PURE_WHITE_EXTERIOR_LCD_CONTAINED_GRAPHICS",
+    "PT06": "WHITE_INPUT_DETAIL",
+    "computerOnly": true,
+    "hardwareSource": "OFFICIAL_ORIGINAL_PHOTO_LAYERS"
+  },
+  "recipeStatus": "BUILT_AND_VISUALLY_REVIEWED",
+  "recipePath": "production/recipe.json"
+}

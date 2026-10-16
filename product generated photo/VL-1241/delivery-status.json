@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "workflowPolicyVersion": "2026-10-02",
+  "galleryState": "CURRENT_REVIEWED",
+  "deliveryState": "READY_FOR_GITHUB_DELIVERY",
+  "deliveryScope": "FULL_GALLERY",
+  "currentQaPass": true,
+  "amazonPublicationStatus": "NOT_ASSESSED",
+  "reason": "Current full-gallery bytes and supplied hash-bound reviews passed local acceptance; remote delivery remains unverified.",
+  "nextRun": "Commit/push, await applicable CI and verify remote file hashes before claiming GITHUB_DELIVERY_VERIFIED."
+}

@@ -1,0 +1,18 @@
+{
+  "tool": "built-in image_gen",
+  "scope": "Environment and original screen artwork only; final hardware is official original imagery",
+  "images": [
+    {
+      "file": "b10-studio.png",
+      "prompt": "Create a premium photoreal product photography background plate ONLY, no product no text no logos. Square canvas. Approved B10 AI Focus Workspace visual language: charcoal studio room, cool white soft lighting with a restrained blue violet vertical slit at upper right, modern dark concrete architectural surfaces, a broad matte slate tabletop filling bottom 50%, softly lit tabletop level across the composition. Camera at front three-quarter product photography height, wall behind is soft focus. Upper left half dark and low-detail for later white editorial type. Lower center two-thirds spacious empty tabletop for a laptop to be added later. Elegantly restrained, premium commercial merchandise lighting, high end realism. Absolutely no laptop, no computers, no monitors, no keyboard, no mouse, no cables, no accessories, no devices, no people, no graphics, no lettering. Native 1536 square high quality."
+    },
+    {
+      "file": "b10-office.png",
+      "prompt": "Generate one square photoreal editorial workspace background plate, NO COMPUTER and NO TEXT. Premium B10 AI Focus Workspace: dark graphite home office/creative studio, large empty matte gray desk foreground occupying bottom 55% of canvas, tasteful empty upholstered chair behind desk, indirect morning light from left, a restrained blue violet vertical architectural light on right. Camera at the height of a laptop product three-quarter view looking slightly down onto spacious EMPTY desk. Keep left and upper areas dark enough for later white headline, sophisticated atmosphere, realistic materials, gentle depth of field. Desk entirely empty. No people, no devices whatsoever, no laptop no keyboard no mouse no monitor no phone no cable no headphones no pen no books no accessories. Furniture and architectural room only. Native high resolution square."
+    },
+    {
+      "file": "oled-art.png",
+      "prompt": "Original abstract digital art to be displayed inside a premium OLED laptop LCD, wallpaper only, no frame no laptop no words no logos. Elegant translucent sculptural ribbons of cobalt, violet, ice blue and a small warm coral highlight unfold through deep near-black space. Macro three-dimensional glass-like material, silky color gradients, fine luminous edges, clean negative space on left and rich dimensional structure on right. Premium B10 AI Focus Workspace creative atmosphere, refined, cinematic, crisp without excess neon. Completely original composition, no Windows bloom, no recognizable brand wallpaper, no app UI, no characters no people no objects. Landscape 16:10 or nearest high-resolution landscape."
+    }
+  ]
+}

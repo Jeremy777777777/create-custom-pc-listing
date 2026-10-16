@@ -1,0 +1,181 @@
+{
+  "reviewedAtUtc": "2026-10-16T21:03:53.009325+00:00",
+  "images": [
+    {
+      "file": "MAIN-STRICT.jpg",
+      "sha256": "49db68319cbc58a78ffc7725976f7dd558f7a751e7a28c4b233d8763294c947d",
+      "format": "JPEG",
+      "mode": "RGB",
+      "dimensions": [
+        2000,
+        2000
+      ],
+      "dpi": [
+        96,
+        96
+      ],
+      "opaque": true,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "sha256": "8f8c2e37c3c57248f1b62c5c13c6d33c97ed41aaa40e93f173dca1f91104ccf9",
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "opaque": true,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "sha256": "7bb53936bd3cda98fe193ad9060163ab770c963890911e9beae124835da2fdcc",
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": [
+        2000,
+        2000
+      ],
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "opaque": true,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "PT01.png",
+      "sha256": "7c06932538195696488952a7f7c19d52efdff3aaaa918b42eecd3f8b6380f9ea",
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "opaque": true,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "PT02.png",
+      "sha256": "d81f60ae818d787652d2aa50495d4e2f655bd07f44bd99437621af6878186d5e",
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "opaque": true,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "PT03.png",
+      "sha256": "d146773b26d3fd3139900b8fbb75e44a5ea63491bb2d741117c4ce2ed668b848",
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "opaque": true,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "PT04.png",
+      "sha256": "97100bde18dae56a8126b7424d196c26cab509b6ff5da55c511b38faca7cdead",
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "opaque": true,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "PT05.png",
+      "sha256": "5c4e83d9a0d42aa87ed97242cc9b22e27399db67bbe5a6506f214f0530334c33",
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "opaque": true,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "PT06.png",
+      "sha256": "8b0158e18434111ba18e73916a8e82794716f8a1839b07c441956d2b17b4e357",
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "opaque": true,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "PT07.png",
+      "sha256": "8c3f9d18574671cbb8d33be8e7748c046e957bd308afe63767a0c48cfd29ec9a",
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "opaque": true,
+      "zoomEligibleBySize": true
+    },
+    {
+      "file": "PT08.png",
+      "sha256": "7d39da46c469b95c9333eb8300f33c24a5862e9d6f3f46ab20b57c60203ec432",
+      "format": "PNG",
+      "mode": "RGB",
+      "dimensions": [
+        1254,
+        1254
+      ],
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "opaque": true,
+      "zoomEligibleBySize": true
+    }
+  ]
+}

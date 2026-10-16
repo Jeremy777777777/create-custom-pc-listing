@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 3,
+  "generatedAtUtc": "2026-10-16T21:02:04.327954+00:00",
+  "brand": "Lenovo",
+  "result": "PASS",
+  "logoAssetSha256": "e7667aff80eea977cfe4369ab44b0ae1a5739d43a310394f465371aebeaeaa63",
+  "logoAssetPath": "production\\sources\\lenovo-official.png",
+  "visibleLogoAspectRatio": 3.1,
+  "placementPlanSha256": "5fd79f8604afd4fe7c5514b91f9dd921b7de8b106668372cdd85967324c29c6b",
+  "images": [
+    {
+      "file": "PT01.png",
+      "finalImageSha256": "7c06932538195696488952a7f7c19d52efdff3aaaa918b42eecd3f8b6380f9ea",
+      "unbrandedSourceSha256": "5677d1dd9d16333f6f24346097b923d26b68acea0c76e578974af188ae187e00",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master); lossless RGB PNG 96dpi metadata normalization before review"
+    },
+    {
+      "file": "PT02.png",
+      "finalImageSha256": "d81f60ae818d787652d2aa50495d4e2f655bd07f44bd99437621af6878186d5e",
+      "unbrandedSourceSha256": "1c2e09dc7764eddba3c1204caac0101139d5d13fce28f3576cc07706cb5f2aec",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master); lossless RGB PNG 96dpi metadata normalization before review"
+    },
+    {
+      "file": "PT03.png",
+      "finalImageSha256": "d146773b26d3fd3139900b8fbb75e44a5ea63491bb2d741117c4ce2ed668b848",
+      "unbrandedSourceSha256": "56d5b1e5b0fded5de6460f9e5c4e2a51c61494c0be38e75e7fc1485e92ae3cab",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master); lossless RGB PNG 96dpi metadata normalization before review"
+    },
+    {
+      "file": "PT04.png",
+      "finalImageSha256": "97100bde18dae56a8126b7424d196c26cab509b6ff5da55c511b38faca7cdead",
+      "unbrandedSourceSha256": "11eaf86c231504783a231a27f65951e7db3ee223a402581d31003d7c3f662f64",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master); lossless RGB PNG 96dpi metadata normalization before review"
+    },
+    {
+      "file": "PT05.png",
+      "finalImageSha256": "5c4e83d9a0d42aa87ed97242cc9b22e27399db67bbe5a6506f214f0530334c33",
+      "unbrandedSourceSha256": "80e2d391369f0846c6e4c6dffe586493d7237a53a373f2eec5134259e0ac787e",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master); lossless RGB PNG 96dpi metadata normalization before review"
+    },
+    {
+      "file": "PT06.png",
+      "finalImageSha256": "8b0158e18434111ba18e73916a8e82794716f8a1839b07c441956d2b17b4e357",
+      "unbrandedSourceSha256": "95b5ad6a15778ac92400c4c2d62dc10aa760ca3b8e8ad45964784327e7c7ae97",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master); lossless RGB PNG 96dpi metadata normalization before review"
+    },
+    {
+      "file": "PT07.png",
+      "finalImageSha256": "8c3f9d18574671cbb8d33be8e7748c046e957bd308afe63767a0c48cfd29ec9a",
+      "unbrandedSourceSha256": "7d827ba73de506f80417b958773c76d540295d5f73dc2ed5cb2b54246be4b999",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master); lossless RGB PNG 96dpi metadata normalization before review"
+    },
+    {
+      "file": "PT08.png",
+      "finalImageSha256": "7d39da46c469b95c9333eb8300f33c24a5862e9d6f3f46ab20b57c60203ec432",
+      "unbrandedSourceSha256": "848a993abdee20b9f63de0d6b85f9b612a10322f31a73602cbb7fa425ac8e3b5",
+      "separationPx": 32,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master); lossless RGB PNG 96dpi metadata normalization before review"
+    }
+  ],
+  "visualReviewSha256": "9efb1b47f39a6f9f26c04b07a9587d45cb4773e3cc5bee4cd6e0ae4f0320ad3a"
+}

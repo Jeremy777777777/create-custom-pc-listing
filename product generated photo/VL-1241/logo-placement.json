@@ -1,0 +1,147 @@
+{
+  "schemaVersion": 3,
+  "brand": "Lenovo",
+  "logoRole": "OEM base-product identifier",
+  "logoVisibilityMode": "ASPECT_RATIO_WORDMARK",
+  "logoAssetSourceUrl": "https://psref.lenovo.com/Detail/Yoga_Slim_7_14Q8X9?M=83ED0001US",
+  "minimumClearancePx": 32,
+  "minimumComponentSeparationPx": 32,
+  "thumbnailReviewSizePx": 200,
+  "placements": {
+    "PT01.png": {
+      "x": 1050,
+      "y": 64,
+      "width": 138,
+      "height": 45,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 95,
+          "y": 430,
+          "width": 1063,
+          "height": 750,
+          "label": "PRODUCT_SILHOUETTE"
+        }
+      ]
+    },
+    "PT02.png": {
+      "x": 1050,
+      "y": 64,
+      "width": 138,
+      "height": 45,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 150,
+          "y": 458,
+          "width": 954,
+          "height": 673,
+          "label": "PRODUCT_SILHOUETTE"
+        }
+      ]
+    },
+    "PT03.png": {
+      "x": 1050,
+      "y": 64,
+      "width": 138,
+      "height": 45,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 60,
+          "y": 551,
+          "width": 550,
+          "height": 388,
+          "label": "PRODUCT_SILHOUETTE"
+        }
+      ]
+    },
+    "PT04.png": {
+      "x": 1050,
+      "y": 64,
+      "width": 138,
+      "height": 45,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 166,
+          "y": 535,
+          "width": 921,
+          "height": 650,
+          "label": "PRODUCT_SILHOUETTE"
+        }
+      ]
+    },
+    "PT05.png": {
+      "x": 1050,
+      "y": 64,
+      "width": 138,
+      "height": 45,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 338,
+          "y": 610,
+          "width": 578,
+          "height": 580,
+          "label": "PRODUCT_SILHOUETTE"
+        }
+      ]
+    },
+    "PT06.png": {
+      "x": 1050,
+      "y": 64,
+      "width": 138,
+      "height": 45,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 186,
+          "y": 570,
+          "width": 881,
+          "height": 599,
+          "label": "PRODUCT_SILHOUETTE"
+        }
+      ]
+    },
+    "PT07.png": {
+      "x": 1050,
+      "y": 64,
+      "width": 138,
+      "height": 45,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 166,
+          "y": 545,
+          "width": 921,
+          "height": 650,
+          "label": "PRODUCT_SILHOUETTE"
+        }
+      ]
+    },
+    "PT08.png": {
+      "x": 1050,
+      "y": 64,
+      "width": 138,
+      "height": 45,
+      "style": "transparent",
+      "protectedZones": [
+        {
+          "x": 77,
+          "y": 482,
+          "width": 1100,
+          "height": 110,
+          "label": "PRODUCT_SILHOUETTE"
+        },
+        {
+          "x": 77,
+          "y": 818,
+          "width": 1100,
+          "height": 110,
+          "label": "PRODUCT_SILHOUETTE_RIGHT"
+        }
+      ]
+    }
+  }
+}

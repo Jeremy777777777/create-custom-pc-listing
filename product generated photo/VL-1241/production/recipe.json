@@ -1,0 +1,241 @@
+{
+  "schemaVersion": 1,
+  "version": "VL1241-B10-v1",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "strictCanvas": [
+    2000,
+    2000
+  ],
+  "formFactor": "LAPTOP",
+  "boundaryMode": "SCREEN_ONLY",
+  "method": "Original official RGBA chassis; deterministic screen/text/brand composition; AI generated environment plates only",
+  "frontScreenPolygon": [
+    [
+      192,
+      234
+    ],
+    [
+      1006,
+      234
+    ],
+    [
+      1006,
+      742
+    ],
+    [
+      192,
+      742
+    ]
+  ],
+  "angleScreenPolygon": [
+    [
+      121,
+      66
+    ],
+    [
+      648,
+      226
+    ],
+    [
+      694,
+      692
+    ],
+    [
+      167,
+      632
+    ]
+  ],
+  "windowsFront": "windows-11-pro-lockup.png",
+  "windowsAngle": "windows-11-pro-package.png",
+  "factOwnership": {
+    "PT01.png": [
+      "purchase.creative-focus"
+    ],
+    "PT02.png": [
+      "scene.personal-workspace"
+    ],
+    "PT03.png": [
+      "cpu.installed",
+      "gpu.installed",
+      "ram.installed",
+      "ssd.installed",
+      "os.sold",
+      "platform.arm-compatibility"
+    ],
+    "PT04.png": [
+      "display.oled-3k-touch",
+      "display.90hz",
+      "form.12_9mm-aluminum"
+    ],
+    "PT05.png": [
+      "flow.organize-create-review"
+    ],
+    "PT06.png": [
+      "input.backlit-us",
+      "input.glass-touchpad"
+    ],
+    "PT07.png": [
+      "camera.fhd-ir",
+      "security.face-signin",
+      "privacy.eshutter"
+    ],
+    "PT08.png": [
+      "ports.usb4-three",
+      "ports.pd-dp",
+      "wireless.wifi7-bt54"
+    ]
+  },
+  "productBounds": {
+    "PT01.png": [
+      95,
+      430,
+      1063,
+      750
+    ],
+    "PT02.png": [
+      150,
+      458,
+      954,
+      673
+    ],
+    "PT03.png": [
+      60,
+      551,
+      550,
+      388
+    ],
+    "PT04.png": [
+      166,
+      535,
+      921,
+      650
+    ],
+    "PT05.png": [
+      338,
+      610,
+      578,
+      580
+    ],
+    "PT06.png": [
+      186,
+      570,
+      881,
+      599
+    ],
+    "PT07.png": [
+      166,
+      545,
+      921,
+      650
+    ],
+    "PT08.png": [
+      77,
+      482,
+      1100,
+      110
+    ]
+  },
+  "sources": [
+    {
+      "path": "production/sources/angle.png",
+      "sha256": "29aa0862ca0e933b74b546e78c58ad95532c124544fac65e09276b9375dedcdc",
+      "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "path": "production/sources/b10-office.png",
+      "sha256": "debc7bc8678c67a466071197d572dd9ff53db2deb8e6b0561ff4d04056117b6b",
+      "authorization": "ORIGINAL_BUILT_IN_IMAGEGEN_ARTWORK"
+    },
+    {
+      "path": "production/sources/b10-studio.png",
+      "sha256": "9a5fa775807eb3ffa28c27c7bfc99aaefd9c2e6196a2fadd622151ca0b68ecd1",
+      "authorization": "ORIGINAL_BUILT_IN_IMAGEGEN_ARTWORK"
+    },
+    {
+      "path": "production/sources/front.png",
+      "sha256": "09bff364dae6143f932d9029bbbc2eb5f85ed1eef3f9e088e527b5cdd95d9b7c",
+      "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "path": "production/sources/keyboard.png",
+      "sha256": "ed5c13a2ccbc0e191ab3b527433912af2d2aaefcd81bca23207c01d1ea6416f1",
+      "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "path": "production/sources/left.png",
+      "sha256": "e70762250e8cb7cc10c8bb0f31b9f0f662e07f058286458c1148ad5e43ea24ee",
+      "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "path": "production/sources/lenovo-official.png",
+      "sha256": "e7667aff80eea977cfe4369ab44b0ae1a5739d43a310394f465371aebeaeaa63",
+      "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "path": "production/sources/lenovo-official.svg",
+      "sha256": "2885afce6875a297c634f3368b1fe5f3f15c7d653ed182e1a2e19dfab1b51890",
+      "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "path": "production/sources/lid.png",
+      "sha256": "88abe9774921b4bb84d5062480cda2026d9b75e3ea12bd432e443085ff13c22f",
+      "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "path": "production/sources/oled-art.png",
+      "sha256": "dff1b57411d341ebd759739b0bf8ef800a9df5670b3dfba055812e4056249109",
+      "authorization": "ORIGINAL_BUILT_IN_IMAGEGEN_ARTWORK"
+    },
+    {
+      "path": "production/sources/right.png",
+      "sha256": "18d756a5cebe80fcbe05459b4698638610466a855c27bca8a070143520e76496",
+      "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "path": "production/sources/windows-11-pro-lockup.png",
+      "sha256": "3a70dbe456a1c2478d46fa0105b3e89b0097854be78fbc0bd4c1888e019a5586",
+      "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "path": "production/sources/windows-11-pro-package.png",
+      "sha256": "6f9dc54bdbf084ebe11fb06ec85d610de8ebf766d4ead7781ff5898d6e5c7380",
+      "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "path": "production/sources/Yoga_Slim_7_14Q8X9_CT1_01.png",
+      "sha256": "ae07a750188f7fb17f3f044a42c0b3eec078b609454458f9629988752beb0695",
+      "authorization": "USER_CONFIRMED_CATALOG_WIDE"
+    },
+    {
+      "path": "production/render.py",
+      "sha256": "50a652de367421ddbc463563860bfc7e601e90e301b74438ce641831d306785b",
+      "role": "DETERMINISTIC_RENDERER"
+    }
+  ],
+  "renderCommand": "python production/render.py; python ../../scripts/gallery_engine.py finalize --directory . --asset production/sources/lenovo-official.png --brand Lenovo --contact <outside-directory>.png; python production/finish-metadata.py; inspect current files and supply fresh reviews before accept",
+  "noProductUpscaling": true,
+  "enhancedAngleScreenPolygon": [
+    [
+      1000,
+      414
+    ],
+    [
+      1805,
+      466
+    ],
+    [
+      1600,
+      1240
+    ],
+    [
+      822,
+      1003
+    ]
+  ],
+  "fonts": [
+    "Windows Segoe UI Regular / Bold; do not distribute system font binaries"
+  ]
+}
