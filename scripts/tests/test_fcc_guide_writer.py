@@ -19,7 +19,9 @@ class FCCGuideWriterTests(unittest.TestCase):
         fact = next(f for f in data['facts'] if (f['sheet'], f['attribute']) == r.FCC_KEY)
         fact.update(status=status, final_value='TEST-MODULE-ID' if status == 'VERIFIED' else None,
                     evidence_scope='RADIO_MODULE', authorization_route='certification',
-                    evidence={'lookup_outcome': outcome, 'module_model': 'SYNTHETIC-MODULE',
+                    evidence={**fixtures.fcc_evidence('TEST-MODULE-ID'), 'lookup_outcome': outcome,
+                              'radio_inventory_checked': True, 'installed_radio_modules': [],
+                              'module_model': 'SYNTHETIC-MODULE',
                               'installation_basis': 'Synthetic unit label',
                               'replacement_check': 'Synthetic assembly record: no replacement',
                               'fcc_official_url': 'https://apps.fcc.gov/oetcf/eas/reports/GenericSearch.cfm',

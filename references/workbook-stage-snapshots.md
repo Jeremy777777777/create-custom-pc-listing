@@ -36,6 +36,8 @@ Receipt format (replace illustrative values and hash placeholders with actual ev
 Stages are RESEARCH_REVIEW or LISTING_DRAFT. The receipt's productId must match its product directory. `SNAPSHOT_HASHES_VERIFIED` certifies preservation only, not the original facts, original QA, rights or marketplace acceptance. Legacy array ledgers may be preserved as the actual original input; they are not automatically migrated or made export-ready. Existing outputs are not automatically archived by a workflow/code update.
 
 Historical snapshot access is permitted specifically to preserve/verify those records or for an explicit historical comparison. It does not authorize inheriting archived instructions, style approvals, PASS claims or stale facts. Only current reconciled facts drive new listing copy/images.
+
+The updated FCC guide additionally permits the Excel writer's explicit `--previous-workbook` color comparison: a matching same-product/configuration snapshot must pass receipt/hash and workbook-role checks. Reuse only the fill of an unchanged previously VERIFIED FCC ID; all current values/statuses/sources come from the current ledger. This exception does not execute archived content, promote historical evidence or allow snapshot export.
 # Preservation refinement — 2026-10-14
 
 Apply [workflow validation boundaries](workflow-validation-boundaries.md): snapshot paths disable Git text conversion and revision-scoped CI compares existing bundle blobs to the trusted base. Receipt rehashing cannot authorize a rewrite; add a new revision bundle. Runs without base/head verify current bundle integrity only.

@@ -13,6 +13,14 @@ import research_export as r
 from warranty_policy import render
 
 
+def fcc_evidence(identifier='TEST-ID'):
+    return {'lookup_outcome': 'UNIT_CONFIRMED', 'module_model': 'SYNTHETIC-MODULE',
+            'installation_basis': 'Synthetic unit label', 'replacement_check': 'Synthetic no changes record',
+            'fcc_official_url': 'https://apps.fcc.gov/oetcf/eas/reports/GenericSearch.cfm',
+            'reviewed_date': '2026-10-16', 'fcc_record_id': identifier, 'fcc_record_model': 'SYNTHETIC-MODULE',
+            'fcc_applicant': 'Synthetic applicant', 'fcc_grant_date': '2026-01-01', 'fcc_access_result': 'REVIEWED'}
+
+
 class ResearchExportTests(unittest.TestCase):
     def ledger(self, key=('Product Details', 'RAM Memory Installed')):
         return {'schemaVersion': 1, 'productId': 'TEST-PC', 'configurationId': 'BASE-A',
@@ -57,6 +65,7 @@ class ResearchExportTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'candidate'):
             r.project(data, [key], 'export')
         del fact['recommended_candidate']
+        fact['evidence'] = fcc_evidence()
         self.assertEqual(r.project(data, [key], 'export')[key]['value'], 'TEST-ID')
 
     def test_verified_fcc_needs_certification_and_scope(self):
@@ -128,14 +137,21 @@ class ResearchExportTests(unittest.TestCase):
             fact = self.ledger(key)['facts'][0]
             fact.update(id=str(index), status='VERIFIED' if key in copy_values else 'NOT_APPLICABLE',
                         final_value=copy_values.get(key))
+            if key == r.FCC_KEY:
+                fact.update(evidence_scope='RADIO_MODULE', authorization_route='unresolved',
+                            evidence={'lookup_outcome': 'FACTORY_NO_WLAN',
+                                      'installation_basis': 'Synthetic factory no-WLAN BOM',
+                                      'replacement_check': 'Synthetic sold assembly has no added radios',
+                                      'radio_inventory_checked': True, 'installed_radio_modules': []})
             data['facts'].append(fact)
             data['fields'].append({'sheet': key[0], 'attribute': key[1], 'selected_fact': str(index)})
+        projected = r.project(data, r.workbook_fields(book))
         for sheet in book:
             for col in range(2, sheet.max_column + 1):
                 key = (sheet.title, sheet.cell(1, col).value)
                 sheet.cell(3, col).value = copy_values.get(key)
                 sheet.cell(4, col).value = 'VERIFIED' if key in copy_values else 'NOT_APPLICABLE'
-                sheet.cell(5, col).value = 'Synthetic fixture'
+                sheet.cell(5, col).value = projected[key]['source']
         path, ledger = root/name, root/'ledger.json'
         book.save(path)
         ledger.write_text(json.dumps(data), encoding='utf-8')

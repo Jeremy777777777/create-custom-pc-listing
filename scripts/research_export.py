@@ -14,11 +14,13 @@ ROOT = Path(__file__).resolve().parents[1]
 FCC_KEY = ('Safety&Compliance', 'FCC ID')
 
 
-def check_fcc_lookup(fact):
+def check_fcc_lookup(fact, require_outcome=False):
     """Check guide outcome semantics; source authentication remains human research."""
     evidence = fact.get('evidence', {})
     outcome = evidence.get('lookup_outcome')
     if outcome is None:  # Existing ledgers retain their existing validation contract.
+        if require_outcome:
+            raise ValueError('FCC export requires reconciled lookup_outcome evidence')
         return
     allowed = {'UNIT_CONFIRMED', 'MODEL_MODULE_MATCH', 'SUPPORTED_OPTION_SELECTED',
                'PENDING', 'FACTORY_NO_WLAN', 'HOST_SDOC'}
@@ -38,21 +40,37 @@ def check_fcc_lookup(fact):
     if outcome == 'HOST_SDOC':
         if fact['status'] == 'VERIFIED' or fact.get('evidence_scope') != 'HOST' or fact.get('authorization_route') != 'SDoC':
             raise ValueError('Host SDoC cannot establish a certified radio FCC ID')
-    if fact['status'] == 'NOT_APPLICABLE' and outcome == 'FACTORY_NO_WLAN':
+    if fact['status'] == 'NOT_APPLICABLE':
         if (fact.get('applies_to_sold_configuration') is not True
                 or not fact.get('transfer_basis', '').strip()
                 or not evidence.get('installation_basis') or not evidence.get('replacement_check')):
             raise ValueError('No-WLAN disposition needs sold applicability and later-addition check')
+        if evidence.get('radio_inventory_checked') is not True or evidence.get('installed_radio_modules') != []:
+            raise ValueError('FCC not-applicable disposition needs a checked empty installed radio inventory')
+        if outcome == 'HOST_SDOC' and not evidence.get('sdoc_source'):
+            raise ValueError('Host SDoC disposition needs the matched statement source')
+        if outcome == 'FACTORY_NO_WLAN' and fact.get('evidence_scope') != 'RADIO_MODULE':
+            raise ValueError('No-WLAN disposition must identify RADIO_MODULE scope')
+        if evidence.get('missing_links'):
+            raise ValueError('FCC not-applicable disposition cannot retain missing links')
     if outcome == 'UNIT_CONFIRMED' and fact['status'] == 'VERIFIED':
         from datetime import date
         from urllib.parse import urlparse
-        for key in ('module_model', 'installation_basis', 'replacement_check', 'fcc_official_url', 'reviewed_date'):
+        model_key = 'host_model' if fact.get('evidence_scope') == 'HOST' else 'module_model'
+        for key in (model_key, 'installation_basis', 'replacement_check', 'fcc_official_url', 'reviewed_date',
+                    'fcc_record_id', 'fcc_record_model', 'fcc_applicant', 'fcc_grant_date'):
             if not isinstance(evidence.get(key), str) or not evidence[key].strip():
                 raise ValueError('Confirmed FCC lookup requires evidence: ' + key)
         url = urlparse(evidence['fcc_official_url'])
         if url.scheme != 'https' or not (url.hostname == 'fcc.gov' or (url.hostname or '').endswith('.fcc.gov')):
             raise ValueError('FCC grant reference must use an official HTTPS FCC URL')
-        date.fromisoformat(evidence['reviewed_date'])
+        reviewed = date.fromisoformat(evidence['reviewed_date'])
+        if date.fromisoformat(evidence['fcc_grant_date']) > reviewed:
+            raise ValueError('FCC grant date cannot follow its review date')
+        if evidence.get('fcc_access_result') != 'REVIEWED':
+            raise ValueError('Confirmed FCC ID needs a reviewed official record, not a failed lookup')
+        if evidence['fcc_record_id'] != fact['final_value'] or evidence['fcc_record_model'] != evidence[model_key]:
+            raise ValueError('FCC record ID/model must match the selected identifier and host/module')
         if evidence.get('missing_links'):
             raise ValueError('Confirmed FCC lookup cannot retain missing links')
 # These existing template fields describe capability rather than installed capacity.
@@ -138,6 +156,8 @@ def project(data, field_keys, mode='draft'):
                 raise ValueError('Export blocked by unresolved field: ' + str(key))
             if candidate is not None:
                 raise ValueError('Export blocked by recommended candidate: ' + str(key))
+            if key == FCC_KEY:
+                check_fcc_lookup(fact, require_outcome=True)
         value = fact['final_value']
         source = fact['source']
         if mode == 'draft' and candidate is not None:
@@ -154,7 +174,9 @@ def project(data, field_keys, mode='draft'):
             evidence = fact['evidence']
             details = ['FCC_LOOKUP=' + evidence['lookup_outcome']]
             details += [name + '=' + str(evidence[name]) for name in
-                        ('module_model', 'fcc_official_url', 'reviewed_date') if evidence.get(name)]
+                        ('module_model', 'host_model', 'fcc_record_id', 'fcc_record_model',
+                         'fcc_applicant', 'fcc_grant_date', 'fcc_access_result',
+                         'fcc_official_url', 'reviewed_date') if evidence.get(name)]
             source += '; ' + '; '.join(details)
         projected[key] = {'value': value, 'status': fact['status'], 'source': source,
                           'fact_id': fact['id'], 'fact_scope': fact['fact_scope']}
@@ -210,11 +232,31 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
                     if (f['sheet'], f['attribute']) == FCC_KEY), None)
         if fcc and not fcc.get('evidence', {}).get('lookup_outcome'):
             raise ValueError('New FCC workbook requires guide lookup_outcome metadata')
+        if workbook.parent.parent.name == 'product generated photo':
+            # All top-level product workbooks are current, including earlier stages.
+            # A revised ledger must not leave an old stage silently stale until CI.
+            for sibling in files_with_suffix(workbook.parent, '.xlsx'):
+                old = openpyxl.load_workbook(sibling)
+                try:
+                    verify_workbook(old, data)
+                except ValueError as error:
+                    raise ValueError('Stale current workbook; preserve/reconcile it before generating: '
+                                     + sibling.name) from error
+                finally:
+                    old.close()
         if previous_workbook:
             from workbook_paths import resolve_workbook_path
             previous_path = resolve_workbook_path(previous_workbook)
             if previous_path.parent.resolve() != workbook.parent.resolve():
-                raise ValueError('Previous workbook must belong to the same product directory')
+                bundle = previous_path.parent.resolve()
+                if bundle.parent != workbook.parent.resolve()/'workbook-snapshots':
+                    raise ValueError('Previous workbook must belong to the same product directory or its snapshot')
+                from workbook_snapshots import check_snapshot
+                binding = check_snapshot(bundle)
+                receipt = json.loads((bundle/'snapshot.json').read_text(encoding='utf-8-sig'))
+                if (any(binding[key] != data[key] for key in ('productId', 'configurationId'))
+                        or receipt['files']['workbook']['path'] != previous_path.name):
+                    raise ValueError('Previous snapshot workbook/product/configuration does not match')
             previous = openpyxl.load_workbook(previous_path)
             if workbook_fields(previous) != workbook_fields(book):
                 raise ValueError('Previous workbook must use the same template fields')
@@ -344,6 +386,52 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
             'fields': [{'sheet': k[0], 'attribute': k[1], **v} for k,v in projected.items()]}
 
 
+def summary_destination(output, workbook, identity):
+    """Preflight the sidecar binding before creating any new deliverables."""
+    from research_handoff import check_product_location
+    from workbook_paths import files_with_suffix
+    output, workbook = Path(output), Path(workbook)
+    if output.parent.resolve() != workbook.parent.resolve():
+        raise ValueError('Research summary must be beside its workbook')
+    check_product_location(output, identity['productId'])
+    if not output.name.casefold().endswith('.research-summary.json'):
+        raise ValueError('Summary output must end with .research-summary.json')
+    matches = [p for p in files_with_suffix(output.parent, '.research-summary.json')
+               if p.name.casefold() == output.name.casefold()]
+    if matches:
+        output = matches[0]
+    if output.exists():
+        previous = json.loads(output.read_text(encoding='utf-8-sig'))
+        binding = previous.get('workbookFile') if isinstance(previous, dict) else None
+        if (isinstance(previous, dict) and binding is None and workbook.is_file()
+                and previous.get('workbookSha256') == hashlib.sha256(workbook.read_bytes()).hexdigest()):
+            binding = workbook.name  # Safely upgrade an older hash-bound sidecar.
+        if (not isinstance(previous, dict) or previous.get('artifactRole') != 'RESEARCH_COVERAGE_SUMMARY'
+                or any(previous.get(key) != identity[key] for key in ('productId', 'configurationId'))
+                or str(binding or '').casefold() != workbook.name.casefold()):
+            raise ValueError('Summary output would overwrite an unrelated workbook/configuration artifact')
+    return output
+
+
+def write_summary(output, result, workbook):
+    """Replace the sidecar only after fully preparing its bytes."""
+    from workbook_paths import resolve_workbook_path
+    summary = {k: result[k] for k in ('productId', 'configurationId', 'stage', 'workbookSha256',
+               'ledgerSha256', 'templateSha256', 'productFactsSha256', 'coverageSummary')}
+    summary['artifactRole'] = 'RESEARCH_COVERAGE_SUMMARY'
+    summary['workbookFile'] = resolve_workbook_path(workbook).name
+    temporary = None
+    try:
+        with tempfile.NamedTemporaryFile(prefix='.' + output.name + '-', suffix='.tmp',
+                                         dir=output.parent, delete=False) as handle:
+            temporary = Path(handle.name)
+            handle.write((json.dumps(summary, indent=2, ensure_ascii=False) + '\n').encode('utf-8'))
+        temporary.replace(output)
+    finally:
+        if temporary:
+            temporary.unlink(missing_ok=True)
+
+
 def main():
     import sys
     # Keep redirected JSON deterministic on Windows as well as Linux.
@@ -361,36 +449,32 @@ def main():
                         help='Export requires explicit LISTING_DRAFT; filenames cannot grant export eligibility')
     parser.add_argument('--summary-output',type=Path,help='Write a standalone research coverage JSON after successful checking')
     parser.add_argument('--write-workbook', action='store_true', help='Create a new Excel from the scoped ledger, then validate it')
-    parser.add_argument('--previous-workbook', type=Path, help='Preserve unchanged historical VERIFIED FCC cell coloring')
+    parser.add_argument('--previous-workbook', type=Path, help='Preserve FCC coloring from a current workbook or checked same-product snapshot')
     args = parser.parse_args()
+    created_workbook = False
     try:
         if args.previous_workbook and not args.write_workbook:
             raise ValueError('--previous-workbook requires --write-workbook')
         if args.write_workbook:
+            if not args.summary_output:
+                args.summary_output = args.workbook.with_suffix('.research-summary.json')
+            args.summary_output = summary_destination(args.summary_output, args.workbook, load_ledger(args.ledger))
             result = write_workbook(args.template, args.ledger, args.workbook, args.mode,
                                     args.product_id, args.configuration_id,
                                     args.stage or 'RESEARCH_REVIEW', args.previous_workbook)
-            if not args.summary_output:
-                args.summary_output = args.workbook.with_suffix('.research-summary.json')
+            created_workbook = True
         else:
             result = run(args.template, args.ledger, args.workbook, args.mode, args.product_id, args.configuration_id, args.stage)
         if args.summary_output:
-            output=args.summary_output
-            from research_handoff import check_product_location
-            check_product_location(output,result['productId'])
-            if not output.name.casefold().endswith('.research-summary.json'):
-                raise ValueError('Summary output must end with .research-summary.json')
-            if output.exists():
-                previous=json.loads(output.read_text(encoding='utf-8-sig'))
-                if not isinstance(previous,dict) or previous.get('artifactRole')!='RESEARCH_COVERAGE_SUMMARY' or previous.get('productId')!=result['productId']:
-                    raise ValueError('Summary output would overwrite an unrelated artifact')
-            summary={k:result[k] for k in ('productId','configurationId','stage','workbookSha256','ledgerSha256','templateSha256','productFactsSha256','coverageSummary')}
-            summary['artifactRole']='RESEARCH_COVERAGE_SUMMARY'
-            from workbook_paths import resolve_workbook_path
-            summary['workbookFile']=resolve_workbook_path(args.workbook).name
-            from gallery_engine import write
-            write(output,summary)
+            output = summary_destination(args.summary_output, args.workbook, result)
+            write_summary(output, result, args.workbook)
     except (ValueError, OSError, json.JSONDecodeError) as error:
+        if created_workbook:
+            try:
+                args.workbook.unlink(missing_ok=True)
+            except OSError as cleanup_error:
+                parser.exit(1, str(error) + '; workbook cleanup failed at ' + str(args.workbook)
+                            + ': ' + str(cleanup_error) + '\n')
         parser.exit(1, str(error) + '\n')
     print(json.dumps(result, indent=2, ensure_ascii=False))
 
