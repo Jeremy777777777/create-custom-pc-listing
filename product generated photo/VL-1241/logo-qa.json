@@ -4,7 +4,7 @@
   "brand": "Lenovo",
   "result": "PASS",
   "logoAssetSha256": "e7667aff80eea977cfe4369ab44b0ae1a5739d43a310394f465371aebeaeaa63",
-  "logoAssetPath": "production\\sources\\lenovo-official.png",
+  "logoAssetPath": "production/sources/lenovo-official.png",
   "visibleLogoAspectRatio": 3.1,
   "placementPlanSha256": "5fd79f8604afd4fe7c5514b91f9dd921b7de8b106668372cdd85967324c29c6b",
   "images": [
