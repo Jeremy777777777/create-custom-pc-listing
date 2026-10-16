@@ -1,12 +1,27 @@
 {
   "internalId": "VL-1126",
   "galleryState": "CURRENT_REVIEWED",
-  "deliveryState": "READY_FOR_GITHUB_DELIVERY",
+  "deliveryState": "GITHUB_DELIVERY_VERIFIED",
   "deliveryScope": "FULL_GALLERY",
   "currentQaPass": true,
   "amazonEligibility": "NOT_ASSESSED",
   "factsCompleteness": "IMAGE_REQUIRED_FACTS_VERIFIED",
   "workbookStage": "NOT_REQUESTED_IMAGE_ONLY",
-  "reason": "Current full-gallery bytes and supplied hash-bound reviews passed local acceptance; remote delivery remains unverified.",
-  "nextRun": "Commit/push, await applicable CI and verify remote file hashes before claiming GITHUB_DELIVERY_VERIFIED."
+  "reason": "Full eleven-image gallery accepted locally; recorded remote commit, all image/production-pack file hashes and successful applicable CI verified.",
+  "nextRun": "Preserve approved B06/BG06 and unchanged slots; publication eligibility remains separately assessed.",
+  "lastVerifiedArtifactCommit": "bbf12540c09e99fcbc6ca802376e0dcb081c0ff2",
+  "imageArtifactCommit": "d33ef4cd309d81148d49193e87c4f123fae31246",
+  "githubDeliveryVerifiedAtUtc": "2026-10-16T21:23:36.777674+00:00",
+  "remoteFilesVerified": 65,
+  "remoteCi": [
+    {
+      "id": 38968625642,
+      "name": "Validate current gallery delivery",
+      "headSha": "bbf12540c09e99fcbc6ca802376e0dcb081c0ff2",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jeremy777777777/create-custom-pc-listing/actions/runs/38968625642"
+    }
+  ],
+  "remoteDeliveryRecord": "github-delivery-verification.json"
 }

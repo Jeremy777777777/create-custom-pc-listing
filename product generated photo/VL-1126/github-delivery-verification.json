@@ -1,0 +1,347 @@
+{
+  "commit": "bbf12540c09e99fcbc6ca802376e0dcb081c0ff2",
+  "remoteFilesVerified": 65,
+  "files": [
+    {
+      "path": "assets/production/VL-1126/b06-20261016/README.md",
+      "gitBlobSha256": "6d7fcfd977fc723b09848a7db9c26690c77b80148fb0b7986198f86f2a152cf9",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/build_gallery.py",
+      "gitBlobSha256": "24b14a73ac3bd54a732cfb5c0855d77fb4387801b23f0652859bae5c2331eece",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/gallery-overview.png",
+      "gitBlobSha256": "955715dc179c35298c273e4833811f44c365081d88c82552751eca6770412038",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/gallery-thumbnails-200px.png",
+      "gitBlobSha256": "5a1f81a7968882c83c39717494345b2bc0e797d1028bb9607ef0fccb71a3b205",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/gallery/unbranded/PT01.png",
+      "gitBlobSha256": "37f7ff4d06a227a66b1fd34f4cd9fc4a4e643c794a0276c702a1af522210b82d",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/gallery/unbranded/PT02.png",
+      "gitBlobSha256": "de73c9c316cdc5c15bada9d123188f6a3ea241fd759ade018343d536eb6f3d42",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/gallery/unbranded/PT03.png",
+      "gitBlobSha256": "5c0ae5d170de4a4dea750ab0aa150e5836ba77f66790eef3ed2547ba135a029d",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/gallery/unbranded/PT04.png",
+      "gitBlobSha256": "f5ccea99aed1e451e7f6e95298dfba862eacb0b506ecf19fb097edf7c0e8a81b",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/gallery/unbranded/PT05.png",
+      "gitBlobSha256": "63f8ed481e097a263317e29e0a20d50d34b8f6c429145cf7ca388364e31eb2db",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/gallery/unbranded/PT06.png",
+      "gitBlobSha256": "3724b5cf5d6bc5c2d0fa4b01828c373083ff034939b773b71c5b8e3b7bbcacfe",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/gallery/unbranded/PT07.png",
+      "gitBlobSha256": "5bba234abf7768788721d57b232dee68e711c9ade3ac408b5424d83593e537e5",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/gallery/unbranded/PT08.png",
+      "gitBlobSha256": "4c991c75db4f3f237c8d610f336bae2e4bfbdc255bb7ffe001be1fc741151b1f",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/generation-record.json",
+      "gitBlobSha256": "20ee688b51a320ad032c44a13070d3cf84a128592885b18797ffe136d8c2f403",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/layers/MAIN-ENHANCED-FRONT-CANDIDATE.png.lcd-mask.png",
+      "gitBlobSha256": "851fee38fc6ac8beb3af6176745904bb5440a9b8a83ca2ee1aa52e4afde5a56a",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/layers/MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png.lcd-mask.png",
+      "gitBlobSha256": "4a13f6da863002c3670cade4651c4321bc4861a8dab9e0ca5ab3619aa9d0b0ea",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/layers/angle-angle.png",
+      "gitBlobSha256": "94289e9c3259a309771bded63a1b03f2a1f37e53677dcbde0e774550ddd760f7",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/layers/angle-plain.png",
+      "gitBlobSha256": "bbd6ad385f72a574be1ca36d39d32ced735394402a81a2388170168458a05fbb",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/layers/front-front.png",
+      "gitBlobSha256": "79fb5cbabc3603f6f2b4b9ace0de0153f81c92fa4bdddb13e47e04677182e056",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/layers/front-plain.png",
+      "gitBlobSha256": "857d8bc5f46196ce8f2f53ce35550ff4380b05cc119fa56b7b644f655f8a7659",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/layers/lenovo-logo-transparent.png",
+      "gitBlobSha256": "afebfab2651e6ed64e08257667ac83110924d484257d4ed50d4d278746d87d2f",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/layers/sRGB.icc",
+      "gitBlobSha256": "9efaa5b19d2a2fbb2260f9ce4bc3e8b3d9e3184f5f79a5741d6e6b75d7678fce",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/layers/stand-plain.png",
+      "gitBlobSha256": "0f8ca5daea69f5a1b769a07bf5c51bed125fe2e64ea5ede21ee4b79207ec7c7b",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/layers/tablet-plain.png",
+      "gitBlobSha256": "47b87f7befbe4853926dfd4a819eecab9571c6db95a31d8650ed003c863b59a0",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/prepare_review.py",
+      "gitBlobSha256": "32bcfc72cd95ccfdd23e0f85bf6565b6bc22301c40d10fb97557c7f4e24d3cb2",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/recipe.json",
+      "gitBlobSha256": "c0242ad1401c49e4a3eced9a618b492eee4bbe5086fa17bdf6001d1ab92cdc52",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/source-inventory.json",
+      "gitBlobSha256": "37ec1ba317cd71a971f8a8b8b6f6a7bbd71c1d96542a7885ba97809d114f34b0",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/sources/CT1_04.png",
+      "gitBlobSha256": "a42329d04460d7b6bf08ab710ec291b608969a427e49aa5bd28a35118269f0c9",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/sources/CT1_06.png",
+      "gitBlobSha256": "82bb35275b587e0635c10218d547d043af04cebbeb14bb50552866e5dfb5ef64",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/sources/CT1_07.png",
+      "gitBlobSha256": "6e2a472ff8d105821c01609153f46b462619c8e03550199e89cecdbf4b830e36",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/sources/CT1_08.png",
+      "gitBlobSha256": "b386f041c3aa813971513e1ae9edd056cc084822987fa289f6a23477d760f5ef",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/sources/CT2_01.png",
+      "gitBlobSha256": "83cecf0f1c253eebd79c70ecf91dfc29b1304c44c9644a2f3fd8f01546a65d77",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/sources/CT2_02.png",
+      "gitBlobSha256": "4a949d6fa0e9c46ba69f63234a642482694f5739ceb544d87d61c4e0ea9ea0a9",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/sources/CT2_04.png",
+      "gitBlobSha256": "91bd816395bb668d64e7401319c1847be699f048060a4f9411778e1d46e7d98d",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/sources/CT2_05.png",
+      "gitBlobSha256": "642df8e0a8e0d514071435f6f106f01471ecf60f3c677a7fd27dd0eec32b2eff",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/sources/hero-background.png",
+      "gitBlobSha256": "9654ccf87546a22b8016cb426b0735dbcc9a1c7981b2459e4a4facc1c05d02e3",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/sources/lenovo-logo-red-official.png",
+      "gitBlobSha256": "1b6d4520444b571bf23a04ca91384275957ad6dbebd83c7f873fee15239be9e3",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/sources/lifestyle-background.png",
+      "gitBlobSha256": "be2c38594be086544c75fb6ac4ef4a83ffba505902dd53898e0d1cf61adc7ea1",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "assets/production/VL-1126/b06-20261016/sources/screen-art.png",
+      "gitBlobSha256": "e80f3197618c0472bb3ccdd4e7431413eaa8451734e93ec30fed8e21ffd40969",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "gitBlobSha256": "6318b35cb750d48d842e5408206fb8810c110d6e30fc04ecbb3d1e9ca2c3fe99",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "gitBlobSha256": "6f4d7bbf1c01f8419584ccaf1c347365830ff261dfabdd10f1c919da643d382b",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/MAIN-STRICT.jpg",
+      "gitBlobSha256": "3b6eb7084cdabfcae78a598e1680584400707d1936be4545c4c941d4f27f8ccb",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/PT01.png",
+      "gitBlobSha256": "073935fa3d44a780d17acc8bd10e083cbf477af3aff6dad8af1bdda61472f82d",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/PT02.png",
+      "gitBlobSha256": "376fbb0995026f8426863df5d7d481fc4ad5189fb7f09b09af7eb1456dd001c7",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/PT03.png",
+      "gitBlobSha256": "ddf5d50ecdea9515eec3a304d212bd2abd48abd9080d54a3d059e811ef10a09c",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/PT04.png",
+      "gitBlobSha256": "3e04a4221aed1a019330c13d5fc78a23a28b245d37536b9b7bf0efa15218c13d",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/PT05.png",
+      "gitBlobSha256": "bb21fbf72722597fcb29a7d2e98d94e83bf7695980ffcc7ab0b056247c6b552e",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/PT06.png",
+      "gitBlobSha256": "8f64c6ac339ee25cec1ff2bb10164e0a9d2434ef40e91d28da483c6ff0915a96",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/PT07.png",
+      "gitBlobSha256": "9e54c23da29aeae37dfb0be3bbd7a585835e38f9c3d9d93aea482ec7daa9b124",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/PT08.png",
+      "gitBlobSha256": "f441877e0f5a0c6a2dd1e10d7a3074d2d8fb3d87286f620ef0195d9decf56772",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/delivery-status.json",
+      "gitBlobSha256": "9e6910d357dee5cf5d5e389c0e456d4d7c50d6d7b3245de54a3c164b2c747e21",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/file-checks.json",
+      "gitBlobSha256": "f671d9d8521fbecd7ee9382beba9faa787b1629aa74933a960f5290a2f79966b",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/final-image-qa.json",
+      "gitBlobSha256": "1b76d279483517f02f14a3e04450c0fd4c5b8493b5d84cafa951f7383f2a0a90",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/image-manifest.md",
+      "gitBlobSha256": "b61adcbd7f4c1f6bdf9332bc19ffd4be95fe8f06cc461caa7dd2fde0b76be9af",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/local-validation.json",
+      "gitBlobSha256": "71dea26e515cebdbdbf9aa4216c1126264a2f494f18c2b1ca4b12094a6f5c8a1",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/logo-placement.json",
+      "gitBlobSha256": "6e3fbc39b3ca4f3fab1107dd3379a31b57174ab05be0264f5e22f57ea83c7ca1",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/logo-qa.json",
+      "gitBlobSha256": "0c1f536be4e469a3824bca7cead7def70a5b790feece47bae2f09b51d74f1794",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/product-facts.json",
+      "gitBlobSha256": "3b634d5e179259650b1a95fb8909b16314c2f281e4dc9e0a57f2f05e958d6efe",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/product-fidelity-review.json",
+      "gitBlobSha256": "283ab1186e6a86ca2e6456903ef67e16acb54e479f4ff2c5ffeeb2e8c68ef1e8",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/production-master-verification.json",
+      "gitBlobSha256": "49b439720284cfb18039fb849059ffc2490b6e3dd3a5d43d5af64df6e322221c",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/rebuild-check.json",
+      "gitBlobSha256": "b17d5e44629ae35196045579da1a8a039b0d5e6dbf1ad12da5ceebb6a6ad5104",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/semantic-review.json",
+      "gitBlobSha256": "47325d9c84d1554113c80f4ca5bbfb771445eabfeddf6032a0f76ff6faa944cb",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/source-assets.json",
+      "gitBlobSha256": "b5687f7878cafb188b66edc74e1c33cd239c495c953a9f8cc8113ef216a4f39a",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/style-lock.json",
+      "gitBlobSha256": "08ccfa1855c352357f3298809552cd7c22fd7c3d77528f1d1086c742cac5bc50",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/visual-review.json",
+      "gitBlobSha256": "7c9cd29884ed9cb982fdd37f48356469b9edf62fe8cfddb1c7a0db03ad9dcb69",
+      "localMatchesRemote": true
+    },
+    {
+      "path": "product generated photo/VL-1126/windows-placement-qa.json",
+      "gitBlobSha256": "5673b233145b90466e0dd9e4e1298143663021145de0a7d2d47020ca6dc100bd",
+      "localMatchesRemote": true
+    }
+  ],
+  "ci": [
+    {
+      "id": 38968625642,
+      "name": "Validate current gallery delivery",
+      "headSha": "bbf12540c09e99fcbc6ca802376e0dcb081c0ff2",
+      "status": "completed",
+      "conclusion": "success",
+      "url": "https://github.com/Jeremy777777777/create-custom-pc-listing/actions/runs/38968625642"
+    }
+  ],
+  "result": "GITHUB_DELIVERY_VERIFIED",
+  "internalId": "VL-1126",
+  "deliveryScope": "FULL_GALLERY",
+  "verifiedAtUtc": "2026-10-16T21:23:36.777674+00:00",
+  "imageArtifactCommit": "d33ef4cd309d81148d49193e87c4f123fae31246",
+  "note": "Certifies the recorded remote commit and its listed blobs, including all eleven final images and production-pack masters; this later receipt does not certify its own future commit. Final images remain byte-identical."
+}
