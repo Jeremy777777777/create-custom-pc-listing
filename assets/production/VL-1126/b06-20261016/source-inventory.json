@@ -1,0 +1,114 @@
+[
+  {
+    "file": "CT1_01.png",
+    "dimensions": [
+      2000,
+      2000
+    ],
+    "sha256": "9c071350c05fdb79dc2ce34e0e4e0e7296fbde5c4382e0a40f2a1174c1da4abd"
+  },
+  {
+    "file": "CT1_02.png",
+    "dimensions": [
+      2000,
+      2000
+    ],
+    "sha256": "446703841773d2d65dfb246099fa896e80380bafcb2e7b2066d05d84f78a8776"
+  },
+  {
+    "file": "CT1_03.png",
+    "dimensions": [
+      2000,
+      2000
+    ],
+    "sha256": "70a0f0847199fdac7e129407f0f7fa86e158227fd638ed75db829677abafeea8"
+  },
+  {
+    "file": "CT1_04.png",
+    "dimensions": [
+      2000,
+      2000
+    ],
+    "sha256": "a42329d04460d7b6bf08ab710ec291b608969a427e49aa5bd28a35118269f0c9"
+  },
+  {
+    "file": "CT1_05.png",
+    "dimensions": [
+      2000,
+      2000
+    ],
+    "sha256": "3bcd3ed681dfa9b112dc6062b1103b1fd1f0fccddd5af12430325188d7072023"
+  },
+  {
+    "file": "CT1_06.png",
+    "dimensions": [
+      2000,
+      2000
+    ],
+    "sha256": "82bb35275b587e0635c10218d547d043af04cebbeb14bb50552866e5dfb5ef64"
+  },
+  {
+    "file": "CT1_07.png",
+    "dimensions": [
+      2000,
+      2000
+    ],
+    "sha256": "6e2a472ff8d105821c01609153f46b462619c8e03550199e89cecdbf4b830e36"
+  },
+  {
+    "file": "CT1_08.png",
+    "dimensions": [
+      2000,
+      2000
+    ],
+    "sha256": "b386f041c3aa813971513e1ae9edd056cc084822987fa289f6a23477d760f5ef"
+  },
+  {
+    "file": "CT1_09.png",
+    "dimensions": [
+      2000,
+      2000
+    ],
+    "sha256": "7703e50bd9be7542324ff3dd17acfc18e63559a0cab46967d576701844d653b4"
+  },
+  {
+    "file": "CT2_01.png",
+    "dimensions": [
+      2000,
+      2000
+    ],
+    "sha256": "83cecf0f1c253eebd79c70ecf91dfc29b1304c44c9644a2f3fd8f01546a65d77"
+  },
+  {
+    "file": "CT2_02.png",
+    "dimensions": [
+      2000,
+      2000
+    ],
+    "sha256": "4a949d6fa0e9c46ba69f63234a642482694f5739ceb544d87d61c4e0ea9ea0a9"
+  },
+  {
+    "file": "CT2_03.png",
+    "dimensions": [
+      2000,
+      2000
+    ],
+    "sha256": "6eaef2871f1941f606290645cb90450fa4668b388a33975bec0085d16f9ba66e"
+  },
+  {
+    "file": "CT2_04.png",
+    "dimensions": [
+      2000,
+      2000
+    ],
+    "sha256": "91bd816395bb668d64e7401319c1847be699f048060a4f9411778e1d46e7d98d"
+  },
+  {
+    "file": "CT2_05.png",
+    "dimensions": [
+      2000,
+      2000
+    ],
+    "sha256": "642df8e0a8e0d514071435f6f106f01471ecf60f3c677a7fd27dd0eec32b2eff"
+  }
+]

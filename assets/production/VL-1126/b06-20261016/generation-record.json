@@ -1,0 +1,21 @@
+{
+  "method": "built-in image_gen",
+  "scope": "Background plates and original LCD art only; product layers and brand art are official originals.",
+  "assets": [
+    {
+      "file": "sources/hero-background.png",
+      "prompt": "Generate a high-resolution 2048x2048 square photographic BACKGROUND PLATE for a premium laptop supporting product image. No product, no computer, no device, no accessories, no people, no text, no logos. B06/BG06 student-to-career studio direction: silver-white architectural studio with softly lit curved walls, cobalt-to-teal broad sculptural ribbon in the far background, tasteful navy accents. Large seamless pale silver tabletop/platform occupies lower half, flat level horizontal surface so an original laptop will be composited later, empty center and lower center. Keep top 30 percent very light and quiet for navy headlines to be added later. Subtle sunlight, elegant material quality, natural contact surface, bright premium style matching white silver navy teal, no hard frame or cards. Not a living room or tech sci-fi scene.",
+      "generationFile": "exec-219e50ce-d3ff-420f-9f84-561b02873313.png"
+    },
+    {
+      "file": "sources/lifestyle-background.png",
+      "prompt": "Create one square high-resolution photorealistic background plate for a premium Lenovo convertible laptop study/work lifestyle supporting gallery. EMPTY SCENE, no laptop or computer, no devices, no accessories, no books, no pens, no text, no logos, no people. Calm modern home study nook with white walls, very pale silver tabletop occupying lower 45%, a comfortable blue-grey upholstered chair behind it to the right, soft sheer daylight from left, minimal blurred indoor plant in far background only. Cool white, silver, slate blue with subtle teal accents; premium bright natural architectural photography. Table is empty and unobstructed for later compositing a real front view laptop in lower center. Keep top left 30% uncluttered pale wall to add navy headlines. Front-facing low tabletop perspective, not aerial. Gentle grounded shadows. B06/BG06 student-to-career family. Do not add any electronic equipment or decorative product.",
+      "generationFile": "exec-9bfb2cc2-46c7-400c-9d14-e9cbcffad885.png"
+    },
+    {
+      "file": "sources/screen-art.png",
+      "prompt": "Create one original high-resolution landscape 16:10 abstract productivity wallpaper for a laptop LCD. This is SCREEN ART ONLY, no computer frame, no device, no text or letters, no logos, no proprietary software interface, no icons of external equipment. Premium student-to-career creative workflow atmosphere: layered translucent frosted glass planes, very abstract empty paper/notebook/calendar-like rectangles with a few subtle short horizontal lines and circles, deep cobalt at upper left blending into luminous teal at lower right, silver-white flowing architectural ribbon. Elegant, calm, confident, restrained depth; no neon or gaming imagery. Leave large quiet deep-navy region in the left half for later deterministic typography and Windows identity compositing. Bright forms mainly on right; no outer border. B06/BG06 style.",
+      "generationFile": "exec-6279c333-536a-4c68-9562-792446b700ae.png"
+    }
+  ]
+}

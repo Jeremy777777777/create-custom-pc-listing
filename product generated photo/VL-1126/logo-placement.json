@@ -1,0 +1,266 @@
+{
+  "schemaVersion": 3,
+  "brand": "Lenovo",
+  "logoRole": "OEM base-product identifier",
+  "logoVisibilityMode": "ASPECT_RATIO_WORDMARK",
+  "logoAssetSourceUrl": "https://media.lenovobrandworld.fiestic.com/2022/06/08010946/LenovoLogo_POS-Red-H.png",
+  "thumbnailReviewSizePx": 200,
+  "minimumClearancePx": 32,
+  "minimumComponentSeparationPx": 32,
+  "placements": {
+    "PT01.png": {
+      "style": "transparent",
+      "x": 70,
+      "y": 1174,
+      "width": 128,
+      "height": 43,
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 164,
+          "y": 400,
+          "width": 927,
+          "height": 680
+        },
+        {
+          "label": "FOOTER_PRODUCT_IDENTITY",
+          "x": 260,
+          "y": 1170,
+          "width": 490,
+          "height": 45
+        },
+        {
+          "label": "FOOTER_NAVIGATION",
+          "x": 1110,
+          "y": 1170,
+          "width": 70,
+          "height": 45
+        }
+      ]
+    },
+    "PT02.png": {
+      "style": "transparent",
+      "x": 70,
+      "y": 1174,
+      "width": 128,
+      "height": 43,
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 204,
+          "y": 495,
+          "width": 845,
+          "height": 620
+        },
+        {
+          "label": "FOOTER_PRODUCT_IDENTITY",
+          "x": 260,
+          "y": 1170,
+          "width": 490,
+          "height": 45
+        },
+        {
+          "label": "FOOTER_NAVIGATION",
+          "x": 1110,
+          "y": 1170,
+          "width": 70,
+          "height": 45
+        }
+      ]
+    },
+    "PT03.png": {
+      "style": "transparent",
+      "x": 70,
+      "y": 1174,
+      "width": 128,
+      "height": 43,
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 575,
+          "y": 402,
+          "width": 620,
+          "height": 290
+        },
+        {
+          "label": "FOOTER_PRODUCT_IDENTITY",
+          "x": 260,
+          "y": 1170,
+          "width": 490,
+          "height": 45
+        },
+        {
+          "label": "FOOTER_NAVIGATION",
+          "x": 1110,
+          "y": 1170,
+          "width": 70,
+          "height": 45
+        }
+      ]
+    },
+    "PT04.png": {
+      "style": "transparent",
+      "x": 70,
+      "y": 1174,
+      "width": 128,
+      "height": 43,
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 65,
+          "y": 527,
+          "width": 590,
+          "height": 336
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE_2",
+          "x": 665,
+          "y": 552,
+          "width": 520,
+          "height": 332
+        },
+        {
+          "label": "FOOTER_PRODUCT_IDENTITY",
+          "x": 260,
+          "y": 1170,
+          "width": 490,
+          "height": 45
+        },
+        {
+          "label": "FOOTER_NAVIGATION",
+          "x": 1110,
+          "y": 1170,
+          "width": 70,
+          "height": 45
+        }
+      ]
+    },
+    "PT05.png": {
+      "style": "transparent",
+      "x": 70,
+      "y": 1174,
+      "width": 128,
+      "height": 43,
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 245,
+          "y": 390,
+          "width": 900,
+          "height": 421
+        },
+        {
+          "label": "FOOTER_PRODUCT_IDENTITY",
+          "x": 260,
+          "y": 1170,
+          "width": 490,
+          "height": 45
+        },
+        {
+          "label": "FOOTER_NAVIGATION",
+          "x": 1110,
+          "y": 1170,
+          "width": 70,
+          "height": 45
+        }
+      ]
+    },
+    "PT06.png": {
+      "style": "transparent",
+      "x": 70,
+      "y": 1174,
+      "width": 128,
+      "height": 43,
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 180,
+          "y": 345,
+          "width": 895,
+          "height": 640
+        },
+        {
+          "label": "FOOTER_PRODUCT_IDENTITY",
+          "x": 260,
+          "y": 1170,
+          "width": 490,
+          "height": 45
+        },
+        {
+          "label": "FOOTER_NAVIGATION",
+          "x": 1110,
+          "y": 1170,
+          "width": 70,
+          "height": 45
+        }
+      ]
+    },
+    "PT07.png": {
+      "style": "transparent",
+      "x": 70,
+      "y": 1174,
+      "width": 128,
+      "height": 43,
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 410,
+          "y": 528,
+          "width": 775,
+          "height": 509
+        },
+        {
+          "label": "FOOTER_PRODUCT_IDENTITY",
+          "x": 260,
+          "y": 1170,
+          "width": 490,
+          "height": 45
+        },
+        {
+          "label": "FOOTER_NAVIGATION",
+          "x": 1110,
+          "y": 1170,
+          "width": 70,
+          "height": 45
+        }
+      ]
+    },
+    "PT08.png": {
+      "style": "transparent",
+      "x": 70,
+      "y": 1174,
+      "width": 128,
+      "height": 43,
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 70,
+          "y": 453,
+          "width": 1110,
+          "height": 94
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE_2",
+          "x": 70,
+          "y": 800,
+          "width": 1110,
+          "height": 100
+        },
+        {
+          "label": "FOOTER_PRODUCT_IDENTITY",
+          "x": 260,
+          "y": 1170,
+          "width": 490,
+          "height": 45
+        },
+        {
+          "label": "FOOTER_NAVIGATION",
+          "x": 1110,
+          "y": 1170,
+          "width": 70,
+          "height": 45
+        }
+      ]
+    }
+  }
+}

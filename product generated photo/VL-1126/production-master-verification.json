@@ -1,0 +1,53 @@
+{
+  "result": "LOCAL_PRODUCTION_PACK_MASTERS_VERIFIED",
+  "images": [
+    {
+      "file": "PT01.png",
+      "masterPath": "assets/production/VL-1126/b06-20261016/gallery/unbranded/PT01.png",
+      "masterSha256": "37f7ff4d06a227a66b1fd34f4cd9fc4a4e643c794a0276c702a1af522210b82d",
+      "matchesCompositionSource": true
+    },
+    {
+      "file": "PT02.png",
+      "masterPath": "assets/production/VL-1126/b06-20261016/gallery/unbranded/PT02.png",
+      "masterSha256": "de73c9c316cdc5c15bada9d123188f6a3ea241fd759ade018343d536eb6f3d42",
+      "matchesCompositionSource": true
+    },
+    {
+      "file": "PT03.png",
+      "masterPath": "assets/production/VL-1126/b06-20261016/gallery/unbranded/PT03.png",
+      "masterSha256": "5c0ae5d170de4a4dea750ab0aa150e5836ba77f66790eef3ed2547ba135a029d",
+      "matchesCompositionSource": true
+    },
+    {
+      "file": "PT04.png",
+      "masterPath": "assets/production/VL-1126/b06-20261016/gallery/unbranded/PT04.png",
+      "masterSha256": "f5ccea99aed1e451e7f6e95298dfba862eacb0b506ecf19fb097edf7c0e8a81b",
+      "matchesCompositionSource": true
+    },
+    {
+      "file": "PT05.png",
+      "masterPath": "assets/production/VL-1126/b06-20261016/gallery/unbranded/PT05.png",
+      "masterSha256": "63f8ed481e097a263317e29e0a20d50d34b8f6c429145cf7ca388364e31eb2db",
+      "matchesCompositionSource": true
+    },
+    {
+      "file": "PT06.png",
+      "masterPath": "assets/production/VL-1126/b06-20261016/gallery/unbranded/PT06.png",
+      "masterSha256": "3724b5cf5d6bc5c2d0fa4b01828c373083ff034939b773b71c5b8e3b7bbcacfe",
+      "matchesCompositionSource": true
+    },
+    {
+      "file": "PT07.png",
+      "masterPath": "assets/production/VL-1126/b06-20261016/gallery/unbranded/PT07.png",
+      "masterSha256": "5bba234abf7768788721d57b232dee68e711c9ade3ac408b5424d83593e537e5",
+      "matchesCompositionSource": true
+    },
+    {
+      "file": "PT08.png",
+      "masterPath": "assets/production/VL-1126/b06-20261016/gallery/unbranded/PT08.png",
+      "masterSha256": "4c991c75db4f3f237c8d610f336bae2e4bfbdc255bb7ffe001be1fc741151b1f",
+      "matchesCompositionSource": true
+    }
+  ]
+}

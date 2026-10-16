@@ -1,0 +1,12 @@
+{
+  "internalId": "VL-1126",
+  "galleryState": "CURRENT_REVIEWED",
+  "deliveryState": "READY_FOR_GITHUB_DELIVERY",
+  "deliveryScope": "FULL_GALLERY",
+  "currentQaPass": true,
+  "amazonEligibility": "NOT_ASSESSED",
+  "factsCompleteness": "IMAGE_REQUIRED_FACTS_VERIFIED",
+  "workbookStage": "NOT_REQUESTED_IMAGE_ONLY",
+  "reason": "Current full-gallery bytes and supplied hash-bound reviews passed local acceptance; remote delivery remains unverified.",
+  "nextRun": "Commit/push, await applicable CI and verify remote file hashes before claiming GITHUB_DELIVERY_VERIFIED."
+}

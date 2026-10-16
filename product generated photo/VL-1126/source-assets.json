@@ -1,0 +1,86 @@
+[
+  {
+    "path": "assets/production/VL-1126/b06-20261016/sources/CT2_04.png",
+    "source": "https://psrefstuff.lenovo.com/syspool//Sys/Image/Yoga/Yoga_7_2_in_1_16ILL10/Compressedimage/Yoga_7_2_in_1_16ILL10_CT2_04.png",
+    "sha256": "91bd816395bb668d64e7401319c1847be699f048060a4f9411778e1d46e7d98d",
+    "rights": "USER_CONFIRMED_CATALOG_WIDE",
+    "readDate": "2026-10-16"
+  },
+  {
+    "path": "assets/production/VL-1126/b06-20261016/sources/CT1_04.png",
+    "source": "https://psrefstuff.lenovo.com/syspool//Sys/Image/Yoga/Yoga_7_2_in_1_16ILL10/Compressedimage/Yoga_7_2_in_1_16ILL10_CT1_04.png",
+    "sha256": "a42329d04460d7b6bf08ab710ec291b608969a427e49aa5bd28a35118269f0c9",
+    "rights": "USER_CONFIRMED_CATALOG_WIDE",
+    "readDate": "2026-10-16"
+  },
+  {
+    "path": "assets/production/VL-1126/b06-20261016/sources/CT1_06.png",
+    "source": "https://psrefstuff.lenovo.com/syspool//Sys/Image/Yoga/Yoga_7_2_in_1_16ILL10/Compressedimage/Yoga_7_2_in_1_16ILL10_CT1_06.png",
+    "sha256": "82bb35275b587e0635c10218d547d043af04cebbeb14bb50552866e5dfb5ef64",
+    "rights": "USER_CONFIRMED_CATALOG_WIDE",
+    "readDate": "2026-10-16"
+  },
+  {
+    "path": "assets/production/VL-1126/b06-20261016/sources/CT1_07.png",
+    "source": "https://psrefstuff.lenovo.com/syspool//Sys/Image/Yoga/Yoga_7_2_in_1_16ILL10/Compressedimage/Yoga_7_2_in_1_16ILL10_CT1_07.png",
+    "sha256": "6e2a472ff8d105821c01609153f46b462619c8e03550199e89cecdbf4b830e36",
+    "rights": "USER_CONFIRMED_CATALOG_WIDE",
+    "readDate": "2026-10-16"
+  },
+  {
+    "path": "assets/production/VL-1126/b06-20261016/sources/CT2_05.png",
+    "source": "https://psrefstuff.lenovo.com/syspool//Sys/Image/Yoga/Yoga_7_2_in_1_16ILL10/Compressedimage/Yoga_7_2_in_1_16ILL10_CT2_05.png",
+    "sha256": "642df8e0a8e0d514071435f6f106f01471ecf60f3c677a7fd27dd0eec32b2eff",
+    "rights": "USER_CONFIRMED_CATALOG_WIDE",
+    "readDate": "2026-10-16"
+  },
+  {
+    "path": "assets/production/VL-1126/b06-20261016/sources/CT1_08.png",
+    "source": "https://psrefstuff.lenovo.com/syspool//Sys/Image/Yoga/Yoga_7_2_in_1_16ILL10/Compressedimage/Yoga_7_2_in_1_16ILL10_CT1_08.png",
+    "sha256": "b386f041c3aa813971513e1ae9edd056cc084822987fa289f6a23477d760f5ef",
+    "rights": "USER_CONFIRMED_CATALOG_WIDE",
+    "readDate": "2026-10-16"
+  },
+  {
+    "path": "assets/production/VL-1126/b06-20261016/sources/CT2_01.png",
+    "source": "https://psrefstuff.lenovo.com/syspool//Sys/Image/Yoga/Yoga_7_2_in_1_16ILL10/Compressedimage/Yoga_7_2_in_1_16ILL10_CT2_01.png",
+    "sha256": "83cecf0f1c253eebd79c70ecf91dfc29b1304c44c9644a2f3fd8f01546a65d77",
+    "rights": "USER_CONFIRMED_CATALOG_WIDE",
+    "readDate": "2026-10-16"
+  },
+  {
+    "path": "assets/production/VL-1126/b06-20261016/sources/CT2_02.png",
+    "source": "https://psrefstuff.lenovo.com/syspool//Sys/Image/Yoga/Yoga_7_2_in_1_16ILL10/Compressedimage/Yoga_7_2_in_1_16ILL10_CT2_02.png",
+    "sha256": "4a949d6fa0e9c46ba69f63234a642482694f5739ceb544d87d61c4e0ea9ea0a9",
+    "rights": "USER_CONFIRMED_CATALOG_WIDE",
+    "readDate": "2026-10-16"
+  },
+  {
+    "path": "assets/production/VL-1126/b06-20261016/sources/hero-background.png",
+    "source": "Original built-in image_gen; generation-record.json",
+    "sha256": "9654ccf87546a22b8016cb426b0735dbcc9a1c7981b2459e4a4facc1c05d02e3",
+    "rights": "ORIGINAL_AI_BACKGROUND_OR_SCREEN_ART",
+    "readDate": "2026-10-16"
+  },
+  {
+    "path": "assets/production/VL-1126/b06-20261016/sources/lifestyle-background.png",
+    "source": "Original built-in image_gen; generation-record.json",
+    "sha256": "be2c38594be086544c75fb6ac4ef4a83ffba505902dd53898e0d1cf61adc7ea1",
+    "rights": "ORIGINAL_AI_BACKGROUND_OR_SCREEN_ART",
+    "readDate": "2026-10-16"
+  },
+  {
+    "path": "assets/production/VL-1126/b06-20261016/sources/screen-art.png",
+    "source": "Original built-in image_gen; generation-record.json",
+    "sha256": "e80f3197618c0472bb3ccdd4e7431413eaa8451734e93ec30fed8e21ffd40969",
+    "rights": "ORIGINAL_AI_BACKGROUND_OR_SCREEN_ART",
+    "readDate": "2026-10-16"
+  },
+  {
+    "path": "assets/production/VL-1126/b06-20261016/sources/lenovo-logo-red-official.png",
+    "source": "https://media.lenovobrandworld.fiestic.com/2022/06/08010946/LenovoLogo_POS-Red-H.png",
+    "sha256": "1b6d4520444b571bf23a04ca91384275957ad6dbebd83c7f873fee15239be9e3",
+    "rights": "USER_CONFIRMED_CATALOG_WIDE",
+    "readDate": "2026-10-16"
+  }
+]

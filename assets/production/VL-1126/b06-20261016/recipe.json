@@ -1,0 +1,895 @@
+{
+  "version": "vl1126-b06-v1",
+  "canvas": [
+    1254,
+    1254
+  ],
+  "formFactor": "INTEGRATED_DISPLAY_LAPTOP",
+  "boundaryMode": "SCREEN_ONLY",
+  "productLayerMethod": "ORIGINAL_PHOTO",
+  "palette": [
+    "#FFFFFF",
+    "#0b2144",
+    "#1665ad",
+    "#008b97"
+  ],
+  "layers": {
+    "MAIN-STRICT.jpg": [
+      {
+        "source": "CT2_04.png",
+        "sourceSha256": "91bd816395bb668d64e7401319c1847be699f048060a4f9411778e1d46e7d98d",
+        "sourceCrop": [
+          144,
+          376,
+          1856,
+          1632
+        ],
+        "lcdQuadOriginalPixels": [
+          [
+            389,
+            414
+          ],
+          [
+            1611,
+            414
+          ],
+          [
+            1611,
+            1183
+          ],
+          [
+            389,
+            1183
+          ]
+        ],
+        "mode": "plain",
+        "destination": {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 45,
+          "y": 123,
+          "width": 1164,
+          "height": 854
+        },
+        "scale": 0.6799065420560748
+      }
+    ],
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png": [
+      {
+        "source": "CT2_04.png",
+        "sourceSha256": "91bd816395bb668d64e7401319c1847be699f048060a4f9411778e1d46e7d98d",
+        "sourceCrop": [
+          144,
+          376,
+          1856,
+          1632
+        ],
+        "lcdQuadOriginalPixels": [
+          [
+            389,
+            414
+          ],
+          [
+            1611,
+            414
+          ],
+          [
+            1611,
+            1183
+          ],
+          [
+            389,
+            1183
+          ]
+        ],
+        "mode": "front",
+        "destination": {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 45,
+          "y": 123,
+          "width": 1164,
+          "height": 854
+        },
+        "scale": 0.6799065420560748
+      },
+      {
+        "asset": "assets\\branding\\windows-11-pro-lockup.png",
+        "sha256": "3a70dbe456a1c2478d46fa0105b3e89b0097854be78fbc0bd4c1888e019a5586",
+        "x": 423,
+        "y": 466,
+        "width": 258,
+        "height": 115,
+        "mode": "WINDOWS_11_PRO_LOGO_LOCKUP"
+      }
+    ],
+    "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": [
+      {
+        "source": "CT1_04.png",
+        "sourceSha256": "a42329d04460d7b6bf08ab710ec291b608969a427e49aa5bd28a35118269f0c9",
+        "sourceCrop": [
+          240,
+          623,
+          1800,
+          1352
+        ],
+        "lcdQuadOriginalPixels": [
+          [
+            274,
+            646
+          ],
+          [
+            866,
+            654
+          ],
+          [
+            1148,
+            1104
+          ],
+          [
+            563,
+            1149
+          ]
+        ],
+        "mode": "angle",
+        "destination": {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 45,
+          "y": 153,
+          "width": 1164,
+          "height": 544
+        },
+        "scale": 0.7461538461538462
+      },
+      {
+        "asset": "assets\\branding\\windows-11-pro-package.png",
+        "sha256": "6f9dc54bdbf084ebe11fb06ec85d610de8ebf766d4ead7781ff5898d6e5c7380",
+        "x": 351,
+        "y": 285,
+        "width": 194,
+        "height": 212,
+        "mode": "WINDOWS_11_PRO_PACKAGE"
+      }
+    ],
+    "PT01.png": [
+      {
+        "source": "CT2_04.png",
+        "sourceSha256": "91bd816395bb668d64e7401319c1847be699f048060a4f9411778e1d46e7d98d",
+        "sourceCrop": [
+          144,
+          376,
+          1856,
+          1632
+        ],
+        "lcdQuadOriginalPixels": [
+          [
+            389,
+            414
+          ],
+          [
+            1611,
+            414
+          ],
+          [
+            1611,
+            1183
+          ],
+          [
+            389,
+            1183
+          ]
+        ],
+        "mode": "plain",
+        "destination": {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 164,
+          "y": 400,
+          "width": 927,
+          "height": 680
+        },
+        "scale": 0.5414012738853503
+      }
+    ],
+    "PT02.png": [
+      {
+        "source": "CT2_04.png",
+        "sourceSha256": "91bd816395bb668d64e7401319c1847be699f048060a4f9411778e1d46e7d98d",
+        "sourceCrop": [
+          144,
+          376,
+          1856,
+          1632
+        ],
+        "lcdQuadOriginalPixels": [
+          [
+            389,
+            414
+          ],
+          [
+            1611,
+            414
+          ],
+          [
+            1611,
+            1183
+          ],
+          [
+            389,
+            1183
+          ]
+        ],
+        "mode": "plain",
+        "destination": {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 204,
+          "y": 495,
+          "width": 845,
+          "height": 620
+        },
+        "scale": 0.49363057324840764
+      }
+    ],
+    "PT03.png": [
+      {
+        "source": "CT1_04.png",
+        "sourceSha256": "a42329d04460d7b6bf08ab710ec291b608969a427e49aa5bd28a35118269f0c9",
+        "sourceCrop": [
+          240,
+          623,
+          1800,
+          1352
+        ],
+        "lcdQuadOriginalPixels": [
+          [
+            274,
+            646
+          ],
+          [
+            866,
+            654
+          ],
+          [
+            1148,
+            1104
+          ],
+          [
+            563,
+            1149
+          ]
+        ],
+        "mode": "plain",
+        "destination": {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 575,
+          "y": 402,
+          "width": 620,
+          "height": 290
+        },
+        "scale": 0.3974358974358974
+      }
+    ],
+    "PT04.png": [
+      {
+        "source": "CT1_06.png",
+        "sourceSha256": "82bb35275b587e0635c10218d547d043af04cebbeb14bb50552866e5dfb5ef64",
+        "sourceCrop": [
+          248,
+          520,
+          1992,
+          1512
+        ],
+        "lcdQuadOriginalPixels": [
+          [
+            568,
+            543
+          ],
+          [
+            1317,
+            578
+          ],
+          [
+            1707,
+            1157
+          ],
+          [
+            983,
+            1285
+          ]
+        ],
+        "mode": "plain",
+        "destination": {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 65,
+          "y": 527,
+          "width": 590,
+          "height": 336
+        },
+        "scale": 0.338302752293578
+      },
+      {
+        "source": "CT1_07.png",
+        "sourceSha256": "6e2a472ff8d105821c01609153f46b462619c8e03550199e89cecdbf4b830e36",
+        "sourceCrop": [
+          240,
+          432,
+          1992,
+          1552
+        ],
+        "lcdQuadOriginalPixels": [
+          [
+            321,
+            461
+          ],
+          [
+            1226,
+            520
+          ],
+          [
+            1696,
+            1188
+          ],
+          [
+            850,
+            1363
+          ]
+        ],
+        "mode": "plain",
+        "destination": {
+          "label": "PRODUCT_SILHOUETTE_2",
+          "x": 665,
+          "y": 552,
+          "width": 520,
+          "height": 332
+        },
+        "scale": 0.2968036529680365
+      }
+    ],
+    "PT05.png": [
+      {
+        "source": "CT1_04.png",
+        "sourceSha256": "a42329d04460d7b6bf08ab710ec291b608969a427e49aa5bd28a35118269f0c9",
+        "sourceCrop": [
+          240,
+          623,
+          1800,
+          1352
+        ],
+        "lcdQuadOriginalPixels": [
+          [
+            274,
+            646
+          ],
+          [
+            866,
+            654
+          ],
+          [
+            1148,
+            1104
+          ],
+          [
+            563,
+            1149
+          ]
+        ],
+        "mode": "plain",
+        "destination": {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 245,
+          "y": 390,
+          "width": 900,
+          "height": 421
+        },
+        "scale": 0.5769230769230769
+      }
+    ],
+    "PT06.png": [
+      {
+        "source": "CT2_05.png",
+        "crop": [
+          320,
+          625,
+          1680,
+          1600
+        ],
+        "alphaCrop": [
+          8,
+          0,
+          1360,
+          967
+        ],
+        "sourceSha256": "642df8e0a8e0d514071435f6f106f01471ecf60f3c677a7fd27dd0eec32b2eff",
+        "destination": {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 180,
+          "y": 345,
+          "width": 895,
+          "height": 640
+        },
+        "scale": 0.6618407445708376
+      }
+    ],
+    "PT07.png": [
+      {
+        "source": "CT1_08.png",
+        "crop": [
+          100,
+          300,
+          1860,
+          1700
+        ],
+        "alphaCrop": [
+          52,
+          148,
+          1732,
+          1252
+        ],
+        "sourceSha256": "b386f041c3aa813971513e1ae9edd056cc084822987fa289f6a23477d760f5ef",
+        "destination": {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 410,
+          "y": 528,
+          "width": 775,
+          "height": 509
+        },
+        "scale": 0.46130952380952384
+      }
+    ],
+    "PT08.png": [
+      {
+        "source": "CT2_01.png",
+        "crop": [
+          145,
+          925,
+          1840,
+          1080
+        ],
+        "alphaCrop": [
+          0,
+          11,
+          1695,
+          155
+        ],
+        "sourceSha256": "83cecf0f1c253eebd79c70ecf91dfc29b1304c44c9644a2f3fd8f01546a65d77",
+        "destination": {
+          "label": "PRODUCT_SILHOUETTE_1",
+          "x": 70,
+          "y": 453,
+          "width": 1110,
+          "height": 94
+        },
+        "scale": 0.6548672566371682
+      },
+      {
+        "source": "CT2_02.png",
+        "crop": [
+          145,
+          910,
+          1840,
+          1080
+        ],
+        "alphaCrop": [
+          0,
+          10,
+          1695,
+          162
+        ],
+        "sourceSha256": "4a949d6fa0e9c46ba69f63234a642482694f5739ceb544d87d61c4e0ea9ea0a9",
+        "destination": {
+          "label": "PRODUCT_SILHOUETTE_2",
+          "x": 70,
+          "y": 800,
+          "width": 1110,
+          "height": 100
+        },
+        "scale": 0.6548672566371682
+      }
+    ]
+  },
+  "productProtectedZones": {
+    "MAIN-STRICT.jpg": [
+      {
+        "label": "PRODUCT_SILHOUETTE_1",
+        "x": 45,
+        "y": 123,
+        "width": 1164,
+        "height": 854
+      }
+    ],
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png": [
+      {
+        "label": "PRODUCT_SILHOUETTE_1",
+        "x": 45,
+        "y": 123,
+        "width": 1164,
+        "height": 854
+      }
+    ],
+    "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": [
+      {
+        "label": "PRODUCT_SILHOUETTE_1",
+        "x": 45,
+        "y": 153,
+        "width": 1164,
+        "height": 544
+      }
+    ],
+    "PT01.png": [
+      {
+        "label": "PRODUCT_SILHOUETTE_1",
+        "x": 164,
+        "y": 400,
+        "width": 927,
+        "height": 680
+      }
+    ],
+    "PT02.png": [
+      {
+        "label": "PRODUCT_SILHOUETTE_1",
+        "x": 204,
+        "y": 495,
+        "width": 845,
+        "height": 620
+      }
+    ],
+    "PT03.png": [
+      {
+        "label": "PRODUCT_SILHOUETTE_1",
+        "x": 575,
+        "y": 402,
+        "width": 620,
+        "height": 290
+      }
+    ],
+    "PT04.png": [
+      {
+        "label": "PRODUCT_SILHOUETTE_1",
+        "x": 65,
+        "y": 527,
+        "width": 590,
+        "height": 336
+      },
+      {
+        "label": "PRODUCT_SILHOUETTE_2",
+        "x": 665,
+        "y": 552,
+        "width": 520,
+        "height": 332
+      }
+    ],
+    "PT05.png": [
+      {
+        "label": "PRODUCT_SILHOUETTE_1",
+        "x": 245,
+        "y": 390,
+        "width": 900,
+        "height": 421
+      }
+    ],
+    "PT06.png": [
+      {
+        "label": "PRODUCT_SILHOUETTE_1",
+        "x": 180,
+        "y": 345,
+        "width": 895,
+        "height": 640
+      }
+    ],
+    "PT07.png": [
+      {
+        "label": "PRODUCT_SILHOUETTE_1",
+        "x": 410,
+        "y": 528,
+        "width": 775,
+        "height": 509
+      }
+    ],
+    "PT08.png": [
+      {
+        "label": "PRODUCT_SILHOUETTE_1",
+        "x": 70,
+        "y": 453,
+        "width": 1110,
+        "height": 94
+      },
+      {
+        "label": "PRODUCT_SILHOUETTE_2",
+        "x": 70,
+        "y": 800,
+        "width": 1110,
+        "height": 100
+      }
+    ]
+  },
+  "sourceAssetInventory": [
+    {
+      "file": "CT1_01.png",
+      "dimensions": [
+        2000,
+        2000
+      ],
+      "sha256": "9c071350c05fdb79dc2ce34e0e4e0e7296fbde5c4382e0a40f2a1174c1da4abd"
+    },
+    {
+      "file": "CT1_02.png",
+      "dimensions": [
+        2000,
+        2000
+      ],
+      "sha256": "446703841773d2d65dfb246099fa896e80380bafcb2e7b2066d05d84f78a8776"
+    },
+    {
+      "file": "CT1_03.png",
+      "dimensions": [
+        2000,
+        2000
+      ],
+      "sha256": "70a0f0847199fdac7e129407f0f7fa86e158227fd638ed75db829677abafeea8"
+    },
+    {
+      "file": "CT1_04.png",
+      "dimensions": [
+        2000,
+        2000
+      ],
+      "sha256": "a42329d04460d7b6bf08ab710ec291b608969a427e49aa5bd28a35118269f0c9"
+    },
+    {
+      "file": "CT1_05.png",
+      "dimensions": [
+        2000,
+        2000
+      ],
+      "sha256": "3bcd3ed681dfa9b112dc6062b1103b1fd1f0fccddd5af12430325188d7072023"
+    },
+    {
+      "file": "CT1_06.png",
+      "dimensions": [
+        2000,
+        2000
+      ],
+      "sha256": "82bb35275b587e0635c10218d547d043af04cebbeb14bb50552866e5dfb5ef64"
+    },
+    {
+      "file": "CT1_07.png",
+      "dimensions": [
+        2000,
+        2000
+      ],
+      "sha256": "6e2a472ff8d105821c01609153f46b462619c8e03550199e89cecdbf4b830e36"
+    },
+    {
+      "file": "CT1_08.png",
+      "dimensions": [
+        2000,
+        2000
+      ],
+      "sha256": "b386f041c3aa813971513e1ae9edd056cc084822987fa289f6a23477d760f5ef"
+    },
+    {
+      "file": "CT1_09.png",
+      "dimensions": [
+        2000,
+        2000
+      ],
+      "sha256": "7703e50bd9be7542324ff3dd17acfc18e63559a0cab46967d576701844d653b4"
+    },
+    {
+      "file": "CT2_01.png",
+      "dimensions": [
+        2000,
+        2000
+      ],
+      "sha256": "83cecf0f1c253eebd79c70ecf91dfc29b1304c44c9644a2f3fd8f01546a65d77"
+    },
+    {
+      "file": "CT2_02.png",
+      "dimensions": [
+        2000,
+        2000
+      ],
+      "sha256": "4a949d6fa0e9c46ba69f63234a642482694f5739ceb544d87d61c4e0ea9ea0a9"
+    },
+    {
+      "file": "CT2_03.png",
+      "dimensions": [
+        2000,
+        2000
+      ],
+      "sha256": "6eaef2871f1941f606290645cb90450fa4668b388a33975bec0085d16f9ba66e"
+    },
+    {
+      "file": "CT2_04.png",
+      "dimensions": [
+        2000,
+        2000
+      ],
+      "sha256": "91bd816395bb668d64e7401319c1847be699f048060a4f9411778e1d46e7d98d"
+    },
+    {
+      "file": "CT2_05.png",
+      "dimensions": [
+        2000,
+        2000
+      ],
+      "sha256": "642df8e0a8e0d514071435f6f106f01471ecf60f3c677a7fd27dd0eec32b2eff"
+    }
+  ],
+  "fonts": [
+    "Arial",
+    "Arial Bold"
+  ],
+  "renderCommand": "python build_gallery.py",
+  "finalBrandComposition": "gallery_engine.finalize; authentic original Lenovo logo with transparent padding",
+  "generation": "AI background and original screen art only; no generated chassis, ports, keys or logos",
+  "slotFactOwnership": {
+    "PT01.png": [
+      "purchase-story-next-chapter"
+    ],
+    "PT02.png": [
+      "use-case-focused-study"
+    ],
+    "PT03.png": [
+      "base-cpu",
+      "base-gpu",
+      "base-ram",
+      "base-ssd",
+      "sold-os"
+    ],
+    "PT04.png": [
+      "display-size",
+      "display-resolution",
+      "display-touch",
+      "display-aspect",
+      "hinge-modes"
+    ],
+    "PT05.png": [
+      "task-plan",
+      "task-draft",
+      "task-review"
+    ],
+    "PT06.png": [
+      "keyboard-backlight",
+      "numeric-keypad",
+      "glass-touchpad"
+    ],
+    "PT07.png": [
+      "battery-capacity"
+    ],
+    "PT08.png": [
+      "left-ports",
+      "right-ports",
+      "wifi-generation",
+      "bluetooth-version"
+    ]
+  },
+  "renderScriptSha256": "24b14a73ac3bd54a732cfb5c0855d77fb4387801b23f0652859bae5c2331eece",
+  "sourceAssets": [
+    {
+      "path": "sources/CT2_04.png",
+      "sha256": "91bd816395bb668d64e7401319c1847be699f048060a4f9411778e1d46e7d98d"
+    },
+    {
+      "path": "sources/CT1_04.png",
+      "sha256": "a42329d04460d7b6bf08ab710ec291b608969a427e49aa5bd28a35118269f0c9"
+    },
+    {
+      "path": "sources/CT1_06.png",
+      "sha256": "82bb35275b587e0635c10218d547d043af04cebbeb14bb50552866e5dfb5ef64"
+    },
+    {
+      "path": "sources/CT1_07.png",
+      "sha256": "6e2a472ff8d105821c01609153f46b462619c8e03550199e89cecdbf4b830e36"
+    },
+    {
+      "path": "sources/CT2_05.png",
+      "sha256": "642df8e0a8e0d514071435f6f106f01471ecf60f3c677a7fd27dd0eec32b2eff"
+    },
+    {
+      "path": "sources/CT1_08.png",
+      "sha256": "b386f041c3aa813971513e1ae9edd056cc084822987fa289f6a23477d760f5ef"
+    },
+    {
+      "path": "sources/CT2_01.png",
+      "sha256": "83cecf0f1c253eebd79c70ecf91dfc29b1304c44c9644a2f3fd8f01546a65d77"
+    },
+    {
+      "path": "sources/CT2_02.png",
+      "sha256": "4a949d6fa0e9c46ba69f63234a642482694f5739ceb544d87d61c4e0ea9ea0a9"
+    },
+    {
+      "path": "sources/hero-background.png",
+      "sha256": "9654ccf87546a22b8016cb426b0735dbcc9a1c7981b2459e4a4facc1c05d02e3"
+    },
+    {
+      "path": "sources/lifestyle-background.png",
+      "sha256": "be2c38594be086544c75fb6ac4ef4a83ffba505902dd53898e0d1cf61adc7ea1"
+    },
+    {
+      "path": "sources/screen-art.png",
+      "sha256": "e80f3197618c0472bb3ccdd4e7431413eaa8451734e93ec30fed8e21ffd40969"
+    },
+    {
+      "path": "sources/lenovo-logo-red-official.png",
+      "sha256": "1b6d4520444b571bf23a04ca91384275957ad6dbebd83c7f873fee15239be9e3"
+    }
+  ],
+  "cleanMasters": [
+    {
+      "path": "gallery/unbranded/PT01.png",
+      "sha256": "37f7ff4d06a227a66b1fd34f4cd9fc4a4e643c794a0276c702a1af522210b82d"
+    },
+    {
+      "path": "gallery/unbranded/PT02.png",
+      "sha256": "de73c9c316cdc5c15bada9d123188f6a3ea241fd759ade018343d536eb6f3d42"
+    },
+    {
+      "path": "gallery/unbranded/PT03.png",
+      "sha256": "5c0ae5d170de4a4dea750ab0aa150e5836ba77f66790eef3ed2547ba135a029d"
+    },
+    {
+      "path": "gallery/unbranded/PT04.png",
+      "sha256": "f5ccea99aed1e451e7f6e95298dfba862eacb0b506ecf19fb097edf7c0e8a81b"
+    },
+    {
+      "path": "gallery/unbranded/PT05.png",
+      "sha256": "63f8ed481e097a263317e29e0a20d50d34b8f6c429145cf7ca388364e31eb2db"
+    },
+    {
+      "path": "gallery/unbranded/PT06.png",
+      "sha256": "3724b5cf5d6bc5c2d0fa4b01828c373083ff034939b773b71c5b8e3b7bbcacfe"
+    },
+    {
+      "path": "gallery/unbranded/PT07.png",
+      "sha256": "5bba234abf7768788721d57b232dee68e711c9ade3ac408b5424d83593e537e5"
+    },
+    {
+      "path": "gallery/unbranded/PT08.png",
+      "sha256": "4c991c75db4f3f237c8d610f336bae2e4bfbdc255bb7ffe001be1fc741151b1f"
+    }
+  ],
+  "finalDimensions": {
+    "MAIN-ENHANCED-FRONT-CANDIDATE.png": [
+      1254,
+      1100
+    ],
+    "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png": [
+      1254,
+      850
+    ],
+    "MAIN-STRICT.jpg": [
+      1254,
+      1100
+    ],
+    "PT01.png": [
+      1254,
+      1254
+    ],
+    "PT02.png": [
+      1254,
+      1254
+    ],
+    "PT03.png": [
+      1254,
+      1254
+    ],
+    "PT04.png": [
+      1254,
+      1254
+    ],
+    "PT05.png": [
+      1254,
+      1254
+    ],
+    "PT06.png": [
+      1254,
+      1254
+    ],
+    "PT07.png": [
+      1254,
+      1254
+    ],
+    "PT08.png": [
+      1254,
+      1254
+    ]
+  }
+}

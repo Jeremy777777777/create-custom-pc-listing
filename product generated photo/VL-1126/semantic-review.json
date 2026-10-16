@@ -1,0 +1,58 @@
+{
+  "schemaVersion": 3,
+  "result": "PASS",
+  "reviewer": "Codex \u2014 actual cross-gallery content inspection in this conversation",
+  "reviewedAtUtc": "2026-10-16T21:10:40.034448+00:00",
+  "reviewInputsSha256": "93fd205feb4b30334db47619362b6326df3609db1b9d073582e0da50e7eb08a5",
+  "overlapAssessment": "MANUAL_REVIEW; primary spec ownership is distinct; nonnumeric task-story relationships assessed manually without invented percentages.",
+  "images": [
+    {
+      "file": "PT01.png",
+      "sha256": "073935fa3d44a780d17acc8bd10e083cbf477af3aff6dad8af1bdda61472f82d",
+      "result": "PASS",
+      "notes": "Owns broad purchase story and work/study/create positioning; no hardware configuration or OS. Related use narrative to PT02/PT05 was manually assessed as distinct conversion, scene and process purposes, not separate repeated spec claims."
+    },
+    {
+      "file": "PT02.png",
+      "sha256": "376fbb0995026f8426863df5d7d481fc4ad5189fb7f09b09af7eb1456dd001c7",
+      "result": "PASS",
+      "notes": "Owns focused study/work environment. No CPU, capacity, display, keyboard, battery or connectivity specification repeated; original room scene carries use-case rather than a second purchase-benefit grid."
+    },
+    {
+      "file": "PT03.png",
+      "sha256": "ddf5d50ecdea9515eec3a304d212bd2abd48abd9080d54a3d059e811ef10a09c",
+      "result": "PASS",
+      "notes": "Sole primary owner of complete base CPU/GPU/RAM/SSD/OS. No hardware capacity/type table elsewhere in PT01\u2013PT08. Model identity repeated in footer is navigation only."
+    },
+    {
+      "file": "PT04.png",
+      "sha256": "3e04a4221aed1a019330c13d5fc78a23a28b245d37536b9b7bf0efa15218c13d",
+      "result": "PASS",
+      "notes": "Owns display size/resolution/touch/aspect and convertible modes. Other slots show the same computer but do not repeat these display/form claims as specification copy."
+    },
+    {
+      "file": "PT05.png",
+      "sha256": "bb21fbf72722597fcb29a7d2e98d94e83bf7695980ffcc7ab0b056247c6b552e",
+      "result": "PASS",
+      "notes": "Owns plan/draft/review task relationships; not the focused physical room use case of PT02. No numeric capacities, display, battery or port fact duplication. Abstract task claims use manual rationale instead of a fabricated overlap percentage."
+    },
+    {
+      "file": "PT06.png",
+      "sha256": "8f64c6ac339ee25cec1ff2bb10164e0a9d2434ef40e91d28da483c6ff0915a96",
+      "result": "PASS",
+      "notes": "Owns backlit numeric keyboard and glass touchpad input facts. Incidental visible keyboard in other machine photos is accurate geometry, not repeated primary input messaging."
+    },
+    {
+      "file": "PT07.png",
+      "sha256": "9e54c23da29aeae37dfb0be3bbd7a585835e38f9c3d9d93aea482ec7daa9b124",
+      "result": "PASS",
+      "notes": "Owns one remaining verified value: 70Wh built-in battery. No seller warranty, service promotion, hours-of-runtime promise or repetition of PT03 configuration."
+    },
+    {
+      "file": "PT08.png",
+      "sha256": "f441877e0f5a0c6a2dd1e10d7a3074d2d8fb3d87286f620ef0195d9decf56772",
+      "result": "PASS",
+      "notes": "Owns left/right physical port maps and Wi-Fi/Bluetooth connectivity. Visible ports on perspective product photos elsewhere have no duplicate primary labels. No external-device network illustrations or repeated configuration table."
+    }
+  ]
+}

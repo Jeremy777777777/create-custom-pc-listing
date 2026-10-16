@@ -1,0 +1,12 @@
+{
+  "scope": "VL-1126 full gallery; image-only request",
+  "interpreter": "listing-testing Python 3.12",
+  "repositoryRunner": "local-testing/run-listing-tests.ps1 -RepoPath current checkout",
+  "initialUnitRun": {"tests": 134, "passed": 133, "errors": 1, "issue": "New product metadata lacked required sellerPolicy warranty template"},
+  "resolution": "Recorded the existing confirmed seller policy as metadata; no hardware configuration or customer image altered for the policy test",
+  "policyRecheck": {"tests": 4, "passed": 4, "result": "OK"},
+  "workbookStructureCheck": "PASS; no workbook created or modified for this image-only request",
+  "galleryGate": "PASS; VL-1126 current 11-image full acceptance validated; historical/quarantined products retain their separate statuses",
+  "rebuildCheck": "Decoded image pixels identical on repeat rendering",
+  "publicationEligibility": "NOT_ASSESSED"
+}

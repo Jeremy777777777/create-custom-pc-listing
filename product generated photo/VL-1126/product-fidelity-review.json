@@ -1,0 +1,391 @@
+{
+  "schemaVersion": 3,
+  "result": "PASS",
+  "reviewedAtUtc": "2026-10-16T21:10:43.165766+00:00",
+  "method": "DIRECT_REVIEW_OF_OFFICIAL_ORIGINAL_PHOTO_LAYERS",
+  "reviewInputsSha256": "93fd205feb4b30334db47619362b6326df3609db1b9d073582e0da50e7eb08a5",
+  "images": [
+    {
+      "file": "MAIN-STRICT.jpg",
+      "sha256": "3b6eb7084cdabfcae78a598e1680584400707d1936be4545c4c941d4f27f8ccb",
+      "method": "ORIGINAL_PHOTO",
+      "referenceImages": [
+        {
+          "path": "assets/production/VL-1126/b06-20261016/sources/CT2_04.png",
+          "sha256": "91bd816395bb668d64e7401319c1847be699f048060a4f9411778e1d46e7d98d"
+        }
+      ],
+      "reviewer": "Codex \u2014 direct image inspection in this conversation",
+      "categories": {
+        "silhouetteProportionsHinges": {
+          "result": "PASS",
+          "notes": "Compared actual final composition with named official source views; no chassis redesign or perspective stretch. Detail-crop slots show only their documented surface."
+        },
+        "colorMaterialVentsSurface": {
+          "result": "PASS",
+          "notes": "Original Luna Grey aluminium surface pixels retained; background/white-matted shadow processing reviewed for edge continuity. No generated surface details."
+        },
+        "keyboardTouchpadControls": {
+          "result": "PASS",
+          "notes": "Visible original English numeric keyboard/control or touchpad details retained; PT06 checked against original top-input view. No generated keys."
+        },
+        "physicalConnectors": {
+          "result": "NOT_VISIBLE",
+          "notes": "No connector aperture exposed at a reviewable angle."
+        },
+        "authenticFactoryMarks": {
+          "result": "PASS",
+          "notes": "Original on-product Lenovo/Yoga marks preserved wherever exposed. No generated replacement marks; additional footer logo uses separately sourced official original."
+        }
+      }
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "sha256": "6318b35cb750d48d842e5408206fb8810c110d6e30fc04ecbb3d1e9ca2c3fe99",
+      "method": "ORIGINAL_PHOTO",
+      "referenceImages": [
+        {
+          "path": "assets/production/VL-1126/b06-20261016/sources/CT2_04.png",
+          "sha256": "91bd816395bb668d64e7401319c1847be699f048060a4f9411778e1d46e7d98d"
+        }
+      ],
+      "reviewer": "Codex \u2014 direct image inspection in this conversation",
+      "categories": {
+        "silhouetteProportionsHinges": {
+          "result": "PASS",
+          "notes": "Compared actual final composition with named official source views; no chassis redesign or perspective stretch. Detail-crop slots show only their documented surface."
+        },
+        "colorMaterialVentsSurface": {
+          "result": "PASS",
+          "notes": "Original Luna Grey aluminium surface pixels retained; background/white-matted shadow processing reviewed for edge continuity. No generated surface details."
+        },
+        "keyboardTouchpadControls": {
+          "result": "PASS",
+          "notes": "Visible original English numeric keyboard/control or touchpad details retained; PT06 checked against original top-input view. No generated keys."
+        },
+        "physicalConnectors": {
+          "result": "NOT_VISIBLE",
+          "notes": "No connector aperture exposed at a reviewable angle."
+        },
+        "authenticFactoryMarks": {
+          "result": "PASS",
+          "notes": "Original on-product Lenovo/Yoga marks preserved wherever exposed. No generated replacement marks; additional footer logo uses separately sourced official original."
+        }
+      }
+    },
+    {
+      "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "sha256": "6f4d7bbf1c01f8419584ccaf1c347365830ff261dfabdd10f1c919da643d382b",
+      "method": "ORIGINAL_PHOTO",
+      "referenceImages": [
+        {
+          "path": "assets/production/VL-1126/b06-20261016/sources/CT1_04.png",
+          "sha256": "a42329d04460d7b6bf08ab710ec291b608969a427e49aa5bd28a35118269f0c9"
+        }
+      ],
+      "reviewer": "Codex \u2014 direct image inspection in this conversation",
+      "categories": {
+        "silhouetteProportionsHinges": {
+          "result": "PASS",
+          "notes": "Compared actual final composition with named official source views; no chassis redesign or perspective stretch. Detail-crop slots show only their documented surface."
+        },
+        "colorMaterialVentsSurface": {
+          "result": "PASS",
+          "notes": "Original Luna Grey aluminium surface pixels retained; background/white-matted shadow processing reviewed for edge continuity. No generated surface details."
+        },
+        "keyboardTouchpadControls": {
+          "result": "PASS",
+          "notes": "Visible original English numeric keyboard/control or touchpad details retained; PT06 checked against original top-input view. No generated keys."
+        },
+        "physicalConnectors": {
+          "result": "PASS",
+          "notes": "Visible native connector openings retain official count, position and orientation. PT08 independently checked against both exact side references and OEM port list."
+        },
+        "authenticFactoryMarks": {
+          "result": "PASS",
+          "notes": "Original on-product Lenovo/Yoga marks preserved wherever exposed. No generated replacement marks; additional footer logo uses separately sourced official original."
+        }
+      }
+    },
+    {
+      "file": "PT01.png",
+      "sha256": "073935fa3d44a780d17acc8bd10e083cbf477af3aff6dad8af1bdda61472f82d",
+      "method": "ORIGINAL_PHOTO",
+      "referenceImages": [
+        {
+          "path": "assets/production/VL-1126/b06-20261016/sources/CT2_04.png",
+          "sha256": "91bd816395bb668d64e7401319c1847be699f048060a4f9411778e1d46e7d98d"
+        }
+      ],
+      "reviewer": "Codex \u2014 direct image inspection in this conversation",
+      "categories": {
+        "silhouetteProportionsHinges": {
+          "result": "PASS",
+          "notes": "Compared actual final composition with named official source views; no chassis redesign or perspective stretch. Detail-crop slots show only their documented surface."
+        },
+        "colorMaterialVentsSurface": {
+          "result": "PASS",
+          "notes": "Original Luna Grey aluminium surface pixels retained; background/white-matted shadow processing reviewed for edge continuity. No generated surface details."
+        },
+        "keyboardTouchpadControls": {
+          "result": "PASS",
+          "notes": "Visible original English numeric keyboard/control or touchpad details retained; PT06 checked against original top-input view. No generated keys."
+        },
+        "physicalConnectors": {
+          "result": "NOT_VISIBLE",
+          "notes": "No connector aperture exposed at a reviewable angle."
+        },
+        "authenticFactoryMarks": {
+          "result": "PASS",
+          "notes": "Original on-product Lenovo/Yoga marks preserved wherever exposed. No generated replacement marks; additional footer logo uses separately sourced official original."
+        }
+      }
+    },
+    {
+      "file": "PT02.png",
+      "sha256": "376fbb0995026f8426863df5d7d481fc4ad5189fb7f09b09af7eb1456dd001c7",
+      "method": "ORIGINAL_PHOTO",
+      "referenceImages": [
+        {
+          "path": "assets/production/VL-1126/b06-20261016/sources/CT2_04.png",
+          "sha256": "91bd816395bb668d64e7401319c1847be699f048060a4f9411778e1d46e7d98d"
+        }
+      ],
+      "reviewer": "Codex \u2014 direct image inspection in this conversation",
+      "categories": {
+        "silhouetteProportionsHinges": {
+          "result": "PASS",
+          "notes": "Compared actual final composition with named official source views; no chassis redesign or perspective stretch. Detail-crop slots show only their documented surface."
+        },
+        "colorMaterialVentsSurface": {
+          "result": "PASS",
+          "notes": "Original Luna Grey aluminium surface pixels retained; background/white-matted shadow processing reviewed for edge continuity. No generated surface details."
+        },
+        "keyboardTouchpadControls": {
+          "result": "PASS",
+          "notes": "Visible original English numeric keyboard/control or touchpad details retained; PT06 checked against original top-input view. No generated keys."
+        },
+        "physicalConnectors": {
+          "result": "NOT_VISIBLE",
+          "notes": "No connector aperture exposed at a reviewable angle."
+        },
+        "authenticFactoryMarks": {
+          "result": "PASS",
+          "notes": "Original on-product Lenovo/Yoga marks preserved wherever exposed. No generated replacement marks; additional footer logo uses separately sourced official original."
+        }
+      }
+    },
+    {
+      "file": "PT03.png",
+      "sha256": "ddf5d50ecdea9515eec3a304d212bd2abd48abd9080d54a3d059e811ef10a09c",
+      "method": "ORIGINAL_PHOTO",
+      "referenceImages": [
+        {
+          "path": "assets/production/VL-1126/b06-20261016/sources/CT1_04.png",
+          "sha256": "a42329d04460d7b6bf08ab710ec291b608969a427e49aa5bd28a35118269f0c9"
+        }
+      ],
+      "reviewer": "Codex \u2014 direct image inspection in this conversation",
+      "categories": {
+        "silhouetteProportionsHinges": {
+          "result": "PASS",
+          "notes": "Compared actual final composition with named official source views; no chassis redesign or perspective stretch. Detail-crop slots show only their documented surface."
+        },
+        "colorMaterialVentsSurface": {
+          "result": "PASS",
+          "notes": "Original Luna Grey aluminium surface pixels retained; background/white-matted shadow processing reviewed for edge continuity. No generated surface details."
+        },
+        "keyboardTouchpadControls": {
+          "result": "PASS",
+          "notes": "Visible original English numeric keyboard/control or touchpad details retained; PT06 checked against original top-input view. No generated keys."
+        },
+        "physicalConnectors": {
+          "result": "PASS",
+          "notes": "Visible native connector openings retain official count, position and orientation. PT08 independently checked against both exact side references and OEM port list."
+        },
+        "authenticFactoryMarks": {
+          "result": "PASS",
+          "notes": "Original on-product Lenovo/Yoga marks preserved wherever exposed. No generated replacement marks; additional footer logo uses separately sourced official original."
+        }
+      }
+    },
+    {
+      "file": "PT04.png",
+      "sha256": "3e04a4221aed1a019330c13d5fc78a23a28b245d37536b9b7bf0efa15218c13d",
+      "method": "ORIGINAL_PHOTO",
+      "referenceImages": [
+        {
+          "path": "assets/production/VL-1126/b06-20261016/sources/CT1_06.png",
+          "sha256": "82bb35275b587e0635c10218d547d043af04cebbeb14bb50552866e5dfb5ef64"
+        },
+        {
+          "path": "assets/production/VL-1126/b06-20261016/sources/CT1_07.png",
+          "sha256": "6e2a472ff8d105821c01609153f46b462619c8e03550199e89cecdbf4b830e36"
+        }
+      ],
+      "reviewer": "Codex \u2014 direct image inspection in this conversation",
+      "categories": {
+        "silhouetteProportionsHinges": {
+          "result": "PASS",
+          "notes": "Compared actual final composition with named official source views; no chassis redesign or perspective stretch. Detail-crop slots show only their documented surface."
+        },
+        "colorMaterialVentsSurface": {
+          "result": "PASS",
+          "notes": "Original Luna Grey aluminium surface pixels retained; background/white-matted shadow processing reviewed for edge continuity. No generated surface details."
+        },
+        "keyboardTouchpadControls": {
+          "result": "NOT_VISIBLE",
+          "notes": "Folded/side-only view does not expose input layout."
+        },
+        "physicalConnectors": {
+          "result": "PASS",
+          "notes": "Visible native connector openings retain official count, position and orientation. PT08 independently checked against both exact side references and OEM port list."
+        },
+        "authenticFactoryMarks": {
+          "result": "PASS",
+          "notes": "Original on-product Lenovo/Yoga marks preserved wherever exposed. No generated replacement marks; additional footer logo uses separately sourced official original."
+        }
+      }
+    },
+    {
+      "file": "PT05.png",
+      "sha256": "bb21fbf72722597fcb29a7d2e98d94e83bf7695980ffcc7ab0b056247c6b552e",
+      "method": "ORIGINAL_PHOTO",
+      "referenceImages": [
+        {
+          "path": "assets/production/VL-1126/b06-20261016/sources/CT1_04.png",
+          "sha256": "a42329d04460d7b6bf08ab710ec291b608969a427e49aa5bd28a35118269f0c9"
+        }
+      ],
+      "reviewer": "Codex \u2014 direct image inspection in this conversation",
+      "categories": {
+        "silhouetteProportionsHinges": {
+          "result": "PASS",
+          "notes": "Compared actual final composition with named official source views; no chassis redesign or perspective stretch. Detail-crop slots show only their documented surface."
+        },
+        "colorMaterialVentsSurface": {
+          "result": "PASS",
+          "notes": "Original Luna Grey aluminium surface pixels retained; background/white-matted shadow processing reviewed for edge continuity. No generated surface details."
+        },
+        "keyboardTouchpadControls": {
+          "result": "PASS",
+          "notes": "Visible original English numeric keyboard/control or touchpad details retained; PT06 checked against original top-input view. No generated keys."
+        },
+        "physicalConnectors": {
+          "result": "PASS",
+          "notes": "Visible native connector openings retain official count, position and orientation. PT08 independently checked against both exact side references and OEM port list."
+        },
+        "authenticFactoryMarks": {
+          "result": "PASS",
+          "notes": "Original on-product Lenovo/Yoga marks preserved wherever exposed. No generated replacement marks; additional footer logo uses separately sourced official original."
+        }
+      }
+    },
+    {
+      "file": "PT06.png",
+      "sha256": "8f64c6ac339ee25cec1ff2bb10164e0a9d2434ef40e91d28da483c6ff0915a96",
+      "method": "ORIGINAL_PHOTO",
+      "referenceImages": [
+        {
+          "path": "assets/production/VL-1126/b06-20261016/sources/CT2_05.png",
+          "sha256": "642df8e0a8e0d514071435f6f106f01471ecf60f3c677a7fd27dd0eec32b2eff"
+        }
+      ],
+      "reviewer": "Codex \u2014 direct image inspection in this conversation",
+      "categories": {
+        "silhouetteProportionsHinges": {
+          "result": "PASS",
+          "notes": "Compared actual final composition with named official source views; no chassis redesign or perspective stretch. Detail-crop slots show only their documented surface."
+        },
+        "colorMaterialVentsSurface": {
+          "result": "PASS",
+          "notes": "Original Luna Grey aluminium surface pixels retained; background/white-matted shadow processing reviewed for edge continuity. No generated surface details."
+        },
+        "keyboardTouchpadControls": {
+          "result": "PASS",
+          "notes": "Visible original English numeric keyboard/control or touchpad details retained; PT06 checked against original top-input view. No generated keys."
+        },
+        "physicalConnectors": {
+          "result": "NOT_VISIBLE",
+          "notes": "No connector aperture exposed at a reviewable angle."
+        },
+        "authenticFactoryMarks": {
+          "result": "PASS",
+          "notes": "Original on-product Lenovo/Yoga marks preserved wherever exposed. No generated replacement marks; additional footer logo uses separately sourced official original."
+        }
+      }
+    },
+    {
+      "file": "PT07.png",
+      "sha256": "9e54c23da29aeae37dfb0be3bbd7a585835e38f9c3d9d93aea482ec7daa9b124",
+      "method": "ORIGINAL_PHOTO",
+      "referenceImages": [
+        {
+          "path": "assets/production/VL-1126/b06-20261016/sources/CT1_08.png",
+          "sha256": "b386f041c3aa813971513e1ae9edd056cc084822987fa289f6a23477d760f5ef"
+        }
+      ],
+      "reviewer": "Codex \u2014 direct image inspection in this conversation",
+      "categories": {
+        "silhouetteProportionsHinges": {
+          "result": "PASS",
+          "notes": "Compared actual final composition with named official source views; no chassis redesign or perspective stretch. Detail-crop slots show only their documented surface."
+        },
+        "colorMaterialVentsSurface": {
+          "result": "PASS",
+          "notes": "Original Luna Grey aluminium surface pixels retained; background/white-matted shadow processing reviewed for edge continuity. No generated surface details."
+        },
+        "keyboardTouchpadControls": {
+          "result": "PASS",
+          "notes": "Visible original English numeric keyboard/control or touchpad details retained; PT06 checked against original top-input view. No generated keys."
+        },
+        "physicalConnectors": {
+          "result": "PASS",
+          "notes": "Visible native connector openings retain official count, position and orientation. PT08 independently checked against both exact side references and OEM port list."
+        },
+        "authenticFactoryMarks": {
+          "result": "PASS",
+          "notes": "Original on-product Lenovo/Yoga marks preserved wherever exposed. No generated replacement marks; additional footer logo uses separately sourced official original."
+        }
+      }
+    },
+    {
+      "file": "PT08.png",
+      "sha256": "f441877e0f5a0c6a2dd1e10d7a3074d2d8fb3d87286f620ef0195d9decf56772",
+      "method": "ORIGINAL_PHOTO",
+      "referenceImages": [
+        {
+          "path": "assets/production/VL-1126/b06-20261016/sources/CT2_01.png",
+          "sha256": "83cecf0f1c253eebd79c70ecf91dfc29b1304c44c9644a2f3fd8f01546a65d77"
+        },
+        {
+          "path": "assets/production/VL-1126/b06-20261016/sources/CT2_02.png",
+          "sha256": "4a949d6fa0e9c46ba69f63234a642482694f5739ceb544d87d61c4e0ea9ea0a9"
+        }
+      ],
+      "reviewer": "Codex \u2014 direct image inspection in this conversation",
+      "categories": {
+        "silhouetteProportionsHinges": {
+          "result": "PASS",
+          "notes": "Compared actual final composition with named official source views; no chassis redesign or perspective stretch. Detail-crop slots show only their documented surface."
+        },
+        "colorMaterialVentsSurface": {
+          "result": "PASS",
+          "notes": "Original Luna Grey aluminium surface pixels retained; background/white-matted shadow processing reviewed for edge continuity. No generated surface details."
+        },
+        "keyboardTouchpadControls": {
+          "result": "NOT_VISIBLE",
+          "notes": "Folded/side-only view does not expose input layout."
+        },
+        "physicalConnectors": {
+          "result": "PASS",
+          "notes": "Visible native connector openings retain official count, position and orientation. PT08 independently checked against both exact side references and OEM port list."
+        },
+        "authenticFactoryMarks": {
+          "result": "PASS",
+          "notes": "Original on-product Lenovo/Yoga marks preserved wherever exposed. No generated replacement marks; additional footer logo uses separately sourced official original."
+        }
+      }
+    }
+  ]
+}

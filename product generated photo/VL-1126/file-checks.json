@@ -1,0 +1,171 @@
+{
+  "result": "FILE_METADATA_AND_SIZE_CHECKS_PASS",
+  "images": [
+    {
+      "file": "MAIN-STRICT.jpg",
+      "format": "JPEG",
+      "size": [
+        1254,
+        1100
+      ],
+      "mode": "RGB",
+      "dpi": [
+        96,
+        96
+      ],
+      "sRGBProfilePresent": true,
+      "sha256": "3b6eb7084cdabfcae78a598e1680584400707d1936be4545c4c941d4f27f8ccb"
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "format": "PNG",
+      "size": [
+        1254,
+        1100
+      ],
+      "mode": "RGB",
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "sRGBProfilePresent": true,
+      "sha256": "6318b35cb750d48d842e5408206fb8810c110d6e30fc04ecbb3d1e9ca2c3fe99"
+    },
+    {
+      "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "format": "PNG",
+      "size": [
+        1254,
+        850
+      ],
+      "mode": "RGB",
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "sRGBProfilePresent": true,
+      "sha256": "6f4d7bbf1c01f8419584ccaf1c347365830ff261dfabdd10f1c919da643d382b"
+    },
+    {
+      "file": "PT01.png",
+      "format": "PNG",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "sRGBProfilePresent": true,
+      "sha256": "073935fa3d44a780d17acc8bd10e083cbf477af3aff6dad8af1bdda61472f82d"
+    },
+    {
+      "file": "PT02.png",
+      "format": "PNG",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "sRGBProfilePresent": true,
+      "sha256": "376fbb0995026f8426863df5d7d481fc4ad5189fb7f09b09af7eb1456dd001c7"
+    },
+    {
+      "file": "PT03.png",
+      "format": "PNG",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "sRGBProfilePresent": true,
+      "sha256": "ddf5d50ecdea9515eec3a304d212bd2abd48abd9080d54a3d059e811ef10a09c"
+    },
+    {
+      "file": "PT04.png",
+      "format": "PNG",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "sRGBProfilePresent": true,
+      "sha256": "3e04a4221aed1a019330c13d5fc78a23a28b245d37536b9b7bf0efa15218c13d"
+    },
+    {
+      "file": "PT05.png",
+      "format": "PNG",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "sRGBProfilePresent": true,
+      "sha256": "bb21fbf72722597fcb29a7d2e98d94e83bf7695980ffcc7ab0b056247c6b552e"
+    },
+    {
+      "file": "PT06.png",
+      "format": "PNG",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "sRGBProfilePresent": true,
+      "sha256": "8f64c6ac339ee25cec1ff2bb10164e0a9d2434ef40e91d28da483c6ff0915a96"
+    },
+    {
+      "file": "PT07.png",
+      "format": "PNG",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "sRGBProfilePresent": true,
+      "sha256": "9e54c23da29aeae37dfb0be3bbd7a585835e38f9c3d9d93aea482ec7daa9b124"
+    },
+    {
+      "file": "PT08.png",
+      "format": "PNG",
+      "size": [
+        1254,
+        1254
+      ],
+      "mode": "RGB",
+      "dpi": [
+        96.012,
+        96.012
+      ],
+      "sRGBProfilePresent": true,
+      "sha256": "f441877e0f5a0c6a2dd1e10d7a3074d2d8fb3d87286f620ef0195d9decf56772"
+    }
+  ],
+  "limitations": "Does not establish actual hardware authenticity, visual quality, rights or Amazon publication acceptance."
+}

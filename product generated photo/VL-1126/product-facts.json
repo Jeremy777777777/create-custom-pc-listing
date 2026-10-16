@@ -1,0 +1,128 @@
+{
+  "identity": {
+    "internalId": "VL-1126",
+    "erpProductId": 31126,
+    "oemBrand": "Lenovo",
+    "oemModel": "Yoga 7 2-in-1 16ILL10",
+    "oemSku": "83JT0000US",
+    "cpu": "Intel Core Ultra 5 226V",
+    "formFactor": "Laptop 2-in-1",
+    "color": "Luna Grey"
+  },
+  "selectedBaseConfiguration": {
+    "id": "PL-1149",
+    "erpProductId": 301149,
+    "ramGB": 16,
+    "ssdGB": 512,
+    "cpu": "Intel Core Ultra 5 226V",
+    "gpu": "Integrated Intel Arc Graphics 130V",
+    "os": "Windows 11 Pro",
+    "selection": "512GB base described in approved product-specific proposal; ERP child PL-1149 independently confirms 16GB/512GB hardware. Final OS follows seller policy.",
+    "sources": [
+      "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/31126",
+      "https://psref.lenovo.com/Detail/Yoga_7_2_in_1_16ILL10?M=83JT0000US"
+    ]
+  },
+  "sourceMapping": {
+    "mode": "MYSTORE_AND_CHECKLIST",
+    "asin": "B0HC464KTZ",
+    "inputUrl": "https://www.amazon.com/dp/B0HC464KTZ",
+    "erpUrl": "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/31126",
+    "trackerSheet": "Listing Status Tracker",
+    "trackerRow": 47,
+    "trackerCell": "K47",
+    "trackerMappingReadDate": "2026-10-09 existing extraction; live ERP association re-read 2026-10-16",
+    "readDate": "2026-10-16"
+  },
+  "imageFactLedger": {
+    "base-cpu": {
+      "value": "Intel Core Ultra 5 226V",
+      "status": "VERIFIED",
+      "source": "https://psref.lenovo.com/Detail/Yoga_7_2_in_1_16ILL10?M=83JT0000US"
+    },
+    "base-gpu": {
+      "value": "Integrated Intel Arc Graphics 130V",
+      "status": "VERIFIED",
+      "source": "https://psref.lenovo.com/Detail/Yoga_7_2_in_1_16ILL10?M=83JT0000US"
+    },
+    "base-ram": {
+      "value": "16GB LPDDR5x-8533, fixed / not upgradable",
+      "status": "VERIFIED",
+      "source": "https://psref.lenovo.com/Detail/Yoga_7_2_in_1_16ILL10?M=83JT0000US"
+    },
+    "base-ssd": {
+      "value": "512GB internal PCIe NVMe SSD",
+      "status": "VERIFIED",
+      "source": [
+        "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/31126",
+        "https://psref.lenovo.com/Detail/Yoga_7_2_in_1_16ILL10?M=83JT0000US"
+      ],
+      "scope": "selected base hardware"
+    },
+    "sold-os": {
+      "value": "Windows 11 Pro",
+      "status": "VERIFIED",
+      "basis": "USER_CONFIRMED_CATALOG_POLICY",
+      "source": "references/confirmed-catalog-defaults.md",
+      "factoryDifference": "OEM and ERP factory OS is Windows 11 Home; not represented as sold Pro evidence."
+    },
+    "display": {
+      "value": "16-inch IPS touchscreen, 1920 x 1200, 16:10",
+      "status": "VERIFIED",
+      "source": "https://psref.lenovo.com/Detail/Yoga_7_2_in_1_16ILL10?M=83JT0000US"
+    },
+    "hinge-modes": {
+      "value": "Laptop, tent, stand and tablet modes via 360-degree hinge",
+      "status": "VERIFIED",
+      "source": "https://psref.lenovo.com/syspool/Sys/PDF/Yoga/Yoga_7_2_in_1_16ILL10/Yoga_7_2_in_1_16ILL10_Spec.pdf"
+    },
+    "input": {
+      "value": "Backlit English numeric keyboard; glass touchpad",
+      "status": "VERIFIED",
+      "source": "https://psref.lenovo.com/Detail/Yoga_7_2_in_1_16ILL10?M=83JT0000US",
+      "visualSources": [
+        "CT2_04.png",
+        "CT2_05.png"
+      ]
+    },
+    "battery-capacity": {
+      "value": "70Wh built-in battery",
+      "status": "VERIFIED",
+      "source": "https://psref.lenovo.com/Detail/Yoga_7_2_in_1_16ILL10?M=83JT0000US",
+      "disposition": "No runtime or charging-speed claim in gallery."
+    },
+    "ports": {
+      "value": "HDMI 1.4b; 2x Thunderbolt 4; USB-A 5Gbps Always On; microSD; 3.5mm headphone/microphone combo",
+      "status": "VERIFIED",
+      "source": "https://psref.lenovo.com/Detail/Yoga_7_2_in_1_16ILL10?M=83JT0000US",
+      "visualSources": [
+        "CT2_01.png",
+        "CT2_02.png"
+      ]
+    },
+    "wireless": {
+      "value": "Wi-Fi 7 and Bluetooth 5.4",
+      "status": "VERIFIED",
+      "source": "https://psref.lenovo.com/Detail/Yoga_7_2_in_1_16ILL10?M=83JT0000US"
+    }
+  },
+  "unresolvedOutsideImageScope": [
+    {
+      "field": "FaceID / IR camera ERP flag",
+      "status": "CONFLICT",
+      "evidence": "ERP generic FaceID flag says No; exact OEM SKU lists FHD IR with privacy shutter. No IR/face-unlock claim is used in this gallery."
+    },
+    {
+      "field": "FCC module ID and Amazon publication eligibility",
+      "status": "NOT_ASSESSED",
+      "disposition": "Image-only request; unrelated regulatory fields are not inferred."
+    }
+  ],
+  "inventoryDisposition": "Live ERP inventory and old tracker quantities are not used as Amazon inventory or customer claims.",
+  "policy": "2026-10-02 baseline; size/Windows/slot policy 2026-10-05; faithful reproduction 2026-10-06; current workflow validation refinements 2026-10-14",
+  "sellerPolicy": {
+    "warrantyTemplate": "MegaPC provides a 1-year limited warranty on the upgraded RAM and SSD components. The original [OEM brand] manufacturer warranty remains valid on all remaining factory components, so you are covered on both the base machine and our upgrades. The original seal has been opened solely for upgrading purposes.",
+    "source": "Current confirmed-catalog-defaults.md and warranty-disclosure-policy.json; metadata only, no warranty advertising in images."
+  },
+  "workbookStage": "NOT_REQUESTED_IMAGE_ONLY"
+}

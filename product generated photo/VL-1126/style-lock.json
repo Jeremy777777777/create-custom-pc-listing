@@ -1,0 +1,36 @@
+{
+  "internalId": "VL-1126",
+  "style_approval_status": "APPROVED",
+  "approved_style_id": "B06",
+  "approved_supporting_gallery_pack": "BG06",
+  "profile": "feature-led-studio-v1",
+  "audience": "Student-to-Career productivity; approved Business B06 family",
+  "palette": [
+    "#FFFFFF",
+    "#0b2144",
+    "#1665ad",
+    "#008b97"
+  ],
+  "approvalSource": "Direct user replied \u786e\u8ba4 to product-specific B06/BG06 preview and complete 11-image production proposal.",
+  "approvalDate": "2026-10-16",
+  "recipeVersion": "vl1126-b06-v1",
+  "recipeStatus": "BUILT_AND_DIRECTLY_REVIEWED",
+  "boundaryMode": "SCREEN_ONLY",
+  "formFactor": "INTEGRATED_DISPLAY_LAPTOP",
+  "recipePath": "assets/production/VL-1126/b06-20261016/recipe.json",
+  "recipeSha256": "c0242ad1401c49e4a3eced9a618b492eee4bbe5086fa17bdf6001d1ab92cdc52",
+  "required": [
+    "Exact original-photo hardware layers",
+    "Cool silver, navy, cobalt and teal",
+    "Original abstract screen content",
+    "Distinct lockup/package enhanced MAIN treatments"
+  ],
+  "forbidden": [
+    "External devices and accessories",
+    "Generated chassis/keys/ports/logos",
+    "Office or paid software inclusion",
+    "Warranty advertising",
+    "Configuration options mixed into base image"
+  ],
+  "style_fidelity_review": "PASS"
+}

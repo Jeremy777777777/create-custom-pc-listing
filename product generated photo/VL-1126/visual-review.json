@@ -1,0 +1,75 @@
+{
+  "schemaVersion": 3,
+  "result": "PASS",
+  "reviewer": "Codex \u2014 actual full-size and 200px visual inspection in this conversation",
+  "reviewedAtUtc": "2026-10-16T21:10:40.034448+00:00",
+  "reviewInputsSha256": "93fd205feb4b30334db47619362b6326df3609db1b9d073582e0da50e7eb08a5",
+  "images": [
+    {
+      "file": "MAIN-STRICT.jpg",
+      "sha256": "3b6eb7084cdabfcae78a598e1680584400707d1936be4545c4c941d4f27f8ccb",
+      "result": "PASS",
+      "notes": "Viewed final full-size and 200px. Complete authorized official front chassis, correct grey material, English numeric keyboard, off-center touchpad, two hinges and original Yoga mark preserved; product-only pure-white exterior, original abstract LCD wallpaper without marketing words, added logos or Windows treatment. No extra equipment. No chassis generation used."
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "sha256": "6318b35cb750d48d842e5408206fb8810c110d6e30fc04ecbb3d1e9ca2c3fe99",
+      "result": "PASS",
+      "notes": "Viewed full-size and 200px against exact official CT2_04. Same chassis and authentic marks, complete silhouette. B06 navy/teal art and headline stay in LCD. Exactly one original fixed Windows 11 Pro lockup, normal aspect ratio, entirely within saved binary LCD mask; no exterior marketing. Primary headline readable at thumbnail; detailed screen identity readable at full size."
+    },
+    {
+      "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "sha256": "6f4d7bbf1c01f8419584ccaf1c347365830ff261dfabdd10f1c919da643d382b",
+      "result": "PASS",
+      "notes": "Viewed full-size and 200px against CT1_04. Correct left-side HDMI/USB-C/audio openings, actual chassis proportions, hinges and keyboard retained. Original wallpaper edge remnant corrected. Exactly one undistorted fixed Windows package inside measured LCD mask; pure-white exterior. Distinct angle treatment in approved family, no accessories."
+    },
+    {
+      "file": "PT01.png",
+      "sha256": "073935fa3d44a780d17acc8bd10e083cbf477af3aff6dad8af1bdda61472f82d",
+      "result": "PASS",
+      "notes": "Viewed current full-size and 200px. Bright silver architectural background with cobalt/teal depth, original front machine and high-level next-chapter headline. No Windows treatment, capacity list or full specification grid; accurate chassis and factory mark. Red official Lenovo logo occupies footer negative space with measured clearance and readable 200px identity."
+    },
+    {
+      "file": "PT02.png",
+      "sha256": "376fbb0995026f8426863df5d7d481fc4ad5189fb7f09b09af7eb1456dd001c7",
+      "result": "PASS",
+      "notes": "Viewed current full-size and 200px. Original study nook contains only the real computer as a device, plus neutral table/chair/plant context; no phone, mouse, cable or accessory. Focus use scene and concise readable headline are coherent with B06/BG06. Original keyboard and chassis details retained."
+    },
+    {
+      "file": "PT03.png",
+      "sha256": "ddf5d50ecdea9515eec3a304d212bd2abd48abd9080d54a3d059e811ef10a09c",
+      "result": "PASS",
+      "notes": "Viewed current full-size and 200px and proofread each configuration module: Intel Core Ultra 5 226V, integrated Intel Arc 130V, fixed 16GB LPDDR5x, 512GB PCIe NVMe SSD and policy-delivered Windows 11 Pro. No selectable tiers or factory Home represented as sold Pro evidence. Full configuration appears only here; modules fit and do not overlap product or footer."
+    },
+    {
+      "file": "PT04.png",
+      "sha256": "3e04a4221aed1a019330c13d5fc78a23a28b245d37536b9b7bf0efa15218c13d",
+      "result": "PASS",
+      "notes": "Viewed current full-size and 200px against official stand/tablet images CT1_06 and CT1_07. Authentic fold geometry, hinges, vents, proportions and grey finish retained. Readable display headline and verified 16-inch IPS touch / 1920x1200 / 16:10 line; supported four mode names without inventing additional hardware. No input or port specification recap."
+    },
+    {
+      "file": "PT05.png",
+      "sha256": "bb21fbf72722597fcb29a7d2e98d94e83bf7695980ffcc7ab0b056247c6b552e",
+      "result": "PASS",
+      "notes": "Viewed current full-size and 200px. Accurate original angle computer with original abstract screen art. Plan/draft/review are original task relationships, not branded software, subscription claims or another capacity table. Three nodes and reading order are clear; approved navy/teal family and authentic footer logo retained."
+    },
+    {
+      "file": "PT06.png",
+      "sha256": "8f64c6ac339ee25cec1ff2bb10164e0a9d2434ef40e91d28da483c6ff0915a96",
+      "result": "PASS",
+      "notes": "Viewed current full-size and 200px against official English numeric keyboard close-up CT2_05. Original exact key count/layout/legends, glass touchpad, fingerprint control and Yoga palm-rest mark are retained, with no generated keys. White input-detail background and concise backlit numeric keyboard / glass touchpad labels. No pack-out or peripheral imagery."
+    },
+    {
+      "file": "PT07.png",
+      "sha256": "9e54c23da29aeae37dfb0be3bbd7a585835e38f9c3d9d93aea482ec7daa9b124",
+      "result": "PASS",
+      "notes": "Viewed current full-size and 200px against CT1_08. Exact original rear-lid Lenovo mark, real chassis and hinge/vent details retained. The 70Wh built-in battery fact is verified for 83JT0000US and is unused elsewhere as a primary PT claim. No runtime promise, warranty/service promotion or full configuration recap."
+    },
+    {
+      "file": "PT08.png",
+      "sha256": "f441877e0f5a0c6a2dd1e10d7a3074d2d8fb3d87286f620ef0195d9decf56772",
+      "result": "PASS",
+      "notes": "Viewed current full-size and 200px against CT2_01 and CT2_02. Both real sides are shown without model mixing: left HDMI/Thunderbolt/audio, right USB-A/Thunderbolt/microSD and physical power button. Individual leaders terminate at measured real connector openings; types/counts agree with exact OEM SKU. Wi-Fi 7 and Bluetooth 5.4 verified; no fabricated Ethernet or external-device icons. Small connector labels are for full-size/zoom reading; headline and device structure remain clear at 200px."
+    }
+  ]
+}

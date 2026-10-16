@@ -1,0 +1,39 @@
+{
+  "schemaVersion": 3,
+  "result": "GEOMETRY_PASS",
+  "images": [
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "sha256": "6318b35cb750d48d842e5408206fb8810c110d6e30fc04ecbb3d1e9ca2c3fe99",
+      "asset": "assets\\branding\\windows-11-pro-lockup.png",
+      "assetSha256": "3a70dbe456a1c2478d46fa0105b3e89b0097854be78fbc0bd4c1888e019a5586",
+      "mode": "WINDOWS_11_PRO_LOGO_LOCKUP",
+      "placement": [
+        423,
+        466,
+        258,
+        115
+      ],
+      "lcdMaskSha256": "851fee38fc6ac8beb3af6176745904bb5440a9b8a83ca2ee1aa52e4afde5a56a",
+      "outsideLcdPixels": 0,
+      "result": "GEOMETRY_PASS"
+    },
+    {
+      "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "sha256": "6f4d7bbf1c01f8419584ccaf1c347365830ff261dfabdd10f1c919da643d382b",
+      "asset": "assets\\branding\\windows-11-pro-package.png",
+      "assetSha256": "6f9dc54bdbf084ebe11fb06ec85d610de8ebf766d4ead7781ff5898d6e5c7380",
+      "mode": "WINDOWS_11_PRO_PACKAGE",
+      "placement": [
+        351,
+        285,
+        194,
+        212
+      ],
+      "lcdMaskSha256": "4a13f6da863002c3670cade4651c4321bc4861a8dab9e0ca5ab3619aa9d0b0ea",
+      "outsideLcdPixels": 0,
+      "result": "GEOMETRY_PASS"
+    }
+  ],
+  "note": "Geometry does not establish software license/activation or Amazon enhanced MAIN publication eligibility."
+}
