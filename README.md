@@ -28,7 +28,7 @@ The workflow produces research and base-configuration listing workbooks, plus an
 | Scoped facts, template projection and mandatory pre-export evidence checks | [research-ledger-projection.md](references/research-ledger-projection.md) / [JSON schema](assets/research-ledger-schema.json) |
 | Current stage files versus immutable historical workbook bundles | [workbook-stage-snapshots.md](references/workbook-stage-snapshots.md) |
 | PC information: ERP current/historical serial → OEM as-built parts → sold-configuration reconciliation | [serial-number-product-research.md](references/serial-number-product-research.md) |
-| FCC: ERP serial → OEM configuration/part → module ID, ranked candidates and template mapping | [fcc-research-workflow.md](references/fcc-research-workflow.md) |
+| FCC: updated guide's brand routes, actual driver-package inspection, scoped candidates and Excel progress colors | [fcc-research-workflow.md](references/fcc-research-workflow.md) |
 | English base listing copy | [listing-style-guide.md](references/listing-style-guide.md) |
 | Separate publication/account checks | [compliance-rules.md](references/compliance-rules.md) |
 | Image generation and slot adjustment | [amazon-product-image-workflow.md](references/amazon-product-image-workflow.md) |

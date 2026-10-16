@@ -16,6 +16,35 @@ Perform this path proactively before asking the user for a serial number or labe
 
 Keep raw serials, unredacted labels, private ERP screenshots and serial-bearing OEM URLs in the private working evidence only. Public GitHub records use a local evidence alias such as UNIT-A, a non-sensitive product/configuration reference and sanitized source links without serial query/path parameters. Do not publish the alias-to-serial mapping. Public module IDs and official non-unit regulatory documents may be cited normally.
 
+## Brand routes from the updated user guide (2026-10-16)
+
+Read an available bottom, packaging, module or BIOS electronic regulatory label first, then establish its applicability through the serial path above. Online research does not require physical possession. Record complete model/MPN/MTM, region, full module suffix, FRU/part and source/date. Research WWAN separately from Wi-Fi/Bluetooth.
+
+| Brand | Official lookup route | Limits and next checks |
+| --- | --- | --- |
+| Dell / Alienware | Service Tag → Product Specifications / Original Configuration → expand Wireless/WLAN/Wi-Fi hardware rows → part/label → full module → FCC record | NO WRLES CRD means factory no-WLAN for that sample; check later additions. Missing wireless rows require motherboard/integrated-module and regulatory-document research, not a no-radio conclusion. |
+| ASUS | Obtain serial-specific Keypart List from official support → verify serial privately → WLAN description/full module/part → FCC | Another unit's list or a series specification is a lead only. Contacting support still requires authorization to send a message. |
+| HP | Serial/product number → Setup & User Guides → Maintenance and Service Guide plus regulatory documents → complete module or host regulatory model → FCC grant/exhibits | BE201 or AX211 alone may not identify the package. Match the HP regulatory host where needed. Generic safety statements do not give a product ID. |
+| Acer | Serial/SNID → verify model/MPN → Drivers and Manuals / Product Support → expand all Wireless LAN entries → download each relevant distinct module/vendor ZIP → read Prepackage.xml and INF without installation | Record URL, version, module names and HWIDs. Inspect actual packages, not just download titles. Multiple Intel/MediaTek options remain candidates. Serial-filtered drivers and supported HWIDs do not prove installation; use service parts/labels and official FCC records. |
+| Lenovo | Serial → Parts → explicitly As-Built → Wireless/WLAN/Wi-Fi → original FRU/label; distinguish Substitutes | For integrated modules: Guides & Manuals → View More Topics → Regulatory Notice for Wireless LAN Modules → exact computer row → module-to-ID table. A unique module supports model matching; multiple modules need actual FRU/label. Buy Now/general parts are not As-Built. |
+| LG | Serial plus complete model/suffix → official support, parts and regulatory documents | Record lookup/access/suffix failures; seek serial-linked component information or packaging/electronic labels. Do not assume all LG models require physical inspection. |
+
+Guide labels describe evidence scope independently of the six field statuses:
+
+| Guide result / evidence.lookup_outcome | Sold-configuration FCC treatment |
+| --- | --- |
+| 单机已确认 / UNIT_CONFIRMED | VERIFIED only with exact installation continuity and independently reviewed official FCC grant. |
+| 型号或模块匹配 / MODEL_MODULE_MATCH | INPUT_UNVERIFIED candidate until the sold unit/batch link is established; retain model match and limits in Source. |
+| 选用支持项 / SUPPORTED_OPTION_SELECTED | Only on explicit user request to select a supported option. INPUT_UNVERIFIED candidate; Source says USER_SELECTED_SUPPORTED_OPTION and INSTALLATION NOT CONFIRMED. Selection is not a most-likely inference. |
+| 待确认 / PENDING | TBD, SOURCE_UNAVAILABLE or CONFLICT according to the gap; a defensible ranked recommendation may be INPUT_UNVERIFIED. |
+| 出厂无无线网卡 / FACTORY_NO_WLAN | NOT_APPLICABLE only after checking no later-added radio in the sold configuration; otherwise unresolved. |
+
+For an individually scoped host FCC ID field with a matched SDoC disposition, `HOST_SDOC` is an additional existing-framework outcome: HOST scope, SDoC authorization route and NOT_APPLICABLE with the matched statement in Source. This does not settle installed transmitter IDs. FACTORY_NO_WLAN also requires sold applicability/transfer basis, installation basis and a later-addition check before NOT_APPLICABLE is accepted.
+
+New generated workbooks require `lookup_outcome` in the FCC fact's `evidence`. Confirmed-unit records also require `module_model`, `installation_basis`, `replacement_check`, `fcc_official_url` (official HTTPS FCC grant/exhibit reference), `reviewed_date` (YYYY-MM-DD), and no unresolved `missing_links`. Record source title/page, OEM link, access result and unit alias in Source/evidence; raw serials remain private. Contract validation cannot authenticate a source or replace opening the FCC record. Historical records keep their existing validation contract; reconcile their scope/evidence before regenerating them with the new writer.
+
+Generate Excel using `research_export.py --write-workbook` and the [projection instructions](research-ledger-projection.md). New confirmed/recommended/explicitly selected FCC IDs are green; cells without a selected ID are red, including no-WLAN. Use `--previous-workbook` to preserve an unchanged previously VERIFIED ID's historical fill. Color is progress only; Status/Source control interpretation and export eligibility. Alternative IDs remain in the ledger, never concatenated in the FCC Value cell.
+
 ## Confirmation and most-likely candidate fallback
 
 Use the existing six field statuses; confidence/ranking is additional metadata, not a seventh status.
@@ -87,4 +116,4 @@ Use the six statuses defined in [research-attribute-coverage.md](research-attrib
 
 Check host versus module scope, actual installed configuration, exact ID transcription and evidence links; ensure responsible-party details come from the matched statement. Report unresolved FCC items alongside other compliance gaps. Do not mark applicable FCC compliance READY while these remain unresolved. Structure checks can reject a blank/placeholder VERIFIED ID; they cannot authenticate an FCC grant, installation, SDoC applicability, or Amazon acceptance. Research drafts may be delivered with honest unresolved statuses.
 
-Procedure update date: 2026-10-14; regulatory references last reviewed 2026-10-13 (no new legal review claimed). Source-access failures during an individual lookup belong in that product's ledger; they are not a permanent condition of this workflow.
+Procedure update date: 2026-10-16, incorporating the updated user lookup guide; regulatory references last reviewed 2026-10-13 (no new legal review claimed). Source-access failures during an individual lookup belong in that product's ledger; they are not a permanent condition of this workflow.

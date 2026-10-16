@@ -3,6 +3,7 @@ import argparse
 import hashlib
 import json
 import math
+import tempfile
 from pathlib import Path
 
 import openpyxl
@@ -10,6 +11,50 @@ from jsonschema import Draft202012Validator
 from research_values import check_fcc_id_value
 
 ROOT = Path(__file__).resolve().parents[1]
+FCC_KEY = ('Safety&Compliance', 'FCC ID')
+
+
+def check_fcc_lookup(fact):
+    """Check guide outcome semantics; source authentication remains human research."""
+    evidence = fact.get('evidence', {})
+    outcome = evidence.get('lookup_outcome')
+    if outcome is None:  # Existing ledgers retain their existing validation contract.
+        return
+    allowed = {'UNIT_CONFIRMED', 'MODEL_MODULE_MATCH', 'SUPPORTED_OPTION_SELECTED',
+               'PENDING', 'FACTORY_NO_WLAN', 'HOST_SDOC'}
+    if outcome not in allowed:
+        raise ValueError('Unknown FCC lookup_outcome')
+    if outcome in {'MODEL_MODULE_MATCH', 'SUPPORTED_OPTION_SELECTED', 'PENDING'} and fact['status'] == 'VERIFIED':
+        raise ValueError('FCC model/support/pending outcome cannot confirm the sold unit')
+    if outcome == 'FACTORY_NO_WLAN' and fact['status'] == 'VERIFIED':
+        raise ValueError('Factory no-WLAN evidence is not an FCC identifier')
+    if outcome in {'FACTORY_NO_WLAN', 'HOST_SDOC'} and fact.get('recommended_candidate') is not None:
+        raise ValueError('No-radio/host-SDoC disposition cannot select a radio ID')
+    if outcome == 'SUPPORTED_OPTION_SELECTED' and (fact['status'] != 'INPUT_UNVERIFIED'
+                                                   or fact.get('recommended_candidate') is None):
+        raise ValueError('Selected supported FCC option must remain an unverified candidate')
+    if fact['status'] == 'NOT_APPLICABLE' and outcome not in {'FACTORY_NO_WLAN', 'HOST_SDOC'}:
+        raise ValueError('FCC lookup outcome does not establish no applicable radio')
+    if outcome == 'HOST_SDOC':
+        if fact['status'] == 'VERIFIED' or fact.get('evidence_scope') != 'HOST' or fact.get('authorization_route') != 'SDoC':
+            raise ValueError('Host SDoC cannot establish a certified radio FCC ID')
+    if fact['status'] == 'NOT_APPLICABLE' and outcome == 'FACTORY_NO_WLAN':
+        if (fact.get('applies_to_sold_configuration') is not True
+                or not fact.get('transfer_basis', '').strip()
+                or not evidence.get('installation_basis') or not evidence.get('replacement_check')):
+            raise ValueError('No-WLAN disposition needs sold applicability and later-addition check')
+    if outcome == 'UNIT_CONFIRMED' and fact['status'] == 'VERIFIED':
+        from datetime import date
+        from urllib.parse import urlparse
+        for key in ('module_model', 'installation_basis', 'replacement_check', 'fcc_official_url', 'reviewed_date'):
+            if not isinstance(evidence.get(key), str) or not evidence[key].strip():
+                raise ValueError('Confirmed FCC lookup requires evidence: ' + key)
+        url = urlparse(evidence['fcc_official_url'])
+        if url.scheme != 'https' or not (url.hostname == 'fcc.gov' or (url.hostname or '').endswith('.fcc.gov')):
+            raise ValueError('FCC grant reference must use an official HTTPS FCC URL')
+        date.fromisoformat(evidence['reviewed_date'])
+        if evidence.get('missing_links'):
+            raise ValueError('Confirmed FCC lookup cannot retain missing links')
 # These existing template fields describe capability rather than installed capacity.
 # All unlisted fields require SOLD_BASE evidence. Offer 'maximum price' is not hardware capability.
 CAPABILITY_FIELDS = {
@@ -71,6 +116,8 @@ def validate_ledger(data):
             check_fcc_id_value(fact['final_value'], 'VERIFIED')
             if fact.get('evidence_scope') not in ('HOST', 'RADIO_MODULE') or fact.get('authorization_route') != 'certification':
                 raise ValueError('Verified FCC ID needs matched host/module certification scope')
+        if key == FCC_KEY:
+            check_fcc_lookup(fact)
     return facts
 
 
@@ -99,7 +146,16 @@ def project(data, field_keys, mode='draft'):
             value = candidate
             if not isinstance(value, str) or not value.strip() or value.lstrip().startswith('='):
                 raise ValueError('FCC candidate must be a nonempty text identifier')
+            check_fcc_id_value(value, 'VERIFIED')
             source = 'MOST_LIKELY_CANDIDATE — NOT CONFIRMED; ' + source
+            if fact.get('evidence', {}).get('lookup_outcome') == 'SUPPORTED_OPTION_SELECTED':
+                source = 'USER_SELECTED_SUPPORTED_OPTION — INSTALLATION NOT CONFIRMED; ' + fact['source']
+        if key == FCC_KEY and fact.get('evidence', {}).get('lookup_outcome'):
+            evidence = fact['evidence']
+            details = ['FCC_LOOKUP=' + evidence['lookup_outcome']]
+            details += [name + '=' + str(evidence[name]) for name in
+                        ('module_model', 'fcc_official_url', 'reviewed_date') if evidence.get(name)]
+            source += '; ' + '; '.join(details)
         projected[key] = {'value': value, 'status': fact['status'], 'source': source,
                           'fact_id': fact['id'], 'fact_scope': fact['fact_scope']}
     return projected
@@ -130,6 +186,82 @@ def verify_workbook(book, data, mode='draft'):
             if any(sheet.cell(row, column).data_type == 'f' for row in (3,4,5)):
                 raise ValueError('Formula cannot be exported: ' + str(key))
     return result
+
+
+def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
+                   configuration_id=None, stage='RESEARCH_REVIEW', previous_workbook=None):
+    """Create a new canonical workbook; validate before installing the output."""
+    template, ledger, workbook = map(Path, (template, ledger, workbook))
+    from workbook_paths import files_with_suffix
+    if workbook.suffix.casefold() != '.xlsx' or not workbook.parent.is_dir():
+        raise ValueError('Output requires an existing product directory and .xlsx suffix')
+    if any(p.name.casefold() == workbook.name.casefold() for p in files_with_suffix(workbook.parent, '.xlsx')):
+        raise ValueError('Output already exists; use a new staged filename')
+    if any(p.casefold() == 'workbook-snapshots' for p in workbook.resolve().parts):
+        raise ValueError('Cannot write historical workbook snapshots')
+    data = load_ledger(ledger)
+    book = openpyxl.load_workbook(template)
+    previous = None
+    temporary = None
+    try:
+        projected = project(data, workbook_fields(book), mode)
+        selected = validate_ledger(data)
+        fcc = next((selected[f['selected_fact']] for f in data['fields']
+                    if (f['sheet'], f['attribute']) == FCC_KEY), None)
+        if fcc and not fcc.get('evidence', {}).get('lookup_outcome'):
+            raise ValueError('New FCC workbook requires guide lookup_outcome metadata')
+        if previous_workbook:
+            from workbook_paths import resolve_workbook_path
+            previous_path = resolve_workbook_path(previous_workbook)
+            if previous_path.parent.resolve() != workbook.parent.resolve():
+                raise ValueError('Previous workbook must belong to the same product directory')
+            previous = openpyxl.load_workbook(previous_path)
+            if workbook_fields(previous) != workbook_fields(book):
+                raise ValueError('Previous workbook must use the same template fields')
+        from copy import copy
+        from openpyxl.styles import PatternFill
+        for sheet in book:
+            for col in range(2, sheet.max_column + 1):
+                key = (sheet.title, sheet.cell(1, col).value)
+                field = projected[key]
+                for row, name in ((3, 'value'), (4, 'status'), (5, 'source')):
+                    cell = sheet.cell(row, col)
+                    cell.value = field[name]
+                    # Evidence text beginning '=' must stay text, never executable Excel formulas.
+                    if isinstance(field[name], str):
+                        cell.data_type = 's'
+                if key == FCC_KEY:
+                    cell = sheet.cell(3, col)
+                    cell.number_format = '@'
+                    old = previous[sheet.title] if previous else None
+                    historical = (old is not None and field['status'] == 'VERIFIED'
+                                  and old.cell(4, col).value == 'VERIFIED'
+                                  and old.cell(3, col).value == field['value'])
+                    cell.fill = copy(old.cell(3, col).fill) if historical else PatternFill(
+                        'solid', fgColor='C6EFCE' if field['value'] else 'FFC7CE')
+        with tempfile.NamedTemporaryFile(prefix='.' + workbook.stem + '-', suffix='.xlsx',
+                                         dir=workbook.parent, delete=False) as handle:
+            temporary = Path(handle.name)
+        book.save(temporary)
+        result = run(template, ledger, temporary, mode, product_id, configuration_id, stage)
+        # Exclusive creation protects previous deliverables even if a file appears during validation.
+        payload = temporary.read_bytes()
+        created = False
+        try:
+            with workbook.open('xb') as output:
+                created = True
+                output.write(payload)
+        except BaseException:
+            if created:
+                workbook.unlink(missing_ok=True)
+            raise
+        return result
+    finally:
+        book.close()
+        if previous:
+            previous.close()
+        if temporary:
+            temporary.unlink(missing_ok=True)
 
 
 def run(template, ledger, workbook, mode, product_id=None, configuration_id=None, stage=None):
@@ -228,9 +360,20 @@ def main():
     parser.add_argument('--stage', choices=['RESEARCH_REVIEW', 'LISTING_DRAFT'],
                         help='Export requires explicit LISTING_DRAFT; filenames cannot grant export eligibility')
     parser.add_argument('--summary-output',type=Path,help='Write a standalone research coverage JSON after successful checking')
+    parser.add_argument('--write-workbook', action='store_true', help='Create a new Excel from the scoped ledger, then validate it')
+    parser.add_argument('--previous-workbook', type=Path, help='Preserve unchanged historical VERIFIED FCC cell coloring')
     args = parser.parse_args()
     try:
-        result = run(args.template, args.ledger, args.workbook, args.mode, args.product_id, args.configuration_id, args.stage)
+        if args.previous_workbook and not args.write_workbook:
+            raise ValueError('--previous-workbook requires --write-workbook')
+        if args.write_workbook:
+            result = write_workbook(args.template, args.ledger, args.workbook, args.mode,
+                                    args.product_id, args.configuration_id,
+                                    args.stage or 'RESEARCH_REVIEW', args.previous_workbook)
+            if not args.summary_output:
+                args.summary_output = args.workbook.with_suffix('.research-summary.json')
+        else:
+            result = run(args.template, args.ledger, args.workbook, args.mode, args.product_id, args.configuration_id, args.stage)
         if args.summary_output:
             output=args.summary_output
             from research_handoff import check_product_location

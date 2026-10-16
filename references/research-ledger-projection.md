@@ -2,6 +2,20 @@
 
 Apply [serial-number-product-research.md](serial-number-product-research.md), [research-attribute-coverage.md](research-attribute-coverage.md) and the FCC-specific reference. Research drafts may contain honest unresolved fields; export evidence checks are a separate stage, not a prerequisite for doing research or delivering a draft.
 
+## Generate Excel from a scoped ledger
+
+After performing the OEM/FCC research and recording its evidence, create a new staged workbook from the canonical template:
+
+```powershell
+& $listingPython -X utf8 scripts/research_export.py --ledger "product generated photo/PRODUCT-ID/research-ledger.json" --workbook "product generated photo/PRODUCT-ID/PRODUCT-ID_RESEARCH_REVIEW_v2.xlsx" --write-workbook --mode draft --stage RESEARCH_REVIEW
+```
+
+Resolve `$listingPython` to the dedicated listing-testing interpreter as described in the testing reference. The ledger must cover every template field; unresolved fields keep null final values and honest Status/Source. New FCC facts require the updated guide's `evidence.lookup_outcome`; confirmed-unit facts require the documented module/installation/FCC/date evidence. Driver-only or selected-supported-option IDs remain research candidates.
+
+The writer copies the canonical workbook's sheets, headers, definitions, validations and styles, writes only Value/Status/Source, formats the FCC ID as text, and applies the guide's green/red progress colors. It validates a temporary workbook before creating the requested output, refuses existing filenames and snapshot paths, and leaves the ledger/template unchanged. `--previous-workbook` may point to a workbook in the same product directory to retain an unchanged VERIFIED FCC ID's previous fill. Use immutable snapshots to archive previous revisions before changing the current ledger; do not leave stale current workbooks bound to a revised ledger.
+
+A matching `.research-summary.json` is written automatically by the CLI, with coverage, unresolved fields and input hashes. For a final Listing Excel, use a new filename with `--mode export --stage LISTING_DRAFT --product-id PRODUCT-ID --configuration-id BASE-ID`; this requires product-facts.json and all existing sold-configuration/copy checks. Unresolved fields or candidates block export even when the ID cell is green. This creates a local Excel and validation receipt; marketplace upload and Amazon eligibility review remain separate.
+
 ## Canonical structure for new research
 
 Use [research-ledger-schema.json](../assets/research-ledger-schema.json) for new `research-ledger.json` files. The root has `schemaVersion:1`, `productId`, `configurationId`, `facts` and `fields`. This is the single product research ledger; record each scoped fact separately within it, not in competing ledgers. Keep detailed sanitized part/source/unit metadata inside each fact's `evidence` object.

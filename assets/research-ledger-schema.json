@@ -32,7 +32,13 @@
         "applies_to_sold_configuration": {"type": "boolean"},
         "evidence_scope": {"enum": ["HOST", "RADIO_MODULE", "UNRESOLVED"]},
         "authorization_route": {"enum": ["SDoC", "certification", "unresolved"]},
-        "evidence": {"type": "object", "description": "Sanitized unit/part/source/review metadata; private serials must not be published."}
+        "evidence": {
+          "type": "object",
+          "description": "Sanitized unit/part/source/review metadata; private serials must not be published. New FCC workbook generation requires lookup_outcome and the matching evidence contract in fcc-research-workflow.md.",
+          "properties": {
+            "lookup_outcome": {"enum": ["UNIT_CONFIRMED", "MODEL_MODULE_MATCH", "SUPPORTED_OPTION_SELECTED", "PENDING", "FACTORY_NO_WLAN", "HOST_SDOC"]}
+          }
+        }
       }
     },
     "field": {
