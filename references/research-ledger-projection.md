@@ -18,6 +18,8 @@ The writer copies the canonical workbook's sheets, headers, definitions, validat
 
 A matching `.research-summary.json` is written automatically by the CLI, with coverage, unresolved fields and input hashes. For a final Listing Excel, use a new filename with `--mode export --stage LISTING_DRAFT --product-id PRODUCT-ID --configuration-id BASE-ID`; this requires product-facts.json and all existing sold-configuration/copy checks. Unresolved fields or candidates block export even when the ID cell is green. This creates a local Excel and validation receipt; marketplace upload and Amazon eligibility review remain separate.
 
+When archiving a superseded workbook, preserve its genuine sidecar under the snapshot's optional summary role as described in [stage snapshots](workbook-stage-snapshots.md). Do not leave an orphan/stale sidecar at product top level. The writer preflights current summaries only for its target product before creating a new Excel.
+
 The summary must be beside its workbook and bound to the same product, configuration and workbook filename. Preflight conflicts before generating Excel; replace summary bytes only after a complete temporary file is prepared. If summary writing fails, remove only the newly created Excel and preserve the prior sidecar. Cleanup failures report the retained workbook path; process termination/power loss still requires checking files before retrying. This is recovery across two files, not a simultaneous filesystem transaction. Old sidecars without a workbook filename may be refreshed only when their original workbook hash proves the binding.
 
 ## Canonical structure for new research

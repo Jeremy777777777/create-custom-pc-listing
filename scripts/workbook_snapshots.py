@@ -23,8 +23,9 @@ def check_snapshot(directory):
     for field in ('productId', 'configurationId'):
         if not isinstance(receipt[field], str) or not receipt[field].strip():
             raise ValueError('Snapshot requires product/configuration IDs')
-    if not isinstance(receipt['files'], dict) or set(receipt['files']) != {'workbook', 'ledger', 'template'}:
-        raise ValueError('Snapshot must bind workbook, original ledger and original template')
+    if (not isinstance(receipt['files'], dict)
+            or set(receipt['files']) not in ({'workbook', 'ledger', 'template'}, {'workbook', 'ledger', 'template', 'summary'})):
+        raise ValueError('Snapshot must bind workbook, original ledger, original template and optional summary')
     paths = set()
     for role, record in receipt['files'].items():
         if not isinstance(record, dict) or set(record) != {'path', 'sha256'}:
@@ -44,6 +45,15 @@ def check_snapshot(directory):
     expected = paths | {directory/'snapshot.json'}
     if set(directory.iterdir()) != expected:
         raise ValueError('Snapshot bundle contains undeclared files or subdirectories')
+    if 'summary' in receipt['files']:
+        summary = json.loads((directory/receipt['files']['summary']['path']).read_text(encoding='utf-8-sig'))
+        if (not isinstance(summary, dict) or summary.get('artifactRole') != 'RESEARCH_COVERAGE_SUMMARY'
+                or any(summary.get(key) != receipt[key] for key in ('productId', 'configurationId', 'stage'))
+                or (summary.get('workbookFile') is not None
+                    and summary['workbookFile'] != receipt['files']['workbook']['path'])
+                or any(summary.get(key + 'Sha256') != receipt['files'][role]['sha256']
+                       for key, role in (('workbook', 'workbook'), ('ledger', 'ledger'), ('template', 'template')))):
+            raise ValueError('Historical summary does not bind the original snapshot inputs')
     return {'result': 'SNAPSHOT_HASHES_VERIFIED', 'exportEligible': False, 'stage': receipt['stage'],
             'productId': receipt['productId'], 'configurationId': receipt['configurationId']}
 

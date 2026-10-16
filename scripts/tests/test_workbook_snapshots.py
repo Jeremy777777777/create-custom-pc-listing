@@ -56,6 +56,24 @@ class SnapshotTests(unittest.TestCase):
             (directory/'snapshot.json').unlink()
             with self.assertRaises(OSError): check_snapshots(Path(scratch))
 
+    def test_optional_historical_summary_is_bound_and_remains_immutable(self):
+        with tempfile.TemporaryDirectory() as scratch:
+            directory, receipt = self.bundle(Path(scratch))
+            summary = {'artifactRole': 'RESEARCH_COVERAGE_SUMMARY', 'productId': 'TEST-PC',
+                       'configurationId': 'BASE-A', 'stage': 'RESEARCH_REVIEW', 'workbookFile': 'old-review.xlsx'}
+            summary.update({role+'Sha256': receipt['files'][role]['sha256'] for role in ('workbook','ledger','template')})
+            path = directory/'old-review.research-summary.json'
+            path.write_text(json.dumps(summary), encoding='utf-8')
+            receipt['files']['summary'] = {'path': path.name, 'sha256': hashlib.sha256(path.read_bytes()).hexdigest()}
+            (directory/'snapshot.json').write_text(json.dumps(receipt), encoding='utf-8')
+            self.assertFalse(check_snapshot(directory)['exportEligible'])
+            summary['configurationId'] = 'OTHER'
+            path.write_text(json.dumps(summary), encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, 'bytes changed'): check_snapshot(directory)
+            receipt['files']['summary']['sha256'] = hashlib.sha256(path.read_bytes()).hexdigest()
+            (directory/'snapshot.json').write_text(json.dumps(receipt), encoding='utf-8')
+            with self.assertRaisesRegex(ValueError, 'does not bind'): check_snapshot(directory)
+
     def test_archived_real_workbook_is_independent_of_latest_ledger_and_never_exportable(self):
         # Use the real template and scoped fixtures, not a fabricated manifest PASS.
         from test_research_export import ResearchExportTests

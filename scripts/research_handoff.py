@@ -135,12 +135,16 @@ def internal_storage_configuration(data):
     return {'totalGB':total_gb,'devices':devices}
 
 
-def check_research_summaries(root):
+def check_research_summaries(root, product_id=None):
     """Read-only freshness checking of delivered summaries; never refresh stale conclusions."""
     from research_export import run,load_ledger
     from workbook_paths import current_product_artifacts,files_with_suffix,resolve_workbook_path
     root=Path(root);checked=0
-    for path in current_product_artifacts(root,'.research-summary.json'):
+    if product_id is not None and (Path(product_id).name != product_id or any(c in product_id for c in '/\\:')):
+        raise ValueError('Summary scope requires a local product ID')
+    paths = (files_with_suffix(root/'product generated photo'/product_id, '.research-summary.json')
+             if product_id is not None else current_product_artifacts(root,'.research-summary.json'))
+    for path in paths:
         summary=json.loads(path.read_text(encoding='utf-8-sig'))
         if not isinstance(summary,dict) or summary.get('artifactRole')!='RESEARCH_COVERAGE_SUMMARY':
             raise ValueError('Invalid research summary artifact role: '+str(path))

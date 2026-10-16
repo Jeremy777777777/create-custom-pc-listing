@@ -29,6 +29,7 @@ The workflow produces research and base-configuration listing workbooks, plus an
 | Current stage files versus immutable historical workbook bundles | [workbook-stage-snapshots.md](references/workbook-stage-snapshots.md) |
 | PC information: ERP current/historical serial → OEM as-built parts → sold-configuration reconciliation | [serial-number-product-research.md](references/serial-number-product-research.md) |
 | FCC: updated guide's brand routes, actual driver-package inspection, scoped candidates and Excel progress colors | [fcc-research-workflow.md](references/fcc-research-workflow.md) |
+| FCC workflow Chinese Word reading copy and version binding | [Word manual](references/manuals/fcc-id-lookup-manual.docx) / [reading-copy maintenance](references/manuals/README.md) |
 | English base listing copy | [listing-style-guide.md](references/listing-style-guide.md) |
 | Separate publication/account checks | [compliance-rules.md](references/compliance-rules.md) |
 | Image generation and slot adjustment | [amazon-product-image-workflow.md](references/amazon-product-image-workflow.md) |

@@ -165,6 +165,35 @@ class FCCIntegrationEdgeTests(unittest.TestCase):
                 r.write_workbook(r.ROOT/'assets/listing-workbook-template.xlsx', ledger, root/'wrong.xlsx',
                                  previous_workbook=bundle/previous.name)
 
+    def test_fcc_dates_reject_compact_or_week_date_forms(self):
+        with tempfile.TemporaryDirectory() as scratch:
+            data, fact, previous, ledger = self.confirmed(Path(scratch))
+            for key, value in [('reviewed_date', '20261016'), ('fcc_grant_date', '2026-W01-4')]:
+                original = fact['evidence'][key]
+                fact['evidence'][key] = value
+                with self.subTest(key=key), self.assertRaisesRegex(ValueError, 'YYYY-MM-DD'):
+                    r.validate_ledger(data)
+                fact['evidence'][key] = original
+
+    def test_orphan_current_summary_blocks_canonical_creation_without_scanning_other_products(self):
+        from research_handoff import check_research_summaries
+        with tempfile.TemporaryDirectory() as scratch:
+            repo = Path(scratch)
+            root = repo/'product generated photo'/'TEST-PC'; root.mkdir(parents=True)
+            data, fact, previous, ledger = self.confirmed(root)
+            ledger = root/'research-ledger.json'
+            ledger.write_text(json.dumps(data), encoding='utf-8')
+            summary = {'artifactRole': 'RESEARCH_COVERAGE_SUMMARY', 'productId': 'TEST-PC',
+                       'configurationId': 'BASE-A', 'stage': 'RESEARCH_REVIEW', 'workbookFile': 'gone.xlsx'}
+            (root/'gone.research-summary.json').write_text(json.dumps(summary), encoding='utf-8')
+            with self.assertRaisesRegex(FileNotFoundError, 'Workbook file not found'):
+                r.write_workbook(r.ROOT/'assets/listing-workbook-template.xlsx', ledger, root/'new.xlsx')
+            self.assertFalse((root/'new.xlsx').exists())
+            (root/'gone.research-summary.json').unlink()
+            other = repo/'product generated photo'/'OTHER'; other.mkdir()
+            (other/'bad.research-summary.json').write_text('not JSON', encoding='utf-8')
+            self.assertEqual(check_research_summaries(repo, product_id='TEST-PC'), 0)
+
 
 if __name__ == '__main__':
     unittest.main()

@@ -65,7 +65,10 @@ def check_fcc_lookup(fact, require_outcome=False):
         if url.scheme != 'https' or not (url.hostname == 'fcc.gov' or (url.hostname or '').endswith('.fcc.gov')):
             raise ValueError('FCC grant reference must use an official HTTPS FCC URL')
         reviewed = date.fromisoformat(evidence['reviewed_date'])
-        if date.fromisoformat(evidence['fcc_grant_date']) > reviewed:
+        granted = date.fromisoformat(evidence['fcc_grant_date'])
+        if reviewed.isoformat() != evidence['reviewed_date'] or granted.isoformat() != evidence['fcc_grant_date']:
+            raise ValueError('FCC dates must use YYYY-MM-DD')
+        if granted > reviewed:
             raise ValueError('FCC grant date cannot follow its review date')
         if evidence.get('fcc_access_result') != 'REVIEWED':
             raise ValueError('Confirmed FCC ID needs a reviewed official record, not a failed lookup')
@@ -222,6 +225,8 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
     if any(p.casefold() == 'workbook-snapshots' for p in workbook.resolve().parts):
         raise ValueError('Cannot write historical workbook snapshots')
     data = load_ledger(ledger)
+    from research_handoff import check_product_location
+    check_product_location(workbook, data['productId'])
     book = openpyxl.load_workbook(template)
     previous = None
     temporary = None
@@ -233,6 +238,8 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
         if fcc and not fcc.get('evidence', {}).get('lookup_outcome'):
             raise ValueError('New FCC workbook requires guide lookup_outcome metadata')
         if workbook.parent.parent.name == 'product generated photo':
+            from research_handoff import check_research_summaries
+            check_research_summaries(workbook.parent.parent.parent, product_id=data['productId'])
             # All top-level product workbooks are current, including earlier stages.
             # A revised ledger must not leave an old stage silently stale until CI.
             for sibling in files_with_suffix(workbook.parent, '.xlsx'):
