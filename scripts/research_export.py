@@ -100,6 +100,8 @@ def validate_ledger(data):
         error = errors[0]
         raise ValueError('Scoped ledger schema: ' + '/'.join(map(str, error.absolute_path))
                          + ' violates ' + str(error.validator))
+    from serial_research import validate_serial_research
+    validate_serial_research(data)
     facts = {}
     for fact in data['facts']:
         if fact['id'] in facts:
@@ -225,6 +227,8 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
     if any(p.casefold() == 'workbook-snapshots' for p in workbook.resolve().parts):
         raise ValueError('Cannot write historical workbook snapshots')
     data = load_ledger(ledger)
+    from serial_research import validate_serial_research
+    validate_serial_research(data, required=True, full_research=True)
     from research_handoff import check_product_location
     check_product_location(workbook, data['productId'])
     book = openpyxl.load_workbook(template)
@@ -339,6 +343,9 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
     metadata_report = None
     manufacturer = None
     data = load_ledger(ledger)
+    if mode == 'export':
+        from serial_research import validate_serial_research
+        validate_serial_research(data, required=True, full_research=True)
     from research_handoff import check_product_location,coverage_summary,internal_storage_configuration
     check_product_location(workbook,data['productId'])
     listing_stage = stage == 'LISTING_DRAFT' if stage else '_LISTING_' in workbook.stem.upper()
@@ -422,6 +429,10 @@ def summary_destination(output, workbook, identity):
 
 def write_summary(output, result, workbook):
     """Replace the sidecar only after fully preparing its bytes."""
+    serial = result.get('coverageSummary', {}).get('serialResearch', {})
+    if (not serial.get('recordPresent') or serial.get('outcome') == 'NOT_ASSESSED_LEGACY'
+            or serial.get('workflow_mode') != 'FULL_LISTING_WORKFLOW'):
+        raise ValueError('New workbook summary requires assessed FULL_LISTING_WORKFLOW serial_research')
     from workbook_paths import resolve_workbook_path
     summary = {k: result[k] for k in ('productId', 'configurationId', 'stage', 'workbookSha256',
                'ledgerSha256', 'templateSha256', 'productFactsSha256', 'coverageSummary')}

@@ -25,6 +25,7 @@ def check_product_location(workbook,product_id,product=None):
 
 
 def coverage_summary(data,projected):
+    from serial_research import serial_research_summary
     facts={f['id']:f for f in data['facts']}
     sheets={};unresolved=[]
     for (sheet,attribute),record in projected.items():
@@ -41,6 +42,7 @@ def coverage_summary(data,projected):
             'missingFollowUpMetadata':[{'sheet':r['sheet'],'attribute':r['attribute'],
                 'missing':[key for key in ('nextAction','owner') if not isinstance(r[key],str) or not r[key].strip()]}
                 for r in unresolved if any(not isinstance(r[k],str) or not r[k].strip() for k in ('nextAction','owner'))],
+            'serialResearch':serial_research_summary(data),
             'factualReadinessAssessed':False}
 
 
@@ -167,7 +169,11 @@ def check_research_summaries(root, product_id=None):
             raise ValueError('Research summary requires a declared current stage')
         current=run(root/'assets/listing-workbook-template.xlsx',ledger,workbook,'draft',stage=summary['stage'])
         for key in ('workbookSha256','ledgerSha256','templateSha256','productFactsSha256','coverageSummary'):
-            if key not in summary or json.dumps(summary[key],sort_keys=True)!=json.dumps(current[key],sort_keys=True):
+            expected = current[key]
+            if (key == 'coverageSummary' and 'serial_research' not in data
+                    and isinstance(summary.get(key),dict) and 'serialResearch' not in summary[key]):
+                expected = {k:v for k,v in expected.items() if k != 'serialResearch'}
+            if key not in summary or json.dumps(summary[key],sort_keys=True)!=json.dumps(expected,sort_keys=True):
                 raise ValueError('Research summary is stale or inconsistent: '+key+'; regenerate '+str(path))
         checked+=1
     return checked

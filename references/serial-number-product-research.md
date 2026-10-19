@@ -25,6 +25,48 @@ Extend ledger entries with `unit_evidence_alias`, `serial_source_kind` (CURRENT 
 
 Example: OEM lookup establishes factory 16GB RAM and a particular SSD part, while ERP establishes a sold 32GB/1TB upgrade. Keep both configurations and their sources; listing installed-capacity fields use the verified sold 32GB/1TB values. RAM speed, SSD interface, available slots and pack-out are researched for the actual replacement components/configuration rather than inherited from the factory parts.
 
+## Recorded outcome and delivery gate — 2026-10-19
+
+Keep one product-level `serial_research` object in the scoped ledger, alongside `facts` and `fields` (schemaVersion remains 1 for read compatibility). Per-field evidence still holds the actual hardware findings. New workbook generation and export checks require the record and `workflow_mode: FULL_LISTING_WORKFLOW`. Local/CI workbook checks require a record for new/changed top-level ledgers, workbooks and `.research-summary.json` files. Unrelated image changes do not require retroactive research. An unchanged legacy ledger without this object remains readable and is reported as `NOT_ASSESSED_LEGACY`; neither this update nor CI rewrites it or certifies a previous lookup. When updating a legacy array ledger, reconcile it into a scoped ledger before delivering new research.
+
+Use these outcomes:
+
+| Outcome | Meaning |
+| --- | --- |
+| `COMPLETED` | A linked unit's official factory/current configuration was obtained and at least one fact verified in its stated scope; unresolved attributes may remain explicit |
+| `ERP_TARGET_NOT_FOUND` | ERP was searched but the target product could not be mapped |
+| `SERIAL_NOT_FOUND` | Relevant accessible current/historical records yielded no linked serial |
+| `ERP_UNAVAILABLE` | ERP access prevented the serial search |
+| `OEM_UNAVAILABLE` | A linked serial was available privately but official lookup was inaccessible |
+| `OEM_NO_BOM` | Official lookup did not expose a usable unit hardware configuration |
+| `NOT_REQUIRED` | Image-only/adjustment scope reuses sufficient verified facts; explain why no new lookup is needed |
+| `NOT_ASSESSED_LEGACY` | Historical execution has not been assessed; read-only compatibility, not valid for new research delivery/export |
+
+Every assessed record has `workflow_mode`, `outcome`, a specific `reason`, ISO `reviewed_date`, sanitized `sources_attempted`, `units`, `resolved_fact_ids`, `factory_sold_differences`, `unresolved_fields` and `reconciliation`. Incomplete outcomes or remaining unresolved attributes require `next_action` and `owner`. A date is the actual review date, not a default inserted by a generator. A full research run cannot use `NOT_REQUIRED` or change its declared mode to bypass the check. Query failures remain deliverable Research Review outcomes; applicable unresolved facts still block export under the ordinary field gates. Successful serial lookup alone never means all attributes or current inventory are verified.
+
+Example of an honest unsuccessful attempt (illustrative values only; do not copy as evidence):
+
+```json
+"serial_research": {
+  "workflow_mode": "FULL_LISTING_WORKFLOW",
+  "outcome": "SERIAL_NOT_FOUND",
+  "reviewed_date": "2026-10-19",
+  "reason": "Target mapped, but the relevant current and historical ERP records exposed no linked serial.",
+  "sources_attempted": ["Sanitized target product and relevant receipt/inventory references"],
+  "units": [],
+  "resolved_fact_ids": [],
+  "factory_sold_differences": [],
+  "unresolved_fields": ["Unit-specific factory configuration"],
+  "reconciliation": "",
+  "next_action": "Locate the linked receipt or obtain a unit label privately.",
+  "owner": "Assigned researcher"
+}
+```
+
+For `COMPLETED`, each `units` entry records `unit_evidence_alias` (for example UNIT-A), `serial_source_kind` (CURRENT/HISTORICAL/USER_SUPPLIED), non-sensitive `erp_record_reference`, matching `target_configuration`, `batch_match_basis`, `returned_model`, sanitized HTTPS `oem_configuration_source`, and nonempty `fact_ids`. For a user-supplied unit with no ERP link, explicitly state that in `erp_record_reference` and explain the user-confirmed target linkage; do not invent an ERP reference. Each linked fact must exist in the same ledger/configuration with FACTORY or CURRENT_UNIT scope and the same `evidence.unit_evidence_alias`. `resolved_fact_ids` references VERIFIED linked facts, not sold facts inferred from the BOM. Keep unresolved findings among the linked facts with honest statuses. Explain the original/current/sold comparison in `reconciliation`; list differences separately, with an empty differences array only when the reconciliation explains no relevant difference. Retain sold applicability and transfer-basis requirements in the existing fact schema.
+
+The generated `coverageSummary.serialResearch` includes the recorded outcome, unit/source scope, resolved fact references, differences and unresolved follow-up. Local/CI `workbook-ci-summary.json` lists recorded outcomes and untouched legacy products separately. Existing summaries without serial research remain readable only while their ledger is unchanged and has no new record. A changed record invalidates the summary's ledger hash and recomputed coverage. These checks assess record consistency, not whether the manufacturer was actually queried, the returned model is authentic, or the raw serial was fully redacted. Review all public strings and source URLs manually; automated screening only catches common serial-bearing URL patterns.
+
 ## Private evidence and public delivery
 
 Retain raw serials, complete serial-bearing OEM URLs, private ERP screenshots and alias mappings only in private working evidence. Public GitHub ledgers/workbook Source cells use an alias such as UNIT-A, a non-sensitive product/configuration reference and sanitized source links without serial path/query parameters. Do not upload an unredacted OEM export simply to document research. Preserve traceability privately and cite public exact-model/part documents where available.

@@ -113,6 +113,8 @@ def main():
     root=Path(args.directory);topology=template_topology(root/'assets/listing-workbook-template.xlsx')
     from research_history import check_research_ledger_history
     check_research_ledger_history(root,args.base,args.head)
+    from serial_research import check_serial_research_delivery
+    serial_report=check_serial_research_delivery(root,args.base,args.head)
     check_template_inputs(root/'assets/listing-workbook-template.xlsx')
     outputs=current_workbooks(root)
     snapshot_count=check_snapshots(root)
@@ -141,6 +143,7 @@ def main():
     from research_handoff import check_research_summaries
     summaries_checked=check_research_summaries(root)
     summary={'templateStructure':'PASS','currentOutputsStructureChecked':len(outputs),
+             'serialResearch':serial_report,
              'researchSummariesFreshnessChecked':summaries_checked,
              'historicalOutputsExcluded':True,'factOrPublicationReadinessInferred':False,
              'scopedDraftProjectionChecked':scoped_checked,

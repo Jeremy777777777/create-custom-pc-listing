@@ -115,6 +115,13 @@ class ResearchExportTests(unittest.TestCase):
     def full_fixture(self, root, name='review.xlsx', copy_present=True):
         book = openpyxl.load_workbook(r.ROOT/'assets/listing-workbook-template.xlsx')
         data = {'schemaVersion': 1, 'productId': 'TEST-PC', 'configurationId': 'BASE-A', 'facts': [], 'fields': []}
+        data['serial_research'] = {
+            'workflow_mode': 'FULL_LISTING_WORKFLOW', 'outcome': 'SERIAL_NOT_FOUND',
+            'reason': 'Synthetic ERP has no linked unit serial', 'reviewed_date': '2026-10-14',
+            'sources_attempted': ['Synthetic linked current and historical ERP records'],
+            'units': [], 'resolved_fact_ids': [], 'factory_sold_differences': [],
+            'unresolved_fields': ['Unit-specific factory BOM'], 'reconciliation': '',
+            'next_action': 'Obtain linked unit evidence', 'owner': 'Synthetic researcher'}
         warranty = render('Dell')
         copy_values = {
             ('Product Details', 'Bullet Point'): warranty + '\n\nSynthetic bullet' * 4,

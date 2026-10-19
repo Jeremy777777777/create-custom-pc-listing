@@ -53,6 +53,8 @@ See [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for the activ
 
 通用 PC 信息研究采用 [ERP 序列号研究流程](serial-number-product-research.md)：从目标产品关联的现有／历史 serial 到 OEM 官网查原厂 BOM 和硬件 part，用于补齐内存、SSD、无线、显示、键盘、电源、电池、可选接口和原厂随箱物品等字段。逐字段区分原厂、当前实机、基础销售配置和平台能力；历史同批次机器只能证明其自身原厂情况，不自动覆盖当前库存或卖家升级后的配置。
 
+新研究在 scoped ledger 顶层填写 `serial_research`：必须有查询结果或具体未完成原因、尝试来源、日期及待办责任人。自动摘要汇总查询情况；交付检查识别遗漏。旧记录未评估不能自动标成查询完成，完整 Listing 研究不能使用图片任务的 `NOT_REQUIRED` 豁免。具体结构与检查边界见上述序列号研究流程。
+
 FCC 研究优先从准确产品下的现有库存或历史采购／收货／销售记录中取得关联 serial/service tag，再到 OEM 官网查出厂硬件 BOM、无线网卡 part 和 FCC ID。现有目标配置优先，历史同 SKU／批次次之；父产品或同 CPU 不证明网卡相同。按 [FCC 标准流程](fcc-research-workflow.md)记录匹配范围、候选排序及待确认项；原始序列号及含序列号的官网 URL 留在私有证据中，公开仓库仅保留脱敏引用。
 
 对每个字段保留双方候选值，而不是先合并整条记录：

@@ -8,10 +8,46 @@
     "schemaVersion": {"const": 1},
     "productId": {"type": "string", "pattern": "\\S"},
     "configurationId": {"type": "string", "pattern": "\\S"},
+    "serial_research": {"$ref": "#/$defs/serialResearch"},
     "facts": {"type": "array", "items": {"$ref": "#/$defs/fact"}},
     "fields": {"type": "array", "items": {"$ref": "#/$defs/field"}}
   },
   "$defs": {
+    "serialResearch": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["workflow_mode", "outcome", "reason", "sources_attempted", "units", "resolved_fact_ids", "factory_sold_differences", "unresolved_fields", "reconciliation"],
+      "properties": {
+        "workflow_mode": {"enum": ["FULL_LISTING_WORKFLOW", "IMAGE_ONLY_WORKFLOW", "IMAGE_ADJUSTMENT_WORKFLOW"]},
+        "outcome": {"enum": ["COMPLETED", "ERP_TARGET_NOT_FOUND", "SERIAL_NOT_FOUND", "ERP_UNAVAILABLE", "OEM_UNAVAILABLE", "OEM_NO_BOM", "NOT_REQUIRED", "NOT_ASSESSED_LEGACY"]},
+        "reason": {"type": "string", "pattern": "\\S"},
+        "reviewed_date": {"type": "string"},
+        "next_action": {"type": "string", "pattern": "\\S"},
+        "owner": {"type": "string", "pattern": "\\S"},
+        "sources_attempted": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "\\S"}},
+        "resolved_fact_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "\\S"}},
+        "factory_sold_differences": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "\\S"}},
+        "unresolved_fields": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "\\S"}},
+        "reconciliation": {"type": "string"},
+        "units": {
+          "type": "array",
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["unit_evidence_alias", "serial_source_kind", "erp_record_reference", "target_configuration", "batch_match_basis", "returned_model", "oem_configuration_source", "fact_ids"],
+            "properties": {
+              "unit_evidence_alias": {"type": "string", "pattern": "^UNIT-[A-Z0-9-]+$"},
+              "serial_source_kind": {"enum": ["CURRENT", "HISTORICAL", "USER_SUPPLIED"]},
+              "erp_record_reference": {"type": "string", "pattern": "\\S"},
+              "target_configuration": {"type": "string", "pattern": "\\S"},
+              "batch_match_basis": {"type": "string", "pattern": "\\S"},
+              "returned_model": {"type": "string", "pattern": "\\S"},
+              "oem_configuration_source": {"type": "string", "pattern": "\\S"},
+              "fact_ids": {"type": "array", "uniqueItems": true, "items": {"type": "string", "pattern": "\\S"}}
+            }
+          }
+        }
+      }
+    },
     "value": {"type": ["string", "number", "boolean", "null"]},
     "text": {"type": "string", "pattern": "\\S"},
     "fact": {
