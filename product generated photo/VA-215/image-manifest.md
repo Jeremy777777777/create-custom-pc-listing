@@ -26,11 +26,11 @@ Inspected all 11 large outputs and 200px thumbnails; corrected first-pass LCD ma
 | MAIN-STRICT.jpg | MAIN alternative / scene or abstract task narrative | 5f307450a7ff51ae3ce74b3a2a76daa9b39fbb9873501b1e62c9ed86dfa972b0 |
 | MAIN-ENHANCED-FRONT-CANDIDATE.png | MAIN alternative / scene or abstract task narrative | 1c3a1d2dbb2f59398104892c2671745c759cb43fa05ea63dbba1ef2a19898ee8 |
 | MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png | MAIN alternative / scene or abstract task narrative | 0737f6ed267b53bd244f50fd1ec8ed7c3f0ad512b2bea2eb8cbfd011a33aa69f |
-| PT01.png | aio.integration | 697792c3bdacbf1105e398edd84aa76d40fbb6b22d9d1319a865cb526e36c56a |
-| PT02.png | MAIN alternative / scene or abstract task narrative | b7915012685fc161b82427b04adfafe4966c9bb2eff60e1088d7d674f9db569f |
-| PT03.png | cpu.identity, gpu.identity, ram.installed, ssd.installed, os.sold | d2cb6bce55a2cef68f8f7474de1fbe2cb0f110f3855f1a41dcc53af516f55684 |
-| PT04.png | display.size, display.resolution, display.refresh, display.nonTouch | 4160fc8ab5b33ba42339ff15fd977cb46ee6b3e2c2e16f1a779c576c71815aa6 |
-| PT05.png | MAIN alternative / scene or abstract task narrative | 279927864c0ea54335f100926f71714da47e1758e726c46eb99ad98a4ed4dc9d |
-| PT06.png | input.fullSizeKeyboard, input.numberPad, input.wireless, input.mouse | b3ebcf802082b5401aebc8b8d7940f3b4a0efbc363dd448465bdc716314444e1 |
-| PT07.png | camera.popUp | 680658bcd5e2eecd55669f9d534d7a90a3352706b194a3f3861a281174eeaab1 |
-| PT08.png | ports.displayPort, ports.rearUsbA4, ports.rj45, ports.rightUsbA, ports.headset, ports.usbC, ports.sd, wireless.wifi, wireless.bluetooth | 35ad893a25a0f749e4cc508d2126e73a24b529324f333fdb46a441a94b695ab1 |
+| PT01.png | aio.integration | d53eeab48647413c8ae16eb198dad6db67d5580903c9dbe122028704aee74199 |
+| PT02.png | MAIN alternative / scene or abstract task narrative | 91f1dda3dfb8335d723d08e875863bbf36b25f75834678639f26f9e64bbf8a24 |
+| PT03.png | cpu.identity, gpu.identity, ram.installed, ssd.installed, os.sold | c3aae685d3d166a4948b04fc2138875e3a36be343bf6b333038e4be062a6f6a9 |
+| PT04.png | display.size, display.resolution, display.refresh, display.nonTouch | 4a48005c3b08fdb19eb021b521a80c66348be1a8aa187f7ff57276724885f521 |
+| PT05.png | MAIN alternative / scene or abstract task narrative | 98744a1598757e8d899f1a9a1e2557122890b4946764c54ca2bfda12083581ff |
+| PT06.png | input.fullSizeKeyboard, input.numberPad, input.wireless, input.mouse | 88b26380b205e9f7ad47e4d1d5be9336aa570ac54fc08086e030c14ea6634768 |
+| PT07.png | camera.popUp | b81284dece1973ea6699e44dc577215e8cac6ff2469095d823b6ee136d959ed0 |
+| PT08.png | ports.displayPort, ports.rearUsbA4, ports.rj45, ports.rightUsbA, ports.headset, ports.usbC, ports.sd, wireless.wifi, wireless.bluetooth | 3c75c45ea1c6183df77e1855ff16c7b7899dc746e553139a3ef046dab3707efb |

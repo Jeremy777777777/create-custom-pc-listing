@@ -25,7 +25,7 @@ def save(im,path,fmt='PNG',metadata=None):
         info=PngImagePlugin.PngInfo()
         for k,v in metadata.items(): info.add_text(k,str(v))
         extra['pnginfo']=info
-    im.save(tmp,format=fmt.upper(),**extra,**({'quality':95} if fmt.upper()=='JPEG' else {})); tmp.replace(p)
+    im.save(tmp,format=fmt.upper(),dpi=(96,96),**extra,**({'quality':95} if fmt.upper()=='JPEG' else {})); tmp.replace(p)
 def load(path):
     with Image.open(path) as im: im.load(); return im.convert('RGBA')
 def check_image_size(size):
@@ -166,7 +166,7 @@ def badges(directory,asset,planpath,out=None,brand=None,slots=None):
     for name,im,source,gap in prepared:
         save(im,dest/name); entries[name]={'file':name,'finalImageSha256':digest(dest/name),'unbrandedSourceSha256':digest(source),'separationPx':gap,'geometryGate':'PASS','sourceVerification':'LOCAL_BYTES_VERIFIED','commandRecord':'gallery_engine.py badges (from clean unbranded master)'}
     # Geometry cannot prove visual quality. A human must supply hash-bound evidence for final PASS.
-    write(dest/'logo-qa.json',{'schemaVersion':3,'generatedAtUtc':datetime.now(timezone.utc).isoformat(),'brand':plan['brand'],'result':'AWAITING_VISUAL_REVIEW','logoAssetSha256':digest(asset),'logoAssetPath':os.path.relpath(Path(asset).resolve(),dest.resolve()),'visibleLogoAspectRatio':mark.width/mark.height,'placementPlanSha256':digest(planpath),'images':list(entries.values())})
+    write(dest/'logo-qa.json',{'schemaVersion':3,'generatedAtUtc':datetime.now(timezone.utc).isoformat(),'brand':plan['brand'],'result':'AWAITING_VISUAL_REVIEW','logoAssetSha256':digest(asset),'logoAssetPath':os.path.relpath(Path(asset).resolve(),dest.resolve()).replace('\\','/'),'visibleLogoAspectRatio':mark.width/mark.height,'placementPlanSha256':digest(planpath),'images':list(entries.values())})
 
 def evidence(path,names,directory,preserve_unbound_research=False,trusted_policy_binding=None):
     report=read(path)
@@ -308,7 +308,7 @@ def finalize(directory,asset,brand,contact,size=None,skip=False,slots=None):
         sheet=Path(scratch)/'contact.png'; contact_sheet(staging,sheet)
         # Store asset path relative to final destination, not temporary staging.
         if selected_pt:
-            qa=read(staging/'logo-qa.json'); qa['logoAssetPath']=os.path.relpath(Path(asset).resolve(),p.resolve()); write(staging/'logo-qa.json',qa)
+            qa=read(staging/'logo-qa.json'); qa['logoAssetPath']=os.path.relpath(Path(asset).resolve(),p.resolve()).replace('\\','/'); write(staging/'logo-qa.json',qa)
         outputs=[(staging/n,p/n) for n in selected]
         if selected_pt:
             # Copy bytes, retaining the hashes recorded by badges.

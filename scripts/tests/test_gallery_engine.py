@@ -1,7 +1,8 @@
-import importlib.util, json, tempfile, unittest, shutil
+import importlib.util, json, tempfile, unittest, shutil, sys
 from unittest.mock import patch
 from pathlib import Path
 from PIL import Image
+sys.path.insert(0,str(Path(__file__).parents[1]))
 spec=importlib.util.spec_from_file_location('engine',Path(__file__).parents[1]/'gallery_engine.py'); g=importlib.util.module_from_spec(spec); spec.loader.exec_module(g)
 class Tests(unittest.TestCase):
  def setUp(self):
@@ -52,7 +53,10 @@ class Tests(unittest.TestCase):
     cfg={'x':64,'y':64,'width':176,'height':88,'style':'transparent','protectedZones':[{'x':400,'y':300,'width':300,'height':400,'label':'PRODUCT_SILHOUETTE'}]}
     plan={'brand':'OEM','logoRole':'OEM base-product identifier','placements':{'PT02.png':cfg}}
     g.write(self.p/'plan.json',plan); g.badges(self.p,self.p/'logo.png',self.p/'plan.json',slots=['PT02.png'])
-    with Image.open(self.p/'PT02.png') as output: self.assertEqual(output.size,size)
+    self.assertNotIn('\\',g.read(self.p/'logo-qa.json')['logoAssetPath'])
+    with Image.open(self.p/'PT02.png') as output:
+     self.assertEqual(output.size,size)
+     self.assertGreaterEqual(min(output.info['dpi']),72)
     for width,height in [(208,104),(144,72)]:
      cfg.update(width=width,height=height); g.write(self.p/'plan.json',plan)
      with self.assertRaisesRegex(ValueError,'long edge threshold'): g.badges(self.p,self.p/'logo.png',self.p/'plan.json',slots=['PT02.png'])

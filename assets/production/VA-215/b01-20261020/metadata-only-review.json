@@ -1,0 +1,62 @@
+{
+  "reviewedAtUtc": "2026-10-20T15:52:54.126589+00:00",
+  "reviewer": "Codex: actual metadata inspection and decoded-pixel equality verification",
+  "images": [
+    {
+      "file": "PT01.png",
+      "previousSha256": "697792c3bdacbf1105e398edd84aa76d40fbb6b22d9d1319a865cb526e36c56a",
+      "currentSha256": "d53eeab48647413c8ae16eb198dad6db67d5580903c9dbe122028704aee74199",
+      "unchangedRgbaPixelSha256": "1167117f3dc023c26c18d949bc5ba189811fad99231d894257eb4e2dea38c440",
+      "change": "96dpi PNG metadata only; source ICC retained"
+    },
+    {
+      "file": "PT02.png",
+      "previousSha256": "b7915012685fc161b82427b04adfafe4966c9bb2eff60e1088d7d674f9db569f",
+      "currentSha256": "91f1dda3dfb8335d723d08e875863bbf36b25f75834678639f26f9e64bbf8a24",
+      "unchangedRgbaPixelSha256": "16e91b00264e83add0116a7f0da1d45cc48453ce6388098e4ca181195a9c625d",
+      "change": "96dpi PNG metadata only; source ICC retained"
+    },
+    {
+      "file": "PT03.png",
+      "previousSha256": "d2cb6bce55a2cef68f8f7474de1fbe2cb0f110f3855f1a41dcc53af516f55684",
+      "currentSha256": "c3aae685d3d166a4948b04fc2138875e3a36be343bf6b333038e4be062a6f6a9",
+      "unchangedRgbaPixelSha256": "28a3bcd7d696b93b02b35c4e90c0de8ed80eb261e5464ae6fac76b331f3f7142",
+      "change": "96dpi PNG metadata only; source ICC retained"
+    },
+    {
+      "file": "PT04.png",
+      "previousSha256": "4160fc8ab5b33ba42339ff15fd977cb46ee6b3e2c2e16f1a779c576c71815aa6",
+      "currentSha256": "4a48005c3b08fdb19eb021b521a80c66348be1a8aa187f7ff57276724885f521",
+      "unchangedRgbaPixelSha256": "9c3102e4f014ded40f3419eebc8fca9b43c55e67b3541a57090821e973775180",
+      "change": "96dpi PNG metadata only; source ICC retained"
+    },
+    {
+      "file": "PT05.png",
+      "previousSha256": "279927864c0ea54335f100926f71714da47e1758e726c46eb99ad98a4ed4dc9d",
+      "currentSha256": "98744a1598757e8d899f1a9a1e2557122890b4946764c54ca2bfda12083581ff",
+      "unchangedRgbaPixelSha256": "2e09881967c149a189ab39a7c0a246ebec0b32c790fafc7b298bccf956d20bf4",
+      "change": "96dpi PNG metadata only; source ICC retained"
+    },
+    {
+      "file": "PT06.png",
+      "previousSha256": "b3ebcf802082b5401aebc8b8d7940f3b4a0efbc363dd448465bdc716314444e1",
+      "currentSha256": "88b26380b205e9f7ad47e4d1d5be9336aa570ac54fc08086e030c14ea6634768",
+      "unchangedRgbaPixelSha256": "6b8265a6ef1a6eeddc99c179ff9cf4f094db0263f455289e891471b3a13ae227",
+      "change": "96dpi PNG metadata only; source ICC retained"
+    },
+    {
+      "file": "PT07.png",
+      "previousSha256": "680658bcd5e2eecd55669f9d534d7a90a3352706b194a3f3861a281174eeaab1",
+      "currentSha256": "b81284dece1973ea6699e44dc577215e8cac6ff2469095d823b6ee136d959ed0",
+      "unchangedRgbaPixelSha256": "1ad97b97e2d62c48ad9aa9edf8f9373cc2b63f1f9b3d6e8fc9f5f0ecf6a6ab34",
+      "change": "96dpi PNG metadata only; source ICC retained"
+    },
+    {
+      "file": "PT08.png",
+      "previousSha256": "35ad893a25a0f749e4cc508d2126e73a24b529324f333fdb46a441a94b695ab1",
+      "currentSha256": "3c75c45ea1c6183df77e1855ff16c7b7899dc746e553139a3ef046dab3707efb",
+      "unchangedRgbaPixelSha256": "d0b114bc7790d25e73a64d924dbd7c2bd3119c6c510535e6c3ce67df719c3251",
+      "change": "96dpi PNG metadata only; source ICC retained"
+    }
+  ]
+}

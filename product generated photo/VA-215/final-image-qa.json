@@ -1,7 +1,7 @@
 {
   "schemaVersion": 3,
   "result": "PASS",
-  "generatedAtUtc": "2026-10-20T15:20:30.898006+00:00",
+  "generatedAtUtc": "2026-10-20T15:52:55.599078+00:00",
   "images": [
     {
       "file": "MAIN-STRICT.jpg",
@@ -29,59 +29,59 @@
       "width": 2000,
       "height": 2000,
       "zoomEligibleBySize": true,
-      "sha256": "697792c3bdacbf1105e398edd84aa76d40fbb6b22d9d1319a865cb526e36c56a"
+      "sha256": "d53eeab48647413c8ae16eb198dad6db67d5580903c9dbe122028704aee74199"
     },
     {
       "file": "PT02.png",
       "width": 2000,
       "height": 2000,
       "zoomEligibleBySize": true,
-      "sha256": "b7915012685fc161b82427b04adfafe4966c9bb2eff60e1088d7d674f9db569f"
+      "sha256": "91f1dda3dfb8335d723d08e875863bbf36b25f75834678639f26f9e64bbf8a24"
     },
     {
       "file": "PT03.png",
       "width": 2000,
       "height": 2000,
       "zoomEligibleBySize": true,
-      "sha256": "d2cb6bce55a2cef68f8f7474de1fbe2cb0f110f3855f1a41dcc53af516f55684"
+      "sha256": "c3aae685d3d166a4948b04fc2138875e3a36be343bf6b333038e4be062a6f6a9"
     },
     {
       "file": "PT04.png",
       "width": 2000,
       "height": 2000,
       "zoomEligibleBySize": true,
-      "sha256": "4160fc8ab5b33ba42339ff15fd977cb46ee6b3e2c2e16f1a779c576c71815aa6"
+      "sha256": "4a48005c3b08fdb19eb021b521a80c66348be1a8aa187f7ff57276724885f521"
     },
     {
       "file": "PT05.png",
       "width": 2000,
       "height": 2000,
       "zoomEligibleBySize": true,
-      "sha256": "279927864c0ea54335f100926f71714da47e1758e726c46eb99ad98a4ed4dc9d"
+      "sha256": "98744a1598757e8d899f1a9a1e2557122890b4946764c54ca2bfda12083581ff"
     },
     {
       "file": "PT06.png",
       "width": 2000,
       "height": 2000,
       "zoomEligibleBySize": true,
-      "sha256": "b3ebcf802082b5401aebc8b8d7940f3b4a0efbc363dd448465bdc716314444e1"
+      "sha256": "88b26380b205e9f7ad47e4d1d5be9336aa570ac54fc08086e030c14ea6634768"
     },
     {
       "file": "PT07.png",
       "width": 2000,
       "height": 2000,
       "zoomEligibleBySize": true,
-      "sha256": "680658bcd5e2eecd55669f9d534d7a90a3352706b194a3f3861a281174eeaab1"
+      "sha256": "b81284dece1973ea6699e44dc577215e8cac6ff2469095d823b6ee136d959ed0"
     },
     {
       "file": "PT08.png",
       "width": 2000,
       "height": 2000,
       "zoomEligibleBySize": true,
-      "sha256": "35ad893a25a0f749e4cc508d2126e73a24b529324f333fdb46a441a94b695ab1"
+      "sha256": "3c75c45ea1c6183df77e1855ff16c7b7899dc746e553139a3ef046dab3707efb"
     }
   ],
-  "logoQaSha256": "6c5f8dbf1105d719049c0b360e2f60d4e4e76035ff728ecbb80a67c42a316041",
-  "visualReviewSha256": "504d675ae87e47411b72d0534dfab702076e51f2110f7ab6d1efa10c081cb53e",
-  "semanticReviewSha256": "7961b4f40b1b6eed1e2b3ad256be182f906f55c72c95fcc232863e6ba27d8e2a"
+  "logoQaSha256": "ea84091d2e27c18a3e2ca677fe3ea334b82d715ad1b644a3f37c4eb6bec01242",
+  "visualReviewSha256": "80ec5082161a7b105784d3acbf76872a262b671209b608859c5657661361072f",
+  "semanticReviewSha256": "99e5156a72c8fd9e2a644f38419de7a88c959d46f6d782f35938886e3cc59237"
 }

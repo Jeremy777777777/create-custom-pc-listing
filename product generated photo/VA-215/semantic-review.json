@@ -2,57 +2,57 @@
   "schemaVersion": 3,
   "result": "PASS",
   "reviewer": "Codex visual inspection of actual source/final images and 200px contact sheet",
-  "reviewedAtUtc": "2026-10-20T15:20:29.212607+00:00",
+  "reviewedAtUtc": "2026-10-20T15:52:54.126589+00:00",
   "reviewInputsSha256": "8302962b9a2cb4983b5aeffc94fe4d0dc21d846f8d02f01cd2604e1deb137aee",
   "reviewLimits": "Production review of current source-bound image bytes, not Amazon eligibility or independent proof of private authorization. Primary hierarchy reviewed at 200px; fine labels/specification text use full image. Representative accessory styling was explicitly approved by user; exact accessory SKU is not claimed.",
   "images": [
     {
       "file": "PT01.png",
-      "sha256": "697792c3bdacbf1105e398edd84aa76d40fbb6b22d9d1319a865cb526e36c56a",
+      "sha256": "d53eeab48647413c8ae16eb198dad6db67d5580903c9dbe122028704aee74199",
       "result": "PASS",
-      "notes": "B01/BG01 blue-white direction matches approved preview. One primary integration/desk-organization benefit, accurate sourced angle, classic inputs, no Windows treatment or CPU/capacity/display table. Logo in measured top-right negative space. Primary headline readable at 200px; fine copy at full size. Primary fact IDs: aio.integration. Hardware and required keyboard/mouse as background product context are not repeated marketing claims."
+      "notes": "B01/BG01 blue-white direction matches approved preview. One primary integration/desk-organization benefit, accurate sourced angle, classic inputs, no Windows treatment or CPU/capacity/display table. Logo in measured top-right negative space. Primary headline readable at 200px; fine copy at full size. Primary fact IDs: aio.integration. Hardware and required keyboard/mouse as background product context are not repeated marketing claims. Metadata review: 96dpi re-export verified to preserve the exact RGBA pixels already visually inspected; no new generated product/scene content."
     },
     {
       "file": "PT02.png",
-      "sha256": "b7915012685fc161b82427b04adfafe4966c9bb2eff60e1088d7d674f9db569f",
+      "sha256": "91f1dda3dfb8335d723d08e875863bbf36b25f75834678639f26f9e64bbf8a24",
       "result": "PASS",
-      "notes": "Original synthetic empty office plate, no people or extra devices. Official angle set placed on desk, computer/keyboard/mouse complete. Scene-oriented copy without paid app/meeting/throughput claims. Blue-white family and OEM logo visible at 200px; no configuration recap. Primary fact IDs: . Hardware and required keyboard/mouse as background product context are not repeated marketing claims."
+      "notes": "Original synthetic empty office plate, no people or extra devices. Official angle set placed on desk, computer/keyboard/mouse complete. Scene-oriented copy without paid app/meeting/throughput claims. Blue-white family and OEM logo visible at 200px; no configuration recap. Primary fact IDs: . Hardware and required keyboard/mouse as background product context are not repeated marketing claims. Metadata review: 96dpi re-export verified to preserve the exact RGBA pixels already visually inspected; no new generated product/scene content."
     },
     {
       "file": "PT03.png",
-      "sha256": "d2cb6bce55a2cef68f8f7474de1fbe2cb0f110f3855f1a41dcc53af516f55684",
+      "sha256": "c3aae685d3d166a4948b04fc2138875e3a36be343bf6b333038e4be062a6f6a9",
       "result": "PASS",
-      "notes": "Sole complete base configuration page. Actual ERP VA-215 -> PA-222 identifies i5-14500T, Intel Integrated Graphics, 8GB DDR5, 256GB Gen4 SSD and Windows 11 Pro. Values individually inspected for spelling and clipping at large view; enlarged capacity type after first review. No optional tiers; primary page identity and capacities distinguishable in 200px overview, small label/detail reading uses full image. Primary fact IDs: cpu.identity, gpu.identity, ram.installed, ssd.installed, os.sold. Hardware and required keyboard/mouse as background product context are not repeated marketing claims."
+      "notes": "Sole complete base configuration page. Actual ERP VA-215 -> PA-222 identifies i5-14500T, Intel Integrated Graphics, 8GB DDR5, 256GB Gen4 SSD and Windows 11 Pro. Values individually inspected for spelling and clipping at large view; enlarged capacity type after first review. No optional tiers; primary page identity and capacities distinguishable in 200px overview, small label/detail reading uses full image. Primary fact IDs: cpu.identity, gpu.identity, ram.installed, ssd.installed, os.sold. Hardware and required keyboard/mouse as background product context are not repeated marketing claims. Metadata review: 96dpi re-export verified to preserve the exact RGBA pixels already visually inspected; no new generated product/scene content."
     },
     {
       "file": "PT04.png",
-      "sha256": "4160fc8ab5b33ba42339ff15fd977cb46ee6b3e2c2e16f1a779c576c71815aa6",
+      "sha256": "4a48005c3b08fdb19eb021b521a80c66348be1a8aa187f7ff57276724885f521",
       "result": "PASS",
-      "notes": "Display owner: 23.8-inch FHD, 1920x1080, 60Hz, non-touch matches ERP PA-222 and official model page. Front exact-product hardware and classic inputs unaltered. Display facts do not recur in PT03. Full-size type checked; 200px headline/product clear. Primary fact IDs: display.size, display.resolution, display.refresh, display.nonTouch. Hardware and required keyboard/mouse as background product context are not repeated marketing claims."
+      "notes": "Display owner: 23.8-inch FHD, 1920x1080, 60Hz, non-touch matches ERP PA-222 and official model page. Front exact-product hardware and classic inputs unaltered. Display facts do not recur in PT03. Full-size type checked; 200px headline/product clear. Primary fact IDs: display.size, display.resolution, display.refresh, display.nonTouch. Hardware and required keyboard/mouse as background product context are not repeated marketing claims. Metadata review: 96dpi re-export verified to preserve the exact RGBA pixels already visually inspected; no new generated product/scene content."
     },
     {
       "file": "PT05.png",
-      "sha256": "279927864c0ea54335f100926f71714da47e1758e726c46eb99ad98a4ed4dc9d",
+      "sha256": "98744a1598757e8d899f1a9a1e2557122890b4946764c54ca2bfda12083581ff",
       "result": "PASS",
-      "notes": "Original plan -> create -> review workflow graphic, with unaltered sourced product set. No brand software UI, subscription, compatibility, performance number, configuration grid or warranty claim. Abstract task sequence is distinct from PT02 room scene; reviewed manually, no numeric fact-overlap invented. Primary fact IDs: . Hardware and required keyboard/mouse as background product context are not repeated marketing claims."
+      "notes": "Original plan -> create -> review workflow graphic, with unaltered sourced product set. No brand software UI, subscription, compatibility, performance number, configuration grid or warranty claim. Abstract task sequence is distinct from PT02 room scene; reviewed manually, no numeric fact-overlap invented. Primary fact IDs: . Hardware and required keyboard/mouse as background product context are not repeated marketing claims. Metadata review: 96dpi re-export verified to preserve the exact RGBA pixels already visually inspected; no new generated product/scene content."
     },
     {
       "file": "PT06.png",
-      "sha256": "b3ebcf802082b5401aebc8b8d7940f3b4a0efbc363dd448465bdc716314444e1",
+      "sha256": "88b26380b205e9f7ad47e4d1d5be9336aa570ac54fc08086e030c14ea6634768",
       "result": "PASS",
-      "notes": "White-background source crop of official classic black full-size keyboard and mouse. Removed stand-edge remnant from earlier crop; no keys were generated or redrawn. Full-size keyboard/number pad visually supported, wireless input supported by exact VA-215 comment. Specific accessory SKU remains unspecified under explicit user representative-treatment approval. Primary fact IDs: input.fullSizeKeyboard, input.numberPad, input.wireless, input.mouse. Hardware and required keyboard/mouse as background product context are not repeated marketing claims."
+      "notes": "White-background source crop of official classic black full-size keyboard and mouse. Removed stand-edge remnant from earlier crop; no keys were generated or redrawn. Full-size keyboard/number pad visually supported, wireless input supported by exact VA-215 comment. Specific accessory SKU remains unspecified under explicit user representative-treatment approval. Primary fact IDs: input.fullSizeKeyboard, input.numberPad, input.wireless, input.mouse. Hardware and required keyboard/mouse as background product context are not repeated marketing claims. Metadata review: 96dpi re-export verified to preserve the exact RGBA pixels already visually inspected; no new generated product/scene content."
     },
     {
       "file": "PT07.png",
-      "sha256": "680658bcd5e2eecd55669f9d534d7a90a3352706b194a3f3861a281174eeaab1",
+      "sha256": "b81284dece1973ea6699e44dc577215e8cac6ff2469095d823b6ee136d959ed0",
       "result": "PASS",
-      "notes": "Pop-up camera is the unique remaining hardware value, sourced directly from official QC24251 front photograph. Original physical camera module, bezel/stand/marks preserved; camera crop uses same blue LCD treatment. No camera resolution, biometric/privacy certification or warranty assertion. Classic input devices remain visible in full product view. Primary fact IDs: camera.popUp. Hardware and required keyboard/mouse as background product context are not repeated marketing claims."
+      "notes": "Pop-up camera is the unique remaining hardware value, sourced directly from official QC24251 front photograph. Original physical camera module, bezel/stand/marks preserved; camera crop uses same blue LCD treatment. No camera resolution, biometric/privacy certification or warranty assertion. Classic input devices remain visible in full product view. Primary fact IDs: camera.popUp. Hardware and required keyboard/mouse as background product context are not repeated marketing claims. Metadata review: 96dpi re-export verified to preserve the exact RGBA pixels already visually inspected; no new generated product/scene content."
     },
     {
       "file": "PT08.png",
-      "sha256": "35ad893a25a0f749e4cc508d2126e73a24b529324f333fdb46a441a94b695ab1",
+      "sha256": "3c75c45ea1c6183df77e1855ff16c7b7899dc746e553139a3ef046dab3707efb",
       "result": "PASS",
-      "notes": "Physical port closeups are direct official rear/right/left/below-display crops, preserving connector type/count/orientation. Leaders inspected: DP at actual DP opening, group of four rear USB-A anchored to actual first USB, RJ45 at actual jack. Separate sourced right USB-A, left headset jack, below-display USB-C/SD details shown. Wi-Fi/Bluetooth confirmed by ERP, no inferred generation. Product/input full set omitted only for permitted port detail crop. Small connector labels read at full size. Primary fact IDs: ports.displayPort, ports.rearUsbA4, ports.rj45, ports.rightUsbA, ports.headset, ports.usbC, ports.sd, wireless.wifi, wireless.bluetooth. Hardware and required keyboard/mouse as background product context are not repeated marketing claims."
+      "notes": "Physical port closeups are direct official rear/right/left/below-display crops, preserving connector type/count/orientation. Leaders inspected: DP at actual DP opening, group of four rear USB-A anchored to actual first USB, RJ45 at actual jack. Separate sourced right USB-A, left headset jack, below-display USB-C/SD details shown. Wi-Fi/Bluetooth confirmed by ERP, no inferred generation. Product/input full set omitted only for permitted port detail crop. Small connector labels read at full size. Primary fact IDs: ports.displayPort, ports.rearUsbA4, ports.rj45, ports.rightUsbA, ports.headset, ports.usbC, ports.sd, wireless.wifi, wireless.bluetooth. Hardware and required keyboard/mouse as background product context are not repeated marketing claims. Metadata review: 96dpi re-export verified to preserve the exact RGBA pixels already visually inspected; no new generated product/scene content."
     }
   ],
   "primaryFactOwnership": {
