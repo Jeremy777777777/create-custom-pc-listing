@@ -58,6 +58,21 @@ class DriveDeliveryTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'ZIP backups stay local'):
             d.plan(self.product, 'run-1', ['backup.zip'])
 
+    def test_original_xlsx_office_preview_keeps_original_mime_and_id(self):
+        (self.product / 'review.xlsx').write_bytes(b'original workbook fixture')
+        plan = d.plan(self.product, 'run-2', ['review.xlsx'])
+        item = plan['files'][0]
+        remote = {'relativePath': 'review.xlsx', 'id': 'office-1', 'name': 'review.xlsx',
+                  'parents': ['folder-1'], 'mimeType': item['mimeType'], 'size': item['size'],
+                  'downloadedSha256': item['sha256'],
+                  'webViewLink': 'https://docs.google.com/spreadsheets/d/office-1/edit?rtpof=true',
+                  'readBackAtUtc': datetime.now(timezone.utc).isoformat()}
+        receipt = d.verify(self.product, plan, {'files': [remote]}, {'review.xlsx': 'folder-1'})
+        self.assertEqual(receipt['files'][0]['mimeType'], 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+        remote['webViewLink'] = 'https://docs.google.com/spreadsheets/d/wrong-file/edit'
+        with self.assertRaises(ValueError):
+            d.verify(self.product, plan, {'files': [remote]}, {'review.xlsx': 'folder-1'})
+
 
 if __name__ == '__main__':
     unittest.main()

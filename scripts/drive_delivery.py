@@ -80,7 +80,10 @@ def verify(product, upload_plan, readbacks, destinations):
         if utc(remote['readBackAtUtc']) < created:
             raise ValueError('Readback predates this plan')
         url = urlparse(remote.get('webViewLink', ''))
-        if url.scheme != 'https' or url.netloc != 'drive.google.com' or url.path != '/file/d/' + file_id + '/view':
+        drive_view = url.netloc == 'drive.google.com' and url.path == '/file/d/' + file_id + '/view'
+        office_xlsx_view = (url.netloc == 'docs.google.com' and url.path == '/spreadsheets/d/' + file_id + '/edit'
+                            and wanted['mimeType'] == 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')
+        if url.scheme != 'https' or not (drive_view or office_xlsx_view):
             raise ValueError('Expected provider Drive URL for the same file ID')
         checks = [('sha256Checksum', 'sha256'), ('downloadedSha256', 'sha256'), ('md5Checksum', 'md5')]
         present = [(key, local) for key, local in checks if remote.get(key)]
