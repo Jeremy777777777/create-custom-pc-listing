@@ -5,7 +5,7 @@
   "projectFolderId": "1Knp8RUWyw5N1MownbfJSSo-m6NgrqrQq",
   "productsFolderId": "1z14YEhGsDHXq1YbkuO5iG3t6uIuut4Lf",
   "projectUrl": "https://drive.google.com/drive/folders/1Knp8RUWyw5N1MownbfJSSo-m6NgrqrQq",
-  "sections": {"workbooks": "01_LISTING", "images": "02_IMAGES", "research": "03_RESEARCH", "reviews": "04_QA", "sources": "90_SOURCE"},
+  "sections": {"listingWorkbooks": "01_LISTING", "researchWorkbooks": "03_RESEARCH", "images": "02_IMAGES", "research": "03_RESEARCH", "reviews": "04_QA", "sources": "90_SOURCE"},
   "githubRole": "WORKFLOW_CODE_RULES_TEMPLATES_TESTS",
   "newProductOutputsToGitHub": false,
   "preserveHistoricalGitHubFiles": true,
