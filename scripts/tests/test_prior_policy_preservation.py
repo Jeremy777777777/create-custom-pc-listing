@@ -59,5 +59,15 @@ class PreservationTests(unittest.TestCase):
         with patch.object(g,'review_inputs',return_value='different-binding'),patch.object(g,'validate') as validate:
             with self.assertRaisesRegex(ValueError,'does not match trusted-base'):g.preserve_prior_policy_gallery(self.root,self.p,self.base)
             validate.assert_not_called()
+    def test_later_push_can_find_matching_committed_ancestor_policy(self):
+        original=self.base
+        (self.root/'references/image-spec.md').write_text('new desktop rule',encoding='utf-8')
+        self.git('add','.');self.git('commit','-qm','policy amendment');self.base=self.git('rev-parse','HEAD').strip()
+        def binding(directory,include_research=True,policy_text=None):
+            return 'trusted-old-binding' if policy_text==self.policy else 'new-policy-binding'
+        with patch.object(g,'review_inputs',side_effect=binding),patch.object(g,'validate') as validate:
+            result=g.preserve_prior_policy_gallery(self.root,self.p,self.base)
+            self.assertEqual(result['policyCommit'],original);self.assertFalse(result['currentPolicyQa'])
+            validate.assert_called_once_with(self.p,trusted_policy_binding='trusted-old-binding',preserve_unbound_research=False)
 
 if __name__=='__main__':unittest.main()

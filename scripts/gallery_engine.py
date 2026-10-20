@@ -557,18 +557,31 @@ def preserve_prior_policy_gallery(root,p,base):
         name=recipe_path.relative_to(root).as_posix()
         if prior(name).replace(b'\r\n',b'\n')!=recipe_path.read_bytes().replace(b'\r\n',b'\n'):
             raise ValueError('Changed recipe cannot preserve a prior policy')
-    policy={name:prior('references/'+name).decode('utf-8-sig') for name in POLICY_INPUTS}
     visual_binding=read(p/'visual-review.json').get('reviewInputsSha256')
     semantic_binding=read(p/'semantic-review.json').get('reviewInputsSha256')
-    candidates={review_inputs(p,policy_text=policy):True}
-    if (p/'research-ledger.json').exists(): candidates[review_inputs(p,include_research=False,policy_text=policy)]=False
-    if visual_binding!=semantic_binding or visual_binding not in candidates:
+    if visual_binding!=semantic_binding:
+        raise ValueError('Prior-policy review does not match trusted-base facts/style/recipe/policy')
+    # Later pushes use an immediate base that may already contain the amended
+    # policy. Find the matching *committed ancestor* policy rather than assuming
+    # every subsequent push starts immediately before that amendment.
+    policy_paths=['references/'+name for name in POLICY_INPUTS]
+    revisions=subprocess.check_output(['git','log','--max-count=16','--format=%H',base,'--',*policy_paths],cwd=root,text=True).splitlines()
+    matched=None
+    for policy_ref in [base]+[revision+'^' for revision in revisions]:
+        try:
+            policy={name:subprocess.check_output(['git','show',policy_ref+':references/'+name],cwd=root,stderr=subprocess.DEVNULL).decode('utf-8-sig') for name in POLICY_INPUTS}
+        except subprocess.CalledProcessError: continue
+        candidates={review_inputs(p,policy_text=policy):True}
+        if (p/'research-ledger.json').exists(): candidates[review_inputs(p,include_research=False,policy_text=policy)]=False
+        if visual_binding in candidates:
+            matched=(subprocess.check_output(['git','rev-parse',policy_ref],cwd=root,text=True).strip(),candidates[visual_binding]);break
+    if matched is None:
         raise ValueError('Prior-policy review does not match trusted-base facts/style/recipe/policy')
     binding=visual_binding
     # Full hash/geometry/evidence checks still apply to the unchanged old bytes.
     validate(p,trusted_policy_binding=binding,preserve_unbound_research=False)
     print('HISTORICAL_POLICY_BOUND_GALLERY: '+p.name+'; unchanged trusted-base bytes preserved, NOT current-policy QA')
-    return {'productId':p.name,'baseCommit':base,'recordedPolicyReviewInputsSha256':binding,'researchBound':candidates[binding],'currentPolicyQa':False}
+    return {'productId':p.name,'baseCommit':base,'policyCommit':matched[0],'recordedPolicyReviewInputsSha256':binding,'researchBound':matched[1],'currentPolicyQa':False}
 
 
 def gate(root,base=None,head='HEAD'):
