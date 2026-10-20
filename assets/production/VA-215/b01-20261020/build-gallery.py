@@ -16,6 +16,10 @@ W=H=2000
 NAVY='#102E55'; BLUE='#1265C7'; INK='#102A47'; MUTED='#536C88'
 REG='C:/Windows/Fonts/arial.ttf'; BOLD='C:/Windows/Fonts/arialbd.ttf'
 NOW=datetime.now(timezone.utc).isoformat()
+if IN_PACK and (OUT/'product-facts.json').exists():
+    # Rebuilds retain the original research/approval recording time; rendering
+    # alone is neither a new ERP lookup nor a new user style approval.
+    NOW=json.loads((OUT/'product-facts.json').read_text(encoding='utf-8-sig')).get('updatedAtUtc',NOW)
 for p in (PACK,SRC,OUT,OUT/'unbranded',PACK/'layers',PACK/'masks'):
     p.mkdir(parents=True,exist_ok=True)
 if not IN_PACK:

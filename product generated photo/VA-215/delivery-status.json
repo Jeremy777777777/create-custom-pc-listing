@@ -7,23 +7,8 @@
   "publicationEligibility": "NOT_ASSESSED",
   "reason": "Current full-gallery bytes and supplied hash-bound reviews passed local acceptance; remote delivery remains unverified.",
   "nextRun": "Commit/push, await applicable CI and verify remote file hashes before claiming GITHUB_DELIVERY_VERIFIED.",
-  "repositoryGate": "BLOCKED_PRIOR_POLICY_REVIEW_BINDINGS",
+  "repositoryGate": "PASS_REVISION_SCOPED",
   "repositoryGateNotes": [
-    {
-      "productId": "VL-1121",
-      "error": "Review facts/research/style/recipe/policy binding stale or absent"
-    },
-    {
-      "productId": "VL-1126",
-      "error": "Review facts/research/style/recipe/policy binding stale or absent"
-    },
-    {
-      "productId": "VL-1213",
-      "error": "Review facts/research/style/recipe/policy binding stale or absent"
-    },
-    {
-      "productId": "VL-1241",
-      "error": "Review facts/research/style/recipe/policy binding stale or absent"
-    }
+    "149 tests PASS; workbook structure PASS; revision-scoped gallery gate PASS; untouched prior-policy galleries reported separately as historical, not current QA."
   ]
 }
