@@ -30,6 +30,8 @@ def local_file(product, relative):
     path = (root / relative).resolve()
     if not path.is_relative_to(root) or not path.is_file():
         raise ValueError('File missing or outside product directory')
+    if path.suffix.lower() == '.zip':
+        raise ValueError('Drive README requires expanded individual files; ZIP backups stay local')
     return path
 
 

@@ -53,6 +53,11 @@ class DriveDeliveryTests(unittest.TestCase):
             with self.assertRaises(ValueError):
                 d.plan(self.product, 'run-1', names)
 
+    def test_drive_readme_excludes_zip_archives(self):
+        (self.product / 'backup.zip').write_bytes(b'local backup')
+        with self.assertRaisesRegex(ValueError, 'ZIP backups stay local'):
+            d.plan(self.product, 'run-1', ['backup.zip'])
+
 
 if __name__ == '__main__':
     unittest.main()
