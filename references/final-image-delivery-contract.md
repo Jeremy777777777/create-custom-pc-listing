@@ -25,16 +25,16 @@ The 2026-10-13 VD-744 request to replace the enhanced 45-degree image authorizes
 
 If a legacy gallery fails current size/hash/visual review, keep its prior record historical and mark current state REWORK_REQUIRED. Do not mechanically create PASS for modified files or upscale low-resolution old work solely to meet an arbitrary pixel target.
 
-## 7. GitHub final delivery
+## 7. Google Drive final delivery — 2026-10-20
 
-Generation and requested revisions authorize upload unless user requests local-only/concept. Sequence:
+Generation and requested revisions authorize Google Drive upload unless user requests local-only/concept. Apply [Google Drive delivery](google-drive-delivery.md); GitHub keeps workflow code and historical product records. Sequence:
 
 1. Finish affected files and local checks; perform actual hash-bound manual reviews.
-2. Commit/push the files and current evidence. Remote CI requires this push and cannot be a pre-push gate.
-3. Await applicable CI, verify remote commit and every delivered file hash; record `GITHUB_DELIVERY_VERIFIED` with product directory/commit links.
+2. Upload individual final images, original XLSX and current evidence to the matching Drive product sections; preserve prior run versions. Do not commit new product outputs to GitHub.
+3. Read back actual file IDs, parents, MIME, sizes and byte checksums; record `DRIVE_DELIVERY_VERIFIED` with Drive folder/file links and the exact verified inventory. Workflow-code CI remains independent.
 4. Report completed scope and real limitations. An upload failure is not successful delivery. A partial adjustment may be delivered as `CURRENT_REQUESTED_SLOT_QA_PASS` / `PARTIAL_UPDATE` with `partial-update-qa.json` for named slots. A quarantined legacy folder remains whole-gallery REWORK_REQUIRED; no forced rerender of unrelated slots and no full-gallery PASS.
 
-A previous delivery record certifies its recorded commit only. After editing, create evidence for the new commit rather than using the old record. Publication eligibility for MAIN-STRICT/enhanced candidates remains independent.
+A previous delivery record certifies only its recorded bytes/version and scope. After editing, create evidence and a Drive receipt for the new bytes rather than using the old record. Historical GitHub receipts remain historical. Publication eligibility for MAIN-STRICT/enhanced candidates remains independent.
 
 ## Current Gaming reference — 2026-10-02
 

@@ -327,11 +327,11 @@ def accept(directory,brand=None,slots=None):
     write(p/'final-image-qa.json',{'schemaVersion':3,'result':'PASS','generatedAtUtc':datetime.now(timezone.utc).isoformat(),'images':images,'logoQaSha256':digest(p/'logo-qa.json'),'visualReviewSha256':digest(p/'visual-review.json'),'semanticReviewSha256':digest(p/'semantic-review.json')})
     if (p/'delivery-status.json').exists():
         status=read(p/'delivery-status.json')
-        status.update(galleryState='CURRENT_REVIEWED',deliveryState='READY_FOR_GITHUB_DELIVERY',
+        status.update(galleryState='CURRENT_REVIEWED',deliveryState='READY_FOR_DRIVE_DELIVERY',
                       deliveryScope='FULL_GALLERY',currentQaPass=True,
                       reason='Current full-gallery bytes and supplied hash-bound reviews passed local acceptance; remote delivery remains unverified.',
-                      nextRun='Commit/push, await applicable CI and verify remote file hashes before claiming GITHUB_DELIVERY_VERIFIED.')
-        for key in ('verifiedRemoteCommit','githubDeliveryVerifiedAtUtc','remoteDeliveryRecord'):
+                      nextRun='Upload images and evidence to Google Drive; read back file IDs, parents and byte checksums before claiming DRIVE_DELIVERY_VERIFIED.')
+        for key in ('verifiedRemoteCommit','githubDeliveryVerifiedAtUtc','remoteDeliveryRecord','driveDeliveryReceipt','driveDeliveryVerifiedAtUtc'):
             status.pop(key,None)
         write(p/'delivery-status.json',status)
 
@@ -369,9 +369,10 @@ def accept_partial(p,slots,brand=None):
     if (p/'delivery-status.json').exists():
         status=read(p/'delivery-status.json')
         status.update(galleryState='LEGACY_QUARANTINED',deliveryScope='PARTIAL_UPDATE',currentQaPass=False,
-                      deliveryState='READY_FOR_SCOPED_GITHUB_DELIVERY',selectedSlots=slots,
-                      reason='Selected slots reviewed; retained gallery remains quarantined. Prior import receipts are historical.')
-        for key in ('verifiedRemoteCommit','githubDeliveryVerifiedAtUtc','remoteDeliveryRecord'): status.pop(key,None)
+                      deliveryState='READY_FOR_SCOPED_DRIVE_DELIVERY',selectedSlots=slots,
+                      reason='Selected slots reviewed; retained gallery remains quarantined. Prior import receipts are historical.',
+                      nextRun='Upload selected slots and evidence to Google Drive; verify actual remote bytes for this scope.')
+        for key in ('verifiedRemoteCommit','githubDeliveryVerifiedAtUtc','remoteDeliveryRecord','driveDeliveryReceipt','driveDeliveryVerifiedAtUtc'): status.pop(key,None)
         write(p/'delivery-status.json',status)
 
 def validate_partial(p,changed,preserve_unbound_research=False):

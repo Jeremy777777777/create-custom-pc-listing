@@ -21,4 +21,4 @@ After environment creation/change, or when troubleshooting the kernel, run [chec
 
 Use [run-listing-tests.ps1](../local-testing/run-listing-tests.ps1) for the current Windows checkout or the portable commands in the setup guide. Revision-scoped gallery checks take both base and head. Existing CI uses its isolated Python runtime; it does not call the user's computer or require Anaconda/Jupyter on the GitHub runner.
 
-Keep diagnostic notebooks/outputs in a scratch directory outside canonical product slots. Publish only intentionally reviewed reusable notebooks without private source data, credentials or output leakage. Do not upload environment binaries/cache or machine-generated kernelspecs. No testing utility changes the existing GitHub-delivery or per-product style-approval contract.
+Keep diagnostic notebooks/outputs in a scratch directory outside canonical product slots. Publish only intentionally reviewed reusable notebooks without private source data, credentials or output leakage. Do not upload environment binaries/cache or machine-generated kernelspecs. No testing utility changes the Google Drive product-delivery or per-product style-approval contract.

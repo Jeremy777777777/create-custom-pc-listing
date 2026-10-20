@@ -14,7 +14,7 @@ Canonical identity aliases (`identity.internalId`, top-level `internalId`, top-l
 | Workbook → product directory | Canonical `product generated photo/<productId>/` must match ledger and independently recorded product identity | Draft/current-workbook and export checks reject a different folder; scratch/debug files outside this tree remain supported |
 | Listing → export | Fresh four-input hashes, explicit target IDs and LISTING_DRAFT, verified applicable fields, current copy/unit checks | Export receipt is evidence checking only; actual account/category/schema/licensing/compliance checks remain separate |
 | Facts → images | Current approved style, actual image claims and selected hardware; new supplied reviews bind current inputs | Image integrity/geometry/bindings do not establish visual fidelity, rights or Amazon eligibility |
-| Local → GitHub | Commit/push, applicable CI, remote commit/file hashes | CI success alone does not certify factual completeness or publication readiness |
+| Local → Google Drive | Upload original XLSX/images and evidence; verify file IDs, parents, MIME, size and byte checksums under [Drive delivery](google-drive-delivery.md) | Storage verification does not certify factual completeness, image QA or publication readiness; GitHub CI checks workflow code separately |
 
 ## Coverage delivery
 

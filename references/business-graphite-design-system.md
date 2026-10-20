@@ -120,6 +120,6 @@ Inspect actual final bytes and record observations, not promised PASS:
 - Display image matches the reference's richness and restraint, adapted to actual display facts. Background does not dominate.
 - Gallery varies composition and screen content while preserving palette/type/lighting language; PT06 is white.
 - Internal production notes and decorative page furniture are absent; unique fact ownership passes the unchanged semantic gate.
-- Accurate product geometry, truthful facts, source rights, measured logo spacing, Amazon-based size checks, actual review evidence and GitHub delivery pass their existing independent gates.
+- Accurate product geometry, truthful facts, source rights, measured logo spacing, Amazon-based size checks, actual review evidence and Google Drive delivery pass their existing independent gates.
 
 Failed appearance returns to the failed layer/slot for correction in the same approved direction. No text prompt alone guarantees quality; reference inspection, layered production and current-output review are required.

@@ -94,7 +94,7 @@ class Tests(unittest.TestCase):
   g.validate(self.p)
   g.write(self.p/'delivery-status.json',{'galleryState':'LEGACY_QUARANTINED','deliveryState':'REWORK_REQUIRED','currentQaPass':False,'reason':'Legacy images','verifiedRemoteCommit':'old'})
   g.accept(self.p,'OEM'); self.assertEqual(g.read(self.p/'delivery-status.json')['galleryState'],'CURRENT_REVIEWED')
-  status=g.read(self.p/'delivery-status.json'); self.assertTrue(status['currentQaPass']); self.assertEqual(status['deliveryState'],'READY_FOR_GITHUB_DELIVERY'); self.assertNotIn('verifiedRemoteCommit',status); self.assertNotEqual(status['reason'],'Legacy images')
+  status=g.read(self.p/'delivery-status.json'); self.assertTrue(status['currentQaPass']); self.assertEqual(status['deliveryState'],'READY_FOR_DRIVE_DELIVERY'); self.assertNotIn('verifiedRemoteCommit',status); self.assertNotEqual(status['reason'],'Legacy images')
   # Remote canonical folders can validate recorded provenance without claiming replayed source verification.
   for n in g.PT: (self.p/'unbranded'/n).unlink()
   g.validate(self.p)

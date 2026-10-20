@@ -2,7 +2,7 @@
 
 Start with [SKILL.md](SKILL.md) and [current seller policy](references/confirmed-catalog-defaults.md). Effective policy: **2026-10-02 baseline, amended 2026-10-05**.
 
-The workflow produces research and base-configuration listing workbooks, plus an independently callable image workflow. It delivers to this repository and does not publish automatically to Seller Central.
+The workflow produces research and base-configuration listing workbooks, plus an independently callable image workflow. All final product images, Excel and supporting business records are delivered to [Google Drive](https://drive.google.com/drive/folders/1Knp8RUWyw5N1MownbfJSSo-m6NgrqrQq). GitHub maintains workflow code, rules, reusable templates and tests. It does not publish automatically to Seller Central. Read [Google Drive delivery](references/google-drive-delivery.md) before product work; existing repository outputs are historical and are not a synchronized current Drive mirror.
 
 ## Confirmed rules
 
@@ -54,7 +54,7 @@ Read `product-facts.json` and `delivery-status.json` before legacy outputs. Exis
 
 ## Completion
 
-Local QA → selective commit/push → applicable GitHub CI → remote commit/path/hash verification → GITHUB_DELIVERY_VERIFIED. Spreadsheet structure PASS, local image PASS, style approval, GitHub delivery and Amazon publication eligibility are distinct states.
+Product delivery: local QA → upload individual images/original XLSX and evidence to Drive → read back file IDs/parents/MIME/size/checksums → save receipt/current links → DRIVE_DELIVERY_VERIFIED for the stated scope. GitHub CI applies independently to workflow-code changes and retained fixtures. Spreadsheet structure PASS, local image PASS, style approval, Drive delivery and Amazon publication eligibility are distinct states. Never commit new product business files as the final delivery.
 
 ## Consistency correction — 2026-10-02
 

@@ -1,9 +1,13 @@
 ---
 name: amazon-custom-pc-listing-workflow
-description: "Create MegaPC Custom PC research and base-configuration listing workbooks, or independently generate and adjust computer-only Amazon listing images. Use verified product facts, current seller policy and deterministic image QA; deliver to this GitHub repository, never publish automatically to Seller Central."
+description: "Create MegaPC Custom PC research and base-configuration listing workbooks, or independently generate and adjust Amazon listing images. Use verified product facts, current seller policy and deterministic image QA; deliver images, Excel and evidence to Google Drive, with workflow code maintained in GitHub. Never publish automatically to Seller Central."
 ---
 
 # MegaPC Custom PC workflow
+
+## Final storage — 2026-10-20
+
+All final product images, Research Review/Listing Excel workbooks and supporting business records go to Google Drive. Read [Google Drive delivery](references/google-drive-delivery.md) for actual folder IDs, byte verification, current/versioned records and reporting. GitHub is the workflow planning/code/rules/template/test center. Local product folders are working copies; do not commit new or changed business outputs to GitHub. Existing repository outputs and GitHub receipts remain historical. This destination change supersedes older repository-delivery wording and does not change factual, visual or publication gates.
 
 ## Current authority and historical exclusion
 
@@ -20,7 +24,7 @@ All catalog computers are seller-confirmed customized computers. Use `MegaPC Cus
 - `IMAGE_ADJUSTMENT_WORKFLOW`: edit only requested slots from clean masters. Preserve all unrelated canonical image bytes. Reuse an approved style for mechanical/local same-family fixes; material changes require a new style proposal.
 - `CONCEPT_ONLY`: only when explicitly requested; previews never count as completed canonical slots.
 
-The request authorizes same-product, same-slot replacement and repository delivery after internal QA; do not ask for a second replacement/upload approval. A materially different style, product identity, scope or unresolved asset/fact question still needs the appropriate clarification. Never publish to Seller Central automatically.
+The request authorizes same-product, same-slot replacement and Google Drive delivery after internal QA; do not ask for a second replacement/upload approval. A materially different style, product identity, scope or unresolved asset/fact question still needs the appropriate clarification. Never publish to Seller Central automatically.
 
 ## 1. Identify and map the target
 
@@ -62,7 +66,7 @@ Apply current confirmed policy resolutions before classifying conflicts: OEM Hom
 
 ## 3. Produce Research Review and listing workbooks
 
-As soon as the mapped internal ID and a real Research Review workbook exist, upload it to the product folder; do not wait for imagery or publication readiness. Never overwrite the source template. Use explicit stage filenames and true review statuses.
+As soon as the mapped internal ID and a real Research Review workbook exist, upload the original XLSX to the Drive product's `01_LISTING` folder with its stage summary and supporting research; do not wait for imagery or publication readiness. Never overwrite the source template. Use explicit stage filenames and true review statuses.
 
 All top-level product workbooks are current and must match the current ledger. Preserve superseded stages with their original ledger/template and immutable hashes under [workbook stage snapshots](references/workbook-stage-snapshots.md); CI checks their preserved bytes rather than latest-field projection. Historical snapshots never become export-eligible. Export requires explicit LISTING_DRAFT stage, the current canonical template and OEM identity/copy checks regardless of filename.
 
@@ -101,7 +105,7 @@ Deliver RGB/RGBA files meeting the Amazon-based size policy in `references/image
 
 Use exact licensed original product layers or AI layers that pass the official-original fidelity gate in [faithful-product-reproduction.md](references/faithful-product-reproduction.md), with clean masters, deterministic brands/text and current scripts. AI must faithfully reproduce the actual machine; never invent hardware or redraw final logos. Reject mismatched or unverified visible details and use the original photo when faithful reproduction cannot be verified. Flat approved PNGs are references, not complete layered production packs. Keep masters and recipes reproducible outside canonical delivery. Start new manifests from `product generated photo/image-manifest-template.md`.
 
-## 5. QA, updates and GitHub delivery
+## 5. QA, updates and Google Drive delivery
 
 Apply [workflow validation boundaries](references/workflow-validation-boundaries.md) for export identity/content checks, review-input binding, import lifecycle, snapshot preservation and local tool selection. These refine the existing stages without changing the workbook or gallery structure.
 
@@ -117,7 +121,7 @@ Follow `references/final-image-delivery-contract.md` for script commands, report
 
 Same-slot updates use that slot's clean master and preserve all unrelated bytes. Any changed image invalidates its hash-bound reports and delivery record. An update may reuse unchanged review evidence only if the underlying bytes and relevant facts/policy remain unchanged. Finalization is not permission to rewrite unrelated slots. When the existing gallery is quarantined, complete and QA only the requested slots using the partial-update contract; retain overall REWORK_REQUIRED and state deliveryScope PARTIAL_UPDATE. Hash-bound partial-update-qa.json proves only changed slots and cross-gallery content review; it cannot confer full-gallery PASS. CI may accept that scoped update without pretending unchanged legacy slots passed the current standard.
 
-Sequence: local tests and current QA for the delivered scope → selective commit/push → applicable remote CI → remote commit/path/file-hash verification → `GITHUB_DELIVERY_VERIFIED` for the explicitly reported delivery scope. A partial update never claims full-gallery verification. Remote CI is not a precondition for its own triggering push. CI failure means delivery blocked, never Amazon-ready. Explicit local-only/no-upload/concept instructions skip remote delivery only.
+Sequence: local tests and current QA for the delivered scope → upload individual files to Google Drive → read back actual file IDs/parents/MIME/size and verify byte checksums → save the receipt and summary → `DRIVE_DELIVERY_VERIFIED` for the explicitly reported files and scope. Follow [Google Drive delivery](references/google-drive-delivery.md). A partial update never claims full-gallery verification. Workflow-code commits run GitHub CI separately; new Drive product files require local checks and Drive verification rather than a product-output push. Explicit local-only/no-upload/concept instructions skip remote delivery only.
 
 For untouched galleries whose reviews bind a prior policy, apply [trusted-base policy preservation](references/gallery-policy-preservation.md). Verify exact historical bytes and bindings and report them separately as historical, not current-policy QA. Changed galleries and new acceptance still require current review.
 
@@ -125,7 +129,7 @@ A canonical folder must have exactly 11 current image slots when completed; XLSX
 
 ## Final report
 
-Report the verified internal ID, source mapping, base configuration, workbook stage, critical unresolved items, current policy version, gallery state, requested/changed slots, local and applicable remote QA, GitHub folder/workbook/commit links and remote hash verification. State any production/delivery/publication blockers separately. Do not present a ZIP, local PASS or historical report as GitHub completion.
+Report the verified internal ID, source mapping, base configuration, workbook stage, critical unresolved items, current policy version, gallery state, requested/changed slots, local QA, source workflow commit, Drive folder/original-XLSX/image links and actual remote byte verification. State any production/delivery/publication blockers separately. Do not present a ZIP, local PASS, GitHub push or historical report as Drive completion.
 
 ## Current recipe and desktop applicability
 
