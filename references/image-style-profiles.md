@@ -1,6 +1,6 @@
 # Image style profiles
 
-Profiles affect palette/type/visual hierarchy, not [catalog policy](confirmed-catalog-defaults.md), accurate hardware, fixed slots or Windows identities. MAIN-STRICT remains white and unadorned. Both enhanced candidates share a family with task-adapted LCD composition. Business uses distinct lockup/package; others package/package. No external-device imagery or outside-LCD MAIN information.
+Profiles affect palette/type/visual hierarchy, not [catalog policy](confirmed-catalog-defaults.md), accurate hardware, fixed slots or Windows identities. MAIN-STRICT remains white and unadorned. Both enhanced candidates share a family with task-adapted LCD composition. Business uses distinct lockup/package; others package/package. Desktop/AIO full-product views include the verified keyboard and mouse required by the 2026-10-20 catalog decision; no other external-device imagery or outside-LCD MAIN information.
 
 | Profile | Visual language | Typical fit |
 | --- | --- | --- |

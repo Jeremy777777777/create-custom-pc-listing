@@ -6,7 +6,7 @@ Apply [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) and [image-
 
 New style follows [style-approval-gate.md](style-approval-gate.md). Existing same-product/same-style local corrections retain approval. A request to modify a named slot authorizes its canonical replacement after internal QA; no redundant upload approval. Do not touch unrelated slots; retain their bytes/hashes. Material style changes need direction approval before production.
 
-Block affected outputs before production if exact model/source rights, angle assets, required verified specs or fixed Windows/OEM identity assets are missing. State specific missing evidence. Never generate hardware to fill the gap. No accessory/packout prerequisite is imposed on computer-only imagery.
+Block affected outputs before production if exact model/source rights, angle assets, required verified specs or fixed Windows/OEM identity assets are missing. State specific missing evidence. Never generate hardware to fill the gap. Under the 2026-10-20 catalog policy, desktop/AIO final compositions require the actual supplied keyboard and mouse with verified appearance; unknown accessory details allow labelled previews, not final fidelity acceptance. Laptops retain computer-only imagery without an accessory/packout prerequisite.
 
 ## Required evidence
 
@@ -20,7 +20,7 @@ The 2026-10-13 VD-744 request to replace the enhanced 45-degree image authorizes
 - Current image manifest, source/asset records and style lock; deterministic overlay placement including masks/protected zones.
 - Schema 3 logo QA with original asset/master/final hashes and actual visible-alpha dimensions/spacing.
 - Semantic fact ownership and justified numeric metric or manual review (no fabricated percent).
-- Genuine current-hash manual 100%/200px visual, style, product geometry, authentic marks, LCD/HEAD_ONLY boundaries, text and no-peripheral review.
+- Genuine current-hash manual 100%/200px visual, style, product geometry, authentic marks, LCD/HEAD_ONLY boundaries, text and accessory-boundary review (required desktop/AIO keyboard and mouse, no other peripherals).
 - Final report checks MAIN as well as PT, all sizes/hashes and required reviews. Automatic checks do not imply artistic, license or Amazon acceptance.
 
 If a legacy gallery fails current size/hash/visual review, keep its prior record historical and mark current state REWORK_REQUIRED. Do not mechanically create PASS for modified files or upscale low-resolution old work solely to meet an arbitrary pixel target.

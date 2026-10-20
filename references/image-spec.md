@@ -22,15 +22,15 @@ All 11 final images meet the Amazon-based size policy below, using sRGB, high-qu
 
 | File | Required content |
 | --- | --- |
-| MAIN-STRICT.jpg | Pure white, complete actual computer, no added text/graphics/Windows asset or accessories |
+| MAIN-STRICT.jpg | Pure white, complete actual computer; desktops/AIOs include verified supplied keyboard and mouse; no added text/graphics/Windows asset or other accessories |
 | MAIN-ENHANCED-FRONT-CANDIDATE.png | Accurate front computer, approved screen scene and one audience-specific Windows identity |
 | MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png | Accurate sourced angle with independent fit; one audience-specific Windows identity |
 | PT01.png | High-level conversion reason; no Windows asset/full spec grid |
-| PT02.png | Relevant original use scene; only computer as device |
+| PT02.png | Relevant original use scene; desktops/AIOs include verified keyboard and mouse; no other devices |
 | PT03.png | Sole complete base CPU/GPU/RAM/SSD/OS page |
 | PT04.png | Display and overall form, not keyboard/touchpad or ports |
 | PT05.png | Task relationship, not duplicated specification page |
-| PT06.png | White-background keyboard/touchpad/input details, no packout |
+| PT06.png | White-background input details: laptop keyboard/touchpad or verified supplied desktop/AIO keyboard and mouse; no retail packaging |
 | PT07.png | One unused verified value; no seller warranty/service advertising |
 | PT08.png | Physical port map and accurate connectivity, no external devices |
 

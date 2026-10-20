@@ -1,0 +1,69 @@
+{
+  "internalId": "VA-215",
+  "identity": {
+    "internalId": "VA-215",
+    "oemBrand": "Dell",
+    "oemModel": "Dell Pro 24 All-in-One QC24251",
+    "formFactor": "AIO",
+    "color": "Black"
+  },
+  "selectedBaseConfiguration": {
+    "configurationId": "VA-215-PA-222-base",
+    "cpu": "Intel Core i5-14500T",
+    "graphics": "Intel Integrated Graphics",
+    "ram": {
+      "value": 8,
+      "unit": "GB",
+      "type": "DDR5"
+    },
+    "internalSsd": {
+      "value": 256,
+      "unit": "GB",
+      "interface": "Gen 4"
+    },
+    "os": "Windows 11 Pro",
+    "soldApplicabilityBasis": "Image-only base selection: exact VA-215 linked current physical SKU PA-222; user directed ERP lookup; no upgrade variant selected."
+  },
+  "display": {
+    "diagonalInches": 23.8,
+    "resolution": "1920x1080",
+    "refreshRateHz": 60,
+    "touch": false
+  },
+  "wireless": {
+    "wifi": true,
+    "bluetooth": true,
+    "generation": "UNSPECIFIED"
+  },
+  "inputDevices": {
+    "keyboard": "Dell classic full-size black representative reference",
+    "mouse": "Dell classic black representative reference",
+    "wireless": true,
+    "sku": "UNSPECIFIED",
+    "basis": "User explicitly approved corresponding-brand classic treatment; VA-215 product comment states WIRELESS KEYBOARD & MOUSE."
+  },
+  "sources": [
+    {
+      "url": "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products/40215",
+      "scope": "Exact VA-215 identity, display, wireless, input and stand comment",
+      "checkedAtUtc": "2026-10-20T15:14:17.452244+00:00"
+    },
+    {
+      "url": "https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/computers?q=QC24251",
+      "scope": "VA-215 → PA-222 current physical SKU; 8GB DDR5, 256GB GEN 4, Windows 11 Pro; non-touch. VA-223/PA-223 touch SKU excluded.",
+      "checkedAtUtc": "2026-10-20T15:14:17.452244+00:00"
+    },
+    {
+      "url": "https://www.dell.com/en-us/shop/Desktop/spd/DellPro24AllinOne35WQC24251/qc24251_reg_01",
+      "scope": "Exact-model official chassis, display, ports, camera; configurable capacities not imported as sold values.",
+      "checkedAtUtc": "2026-10-20T15:14:17.452244+00:00"
+    }
+  ],
+  "serial_research": {
+    "outcome": "NOT_REQUIRED",
+    "reason": "Image-only work: current exact ERP physical configuration PA-222 and official views establish all depicted facts. No FCC, radio model, per-unit warranty, upgrade history or as-built serial claims are made.",
+    "checkedAtUtc": "2026-10-20T15:14:17.452244+00:00"
+  },
+  "oem_brand_authorization_status": "USER_CONFIRMED_CATALOG_WIDE",
+  "updatedAtUtc": "2026-10-20T15:14:17.452244+00:00"
+}

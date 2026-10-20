@@ -1,6 +1,6 @@
 # Supporting gallery creative continuation
 
-Apply [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for fixed PT ownership and semantic review, [image-spec.md](image-spec.md) for physical output and [style-approval-gate.md](style-approval-gate.md) for approval. Continuation packs define palette/texture/motifs only. They do not authorize external devices, accessory props, repeated specifications or seller warranty/service advertising.
+Apply [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for fixed PT ownership and semantic review, [image-spec.md](image-spec.md) for physical output and [style-approval-gate.md](style-approval-gate.md) for approval. Continuation packs define palette/texture/motifs only. Desktop/AIO full-product views include the verified keyboard and mouse required by the 2026-10-20 catalog decision; older computer-only wording below applies to laptops and excludes these two required inputs for desktops/AIOs. Other external devices, accessory props, repeated specifications and seller warranty/service advertising remain prohibited.
 
 Routing: Gxx→GGxx and Bxx→BGxx; neutral audiences use NEUTRAL. Select by verified positioning, not arbitrary rotation. PT02 may have anonymous licensed/original users; PT05 may have one supporting person if useful. PT06 is computer-only white input details. Original abstract interfaces do not imply software entitlement. Synthetic people follow metadata/identity/manual-contact review. All device depictions are the computer itself.
 

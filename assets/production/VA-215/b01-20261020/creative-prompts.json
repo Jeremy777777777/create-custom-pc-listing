@@ -1,0 +1,13 @@
+{
+  "mode": "built-in image_gen",
+  "prompts": [
+    [
+      "office-background",
+      "Use case: photorealistic-natural. Create a 2000x2000 square premium bright modern office BACKGROUND PLATE for compositing a Dell black all-in-one computer later. NO computer, NO screens, NO keyboard or mouse, NO devices, NO people, NO text or logos. Bottom 48 percent a clean empty pale blue-gray desk surface seen at a shallow angle. Upper background luminous navy/sky-blue architectural glass and a softly blurred distant skyline, business blue and white palette, elegant natural morning light from right, plenty of clear negative space top left for headline, realistic surface not an abstract render. Quiet professional composition matching a clean office-workflow ecommerce gallery."
+    ],
+    [
+      "screen-art",
+      "Use case: ads-marketing. Create a 16:9 original abstract business workflow screen wallpaper. Navy, clear azure, soft white, restrained glass panels, layered flowing paper/document shapes and subtle blue depth, no readable text, no icons, no brands, no logos, no application interface, no products or hardware. Elegant productivity visual for LCD-contained composition in a Dell business computer listing, balanced large shapes for visibility at thumbnail size. No copyrighted Windows wallpaper reproduction."
+    ]
+  ]
+}

@@ -114,7 +114,9 @@ def logo_geometry(plan,cfg,logo,size):
     if min(w,h)*scale<(20*min(vw,vh)/max(vw,vh) if wide else 10): raise ValueError('Logo visible short edge threshold')
     return gap
 
-def review_inputs(directory,include_research=True):
+POLICY_INPUTS=('confirmed-catalog-defaults.md','image-spec.md','final-image-delivery-contract.md','faithful-product-reproduction.md','workflow-validation-boundaries.md')
+
+def review_inputs(directory,include_research=True,policy_text=None):
     """Semantic JSON binding excludes volatile offer/logistics data, never supplies PASS."""
     p=Path(directory)
     from research_history import check_product_research_history
@@ -133,8 +135,8 @@ def review_inputs(directory,include_research=True):
     recipe=style.get('recipePath')
     root=Path(__file__).resolve().parents[1]
     if recipe: inputs['recipe']=read(root/recipe if str(recipe).startswith('assets/') else p/recipe)
-    for name in ('confirmed-catalog-defaults.md','image-spec.md','final-image-delivery-contract.md','faithful-product-reproduction.md','workflow-validation-boundaries.md'):
-        inputs[name]=(root/'references'/name).read_text(encoding='utf-8-sig').replace('\r\n','\n')
+    for name in POLICY_INPUTS:
+        inputs[name]=(policy_text[name] if policy_text is not None else (root/'references'/name).read_text(encoding='utf-8-sig')).replace('\r\n','\n')
     return hashlib.sha256(json.dumps(inputs,sort_keys=True,separators=(',',':'),ensure_ascii=False).encode()).hexdigest()
 
 def frozen_import(p,filename):
@@ -166,7 +168,7 @@ def badges(directory,asset,planpath,out=None,brand=None,slots=None):
     # Geometry cannot prove visual quality. A human must supply hash-bound evidence for final PASS.
     write(dest/'logo-qa.json',{'schemaVersion':3,'generatedAtUtc':datetime.now(timezone.utc).isoformat(),'brand':plan['brand'],'result':'AWAITING_VISUAL_REVIEW','logoAssetSha256':digest(asset),'logoAssetPath':os.path.relpath(Path(asset).resolve(),dest.resolve()),'visibleLogoAspectRatio':mark.width/mark.height,'placementPlanSha256':digest(planpath),'images':list(entries.values())})
 
-def evidence(path,names,directory,preserve_unbound_research=False):
+def evidence(path,names,directory,preserve_unbound_research=False,trusted_policy_binding=None):
     report=read(path)
     if report.get('schemaVersion',0)<3 or report.get('result')!='PASS' or not report.get('reviewer') or not report.get('reviewedAtUtc'): raise ValueError(f'Missing current human review evidence: {path}')
     if not isinstance(report.get('reviewer'),str) or not report['reviewer'].strip(): raise ValueError('Reviewer must contain text')
@@ -176,7 +178,7 @@ def evidence(path,names,directory,preserve_unbound_research=False):
     except (ValueError,TypeError,AttributeError): raise ValueError('Review requires an ISO UTC timestamp')
     binding=report.get('reviewInputsSha256')
     preserving=preserve_unbound_research and binding and binding==review_inputs(directory,include_research=False)
-    if not preserving and (not binding or binding!=review_inputs(directory)):
+    if not preserving and (not binding or binding not in (review_inputs(directory),trusted_policy_binding)):
         raise ValueError('Review facts/research/style/recipe/policy binding stale or absent')
     entries=report.get('images',[])
     if len(entries)!=len(names) or {e.get('file') for e in entries}!=set(names): raise ValueError(f'Incomplete evidence: {path}')
@@ -185,7 +187,7 @@ def evidence(path,names,directory,preserve_unbound_research=False):
         if entry.get('sha256','').lower()!=digest(Path(directory)/name) or entry.get('result')!='PASS' or not isinstance(entry.get('notes'),str) or not entry['notes'].strip(): raise ValueError(f'Stale or incomplete evidence: {name}')
     return report
 
-def validate(directory,brand=None,legacy=False,require_final=True,allow_quarantined=False,preserve_unbound_research=False):
+def validate(directory,brand=None,legacy=False,require_final=True,allow_quarantined=False,preserve_unbound_research=False,trusted_policy_binding=None):
     p=Path(directory)
     sizes={}
     status=p/'delivery-status.json'
@@ -224,7 +226,7 @@ def validate(directory,brand=None,legacy=False,require_final=True,allow_quaranti
     if not bbox: raise ValueError('Empty visible logo')
     vw,vh=bbox[2]-bbox[0],bbox[3]-bbox[1]
     for n in PT: logo_geometry(plan,plan['placements'][n],logo,sizes[n])
-    evidence(p/'visual-review.json',NAMES,p,preserve_unbound_research); evidence(p/'semantic-review.json',PT,p,preserve_unbound_research)
+    evidence(p/'visual-review.json',NAMES,p,preserve_unbound_research,trusted_policy_binding); evidence(p/'semantic-review.json',PT,p,preserve_unbound_research,trusted_policy_binding)
     if require_final:
         report=read(p/'final-image-qa.json')
         if report.get('schemaVersion',0)<3 or report.get('result')!='PASS': raise ValueError('Missing final QA')
@@ -528,6 +530,47 @@ def unbound_research_review(p):
     return True
 
 
+def preserve_prior_policy_gallery(root,p,base):
+    """Verify unchanged trusted-base bytes under their recorded policy, never current QA.
+
+    This path is unavailable to accept(), new products, changed inputs/images, or
+    a non-revision full scan. It does not mutate any image or review record.
+    """
+    if not base: raise ValueError('Trusted base required for prior-policy preservation')
+    root=Path(root).resolve();p=Path(p).resolve();relative=p.relative_to(root).as_posix()
+    def prior(path):
+        return subprocess.check_output(['git','show',base+':'+path],cwd=root,stderr=subprocess.DEVNULL)
+    # Compare the entire tracked product tree, including evidence; neither staged,
+    # committed nor working-tree modifications can take the preservation route.
+    paths=subprocess.check_output(['git','ls-tree','-r','--name-only',base,'--',relative],cwd=root,text=True).splitlines()
+    if not paths: raise ValueError('New gallery cannot preserve a prior policy')
+    current={f.relative_to(root).as_posix() for f in p.rglob('*') if f.is_file()}
+    if current!=set(paths): raise ValueError('Changed gallery inventory cannot preserve a prior policy')
+    for path in paths:
+        data=prior(path);actual=(root/path).read_bytes()
+        if Path(path).suffix.lower()=='.json': data=data.replace(b'\r\n',b'\n');actual=actual.replace(b'\r\n',b'\n')
+        elif Path(path).suffix.lower() in ('.md','.txt'): data=data.replace(b'\r\n',b'\n');actual=actual.replace(b'\r\n',b'\n')
+        if data!=actual: raise ValueError('Changed product bytes cannot preserve a prior policy: '+path)
+    recipe=read(p/'style-lock.json').get('recipePath')
+    if recipe:
+        recipe_path=(root/recipe if str(recipe).startswith('assets/') else p/recipe).resolve()
+        name=recipe_path.relative_to(root).as_posix()
+        if prior(name).replace(b'\r\n',b'\n')!=recipe_path.read_bytes().replace(b'\r\n',b'\n'):
+            raise ValueError('Changed recipe cannot preserve a prior policy')
+    policy={name:prior('references/'+name).decode('utf-8-sig') for name in POLICY_INPUTS}
+    visual_binding=read(p/'visual-review.json').get('reviewInputsSha256')
+    semantic_binding=read(p/'semantic-review.json').get('reviewInputsSha256')
+    candidates={review_inputs(p,policy_text=policy):True}
+    if (p/'research-ledger.json').exists(): candidates[review_inputs(p,include_research=False,policy_text=policy)]=False
+    if visual_binding!=semantic_binding or visual_binding not in candidates:
+        raise ValueError('Prior-policy review does not match trusted-base facts/style/recipe/policy')
+    binding=visual_binding
+    # Full hash/geometry/evidence checks still apply to the unchanged old bytes.
+    validate(p,trusted_policy_binding=binding,preserve_unbound_research=False)
+    print('HISTORICAL_POLICY_BOUND_GALLERY: '+p.name+'; unchanged trusted-base bytes preserved, NOT current-policy QA')
+    return {'productId':p.name,'baseCommit':base,'recordedPolicyReviewInputsSha256':binding,'researchBound':candidates[binding],'currentPolicyQa':False}
+
+
 def gate(root,base=None,head='HEAD'):
     root=Path(root)
     from research_history import check_research_ledger_history
@@ -541,7 +584,7 @@ def gate(root,base=None,head='HEAD'):
             raise ValueError('Canonical gallery slot deleted or renamed: '+path)
     dirs=gallery_directories(root,changed,full=not base)
     validated=0; quarantined=0; partial=0; research=0; imports=0; ai_imports=0; angle_imports=0; historical_partial=0
-    research_unbound=0; research_unbound_partial=0
+    research_unbound=0; research_unbound_partial=0; prior_policy=[]
     for p in dirs:
         if not p.is_dir(): continue
         status=p/'delivery-status.json'
@@ -591,18 +634,24 @@ def gate(root,base=None,head='HEAD'):
             quarantined+=1; continue
         prefix=p.relative_to(root).as_posix()+'/'
         changed_images=[path for path in changed if path.startswith(prefix) and Path(path).parent==Path(prefix) and Path(path).name in NAMES]
-        if not changed_images and unbound_research_review(p):
-            validate(p,preserve_unbound_research=True); research_unbound+=1
-            print('HISTORICAL_RESEARCH_UNBOUND_GALLERY: '+p.name+'; cached-fact/image preservation only, NOT current source-bound QA')
-        else:
-            validate(p); validated+=1
+        try:
+            if not changed_images and unbound_research_review(p):
+                validate(p,preserve_unbound_research=True); research_unbound+=1
+                print('HISTORICAL_RESEARCH_UNBOUND_GALLERY: '+p.name+'; cached-fact/image preservation only, NOT current source-bound QA')
+            else:
+                validate(p); validated+=1
+        except ValueError as exc:
+            if not base or changed_images or str(exc)!='Review facts/research/style/recipe/policy binding stale or absent': raise
+            prior_policy.append(preserve_prior_policy_gallery(root,p,base))
     print(f'Validated {validated} eligible galleries; {quarantined} quarantined folders excluded; {angle_imports} scoped angle imports, not strict QA PASS')
     summary={'fullGalleriesValidated':validated,'quarantinedNotPassed':quarantined,'partialUpdatesValidated':partial,'historicalPartialReviewsNotCurrent':historical_partial,'historicalResearchUnboundGalleries':research_unbound,'historicalResearchUnboundPartialReviews':research_unbound_partial,'approvedExactAssetImports':imports,'approvedAiEffectImportsNotQaPassed':ai_imports,'approvedAngleImportsNotQaPassed':angle_imports,'researchOnlyFolders':research}
+    summary['historicalPriorPolicyGalleriesNotCurrent']=prior_policy
     write(root/'gallery-ci-summary.json',summary)
     if os.environ.get('GITHUB_STEP_SUMMARY'):
         with open(os.environ['GITHUB_STEP_SUMMARY'],'a',encoding='utf-8') as f:
             f.write(f'### Gallery check scope\n\nFull galleries validated: {validated}. Quarantined, NOT PASS: {quarantined}. Scoped partial updates: {partial}. Historical partial reviews, NOT CURRENT: {historical_partial}. Exact user-approved imports: {imports}. AI-effect imports, NOT full QA: {ai_imports}. Angle imports, NOT strict QA: {angle_imports}. Research-only folders: {research}.\n\nCI success means checks executed successfully; it does not clear quarantine or certify Amazon readiness.\n')
             f.write(f'\nHistorical research-unbound galleries: {research_unbound}; historical research-unbound partial reviews: {research_unbound_partial}. These are preservation checks, NOT current source-bound PASS.\n')
+            f.write(f'\nUnchanged trusted-base galleries preserved under prior policy: {len(prior_policy)}. These are historical integrity checks, NOT current-policy QA.\n')
     return summary
 
 def main():

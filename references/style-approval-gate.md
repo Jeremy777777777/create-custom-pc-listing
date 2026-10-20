@@ -1,6 +1,6 @@
 # Style approval and fidelity
 
-Use [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for the policy and [image-spec.md](image-spec.md) for content boundaries. This gate concerns direction approval, not a second approval to upload requested corrections.
+Use [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for the policy and [image-spec.md](image-spec.md) for content boundaries. This gate concerns direction approval, not a second approval to upload requested corrections. Apply its 2026-10-20 desktop/AIO keyboard-and-mouse requirement to previews and reviews; older no-external-device wording below excludes those two required inputs for these form factors. Verify their actual supplied appearance before final fidelity acceptance.
 
 ## Proposal
 

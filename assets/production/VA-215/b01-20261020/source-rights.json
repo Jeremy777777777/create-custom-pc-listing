@@ -1,0 +1,32 @@
+{
+  "oemAuthorization": "USER_CONFIRMED_CATALOG_WIDE",
+  "officialPage": "https://www.dell.com/en-us/shop/Desktop/spd/DellPro24AllinOne35WQC24251/qc24251_reg_01",
+  "officialGalleryUrls": [
+    "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/desktops/dell-pro/qc24251/media-gallery/desktop-aio-dell-pro-qc24251-35w-bk-gallery-2.psd?fmt=png-alpha&pscan=auto&scl=1&wid=3658&hei=1791&qlt=100,0&resMode=sharp2&size=3658,1791",
+    "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/desktops/dell-pro/qc24251/media-gallery/desktop-aio-dell-pro-qc24251-fixst-bk-gallery-5.psd?fmt=png-alpha&pscan=auto&scl=1&wid=2604&hei=3172&qlt=100,0&resMode=sharp2&size=2604,3172",
+    "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/desktops/dell-pro/qc24251/media-gallery/desktop-aio-dell-pro-qc24251-fixst-bk-gallery-6.psd?fmt=png-alpha&pscan=auto&scl=1&wid=2604&hei=3172&qlt=100,0&resMode=sharp2&size=2604,3172",
+    "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/desktops/dell-pro/qc24251/media-gallery/desktop-aio-dell-pro-qc24251-fixst-bk-gallery-7.psd?fmt=png-alpha&pscan=auto&scl=1&wid=2970&hei=2976&qlt=100,0&resMode=sharp2&size=2970,2976",
+    "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/desktops/dell-pro/qc24251/media-gallery/desktop-aio-dell-pro-qc24251-fixst-cam-bk-gallery-1.psd?fmt=pjpg&pscan=auto&scl=1&wid=3277&hei=2725&qlt=100,0&resMode=sharp2&size=3277,2725",
+    "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/desktops/dell-pro/qc24251/media-gallery/desktop-aio-dell-pro-qc24251-fixst-cam-bk-gallery-1.psd?fmt=png-alpha&pscan=auto&scl=1&wid=3277&hei=2725&qlt=100,0&resMode=sharp2&size=3277,2725",
+    "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/desktops/dell-pro/qc24251/media-gallery/desktop-aio-dell-pro-qc24251-fixst-cam-bk-gallery-3.psd?fmt=png-alpha&pscan=auto&scl=1&wid=3516&hei=2975&qlt=100,0&resMode=sharp2&size=3516,2975",
+    "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/desktops/dell-pro/qc24251/media-gallery/desktop-aio-dell-pro-qc24251-fixst-cam-bk-gallery-4.psd?fmt=png-alpha&pscan=auto&scl=1&wid=3331&hei=3007&qlt=100,0&resMode=sharp2&size=3331,3007",
+    "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/desktops/dell-pro/qc24251/media-gallery/desktop-aio-dell-pro-qc24251-has-bk-gallery-8.psd?fmt=png-alpha&pscan=auto&scl=1&wid=3262&hei=2947&qlt=100,0&resMode=sharp2&size=3262,2947"
+  ],
+  "assets": {
+    "office-background.png": "b5701138a7422cb12f88485f499b654fd1f16ec925f6ebfa32dc8da104e319ec",
+    "official-01.png": "2d6cdfe40c1dc1ecb88a41e4b1b30379fbd3e7c39af7d1c8892e82cb486e2b3a",
+    "official-02.png": "4db16e7603fb2209c39b8b89c4923fb37d047a21bbf17b9bc35d6215d8e1bc82",
+    "official-03.png": "29cf509fc685c123eeea640277e0aec9c8cf589f5c52832e53cd0805a4a98cfc",
+    "official-06.png": "3133d1e1f98a7b4a7fe5688efc426365168c472915bf1102629165bbb88c904c",
+    "official-07.png": "77c37198d1f4257dc8efb5337aacb5d927e8ad6d09aed68a2a3b80e719ba2eae",
+    "screen-art.png": "4dde27081f7cb3c6a0fa0dd068774fa75a1bf0f6702c796d58449e2c3c75ae0e"
+  },
+  "inputDeviceTreatment": "USER_APPROVED_CLASSIC_SAME_BRAND_REPRESENTATIVE",
+  "syntheticPeople": false,
+  "generationMode": "built-in image_gen",
+  "generatedAssets": [
+    "office-background.png",
+    "screen-art.png"
+  ],
+  "checkedAtUtc": "2026-10-20T15:14:17.452244+00:00"
+}

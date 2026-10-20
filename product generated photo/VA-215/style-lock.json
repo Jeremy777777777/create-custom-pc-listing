@@ -1,0 +1,26 @@
+{
+  "style_approval_status": "APPROVED",
+  "approved_style_id": "B01",
+  "approved_supporting_gallery_pack": "BG01",
+  "profile": "navy-technical-v1",
+  "palette": [
+    "navy",
+    "white",
+    "sky blue"
+  ],
+  "approvalSource": "Direct user reply: 采用这个风格，继续制作整套",
+  "approvalRecordedAtUtc": "2026-10-20T15:14:17.452244+00:00",
+  "approvedPreviewSha256": "bd0371074d6a7f4a22704d04f342cffbccca15d69377b22006149be70bf52739",
+  "recipePath": "assets/production/VA-215/b01-20261020/recipe.json",
+  "recipeStatus": "BUILT",
+  "mainContentBoundary": "SCREEN_ONLY",
+  "requiredMotifs": [
+    "office workflow",
+    "classic Dell keyboard and mouse"
+  ],
+  "forbiddenMotifs": [
+    "other external devices",
+    "invented ports",
+    "unverified capacity variants"
+  ]
+}

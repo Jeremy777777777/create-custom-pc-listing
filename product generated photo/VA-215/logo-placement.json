@@ -1,0 +1,252 @@
+{
+  "schemaVersion": 3,
+  "brand": "Dell",
+  "logoRole": "OEM base-product identifier",
+  "minimumClearancePx": 50,
+  "minimumComponentSeparationPx": 50,
+  "thumbnailReviewSizePx": 200,
+  "logoVisibilityMode": "STANDARD",
+  "logoAssetSourceUrl": "https://www.dell.com/",
+  "placements": {
+    "PT01.png": {
+      "style": "transparent",
+      "x": 1680,
+      "y": 85,
+      "width": 220,
+      "height": 220,
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_SET",
+          "x": 178,
+          "y": 520,
+          "width": 1643,
+          "height": 1390
+        },
+        {
+          "label": "HEADLINE",
+          "x": 100,
+          "y": 60,
+          "width": 1450,
+          "height": 305
+        }
+      ]
+    },
+    "PT02.png": {
+      "style": "transparent",
+      "x": 1680,
+      "y": 85,
+      "width": 220,
+      "height": 220,
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_SET",
+          "x": 155,
+          "y": 520,
+          "width": 1690,
+          "height": 1430
+        },
+        {
+          "label": "HEADLINE",
+          "x": 100,
+          "y": 60,
+          "width": 1450,
+          "height": 305
+        }
+      ]
+    },
+    "PT03.png": {
+      "style": "transparent",
+      "x": 1680,
+      "y": 85,
+      "width": 220,
+      "height": 220,
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_SET",
+          "x": 90,
+          "y": 764,
+          "width": 1050,
+          "height": 873
+        },
+        {
+          "label": "HEADLINE",
+          "x": 100,
+          "y": 60,
+          "width": 1450,
+          "height": 305
+        },
+        {
+          "label": "SPECIFICATIONS",
+          "x": 1200,
+          "y": 540,
+          "width": 700,
+          "height": 1220
+        }
+      ]
+    },
+    "PT04.png": {
+      "style": "transparent",
+      "x": 1680,
+      "y": 85,
+      "width": 220,
+      "height": 220,
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_SET",
+          "x": 212,
+          "y": 475,
+          "width": 1575,
+          "height": 1310
+        },
+        {
+          "label": "HEADLINE",
+          "x": 100,
+          "y": 60,
+          "width": 1450,
+          "height": 305
+        },
+        {
+          "label": "DISPLAY_FACTS",
+          "x": 130,
+          "y": 1810,
+          "width": 1740,
+          "height": 100
+        }
+      ]
+    },
+    "PT05.png": {
+      "style": "transparent",
+      "x": 1680,
+      "y": 85,
+      "width": 220,
+      "height": 220,
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_SET",
+          "x": 400,
+          "y": 896,
+          "width": 1200,
+          "height": 998
+        },
+        {
+          "label": "HEADLINE",
+          "x": 100,
+          "y": 60,
+          "width": 1450,
+          "height": 305
+        },
+        {
+          "label": "WORKFLOW",
+          "x": 160,
+          "y": 520,
+          "width": 1680,
+          "height": 270
+        }
+      ]
+    },
+    "PT06.png": {
+      "style": "transparent",
+      "x": 1680,
+      "y": 85,
+      "width": 220,
+      "height": 220,
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_INPUTS",
+          "x": 80,
+          "y": 1026,
+          "width": 1840,
+          "height": 188
+        },
+        {
+          "label": "HEADLINE",
+          "x": 100,
+          "y": 60,
+          "width": 1450,
+          "height": 305
+        },
+        {
+          "label": "INPUT_COPY",
+          "x": 140,
+          "y": 1480,
+          "width": 1660,
+          "height": 100
+        }
+      ]
+    },
+    "PT07.png": {
+      "style": "transparent",
+      "x": 1680,
+      "y": 85,
+      "width": 220,
+      "height": 220,
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_SET",
+          "x": 700,
+          "y": 742,
+          "width": 1200,
+          "height": 1015
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE_CAMERA",
+          "x": 140,
+          "y": 680,
+          "width": 520,
+          "height": 380
+        },
+        {
+          "label": "HEADLINE",
+          "x": 100,
+          "y": 60,
+          "width": 1450,
+          "height": 305
+        }
+      ]
+    },
+    "PT08.png": {
+      "style": "transparent",
+      "x": 1680,
+      "y": 85,
+      "width": 220,
+      "height": 220,
+      "protectedZones": [
+        {
+          "label": "PRODUCT_SILHOUETTE_REAR",
+          "x": 170,
+          "y": 600,
+          "width": 1660,
+          "height": 500
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE_RIGHT",
+          "x": 150,
+          "y": 1280,
+          "width": 450,
+          "height": 360
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE_LEFT",
+          "x": 780,
+          "y": 1280,
+          "width": 390,
+          "height": 330
+        },
+        {
+          "label": "PRODUCT_SILHOUETTE_BOTTOM",
+          "x": 1240,
+          "y": 1310,
+          "width": 680,
+          "height": 191
+        },
+        {
+          "label": "HEADLINE",
+          "x": 100,
+          "y": 60,
+          "width": 1450,
+          "height": 305
+        }
+      ]
+    }
+  }
+}

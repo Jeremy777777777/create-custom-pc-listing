@@ -1,0 +1,87 @@
+{
+  "schemaVersion": 3,
+  "result": "PASS",
+  "generatedAtUtc": "2026-10-20T15:20:30.898006+00:00",
+  "images": [
+    {
+      "file": "MAIN-STRICT.jpg",
+      "width": 2000,
+      "height": 2000,
+      "zoomEligibleBySize": true,
+      "sha256": "5f307450a7ff51ae3ce74b3a2a76daa9b39fbb9873501b1e62c9ed86dfa972b0"
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "width": 2000,
+      "height": 2000,
+      "zoomEligibleBySize": true,
+      "sha256": "1c3a1d2dbb2f59398104892c2671745c759cb43fa05ea63dbba1ef2a19898ee8"
+    },
+    {
+      "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "width": 2000,
+      "height": 2000,
+      "zoomEligibleBySize": true,
+      "sha256": "0737f6ed267b53bd244f50fd1ec8ed7c3f0ad512b2bea2eb8cbfd011a33aa69f"
+    },
+    {
+      "file": "PT01.png",
+      "width": 2000,
+      "height": 2000,
+      "zoomEligibleBySize": true,
+      "sha256": "697792c3bdacbf1105e398edd84aa76d40fbb6b22d9d1319a865cb526e36c56a"
+    },
+    {
+      "file": "PT02.png",
+      "width": 2000,
+      "height": 2000,
+      "zoomEligibleBySize": true,
+      "sha256": "b7915012685fc161b82427b04adfafe4966c9bb2eff60e1088d7d674f9db569f"
+    },
+    {
+      "file": "PT03.png",
+      "width": 2000,
+      "height": 2000,
+      "zoomEligibleBySize": true,
+      "sha256": "d2cb6bce55a2cef68f8f7474de1fbe2cb0f110f3855f1a41dcc53af516f55684"
+    },
+    {
+      "file": "PT04.png",
+      "width": 2000,
+      "height": 2000,
+      "zoomEligibleBySize": true,
+      "sha256": "4160fc8ab5b33ba42339ff15fd977cb46ee6b3e2c2e16f1a779c576c71815aa6"
+    },
+    {
+      "file": "PT05.png",
+      "width": 2000,
+      "height": 2000,
+      "zoomEligibleBySize": true,
+      "sha256": "279927864c0ea54335f100926f71714da47e1758e726c46eb99ad98a4ed4dc9d"
+    },
+    {
+      "file": "PT06.png",
+      "width": 2000,
+      "height": 2000,
+      "zoomEligibleBySize": true,
+      "sha256": "b3ebcf802082b5401aebc8b8d7940f3b4a0efbc363dd448465bdc716314444e1"
+    },
+    {
+      "file": "PT07.png",
+      "width": 2000,
+      "height": 2000,
+      "zoomEligibleBySize": true,
+      "sha256": "680658bcd5e2eecd55669f9d534d7a90a3352706b194a3f3861a281174eeaab1"
+    },
+    {
+      "file": "PT08.png",
+      "width": 2000,
+      "height": 2000,
+      "zoomEligibleBySize": true,
+      "sha256": "35ad893a25a0f749e4cc508d2126e73a24b529324f333fdb46a441a94b695ab1"
+    }
+  ],
+  "logoQaSha256": "6c5f8dbf1105d719049c0b360e2f60d4e4e76035ff728ecbb80a67c42a316041",
+  "visualReviewSha256": "504d675ae87e47411b72d0534dfab702076e51f2110f7ab6d1efa10c081cb53e",
+  "semanticReviewSha256": "7961b4f40b1b6eed1e2b3ad256be182f906f55c72c95fcc232863e6ba27d8e2a"
+}

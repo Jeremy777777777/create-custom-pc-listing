@@ -1,0 +1,76 @@
+{
+  "schemaVersion": 3,
+  "result": "PASS",
+  "reviewer": "Codex visual inspection of actual source/final images and 200px contact sheet",
+  "reviewedAtUtc": "2026-10-20T15:20:29.212607+00:00",
+  "reviewInputsSha256": "8302962b9a2cb4983b5aeffc94fe4d0dc21d846f8d02f01cd2604e1deb137aee",
+  "reviewLimits": "Production review of current source-bound image bytes, not Amazon eligibility or independent proof of private authorization. Primary hierarchy reviewed at 200px; fine labels/specification text use full image. Representative accessory styling was explicitly approved by user; exact accessory SKU is not claimed.",
+  "images": [
+    {
+      "file": "MAIN-STRICT.jpg",
+      "sha256": "5f307450a7ff51ae3ce74b3a2a76daa9b39fbb9873501b1e62c9ed86dfa972b0",
+      "result": "PASS",
+      "notes": "Official front photograph, complete black QC24251 fixed-stand computer plus classic Dell keyboard/mouse, original LCD retained, pure white exterior, no added graphic or text. Factory mark, speaker grille, webcam, keys and mouse compared with official-06. Complete set uncropped; 200px product identity clear."
+    },
+    {
+      "file": "MAIN-ENHANCED-FRONT-CANDIDATE.png",
+      "sha256": "1c3a1d2dbb2f59398104892c2671745c759cb43fa05ea63dbba1ef2a19898ee8",
+      "result": "PASS",
+      "notes": "Official front hardware retained; blue original art and high-contrast white headline stay inside the LCD; exactly one unwarped fixed Windows lockup inside the pixel mask. Keys/mouse/stand and authentic Dell mark unchanged from original. 200px primary headline/product clear; no exterior marketing graphics."
+    },
+    {
+      "file": "MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png",
+      "sha256": "0737f6ed267b53bd244f50fd1ec8ed7c3f0ad512b2bea2eb8cbfd011a33aa69f",
+      "result": "PASS",
+      "notes": "Official three-quarter hardware retained. Corrected measured LCD polygon preserves the actual lower bezel and Dell mark. One fixed Windows package fully LCD-contained, distinct from front lockup. Original keyboard/mouse visible and uncropped; contrast corrected and 200px primary headline clear."
+    },
+    {
+      "file": "PT01.png",
+      "sha256": "697792c3bdacbf1105e398edd84aa76d40fbb6b22d9d1319a865cb526e36c56a",
+      "result": "PASS",
+      "notes": "B01/BG01 blue-white direction matches approved preview. One primary integration/desk-organization benefit, accurate sourced angle, classic inputs, no Windows treatment or CPU/capacity/display table. Logo in measured top-right negative space. Primary headline readable at 200px; fine copy at full size."
+    },
+    {
+      "file": "PT02.png",
+      "sha256": "b7915012685fc161b82427b04adfafe4966c9bb2eff60e1088d7d674f9db569f",
+      "result": "PASS",
+      "notes": "Original synthetic empty office plate, no people or extra devices. Official angle set placed on desk, computer/keyboard/mouse complete. Scene-oriented copy without paid app/meeting/throughput claims. Blue-white family and OEM logo visible at 200px; no configuration recap."
+    },
+    {
+      "file": "PT03.png",
+      "sha256": "d2cb6bce55a2cef68f8f7474de1fbe2cb0f110f3855f1a41dcc53af516f55684",
+      "result": "PASS",
+      "notes": "Sole complete base configuration page. Actual ERP VA-215 -> PA-222 identifies i5-14500T, Intel Integrated Graphics, 8GB DDR5, 256GB Gen4 SSD and Windows 11 Pro. Values individually inspected for spelling and clipping at large view; enlarged capacity type after first review. No optional tiers; primary page identity and capacities distinguishable in 200px overview, small label/detail reading uses full image."
+    },
+    {
+      "file": "PT04.png",
+      "sha256": "4160fc8ab5b33ba42339ff15fd977cb46ee6b3e2c2e16f1a779c576c71815aa6",
+      "result": "PASS",
+      "notes": "Display owner: 23.8-inch FHD, 1920x1080, 60Hz, non-touch matches ERP PA-222 and official model page. Front exact-product hardware and classic inputs unaltered. Display facts do not recur in PT03. Full-size type checked; 200px headline/product clear."
+    },
+    {
+      "file": "PT05.png",
+      "sha256": "279927864c0ea54335f100926f71714da47e1758e726c46eb99ad98a4ed4dc9d",
+      "result": "PASS",
+      "notes": "Original plan -> create -> review workflow graphic, with unaltered sourced product set. No brand software UI, subscription, compatibility, performance number, configuration grid or warranty claim. Abstract task sequence is distinct from PT02 room scene; reviewed manually, no numeric fact-overlap invented."
+    },
+    {
+      "file": "PT06.png",
+      "sha256": "b3ebcf802082b5401aebc8b8d7940f3b4a0efbc363dd448465bdc716314444e1",
+      "result": "PASS",
+      "notes": "White-background source crop of official classic black full-size keyboard and mouse. Removed stand-edge remnant from earlier crop; no keys were generated or redrawn. Full-size keyboard/number pad visually supported, wireless input supported by exact VA-215 comment. Specific accessory SKU remains unspecified under explicit user representative-treatment approval."
+    },
+    {
+      "file": "PT07.png",
+      "sha256": "680658bcd5e2eecd55669f9d534d7a90a3352706b194a3f3861a281174eeaab1",
+      "result": "PASS",
+      "notes": "Pop-up camera is the unique remaining hardware value, sourced directly from official QC24251 front photograph. Original physical camera module, bezel/stand/marks preserved; camera crop uses same blue LCD treatment. No camera resolution, biometric/privacy certification or warranty assertion. Classic input devices remain visible in full product view."
+    },
+    {
+      "file": "PT08.png",
+      "sha256": "35ad893a25a0f749e4cc508d2126e73a24b529324f333fdb46a441a94b695ab1",
+      "result": "PASS",
+      "notes": "Physical port closeups are direct official rear/right/left/below-display crops, preserving connector type/count/orientation. Leaders inspected: DP at actual DP opening, group of four rear USB-A anchored to actual first USB, RJ45 at actual jack. Separate sourced right USB-A, left headset jack, below-display USB-C/SD details shown. Wi-Fi/Bluetooth confirmed by ERP, no inferred generation. Product/input full set omitted only for permitted port detail crop. Small connector labels read at full size."
+    }
+  ]
+}

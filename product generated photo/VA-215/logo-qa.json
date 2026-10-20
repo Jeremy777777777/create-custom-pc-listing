@@ -1,0 +1,85 @@
+{
+  "schemaVersion": 3,
+  "generatedAtUtc": "2026-10-20T15:14:30.740989+00:00",
+  "brand": "Dell",
+  "result": "PASS",
+  "logoAssetSha256": "7022f17d03a2277b67ef40d26e30a7b7476daf7edbb450879c81ddd82e6f78d1",
+  "logoAssetPath": "..\\..\\assets\\branding\\dell-logo-blue-transparent.png",
+  "visibleLogoAspectRatio": 1.0040160642570282,
+  "placementPlanSha256": "d5beb809905928685da3bfaa70a4b8ca10dd2f10b76f3e933f37188fc808dd2c",
+  "images": [
+    {
+      "file": "PT01.png",
+      "finalImageSha256": "697792c3bdacbf1105e398edd84aa76d40fbb6b22d9d1319a865cb526e36c56a",
+      "unbrandedSourceSha256": "761b00704ce163c0e1f2524dbae75d91335b522110bd6f15433726e6543ab9b7",
+      "separationPx": 50,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT02.png",
+      "finalImageSha256": "b7915012685fc161b82427b04adfafe4966c9bb2eff60e1088d7d674f9db569f",
+      "unbrandedSourceSha256": "dcae8f097b10120e6e4d135f0738104ae915cac9ef326cd2e69c0d867e07d3c4",
+      "separationPx": 50,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT03.png",
+      "finalImageSha256": "d2cb6bce55a2cef68f8f7474de1fbe2cb0f110f3855f1a41dcc53af516f55684",
+      "unbrandedSourceSha256": "c57c2ac4a1659f26f09210087c4f91bf17a5f0a30cd6aac651e309d8336d777c",
+      "separationPx": 50,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT04.png",
+      "finalImageSha256": "4160fc8ab5b33ba42339ff15fd977cb46ee6b3e2c2e16f1a779c576c71815aa6",
+      "unbrandedSourceSha256": "564b02425e09e0efd79923ac14698ce67709e32cfe40f3a948dbd4cca704c46b",
+      "separationPx": 50,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT05.png",
+      "finalImageSha256": "279927864c0ea54335f100926f71714da47e1758e726c46eb99ad98a4ed4dc9d",
+      "unbrandedSourceSha256": "3a564c1813b56c53ad6757640eaf863f2650fb8bf6de90181a1badc5393d3f87",
+      "separationPx": 50,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT06.png",
+      "finalImageSha256": "b3ebcf802082b5401aebc8b8d7940f3b4a0efbc363dd448465bdc716314444e1",
+      "unbrandedSourceSha256": "76bb998d18ad4a65f51274f3b21c67d38cf4e5e1b3a8c84cc82eb67e5f9b5d2a",
+      "separationPx": 50,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT07.png",
+      "finalImageSha256": "680658bcd5e2eecd55669f9d534d7a90a3352706b194a3f3861a281174eeaab1",
+      "unbrandedSourceSha256": "071985f587410a8a5f41ca73c06dc3f5c9af4f6e2e9444028dc81aeb790242a2",
+      "separationPx": 50,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    },
+    {
+      "file": "PT08.png",
+      "finalImageSha256": "35ad893a25a0f749e4cc508d2126e73a24b529324f333fdb46a441a94b695ab1",
+      "unbrandedSourceSha256": "0964725bb6d636d68f16a22446e2c3df1717a57030da5893bc13a3498ec8fb20",
+      "separationPx": 50,
+      "geometryGate": "PASS",
+      "sourceVerification": "LOCAL_BYTES_VERIFIED",
+      "commandRecord": "gallery_engine.py badges (from clean unbranded master)"
+    }
+  ],
+  "visualReviewSha256": "504d675ae87e47411b72d0534dfab702076e51f2110f7ab6d1efa10c081cb53e"
+}
