@@ -28,6 +28,10 @@ The request authorizes same-product, same-slot replacement and Google Drive deli
 
 ## 1. Identify and map the target
 
+### Workflow version and Drive synchronization
+
+Apply [GitHub → Drive synchronization](references/github-drive-sync.md) for workflow updates and every product-generation run. Record the exact workflow commit, read the Drive baseline/current pointer, and check the matching verified snapshot receipt before describing that version as backed up. Push changed reusable workflow files to trigger backup; validated current main alone publishes the current Drive workflow view. Keep product outputs on their separate Drive delivery path. Missing credentials/receipts remain explicitly blocked/pending; generation and a successful local test do not prove synchronization. Include workflow SHA and actual sync state in the generation record and completion report.
+
 ### Python / Jupyter execution preference
 
 For every Listing mode (text/workbooks, images and workflow updates), apply the user's [Python/Jupyter testing preference](references/python-jupyter-testing.md) before programmable work. Prefer the dedicated Anaconda `listing-testing` Python 3.12 environment and **Python (Listing Testing)** kernel; verify the interpreter and run checks relevant to the changed content. Jupyter debugging and direct scripts share this environment; no always-open server is needed. Missing environment/access is reported rather than silently switching runtimes. This tooling preference does not replace factual/manual image QA, style approval or delivery gates.

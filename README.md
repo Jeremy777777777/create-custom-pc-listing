@@ -20,6 +20,8 @@ The workflow produces research and base-configuration listing workbooks, plus an
 
 ## Active files
 
+Workflow changes follow [GitHub → Drive synchronization](references/github-drive-sync.md): every push creates a commit backup; validated current main updates Drive's current workflow pointer. Each product generation records the workflow SHA and checks its actual Drive sync receipt. Initial activation requires the documented GitHub Actions Secrets; missing authorization is reported as blocked.
+
 | Purpose | Entry |
 | --- | --- |
 | Routing, research, workbooks and delivery | [SKILL.md](SKILL.md) |

@@ -1,10 +1,8 @@
 name: Validate workflow and retained product fixtures
 on:
   pull_request:
-    paths: ['.gitattributes', 'AGENTS.md', 'SKILL.md', 'README.md', 'references/**', 'assets/**', 'scripts/**', 'local-testing/**', '.github/**', 'product generated photo/**']
   push:
     branches: [main]
-    paths: ['.gitattributes', 'AGENTS.md', 'SKILL.md', 'README.md', 'references/**', 'assets/**', 'scripts/**', 'local-testing/**', '.github/**', 'product generated photo/**']
 jobs:
   validate:
     runs-on: ubuntu-latest

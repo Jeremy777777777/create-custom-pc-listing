@@ -1,0 +1,20 @@
+{
+  "schemaVersion": 1,
+  "repository": "Jeremy777777777/create-custom-pc-listing",
+  "mainBranch": "main",
+  "validationWorkflowPath": ".github/workflows/validate-gallery-logo-qa.yml",
+  "projectFolderId": "1Knp8RUWyw5N1MownbfJSSo-m6NgrqrQq",
+  "workflowsFolderId": "1a65QcW3vyWBiKPFArlPERXQ9Xi9d4pPP",
+  "templatesFolderId": "1oxexMJZBaRhtT6tNiTCXjEVryfV0Zhal",
+  "archiveFolderId": "1FtH10zJlEi-lcqOeRg-yHbRa9iKttULa",
+  "adminFolderId": "1qNcfVQPJFLfQtV_uhbjntaPLnjj4BMEg",
+  "baselineReadmeId": "10blse8SDGyImJTsL2iq1Xk8Z53HtRjEO",
+  "baselineReadmeTextSha256": "b11cde123a9f27c2e4fd08d987271521d380e3be91217491105da4e7c6cb3710",
+  "currentFolderName": "GITHUB_CURRENT",
+  "snapshotFolderName": "WORKFLOW_SNAPSHOTS",
+  "excludedFromCurrent": ["history/", "product generated photo/"],
+  "includedReusableProductPaths": ["product generated photo/README.md", "product generated photo/image-manifest-template.md"],
+  "archiveAllTrackedFiles": true,
+  "zipUploadsAllowed": false,
+  "sharingChangesAllowed": false
+}

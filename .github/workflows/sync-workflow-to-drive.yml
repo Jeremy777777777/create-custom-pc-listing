@@ -1,0 +1,79 @@
+name: Back up GitHub workflow to Google Drive
+
+on:
+  push:
+    branches: ['**']
+  workflow_run:
+    workflows: ['Validate workflow and retained product fixtures']
+    branches: [main]
+    types: [completed]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  actions: read
+
+# Keep distinct pushes queued instead of replacing the previous pending backup.
+# GitHub permits up to 100 pending jobs with queue:max; canceled/failed runs must
+# be rerun before claiming the corresponding commit is backed up.
+concurrency:
+  group: github-drive-repository-sync
+  cancel-in-progress: false
+  queue: max
+
+jobs:
+  sync:
+    if: >-
+      github.event_name != 'workflow_run' ||
+      (github.event.workflow_run.event == 'push' &&
+       github.event.workflow_run.head_branch == 'main' &&
+       github.event.workflow_run.head_repository.full_name == github.repository &&
+       github.event.workflow_run.conclusion == 'success')
+    runs-on: ubuntu-latest
+    timeout-minutes: 120
+    steps:
+      # The engine and config come from main. Branch contents are read as data;
+      # no scripts, dependency installers or artifacts from that branch run.
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          path: engine
+          persist-credentials: false
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
+          path: source
+          fetch-depth: 1
+          persist-credentials: false
+          lfs: true
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.12'
+      - name: Install sync adapter in the isolated runner
+        run: python -m pip install -r engine/scripts/requirements-drive-sync.txt
+      - name: Back up commit and optionally publish validated main
+        env:
+          GOOGLE_DRIVE_CLIENT_ID: ${{ secrets.GOOGLE_DRIVE_CLIENT_ID }}
+          GOOGLE_DRIVE_CLIENT_SECRET: ${{ secrets.GOOGLE_DRIVE_CLIENT_SECRET }}
+          GOOGLE_DRIVE_REFRESH_TOKEN: ${{ secrets.GOOGLE_DRIVE_REFRESH_TOKEN }}
+          GITHUB_TOKEN: ${{ github.token }}
+          SOURCE_COMMIT: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
+          SOURCE_BRANCH: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref_name }}
+          SOURCE_EVENT: ${{ github.event_name }}
+          VALIDATION_RUN_ID: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.id || '' }}
+        run: |
+          args=()
+          if [ "$SOURCE_EVENT" = "workflow_run" ]; then
+            args+=(--promote --ci-run-id "$VALIDATION_RUN_ID")
+          fi
+          python engine/scripts/github_drive_sync.py \
+            --source source --config engine/assets/github-drive-sync.json \
+            --commit "$SOURCE_COMMIT" --repository "$GITHUB_REPOSITORY" \
+            --branch "$SOURCE_BRANCH" --output drive-sync-result.json "${args[@]}"
+      - name: Preserve actual sync status
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: drive-sync-result-${{ github.run_id }}
+          path: drive-sync-result.json
+          if-no-files-found: warn
