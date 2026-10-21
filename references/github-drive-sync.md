@@ -32,6 +32,12 @@ Until configured, runs fail explicitly with `BLOCKED_MISSING_DRIVE_AUTH`; they d
 
 ## Baseline and recovery
 
+### Connected-tool fallback for a scoped workflow update
+
+If runner credentials are unavailable but the user has authorized Drive backup through connected tools, back up the exact committed changed workflow files as individual files under the existing `10_WORKFLOWS/source` relative paths. Read the baseline and existing destination IDs first, preserve replaced bytes under `90_ARCHIVE`, and save a commit-bound receipt in `99_ADMIN` with paths, actual IDs/parents/MIME/size, hashes and remote readback results. Reuse stable source IDs; publish new rules alongside their relative-path references. Follow the baseline task/run handoff for the requested scope; do not manufacture a product identity for a repository-wide update if a product-bound tool cannot represent it. Record that tool limitation explicitly in the workflow maintenance record.
+
+Label this result `WORKFLOW_CHANGED_FILES_BACKUP_VERIFIED` only after verification, list the selected paths and exclusions, and retain `BLOCKED_MISSING_DRIVE_AUTH` for runner automation. This is a scoped readable backup, not a full `WORKFLOW_SNAPSHOT_VERIFIED` snapshot or publication of `GITHUB_CURRENT/CURRENT.json`. Do not create a sealed snapshot receipt, change the current pointer or mark future automatic synchronization active from this fallback. Future runs must report the exact backup scope until the ordinary integration is activated.
+
 `assets/github-drive-sync.json` pins the existing folder IDs and normalized baseline README hash. Every live run checks the destination folders still belong to the project root and checks the baseline before any upload. A changed baseline blocks synchronization. Read it, explain any required differences to the user in advance, then update the reviewed configuration; never bypass the check merely to get a green run.
 
 `99_ADMIN/github-sync-objects.json` is the managed content index. Commit-specific receipts and sealed manifests are immutable. Retrying an incomplete upload reads back known IDs before accepting success and reuses the same managed commit namespace. A failure during current staging leaves the previous `CURRENT.json` in place. Reconcile damaged/moved files rather than changing old evidence to pass a check. Backup success establishes stored bytes only; product facts, visual QA, rights and Amazon publication remain separate.

@@ -1,5 +1,7 @@
 # Research handoff checks — 2026-10-15
 
+For future full Excel deliveries, also apply the [default output Excel contract](output-excel-contract.md): complete title/five bullets/HTML description, seven-row evidence/candidate layout, field-specific technical research, honest unresolved dispositions and one stable current Drive entry. A Research Review alone is an early/partial handoff, not completion of a full listing Excel request.
+
 This implements the existing research, base-configuration and delivery stages without changing workbook sheets/rows/fields, directory names or image slots. Use this checklist before declaring a stage complete; automation and factual/manual review remain separate.
 
 Canonical identity aliases (`identity.internalId`, top-level `internalId`, top-level `productId`) must agree whenever supplied. Directory, metadata adaptation and image research checks share this rule instead of silently choosing the first alias. ERP numeric IDs belong in the separate `erpProductId` source metadata and are not canonical folder IDs. Conflicting or malformed aliases require source reconciliation; no checker rewrites the product record automatically.

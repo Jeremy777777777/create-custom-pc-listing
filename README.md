@@ -25,6 +25,7 @@ Workflow changes follow [GitHub → Drive synchronization](references/github-dri
 | Purpose | Entry |
 | --- | --- |
 | Routing, research, workbooks and delivery | [SKILL.md](SKILL.md) |
+| Default full output Excel: complete copy, seven rows, technical research, candidates and current Drive delivery | [output-excel-contract.md](references/output-excel-contract.md) |
 | Seller assertions and precedence | [confirmed-catalog-defaults.md](references/confirmed-catalog-defaults.md) |
 | Complete attribute research | [research-attribute-coverage.md](references/research-attribute-coverage.md) |
 | Scoped facts, template projection and mandatory pre-export evidence checks | [research-ledger-projection.md](references/research-ledger-projection.md) / [JSON schema](assets/research-ledger-schema.json) |

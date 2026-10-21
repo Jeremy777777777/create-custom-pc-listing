@@ -72,6 +72,8 @@ Apply current confirmed policy resolutions before classifying conflicts: OEM Hom
 
 ## 3. Produce Research Review and listing workbooks
 
+For every future full research/listing Excel request, apply the [default output Excel contract](references/output-excel-contract.md). Deliver the complete listing copy and attribute workbook with the seven-row candidate/evidence layout, not a research-only substitute. Thoroughly research unresolved technical fields; preserve seller inputs, distinguish confirmed values from candidates, and explain defensible remaining blanks. Keep truthful PARTIAL status and one stable current Drive entry. An explicitly scoped research-only request or early handoff retains its stated stage and limitations.
+
 As soon as the mapped internal ID and a real Research Review workbook exist, upload the original XLSX to the Drive product's `03_RESEARCH` folder with its stage summary and supporting research; do not wait for imagery or publication readiness. `01_LISTING` contains Listing Draft workbooks and a clear availability/status note, never a Research Review presented as a finished Listing. Never overwrite the source template. Use explicit stage filenames and true review statuses.
 
 All top-level product workbooks are current and must match the current ledger. Preserve superseded stages with their original ledger/template and immutable hashes under [workbook stage snapshots](references/workbook-stage-snapshots.md); CI checks their preserved bytes rather than latest-field projection. Historical snapshots never become export-eligible. Export requires explicit LISTING_DRAFT stage, the current canonical template and OEM identity/copy checks regardless of filename.
