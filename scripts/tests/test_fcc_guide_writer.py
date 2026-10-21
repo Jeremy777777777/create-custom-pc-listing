@@ -37,7 +37,7 @@ class FCCGuideWriterTests(unittest.TestCase):
         col = next(c.column for c in sheet[1] if c.value == 'FCC ID')
         return sheet.cell(row, col)
 
-    def test_selected_option_writes_green_text_and_warning_but_blocks_export(self):
+    def test_selected_option_uses_candidate_rows_and_blocks_export(self):
         with tempfile.TemporaryDirectory() as scratch:
             root = Path(scratch)
             data, fact, previous, ledger = self.fixture(root)
@@ -52,12 +52,13 @@ class FCCGuideWriterTests(unittest.TestCase):
                 for row in (1, 2):
                     self.assertEqual([c.value for c in sheet[row]], [c.value for c in template[sheet.title][row]])
                 self.assertEqual(str(sheet.data_validations), str(template[sheet.title].data_validations))
-            self.assertEqual(self.cell(book).value, 'TEST-MODULE-ID')
-            self.assertEqual(self.cell(book).number_format, '@')
-            self.assertEqual(self.cell(book).fill.fgColor.rgb, '00C6EFCE')
+            self.assertIsNone(self.cell(book).value)
+            self.assertEqual(self.cell(book, 6).value, 'TEST-MODULE-ID')
+            self.assertEqual(self.cell(book, 6).number_format, '@')
+            self.assertEqual(self.cell(book, 6).fill.fgColor.rgb, '00FFF2CC')
             self.assertEqual(self.cell(book, 4).value, 'INPUT_UNVERIFIED')
-            self.assertIn('USER_SELECTED_SUPPORTED_OPTION', self.cell(book, 5).value)
-            self.assertNotIn('MOST_LIKELY', self.cell(book, 5).value)
+            self.assertIn('USER_SELECTED_SUPPORTED_OPTION', self.cell(book, 7).value)
+            self.assertNotIn('MOST_LIKELY', self.cell(book, 7).value)
             book.close(); template.close()
             self.assertEqual(template_hash, r.hashlib.sha256((r.ROOT/'assets/listing-workbook-template.xlsx').read_bytes()).hexdigest())
             blocked = root/'blocked.xlsx'

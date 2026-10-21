@@ -1,6 +1,6 @@
 # FCC lookup reading copies
 
-Use [FCC ID lookup manual Word edition](fcc-id-lookup-manual.docx) for human reading and [Chinese source](fcc-id-lookup-manual.zh-CN.md) for searchable plain text. Version: 2026-10-16.
+Use [FCC ID lookup manual Word edition](fcc-id-lookup-manual.docx) for human reading and [Chinese source](fcc-id-lookup-manual.zh-CN.md) for searchable plain text. Version: 2026-10-21. Candidate rows follow the explicit user layout decision in ../candidate-review-rows.md.
 
 Execution authority remains [FCC workflow](../fcc-research-workflow.md), [ledger and Excel projection](../research-ledger-projection.md), and [stage snapshots](../workbook-stage-snapshots.md), subject to current explicit user instructions and seller policy. The Word edition summarizes these references; it is not an independent product fact source or a second rulebook.
 

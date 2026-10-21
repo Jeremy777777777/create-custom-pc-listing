@@ -117,6 +117,23 @@ def validate_ledger(data):
             raise ValueError('VERIFIED fact requires a value: ' + fact['id'])
         if isinstance(value, str) and value.lstrip().startswith('='):
             raise ValueError('Formula is not a research value: ' + fact['id'])
+        has_candidate = 'value_candidate' in fact
+        if has_candidate != ('value_candidate_source' in fact):
+            raise ValueError('Candidate requires paired value_candidate_source: ' + fact['id'])
+        if has_candidate:
+            candidate = fact['value_candidate']
+            if fact['status'] in ('VERIFIED', 'NOT_APPLICABLE') or value is not None:
+                raise ValueError('Candidate must remain an unresolved fact: ' + fact['id'])
+            if (candidate is None or isinstance(candidate, str) and
+                    (not candidate.strip() or candidate.lstrip().startswith('='))
+                    or isinstance(candidate, float) and not math.isfinite(candidate)):
+                raise ValueError('Candidate must be a finite, nonempty literal: ' + fact['id'])
+            for name in ('candidate_rationale', 'candidate_missing_confirmation'):
+                text = fact.get('evidence', {}).get(name)
+                if not isinstance(text, str) or not text.strip():
+                    raise ValueError('Candidate requires evidence.' + name + ': ' + fact['id'])
+            if fact.get('recommended_candidate') is not None:
+                raise ValueError('Use one candidate representation per fact: ' + fact['id'])
         facts[fact['id']] = fact
     seen = set()
     for field in data['fields']:
@@ -144,7 +161,7 @@ def validate_ledger(data):
     return facts
 
 
-def project(data, field_keys, mode='draft'):
+def project(data, field_keys, mode='draft', separate_candidates=True):
     if mode not in ('draft', 'export'):
         raise ValueError('Unknown projection mode')
     facts = validate_ledger(data)
@@ -156,10 +173,21 @@ def project(data, field_keys, mode='draft'):
     for key in expected:
         fact = mapped[key]
         candidate = fact.get('recommended_candidate')
+        advisory = fact.get('value_candidate')
+        advisory_source = None
+        if advisory is not None:
+            if key == FCC_KEY:
+                check_fcc_id_value(advisory, 'VERIFIED')
+            if not separate_candidates:
+                raise ValueError('Candidate metadata requires the seven-row workbook layout')
+            evidence = fact['evidence']
+            advisory_source = ('MOST_LIKELY_CANDIDATE — NOT CONFIRMED; ' + fact['value_candidate_source']
+                               + '; Rationale: ' + evidence['candidate_rationale']
+                               + '; Missing confirmation: ' + evidence['candidate_missing_confirmation'])
         if mode == 'export':
             if fact['status'] not in ('VERIFIED', 'NOT_APPLICABLE'):
                 raise ValueError('Export blocked by unresolved field: ' + str(key))
-            if candidate is not None:
+            if candidate is not None or advisory is not None:
                 raise ValueError('Export blocked by recommended candidate: ' + str(key))
             if key == FCC_KEY:
                 check_fcc_lookup(fact, require_outcome=True)
@@ -168,13 +196,16 @@ def project(data, field_keys, mode='draft'):
         if mode == 'draft' and candidate is not None:
             if fact['status'] != 'INPUT_UNVERIFIED' or key != ('Safety&Compliance', 'FCC ID'):
                 raise ValueError('Only INPUT_UNVERIFIED FCC research cells may show a recommended candidate')
-            value = candidate
-            if not isinstance(value, str) or not value.strip() or value.lstrip().startswith('='):
+            if not isinstance(candidate, str) or not candidate.strip() or candidate.lstrip().startswith('='):
                 raise ValueError('FCC candidate must be a nonempty text identifier')
-            check_fcc_id_value(value, 'VERIFIED')
-            source = 'MOST_LIKELY_CANDIDATE — NOT CONFIRMED; ' + source
+            check_fcc_id_value(candidate, 'VERIFIED')
+            warning = 'MOST_LIKELY_CANDIDATE — NOT CONFIRMED; '
             if fact.get('evidence', {}).get('lookup_outcome') == 'SUPPORTED_OPTION_SELECTED':
-                source = 'USER_SELECTED_SUPPORTED_OPTION — INSTALLATION NOT CONFIRMED; ' + fact['source']
+                warning = 'USER_SELECTED_SUPPORTED_OPTION — INSTALLATION NOT CONFIRMED; '
+            if separate_candidates:
+                advisory, advisory_source = candidate, warning + source
+            else:  # Check preserved five-row workbooks without rewriting their history.
+                value, source = candidate, warning + source
         if key == FCC_KEY and fact.get('evidence', {}).get('lookup_outcome'):
             evidence = fact['evidence']
             details = ['FCC_LOOKUP=' + evidence['lookup_outcome']]
@@ -184,6 +215,7 @@ def project(data, field_keys, mode='draft'):
                          'fcc_official_url', 'reviewed_date') if evidence.get(name)]
             source += '; ' + '; '.join(details)
         projected[key] = {'value': value, 'status': fact['status'], 'source': source,
+                          'value_candidate': advisory, 'value_candidate_source': advisory_source,
                           'fact_id': fact['id'], 'fact_scope': fact['fact_scope']}
     return projected
 
@@ -202,15 +234,25 @@ def same_cell_value(actual, expected):
 
 
 def verify_workbook(book, data, mode='draft'):
-    result = project(data, workbook_fields(book), mode)
+    layouts = [tuple(sheet.cell(r, 1).value for r in (6, 7)) for sheet in book]
+    modern = all(labels == ('Value Candidate', 'Value Candidate Source') for labels in layouts)
+    legacy = all(labels == (None, None) for labels in layouts)
+    if not modern and not legacy:
+        raise ValueError('Workbook candidate row labels are incomplete or changed')
+    if mode == 'export' and not modern:
+        raise ValueError('Export requires the current seven-row workbook layout')
+    result = project(data, workbook_fields(book), mode, separate_candidates=modern)
+    rows = ((3, 'value'), (4, 'status'), (5, 'source'))
+    if modern:
+        rows += ((6, 'value_candidate'), (7, 'value_candidate_source'))
     for sheet in book:
         for column in range(2, sheet.max_column + 1):
             key = (sheet.title, sheet.cell(1, column).value)
             field = result[key]
             if not all(same_cell_value(sheet.cell(row, column).value, field[name])
-                       for row, name in ((3, 'value'), (4, 'status'), (5, 'source'))):
+                       for row, name in rows):
                 raise ValueError('Workbook differs from scoped ledger projection: ' + str(key))
-            if any(sheet.cell(row, column).data_type == 'f' for row in (3,4,5)):
+            if any(sheet.cell(row, column).data_type == 'f' for row, _ in rows):
                 raise ValueError('Formula cannot be exported: ' + str(key))
     return result
 
@@ -232,6 +274,10 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
     from research_handoff import check_product_location
     check_product_location(workbook, data['productId'])
     book = openpyxl.load_workbook(template)
+    if any(tuple(sheet.cell(r, 1).value for r in (6, 7)) !=
+           ('Value Candidate', 'Value Candidate Source') for sheet in book):
+        book.close()
+        raise ValueError('New workbooks require the seven-row candidate template')
     previous = None
     temporary = None
     try:
@@ -277,13 +323,15 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
             for col in range(2, sheet.max_column + 1):
                 key = (sheet.title, sheet.cell(1, col).value)
                 field = projected[key]
-                for row, name in ((3, 'value'), (4, 'status'), (5, 'source')):
+                for row, name in ((3, 'value'), (4, 'status'), (5, 'source'),
+                                  (6, 'value_candidate'), (7, 'value_candidate_source')):
                     cell = sheet.cell(row, col)
                     cell.value = field[name]
                     # Evidence text beginning '=' must stay text, never executable Excel formulas.
                     if isinstance(field[name], str):
                         cell.data_type = 's'
                 if key == FCC_KEY:
+                    sheet.cell(6, col).number_format = '@'
                     cell = sheet.cell(3, col)
                     cell.number_format = '@'
                     old = previous[sheet.title] if previous else None

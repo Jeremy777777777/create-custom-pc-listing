@@ -56,8 +56,10 @@ class ResearchExportTests(unittest.TestCase):
         fact = data['facts'][0]
         fact.update(status='INPUT_UNVERIFIED', final_value=None, recommended_candidate='TEST-ID')
         draft = r.project(data, [key])
-        self.assertEqual(draft[key]['value'], 'TEST-ID')
-        self.assertIn('NOT CONFIRMED', draft[key]['source'])
+        self.assertIsNone(draft[key]['value'])
+        self.assertEqual(draft[key]['value_candidate'], 'TEST-ID')
+        self.assertIn('NOT CONFIRMED', draft[key]['value_candidate_source'])
+        self.assertEqual(r.project(data, [key], separate_candidates=False)[key]['value'], 'TEST-ID')
         with self.assertRaisesRegex(ValueError, 'unresolved'):
             r.project(data, [key], 'export')
         fact.update(status='VERIFIED', final_value='TEST-ID', evidence_scope='RADIO_MODULE',

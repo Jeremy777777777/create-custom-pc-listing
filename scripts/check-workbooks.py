@@ -29,6 +29,8 @@ def check_template_inputs(path):
         if sheet.cell(3, col).number_format != '@':
             raise ValueError('Template FCC ID Value must use text formatting')
         for tab in book:
+            if tuple(tab.cell(r, 1).value for r in (6, 7)) != ('Value Candidate', 'Value Candidate Source'):
+                raise ValueError('Template requires Value Candidate and Value Candidate Source rows')
             for column in range(2, tab.max_column + 1):
                 cell = tab.cell(4, column)
                 if not any(cell.coordinate in validation and validation.type == 'list'
@@ -58,7 +60,8 @@ def template_topology(path):
             if any(not h for h in headers) or len(set(headers)) != len(headers):
                 raise ValueError(f'{sheet.title}: missing or duplicate field names')
             result[sheet.title] = ([tuple(sheet.cell(r,c).value for c in range(1,sheet.max_column+1)) for r in (1,2)],
-                                   tuple(sheet.cell(r,1).value for r in range(3,6)))
+                                   tuple(sheet.cell(r,1).value for r in range(3,8)
+                                         if r <= 5 or sheet.cell(r,1).value is not None))
         return result
     finally:
         book.close()
@@ -74,14 +77,26 @@ def check_output(path, topology, manufacturer=None):
                 raise ValueError(f'{path}: {sheet.title} template dimensions changed')
             if [tuple(sheet.cell(r,c).value for c in range(1,sheet.max_column+1)) for r in (1,2)] != rows:
                 raise ValueError(f'{path}: {sheet.title} headers/definitions changed')
-            if tuple(sheet.cell(r,1).value for r in range(3,6)) != labels:
+            modern = tuple(sheet.cell(r,1).value for r in (6,7)) == ('Value Candidate', 'Value Candidate Source')
+            actual_labels = tuple(sheet.cell(r,1).value for r in range(3,8 if modern else 6))
+            if actual_labels != (labels if modern else labels[:3]):
                 raise ValueError(f'{path}: {sheet.title} row labels changed')
-            if any(sheet.cell(r,c).value is not None for r in range(6,sheet.max_row+1) for c in range(1,sheet.max_column+1)):
+            if any(sheet.cell(r,c).value is not None for r in range(8 if modern else 6,sheet.max_row+1) for c in range(1,sheet.max_column+1)):
                 raise ValueError(f'{path}: {sheet.title} extra data rows added')
             for c in range(2,sheet.max_column+1):
                 if not sheet.cell(4,c).value or not sheet.cell(5,c).value:
                     raise ValueError(f'{path}: {sheet.title}/{sheet.cell(1,c).value} lacks Status/Source or disposition')
                 check_field_disposition(sheet.cell(4,c).value, sheet.cell(5,c).value)
+                if modern:
+                    candidate, candidate_source = sheet.cell(6,c), sheet.cell(7,c)
+                    if any(sheet.cell(r,c).data_type == 'f' for r in (3,4,5,6,7)):
+                        raise ValueError('Formula cannot be used in workbook research rows')
+                    if (candidate.value is None) != (candidate_source.value is None):
+                        raise ValueError('Candidate requires paired source')
+                    if candidate.value is not None:
+                        if (sheet.cell(3,c).value is not None or sheet.cell(4,c).value in ('VERIFIED','NOT_APPLICABLE')
+                                or not isinstance(candidate_source.value,str) or not candidate_source.value.strip()):
+                            raise ValueError('Candidate must remain separate from confirmed Value')
                 if sheet.title == 'Safety&Compliance' and sheet.cell(1,c).value == 'FCC ID':
                     check_fcc_id_value(sheet.cell(3,c).value, sheet.cell(4,c).value)
         if manufacturer is not None:

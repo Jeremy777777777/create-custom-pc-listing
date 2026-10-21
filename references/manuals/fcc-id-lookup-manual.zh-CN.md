@@ -1,6 +1,6 @@
 # 电脑 FCC ID 查询与 Excel 导出流程
 
-版本日期 2026年10月16日
+版本日期 2026年10月21日
 
 本手册说明如何把具体电脑、实际无线模块和 FCC 授权记录对应起来，并将研究结果准确写入 Listing Excel。保留单机、批次、型号匹配和候选之间的区别；资料不足时提供明确缺项，不能为了填满表格而认定已确认。
 
@@ -108,11 +108,11 @@ FCC 记录中的 ID 和完整设备型号必须与所选结果一致。访问结
 
 ### 研究表
 
-先把证据写入同一份 research-ledger.json，覆盖当前模板的全部字段。用 research_export.py 的 --write-workbook、--mode draft、--stage RESEARCH_REVIEW 生成新文件；候选的 final_value 保持 null，单个推荐或选用 ID 放在 recommended_candidate 中。
+先将证据写入同一份 research-ledger.json，再用 research_export.py 生成草稿。所有属性可用 value_candidate 与 value_candidate_source，并记录 candidate_rationale 和 candidate_missing_confirmation；final_value 保持 null。旧 FCC recommended_candidate 可读取，新表统一投影至候选行。无可靠候选或真正并列时两行留空，说明缺项。
 
-Excel 保留 Product Details、Offer、Safety&Compliance 三张表，以及字段、定义、Value、Status、Source 五行布局。FCC ID 位于 Safety&Compliance 的对应字段，按文本保存；候选说明和证据放入 Source，不将多个 ID 拼进一个单元格。
+Excel 保留三张表及原属性列。Source 下新增 Value Candidate 和 Value Candidate Source，统一为七行。候选只写第6行，第7行列来源、推荐理由及缺少的确认；正式 Value 保持空白，状态保持未确认。FCC ID 候选按文本保存，不将多个 ID 拼在一起。
 
-新增、推荐或明确选用的 ID 标绿；没有所选 ID 的单元格标红。红色项通过状态区分待确认与不适用。历史已确认且 ID 未变时，可保留原颜色。颜色表示研究进度，最终结论以状态和证据为准。
+候选两行统一为浅黄色；已确认 FCC ID 的正式 Value 标绿，空白正式值标红。状态仍区分待确认、冲突与不适用。历史已确认且 ID 未变时可保留原颜色；颜色不能替代证据。旧五行表只作原样保留与历史校验，新生成表必须七行。
 
 ### 正式 Listing Excel
 

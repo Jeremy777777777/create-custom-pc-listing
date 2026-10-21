@@ -1,13 +1,13 @@
 {
   "schemaVersion": 1,
   "artifactRole": "FCC_WORKFLOW_READING_COPY",
-  "version": "2026-10-16",
+  "version": "2026-10-21",
   "documentPath": "references/manuals/fcc-id-lookup-manual.docx",
-  "documentSha256": "4a81ca3a0199deb3e57da0a106ec9e036ba3d4d0a2e93b25078796c652d81b12",
+  "documentSha256": "ec59ad83e1ab586b1fda26e606531a8960868ec34bec3255322e084c3f848ce4",
   "sourceTextSha256": {
-    "references/manuals/fcc-id-lookup-manual.zh-CN.md": "4d066c01fe33907d787d325cc27cf1cba5f53bf9977c8ba59e2e2e722c57a19e",
-    "references/fcc-research-workflow.md": "5d0dbd853b06eee6aab00d76897ba2a927df9d848612fb4caa47b2f7b5102620",
-    "references/research-ledger-projection.md": "57396721170bdcb3fd7f335966ab2a096f260e69434da85049affa7d33023a20",
+    "references/manuals/fcc-id-lookup-manual.zh-CN.md": "ea94a27477141e81d490ebd53d16365454ccd4f3ede9144e6b3186eaa93b0ece",
+    "references/fcc-research-workflow.md": "216126b2e34341c9395612a2c63903cdc07a89d0b25f532e188b2c32abb9f560",
+    "references/research-ledger-projection.md": "d3e610c6ace123f0498f4b9139383de1c264c80173ed84d252b91087e57203e3",
     "references/workbook-stage-snapshots.md": "09eb920b4bc2d100c413cf629c1d551e8876b398fbde114ab0cb57eb8e1aa9e3"
   }
 }

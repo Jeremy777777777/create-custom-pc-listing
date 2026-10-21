@@ -1,5 +1,7 @@
 # FCC lookup and workbook mapping
 
+**2026-10-21 user layout update:** [Candidate review rows](candidate-review-rows.md) supersede older five-row and candidate-in-Value instructions for newly generated workbooks. All three sheets now place candidates/source in rows 6/7 below Source; formal Value remains blank until confirmed. Preserve original historical bytes.
+
 Human reading: [Chinese Word manual](manuals/fcc-id-lookup-manual.docx) / [Chinese text](manuals/fcc-id-lookup-manual.zh-CN.md). These are version-bound reading copies; this reference and the ledger/snapshot references remain the execution rules. See [maintenance](manuals/README.md).
 
 Workflow addition approved by the user on 2026-10-13; ERP serial-first lookup and ranked candidate fallback approved on 2026-10-14. Apply during full listing research and when resolving FCC fields; image-only work does not require unrelated FCC research. Recheck current official guidance before a publication decision.

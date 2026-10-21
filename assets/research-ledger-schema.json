@@ -64,6 +64,8 @@
         "final_value": {"$ref": "#/$defs/value"},
         "source": {"$ref": "#/$defs/text"},
         "recommended_candidate": {"$ref": "#/$defs/value"},
+        "value_candidate": {"type": ["string", "number", "boolean"]},
+        "value_candidate_source": {"$ref": "#/$defs/text"},
         "transfer_basis": {"$ref": "#/$defs/text"},
         "applies_to_sold_configuration": {"type": "boolean"},
         "evidence_scope": {"enum": ["HOST", "RADIO_MODULE", "UNRESOLVED"]},
