@@ -7,6 +7,8 @@ description: "Create MegaPC Custom PC research and base-configuration listing wo
 
 ## Final storage — 2026-10-20
 
+User update 2026-10-21: each product's `03_RESEARCH` exposes one stable `FINAL` folder. Reuse its folder/file IDs for subsequent updates; do not create dated or task-named sibling delivery folders. Preserve superseded evidence under `90_ARCHIVE/PRODUCT_RESEARCH_HISTORY/<internal-id>/` and independent run records under `30_RUNS`. Follow the stable-current-entry section in the Drive delivery reference. `FINAL` identifies the current delivery entry; retain the actual research/QA status, including PARTIAL and unresolved fields.
+
 All final product images, Research Review/Listing Excel workbooks and supporting business records go to Google Drive. Read [Google Drive delivery](references/google-drive-delivery.md) for actual folder IDs, byte verification, current/versioned records and reporting. GitHub is the workflow planning/code/rules/template/test center. Local product folders are working copies; do not commit new or changed business outputs to GitHub. Existing repository outputs and GitHub receipts remain historical. This destination change supersedes older repository-delivery wording and does not change factual, visual or publication gates.
 
 ## Current authority and historical exclusion
