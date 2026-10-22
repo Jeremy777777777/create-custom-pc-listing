@@ -9,7 +9,7 @@ description: "Create MegaPC Custom PC research and base-configuration listing wo
 
 User update 2026-10-21: each product's `03_RESEARCH` exposes one stable `FINAL` folder. Reuse its folder/file IDs for subsequent updates; do not create dated or task-named sibling delivery folders. Preserve superseded evidence under `90_ARCHIVE/PRODUCT_RESEARCH_HISTORY/<internal-id>/` and independent run records under `30_RUNS`. Follow the stable-current-entry section in the Drive delivery reference. `FINAL` identifies the current delivery entry; retain the actual research/QA status, including PARTIAL and unresolved fields.
 
-All final product images, Research Review/Listing Excel workbooks and supporting business records go to Google Drive. Read [Google Drive delivery](references/google-drive-delivery.md) for actual folder IDs, byte verification, current/versioned records and reporting. GitHub is the workflow planning/code/rules/template/test center. Local product folders are working copies; do not commit new or changed business outputs to GitHub. Existing repository outputs and GitHub receipts remain historical. This destination change supersedes older repository-delivery wording and does not change factual, visual or publication gates.
+All final product images, Research Review/Listing Excel workbooks and supporting business records go to Google Drive. Read [Google Drive delivery](references/google-drive-delivery.md) for actual folder IDs, byte verification, current/versioned records and reporting. GitHub is the workflow planning/code/rules/template/test center. Local product folders are temporary caches only, removed after verified Drive upload; do not commit new or changed business outputs to GitHub. Existing repository outputs and GitHub receipts remain historical. This destination change supersedes older repository-delivery wording and does not change factual, visual or publication gates.
 
 ## Current authority and historical exclusion
 
@@ -38,10 +38,10 @@ Apply [GitHub → Drive synchronization](references/github-drive-sync.md) for wo
 
 For every Listing mode (text/workbooks, images and workflow updates), apply the user's [Python/Jupyter testing preference](references/python-jupyter-testing.md) before programmable work. Prefer the dedicated Anaconda `listing-testing` Python 3.12 environment and **Python (Listing Testing)** kernel; verify the interpreter and run checks relevant to the changed content. Jupyter debugging and direct scripts share this environment; no always-open server is needed. Missing environment/access is reported rather than silently switching runtimes. This tooling preference does not replace factual/manual image QA, style approval or delivery gates.
 
-Read `references/input-source-cross-validation.md`.
+Read [ERP internal-ID lookup](references/erp-internal-id-lookup.md), then `references/input-source-cross-validation.md`. A supplied internal ID is sufficient: open virtual-computers All, enter the exact ID in Search, press Enter and open the matching detail. Do not ask for a URL before trying this route or infer numeric ERP IDs.
 
 Optional sources:
-- MyStore ERP: https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products?s=categoryId,status,id
+- MyStore ERP: https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/computers/virtual?s=-createdAt
 - Listing Status Tracker: https://docs.google.com/spreadsheets/d/11qeinso-6eRYgSVLQlRdteOZL8vsZE9IBfZcVMBXEkE/edit?gid=621896540#gid=621896540
 
 Use `MYSTORE_ONLY`, `CHECKLIST_ONLY` or `MYSTORE_AND_CHECKLIST`. Locate the exact requested product, not the whole catalog. Preserve original records, source URLs, timestamps, product IDs, tracker sheet/row, name, internal VL/VA identifier and quantity. Match by verified identity and configuration; do not merge fuzzy matches or expand an unconfirmed range. A missing source may be replaced by independent authoritative evidence.
@@ -101,7 +101,7 @@ Read these current references:
 - `references/hero-composition-variants.md`
 - `references/supporting-gallery-styles.md`
 
-Gaming additionally reads `gaming-hero-styles.md`, `gaming-core-badge-styles.md`, `gaming-main-reproducible-workflow.md`. Business reads `business-work-hero-styles.md`, and B07–B17 also reads `business-laptop-gallery-styles.md`. Business Laptop B17/BG17 reads [business-graphite-design-system.md](references/business-graphite-design-system.md) and its two approved visual references before planning. It adapts exact-product features, screen content and measured layouts, not Yoga-specific copy. B17 is optional: the user retained existing selection and per-product preview/approval in the [2026-10-05 decision record](references/business-graphite-policy-decisions.md).
+Gaming first reads [Natural Gaming design](references/gaming-natural-design.md), default G17/A17/GG17 with G18–G21 alternatives. Gaming additionally reads `gaming-hero-styles.md`, `gaming-core-badge-styles.md`, `gaming-main-reproducible-workflow.md`. Business reads `business-work-hero-styles.md`, and B07–B17 also reads `business-laptop-gallery-styles.md`. Business Laptop B17/BG17 reads [business-graphite-design-system.md](references/business-graphite-design-system.md) and its two approved visual references before planning. It adapts exact-product features, screen content and measured layouts, not Yoga-specific copy. B17 is optional: the user retained existing selection and per-product preview/approval in the [2026-10-05 decision record](references/business-graphite-policy-decisions.md).
 
 First verify every required exact-model angle, physical port image, fact and asset right. Search authorized OEM sources autonomously; retailer discovery never grants commercial rights. The user-confirmed OEM authorization covers the approved official-image references and their faithful AI reproduction under [faithful-product-reproduction.md](references/faithful-product-reproduction.md); other IP stays separately gated. Block production if required material is missing; never fabricate chassis, ports or a completed gallery.
 

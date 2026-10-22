@@ -1,5 +1,7 @@
 # Gaming creative motif library
 
+For new Gaming proposals, apply [Natural Gaming design](gaming-natural-design.md): G17/A17/GG17 is the product-led default, with G18–G21 as natural alternatives. This 2026-10-22 user decision replaces generic mecha, neon and cinematic defaults below. Existing product-specific approvals remain scoped; six-category enhanced MAIN, clipping, truthful hardware and actual visual review remain required.
+
 Read [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md), [image-spec.md](image-spec.md) and [gaming-main-reproducible-workflow.md](gaming-main-reproducible-workflow.md). These G styles supply original scene/palette/subject motifs only, not alternative card counts, slot ownership or approval/upload rules. Select one G style; bind matching A skin and GG continuation. All enhanced MAIN scenes are LCD-contained except the approved continuous head/helmet TOP exception. All six graphical cards use the verified base configuration; no extra devices/accessories. No-head themes remain inside LCD. MAIN exterior stays white.
 
 No copied characters, games, UI, maps, licensed vehicle branding, celebrity identities or distinctive protected artwork. Generate original genre-inspired worlds; use licensed brand/component assets only through deterministic composition. Accurate product layers/factory marks are never regenerated to fit a motif.

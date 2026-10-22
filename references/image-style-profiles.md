@@ -1,9 +1,12 @@
 # Image style profiles
 
+For new Gaming proposals, apply [Natural Gaming design](gaming-natural-design.md): G17/A17/GG17 is the product-led default, with G18–G21 as natural alternatives. This 2026-10-22 user decision replaces generic mecha, neon and cinematic defaults below. Existing product-specific approvals remain scoped; six-category enhanced MAIN, clipping, truthful hardware and actual visual review remain required.
+
 Profiles affect palette/type/visual hierarchy, not [catalog policy](confirmed-catalog-defaults.md), accurate hardware, fixed slots or Windows identities. MAIN-STRICT remains white and unadorned. Both enhanced candidates share a family with task-adapted LCD composition. Business uses distinct lockup/package; others package/package. Desktop/AIO full-product views include the verified keyboard and mouse required by the 2026-10-20 catalog decision; no other external-device imagery or outside-LCD MAIN information.
 
 | Profile | Visual language | Typical fit |
 | --- | --- | --- |
+| natural-gaming-editorial-v1 | Accurate product photography, soft natural light, matte cards, restrained palette | G17–G21; see gaming-natural-design.md |
 | navy-technical-v1 | Navy/white, precise lines and high-contrast simple modules | Technical clarity and specification reading |
 | feature-led-studio-v1 | Bright studio depth, large product and restrained feature hierarchy | Modern lifestyle/product storytelling |
 | graphite-business-v1 | Graphite/navy corporate depth, prominent exact product, purposeful screen imagery, direct feature copy | Business Laptop B17/BG17 only; [reference-driven design system](business-graphite-design-system.md), white MAIN exterior and PT06 |

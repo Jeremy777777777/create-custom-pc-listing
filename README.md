@@ -1,5 +1,7 @@
 # MegaPC Custom PC listing and image workflow
 
+2026-10-22 update: [exact internal-ID ERP search](references/erp-internal-id-lookup.md), [natural Gaming direction](references/gaming-natural-design.md), and [Drive-only retention with cache cleanup](references/google-drive-delivery.md).
+
 Start with [SKILL.md](SKILL.md) and [current seller policy](references/confirmed-catalog-defaults.md). Effective policy: **2026-10-02 baseline, amended 2026-10-05**.
 
 The workflow produces research and base-configuration listing workbooks, plus an independently callable image workflow. All final product images, Excel and supporting business records are delivered to [Google Drive](https://drive.google.com/drive/folders/1Knp8RUWyw5N1MownbfJSSo-m6NgrqrQq). GitHub maintains workflow code, rules, reusable templates and tests. It does not publish automatically to Seller Central. Read [Google Drive delivery](references/google-drive-delivery.md) before product work; existing repository outputs are historical and are not a synchronized current Drive mirror.

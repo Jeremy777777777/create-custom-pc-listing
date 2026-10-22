@@ -1,5 +1,7 @@
 # Gaming graphical configuration cards
 
+For new Gaming proposals, apply [Natural Gaming design](gaming-natural-design.md): G17/A17/GG17 is the product-led default, with G18–G21 as natural alternatives. This 2026-10-22 user decision replaces generic mecha, neon and cinematic defaults below. Existing product-specific approvals remain scoped; six-category enhanced MAIN, clipping, truthful hardware and actual visual review remain required.
+
 Apply [catalog policy](confirmed-catalog-defaults.md), [image-spec.md](image-spec.md) and [gaming-main-reproducible-workflow.md](gaming-main-reproducible-workflow.md). Each enhanced MAIN has six graphical cards built from frozen approved layers and base facts: DISPLAY/CPU/GPU/RAM/SSD/OS for integrated-display computers, FORM FACTOR/CPU/GPU/RAM/SSD/OS for standalone desktops. LCD/internal-component pictograms represent capabilities; do not depict standalone external monitors or peripheral products. CPU/GPU/Windows assets require approved originals and rights; do not generate their marks. Text-only category labels are not graphical assets. PT01 does not copy six-card full configuration or Windows identity.
 
 ## C layout motifs

@@ -1,4 +1,6 @@
 # Input Sources and Cross-Validation
+
+用户于 2026-10-22 指定默认 [ERP internal-ID lookup](erp-internal-id-lookup.md)：进入 virtual computers 的 All 页面，在顶部 Search 输入 internal ID，回车后打开精确匹配的产品详情。internal ID 本身足够启动定位，不应先要求用户再给详情 URL；不能推算 ERP 数字 ID。
 See [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for the active seller/base-configuration policy.
 
 
@@ -14,7 +16,7 @@ See [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for the activ
 
 来源：
 
-- MyStore 产品入口：https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/products?s=categoryId,status,id
+- MyStore 产品入口：https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/computers/virtual?s=-createdAt
 - Checking List：https://docs.google.com/spreadsheets/d/11qeinso-6eRYgSVLQlRdteOZL8vsZE9IBfZcVMBXEkE/edit?gid=621896540#gid=621896540
 - Checking List 目标页签：`Listing Status Tracker`（`gid=621896540`）。已核对表头位于第 3 行，包含 `Product Name`、`VL-`、`Quantity`、各 listing 类型的状态/链接、`Overall Status`、`Owner`、`Due Date`、`Notes`。
 

@@ -1,5 +1,7 @@
 # Confirmed catalog policy — 2026-10-02
 
+User amendment 2026-10-22: use [ERP internal-ID lookup](erp-internal-id-lookup.md) for supplied computer IDs and [Natural Gaming design](gaming-natural-design.md) for new Gaming proposals. Natural product-led G17 replaces the generic mecha default; existing exact-product approvals remain scoped. Product outputs/supporting records are retained only in Drive; temporary local files are removed after verified upload under [Drive delivery](google-drive-delivery.md). This supersedes older default aesthetics and persistent-local-copy wording below.
+
 This is the single active authority for seller decisions, workbook configuration and gallery defaults. Read this file and the product directory's current product-fact record before research, copy or image production. Historical files, old generated workbooks and image examples are not active instructions or current QA evidence. A later explicit user decision may replace a policy; record it here rather than appending contradictory instructions elsewhere. Actual Amazon eligibility remains a separate check.
 
 ## Seller policy

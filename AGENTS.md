@@ -1,5 +1,7 @@
 # Listing development and testing
 
+For supplied computer IDs, follow [ERP lookup](references/erp-internal-id-lookup.md) before requesting a detail URL. New Gaming proposals use [natural design](references/gaming-natural-design.md), default G17. Outputs/supporting records are retained only in Google Drive; remove temporary local caches after verified upload under [Drive delivery](references/google-drive-delivery.md).
+
 Read [SKILL.md](SKILL.md) and the applicable current references before changing Listing text, workbooks, images or workflow rules.
 
 For all Listing modes, the user prefers the dedicated Anaconda `listing-testing` Python 3.12 environment and Jupyter kernel `listing-testing` (**Python (Listing Testing)**). Read [Python/Jupyter testing](references/python-jupyter-testing.md) before programmable generation, inspection or testing. Use that environment for relevant copy/workbook/image checks and reproducible Notebook debugging. Direct Python execution in the same environment is supported; an always-open Jupyter server is not required.

@@ -5,7 +5,7 @@ __pycache__/
 gallery-ci-summary.json
 workbook-ci-summary.json
 
-# Product business files are local working copies; final storage is Google Drive.
+# Product business files are temporary caches, removed after verified Google Drive delivery.
 # Already tracked historical files remain tracked; stage workflow changes explicitly.
 /product generated photo/
 /drive-delivery-runs/

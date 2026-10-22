@@ -1,10 +1,12 @@
 # Gaming enhanced MAIN — current reference-driven production
 
+For new Gaming proposals, apply [Natural Gaming design](gaming-natural-design.md): G17/A17/GG17 is the product-led default, with G18–G21 as natural alternatives. This 2026-10-22 user decision replaces generic mecha, neon and cinematic defaults below. Existing product-specific approvals remain scoped; six-category enhanced MAIN, clipping, truthful hardware and actual visual review remain required.
+
 Read [gaming-approved-main-fit.md](gaming-approved-main-fit.md) and the current approved reference/normalized recipe before building Gaming MAIN. The user has approved the supplied VL-1221 image as the current successful example. Its acceptance is user-confirmed for that image, not independently checked or transferred to a new SKU.
 
 ## 1. Current composition and reference
 
-Default SCREEN_ONLY: original orange/blue mecha behind six readable graphical cards, accurate dominant front computer, white exterior and neutral shadow. DISPLAY/CPU flank the hero above; GPU/RAM/SSD/OS occupy the lower tier with cyan/orange/lime/cyan/purple/blue accents. All character/card/brand/effect pixels stay inside the real LCD. Use current measured masks and approximate normalized anchors; do not copy 1254px coordinates or require 8–10% top clearance. Adapt square-canvas margins to exact source geometry. Head-only/TOP breakout is an optional separately approved direction.
+Default SCREEN_ONLY: natural G17 product-led artwork behind six restrained readable graphical cards; a character is optional, accurate dominant front computer, white exterior and neutral shadow. DISPLAY/CPU flank the hero above; GPU/RAM/SSD/OS occupy the lower tier with cyan/orange/lime/cyan/purple/blue accents. All character/card/brand/effect pixels stay inside the real LCD. Use current measured masks and approximate normalized anchors; do not copy 1254px coordinates or require 8–10% top clearance. Adapt square-canvas margins to exact source geometry. Head-only/TOP breakout is an optional separately approved direction.
 
 The exact supplied 1237×937 front is imported without altering bytes under approved-slot-exception.json. New generated files follow image-spec.md's Amazon-based size policy from sufficiently detailed sources. Keep existing style approval and verify current product facts; no reference values transfer to other products.
 
@@ -30,7 +32,7 @@ ImageGen 可制作原创环境、角色和非品牌卡片装饰，也可依据�
 Form-factor override: DISPLAY means the actual integrated display on laptops/AIOs. For standalone desktops, the corresponding card is FORM FACTOR, with an accurate chassis silhouette and verified dimensions or form-factor name. Apply the catalog's six-category desktop mapping and DESKTOP_GRAPHIC_SAFE_ZONE; LCD/size icons and LCD clipping below apply only to integrated displays. Never use a monitor icon or a screen-size value for a standalone desktop.
 
 - 每卡先有能辨认的图形，再有必要规格。Display 为电脑LCD/尺寸图标，禁止独立外接显示器；CPU/GPU 为获准组件资产；RAM 为内存条；SSD 为存储图标；OS 使用固定完整 Windows 11 Pro 文件。不得以 DISPLAY/CPU/STORAGE 类别标题代替图形。
-- 默认 G04/A04 对应获批青橙机甲画面：display 蓝、CPU 橙、GPU 绿、RAM 青、SSD 紫、OS 蓝。其他 G/A 保持多样性，不强制全部变成此配色。
+- 新产品默认 G17/A17 自然方向；仅在明确选择 G04/A04 时对应既有青橙机甲画面：display 蓝、CPU 橙、GPU 绿、RAM 青、SSD 紫、OS 蓝。其他 G/A 保持多样性，不强制全部变成此配色。
 - 逐卡记录外轮廓四角、可用内区、图标框、规格框、层级和倾斜方向。初始内边距取卡片短边的 6–10%；最终以视觉 fit 为准，不能挤压 Logo、切字或让字贴发光边。
 - 原始品牌图可裁去透明/空白 padding，但不裁可见 artwork。Logo 等比，不任意改色、拉伸、模糊或重画。文字和非品牌图标可匹配卡片平面；Windows package 始终完整平面等比，不做透视扭曲。
 - OS 允许当前 A-style 成品外框；只保留一个原始 Windows asset，不留生成版或额外白色内框。按原始资产比例调整卡片内区，而非反向拉伸资产。不得为了避免双框把获批彩色外框也删除。
