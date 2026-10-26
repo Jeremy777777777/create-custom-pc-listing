@@ -30,4 +30,4 @@ Final OEM/Windows/other brand artwork and specification text use approved origin
 
 Record reference sources, URL/date/model/color, USER_CONFIRMED_CATALOG_WIDE authorization, source hashes, generation prompt/record, generated product-master hash and masks. Keep source references and generated layers distinctly identified. After actual fidelity review, freeze accepted layers/masks and build the final composition with deterministic logos/text. The same saved layers can be reused; rerunning AI is not a reproducibility guarantee. Edits invalidate affected hash-bound evidence.
 
-Existing product-specific style approval, slot ownership, computer-only composition, screen boundaries, image sizes, final-hash manual QA and Google Drive delivery requirements continue to apply. No existing gallery receives retroactive approval from this policy.
+Existing product-specific style approval, slot ownership, catalog-governed computer/accessory composition, screen boundaries, image sizes, final-hash manual QA and Google Drive delivery requirements continue to apply. No existing gallery receives retroactive approval from this policy.

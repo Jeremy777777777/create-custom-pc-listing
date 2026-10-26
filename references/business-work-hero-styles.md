@@ -4,7 +4,7 @@ Apply [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) and [image-
 
 ## Classification and entitlements
 
-Desktop/AIO applicability: the 2026-10-20 [catalog decision](confirmed-catalog-defaults.md) requires the verified supplied keyboard and mouse in full-product views, overriding older no-peripheral wording in this motif library for those two inputs. Laptops and other accessory restrictions are unchanged.
+Desktop/AIO applicability: the [catalog accessory treatment](confirmed-catalog-defaults.md) governs the required keyboard and mouse in full-product views, overriding older no-peripheral wording in this motif library for those two inputs. Laptops and other accessory restrictions are unchanged.
 
 Choose Business for evidence-supported productivity/collaboration/management positioning; Gaming for genuine gaming hardware/positioning; Student/General otherwise. Mixed positioning requires an explained dominant audience choice, not an automatic gaming theme.
 

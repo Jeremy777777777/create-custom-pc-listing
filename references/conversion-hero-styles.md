@@ -1,6 +1,6 @@
 # Conversion hero layout motifs
 
-Use [catalog policy](confirmed-catalog-defaults.md) and [image-spec.md](image-spec.md) for Windows audience modes, LCD boundaries, computer-only imagery and base facts. [hero-composition-variants.md](hero-composition-variants.md) defines front/angle views. G/B libraries choose creative family; this library only supplies information hierarchy. No copied competitor wallpaper, UI, wording, icons or distinctive layout.
+Use [catalog policy](confirmed-catalog-defaults.md) and [image-spec.md](image-spec.md) for Windows audience modes, LCD boundaries, computer/accessory treatment and base facts. [hero-composition-variants.md](hero-composition-variants.md) defines front/angle views. G/B libraries choose creative family; this library only supplies information hierarchy. No copied competitor wallpaper, UI, wording, icons or distinctive layout.
 
 | Motif | Layout treatment |
 | --- | --- |

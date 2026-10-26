@@ -1,7 +1,7 @@
 """Validate supplied Drive chain/privacy evidence and revision preconditions offline."""
 import hashlib
 import json
-from pathlib import Path
+from pathlib import Path, PurePosixPath
 from datetime import datetime, timezone
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -48,6 +48,18 @@ def check_history(previous_bytes, current_bytes, expected_previous_sha256):
     return {'state': 'DRIVE_LEDGER_CONTINUITY_CHECKED', 'scope': 'SUPPLIED_PREVIOUS_BYTES_ONLY'}
 
 
+def source_parent(nodes, root, relative):
+    """Resolve the source's relative directories without flattening or leaving its root."""
+    parent = root
+    for section in relative.parts[:-1]:
+        hits = [node for node in nodes.values()
+                if node['name'] == section and node.get('parents') == [parent]]
+        if len(hits) != 1:
+            raise ValueError('Missing/ambiguous source subfolder chain')
+        parent = hits[0]['id']
+    return parent
+
+
 def validate(upload_plan, destinations, context):
     policy = json.loads((ROOT/'assets/delivery-storage.json').read_text(encoding='utf-8'))
     product_id = upload_plan['productId']
@@ -75,21 +87,31 @@ def validate(upload_plan, destinations, context):
         raise ValueError('Run serial-use declaration required')
     for row in upload_plan['files']:
         name = row['relativePath']
+        relative = PurePosixPath(name)
+        if (not name or '\\' in name or ':' in name or relative.is_absolute()
+                or '..' in relative.parts or str(relative) != name):
+            raise ValueError('Expected a normalized product-relative file path')
         role = roles[name]
         if role not in ROLES:
             raise ValueError('Unknown delivery role')
-        basename = Path(name).name.upper()
+        basename = relative.name.upper()
         expected = ('IMAGE' if basename in {'MAIN-STRICT.JPG', 'MAIN-ENHANCED-FRONT-CANDIDATE.PNG', 'MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.PNG'} or basename in {f'PT{i:02}.PNG' for i in range(1,9)}
                     else 'RESEARCH' if 'RESEARCH_REVIEW' in basename or basename in {'RESEARCH-LEDGER.JSON', 'PRODUCT-FACTS.JSON'}
                     else 'LISTING' if 'LISTING_DRAFT' in basename else None)
-        if expected and role != expected:
+        # Canonical slots are top-level product files. Nested clean masters and
+        # historical source records may share their basenames but remain SOURCE.
+        if len(relative.parts) == 1 and expected and role != expected:
             raise ValueError('Canonical file role mismatch')
+        if len(relative.parts) > 1 and expected and role != 'SOURCE':
+            raise ValueError('Nested canonical names must be supporting SOURCE files')
         parent = products[0]['id']
         for section in ROLES[role]:
             hits = [n for n in nodes.values() if n['name'] == section and parent in n.get('parents', [])]
             if len(hits) != 1:
                 raise ValueError('Missing/ambiguous role folder chain')
             parent = hits[0]['id']
+        if role == 'SOURCE':
+            parent = source_parent(nodes, parent, relative)
         if destinations.get(name) != parent:
             raise ValueError('File destination does not match product/role chain')
         check = checks[name]
@@ -111,7 +133,8 @@ if __name__ == '__main__':
     history = commands.add_parser('history')
     history.add_argument('--previous', type=Path, required=True)
     history.add_argument('--current', type=Path, required=True)
-    history.add_argument('--previous-sha256', required=True)
+    history.add_argument('--previous-sha256', required=True,
+                         help='Hash from a verified previous receipt or observed legacy baseline adoption')
     args = parser.parse_args()
     if args.command == 'revision':
         result = check_revision(json.loads(args.baseline.read_text(encoding='utf-8-sig')),

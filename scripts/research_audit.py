@@ -1,5 +1,7 @@
 """Check recorded serial-first research coverage; never authenticate research."""
 from datetime import date
+import hashlib
+import json
 
 ROUTES = {'OEM_SERIAL', 'OEM_MODEL', 'ERP', 'AMAZON', 'DEEP'}
 RESULTS = {'REVIEWED', 'NO_MATCH', 'BLOCKED', 'NOT_APPLICABLE', 'NOT_STARTED'}
@@ -10,7 +12,55 @@ def text(value):
     return isinstance(value, str) and bool(value.strip())
 
 
-def validate(data, required=False):
+def legacy_reuse(data, missing, previous_bytes, review):
+    """Bind unchanged legacy facts to observed old bytes and an explicit impact review."""
+    if not isinstance(review, dict) or not isinstance(previous_bytes, bytes):
+        raise ValueError('Legacy reuse requires previous ledger bytes and a reuse review')
+    digest = hashlib.sha256(previous_bytes).hexdigest()
+    if review.get('previousLedgerSha256') != digest:
+        raise ValueError('Legacy reuse baseline hash mismatch')
+    previous = json.loads(previous_bytes.decode('utf-8-sig'))
+    if not isinstance(previous, dict):
+        raise ValueError('Legacy reuse requires a scoped previous ledger')
+    # Old records may lack traces, but their scope and schema must still be valid.
+    from research_export import validate_ledger
+    validate_ledger(previous)
+    for key in ('productId', 'configurationId'):
+        if not text(data.get(key)) or previous.get(key) != data[key] or review.get(key) != data[key]:
+            raise ValueError('Legacy reuse identity/configuration mismatch')
+    if not all(text(review.get(key)) for key in ('baselineReference', 'reviewer', 'reviewed_date', 'impact_review')):
+        raise ValueError('Legacy reuse needs observed baseline and applicability/impact review')
+    reviewed = date.fromisoformat(review['reviewed_date'])
+    if reviewed.isoformat() != review['reviewed_date'] or reviewed > date.today():
+        raise ValueError('Invalid legacy reuse review date')
+    entries = review.get('fields')
+    if not isinstance(entries, list) or not all(isinstance(row, dict) and text(row.get('factId')) for row in entries):
+        raise ValueError('Legacy reuse requires explicit retained fact entries')
+    ids = [row['factId'] for row in entries]
+    if len(set(ids)) != len(ids) or set(ids) != set(missing):
+        raise ValueError('Legacy reuse must cover exactly the missing selected traces')
+    old = {fact['id']: fact for fact in previous['facts']}
+    current = {fact['id']: fact for fact in data['facts']}
+    for row in entries:
+        fact_id = row['factId']
+        dependencies = row.get('dependencyFactIds')
+        if (not text(row.get('basis')) or not isinstance(dependencies, list)
+                or not all(text(key) for key in dependencies) or len(set(dependencies)) != len(dependencies)):
+            raise ValueError('Legacy reuse needs applicability basis and explicit dependency facts')
+        # Compare whole records, not just values: sources, scopes, candidates and
+        # status must survive unchanged. Review cannot exempt changed dependencies.
+        for key in [fact_id, *dependencies]:
+            if key not in old or key not in current or old[key] != current[key]:
+                raise ValueError('Legacy fact/dependency changed; refresh affected research traces')
+        mappings = lambda ledger: [m for m in ledger['fields'] if m['selected_fact'] == fact_id]
+        if mappings(previous) != mappings(data):
+            raise ValueError('Legacy selected field mapping changed')
+    return {'previousLedgerSha256': digest, 'baselineReference': review['baselineReference'],
+            'reviewSha256': hashlib.sha256(json.dumps(review, sort_keys=True, ensure_ascii=False).encode('utf-8')).hexdigest(),
+            'retainedFactIds': ids}
+
+
+def validate(data, required=False, previous_bytes=None, reuse=None):
     facts = {f['id']: f for f in data['facts']}
     checked, missing = 0, []
     for mapping in data['fields']:
@@ -93,8 +143,12 @@ def validate(data, required=False):
                 raise ValueError('Sold modification requires linked dated installation evidence and reconciliation')
             date.fromisoformat(modification['reviewed_date'])
         checked += 1
-    if required and missing:
+    reuse_result = None
+    if reuse is not None or previous_bytes is not None:
+        reuse_result = legacy_reuse(data, missing, previous_bytes, reuse)
+    if required and missing and reuse_result is None:
         raise ValueError('New research requires research_trace for every selected field; missing count: ' + str(len(missing)))
     return {'state': 'RESEARCH_TRACE_RECORDED' if not missing else 'LEGACY_TRACE_INCOMPLETE',
             'checkedFields': checked, 'missingFields': len(missing),
+            'legacyReuse': reuse_result,
             'scope': 'RECORDED_COVERAGE_ONLY_NOT_SOURCE_AUTHENTICATION'}

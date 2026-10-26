@@ -2,7 +2,7 @@
 
 For new Gaming proposals, apply [Natural Gaming design](gaming-natural-design.md): G17/A17/GG17 is the product-led default, with G18–G21 as natural alternatives. This 2026-10-22 user decision replaces generic mecha, neon and cinematic defaults below. Existing product-specific approvals remain scoped; six-category enhanced MAIN, clipping, truthful hardware and actual visual review remain required.
 
-Profiles affect palette/type/visual hierarchy, not [catalog policy](confirmed-catalog-defaults.md), accurate hardware, fixed slots or Windows identities. MAIN-STRICT remains white and unadorned. Both enhanced candidates share a family with task-adapted LCD composition. Business uses distinct lockup/package; others package/package. Desktop/AIO full-product views include the verified keyboard and mouse required by the 2026-10-20 catalog decision; no other external-device imagery or outside-LCD MAIN information.
+Profiles affect palette/type/visual hierarchy, not [catalog policy](confirmed-catalog-defaults.md), accurate hardware, fixed slots or Windows identities. MAIN-STRICT remains white and unadorned. Both enhanced candidates share a family with task-adapted LCD composition. Business uses distinct lockup/package; others package/package. Desktop/AIO full-product views include keyboard and mouse using the [catalog accessory treatment](confirmed-catalog-defaults.md); no other external-device imagery or outside-LCD MAIN information.
 
 | Profile | Visual language | Typical fit |
 | --- | --- | --- |

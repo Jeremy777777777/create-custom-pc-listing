@@ -125,6 +125,8 @@ Use exact licensed original product layers or AI layers that pass the official-o
 
 Apply [Drive release checks](references/drive-release-checks.md) for current product folder chains, actual-byte privacy screening, prewrite revision comparison and Drive-based ledger continuity. A primitive checksum match is not a complete delivery receipt. Report research, workbook, user style approval, image QA, product delivery, workflow backup and publication separately.
 
+For old-product revisions, use the [bounded research reuse](references/research-trace-contract.md#bounded-revision-of-an-older-workbook) route for unchanged legacy fields and [observed baseline adoption](references/drive-release-checks.md#existing-product-without-a-qualifying-old-receipt) when a prior receipt is missing. Preserve actual old bytes and unresolved states; do not fabricate historical traces or QA. Deliver nested clean masters and production dependencies as SOURCE with their relative paths under the exact product's `90_SOURCE`.
+
 Apply [workflow validation boundaries](references/workflow-validation-boundaries.md) for export identity/content checks, review-input binding, import lifecycle, snapshot preservation and local tool selection. These refine the existing stages without changing the workbook or gallery structure.
 
 Apply [follow-up workflow checks](references/workflow-edge-case-checks.md) for explicit field types/units, CPU/RAM/copy consistency, non-image change and deletion routing, and output rollback. Historical records remain historical; these implementation checks do not replace actual review or change approved product appearance.

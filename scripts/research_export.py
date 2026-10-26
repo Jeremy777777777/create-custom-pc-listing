@@ -488,6 +488,8 @@ def write_summary(output, result, workbook):
                'ledgerSha256', 'templateSha256', 'productFactsSha256', 'coverageSummary')}
     summary['artifactRole'] = 'RESEARCH_COVERAGE_SUMMARY'
     summary['workbookFile'] = resolve_workbook_path(workbook).name
+    if 'researchTrace' in result:
+        summary['researchTrace'] = result['researchTrace']
     temporary = None
     try:
         with tempfile.NamedTemporaryFile(prefix='.' + output.name + '-', suffix='.tmp',
@@ -518,14 +520,20 @@ def main():
     parser.add_argument('--summary-output',type=Path,help='Write a standalone research coverage JSON after successful checking')
     parser.add_argument('--write-workbook', action='store_true', help='Create a new Excel from the scoped ledger, then validate it')
     parser.add_argument('--previous-workbook', type=Path, help='Preserve FCC coloring from a current workbook or checked same-product snapshot')
+    parser.add_argument('--previous-ledger', type=Path, help='Observed previous scoped ledger for a bounded legacy revision')
+    parser.add_argument('--research-reuse', type=Path, help='Hash-bound applicability review for unchanged legacy fields')
     args = parser.parse_args()
     created_workbook = False
     try:
         if args.previous_workbook and not args.write_workbook:
             raise ValueError('--previous-workbook requires --write-workbook')
+        if bool(args.previous_ledger) != bool(args.research_reuse) or (args.research_reuse and not args.write_workbook):
+            raise ValueError('--previous-ledger and --research-reuse require each other and --write-workbook')
         if args.write_workbook:
             from research_audit import validate as audit_research
-            audit_research(load_ledger(args.ledger), required=True)
+            trace_result = audit_research(load_ledger(args.ledger), required=True,
+                previous_bytes=args.previous_ledger.read_bytes() if args.previous_ledger else None,
+                reuse=json.loads(args.research_reuse.read_text(encoding='utf-8-sig')) if args.research_reuse else None)
             if not args.summary_output:
                 args.summary_output = args.workbook.with_suffix('.research-summary.json')
             args.summary_output = summary_destination(args.summary_output, args.workbook, load_ledger(args.ledger))
@@ -533,6 +541,7 @@ def main():
                                     args.product_id, args.configuration_id,
                                     args.stage or 'RESEARCH_REVIEW', args.previous_workbook)
             created_workbook = True
+            result['researchTrace'] = trace_result
         else:
             result = run(args.template, args.ledger, args.workbook, args.mode, args.product_id, args.configuration_id, args.stage)
         if args.summary_output:
