@@ -27,7 +27,7 @@ class DriveDeliveryTests(unittest.TestCase):
 
     def test_valid_readback_is_storage_only(self):
         receipt = d.verify(self.product, self.plan, self.readbacks, self.destinations)
-        self.assertEqual(receipt['deliveryState'], 'DRIVE_DELIVERY_VERIFIED')
+        self.assertEqual(receipt['deliveryState'], 'DRIVE_BYTES_MATCHED_CONTEXT_UNCHECKED')
         self.assertEqual(receipt['qaStatus'], 'UNCHANGED_BY_STORAGE_VERIFICATION')
 
     def test_metadata_only_and_wrong_destination_or_checksum_fail(self):

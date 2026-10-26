@@ -10,7 +10,7 @@ If only an internal computer ID is supplied, use [exact-ID ERP lookup](erp-inter
 
 For each applicable product attribute:
 
-1. **Official research:** use available serial/service-tag configuration/parts lookup and separately search the exact OEM model, SKU/machine type, manufacturer part number and region. Inspect matching specifications, support pages, datasheets, manuals and configuration records. Verify the returned identity. Missing serials or unavailable serial lookup do not stop exact-model official research.
+1. **Serial-first official research:** the user confirms most products have linked serials. Start with the current target's linked serial/service tag, verify the returned model/SKU, collect its available as-built/BOM details once, and follow exact component/part numbers. Prefer current-unit linkage; historical units require explicit SKU/batch/configuration linkage and cannot establish all current inventory. Then use exact-model/SKU/region official search to fill remaining gaps. Missing serials or unavailable lookup require a recorded exception and continued model research, not repeated requests for a URL.
 2. **ERP reconciliation:** inspect the exact detail, Specification and relevant linked configuration, inventory, purchase, assembly or upgrade evidence. Compare it with official findings and preserve both source values and their scopes.
 3. **Amazon search:** search verified identifiers, open matching variants and record material differences. Review up to three useful accessible exact/related listings under the existing workflow; do not force unsuitable matches. Similar models and search snippets are discovery leads. Amazon/retailer claims cannot independently establish VERIFIED technical facts.
 
@@ -26,6 +26,8 @@ Match the exact product, variant, region, date and **FACTORY / CURRENT_UNIT / SO
 - If official research is silent or inaccessible, that is not an official negative finding. Continue the evidence chain and deep research, keeping the actual confidence/status; never describe an ERP or Amazon value as official confirmation.
 
 Example: official lookup shows factory 16GB, ERP says 32GB and an Amazon variant says 64GB. Record all three with their scopes. Factory 16GB may be VERIFIED for FACTORY scope; neither 32GB nor 64GB overrides that finding. Do not automatically advertise 16GB as the current unit either. Research the current/sold configuration and keep its value unresolved until supported. A genuinely separate, verified later configuration remains separate from the factory fact, not a silent replacement of it.
+
+For a later modification, require the exact internal ID/configuration or UNIT linkage, dated assembly/replacement record or current physical/system evidence, before/after values, installation evidence and reconciliation with the official factory finding. Store these in `evidence.sold_modification` under the [research trace contract](research-trace-contract.md). A title, generic upgrade claim, unrelated serial or similar Amazon variant cannot confirm installation. Matching official evidence still governs a genuine same-scope conflict. Keep seller OS/warranty assertions labelled seller policy; they do not authenticate OEM coverage or licensing.
 
 ## 3. Deep search for unresolved fields
 
@@ -45,9 +47,13 @@ Do not stop at an empty ERP cell, missing serial, a generic series page, one fai
 
 Research may conclude for an attribute when its applicable routes and promising leads have been investigated, further distinct targeted queries yield no new matching evidence, and remaining access or identity limitations are documented. This is exhaustion of relevant research routes, not a claim to have searched the entire internet or a requirement to repeat equivalent queries indefinitely. If time/access prevents completion, report partial research rather than claiming exhaustion.
 
+After applicable searches are exhausted without a confirmed value, actively select the strongest defensible candidate for each unresolved technical field. Record its literal value, source, identity/scope match, why it outranks alternatives and the missing confirmation. Use the existing candidate rows and unresolved status; never copy it into formal Value, customer copy or image claims. If no evidence supports a candidate, or alternatives remain tied, record NO_SUPPORT or TIED and why; do not fabricate precision/probabilities or force a winner. Seller-only inputs do not receive guessed candidates. This fallback applies beyond FCC fields.
+
 ## 4. Evidence record and honest missing outcomes
 
 Use the existing single scoped ledger and six workbook Status values. Per-fact `evidence` already accepts research metadata; record field-specific details there and summarize them in Source/reason rather than introducing top-level schema keys, workbook columns or a new Status value. Keep per-field findings separate from the product-level `serial_research` outcome; a successful lookup does not complete all attributes.
+
+New workbook generation follows [research trace contract](research-trace-contract.md). It makes serial-first starts, route dispositions, exhaustion and candidate decisions checkable in the existing evidence object. Historical records without traces remain explicitly unassessed by this new check; do not backfill invented searches.
 
 For each researched field retain: target/configuration and scope; source title/URL or sanitized ERP reference; supporting excerpt/document page; actual access/review date; queries and routes attempted with their access/result; candidate and official adopted values; conflicts and resolution; excluded near-matches; completion/remaining gap; owner and next action where needed. Reuse recorded evidence rather than repeating identical queries across duplicate fields. Keep raw serials and serial-bearing URLs out of public GitHub records and ordinary shared delivery under the existing privacy rules.
 

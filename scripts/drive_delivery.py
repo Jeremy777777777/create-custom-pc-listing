@@ -54,7 +54,7 @@ def plan(product, run_id, files):
             'files': [entry(product, f) for f in files]}
 
 
-def verify(product, upload_plan, readbacks, destinations):
+def verify(product, upload_plan, readbacks, destinations, context=None):
     if upload_plan.get('artifactRole') != 'DRIVE_UPLOAD_PLAN' or upload_plan.get('productId') != Path(product).resolve().name or not upload_plan.get('runId'):
         raise ValueError('Wrong plan or product identity')
     planned = upload_plan.get('files', [])
@@ -92,9 +92,14 @@ def verify(product, upload_plan, readbacks, destinations):
         results.append({**wanted, 'fileId': file_id, 'parentFolderId': destinations[relative],
                         'url': remote['webViewLink'], 'verifiedBy': [key for key, _ in present],
                         'readBackAtUtc': remote['readBackAtUtc']})
-    return {'schemaVersion': '1.0', 'artifactRole': 'DRIVE_DELIVERY_RECEIPT',
+    context_result = None
+    if context is not None:
+        from delivery_context import validate
+        context_result = validate(upload_plan, destinations, context)
+    return {'schemaVersion': '1.1', 'artifactRole': 'DRIVE_DELIVERY_RECEIPT',
             'productId': upload_plan['productId'], 'runId': upload_plan['runId'],
-            'deliveryState': 'DRIVE_DELIVERY_VERIFIED',
+            'deliveryState': 'DRIVE_DELIVERY_VERIFIED' if context_result else 'DRIVE_BYTES_MATCHED_CONTEXT_UNCHECKED',
+            'destinationPrivacyContext': context_result,
             'verifiedAtUtc': datetime.now(timezone.utc).isoformat(),
             'verificationScope': 'OFFLINE_COMPARISON_OF_SUPPLIED_CONNECTOR_READBACKS',
             'qaStatus': 'UNCHANGED_BY_STORAGE_VERIFICATION',
@@ -110,6 +115,7 @@ def main():
     check = commands.add_parser('verify')
     for flag in ('plan', 'readbacks', 'destinations'):
         check.add_argument('--' + flag, required=True)
+    check.add_argument('--context', required=True, help='Observed product folder chain and per-file privacy screens')
     for command in (make, check):
         command.add_argument('--product', required=True)
         command.add_argument('--output', required=True)
@@ -117,7 +123,7 @@ def main():
     output = Path(args.output).resolve()
     if output.exists() or output.is_relative_to(Path(args.product).resolve()):
         raise ValueError('Use a new output path outside canonical product files')
-    result = plan(args.product, args.run_id, args.file) if args.command == 'plan' else verify(args.product, read(args.plan), read(args.readbacks), read(args.destinations))
+    result = plan(args.product, args.run_id, args.file) if args.command == 'plan' else verify(args.product, read(args.plan), read(args.readbacks), read(args.destinations), read(args.context))
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
     print(result.get('deliveryState', result.get('state')))

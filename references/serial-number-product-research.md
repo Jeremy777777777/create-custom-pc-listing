@@ -1,6 +1,6 @@
 # PC research through ERP serials and OEM factory configurations
 
-User-approved research method — 2026-10-14. This supplements all PC attribute research, not only FCC lookup. Apply during FULL_LISTING_WORKFLOW and when missing product facts need research. In image-only work, use it only for missing image-required facts; do not expand a targeted edit into unrelated research.
+User-approved research method — 2026-10-14. The 2026-10-26 user clarification makes serial lookup the primary starting route for PC attribute research, not only FCC lookup. Apply during FULL_LISTING_WORKFLOW and when missing product facts need research. In image-only work, use it only for missing image-required facts; do not expand a targeted edit into unrelated research.
 
 2026-10-26 update: [official evidence chain and deep research](evidence-chain-and-deep-research.md) governs source priority and completion. Official serial lookup plus exact-product website search > ERP > Amazon; matching official research governs conflicts. The initial ERP lookup below discovers identity/serials only. A failed serial outcome is not completion of every attribute's research, and missing serials do not excuse skipping official product search or targeted deep research.
 
@@ -25,7 +25,7 @@ New ledgers implement these scopes through [research-ledger-projection.md](resea
 Extend ledger entries with `unit_evidence_alias`, `serial_source_kind` (CURRENT / HISTORICAL / USER_SUPPLIED), `erp_record_reference`, `target_configuration`, `batch_match_basis`, `oem_configuration_source`, `oem_part_number`, `part_description`, `part_quantity`, `fact_scope` (FACTORY / CURRENT_UNIT / SOLD_BASE / PLATFORM_CAPABILITY), `factory_value`, `current_or_sold_value`, `modification_evidence`, `transfer_basis`, `sources_attempted`, `reviewed_date`, `status`, `reason` and `next_action` as relevant. Preserve raw and normalized values, source document/page/date and access outcome. These are evidence metadata, not additional workbook headers or status vocabulary.
 
 - VERIFIED requires evidence supporting the precise field and stated scope; a verified FACTORY value is not automatically a verified SOLD_BASE value.
-- INPUT_UNVERIFIED holds an evidence-linked candidate with its missing confirmation. Keep candidates out of final customer copy/marketplace export until verified. The FCC-specific recommended-candidate format remains in the FCC reference; this general procedure does not require guessing other missing attributes.
+- INPUT_UNVERIFIED holds an evidence-linked candidate with its missing confirmation. Keep candidates out of final customer copy/marketplace export until verified. The FCC-specific recommended-candidate format remains in the FCC reference; all unresolved technical fields require a strongest-defensible-candidate assessment after exhausted research under the evidence chain; no-support/tied cases stay explicit.
 - CONFLICT preserves incompatible evidence until explained. Matching official research resolves lower-priority disagreements; retain the rejected value and decision. Conflicting official sources or unresolved scope remain open. Do not prefer the larger capacity or newer-looking serial automatically.
 - TBD and SOURCE_UNAVAILABLE specify the missing information or blocked source and next step. NOT_APPLICABLE needs field-specific evidence, never merely a missing BOM row.
 

@@ -362,15 +362,17 @@ def main():
     exit_code = 0
     try:
         config = json.loads(args.config.read_text(encoding='utf-8-sig'))
+        missing = [key for key in SECRETS if not os.environ.get(key)]
+        if not args.plan_only and missing:
+            result = {'state': 'BLOCKED_MISSING_DRIVE_AUTH', 'missingSecretNames': missing,
+                      'commit': args.commit, 'plannedFileCount': None,
+                      'nextAction': 'Configure repository Actions Secrets, then rerun main validation and verify Drive snapshot/current pointer',
+                      'connectedToolFallback': 'SCOPED_CHANGED_FILES_ONLY_NOT_AUTOMATIC_SYNC'}
+            raise SyncError('Configure the listed GitHub Actions Secrets; no Drive sync was performed')
         plan = make_plan(args.source, args.commit, args.repository, args.branch, config)
         if args.plan_only:
             result = public_plan(plan)
         else:
-            missing = [key for key in SECRETS if not os.environ.get(key)]
-            if missing:
-                result = {'state': 'BLOCKED_MISSING_DRIVE_AUTH', 'missingSecretNames': missing,
-                          'commit': args.commit, 'plannedFileCount': len(plan['files'])}
-                raise SyncError('Configure the listed GitHub Actions Secrets; no Drive sync was performed')
             store = GoogleDrive(args.repository)
             if args.promote and (not args.ci_run_id or not main_is_valid(plan, config, args.ci_run_id)):
                 raise SyncError('Current promotion requires the successful main validation run and current head')

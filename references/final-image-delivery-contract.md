@@ -6,7 +6,7 @@ Apply [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) and [image-
 
 New style follows [style-approval-gate.md](style-approval-gate.md). Existing same-product/same-style local corrections retain approval. A request to modify a named slot authorizes its canonical replacement after internal QA; no redundant upload approval. Do not touch unrelated slots; retain their bytes/hashes. Material style changes need direction approval before production.
 
-Block affected outputs before production if exact model/source rights, angle assets, required verified specs or fixed Windows/OEM identity assets are missing. State specific missing evidence. Never generate hardware to fill the gap. Under the 2026-10-20 catalog policy, desktop/AIO final compositions require the actual supplied keyboard and mouse with verified appearance; unknown accessory details allow labelled previews, not final fidelity acceptance. Laptops retain computer-only imagery without an accessory/packout prerequisite.
+Block affected outputs before production if exact model/source rights, angle assets, required verified specs or fixed Windows/OEM identity assets are missing. State specific missing evidence. Never generate hardware to fill the gap. For desktop/AIO keyboard and mouse, follow the ACTUAL_SUPPLIED or SAME_BRAND_REPRESENTATIVE treatment in [catalog policy](confirmed-catalog-defaults.md). The latter may use same-brand similar Amazon listing references after official references are unclear; missing exact accessory SKU alone does not block final production. Review against the selected reference without claiming an unverified supplied model or specification. Laptops retain computer-only imagery without an accessory/packout prerequisite.
 
 ## Required evidence
 

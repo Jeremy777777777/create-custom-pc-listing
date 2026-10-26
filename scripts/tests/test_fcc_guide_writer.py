@@ -127,6 +127,11 @@ class FCCGuideWriterTests(unittest.TestCase):
         with tempfile.TemporaryDirectory() as scratch:
             root = Path(scratch)
             data, fact, previous, ledger = self.fixture(root)
+            # Explicit synthetic traces exercise the new CLI boundary; no real evidence is backfilled.
+            from test_release_checks import trace_for
+            for item in data['facts']:
+                item.setdefault('evidence', {})['research_trace'] = trace_for(item)
+            ledger.write_text(json.dumps(data), encoding='utf-8')
             out = root/'new.xlsx'
             command = [sys.executable, str(r.ROOT/'scripts/research_export.py'), '--ledger', str(ledger),
                        '--workbook', str(out), '--write-workbook', '--stage', 'RESEARCH_REVIEW']

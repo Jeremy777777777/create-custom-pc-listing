@@ -158,6 +158,8 @@ def validate_ledger(data):
                 raise ValueError('Verified FCC ID needs matched host/module certification scope')
         if key == FCC_KEY:
             check_fcc_lookup(fact)
+    from research_audit import validate as audit_research
+    audit_research(data)
     return facts
 
 
@@ -522,6 +524,8 @@ def main():
         if args.previous_workbook and not args.write_workbook:
             raise ValueError('--previous-workbook requires --write-workbook')
         if args.write_workbook:
+            from research_audit import validate as audit_research
+            audit_research(load_ledger(args.ledger), required=True)
             if not args.summary_output:
                 args.summary_output = args.workbook.with_suffix('.research-summary.json')
             args.summary_output = summary_destination(args.summary_output, args.workbook, load_ledger(args.ledger))

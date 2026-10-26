@@ -4,6 +4,8 @@ This is the standing result contract for future full research/listing Excel deli
 
 Apply the 2026-10-26 [official evidence chain and deep research](evidence-chain-and-deep-research.md) automatically: official serial lookup plus exact-product search > ERP > Amazon, with matching official research governing conflicts. A reported later configuration cannot silently override official evidence; preserve scope and unresolved sold applicability. Carry the queries, sources, conflict decisions and research completion basis into the ledger/Research Review and use only applicable verified facts in Listing Draft and image copy.
 
+New research starts with target-linked serial lookup and follows [research trace contract](research-trace-contract.md). After exhausted technical research, actively provide the strongest supported candidate or document why there is no defensible winner.
+
 ## Workbook and copy
 
 - Use the current canonical `assets/listing-workbook-template.xlsx`. Preserve Product Details, Offer and Safety&Compliance, their exact field names and Definitions, all 294 current attributes, formatting, status menus and units. A future reviewed template change must enumerate its actual fields; do not silently discard fields to fit the old count.

@@ -10,7 +10,7 @@ Acquire enough official visual evidence for every visible surface and detail bef
 
 ## Hard fidelity acceptance gate
 
-For desktops/AIOs, also apply the 2026-10-20 catalog requirement to include the actual supplied keyboard and mouse in full-product compositions. Verify their separate appearance, layout, connection type and seller pack-out before final acceptance. An official configurable-bundle photograph is a valid style reference but does not establish the seller's supplied accessory SKU. Older computer-only wording excludes these two required inputs on desktops/AIOs.
+For desktops/AIOs, include keyboard and mouse under the catalog policy’s ACTUAL_SUPPLIED or SAME_BRAND_REPRESENTATIVE treatment. When exact supplied details are unknown, use official same-brand references or, if unclear, same-brand similar Amazon listing references to recreate the accessory appearance. Review fidelity against the selected reference; do not block solely on an unspecified SKU or infer supplied model, connection type or pack-out from representative styling. Older computer-only wording excludes these two required inputs.
 
 Compare the candidate against the official reference views at full size, using closeups for fine details and perspective-aligned comparisons where feasible. Inspect:
 

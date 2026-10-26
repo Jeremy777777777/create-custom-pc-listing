@@ -13,16 +13,40 @@
     "silenceIsApproval": false
   },
   "officialUnitLookup": {
-    "allowedData": ["Target-product-linked serial number", "Target-product-linked service tag", "Exact OEM model/SKU/part number"],
-    "allowedPurposes": ["Product identity", "Original configuration", "Parts/BOM", "Warranty status", "Applicable regulatory evidence"],
+    "allowedData": [
+      "Target-product-linked serial number",
+      "Target-product-linked service tag",
+      "Exact OEM model/SKU/part number"
+    ],
+    "allowedPurposes": [
+      "Product identity",
+      "Original configuration",
+      "Parts/BOM",
+      "Warranty status",
+      "Applicable regulatory evidence"
+    ],
     "manufacturerDomainRoots": {
-      "Dell": ["dell.com"],
-      "Lenovo": ["lenovo.com"],
-      "HP": ["hp.com"],
-      "ASUS": ["asus.com"],
-      "MSI": ["msi.com"],
-      "Acer": ["acer.com"],
-      "LG": ["lg.com"]
+      "Dell": [
+        "dell.com"
+      ],
+      "Lenovo": [
+        "lenovo.com"
+      ],
+      "HP": [
+        "hp.com"
+      ],
+      "ASUS": [
+        "asus.com"
+      ],
+      "MSI": [
+        "msi.com"
+      ],
+      "Acer": [
+        "acer.com"
+      ],
+      "LG": [
+        "lg.com"
+      ]
     },
     "requireVerifiedTargetLinkageAndMatchingManufacturer": true,
     "requireObservedHTTPSLookupPage": true,
@@ -35,17 +59,71 @@
     "productsFolderId": "1z14YEhGsDHXq1YbkuO5iG3t6uIuut4Lf",
     "reuseExistingFolderAndFileIds": true,
     "allowMissingStandardProductChildFolders": true,
-    "creationConditions": ["Exact internal ID established", "All search pages checked for existing matching product", "Authorized parent chain read back", "No ambiguous or duplicate match", "No permission or sharing change"],
+    "creationConditions": [
+      "Exact internal ID established",
+      "All search pages checked for existing matching product",
+      "Authorized parent chain read back",
+      "No ambiguous or duplicate match",
+      "No permission or sharing change"
+    ],
     "internalIdPattern": "^[A-Z]{2,}-[0-9]+$",
-    "standardSections": ["01_LISTING", "02_IMAGES", "03_RESEARCH", "03_RESEARCH/FINAL", "04_QA", "90_SOURCE"],
-    "allowedPayloads": ["Original Research Review and Listing Draft XLSX", "Requested final images", "Sanitized product facts and research evidence", "Necessary product-specific sources, production scripts, recipes and masks", "Current QA, delivery and run records"],
+    "standardSections": [
+      "01_LISTING",
+      "02_IMAGES",
+      "03_RESEARCH",
+      "03_RESEARCH/FINAL",
+      "04_QA",
+      "90_SOURCE"
+    ],
+    "allowedPayloads": [
+      "Original Research Review and Listing Draft XLSX",
+      "Requested final images",
+      "Sanitized product facts and research evidence",
+      "Necessary product-specific sources, production scripts, recipes and masks",
+      "Current QA, delivery and run records"
+    ],
     "reusableWorkflowAssetsUseWorkflowAndTemplateFolders": true,
-    "requirePreservedPreviousVersionAndCurrentByteReadback": true
+    "requirePreservedPreviousVersionAndCurrentByteReadback": true,
+    "releaseChecks": "references/drive-release-checks.md"
   },
-  "excluded": ["Raw serials in shared Drive/GitHub artifacts", "Customer or payment records", "Credentials and signed download URLs", "Unrelated product records", "New sharing recipients or access changes", "Unapproved external destinations", "Permanent cloud deletion", "Seller Central publication", "Credential retrieval from unrelated stores"],
+  "excluded": [
+    "Raw serials in shared Drive/GitHub artifacts",
+    "Customer or payment records",
+    "Credentials and signed download URLs",
+    "Unrelated product records",
+    "New sharing recipients or access changes",
+    "Unapproved external destinations",
+    "Permanent cloud deletion",
+    "Seller Central publication",
+    "Credential retrieval from unrelated stores"
+  ],
   "automation": {
     "connectedDriveAuthorizationDoesNotConfigureGitHubRunner": true,
     "missingRunnerAuthorizationDoesNotBlockIndependentResearch": true
   },
-  "reviewRejection": "STOP_AFFECTED_ACTION_REVIEW_EXACT_REASON_NEVER_BYPASS"
+  "reviewRejection": "STOP_AFFECTED_ACTION_REVIEW_EXACT_REASON_NEVER_BYPASS",
+  "research": {
+    "start": "TARGET_LINKED_SERIAL_THEN_OFFICIAL_BOM_PARTS",
+    "fallback": "EXACT_OFFICIAL_MODEL_THEN_ERP_THEN_AMAZON_AND_DEEP_SEARCH",
+    "exhaustedUnresolvedTechnicalFields": "STRONGEST_DEFENSIBLE_CANDIDATE_OR_DOCUMENTED_NO_SUPPORT_TIE",
+    "candidateCanPopulateConfirmedValue": false,
+    "traceReference": "references/research-trace-contract.md"
+  },
+  "accessoryPresentation": {
+    "formFactors": [
+      "DESKTOP",
+      "AIO"
+    ],
+    "treatments": [
+      "ACTUAL_SUPPLIED",
+      "SAME_BRAND_REPRESENTATIVE"
+    ],
+    "referenceOrder": [
+      "Official same-brand paired references",
+      "Amazon same-brand similar computer listing visual references"
+    ],
+    "exactAccessorySkuRequiredForRepresentativeTreatment": false,
+    "representativeReferenceVerifiesSuppliedSpecifications": false,
+    "styleDecisionMaker": "USER"
+  }
 }

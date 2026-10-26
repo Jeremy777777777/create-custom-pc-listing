@@ -1,6 +1,6 @@
 # Workflow validation boundaries — 2026-10-14
 
-This reference refines existing stages; it does not change worksheet names, five-row layout, field definitions, product directories or eleven image slots. Research drafts still permit unresolved facts. Formal export requires complete applicable evidence and content. No tool automatically publishes to Seller Central.
+This reference refines existing stages; it does not change worksheet names, seven-row layout, field definitions, product directories or eleven image slots. Research drafts still permit unresolved facts. Formal export requires complete applicable evidence and content. No tool automatically publishes to Seller Central.
 
 ## Export
 

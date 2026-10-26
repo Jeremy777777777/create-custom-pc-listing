@@ -9,5 +9,9 @@
     "references/fcc-research-workflow.md": "216126b2e34341c9395612a2c63903cdc07a89d0b25f532e188b2c32abb9f560",
     "references/research-ledger-projection.md": "d3e610c6ace123f0498f4b9139383de1c264c80173ed84d252b91087e57203e3",
     "references/workbook-stage-snapshots.md": "09eb920b4bc2d100c413cf629c1d551e8876b398fbde114ab0cb57eb8e1aa9e3"
-  }
+  },
+  "sourceSnapshotPaths": {
+    "references/research-ledger-projection.md": "references/manuals/source-snapshots/2026-10-21/research-ledger-projection.md"
+  },
+  "bindingScope": "ORIGINAL_2026_10_21_READING_COPY_NOT_CURRENT_EXECUTION"
 }
