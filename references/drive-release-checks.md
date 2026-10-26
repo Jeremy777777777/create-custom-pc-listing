@@ -29,6 +29,8 @@ Run `delivery_privacy.py check-file --input <file> --serials-used yes|no [--priv
 
 The helper screens JSON/text and every XLSX XML/relationship part, including hidden cells, comments, hyperlinks and document properties. Images have metadata screening plus actual visual privacy inspection; XLSX embedded media/objects and unsupported formats also require inspection. The separate inspection contains the exact `sha256`, `result: NO_PRIVATE_CONTENT`, actual `reviewer`, `reviewedAtUtc` and substantive `notes`. It must describe actual inspection, never a generated PASS. Unknown sensitive content still needs review. A no-pattern result cannot establish licensing, hardware fidelity or complete privacy clearance. Keep original evidence private and create a sanitized derivative when needed; never alter facts to satisfy screening.
 
+Known numeric serials are checked in JSON numeric values as well as strings, including exact decimal/exponent representations and nested values. JSON decimals are parsed without binary floating-point rounding. Findings contain only locations and reason codes, never matched serial values. This does not recover identifiers already truncated or rounded by an earlier system; retain the actual private known-value inventory and inspect ambiguous source transformations.
+
 ## Product directory and receipt
 
 The `drive_delivery.py verify` CLI now requires `--context <context.json>` in addition to plan/readbacks/destinations. The context contains:

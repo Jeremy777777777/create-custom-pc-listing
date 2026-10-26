@@ -168,6 +168,11 @@ def check_research_summaries(root, product_id=None):
         if summary.get('stage') not in ('RESEARCH_REVIEW','LISTING_DRAFT'):
             raise ValueError('Research summary requires a declared current stage')
         current=run(root/'assets/listing-workbook-template.xlsx',ledger,workbook,'draft',stage=summary['stage'])
+        if 'researchTrace' in summary:
+            from research_audit import validate_summary_trace
+            validate_summary_trace(data, summary['researchTrace'])
+        elif summary.get('researchTraceSchemaVersion') is not None:
+            raise ValueError('Research trace missing from a versioned summary')
         for key in ('workbookSha256','ledgerSha256','templateSha256','productFactsSha256','coverageSummary'):
             expected = current[key]
             if (key == 'coverageSummary' and 'serial_research' not in data

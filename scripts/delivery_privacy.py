@@ -9,6 +9,7 @@ import json
 import re
 import zipfile
 from datetime import datetime, timezone
+from decimal import Decimal
 from pathlib import Path
 from urllib.parse import parse_qsl, unquote, urlsplit, urlunsplit
 
@@ -93,6 +94,15 @@ def findings(payload, known_private_values=()):
                 walk(child, f'{location}/item/{index}')
         elif isinstance(value, str):
             text(value, location)
+        elif type(value) in (int, float) or isinstance(value, Decimal):
+            # JSON numbers may be serials too. Decimal preserves large/exponent
+            # literals before binary float rounding can lose identifier digits.
+            number = Decimal(str(value))
+            text(str(value), location)
+            if number.is_finite():
+                for needle in needles:
+                    if needle.isascii() and needle.isdigit() and number == Decimal(needle):
+                        found.add((location, 'KNOWN_PRIVATE_VALUE'))
 
     walk(payload, '$')
     return [{'location': location, 'code': code} for location, code in sorted(found)]
@@ -152,7 +162,7 @@ def screen_file(path, known_private_values=(), serials_used=None, visual_review=
     inspected = False
     issues = findings({'filename': path.name}, needles)
     if suffix == '.json':
-        issues += findings(json.loads(raw.decode('utf-8-sig')), needles)
+        issues += findings(json.loads(raw.decode('utf-8-sig'), parse_float=Decimal), needles)
         inspected = True
     elif suffix in {'.txt', '.md', '.csv', '.tsv', '.html', '.xml', '.yaml', '.yml', '.py', '.ps1'}:
         issues += findings({'text': raw.decode('utf-8-sig')}, needles)
@@ -205,7 +215,8 @@ def main(argv=None):
     try:
         source = Path(args.input).resolve()
         raw = source.read_bytes()
-        payload = None if args.command == 'check-file' else json.loads(raw.decode('utf-8-sig'))
+        payload = None if args.command == 'check-file' else json.loads(
+            raw.decode('utf-8-sig'), parse_float=Decimal if args.command == 'check' else float)
         secrets = [] if not args.private_values_file else private_values(json.loads(Path(args.private_values_file).read_text(encoding='utf-8-sig')))
         digest = hashlib.sha256(raw).hexdigest()
         if args.command == 'check-file':

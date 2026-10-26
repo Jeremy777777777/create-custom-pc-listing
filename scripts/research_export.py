@@ -439,7 +439,9 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
             raise ValueError('Input changed during validation: ' + name)
     if product is not None and hashlib.sha256(facts_path.read_bytes()).hexdigest()!=input_hashes['productFacts']:
         raise ValueError('Input changed during validation: productFacts')
-    return {'productFactsSha256':input_hashes.get('productFacts'), 'result': 'EXPORT_EVIDENCE_CHECK_PASS' if mode == 'export' else 'DRAFT_PROJECTION_PASS',
+    from research_audit import validate as audit_research
+    return {'researchTrace': audit_research(data),
+            'productFactsSha256':input_hashes.get('productFacts'), 'result': 'EXPORT_EVIDENCE_CHECK_PASS' if mode == 'export' else 'DRAFT_PROJECTION_PASS',
             'productId': data['productId'], 'configurationId': data['configurationId'],
             'workbookSha256': input_hashes['workbook'],
             'ledgerSha256': input_hashes['ledger'],
@@ -477,7 +479,7 @@ def summary_destination(output, workbook, identity):
     return output
 
 
-def write_summary(output, result, workbook):
+def write_summary(output, result, workbook, ledger=None):
     """Replace the sidecar only after fully preparing its bytes."""
     serial = result.get('coverageSummary', {}).get('serialResearch', {})
     if (not serial.get('recordPresent') or serial.get('outcome') == 'NOT_ASSESSED_LEGACY'
@@ -490,6 +492,25 @@ def write_summary(output, result, workbook):
     summary['workbookFile'] = resolve_workbook_path(workbook).name
     if 'researchTrace' in result:
         summary['researchTrace'] = result['researchTrace']
+        summary['researchTraceSchemaVersion'] = 2
+        if ledger is not None:
+            from research_audit import validate_summary_trace
+            validate_summary_trace(load_ledger(ledger), summary['researchTrace'])
+    if output.exists():
+        previous = json.loads(output.read_text(encoding='utf-8-sig'))
+        old_trace = previous.get('researchTrace', {})
+        if not isinstance(old_trace, dict):
+            raise ValueError('Invalid prior research trace summary')
+        if old_trace.get('legacyReuse') and not summary.get('researchTrace', {}).get('legacyReuse'):
+            bound = ('productId', 'configurationId', 'stage', 'workbookSha256', 'ledgerSha256',
+                     'templateSha256', 'productFactsSha256')
+            if any(previous.get(key) != summary.get(key) for key in bound):
+                raise ValueError('Retained research inputs changed; supply previous ledger and reuse review to refresh')
+            from research_audit import validate_summary_trace
+            if ledger is None:
+                raise ValueError('Ledger required to preserve a retained research summary')
+            validate_summary_trace(load_ledger(ledger), old_trace)
+            summary['researchTrace'] = old_trace
     temporary = None
     try:
         with tempfile.NamedTemporaryFile(prefix='.' + output.name + '-', suffix='.tmp',
@@ -500,6 +521,7 @@ def write_summary(output, result, workbook):
     finally:
         if temporary:
             temporary.unlink(missing_ok=True)
+    return summary
 
 
 def main():
@@ -527,8 +549,8 @@ def main():
     try:
         if args.previous_workbook and not args.write_workbook:
             raise ValueError('--previous-workbook requires --write-workbook')
-        if bool(args.previous_ledger) != bool(args.research_reuse) or (args.research_reuse and not args.write_workbook):
-            raise ValueError('--previous-ledger and --research-reuse require each other and --write-workbook')
+        if bool(args.previous_ledger) != bool(args.research_reuse):
+            raise ValueError('--previous-ledger and --research-reuse require each other')
         if args.write_workbook:
             from research_audit import validate as audit_research
             trace_result = audit_research(load_ledger(args.ledger), required=True,
@@ -544,9 +566,22 @@ def main():
             result['researchTrace'] = trace_result
         else:
             result = run(args.template, args.ledger, args.workbook, args.mode, args.product_id, args.configuration_id, args.stage)
+            if args.research_reuse:
+                from research_audit import validate as audit_research
+                result['researchTrace'] = audit_research(load_ledger(args.ledger), required=True,
+                    previous_bytes=args.previous_ledger.read_bytes(),
+                    reuse=json.loads(args.research_reuse.read_text(encoding='utf-8-sig')))
         if args.summary_output:
             output = summary_destination(args.summary_output, args.workbook, result)
-            write_summary(output, result, args.workbook)
+            if output.exists() and not args.research_reuse:
+                from research_audit import validate_summary_trace
+                prior = json.loads(output.read_text(encoding='utf-8-sig'))
+                if 'researchTrace' in prior and prior.get('ledgerSha256') == result['ledgerSha256']:
+                    validate_summary_trace(load_ledger(args.ledger), prior['researchTrace'])
+                elif 'researchTrace' not in prior and prior.get('researchTraceSchemaVersion') is not None:
+                    raise ValueError('Research trace missing from a versioned summary')
+            saved = write_summary(output, result, args.workbook, args.ledger)
+            result['researchTrace'] = saved['researchTrace']
     except (ValueError, OSError, json.JSONDecodeError) as error:
         if created_workbook:
             try:

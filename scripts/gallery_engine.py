@@ -170,7 +170,7 @@ def badges(directory,asset,planpath,out=None,brand=None,slots=None):
 
 def evidence(path,names,directory,preserve_unbound_research=False,trusted_policy_binding=None):
     report=read(path)
-    if report.get('schemaVersion',0)<3 or report.get('result')!='PASS' or not report.get('reviewer') or not report.get('reviewedAtUtc'): raise ValueError(f'Missing current human review evidence: {path}')
+    if report.get('schemaVersion') not in (3,4) or report.get('result')!='PASS' or not report.get('reviewer') or not report.get('reviewedAtUtc'): raise ValueError(f'Missing current human review evidence: {path}')
     if not isinstance(report.get('reviewer'),str) or not report['reviewer'].strip(): raise ValueError('Reviewer must contain text')
     try:
         timestamp=datetime.fromisoformat(report['reviewedAtUtc'].replace('Z','+00:00'))
@@ -178,12 +178,17 @@ def evidence(path,names,directory,preserve_unbound_research=False,trusted_policy
     except (ValueError,TypeError,AttributeError): raise ValueError('Review requires an ISO UTC timestamp')
     binding=report.get('reviewInputsSha256')
     preserving=preserve_unbound_research and binding and binding==review_inputs(directory,include_research=False)
-    if not preserving and (not binding or binding not in (review_inputs(directory),trusted_policy_binding)):
+    if report['schemaVersion']==3 and not preserving and (not binding or binding not in (review_inputs(directory),trusted_policy_binding)):
         raise ValueError('Review facts/research/style/recipe/policy binding stale or absent')
     entries=report.get('images',[])
     if len(entries)!=len(names) or {e.get('file') for e in entries}!=set(names): raise ValueError(f'Incomplete evidence: {path}')
     for name in names:
         entry=next(e for e in entries if e['file']==name)
+        if report['schemaVersion']==4:
+            from image_review_scope import binding as slot_binding
+            trusted=trusted_policy_binding.get(name) if isinstance(trusted_policy_binding,dict) else None
+            if entry.get('reviewInputsSha256') not in (slot_binding(directory,name,entry.get('dependencies')),trusted) or not entry.get('reviewInputsSha256'):
+                raise ValueError('Per-image facts/style/recipe/policy binding stale or absent: '+name)
         if entry.get('sha256','').lower()!=digest(Path(directory)/name) or entry.get('result')!='PASS' or not isinstance(entry.get('notes'),str) or not entry['notes'].strip(): raise ValueError(f'Stale or incomplete evidence: {name}')
     return report
 
@@ -227,6 +232,8 @@ def validate(directory,brand=None,legacy=False,require_final=True,allow_quaranti
     vw,vh=bbox[2]-bbox[0],bbox[3]-bbox[1]
     for n in PT: logo_geometry(plan,plan['placements'][n],logo,sizes[n])
     evidence(p/'visual-review.json',NAMES,p,preserve_unbound_research,trusted_policy_binding); evidence(p/'semantic-review.json',PT,p,preserve_unbound_research,trusted_policy_binding)
+    from image_review_scope import agree
+    agree(p)
     if require_final:
         report=read(p/'final-image-qa.json')
         if report.get('schemaVersion',0)<3 or report.get('result')!='PASS': raise ValueError('Missing final QA')
@@ -338,6 +345,8 @@ def accept(directory,brand=None,slots=None):
 def partial_checks(p,slots,brand=None,preserve_unbound_research=False):
     if not slots or any(n not in NAMES for n in slots) or len(set(slots))!=len(slots): raise ValueError('Invalid partial scope')
     evidence(p/'visual-review.json',slots,p,preserve_unbound_research); evidence(p/'semantic-review.json',slots,p,preserve_unbound_research)
+    from image_review_scope import agree
+    agree(p)
     inventory={n:digest(p/n) for n in NAMES}
     if read(p/'semantic-review.json').get('galleryInventorySha256')!=inventory: raise ValueError('Partial semantic review must bind all current gallery bytes')
     selected_pt=[n for n in slots if n in PT]
@@ -558,8 +567,13 @@ def preserve_prior_policy_gallery(root,p,base):
         name=recipe_path.relative_to(root).as_posix()
         if prior(name).replace(b'\r\n',b'\n')!=recipe_path.read_bytes().replace(b'\r\n',b'\n'):
             raise ValueError('Changed recipe cannot preserve a prior policy')
-    visual_binding=read(p/'visual-review.json').get('reviewInputsSha256')
-    semantic_binding=read(p/'semantic-review.json').get('reviewInputsSha256')
+    visual=read(p/'visual-review.json'); semantic=read(p/'semantic-review.json')
+    scoped=visual.get('schemaVersion')==4 or semantic.get('schemaVersion')==4
+    if scoped:
+        from image_review_scope import agree, binding as slot_binding
+        agree(p)
+    visual_binding=visual.get('reviewInputsSha256')
+    semantic_binding=semantic.get('reviewInputsSha256')
     if visual_binding!=semantic_binding:
         raise ValueError('Prior-policy review does not match trusted-base facts/style/recipe/policy')
     # Later pushes use an immediate base that may already contain the amended
@@ -572,6 +586,12 @@ def preserve_prior_policy_gallery(root,p,base):
         try:
             policy={name:subprocess.check_output(['git','show',policy_ref+':references/'+name],cwd=root,stderr=subprocess.DEVNULL).decode('utf-8-sig') for name in POLICY_INPUTS}
         except subprocess.CalledProcessError: continue
+        if scoped:
+            recorded={row['file']:row.get('reviewInputsSha256') for row in visual['images']}
+            if all(recorded[row['file']]==slot_binding(p,row['file'],row.get('dependencies'),policy_text=policy) for row in visual['images']):
+                visual_binding=recorded
+                matched=(subprocess.check_output(['git','rev-parse',policy_ref],cwd=root,text=True).strip(),True);break
+            continue
         candidates={review_inputs(p,policy_text=policy):True}
         if (p/'research-ledger.json').exists(): candidates[review_inputs(p,include_research=False,policy_text=policy)]=False
         if visual_binding in candidates:
@@ -628,7 +648,7 @@ def gate(root,base=None,head='HEAD'):
                     validate_partial(p,names); partial+=1
             elif (p/'partial-update-qa.json').exists() or state.get('deliveryScope')=='PARTIAL_UPDATE':
                 visual=p/'visual-review.json'
-                binding=read(visual).get('reviewInputsSha256') if visual.exists() else None
+                binding=(read(visual).get('schemaVersion')==4 or read(visual).get('reviewInputsSha256')) if visual.exists() else None
                 inputs={p/name for name in ('product-facts.json','style-lock.json','partial-update-qa.json','visual-review.json','semantic-review.json','logo-qa.json','logo-placement.json')}
                 style_path=p/'style-lock.json'
                 if style_path.exists():

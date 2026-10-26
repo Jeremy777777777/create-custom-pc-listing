@@ -133,7 +133,7 @@ Apply [follow-up workflow checks](references/workflow-edge-case-checks.md) for e
 
 Apply [product fact projection](references/product-fact-projection.md) when moving research into Listing or using a scoped ledger for images. Use verified read-only metadata views, bind selected hardware research in new image reviews, and report pre-ledger reviews separately without inventing a new PASS.
 
-Use the [research handoff checklist](references/research-handoff-checklist.md) to close each stage: canonical directory identity, storage scope/unit reconciliation, coverage summary and unresolved follow-up ownership. Deliver a current `.research-summary.json` alongside new scoped Research Review workbooks; neither the summary nor CI replaces factual/publication review.
+Use the [research handoff checklist](references/research-handoff-checklist.md) to close each stage: canonical directory identity, storage scope/unit reconciliation, coverage summary and unresolved follow-up ownership. Deliver a current `.research-summary.json` alongside new scoped Research Review workbooks; preserve validated trace/reuse evidence on refresh under the [research trace contract](references/research-trace-contract.md). New scoped-ledger image reviews use [per-image dependencies](references/image-review-dependencies.md), so unrelated factual amendments do not invalidate every slot. Neither summaries nor CI replace factual, visual or publication review; style approval remains the user's decision.
 
 Apply [capacity measurement basis](references/capacity-measurement-basis.md): nominal SSD/HDD GB/TB are decimal (1TB = 1000GB), with separate memory-size conventions. Do not substitute system/usable GiB measurements for installed nominal drive capacity; reconcile their source/basis first.
 

@@ -80,4 +80,22 @@ class PreservationTests(unittest.TestCase):
             self.assertEqual(result['policyCommit'],original);self.assertFalse(result['currentPolicyQa'])
             validate.assert_called_once_with(self.p,trusted_policy_binding='trusted-old-binding',preserve_unbound_research=False)
 
+    def test_scoped_reviews_preserve_only_unchanged_trusted_bytes(self):
+        import image_review_scope as scope
+        entry={'file':'PT01.png','dependencies':{'fields':[['Product Details','Model Number']],
+               'productPaths':[],'basis':'Synthetic fixture only'},'reviewInputsSha256':'old-slot-binding'}
+        for name in ('visual-review.json','semantic-review.json'):
+            g.write(self.p/name,{'schemaVersion':4,'images':[entry]})
+        self.git('add','.');self.git('commit','-qm','synthetic scoped review');self.base=self.git('rev-parse','HEAD').strip()
+        (self.root/'references/image-spec.md').write_text('new policy',encoding='utf-8')
+        def binding(directory,slot,dependencies,policy_text=None):
+            return 'old-slot-binding' if policy_text==self.policy else 'new-slot-binding'
+        with patch.object(scope,'binding',side_effect=binding),patch.object(g,'validate') as validate:
+            result=g.preserve_prior_policy_gallery(self.root,self.p,self.base)
+            self.assertFalse(result['currentPolicyQa'])
+            validate.assert_called_once_with(self.p,trusted_policy_binding={'PT01.png':'old-slot-binding'},preserve_unbound_research=False)
+            (self.p/'PT01.png').write_bytes(b'changed')
+            with self.assertRaisesRegex(ValueError,'Changed product bytes'):
+                g.preserve_prior_policy_gallery(self.root,self.p,self.base)
+
 if __name__=='__main__':unittest.main()

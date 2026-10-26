@@ -2,6 +2,7 @@
 from datetime import date
 import hashlib
 import json
+import re
 
 ROUTES = {'OEM_SERIAL', 'OEM_MODEL', 'ERP', 'AMAZON', 'DEEP'}
 RESULTS = {'REVIEWED', 'NO_MATCH', 'BLOCKED', 'NOT_APPLICABLE', 'NOT_STARTED'}
@@ -10,6 +11,45 @@ OUTCOMES = {'CONFIRMED', 'CANDIDATE', 'NOT_FOUND', 'INCOMPLETE', 'BLOCKED', 'CON
 
 def text(value):
     return isinstance(value, str) and bool(value.strip())
+
+
+def retained_input_hash(data, fact_id, dependencies):
+    facts = {f['id']: f for f in data['facts']}
+    ids = sorted(set([fact_id, *dependencies]))
+    if any(key not in facts for key in ids):
+        raise ValueError('Retained research dependency is missing')
+    inputs = {'facts': [facts[key] for key in ids],
+              'fields': sorted((m for m in data['fields'] if m['selected_fact'] in ids),
+                               key=lambda m: (m['sheet'], m['attribute']))}
+    return hashlib.sha256(json.dumps(inputs, sort_keys=True, ensure_ascii=False).encode('utf-8')).hexdigest()
+
+
+def validate_summary_trace(data, recorded):
+    """Check current coverage and retained inputs; do not authenticate old sources."""
+    current = validate(data)
+    if not isinstance(recorded, dict) or any(recorded.get(key) != current[key]
+            for key in ('state', 'checkedFields', 'missingFields', 'scope')):
+        raise ValueError('Research trace summary disagrees with current ledger coverage')
+    reuse = recorded.get('legacyReuse')
+    if reuse is not None:
+        missing = {f['id'] for f in data['facts'] if not f.get('evidence', {}).get('research_trace')}
+        missing &= {m['selected_fact'] for m in data['fields']}
+        if (not isinstance(reuse, dict) or not isinstance(reuse.get('retainedFactIds'), list)
+                or set(reuse['retainedFactIds']) != missing or len(reuse['retainedFactIds']) != len(missing)
+                or not text(reuse.get('baselineReference'))
+                or any(not re.fullmatch('[0-9a-f]{64}', str(reuse.get(k, '')))
+                       for k in ('previousLedgerSha256', 'reviewSha256'))):
+            raise ValueError('Invalid retained research summary binding')
+        bindings = reuse.get('retainedInputs')
+        if bindings is not None:
+            if not isinstance(bindings, dict) or set(bindings) != missing:
+                raise ValueError('Retained input coverage differs from missing traces')
+            for key, binding in bindings.items():
+                if (not isinstance(binding, dict) or not isinstance(binding.get('dependencyFactIds'), list)
+                        or not all(text(d) for d in binding['dependencyFactIds'])
+                        or binding.get('sha256') != retained_input_hash(data, key, binding['dependencyFactIds'])):
+                    raise ValueError('Retained research fact/dependency binding is stale')
+    return recorded
 
 
 def legacy_reuse(data, missing, previous_bytes, review):
@@ -57,7 +97,10 @@ def legacy_reuse(data, missing, previous_bytes, review):
             raise ValueError('Legacy selected field mapping changed')
     return {'previousLedgerSha256': digest, 'baselineReference': review['baselineReference'],
             'reviewSha256': hashlib.sha256(json.dumps(review, sort_keys=True, ensure_ascii=False).encode('utf-8')).hexdigest(),
-            'retainedFactIds': ids}
+            'retainedFactIds': ids,
+            'retainedInputs': {row['factId']: {
+                'dependencyFactIds': row['dependencyFactIds'],
+                'sha256': retained_input_hash(data, row['factId'], row['dependencyFactIds'])} for row in entries}}
 
 
 def validate(data, required=False, previous_bytes=None, reuse=None):
