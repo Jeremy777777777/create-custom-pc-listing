@@ -3,6 +3,8 @@
 用户于 2026-10-22 指定默认 [ERP internal-ID lookup](erp-internal-id-lookup.md)：进入 virtual computers 的 All 页面，在顶部 Search 输入 internal ID，回车后打开精确匹配的产品详情。internal ID 本身足够启动定位，不应先要求用户再给详情 URL；不能推算 ERP 数字 ID。
 See [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for the active seller/base-configuration policy.
 
+2026-10-26 产品证据优先级见 [官网证据链与深搜](evidence-chain-and-deep-research.md)：官网 serial 查询及精确产品搜索 > ERP > Amazon，信息冲突以匹配官网研究为准。先查 ERP 取得身份不改变该顺序；内部来源交叉验证不能取代官网研究。缺失字段须完成适用 deep search 后才可写未找到。
+
 
 本参考规定如何把 MyStore ERP 与 Listing Status Tracker 作为可选输入及互相核验来源。它们都是卖家内部来源，但承担的业务角色不同；两边出现不同值时，不能简单选择较新、较完整或更有利于销售的一边。
 
@@ -36,7 +38,8 @@ See [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for the activ
 | `Product Name` 中的型号与规格文字 | Checking List 输入线索 | 初始状态为 `INPUT_UNVERIFIED`，需与 MyStore、卖家配置记录或官方资料核验。 |
 | `VL-` / `VA-` 追踪值 | Checking List；MyStore 交叉核验 | 保留原文。范围、多值或业务含义不明时不拆分、不当作 SKU。 |
 | `Quantity` | Checking List 的计划/库存承诺；MyStore 可交叉核验 | 先确认两边字段口径和时间。不得把仓库库存、待处理数量和 Amazon 可售数量视为同一概念。 |
-| 实际 RAM、SSD、升级内容、SKU、库存与卖家保修 | 与确切产品/VL 绑定的 MyStore 或其他卖家配置记录 | 可作为卖家一手证据；如果只存在于产品名称或未绑定的列表摘要中，仍需核验。 |
+| 实际 RAM、SSD、升级内容 | 匹配官网研究；与确切产品/VL 绑定的 MyStore 配置记录用于对照 | 保留原厂/当前/销售范围；ERP 不能覆盖冲突官网结果，当前改配无法确认时保留未确认，不能从原厂值反推当前实装。 |
+| 内部 SKU、库存与卖家保修 | 与确切产品/VL 绑定的 MyStore 或其他卖家业务记录 | 官网硬件规格不证明卖家业务输入；名称或未绑定列表摘要仍需核验，不能伪称官网已确认。 |
 | OEM 机身、屏幕、CPU 平台、接口、颜色、键盘和物理外观 | OEM 官方资料与准确料号 | MyStore 和 Checking List 用于定位及交叉检查，不能覆盖确切 OEM 资料。 |
 
 ## 映射规则
@@ -63,7 +66,7 @@ FCC 研究优先从准确产品下的现有库存或历史采购／收货／销�
 
 - 值一致且两条记录确实映射到同一产品时，可把一致性记为辅助证据；是否达到 `VERIFIED` 仍取决于该字段的权威来源。
 - 值不同先检查口径、更新时间、OEM 原厂配置与卖家升级配置、选项值与实际销售值是否混淆。
-- 能解释差异时，记录采用值、适用范围和理由；不能解释时保持 `CONFLICT`，不得多数投票或静默覆盖。
+- 能由匹配官网研究裁决时，以官网值为准并记录被否决值、采用范围和理由；不能解释或官网本身矛盾时保持 `CONFLICT`，不得多数投票、以 ERP 覆盖官网或静默覆盖。原厂与当前销售范围不同不自动证明当前配置，仍需补齐适用性证据。
 - 某来源缺少字段不等于值为 `No`、`0` 或“不包含”。使用 `TBD` 或 `SOURCE_UNAVAILABLE`。
 - 两个内部来源相互一致也不能证明端口布局、触控、颜色、附件等物理事实；这些仍需准确 OEM 资料或实物证据。
 

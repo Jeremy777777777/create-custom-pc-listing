@@ -1,6 +1,8 @@
 # Product Attribute Research Coverage
 See [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for the active seller/base-configuration policy.
 
+**2026-10-26 evidence decision:** apply [官网优先证据链与深搜](evidence-chain-and-deep-research.md) automatically. 官网 serial 查询＋准确产品搜索 > ERP > Amazon；产品信息冲突以匹配官网研究为准。该规则取代旧的 ERP-first 技术事实优先级，逐字段保留研究路径与裁决依据。
+
 **2026-10-21 user layout update:** [Candidate review rows](candidate-review-rows.md) supersede older five-row and candidate-in-Value instructions for newly generated workbooks. All three sheets now place candidates/source in rows 6/7 below Source; formal Value remains blank until confirmed. Preserve original historical bytes.
 
 
@@ -86,13 +88,13 @@ FCC 的 ERP 现有／历史序列号 → OEM 出厂配置 → 无线 part／准�
 
 对适用产品字段依次尝试：
 
-1. 能绑定 MyStore 产品 ID、内部 ID、采购/装配记录或实际基础销售配置的卖家一手资料；主动查关联现有／历史序列号，按 [序列号研究流程](serial-number-product-research.md)建立目标配置及批次匹配。
-2. 通过 serial/service tag 查询 OEM 官网 Original Configuration / As Built / Parts / BOM，逐项核对硬件 part；结合匹配准确 OEM 型号和料号的产品页、datasheet、maintenance/service guide、regulatory/safety guide 与随箱清单。原厂值与升级后销售值分开保存，不能把历史机器或可选部件当作当前实装。
-3. CPU、GPU、无线模块等部件厂商的官方规格，只用于部件本身；不能反推整机一定启用全部能力。
-4. 实物铭牌、接口照片、系统信息或包装标签，用于解决官网与实际 SKU 的差异。
-5. Amazon 同款/竞品和其他经销商页面，只用于发现遗漏字段与冲突，不单独建立 `VERIFIED` 产品事实。
+0. 只有内部 ID 时，先按 [ERP 精确查询](erp-internal-id-lookup.md)定位产品并取得型号、SKU、料号及可用的关联 serial。这是身份定位，不代表 ERP 的证据优先级高于官网；不能推算数字 ID。
+1. 通过 serial/service tag 查询 OEM 官网 Original Configuration / As Built / Parts / BOM，并另行搜索准确 OEM 型号、SKU、料号和地区对应的官网产品页、datasheet、maintenance/service guide、regulatory/safety guide 与随箱清单。缺少 serial 时继续官网精确型号研究；逐项记录证据和适用范围。
+2. 核对精确 MyStore 产品详情、Specification、采购/装配/升级记录及当前或历史关联配置。保留原厂、当前实机和销售配置的差异；ERP 不能覆盖相冲突的官网结果，官网原厂记录也不能直接当成当前升级实装。当前配置无法确认时保留未确认状态。
+3. Amazon 精确标识与配置搜索，记录同款/相关页面中的遗漏和差异；近似型号、搜索摘要和其他经销商页面不单独建立 `VERIFIED` 产品事实，不覆盖官网。
+4. 仍缺失时自动继续 deep search：官网地区/旧支持站、手册、规格 PDF、零件/BOM、准确部件厂商资料、适用监管记录、官方文档存档、ERP 关联记录及实物/系统证据；跟进可信经销商页面的有效线索。部件证据只证明部件，不能反推整机启用全部能力。
 
-对 Critical Product Facts 中仍为空的字段，至少记录已尝试的查询、页面或文档。找不到权威值时保留 `TBD` 并写明搜索范围；不要把“未找到”改成“没有”。
+对每个适用但未解决的字段，记录查询词、来源 URL/文档页、日期、结果/访问失败、配置匹配、冲突裁决和后续动作。只有相关路径及有效线索均已研究、进一步不同的针对性查询不再产生新证据时，才可用 `TBD` + “未找到 / Not found after research”，并列出搜索范围和剩余限制。未研究/未完成、访问受阻、身份/配置未确认、冲突未解决必须分别说明；关键来源受阻导致无法下结论时保持 `SOURCE_UNAVAILABLE`，不能声称未找到。不能因一次失败或固定少量查询提前结束，也不能把“未找到”改成“没有”、零或 `NOT_APPLICABLE`。
 
 Research summary 同时说明序列号查询是否尝试、现有／历史证据范围、补齐的字段、原厂与销售配置的已解释差异、仍需补证的属性及访问失败。序列号路径不可访问时继续独立官方资料研究，不以缺少序列号为由停止所有字段检索。
 
@@ -104,7 +106,7 @@ Research summary 同时说明序列号查询是否尝试、现有／历史证据
 - 同义字段一致：RAM installed/size、storage capacity/hard-disk size、OS/OS family、GPU/VRAM、端口明细/端口总数。RAM maximum、最大存储支持值、display native/maximum 必须分别按 Definition 核验，不要求与已安装容量或原生分辨率相等。基础配置仅限制销售文案和已安装字段；最大支持能力字段保存真实已验证上限，不能写成已安装值或可售升级档位。
 - `Manufacturer`、`Brand Name`、OEM 型号和 MegaPC 定制身份按项目合规规则分别表达。
 - 不把用途文案写入硬件位置字段。例如 `Antenna Location` 不能填 “gaming / creative work”；不把 `USB 3.0` 写成内部硬盘接口。
-- Amazon 或竞品页出现但与 OEM/实物冲突的值必须标为 `CONFLICT`，不得因页面完整或排名高而优先采用。
+- Amazon、ERP 或其他来源与官网相冲突时，以匹配范围的官网研究裁决，保留被否决值及理由；已被官网解决的低优先级分歧不必继续把官网事实标为 `CONFLICT`。官网本身矛盾或当前销售配置适用性仍未解决时，保留真实冲突/未确认状态，不得因页面完整或排名高强选。
 
 ## 5. Research Completeness Gate
 
@@ -115,6 +117,7 @@ Research summary 同时说明序列号查询是否尝试、现有／历史证据
 以下任一情况都不得标为 `READY_FOR_SELLER_REVIEW`：
 
 - 当前模板存在没有 Status 或没有处置原因的字段。
+- 用“未找到”掩盖未完成研究、关键访问受阻或未解决冲突，或未记录适用深搜路径及结束依据。
 - 任何 Critical Product Fact 仍为 `TBD`、`CONFLICT`、`INPUT_UNVERIFIED` 或 `SOURCE_UNAVAILABLE`。
 - 端口、显示、CPU、RAM/SSD、GPU、OS、尺寸重量、电池/供电、输入设备、随箱物品或保修的关键值只来自 Amazon/经销商页面。
 - 发现重复字段或汇总字段不一致，或字段值不符合 Definition。

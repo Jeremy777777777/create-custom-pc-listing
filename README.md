@@ -1,5 +1,7 @@
 # MegaPC Custom PC listing and image workflow
 
+2026-10-26 update: [official evidence chain and deep research](references/evidence-chain-and-deep-research.md). Official serial lookup and exact-product website search > ERP > Amazon; matching official research governs conflicts. Research unresolved fields through the applicable deep-search routes before reporting not found, with field-level search evidence and distinct blocked/unverified/conflict outcomes. This runs automatically for subsequent Listing tasks.
+
 2026-10-22 update: [exact internal-ID ERP search](references/erp-internal-id-lookup.md), [natural Gaming direction](references/gaming-natural-design.md), and [Drive-only retention with cache cleanup](references/google-drive-delivery.md).
 
 Start with [SKILL.md](SKILL.md) and [current seller policy](references/confirmed-catalog-defaults.md). Effective policy: **2026-10-02 baseline, amended 2026-10-05**.
@@ -30,6 +32,7 @@ Workflow changes follow [GitHub → Drive synchronization](references/github-dri
 | Default full output Excel: complete copy, seven rows, technical research, candidates and current Drive delivery | [output-excel-contract.md](references/output-excel-contract.md) |
 | Seller assertions and precedence | [confirmed-catalog-defaults.md](references/confirmed-catalog-defaults.md) |
 | Complete attribute research | [research-attribute-coverage.md](references/research-attribute-coverage.md) |
+| Official source priority, conflict decisions, deep search and honest missing-field outcomes | [evidence-chain-and-deep-research.md](references/evidence-chain-and-deep-research.md) |
 | Scoped facts, template projection and mandatory pre-export evidence checks | [research-ledger-projection.md](references/research-ledger-projection.md) / [JSON schema](assets/research-ledger-schema.json) |
 | Current stage files versus immutable historical workbook bundles | [workbook-stage-snapshots.md](references/workbook-stage-snapshots.md) |
 | PC information: ERP current/historical serial → OEM as-built parts → sold-configuration reconciliation | [serial-number-product-research.md](references/serial-number-product-research.md) |
