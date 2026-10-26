@@ -13,6 +13,8 @@ Apply the 2026-10-26 [official evidence chain and deep research](evidence-chain-
 
 ## Every attribute gets a disposition
 
+Use [operations preflight](research-operations-preflight.md) to exhaust independent technical research before one consolidated missing-fact request. Preserve an instruction to defer seller-only price/SKU/GTIN/quantity fields; keep their honest TBD disposition without stopping unrelated technical research or a permitted PARTIAL draft. This does not waive final export requirements, style approval, actual QA or publication review.
+
 Classify by the field's Definition and evidence requirements, not simply by its worksheet or whether its Source contains an ERP URL:
 
 1. **Seller/account/operational inputs:** preserve supplied values and confirmed seller policy. Research completion does not invent price, inventory meaning, shipping settings, licensing eligibility or legal declarations. Missing inputs stay TBD with SELLER_INPUT_REQUIRED, the specific input and responsible party. Do not fabricate candidates for these inputs. The user's instruction to leave this class alone does not erase already confirmed policy or block later explicit seller input.

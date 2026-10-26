@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 1,
+  "effectiveDate": "2026-10-26",
+  "authority": {
+    "source": "User acceptance of the scoped research-friction recommendations, with style approval expressly retained by the user",
+    "userInstruction": "风格审批还是靠我来判断，其余的修改可以进行优化，帮我进行优化然后写入项目",
+    "reference": "references/research-operations-preflight.md"
+  },
+  "styleApproval": {
+    "decisionMaker": "USER",
+    "newProductOrMaterialChangeRequiresExplicitApproval": true,
+    "defaultOrBatchStyleApprovalGranted": false,
+    "silenceIsApproval": false
+  },
+  "officialUnitLookup": {
+    "allowedData": ["Target-product-linked serial number", "Target-product-linked service tag", "Exact OEM model/SKU/part number"],
+    "allowedPurposes": ["Product identity", "Original configuration", "Parts/BOM", "Warranty status", "Applicable regulatory evidence"],
+    "manufacturerDomainRoots": {
+      "Dell": ["dell.com"],
+      "Lenovo": ["lenovo.com"],
+      "HP": ["hp.com"],
+      "ASUS": ["asus.com"],
+      "MSI": ["msi.com"],
+      "Acer": ["acer.com"],
+      "LG": ["lg.com"]
+    },
+    "requireVerifiedTargetLinkageAndMatchingManufacturer": true,
+    "requireObservedHTTPSLookupPage": true,
+    "unknownManufacturerOrUnlistedDestination": "REQUIRES_SPECIFIC_AUTHORIZATION",
+    "ordinaryDeliveryUsesUnitAliasOnly": true,
+    "captchaAndLoginFollowCurrentToolRequirements": true
+  },
+  "driveDelivery": {
+    "projectFolderId": "1Knp8RUWyw5N1MownbfJSSo-m6NgrqrQq",
+    "productsFolderId": "1z14YEhGsDHXq1YbkuO5iG3t6uIuut4Lf",
+    "reuseExistingFolderAndFileIds": true,
+    "allowMissingStandardProductChildFolders": true,
+    "creationConditions": ["Exact internal ID established", "All search pages checked for existing matching product", "Authorized parent chain read back", "No ambiguous or duplicate match", "No permission or sharing change"],
+    "internalIdPattern": "^[A-Z]{2,}-[0-9]+$",
+    "standardSections": ["01_LISTING", "02_IMAGES", "03_RESEARCH", "03_RESEARCH/FINAL", "04_QA", "90_SOURCE"],
+    "allowedPayloads": ["Original Research Review and Listing Draft XLSX", "Requested final images", "Sanitized product facts and research evidence", "Necessary product-specific sources, production scripts, recipes and masks", "Current QA, delivery and run records"],
+    "reusableWorkflowAssetsUseWorkflowAndTemplateFolders": true,
+    "requirePreservedPreviousVersionAndCurrentByteReadback": true
+  },
+  "excluded": ["Raw serials in shared Drive/GitHub artifacts", "Customer or payment records", "Credentials and signed download URLs", "Unrelated product records", "New sharing recipients or access changes", "Unapproved external destinations", "Permanent cloud deletion", "Seller Central publication", "Credential retrieval from unrelated stores"],
+  "automation": {
+    "connectedDriveAuthorizationDoesNotConfigureGitHubRunner": true,
+    "missingRunnerAuthorizationDoesNotBlockIndependentResearch": true
+  },
+  "reviewRejection": "STOP_AFFECTED_ACTION_REVIEW_EXACT_REASON_NEVER_BYPASS"
+}

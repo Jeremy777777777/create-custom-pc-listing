@@ -29,6 +29,8 @@ Example: official lookup shows factory 16GB, ERP says 32GB and an Amazon variant
 
 ## 3. Deep search for unresolved fields
 
+Use [operations preflight](research-operations-preflight.md) for scoped official lookup authorization and consolidated remaining questions. Search available linked configurations/units and exact-model source assets before asking the user to choose capacities or supply photos. Keep image-style approval as the user's separate decision; independent research continues while it is pending.
+
 After the initial chain, automatically continue targeted deep research for unresolved technical fields within the requested scope. Full Listing research covers every applicable template attribute; image-only work researches missing image-required facts without expanding into unrelated compliance work.
 
 Follow applicable routes and promising leads:
