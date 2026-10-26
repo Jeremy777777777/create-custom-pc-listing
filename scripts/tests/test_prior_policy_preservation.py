@@ -37,6 +37,16 @@ class PreservationTests(unittest.TestCase):
     def test_changed_image_cannot_preserve_even_if_committed(self):
         (self.p/'PT01.png').write_bytes(b'changed');self.git('add','.');self.git('commit','-qm','change')
         with self.assertRaisesRegex(ValueError,'Changed product bytes'):self.preserve()
+    def test_windows_script_line_endings_preserve_but_source_edits_do_not(self):
+        scripts=[self.p/'render.py',self.p/'render.ps1',self.p/'.gitattributes',self.p/'.gitignore']
+        for source in scripts:source.write_bytes(b'# Synthetic production script\n# Stable content\n')
+        self.git('add','.');self.git('commit','-qm','production scripts');self.base=self.git('rev-parse','HEAD').strip()
+        for source in scripts:source.write_bytes(source.read_bytes().replace(b'\n',b'\r\n'))
+        before={source.name:source.read_bytes() for source in scripts}
+        self.assertFalse(self.preserve()['currentPolicyQa'])
+        self.assertEqual(before,{source.name:source.read_bytes() for source in scripts})
+        scripts[0].write_bytes(b'# Changed production behavior\r\n')
+        with self.assertRaisesRegex(ValueError,'Changed product bytes'):self.preserve()
     def test_changed_facts_and_review_cannot_preserve(self):
         for n in ('product-facts.json','visual-review.json'):
             with self.subTest(file=n):

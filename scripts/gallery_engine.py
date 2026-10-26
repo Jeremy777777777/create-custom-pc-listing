@@ -549,8 +549,8 @@ def preserve_prior_policy_gallery(root,p,base):
     if current!=set(paths): raise ValueError('Changed gallery inventory cannot preserve a prior policy')
     for path in paths:
         data=prior(path);actual=(root/path).read_bytes()
-        if Path(path).suffix.lower()=='.json': data=data.replace(b'\r\n',b'\n');actual=actual.replace(b'\r\n',b'\n')
-        elif Path(path).suffix.lower() in ('.md','.txt'): data=data.replace(b'\r\n',b'\n');actual=actual.replace(b'\r\n',b'\n')
+        if Path(path).suffix.lower() in ('.json','.md','.txt','.py','.ps1') or Path(path).name in ('.gitattributes','.gitignore'):
+            data=data.replace(b'\r\n',b'\n');actual=actual.replace(b'\r\n',b'\n')
         if data!=actual: raise ValueError('Changed product bytes cannot preserve a prior policy: '+path)
     recipe=read(p/'style-lock.json').get('recipePath')
     if recipe:
