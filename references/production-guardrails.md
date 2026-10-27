@@ -10,6 +10,8 @@ Use a clean committed workflow. Observe existing current Drive bytes and archive
 - `mode`: FULL_LISTING_WORKFLOW, IMAGE_ONLY_WORKFLOW, IMAGE_ADJUSTMENT_WORKFLOW or explicitly requested CONCEPT_ONLY.
 - `allowedChanges`: exact product-relative filenames permitted to be created/modified, including necessary facts, research, recipe and QA sidecars. No wildcard, parent path, alias or deletion. Routine necessary sidecars do not need another approval. Never add unrelated slots or Excel to evade checks.
 - `outputs`: exact delivery filenames mapped to RESEARCH, LISTING, IMAGE, QA, SOURCE or CONCEPT. Workbooks must be original top-level XLSX; canonical images cannot be relabelled SOURCE. Image modes cannot regenerate Excel.
+
+Canonical `research-ledger.json` and `product-facts.json` dependencies use RESEARCH, matching their existing `03_RESEARCH/FINAL` destination. A workbook's exact `.research-summary.json` sidecar shares its RESEARCH or LISTING role and folder. These JSON dependencies require a contracted workbook and never bypass its checks; arbitrary JSON cannot claim a workbook role. Workbook content checks execute on XLSX bytes, while ledger/metadata/summary bindings are checked with the workbook.
 - `selectedSlots`: exact requested canonical images, empty for research-only stages. IMAGE_ONLY_WORKFLOW requires all eleven; IMAGE_ADJUSTMENT_WORKFLOW requires the requested subset.
 - With image slots, `styleApproval` contains `userReference` to actual USER approval and raw-byte `styleLockSha256` of the approved style-lock.json. A model opinion or test result cannot supply approval.
 

@@ -74,8 +74,17 @@ def validate_contract(contract):
         if role == 'IMAGE' and name not in NAMES: raise ValueError('IMAGE must be a canonical slot')
         if '/' not in name and Path(name).suffix.lower() in {'.xlsx', '.xls', '.xlsm'} and role not in {'RESEARCH', 'LISTING'}:
             raise ValueError('Workbook cannot bypass stage checks by relabelling its role')
-        if role in {'RESEARCH', 'LISTING'} and (Path(name).suffix.lower() != '.xlsx' or '/' in name):
-            raise ValueError('Original current XLSX must be beside product facts')
+        if role in {'RESEARCH', 'LISTING'}:
+            workbook = Path(name).suffix.lower() == '.xlsx' and '/' not in name
+            dependency = ('/' not in name and
+                ((role == 'RESEARCH' and name in {'research-ledger.json', 'product-facts.json'}) or
+                 (name.endswith('.research-summary.json') and
+                  outputs.get(name[:-len('.research-summary.json')] + '.xlsx') == role)))
+            if not workbook and not dependency:
+                raise ValueError('Research/listing role requires a current XLSX or its exact canonical dependency')
+            if dependency and not any('/' not in n and n.endswith('.xlsx') and
+                    r in {'RESEARCH', 'LISTING'} for n, r in outputs.items()):
+                raise ValueError('Canonical research dependency needs a contracted workbook')
     slots = contract.get('selectedSlots', [])
     if not isinstance(slots, list) or len(set(slots)) != len(slots) or not set(slots) <= set(NAMES):
         raise ValueError('Invalid selected image slots')
@@ -159,7 +168,7 @@ def verify(product, contract_path, expected_sha256, planned_files=None):
     results = {}
     for name in sorted(selected):
         role = contract['outputs'][name]
-        if role in {'RESEARCH', 'LISTING'}:
+        if role in {'RESEARCH', 'LISTING'} and Path(name).suffix.lower() == '.xlsx':
             from workbook_reference_audit import check_paths as check_references
             check_references(product/'research-ledger.json', product/name, required=True)
             from research_export import run

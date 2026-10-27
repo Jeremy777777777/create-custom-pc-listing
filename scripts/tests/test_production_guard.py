@@ -123,8 +123,7 @@ class ProductionScope(unittest.TestCase):
             request={'mode':'FULL_LISTING_WORKFLOW','configurationId':'BASE-A','runId':'RESEARCH-STAGE',
                      'requestReference':'Synthetic research-only stage','allowedChanges':[workbook.name,summary.name],
                      'outputs':{workbook.name:'RESEARCH',summary.name:'RESEARCH'},'selectedSlots':[]}
-            # Sidecar is QA; the original workbook is the RESEARCH deliverable.
-            request['outputs'][summary.name]='QA'
+            # The summary shares its workbook's actual Drive role and folder.
             with patch.object(guard,'workflow',return_value='a'*40):
                 contract=guard.capture(p,request);path=root/'contract.json';gallery.write(path,contract)
                 checked=guard.verify(p,path,guard.sha(path))
@@ -138,6 +137,21 @@ class ProductionScope(unittest.TestCase):
                 stale=json.loads(summary.read_text());stale['productFactsSha256']='0'*64
                 gallery.write(summary,stale)
                 with self.assertRaisesRegex(ValueError,'summary stale'):guard.verify(p,path,guard.sha(path))
+
+    def test_dependency_roles_cannot_hide_workbooks_or_arbitrary_json(self):
+        with tempfile.TemporaryDirectory() as temp:
+            p,c=self.fixture(Path(temp))
+            c.update(mode='FULL_LISTING_WORKFLOW', selectedSlots=[],
+                     allowedChanges=['review.xlsx','research-ledger.json','product-facts.json','review.research-summary.json'],
+                     outputs={'review.xlsx':'RESEARCH','research-ledger.json':'RESEARCH',
+                              'product-facts.json':'RESEARCH','review.research-summary.json':'RESEARCH'})
+            guard.validate_contract(c)
+            for outputs in ({'research-ledger.json':'RESEARCH'},
+                            {'review.xlsx':'RESEARCH','unrelated.json':'RESEARCH'},
+                            {'review.xlsx':'RESEARCH','review.research-summary.json':'LISTING'},
+                            {'review.xlsx':'SOURCE'}):
+                with self.subTest(outputs=outputs),self.assertRaises(ValueError):
+                    guard.validate_contract({**c,'outputs':outputs})
 
     def fixture(self,root):
         p=root/'TEST-PC';p.mkdir()
