@@ -8,6 +8,8 @@ New research starts with target-linked serial lookup and follows [research trace
 
 ## Workbook and copy
 
+User decision 2026-10-27: apply [inch-only physical dimensions](dimension-units.md) to all new values, candidates and dimension copy. Paired units are Inches; retain source-unit evidence and record conversion before generating reference-audit hashes. Missing measurements stay unresolved.
+
 - Use the current canonical `assets/listing-workbook-template.xlsx`. Preserve Product Details, Offer and Safety&Compliance, their exact field names and Definitions, all 294 current attributes, formatting, status menus and units. A future reviewed template change must enumerate its actual fields; do not silently discard fields to fit the old count.
 - Each sheet has seven rows: **Field / Attribute**, **Definition**, **Value**, **Status**, **Source**, **Value Candidate**, **Value Candidate Source**. Map by worksheet plus exact field name, not column position or a similar name. Freeze and wrapping must keep long copy and evidence readable; retain the canonical layout rather than redesigning each run.
 - Deliver an English Item Name, five complete bullet paragraphs in the single Bullet Point cell, and a Product Description containing literal HTML. Apply the current title, base sold configuration and fixed warranty/disclosure rules in SKILL.md and listing-style-guide.md. Candidate claims, TBD and internal research warnings never enter customer copy.

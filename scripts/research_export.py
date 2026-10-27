@@ -284,6 +284,8 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
     temporary = None
     try:
         projected = project(data, workbook_fields(book), mode)
+        from dimension_units import validate_dimensions
+        validate_dimensions(projected)
         selected = validate_ledger(data)
         fcc = next((selected[f['selected_fact']] for f in data['fields']
                     if (f['sheet'], f['attribute']) == FCC_KEY), None)

@@ -4,6 +4,8 @@ For supplied computer IDs, follow [ERP lookup](references/erp-internal-id-lookup
 
 Read [SKILL.md](SKILL.md) and the applicable current references before changing Listing text, workbooks, images or workflow rules.
 
+Apply the user's [inch-only physical dimensions rule](references/dimension-units.md) to every new output: chassis/package length, width, height, depth, thickness, screen diagonal, bezel measurements and candidates use Inches. Preserve original source measurements/conversion evidence; unknown measurements stay unresolved. Generation, listing/export and production-delivery checks enforce this policy.
+
 For new workbook generation/export/delivery, enforce the [browser reference and display contract](references/workbook-reference-contract.md). Actual browser observations and field applicability reviews bind the exact ledger; clean native hyperlinks and internal-panel consistency are executable gates. Historical reads remain explicitly unassessed. ERP now uses [the current access policy](assets/erp-access-policy.json), rooted at https://dev.mystore123.com/; verify observed exact-ID result links rather than transplanting old numeric IDs.
 
 New product runs use [production guardrails](references/production-guardrails.md): freeze permitted files/slots and the observed baseline before edits, retain the contract digest independently, and check it through the supported Drive delivery CLI. Never expand the contract, edit validators or promote candidates to make a run pass. Already authorized scope needs no new approval; USER style judgment remains exclusive.

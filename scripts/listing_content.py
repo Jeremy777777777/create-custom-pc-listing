@@ -121,6 +121,8 @@ def base_spec_fragments(product):
 
 
 def validate_listing(projected, product, definitions=None,storage_total_gb=None,storage_configuration=None):
+    from dimension_units import validate_dimensions
+    validate_dimensions(projected)
     values = {field:record['value'] for (sheet,field),record in projected.items() if sheet=='Product Details'}
     for key,record in projected.items():
         value=record['value']

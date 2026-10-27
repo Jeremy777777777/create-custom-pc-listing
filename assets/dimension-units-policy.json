@@ -1,0 +1,13 @@
+{
+  "schemaVersion": 1,
+  "effectiveDate": "2026-10-27",
+  "outputUnit": "Inches",
+  "decimalPlaces": 4,
+  "scope": "Physical linear measurements in new workbook values, candidates, listing copy and image dimension labels",
+  "sourceEvidence": "Retain original value, unit, source and scope; record conversion before generating the reference audit.",
+  "mmPerInch": "25.4",
+  "cmPerInch": "2.54",
+  "mPerInch": "0.0254",
+  "inchesPerFoot": "12",
+  "unknownPolicy": "Never infer units, replace unknown with zero, invent package dimensions, collapse a range or reinterpret axis order."
+}
