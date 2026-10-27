@@ -5,6 +5,8 @@ description: "Create MegaPC Custom PC research and base-configuration listing wo
 
 # MegaPC Custom PC workflow
 
+New workbook generation, export and production delivery enforce [browser-checked references and internal-panel fields](references/workbook-reference-contract.md). Supply an exact-ledger-bound reference audit, actual opened sources and field applicability reviews; preserve failed access/history separately. The writer creates clean native hyperlinks. External monitor output cannot populate built-in panel resolution/refresh fields. Current ERP root is https://dev.mystore123.com/; follow [verified navigation and identity checks](references/erp-internal-id-lookup.md) and [access policy](assets/erp-access-policy.json).
+
 ## Final storage — 2026-10-20
 
 User update 2026-10-21: each product's `03_RESEARCH` exposes one stable `FINAL` folder. Reuse its folder/file IDs for subsequent updates; do not create dated or task-named sibling delivery folders. Preserve superseded evidence under `90_ARCHIVE/PRODUCT_RESEARCH_HISTORY/<internal-id>/` and independent run records under `30_RUNS`. Follow the stable-current-entry section in the Drive delivery reference. `FINAL` identifies the current delivery entry; retain the actual research/QA status, including PARTIAL and unresolved fields.
@@ -45,7 +47,7 @@ For every Listing mode (text/workbooks, images and workflow updates), apply the 
 Read [ERP internal-ID lookup](references/erp-internal-id-lookup.md), then `references/input-source-cross-validation.md`. A supplied internal ID is sufficient: open virtual-computers All, enter the exact ID in Search, press Enter and open the matching detail. Do not ask for a URL before trying this route or infer numeric ERP IDs.
 
 Optional sources:
-- MyStore ERP: https://erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app/computers/virtual?s=-createdAt
+- MyStore ERP: https://dev.mystore123.com/computers/virtual?s=-createdAt
 - Listing Status Tracker: https://docs.google.com/spreadsheets/d/11qeinso-6eRYgSVLQlRdteOZL8vsZE9IBfZcVMBXEkE/edit?gid=621896540#gid=621896540
 
 Use `MYSTORE_ONLY`, `CHECKLIST_ONLY` or `MYSTORE_AND_CHECKLIST`. Locate the exact requested product, not the whole catalog. Preserve original records, source URLs, timestamps, product IDs, tracker sheet/row, name, internal VL/VA identifier and quantity. Match by verified identity and configuration; do not merge fuzzy matches or expand an unconfirmed range. A missing source may be replaced by independent authoritative evidence.

@@ -168,6 +168,10 @@ class ResearchExportTests(unittest.TestCase):
         return book, data, path, ledger
 
     def export_run(self, ledger, path, template=None, stage='LISTING_DRAFT'):
+        # Every explicit synthetic export scenario supplies its current fixture audit.
+        # Stale/missing-audit regressions exercise the production API directly.
+        from reference_fixtures import write_audit
+        write_audit(ledger)
         return r.run(template or r.ROOT/'assets/listing-workbook-template.xlsx', ledger, path,
                      'export', 'TEST-PC', 'BASE-A', stage)
 
@@ -176,6 +180,8 @@ class ResearchExportTests(unittest.TestCase):
             root = Path(scratch)
             book, data, path, ledger = self.full_fixture(root)
             (root/'research-ledger.json').write_text(json.dumps(data), encoding='utf-8')
+            from reference_fixtures import write_audit
+            write_audit(ledger)
             command = [sys.executable, str(r.ROOT/'scripts/research_export.py'), '--ledger', str(ledger),
                        '--workbook', str(path), '--mode', 'export', '--product-id', 'TEST-PC',
                        '--stage', 'LISTING_DRAFT', '--configuration-id', 'BASE-A']

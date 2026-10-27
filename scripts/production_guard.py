@@ -160,6 +160,8 @@ def verify(product, contract_path, expected_sha256, planned_files=None):
     for name in sorted(selected):
         role = contract['outputs'][name]
         if role in {'RESEARCH', 'LISTING'}:
+            from workbook_reference_audit import check_paths as check_references
+            check_references(product/'research-ledger.json', product/name, required=True)
             from research_export import run
             result = run(ROOT/'assets/listing-workbook-template.xlsx', product/'research-ledger.json', product/name,
                          'draft', contract['productId'], contract['configurationId'],

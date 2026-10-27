@@ -342,6 +342,19 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
                                   and old.cell(3, col).value == field['value'])
                     cell.fill = copy(old.cell(3, col).fill) if historical else PatternFill(
                         'solid', fgColor='C6EFCE' if field['value'] else 'FFC7CE')
+        from workbook_reference_audit import validate as validate_references, urls
+        from workbook_reference_audit import check_paths as check_reference_paths
+        check_reference_paths(ledger, required=True)
+        reference_audit = json.loads((ledger.parent/'reference-audit.json').read_text(encoding='utf-8-sig'))
+        reference_result = validate_references(data, reference_audit, ledger.read_bytes())
+        for sheet in book:
+            for col in range(2, sheet.max_column + 1):
+                key = (sheet.title, sheet.cell(1, col).value)
+                for row in (5, 7):
+                    cell = sheet.cell(row, col)
+                    targets = urls(cell.value)
+                    cell.hyperlink = (reference_result['links'][key] if row == 5 else targets[0]) if targets else None
+        validate_references(data, reference_audit, ledger.read_bytes(), book)
         with tempfile.NamedTemporaryFile(prefix='.' + workbook.stem + '-', suffix='.xlsx',
                                          dir=workbook.parent, delete=False) as handle:
             temporary = Path(handle.name)
@@ -452,7 +465,9 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
     if 'productFacts' in input_hashes and hashlib.sha256(facts_path.read_bytes()).hexdigest()!=input_hashes['productFacts']:
         raise ValueError('Input changed during validation: productFacts')
     from research_audit import validate as audit_research
-    return {'researchTrace': audit_research(data),
+    from workbook_reference_audit import check_paths as check_references
+    reference_result = check_references(ledger, workbook, required=mode == 'export')
+    return {'referenceAudit': reference_result, 'researchTrace': audit_research(data),
             'productFactsSha256':input_hashes.get('productFacts'), 'result': 'EXPORT_EVIDENCE_CHECK_PASS' if mode == 'export' else 'DRAFT_PROJECTION_PASS',
             'productId': data['productId'], 'configurationId': data['configurationId'],
             'workbookSha256': input_hashes['workbook'],

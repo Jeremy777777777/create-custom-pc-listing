@@ -114,6 +114,8 @@ class ProductionScope(unittest.TestCase):
             root=Path(temp);p=root/'TEST-PC';p.mkdir()
             book,data,workbook,ledger=research_fixtures.ResearchExportTests().full_fixture(p);book.close()
             ledger.rename(p/'research-ledger.json');ledger=p/'research-ledger.json'
+            from reference_fixtures import write_audit
+            write_audit(ledger)
             result=export.run(export.ROOT/'assets/listing-workbook-template.xlsx',ledger,workbook,'draft',stage='RESEARCH_REVIEW')
             raw,reuse=revision_fixtures.reuse_review(data,data)
             result['researchTrace']=audit.validate(data,True,raw,reuse)

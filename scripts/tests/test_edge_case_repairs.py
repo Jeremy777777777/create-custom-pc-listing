@@ -16,12 +16,18 @@ from listing_content import base_spec_fragments
 
 class ExportRepairs(unittest.TestCase):
     def check(self,changes,identity=None):
+        changes=dict(changes)
+        if 'Resolution' in changes:
+            # Positive panel scenarios now include explicit native-panel evidence.
+            changes.setdefault('Native Resolution',changes['Resolution'])
         with tempfile.TemporaryDirectory() as tmp:
             root=Path(tmp);helper=ef.ResearchExportTests();book,data,path,ledger=helper.full_fixture(root)
             for field,value in changes.items():
                 sheet,attribute=field if isinstance(field,tuple) else ('Product Details',field)
                 fact=next(f for f in data['facts'] if f['attribute']==attribute and f['sheet']==sheet)
                 fact.update(status='VERIFIED',final_value=value)
+                if attribute in {'Resolution','Native Resolution','Display Refresh Rate in Hertz'}:
+                    fact.setdefault('evidence',{})['display_scope']='INTERNAL_PANEL'
                 column=next(c.column for c in book[sheet][1] if c.value==attribute)
                 book[sheet].cell(3,column).value=value
                 book[sheet].cell(4,column).value='VERIFIED'

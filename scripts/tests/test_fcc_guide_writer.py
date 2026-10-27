@@ -29,6 +29,8 @@ class FCCGuideWriterTests(unittest.TestCase):
         if status == 'INPUT_UNVERIFIED':
             fact['recommended_candidate'] = 'TEST-MODULE-ID'
         ledger.write_text(json.dumps(data), encoding='utf-8')
+        from reference_fixtures import write_audit
+        write_audit(ledger)
         book.close()
         return data, fact, previous, ledger
 
@@ -132,6 +134,8 @@ class FCCGuideWriterTests(unittest.TestCase):
             for item in data['facts']:
                 item.setdefault('evidence', {})['research_trace'] = trace_for(item)
             ledger.write_text(json.dumps(data), encoding='utf-8')
+            from reference_fixtures import write_audit
+            write_audit(ledger)
             out = root/'new.xlsx'
             command = [sys.executable, str(r.ROOT/'scripts/research_export.py'), '--ledger', str(ledger),
                        '--workbook', str(out), '--write-workbook', '--stage', 'RESEARCH_REVIEW']

@@ -6,6 +6,8 @@ Apply [serial-number-product-research.md](serial-number-product-research.md), [r
 
 After performing the OEM/FCC research and recording its evidence, create a new staged workbook from the canonical template:
 
+New generation also requires the exact-ledger-bound [browser reference audit](workbook-reference-contract.md). The writer installs literal source text with native hyperlinks; new export and production delivery enforce opened-source evidence and panel consistency. Missing audits on old read-only workbooks remain explicitly unassessed. Keep the reference audit with the product QA evidence and reconstruct it beside the ledger when validating a Drive working copy.
+
 ```powershell
 & $listingPython -X utf8 scripts/research_export.py --ledger "product generated photo/PRODUCT-ID/research-ledger.json" --workbook "product generated photo/PRODUCT-ID/PRODUCT-ID_RESEARCH_REVIEW_v2.xlsx" --write-workbook --mode draft --stage RESEARCH_REVIEW
 ```

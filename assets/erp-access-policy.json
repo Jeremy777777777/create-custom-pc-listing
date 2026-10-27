@@ -1,0 +1,11 @@
+{
+  "schemaVersion": 1,
+  "effectiveDate": "2026-10-27",
+  "baseUrl": "https://dev.mystore123.com",
+  "computerSearchUrl": "https://dev.mystore123.com/computers/virtual?s=-createdAt",
+  "navigation": ["Products", "PC Virtual Products", "All", "Search exact internal ID", "Press Enter", "Open observed matching result", "Specification", "Linked configuration"],
+  "retiredHosts": ["erp-git-feat-part-serial-numbers-overhaul-jtechdigital.vercel.app"],
+  "detailUrlRule": "Use only the actual link observed in the matching search result; never calculate or transplant numeric IDs.",
+  "authorizationBasis": "User supplied the new ERP root and requested workflow migration on 2026-10-27.",
+  "validatedScope": "Authenticated browser navigation and an exact-ID parent/linked-configuration match; not universal product fact verification."
+}

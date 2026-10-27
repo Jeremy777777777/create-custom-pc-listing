@@ -137,6 +137,8 @@ class ProductionRevisionTests(unittest.TestCase):
             prior = root/'previous-ledger.json'; prior.write_bytes(raw)
             reviewed = root/'reuse-review.json'; reviewed.write_text(json.dumps(review), encoding='utf-8')
             ledger.write_text(json.dumps(current), encoding='utf-8')
+            from reference_fixtures import write_audit
+            write_audit(ledger)
             out = root/'updated.xlsx'
             args = ['research_export', '--write-workbook', '--ledger', str(ledger), '--workbook', str(out),
                     '--previous-ledger', str(prior), '--research-reuse', str(reviewed)]
