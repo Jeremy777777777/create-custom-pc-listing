@@ -367,7 +367,7 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
             temporary.unlink(missing_ok=True)
 
 
-def run(template, ledger, workbook, mode, product_id=None, configuration_id=None, stage=None):
+def run(template, ledger, workbook, mode, product_id=None, configuration_id=None, stage=None, check_copy=False):
     template, ledger, workbook = map(Path, (template, ledger, workbook))
     from workbook_paths import resolve_workbook_path
     workbook=resolve_workbook_path(workbook)
@@ -399,6 +399,18 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
     from research_handoff import check_product_location,coverage_summary,internal_storage_configuration
     check_product_location(workbook,data['productId'])
     listing_stage = stage == 'LISTING_DRAFT' if stage else '_LISTING_' in workbook.stem.upper()
+    if check_copy and not listing_stage:
+        raise ValueError('Copy checking requires LISTING_DRAFT stage')
+    facts_path=workbook.parent/'product-facts.json'
+    if facts_path.exists():
+        input_hashes['productFacts']=hashlib.sha256(facts_path.read_bytes()).hexdigest()
+        raw_product=json.loads(facts_path.read_text(encoding='utf-8-sig'))
+        # Research may be incomplete, but an existing identity cannot disagree.
+        from product_identity import product_id as metadata_product_id
+        for value,expected in ((metadata_product_id(raw_product),data['productId']),
+                               (raw_product.get('selectedBaseConfiguration',{}).get('id'),data['configurationId'])):
+            if value is not None and value != expected:
+                raise ValueError('Product facts identity/configuration differs from research target')
     if mode == 'export' or listing_stage:
         facts_path=workbook.parent/'product-facts.json'
         input_hashes['productFacts']=hashlib.sha256(facts_path.read_bytes()).hexdigest()
@@ -421,7 +433,7 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
     book = openpyxl.load_workbook(workbook, data_only=False)
     try:
         projected = verify_workbook(book, data, mode)
-        if mode == 'export':
+        if mode == 'export' or check_copy:
             from listing_content import validate_listing
             from capacity_units import STORAGE_FIELDS,check_nominal_storage_basis
             selected={f['id']:f for f in data['facts']}
@@ -437,7 +449,7 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
     for name, path in (('workbook', workbook), ('ledger', ledger), ('template', template)):
         if hashlib.sha256(Path(path).read_bytes()).hexdigest() != input_hashes[name]:
             raise ValueError('Input changed during validation: ' + name)
-    if product is not None and hashlib.sha256(facts_path.read_bytes()).hexdigest()!=input_hashes['productFacts']:
+    if 'productFacts' in input_hashes and hashlib.sha256(facts_path.read_bytes()).hexdigest()!=input_hashes['productFacts']:
         raise ValueError('Input changed during validation: productFacts')
     from research_audit import validate as audit_research
     return {'researchTrace': audit_research(data),
@@ -489,6 +501,7 @@ def write_summary(output, result, workbook, ledger=None):
     summary = {k: result[k] for k in ('productId', 'configurationId', 'stage', 'workbookSha256',
                'ledgerSha256', 'templateSha256', 'productFactsSha256', 'coverageSummary')}
     summary['artifactRole'] = 'RESEARCH_COVERAGE_SUMMARY'
+    summary['productFactsBindingVersion'] = 1
     summary['workbookFile'] = resolve_workbook_path(workbook).name
     if 'researchTrace' in result:
         summary['researchTrace'] = result['researchTrace']

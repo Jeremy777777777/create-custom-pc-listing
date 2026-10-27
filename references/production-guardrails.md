@@ -1,0 +1,42 @@
+# Executable production scope — 2026-10-27
+
+For each new product production/revision stage, use `scripts/production_guard.py` before edits and before delivery. It combines actual file-difference checks with existing research/export/gallery validators. It never supplies factual, visual, rights, USER style or marketplace approval.
+
+## Freeze the actual request once
+
+Use a clean committed workflow. Observe existing current Drive bytes and archive requirements first. Stage only the exact product/dependencies; temporary previews, debug logs and run records stay outside its directory. The request JSON contains:
+
+- `runId`, `configurationId`, `requestReference`: actual request and verified target; directory name supplies productId.
+- `mode`: FULL_LISTING_WORKFLOW, IMAGE_ONLY_WORKFLOW, IMAGE_ADJUSTMENT_WORKFLOW or explicitly requested CONCEPT_ONLY.
+- `allowedChanges`: exact product-relative filenames permitted to be created/modified, including necessary facts, research, recipe and QA sidecars. No wildcard, parent path, alias or deletion. Routine necessary sidecars do not need another approval. Never add unrelated slots or Excel to evade checks.
+- `outputs`: exact delivery filenames mapped to RESEARCH, LISTING, IMAGE, QA, SOURCE or CONCEPT. Workbooks must be original top-level XLSX; canonical images cannot be relabelled SOURCE. Image modes cannot regenerate Excel.
+- `selectedSlots`: exact requested canonical images, empty for research-only stages. IMAGE_ONLY_WORKFLOW requires all eleven; IMAGE_ADJUSTMENT_WORKFLOW requires the requested subset.
+- With image slots, `styleApproval` contains `userReference` to actual USER approval and raw-byte `styleLockSha256` of the approved style-lock.json. A model opinion or test result cannot supply approval.
+
+Run using the dedicated Listing interpreter:
+
+```text
+scripts/production_guard.py capture --product <product-cache> --request <request.json> --output <run-directory/production-contract.json>
+```
+
+Capture records baseline bytes, workflow commit and time. Retain the exact contract and returned SHA256 independently in the existing run record before edits. This implements existing authorization; it is not another user approval. Missing old receipts use observed-baseline adoption, never invented hashes or a post-edit capture presented as pre-edit.
+
+Research proceeds while style is pending. Capture a research-stage contract without images, deliver Research Review and summary, then capture an image-stage contract after actual style approval. Each stage has its own run ID and observed baseline. Do not include unfinished future outputs in an early-stage contract. A genuine later user scope/style change gets a linked successor contract; never rewrite the original digest to make a failing run pass.
+
+## Check outputs and delivery
+
+```text
+scripts/production_guard.py check --product <product-cache> --contract <contract.json> --contract-sha256 <independently-retained-sha256> --output <new-run-check.json>
+```
+
+Reject unrequested file changes/deletions, missing outputs, changed identity/configuration, mutated style bytes, dirty/different workflow, invalid mode/slot combinations and inputs changing during checking. Research Review allows truthful incomplete evidence but requires matching identity/configuration and a current metadata-bound coverage summary. LISTING Draft outputs check confirmed copy and base configuration while retaining truthful unresolved attribute/candidate rows. Marketplace export remains a separate stricter check; Drive delivery must not demand that all research be resolved. Images run full or selected-slot evidence checks. Candidate information remains outside confirmed workbook Values and customer claims.
+
+The supported `drive_delivery.py plan` and `verify` CLI require `--production-contract` and `--contract-sha256`, reruns production checks, compares run ID and roles, then verifies Drive bytes, exact folder chains and privacy screens. A delivery batch may contain a subset of contracted outputs; the receipt covers only those files. All required batch receipts are needed for completion. The lower-level drive_delivery.verify API retains storage-only semantics for diagnostics/history and cannot grant production clearance. Concepts remain previews and cannot receive normal product-delivery completion.
+
+Perform actual claim-by-claim review of title, bullets, description and image text against verified sold/capability facts and applicable seller policy. Official serial/exact-model research governs technical conflicts; factory facts require sold applicability. Existing validators enforce scope, projection, CPU/RAM/storage consistency, copy structure, warranty and evidence status. They cannot prove every free-text marketing statement, image fidelity, rights or search completeness. Never invent review PASS records or change facts to satisfy checks.
+
+## Trust boundary
+
+Use the committed checker and the digest from the earlier independent run record, not a recomputed digest from an edited contract. A model able to rewrite the checker, contract and independent record can bypass self-hosted checks; these tools detect violations in the supported workflow, not malicious execution outside it. CI protects reusable workflow changes. Storage, production quality and Seller Central authorization remain separate.
+
+No automatic style approval, repeated upload confirmation, automatic publication, recursive historical ingestion or unrelated full-gallery regeneration is introduced.

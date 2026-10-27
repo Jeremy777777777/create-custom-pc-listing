@@ -175,6 +175,11 @@ def check_research_summaries(root, product_id=None):
             raise ValueError('Research trace missing from a versioned summary')
         for key in ('workbookSha256','ledgerSha256','templateSha256','productFactsSha256','coverageSummary'):
             expected = current[key]
+            if (key == 'productFactsSha256' and summary.get(key) is None
+                    and 'productFactsBindingVersion' not in summary and summary['stage']=='RESEARCH_REVIEW'):
+                # Retain old summaries as historical/unbound, never as new guarded delivery.
+                print('HISTORICAL_RESEARCH_METADATA_UNBOUND: '+str(path))
+                expected = None
             if (key == 'coverageSummary' and 'serial_research' not in data
                     and isinstance(summary.get(key),dict) and 'serialResearch' not in summary[key]):
                 expected = {k:v for k,v in expected.items() if k != 'serialResearch'}

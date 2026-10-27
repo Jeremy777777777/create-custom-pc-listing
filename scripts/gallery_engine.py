@@ -170,6 +170,10 @@ def badges(directory,asset,planpath,out=None,brand=None,slots=None):
 
 def evidence(path,names,directory,preserve_unbound_research=False,trusted_policy_binding=None):
     report=read(path)
+    return review_record(report,names,directory,preserve_unbound_research,trusted_policy_binding)
+
+def review_record(report,names,directory,preserve_unbound_research=False,trusted_policy_binding=None):
+    path='supplied review'
     if report.get('schemaVersion') not in (3,4) or report.get('result')!='PASS' or not report.get('reviewer') or not report.get('reviewedAtUtc'): raise ValueError(f'Missing current human review evidence: {path}')
     if not isinstance(report.get('reviewer'),str) or not report['reviewer'].strip(): raise ValueError('Reviewer must contain text')
     try:
@@ -234,6 +238,12 @@ def validate(directory,brand=None,legacy=False,require_final=True,allow_quaranti
     evidence(p/'visual-review.json',NAMES,p,preserve_unbound_research,trusted_policy_binding); evidence(p/'semantic-review.json',PT,p,preserve_unbound_research,trusted_policy_binding)
     from image_review_scope import agree
     agree(p)
+    semantic_inventory=read(p/'semantic-review.json').get('galleryInventorySha256')
+    historical_missing=semantic_inventory is None and (preserve_unbound_research or trusted_policy_binding is not None)
+    if semantic_inventory is None and not historical_missing:
+        raise ValueError('Semantic gallery inventory missing')
+    if not historical_missing and semantic_inventory!={n:digest(p/n) for n in NAMES}:
+        raise ValueError('Semantic review must bind all current gallery bytes')
     if require_final:
         report=read(p/'final-image-qa.json')
         if report.get('schemaVersion',0)<3 or report.get('result')!='PASS': raise ValueError('Missing final QA')
@@ -331,7 +341,8 @@ def accept(directory,brand=None,slots=None):
     if slots: return accept_partial(p,slots,brand)
     images=validate(p,brand,require_final=False,allow_quarantined=True)
     qa=read(p/'logo-qa.json'); qa.update(result='PASS',visualReviewSha256=digest(p/'visual-review.json')); write(p/'logo-qa.json',qa)
-    write(p/'final-image-qa.json',{'schemaVersion':3,'result':'PASS','generatedAtUtc':datetime.now(timezone.utc).isoformat(),'images':images,'logoQaSha256':digest(p/'logo-qa.json'),'visualReviewSha256':digest(p/'visual-review.json'),'semanticReviewSha256':digest(p/'semantic-review.json')})
+    write(p/'final-image-qa.json',{'schemaVersion':3,'result':'PASS','generatedAtUtc':datetime.now(timezone.utc).isoformat(),'images':images,'logoQaSha256':digest(p/'logo-qa.json'),'visualReviewSha256':digest(p/'visual-review.json'),'semanticReviewSha256':digest(p/'semantic-review.json'),
+                                'reviewEvidence':{name:read(p/name) for name in ('visual-review.json','semantic-review.json')}})
     if (p/'delivery-status.json').exists():
         status=read(p/'delivery-status.json')
         status.update(galleryState='CURRENT_REVIEWED',deliveryState='READY_FOR_DRIVE_DELIVERY',
@@ -374,25 +385,58 @@ def partial_checks(p,slots,brand=None,preserve_unbound_research=False):
 
 def accept_partial(p,slots,brand=None):
     inventory=partial_checks(p,slots,brand)
-    write(p/'partial-update-qa.json',{'schemaVersion':3,'result':'PARTIAL_UPDATE_REVIEWED','deliveryScope':'PARTIAL_UPDATE','retainedLegacyGallery':True,'fullGalleryPass':False,'selectedSlots':slots,'images':[{'file':n,'sha256':inventory[n]} for n in slots],'galleryInventorySha256':inventory,'visualReviewSha256':digest(p/'visual-review.json'),'semanticReviewSha256':digest(p/'semantic-review.json'),'logoQaSha256':digest(p/'logo-qa.json') if any(n in PT for n in slots) else None})
+    status=read(p/'delivery-status.json') if (p/'delivery-status.json').exists() else {}
+    legacy=status.get('galleryState')=='LEGACY_QUARANTINED'
+    retained=retained_reviews(p,slots) if not legacy else {}
+    write(p/'partial-update-qa.json',{'schemaVersion':4,'result':'PARTIAL_UPDATE_REVIEWED','deliveryScope':'PARTIAL_UPDATE','retainedLegacyGallery':legacy,'fullGalleryPass':False,'selectedSlots':slots,'images':[{'file':n,'sha256':inventory[n]} for n in slots],'galleryInventorySha256':inventory,'visualReviewSha256':digest(p/'visual-review.json'),'semanticReviewSha256':digest(p/'semantic-review.json'),'logoQaSha256':digest(p/'logo-qa.json') if any(n in PT for n in slots) else None,
+                                      'retainedReviewState':'LEGACY_QUARANTINED' if legacy else 'VERIFIED_UNCHANGED' if retained else 'UNVERIFIED',
+                                      'retainedReviewEvidence':retained,
+                                      'reviewEvidence':{name:read(p/name) for name in ('visual-review.json','semantic-review.json')}})
     if (p/'delivery-status.json').exists():
         status=read(p/'delivery-status.json')
-        status.update(galleryState='LEGACY_QUARANTINED',deliveryScope='PARTIAL_UPDATE',currentQaPass=False,
+        status.update(galleryState='LEGACY_QUARANTINED' if legacy else 'SCOPED_REVIEWED',deliveryScope='PARTIAL_UPDATE',currentQaPass=False,
                       deliveryState='READY_FOR_SCOPED_DRIVE_DELIVERY',selectedSlots=slots,
-                      reason='Selected slots reviewed; retained gallery remains quarantined. Prior import receipts are historical.',
+                      reason='Selected slots reviewed; retained evidence has its own recorded state. No new full-gallery PASS.',
                       nextRun='Upload selected slots and evidence to Google Drive; verify actual remote bytes for this scope.')
         for key in ('verifiedRemoteCommit','githubDeliveryVerifiedAtUtc','remoteDeliveryRecord','driveDeliveryReceipt','driveDeliveryVerifiedAtUtc'): status.pop(key,None)
         write(p/'delivery-status.json',status)
 
+def retained_reviews(p,slots):
+    """Carry real per-slot review records forward; missing/stale proof stays unverified."""
+    previous=next((read(p/name) for name in ('partial-update-qa.json','final-image-qa.json') if (p/name).exists()),{})
+    records=dict(previous.get('retainedReviewEvidence',{}))
+    for name in NAMES:
+        if name in slots: continue
+        proof={}
+        for kind in ('visual-review.json','semantic-review.json'):
+            if kind=='semantic-review.json' and name not in PT: continue
+            record=previous.get('reviewEvidence',{}).get(kind)
+            if record and any(e.get('file')==name for e in record.get('images',[])):
+                record={**record,'images':[e for e in record['images'] if e.get('file')==name]}
+            else:
+                record=records.get(name,{}).get(kind)
+            if not record: return {}
+            try: review_record(record,[name],p)
+            except (ValueError,KeyError,OSError): return {}
+            proof[kind]=record
+        records[name]=proof
+    return {name:records[name] for name in NAMES if name not in slots}
+
 def validate_partial(p,changed,preserve_unbound_research=False):
     report=read(p/'partial-update-qa.json'); slots=report.get('selectedSlots',[])
-    if report.get('schemaVersion',0)<3 or report.get('result')!='PARTIAL_UPDATE_REVIEWED' or report.get('deliveryScope')!='PARTIAL_UPDATE' or report.get('retainedLegacyGallery')!=True or report.get('fullGalleryPass')!=False or not set(changed).issubset(set(slots)): raise ValueError('Missing current partial update receipt')
+    if report.get('schemaVersion',0)<3 or report.get('result')!='PARTIAL_UPDATE_REVIEWED' or report.get('deliveryScope')!='PARTIAL_UPDATE' or (report.get('schemaVersion')==3 and report.get('retainedLegacyGallery')!=True) or report.get('fullGalleryPass')!=False or not set(changed).issubset(set(slots)): raise ValueError('Missing current partial update receipt')
+    if report.get('schemaVersion')==4:
+        retained=report.get('retainedReviewState')
+        if retained not in ('LEGACY_QUARANTINED','VERIFIED_UNCHANGED','UNVERIFIED') or report.get('retainedLegacyGallery')!=(retained=='LEGACY_QUARANTINED'):
+            raise ValueError('Inconsistent retained gallery state')
+        if retained=='VERIFIED_UNCHANGED' and not retained_reviews(p,slots):
+            raise ValueError('Retained review evidence stale')
     inventory=partial_checks(p,slots,preserve_unbound_research=preserve_unbound_research)
     if report.get('galleryInventorySha256')!=inventory or {e['file']:e['sha256'] for e in report.get('images',[])}!={n:inventory[n] for n in slots}: raise ValueError('Partial receipt stale')
     for filename,key in [('visual-review.json','visualReviewSha256'),('semantic-review.json','semanticReviewSha256')]:
         if report.get(key)!=digest(p/filename): raise ValueError('Partial review binding stale')
     if any(n in PT for n in slots) and report.get('logoQaSha256')!=digest(p/'logo-qa.json'): raise ValueError('Partial logo binding stale')
-    print('PARTIAL_UPDATE_REVIEWED: overall legacy gallery remains quarantined; no full gallery PASS')
+    print('PARTIAL_UPDATE_REVIEWED: retained state '+report.get('retainedReviewState','LEGACY_QUARANTINED')+'; no new full gallery PASS')
 
 def contact_sheet(directory,out):
     canvas=Image.new('RGB',(1200,1664),(238,244,251)); draw=ImageDraw.Draw(canvas)
@@ -624,7 +668,7 @@ def gate(root,base=None,head='HEAD'):
         status=p/'delivery-status.json'
         state=read(status) if status.exists() else {}
         if not any((p/n).exists() for n in NAMES):
-            if state.get('currentQaPass') or state.get('galleryState') in ('CURRENT_REVIEWED','LEGACY_QUARANTINED','USER_APPROVED_ANGLE_IMPORT_STRICT_REVALIDATION_REQUIRED') or state.get('deliveryScope') in ('FULL_GALLERY','PARTIAL_UPDATE'): raise ValueError('Existing or completed gallery has no canonical images')
+            if state.get('currentQaPass') or state.get('galleryState') in ('CURRENT_REVIEWED','SCOPED_REVIEWED','LEGACY_QUARANTINED','USER_APPROVED_ANGLE_IMPORT_STRICT_REVALIDATION_REQUIRED') or state.get('deliveryScope') in ('FULL_GALLERY','PARTIAL_UPDATE'): raise ValueError('Existing or completed gallery has no canonical images')
             print(f'Research-only folder excluded from gallery validation: {p}'); research+=1; continue
         status=p/'delivery-status.json'
         if p.name=='VD-744' and state.get('galleryState')=='USER_APPROVED_ANGLE_IMPORT_STRICT_REVALIDATION_REQUIRED' and (p/'approved-angle-import.json').exists():
@@ -633,7 +677,7 @@ def gate(root,base=None,head='HEAD'):
                    and Path(s).parent.as_posix()==relative.rstrip('/')
                    and Path(s).suffix.lower() in ('.png','.jpg','.jpeg')]
             validate_vd744_angle_import(p,names); angle_imports+=1; continue
-        if status.exists() and read(status).get('galleryState')=='LEGACY_QUARANTINED':
+        if status.exists() and read(status).get('galleryState') in ('LEGACY_QUARANTINED','SCOPED_REVIEWED'):
             relative=p.relative_to(root).as_posix()+'/'
             image_changes=[s for s in changed if s.startswith(relative) and Path(s).parent.as_posix()==relative.rstrip('/') and Path(s).suffix.lower() in ('.png','.jpg','.jpeg')]
             if image_changes:
@@ -665,7 +709,7 @@ def gate(root,base=None,head='HEAD'):
                 else:
                     historical_partial+=1
                     print('HISTORICAL_PARTIAL_REVIEW_NOT_CURRENT: '+p.name+'; no input-bound current partial PASS')
-            quarantined+=1; continue
+            quarantined+=int(state.get('galleryState')=='LEGACY_QUARANTINED'); continue
         prefix=p.relative_to(root).as_posix()+'/'
         changed_images=[path for path in changed if path.startswith(prefix) and Path(path).parent==Path(prefix) and Path(path).name in NAMES]
         try:
@@ -675,7 +719,7 @@ def gate(root,base=None,head='HEAD'):
             else:
                 validate(p); validated+=1
         except ValueError as exc:
-            if not base or changed_images or str(exc)!='Review facts/research/style/recipe/policy binding stale or absent': raise
+            if not base or changed_images or str(exc) not in ('Review facts/research/style/recipe/policy binding stale or absent','Semantic gallery inventory missing'): raise
             prior_policy.append(preserve_prior_policy_gallery(root,p,base))
     print(f'Validated {validated} eligible galleries; {quarantined} quarantined folders excluded; {angle_imports} scoped angle imports, not strict QA PASS')
     summary={'fullGalleriesValidated':validated,'quarantinedNotPassed':quarantined,'partialUpdatesValidated':partial,'historicalPartialReviewsNotCurrent':historical_partial,'historicalResearchUnboundGalleries':research_unbound,'historicalResearchUnboundPartialReviews':research_unbound_partial,'approvedExactAssetImports':imports,'approvedAiEffectImportsNotQaPassed':ai_imports,'approvedAngleImportsNotQaPassed':angle_imports,'researchOnlyFolders':research}

@@ -87,6 +87,7 @@ class Tests(unittest.TestCase):
   g.write(self.p/'logo-placement.json',{'brand':'OEM','logoRole':'OEM base-product identifier','placements':{n:cfg for n in g.PT},'minimumClearancePx':50,'minimumComponentSeparationPx':50})
   g.write(self.p/'logo-qa.json',{'schemaVersion':3,'generatedAtUtc':'now','brand':'OEM','logoAssetPath':'../'+external.name,'logoAssetSha256':g.digest(external),'placementPlanSha256':g.digest(self.p/'logo-placement.json'),'images':[{'file':n,'geometryGate':'PASS','commandRecord':'test fixture clean master','finalImageSha256':g.digest(self.p/n),'unbrandedSourceSha256':g.digest(self.p/'unbranded'/n)} for n in g.PT]})
   for f,names in [('visual-review.json',g.NAMES),('semantic-review.json',g.PT)]: g.write(self.p/f,{'schemaVersion':3,'result':'PASS','reviewInputsSha256':g.review_inputs(self.p),'reviewer':'tester','reviewedAtUtc':'2026-10-14T12:00:00+00:00','images':[{'file':n,'sha256':g.digest(self.p/n),'result':'PASS','notes':'Actual inspection'} for n in names]})
+  semantic=g.read(self.p/'semantic-review.json');semantic['galleryInventorySha256']={n:g.digest(self.p/n) for n in g.NAMES};g.write(self.p/'semantic-review.json',semantic)
   images=g.validate(self.p,require_final=False)
   self.assertEqual((images[0]['width'],images[0]['height']),(2400,1800))
   self.assertEqual((images[3]['width'],images[3]['height']),(1254,1254))

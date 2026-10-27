@@ -1,5 +1,7 @@
 # Workflow validation boundaries — 2026-10-14
 
+Current full acceptance requires semantic inventory to match all eleven actual image hashes. New full acceptance retains actual review records for later scoped updates. Partial acceptance keeps existing LEGACY_QUARANTINED products quarantined; otherwise it records SCOPED_REVIEWED, with separate VERIFIED_UNCHANGED or UNVERIFIED retained evidence. Reuse requires unchanged slot bytes and relevant fact/style/policy bindings. A scoped update never asserts a new full-gallery PASS. Missing old review snapshots mean unverified retained status, not automatic whole-gallery quarantine or invented approval.
+
 This reference refines existing stages; it does not change worksheet names, seven-row layout, field definitions, product directories or eleven image slots. Research drafts still permit unresolved facts. Formal export requires complete applicable evidence and content. No tool automatically publishes to Seller Central.
 
 ## Export

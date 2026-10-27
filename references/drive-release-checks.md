@@ -33,6 +33,8 @@ Known numeric serials are checked in JSON numeric values as well as strings, inc
 
 ## Product directory and receipt
 
+For new production deliveries, the supported CLI also requires `--production-contract` and `--contract-sha256` under [production guardrails](production-guardrails.md). It checks actual file changes, product/configuration, style bytes, run ID and roles, then runs workbook/image gates before storage verification. Retain the digest independently before edits. Storage-only API receipts do not substitute for production checks.
+
 The `drive_delivery.py verify` CLI now requires `--context <context.json>` in addition to plan/readbacks/destinations. The context contains:
 
 - `productId`, `serialsUsed` boolean and `folders`: current connector folder observations with `id`, `name`, `mimeType`, `parents`, `readBackAtUtc` and optional `trashed`. Read them after plan creation. Include pinned project/products roots, one exact internal-ID folder and the relevant section/FINAL children.

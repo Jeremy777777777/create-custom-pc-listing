@@ -30,6 +30,8 @@ The request authorizes same-product, same-slot replacement and Google Drive deli
 
 ## 1. Identify and map the target
 
+For each new production stage, apply [executable production guardrails](references/production-guardrails.md): capture the exact request, observed baseline and independently retained contract digest before edits; rerun checks against actual changed bytes before delivery. The supported Drive verifier requires this contract. Research can use a separate stage while USER style approval is pending. A scope check never supplies approval or factual/visual review.
+
 Apply [research operations preflight](references/research-operations-preflight.md) and [scoped operations policy](assets/listing-operations-policy.json) once for the current run: establish product identity, current SHA, applicable authorization, actual destination parents and existing style approval. The user retains image-style judgment; this optimization grants no default/batch style approval. Continue independent research while style is pending. Use already-authorized same-scope operations without repeated confirmation, with explicit payload/destination evidence; stop and resolve any actual automatic-review rejection.
 
 ### Workflow version and Drive synchronization

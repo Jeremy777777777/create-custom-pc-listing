@@ -3,18 +3,12 @@ import hashlib
 import json
 from pathlib import Path, PurePosixPath
 from datetime import datetime, timezone
+from observation_time import utc
 
 ROOT = Path(__file__).resolve().parents[1]
 FOLDER = 'application/vnd.google-apps.folder'
 ROLES = {'RESEARCH': ('03_RESEARCH', 'FINAL'), 'LISTING': ('01_LISTING',),
          'IMAGE': ('02_IMAGES',), 'QA': ('04_QA',), 'SOURCE': ('90_SOURCE',)}
-
-
-def utc(value):
-    stamp = datetime.fromisoformat(value.replace('Z', '+00:00'))
-    if stamp.tzinfo is None or stamp.utcoffset().total_seconds() != 0 or stamp > datetime.now(timezone.utc):
-        raise ValueError('Observed UTC readback time required')
-    return stamp
 
 
 def check_revision(baseline, observed):

@@ -180,6 +180,19 @@ def screen_file(path, known_private_values=(), serials_used=None, visual_review=
                     node = ElementTree.fromstring(archive.read(entry))
                     content = list(node.itertext()) + [v for element in node.iter() for v in element.attrib.values()]
                     issues += findings({'part': index, 'text': '\n'.join(content)}, needles)
+                    # OOXML preserves numbers as decimal/exponent literals. Match
+                    # their exact value, without Excel/binary float rounding.
+                    for cell in node.iter('{http://schemas.openxmlformats.org/spreadsheetml/2006/main}c'):
+                        if cell.get('t', 'n') != 'n':
+                            continue
+                        value = cell.find('{http://schemas.openxmlformats.org/spreadsheetml/2006/main}v')
+                        if value is not None and value.text:
+                            from decimal import InvalidOperation
+                            try:
+                                number = Decimal(value.text)
+                            except InvalidOperation:
+                                raise ValueError('Invalid workbook numeric literal; private value omitted') from None
+                            issues += findings({'part': index, 'numericCell': number}, needles)
             inspected = not any(e.filename.startswith(('xl/media/', 'xl/embeddings/')) for e in entries)
     elif suffix in {'.png', '.jpg', '.jpeg', '.webp'}:
         from PIL import Image

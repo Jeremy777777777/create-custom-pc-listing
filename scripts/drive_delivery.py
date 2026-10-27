@@ -9,17 +9,11 @@ import mimetypes
 from datetime import datetime, timezone
 from pathlib import Path, PurePosixPath
 from urllib.parse import urlparse
+from observation_time import utc
 
 
 def read(path):
     return json.loads(Path(path).read_text(encoding='utf-8-sig'))
-
-
-def utc(value):
-    stamp = datetime.fromisoformat(value.replace('Z', '+00:00'))
-    if stamp.tzinfo is None or stamp.utcoffset().total_seconds() != 0:
-        raise ValueError('UTC readback time required')
-    return stamp
 
 
 def local_file(product, relative):
@@ -119,11 +113,36 @@ def main():
     for command in (make, check):
         command.add_argument('--product', required=True)
         command.add_argument('--output', required=True)
+        command.add_argument('--production-contract', required=True, help='Pre-edit scope contract retained in the run record')
+        command.add_argument('--contract-sha256', required=True, help='Independently retained pre-edit contract digest')
     args = parser.parse_args()
     output = Path(args.output).resolve()
     if output.exists() or output.is_relative_to(Path(args.product).resolve()):
         raise ValueError('Use a new output path outside canonical product files')
-    result = plan(args.product, args.run_id, args.file) if args.command == 'plan' else verify(args.product, read(args.plan), read(args.readbacks), read(args.destinations), read(args.context))
+    if args.command == 'plan':
+        from production_guard import verify as production_verify
+        contract=read(args.production_contract)
+        if args.run_id!=contract['runId']: raise ValueError('Delivery run differs from production contract')
+        production=production_verify(args.product,args.production_contract,args.contract_sha256,args.file)
+        if production['mode']=='CONCEPT_ONLY': raise ValueError('Concepts cannot use final product delivery')
+        result = plan(args.product, args.run_id, args.file)
+        if {f['relativePath']:f['sha256'] for f in result['files']}!=production['files']:
+            raise ValueError('Files changed between production check and upload planning')
+        result['productionScope']=production
+    else:
+        from production_guard import verify as production_verify
+        upload_plan=read(args.plan)
+        contract=read(args.production_contract)
+        if upload_plan['runId']!=contract['runId']: raise ValueError('Delivery run differs from production contract')
+        if any(read(args.context)['fileRoles'].get(n)!=role for n,role in contract['outputs'].items()
+               if n in {f['relativePath'] for f in upload_plan['files']}):
+            raise ValueError('Delivery roles differ from production contract')
+        production=production_verify(args.product,args.production_contract,args.contract_sha256,
+                                     [f['relativePath'] for f in upload_plan['files']])
+        if production['mode']=='CONCEPT_ONLY': raise ValueError('Concepts cannot use final product delivery')
+        result=verify(args.product,upload_plan,read(args.readbacks),read(args.destinations),read(args.context))
+        result['productionScope']=production
+        result['productionState']='SCOPED_PRODUCTION_AND_DRIVE_CHECKS_PASS'
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
     print(result.get('deliveryState', result.get('state')))
