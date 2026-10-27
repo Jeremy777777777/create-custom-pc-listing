@@ -154,12 +154,14 @@ class ResearchExportTests(unittest.TestCase):
                                       'radio_inventory_checked': True, 'installed_radio_modules': []})
             data['facts'].append(fact)
             data['fields'].append({'sheet': key[0], 'attribute': key[1], 'selected_fact': str(index)})
+        from reference_fixtures import bind_selections
+        bind_selections(data)
         projected = r.project(data, r.workbook_fields(book))
         for sheet in book:
             for col in range(2, sheet.max_column + 1):
                 key = (sheet.title, sheet.cell(1, col).value)
-                sheet.cell(3, col).value = copy_values.get(key)
-                sheet.cell(4, col).value = 'VERIFIED' if key in copy_values else 'NOT_APPLICABLE'
+                sheet.cell(3, col).value = projected[key]['value']
+                sheet.cell(4, col).value = projected[key]['status']
                 sheet.cell(5, col).value = projected[key]['source']
         path, ledger = root/name, root/'ledger.json'
         book.save(path)

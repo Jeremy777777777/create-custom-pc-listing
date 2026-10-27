@@ -35,7 +35,7 @@ function Invoke-ListingPython {
 }
 Push-Location -LiteralPath $listingRepo
 try {
-    Invoke-ListingPython -Arguments @('-c', 'import sys; from pathlib import Path; assert Path(sys.prefix).name == "listing-testing" and sys.version_info[:2] == (3, 12), "Wrong Listing environment"; print("Listing interpreter:", sys.executable)')
+    Invoke-ListingPython -Arguments @('-c', "import sys; from pathlib import Path; assert Path(sys.prefix).name == 'listing-testing' and sys.version_info[:2] == (3, 12), 'Wrong Listing environment'; print('Listing interpreter:', sys.executable)")
     Invoke-ListingPython -Arguments @('-m', 'unittest', 'discover', '-s', 'scripts/tests', '-v')
     $workbookArgs = @('scripts/check-workbooks.py', '--directory', '.')
     if ($Base) { $workbookArgs += @('--base', $Base, '--head', $Head) }

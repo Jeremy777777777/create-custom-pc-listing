@@ -5,6 +5,8 @@ description: "Create MegaPC Custom PC research and base-configuration listing wo
 
 # MegaPC Custom PC workflow
 
+New Excel generation/export/delivery applies [Amazon selection constraints](references/amazon-selection-contract.md): use actual closed options for the matching context, distinguish editable suggestions, and always provide a closest allowed reference candidate when an evidenced value has no suitable choice. Keep approximations out of formal Values/customer claims/export and retain real hardware facts. Cross-validate actual saved output after workflow/output changes.
+
 All new physical dimension values and labels use inches under [dimension-units.md](references/dimension-units.md): chassis/package length, width, height, depth, thickness, screen diagonal and bezel measurements, including candidates and image copy. Paired unit cells are Inches. Convert verified source measurements with the maintained helper before ledger/reference-audit finalization; preserve original evidence and unresolved scope. New output gates enforce this policy.
 
 New workbook generation, export and production delivery enforce [browser-checked references and internal-panel fields](references/workbook-reference-contract.md). Supply an exact-ledger-bound reference audit, actual opened sources and field applicability reviews; preserve failed access/history separately. The writer creates clean native hyperlinks. External monitor output cannot populate built-in panel resolution/refresh fields. Current ERP root is https://dev.mystore123.com/; follow [verified navigation and identity checks](references/erp-internal-id-lookup.md) and [access policy](assets/erp-access-policy.json).

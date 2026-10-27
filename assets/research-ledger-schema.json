@@ -9,10 +9,49 @@
     "productId": {"type": "string", "pattern": "\\S"},
     "configurationId": {"type": "string", "pattern": "\\S"},
     "serial_research": {"$ref": "#/$defs/serialResearch"},
+    "amazon_selection": {"$ref": "#/$defs/amazonSelection"},
     "facts": {"type": "array", "items": {"$ref": "#/$defs/fact"}},
     "fields": {"type": "array", "items": {"$ref": "#/$defs/field"}}
   },
   "$defs": {
+    "amazonSelection": {
+      "type": "object", "additionalProperties": false,
+      "required": ["schemaVersion", "catalogSha256", "context", "fields"],
+      "properties": {
+        "schemaVersion": {"const": 1},
+        "catalogSha256": {"type": "string", "pattern": "^[0-9a-f]{64}$"},
+        "catalogReference": {"$ref": "#/$defs/text"},
+        "context": {
+          "type": "object", "additionalProperties": false,
+          "required": ["marketplaceId", "locale", "productType", "itemTypeKeyword"],
+          "properties": {
+            "marketplaceId": {"$ref": "#/$defs/text"},
+            "locale": {"$ref": "#/$defs/text"},
+            "productType": {"$ref": "#/$defs/text"},
+            "itemTypeKeyword": {"$ref": "#/$defs/text"}
+          }
+        },
+        "fields": {
+          "type": "array", "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["sheet", "attribute", "decision"],
+            "properties": {
+              "sheet": {"$ref": "#/$defs/text"}, "attribute": {"$ref": "#/$defs/text"},
+              "path": {"$ref": "#/$defs/text"},
+              "decision": {"enum": ["DIRECT", "APPROXIMATE", "UNOBSERVED"]},
+              "reason": {"$ref": "#/$defs/text"}, "differences": {"$ref": "#/$defs/text"},
+              "missingConfirmation": {"$ref": "#/$defs/text"},
+              "referenceOptionCode": {"$ref": "#/$defs/text"},
+              "members": {"type": "object", "additionalProperties": false,
+                "properties": {
+                  "value": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/value"}},
+                  "value_candidate": {"type": "array", "minItems": 1, "items": {"$ref": "#/$defs/value"}}
+                }}
+            }
+          }
+        }
+      }
+    },
     "serialResearch": {
       "type": "object",
       "additionalProperties": false,

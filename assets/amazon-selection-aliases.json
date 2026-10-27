@@ -1,0 +1,43 @@
+{
+  "schemaVersion": 1,
+  "reviewedDate": "2026-10-27",
+  "scope": "EXACT_FIELD_SPECIFIC_REPRESENTATION_ALIASES_NOT_FACT_VERIFICATION",
+  "fields": {
+    "system_ram_type-*-value": {
+      "aliases": {"ddr2": "ddr2_sdram", "ddr3": "ddr3_sdram", "ddr4": "ddr4_sdram", "ddr5": "ddr5_ram", "ddr5 sdram": "ddr5_ram"},
+      "basis": "UI adds RAM/SDRAM to the same stated DDR generation. LPDDR variants and form factors are deliberately excluded."
+    },
+    "cpu_model-*-family-*-value": {
+      "aliases": {"core ultra 5": "intel_core_ultra_5", "core ultra 7": "intel_core_ultra_7", "core ultra 9": "intel_core_ultra_9", "amd ryzen 3": "ryzen_3", "amd ryzen 5": "ryzen_5", "amd ryzen 9": "ryzen_9"},
+      "basis": "Exact branded CPU family names; CPU model number and identity consistency remain separately checked. No model/generation/AI-family substitution."
+    },
+    "wireless_comm_standard-*-value": {
+      "aliases": {"ieee 802.11ax": "802_11_AX", "802.11be": "802_11_BE", "ieee 802.11be": "802_11_BE", "wi-fi 7 (802.11be)": "802_11_BE"},
+      "basis": "Same explicit IEEE standard. Amazon's observed 802.11be display label contains an extra dot; its original code is preserved. This does not establish radio installation or bands."
+    },
+    "graphics_card_interface-*-value": {
+      "aliases": {"pcie": "pci_e", "pci-e": "pci_e"},
+      "basis": "PCIe/PCI-E are the abbreviation of PCI Express; no lane count, version or dedicated-GPU inference."
+    },
+    "voltage-*-unit": {
+      "aliases": {"v": "volts", "v ac": "volts_of_alternating_current", "vac": "volts_of_alternating_current", "v dc": "volts_of_direct_current", "vdc": "volts_of_direct_current"},
+      "basis": "Exact unit abbreviations; generic V never supplies AC/DC scope."
+    },
+    "battery-*-cell_composition-*-value": {
+      "aliases": {"lithium-ion": "lithium_ion", "li-ion": "lithium_ion", "lithium-ion polymer": "lithium_polymer", "lithium-polymer": "lithium_polymer", "li-polymer": "lithium_polymer"},
+      "basis": "Equivalent chemistry spelling only; lithium metal is separate. Battery form/size and installation declarations are not inferred."
+    },
+    "lithium_battery-*-energy_content-*-unit": {
+      "aliases": {"wh": "watt_hours", "watt-hours": "watt_hours", "watt-hour": "watt_hours"},
+      "basis": "Wh means watt hours; never interchangeable with Ah/mAh, watts or kWh without an evidenced conversion."
+    },
+    "lithium_battery-*-packaging-*-value": {
+      "aliases": {"in equipment": "batteries_contained_in_equipment", "with equipment": "batteries_packed_with_equipment", "only": "batteries_only"},
+      "basis": "The current template Definition explicitly maps in equipment, with equipment and only to these three packaging meanings. It does not verify a product's actual pack-out."
+    },
+    "audio_connector_input_output-*-function": {
+      "aliases": {"input and output": "headphone_and_microphone", "headphone and microphone combination": "headphone_and_microphone", "headphone output / microphone input": "headphone_and_microphone", "headphone output and microphone input": "headphone_and_microphone", "headphone output; microphone input": "headphone_and_microphone", "microphone input and headphone output": "headphone_and_microphone"},
+      "basis": "For this audio-jack functionality field, these explicit descriptions say headphone output plus microphone input. No connector diameter, pole count or electrical standard is inferred."
+    }
+  }
+}

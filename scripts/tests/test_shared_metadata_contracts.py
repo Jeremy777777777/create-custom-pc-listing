@@ -80,7 +80,10 @@ class SharedMetadataTests(unittest.TestCase):
             ledger.write_text(json.dumps(data))
             product['identity']['cpuFieldAliases']={'CPU Model':['Core Ultra 7 Series 2']}
             (root/'product-facts.json').write_text(json.dumps(product))
-            helper.export_run(ledger,workbook);hardware_projection(data,product)
+            # A factual alias can be valid without being an observed Amazon option.
+            with self.assertRaisesRegex(ValueError,'closest reference candidate'):
+                helper.export_run(ledger,workbook)
+            hardware_projection(data,product)
             del product['identity']['cpuFieldAliases']
             (root/'product-facts.json').write_text(json.dumps(product))
             with self.assertRaisesRegex(ValueError,'CPU'):helper.export_run(ledger,workbook)

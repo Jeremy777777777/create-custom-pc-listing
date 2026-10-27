@@ -1,5 +1,7 @@
 # Candidate review rows — user decision 2026-10-21
 
+2026-10-27 amendment: when an evidenced value lacks a suitable Amazon closed selection, always provide a closest actual allowed choice as an explicitly approximate reference under [amazon-selection-contract.md](amazon-selection-contract.md). Preserve the hardware fact; the schema projection is unresolved and the candidate never enters formal export. This separate schema-reference rule supersedes the no-forced-candidate wording below only for that mismatch case.
+
 Every newly generated Research Review and Listing Draft uses the existing three sheets and unchanged attribute columns, with these row labels: Field / Attribute, Definition, Value, Status, Source, **Value Candidate**, **Value Candidate Source**. This explicit user decision supersedes prior five-row and FCC candidate-in-Value wording. Preserve existing historical workbooks and their hash-bound templates without rewriting them.
 
 The candidate is the best evidence-backed possibility for that exact field/configuration, pending confirmation. It is review information, never a confirmed sold fact or customer copy. Keep final_value null and the honest unresolved status. Do not fill candidate cells for VERIFIED or NOT_APPLICABLE facts. No reliable candidate or genuinely tied alternatives means leave both candidate rows blank and explain the gap/tie in Source/evidence. Do not turn an unrelated maximum, starting weight, generic series option, arbitrary price, quantity or SKU into a most-likely installed value merely to fill a cell.

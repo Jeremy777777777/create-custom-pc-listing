@@ -168,6 +168,8 @@ def verify(product, contract_path, expected_sha256, planned_files=None):
                          'LISTING_DRAFT' if role == 'LISTING' else 'RESEARCH_REVIEW', check_copy=role=='LISTING')
             from dimension_units import validate_dimensions
             validate_dimensions({(row['sheet'],row['attribute']):row for row in result['fields']})
+            if result['amazonSelection']['state'] == 'LEGACY_AMAZON_SELECTION_NOT_ASSESSED':
+                raise ValueError('New delivery requires observed Amazon selection review')
             from workbook_paths import files_with_suffix
             summaries=[read(p) for p in files_with_suffix(product,'.research-summary.json')
                        if read(p).get('workbookFile','').casefold()==name.casefold()]

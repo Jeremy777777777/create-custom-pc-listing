@@ -39,8 +39,12 @@ class ExportRepairs(unittest.TestCase):
 
     def test_resolution_and_contract_are_text_fractional_refresh_is_valid(self):
         for resolution in ('1920 x 1080','1920×1080','1920x1080 pixels'):
-            self.assertEqual(self.check({'Resolution':resolution,'Government Contract Name and Number':'NASA SEWP V, SYNTHETIC-CONTRACT',
+            self.assertEqual(self.check({'Resolution':resolution,
                 'Display Refresh Rate in Hertz':59.94})['result'],'EXPORT_EVIDENCE_CHECK_PASS')
+        # Legacy grouping text has no observed writable control in this context.
+        # A syntactically valid value cannot supply missing Amazon schema coverage.
+        with self.assertRaisesRegex(ValueError,'unobserved Amazon control'):
+            self.check({'Government Contract Name and Number':'NASA SEWP V, SYNTHETIC-CONTRACT'})
         for bad in ('1920 x 0',True,'unknown',1920):
             with self.subTest(bad=bad),self.assertRaisesRegex(ValueError,'Resolution'):self.check({'Resolution':bad})
         with self.assertRaisesRegex(ValueError,'count'):self.check({'Total USB Ports':2.5})
@@ -58,14 +62,19 @@ class ExportRepairs(unittest.TestCase):
         for value in (8,32,'32GB',True):
             with self.subTest(value=value),self.assertRaises(ValueError):self.check({'Ram Memory Maximum Size':value,'RAM Memory Maximum Size':64,'RAM Memory Maximum Size Unit':'GB'})
         for value in (64,'64GB','65536 MB'):
-            self.assertEqual(self.check({'Ram Memory Maximum Size':value,'RAM Memory Maximum Size':64,'RAM Memory Maximum Size Unit':'GB'})['result'],'EXPORT_EVIDENCE_CHECK_PASS')
+            # Raw consistency checks run first; this legacy alias still lacks UI coverage.
+            with self.assertRaisesRegex(ValueError,'unobserved Amazon control'):
+                self.check({'Ram Memory Maximum Size':value,'RAM Memory Maximum Size':64,'RAM Memory Maximum Size Unit':'GB'})
         with self.assertRaisesRegex(ValueError,'maximum'):self.check({'Ram Memory Maximum Size':'8GB'})
 
     def test_cpu_family_manufacturer_model_and_explicit_verified_alias(self):
         for field,value in [('CPU Model','AMD Ryzen 7'),('CPU Model Manufacturer','AMD'),('CPU Model Number','265')]:
             with self.subTest(field=field),self.assertRaisesRegex(ValueError,'CPU'):self.check({field:value})
-        self.assertEqual(self.check({'CPU Model':'Intel(R) Core(TM) Ultra 7','CPU Model Manufacturer':'Intel'})['result'],'EXPORT_EVIDENCE_CHECK_PASS')
-        self.assertEqual(self.check({'CPU Model':'Core Ultra 7 Series 2'},{'cpuFieldAliases':{'CPU Model':['Core Ultra 7 Series 2']}})['result'],'EXPORT_EVIDENCE_CHECK_PASS')
+        # Product identity aliases do not create new allowed Amazon dropdown labels.
+        for alias in ('Intel(R) Core(TM) Ultra 7','Core Ultra 7 Series 2'):
+            with self.subTest(alias=alias),self.assertRaisesRegex(ValueError,'closest reference candidate'):
+                self.check({'CPU Model':alias,'CPU Model Manufacturer':'Intel'},
+                           {'cpuFieldAliases':{'CPU Model':[alias]}})
 
     def test_copy_capacities_match_base_in_common_forms_and_orders(self):
         template='MegaPC Custom Desktop Created Using Dell QCM1250 {} Win 11 Pro'

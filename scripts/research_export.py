@@ -166,6 +166,8 @@ def validate_ledger(data):
 def project(data, field_keys, mode='draft', separate_candidates=True):
     if mode not in ('draft', 'export'):
         raise ValueError('Unknown projection mode')
+    if data.get('amazon_selection') and not separate_candidates:
+        raise ValueError('Amazon selection review requires the seven-row workbook layout')
     facts = validate_ledger(data)
     expected = list(field_keys)
     mapped = {(f['sheet'], f['attribute']): facts[f['selected_fact']] for f in data['fields']}
@@ -219,6 +221,11 @@ def project(data, field_keys, mode='draft', separate_candidates=True):
         projected[key] = {'value': value, 'status': fact['status'], 'source': source,
                           'value_candidate': advisory, 'value_candidate_source': advisory_source,
                           'fact_id': fact['id'], 'fact_scope': fact['fact_scope']}
+    from amazon_selection import project_if_bound
+    if 'amazon_selection' in data:
+        from dimension_units import validate_dimensions
+        validate_dimensions(projected)
+    projected, _ = project_if_bound(data, projected, mode)
     return projected
 
 
@@ -284,6 +291,10 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
     temporary = None
     try:
         projected = project(data, workbook_fields(book), mode)
+        from amazon_selection import project_if_bound
+        # project already applies a supplied binding; this call only enforces its presence.
+        if 'amazon_selection' not in data:
+            project_if_bound(data, projected, mode, required=True)
         from dimension_units import validate_dimensions
         validate_dimensions(projected)
         selected = validate_ledger(data)
@@ -447,7 +458,6 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
             raise ValueError('Product facts identity/configuration differs from export target')
     book = openpyxl.load_workbook(workbook, data_only=False)
     try:
-        projected = verify_workbook(book, data, mode)
         if mode == 'export' or check_copy:
             from listing_content import validate_listing
             from capacity_units import STORAGE_FIELDS,check_nominal_storage_basis
@@ -458,7 +468,12 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
             definitions={(sheet.title,sheet.cell(1,c).value):sheet.cell(2,c).value
                          for sheet in book for c in range(2,sheet.max_column+1)}
             storage=internal_storage_configuration(data)
-            validate_listing(projected,product,definitions,storage_total_gb=storage['totalGB'] if storage else None,storage_configuration=storage)
+            # Schema formatting must not hide a contradictory underlying hardware fact.
+            factual_data = dict(data)
+            factual_data.pop('amazon_selection', None)
+            factual_projection = project(factual_data, workbook_fields(book), mode)
+            validate_listing(factual_projection,product,definitions,storage_total_gb=storage['totalGB'] if storage else None,storage_configuration=storage)
+        projected = verify_workbook(book, data, mode)
     finally:
         book.close()
     for name, path in (('workbook', workbook), ('ledger', ledger), ('template', template)):
@@ -469,7 +484,13 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
     from research_audit import validate as audit_research
     from workbook_reference_audit import check_paths as check_references
     reference_result = check_references(ledger, workbook, required=mode == 'export')
-    return {'referenceAudit': reference_result, 'researchTrace': audit_research(data),
+    from amazon_selection import project_if_bound
+    # Validate the original fact projection once; never approximate an approximation.
+    selection_data = dict(data)
+    selection_data.pop('amazon_selection', None)
+    _, selection_result = project_if_bound(data, project(selection_data, projected.keys(), mode),
+                                           mode, required=mode == 'export')
+    return {'amazonSelection': selection_result, 'referenceAudit': reference_result, 'researchTrace': audit_research(data),
             'productFactsSha256':input_hashes.get('productFacts'), 'result': 'EXPORT_EVIDENCE_CHECK_PASS' if mode == 'export' else 'DRAFT_PROJECTION_PASS',
             'productId': data['productId'], 'configurationId': data['configurationId'],
             'workbookSha256': input_hashes['workbook'],
