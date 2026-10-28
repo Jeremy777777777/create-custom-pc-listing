@@ -1,5 +1,7 @@
 # Mini PC design system — 2026-10-28
 
+For seller-confirmed MegaPC manufacture, first apply [own-brand Mini PC routing](megapc-own-brand-mini-pc.md). Physical style remains M/MG; sales copy is original MegaPC product copy, with ERP VD identity/configuration and no Custom/Created Using/upgrade narrative.
+
 The user requested a separate Mini PC listing series after studying the supplied GMKtec seller catalog and GEEKOM Amazon store. This adds the M/MG design family alongside Business B/BG and Gaming G/A/GG. It authorizes maintaining the style library, not approving a particular product preview. Read [observed competitor references](mini-pc-reference-study.md) for the actual sample and its limits.
 
 ## Routing and positioning

@@ -159,7 +159,14 @@ def validate_listing(projected, product, definitions=None,storage_total_gb=None,
     for field in ('Model Number','Model Name','Manufacturer','CPU Model','CPU Model Number','Operating System'):
         if not isinstance(values[field],str): raise ValueError('Expected literal text: '+field)
     title=required('Item Name')
-    if not isinstance(title,str) or len(title)>200 or not title.startswith('MegaPC Custom ') or not title.endswith('Win 11 Pro') or 'Created Using ' not in title:
+    from listing_mode import resolve, OWN_BRAND, validate_own_brand_copy
+    mode = resolve(product)
+    if mode == OWN_BRAND:
+        if not isinstance(title,str) or len(title)>200 or not title.startswith('MegaPC ') or not title.endswith('Win 11 Pro'):
+            raise ValueError('Own-brand title must follow MegaPC / verified model / Win 11 Pro and 200-character policy')
+        for field in ('Item Name','Bullet Point','Product Description'):
+            validate_own_brand_copy(str(values.get(field,'')))
+    elif not isinstance(title,str) or len(title)>200 or not title.startswith('MegaPC Custom ') or not title.endswith('Win 11 Pro') or 'Created Using ' not in title:
         raise ValueError('Title must follow MegaPC Custom / Created Using / Win 11 Pro and 200-character policy')
     for token in (identity.get('oemBrand'),identity.get('oemModel')):
         if not isinstance(token,str) or not token.strip() or token.casefold() not in title.casefold():

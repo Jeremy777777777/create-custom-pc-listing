@@ -66,7 +66,7 @@ def template_topology(path):
     finally:
         book.close()
 
-def check_output(path, topology, manufacturer=None):
+def check_output(path, topology, manufacturer=None, listing_mode=None):
     book = openpyxl.load_workbook(path, data_only=False)
     try:
         if book.sheetnames != list(topology):
@@ -100,7 +100,14 @@ def check_output(path, topology, manufacturer=None):
                 if sheet.title == 'Safety&Compliance' and sheet.cell(1,c).value == 'FCC ID':
                     check_fcc_id_value(sheet.cell(3,c).value, sheet.cell(4,c).value)
         if manufacturer is not None:
-            validate_workbook_copy(book, manufacturer)
+            facts_path = path.parent/'product-facts.json'
+            if facts_path.exists():
+                from listing_mode import resolve
+                observed_mode = resolve(json.loads(facts_path.read_text(encoding='utf-8-sig')))
+                if listing_mode is not None and listing_mode != observed_mode:
+                    raise ValueError('Copy mode differs from product facts')
+                listing_mode = observed_mode
+            validate_workbook_copy(book, manufacturer, listing_mode)
         ledger_path = path.parent/'research-ledger.json'
         if ledger_path.exists():
             ledger = json.loads(ledger_path.read_text(encoding='utf-8-sig'))

@@ -1,0 +1,18 @@
+{
+  "schemaVersion": 1,
+  "effectiveDate": "2026-10-28",
+  "listingMode": "MEGAPC_OWN_BRAND",
+  "brand": "MegaPC",
+  "manufacturer": "MegaPC",
+  "seller": "MegaPC",
+  "sourcePriority": ["EXACT_ERP_CONFIGURATION", "USER_SUPPLIED_ORIGINAL_MATERIALS"],
+  "physicalSourceTransfer": "User confirmed common appearance and interfaces; retain source variants and unresolved contradictory detail rather than transplanting their old CPU/RAM/SSD claims.",
+  "titlePrefix": "MegaPC ",
+  "forbiddenCopy": ["Custom", "Created Using", "upgraded RAM/SSD", "seal opened for upgrading"],
+  "warrantyHeading": "Warranty and Disclosure",
+  "warrantyParagraph": "MegaPC provides a 1-year limited warranty on the RAM and SSD components. MegaPC manufacturer warranty applies to the remaining components.",
+  "warrantyBasis": "User retained the existing warranty policy and confirmed MegaPC is manufacturer; subsequent explicit non-customized own-product instruction removes inapplicable upgrade/seal wording. No duration for remaining-component manufacturer coverage is inferred.",
+  "publicationChecks": ["Remaining-component manufacturer warranty terms", "Actual sold configuration", "Marketplace attributes and asset fidelity"],
+  "styleApprovalRequired": true,
+  "sellerCentralPublicationAuthorized": false
+}
