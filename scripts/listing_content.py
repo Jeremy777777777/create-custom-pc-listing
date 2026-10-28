@@ -120,7 +120,7 @@ def base_spec_fragments(product):
     return {'ram':f"{base['ramGB']:g}GB RAM",'ssd':f"{base['ssdGB']:g}GB SSD"}
 
 
-def validate_listing(projected, product, definitions=None,storage_total_gb=None,storage_configuration=None):
+def validate_listing(projected, product, definitions=None,storage_total_gb=None,storage_configuration=None,*,allow_research_transfer_rate=False):
     from dimension_units import validate_dimensions
     validate_dimensions(projected)
     values = {field:record['value'] for (sheet,field),record in projected.items() if sheet=='Product Details'}
@@ -173,11 +173,18 @@ def validate_listing(projected, product, definitions=None,storage_total_gb=None,
     if len(paragraphs)!=5 or any(not p.strip() or '\n' in p for p in paragraphs):
         raise ValueError('Listing needs exactly five bullet paragraphs separated by one blank line')
     normalized={}
+    research_transfer_rate=None
     for field,unit_field in {**CAPACITY_PAIRS,**SPEED_PAIRS}.items():
         value,unit=values.get(field),values.get(unit_field)
         if value is None and unit is None: continue
         if type(value) not in (int,float) or not math.isfinite(value) or value<=0:
             raise ValueError('Expected a positive numeric value: '+field)
+        # Manufacturer transfer rate is a different physical quantity from clock.
+        # This opt-in is only for checking underlying research, before the bound
+        # Amazon projection. Do not scale it into MHz or apply it to clock fields.
+        if allow_research_transfer_rate and field=='Memory Speed' and isinstance(unit,str) and unit.strip().casefold()=='mt/s':
+            research_transfer_rate=value
+            continue
         units=capacity_units(field) if field in CAPACITY_PAIRS else SPEED_UNITS
         if not isinstance(unit,str) or unit.strip().casefold() not in FIELD_UNITS.get(field,set(units)):
             raise ValueError('Missing or unsupported unit: '+unit_field)
@@ -237,4 +244,14 @@ def validate_listing(projected, product, definitions=None,storage_total_gb=None,
                 raise ValueError('Listing copy CPU differs from verified CPU identity: '+field)
     # Ambiguous grouping fields (e.g. Ram Memory) and storage-vs-RAM labels are
     # deliberately not equated. Their Definition and evidence require review.
+    if research_transfer_rate is not None:
+        memory=r'(?:memory(?:\s+(?:speed|clock))?|ram(?:\s+(?:speed|clock))?|(?:lp)?ddr[2-6]x?(?:\s+(?:ram|memory))?)'
+        quantity=r'(?P<number>\d+(?:\.\d+)?)\s*(?P<unit>MT/s|MHz|GHz)\b'
+        patterns=(memory+r'\s*(?:(?:at|:|=|speed|rated)\s*)?'+quantity,quantity+r'\s*'+memory+r'\b')
+        for field in ('Item Name','Bullet Point','Product Description'):
+            text=re.sub(r'<[^>]+>',' ',values.get(field,''))
+            for pattern in patterns:
+                for claim in re.finditer(pattern,text,re.I):
+                    if claim['unit'].casefold()!='mt/s' or float(claim['number'])!=research_transfer_rate:
+                        raise ValueError('Listing copy memory transfer rate differs in value or basis: '+field)
     return {'content':'PASS','sourceAuthenticationInferred':False}

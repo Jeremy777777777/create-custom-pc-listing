@@ -472,7 +472,8 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
             factual_data = dict(data)
             factual_data.pop('amazon_selection', None)
             factual_projection = project(factual_data, workbook_fields(book), mode)
-            validate_listing(factual_projection,product,definitions,storage_total_gb=storage['totalGB'] if storage else None,storage_configuration=storage)
+            validate_listing(factual_projection,product,definitions,storage_total_gb=storage['totalGB'] if storage else None,storage_configuration=storage,
+                             allow_research_transfer_rate='amazon_selection' in data)
         projected = verify_workbook(book, data, mode)
     finally:
         book.close()

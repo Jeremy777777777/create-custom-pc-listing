@@ -50,8 +50,12 @@ class ExportRepairs(unittest.TestCase):
         with self.assertRaisesRegex(ValueError,'count'):self.check({'Total USB Ports':2.5})
 
     def test_frequency_units_are_field_specific(self):
-        for field,unit in [('CPU Base Speed','CPU Base Speed Unit'),('CPU Model Speed Maximum','CPU Model Speed Maximum Unit'),('Memory Clock Speed','Memory Clock Speed Unit'),('Memory Speed','Memory Speed Unit')]:
+        for field,unit in [('CPU Base Speed','CPU Base Speed Unit'),('CPU Model Speed Maximum','CPU Model Speed Maximum Unit'),('Memory Clock Speed','Memory Clock Speed Unit')]:
             with self.subTest(field=field),self.assertRaisesRegex(ValueError,'unit'):self.check({field:1,unit:'MT/s'})
+        # A transfer-rate research fact is valid, but cannot bypass the exact
+        # observed Amazon unit review or be written directly to this MHz field.
+        with self.assertRaisesRegex(ValueError,'closest reference candidate is mandatory'):
+            self.check({'Memory Speed':1,'Memory Speed Unit':'MT/s'})
         self.assertEqual(self.check({'CPU Base Speed':1500,'CPU Base Speed Unit':'MHz','Memory Clock Speed':2.8,'Memory Clock Speed Unit':'GHz'})['result'],'EXPORT_EVIDENCE_CHECK_PASS')
 
     def test_explicit_numeric_rules_preserve_non_pc_sheet_checks(self):
