@@ -35,6 +35,71 @@ class DimensionUnitsTests(unittest.TestCase):
             candidate[(sheet,unitfield)]['value_candidate']='Millimeters'
             with self.assertRaises(ValueError):d.validate_dimensions(candidate)
 
+    def test_qualifiers_and_dimension_context_survive_conversion(self):
+        pairs=[
+            ('254 x 127 x 25.4 mm maximum (OLED chassis)','10 x 5 x 1 inches maximum (OLED chassis)'),
+            ('254 x 127 x 25.4 mm nominal (without stand)','10 x 5 x 1 inches nominal (without stand)'),
+            ('17.9–18.9 mm maximum','0.7047–0.7441 inches maximum'),
+        ]
+        for original,expected in pairs:
+            with self.subTest(original=original):
+                self.assertEqual(d.convert_length_text(original),expected)
+                for slot in ('value','value_candidate'):
+                    d.validate_dimensions({('Product Details','Item Dimensions L x W x Thickness'):{slot:expected}})
+
+    def test_front_rear_maximum_profile_retains_each_position(self):
+        original='254 x 127 mm; front 12.7 mm, rear 2.54 cm, maximum 1.5 inches thickness'
+        expected='10 x 5 inches; front 0.5 inches, rear 1 inches, maximum 1.5 inches thickness'
+        self.assertEqual(d.convert_length_text(original),expected)
+        self.assertEqual(d.validate_dimension_text(expected)['representation'],'profile')
+        # Front/rear are positions, not sorted range bounds; front may be taller.
+        d.validate_dimension_text('10 x 5 inches; front 1 inches, rear 0.5 inches, maximum 1.5 inches thickness')
+        d.validate_dimension_text('10 x 5 inches; front 0.5-0.6 inches, rear 1 inches, maximum 1.5 inches thickness')
+
+    def test_profiles_reject_metric_residue_missing_units_and_ambiguous_labels(self):
+        invalid=[
+            '10 x 5 inches; front 12.7 mm, rear 1 inches, maximum 1.5 inches thickness',
+            '10 x 5 inches; front 0.5, rear 1 inches, maximum 1.5 inches thickness',
+            '10 x 5 inches; front 0.5 inches, front 1 inches thickness',
+            '10 x 5 inches; battery 0.5 inches, rear 1 inches thickness',
+            '10 x 5 inches; 0.5 inches, 1 inches thickness',
+            '10 x 5 inches; front 0 inches, rear 1 inches thickness',
+            '10 x 5 inches; front 1-0.5 inches, rear 1 inches thickness',
+            '10 x 5 inches; front 0.5 inches, rear 1 inches, maximum 0.7 inches thickness',
+            '10 x 5 inches; front 0.5 inches, rear 1 inches, minimum 0.7 inches thickness',
+            '10 x 5 x 1 inches confirmed',
+            '10 x 5 x 1 inches maximum (250 mm chassis)',
+        ]
+        for value in invalid:
+            with self.subTest(value=value),self.assertRaises(ValueError):
+                d.validate_dimension_text(value)
+        with self.assertRaises(ValueError):
+            d.convert_length_text('254 x 127 mm; front 12.7, rear 25.4 mm thickness')
+        with self.assertRaisesRegex(ValueError,'inches'):
+            d.validate_dimension_copy('Thickness front:12.8 mm')
+        d.validate_dimension_copy('Rear 3.5mm audio jack; M.2 2280 SSD')
+
+    def test_writer_keeps_named_inch_profile_without_mutating_the_baseline(self):
+        with tempfile.TemporaryDirectory() as scratch:
+            root=Path(scratch);data,_,old,ledger=fixture.FCCGuideWriterTests().fixture(root)
+            fact=next(f for f in data['facts'] if f['attribute']=='Item Dimensions L x W x Thickness')
+            original='254 x 127 mm; front 12.7 mm, rear 25.4 mm, maximum 38.1 mm thickness'
+            fact.update(status='VERIFIED',final_value=original)
+            ledger.write_text(json.dumps(data));write_audit(ledger);before=old.read_bytes();out=root/'profile.xlsx'
+            with self.assertRaises(ValueError):
+                export.write_workbook(export.ROOT/'assets/listing-workbook-template.xlsx',ledger,out)
+            self.assertFalse(out.exists());self.assertEqual(old.read_bytes(),before)
+            fact['final_value']=d.convert_length_text(original)
+            fact['evidence']={'original_geometry':original,'scope':'Synthetic position-labelled design, not a unit measurement'}
+            ledger.write_text(json.dumps(data));write_audit(ledger)
+            export.write_workbook(export.ROOT/'assets/listing-workbook-template.xlsx',ledger,out)
+            import openpyxl
+            book=openpyxl.load_workbook(out);sheet=book['Product Details']
+            col=next(c.column for c in sheet[1] if c.value==fact['attribute'])
+            self.assertEqual(sheet.cell(3,col).value,'10 x 5 inches; front 0.5 inches, rear 1 inches, maximum 1.5 inches thickness')
+            self.assertEqual(sheet.cell(4,col).value,'VERIFIED');book.close()
+            self.assertEqual(old.read_bytes(),before)
+
     def test_composite_and_bezel_strings_need_explicit_inches(self):
         for key in d.TEXT_FIELDS:
             d.validate_dimensions({key:{'value':'10 x 5 x 1 inches'}})
