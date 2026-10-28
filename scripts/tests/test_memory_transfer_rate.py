@@ -49,6 +49,21 @@ class MemoryTransferRateTests(unittest.TestCase):
             book.close()
             with self.assertRaises(ValueError):export.project(data,[(m['sheet'],m['attribute']) for m in data['fields']],'export')
 
+    def test_writer_blocks_inferred_clock_before_creating_a_workbook(self):
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);data,ledger,_,_=self.fixture(root)
+            for name,value in (('Memory Clock Speed',4.2665),('Memory Clock Speed Unit','GHz')):
+                f=next(f for f in data['facts'] if f['sheet']=='Product Details' and f['attribute']==name)
+                f.update(status='INPUT_UNVERIFIED',final_value=None,value_candidate=value,
+                         value_candidate_source='https://example.test/synthetic-memory')
+                f['evidence']={'candidate_rationale':'DDR8533MT/s divided by2 suggests4.2665GHz clock',
+                               'candidate_missing_confirmation':'Actual runtime clock unmeasured'}
+            ledger.write_text(json.dumps(data));write_audit(ledger)
+            output=root/'BLOCKED.xlsx';before=ledger.read_bytes()
+            with self.assertRaisesRegex(ValueError,'transfer-to-clock'):
+                export.write_workbook(export.ROOT/'assets/listing-workbook-template.xlsx',ledger,output)
+            self.assertFalse(output.exists());self.assertEqual(ledger.read_bytes(),before)
+
     def test_research_exception_is_opt_in_and_does_not_hide_wrong_cpu(self):
         with tempfile.TemporaryDirectory() as tmp:
             _,_,product,projected=self.fixture(Path(tmp));before=copy.deepcopy(projected)

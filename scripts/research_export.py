@@ -160,6 +160,8 @@ def validate_ledger(data):
             check_fcc_lookup(fact)
     from research_audit import validate as audit_research
     audit_research(data)
+    from memory_rate_basis import validate as validate_memory_rate_basis
+    validate_memory_rate_basis(data)
     return facts
 
 
