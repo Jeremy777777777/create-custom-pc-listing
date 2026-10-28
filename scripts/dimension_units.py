@@ -22,8 +22,11 @@ NUMBER=r'(?:\d+(?:\.\d+)?|\.\d+)'
 SEQUENCE=NUMBER+r'(?:\s*(?:x|×|[-–—])\s*'+NUMBER+r')*'
 LENGTH_UNIT=r'(?:[A-Za-z]+\.?|["″])'
 DIMENSION_CONTEXT=r'\((?:(?:OLED|IPS) chassis|(?:with|without) stand|(?:open|closed) chassis)\)'
+AXIS_CONTEXT=r'\([LWDHT]\s*[x×]\s*[LWDHT]\s*[x×]\s*[LWDHT]\)'
 SIMPLE_TEXT=re.compile(r'\s*(?P<sequence>'+SEQUENCE+r')\s*(?P<unit>'+LENGTH_UNIT+r')'
-    r'(?P<qualifier>\s+(?:minimum|maximum|nominal))?(?P<context>\s*'+DIMENSION_CONTEXT+r')?\s*',re.I)
+    r'(?P<qualifier>\s+(?:minimum|maximum|nominal))?'
+    r'(?P<axis_before>\s*'+AXIS_CONTEXT+r')?(?P<context>\s*'+DIMENSION_CONTEXT+r')?'
+    r'(?P<axis_after>\s*'+AXIS_CONTEXT+r')?\s*',re.I)
 PROFILE_TEXT=re.compile(r'\s*(?P<sequence>'+NUMBER+r'\s*[x×]\s*'+NUMBER+r')\s*'
     r'(?P<unit>'+LENGTH_UNIT+r')\s*;\s*(?P<clauses>.+?)\s+(?P<axis>thickness|height|depth)\s*',re.I)
 PROFILE_CLAUSE=re.compile(r'\s*(?P<label>front|rear|minimum|maximum|nominal)\s*:?\s*'
@@ -56,6 +59,22 @@ def _dimension_parts(value):
     """Parse only explicit geometry, retaining named positions and scope words."""
     simple=SIMPLE_TEXT.fullmatch(str(value))
     if simple:
+        orders=[simple[name] for name in ('axis_before','axis_after') if simple[name]]
+        if len(orders)>1:raise ValueError('Dimension tuple requires one explicit axis order')
+        if orders:
+            axes=re.findall(r'[LWDHT]',orders[0],re.I)
+            # Length/depth and height/thickness alternatives are deliberately
+            # bounded. A label cannot invent a coordinate or resolve its scope.
+            allowed={frozenset('LWH'),frozenset('WDH'),frozenset('LWT'),frozenset('WDT')}
+            if len(set(a.upper() for a in axes))!=3 or frozenset(a.upper() for a in axes) not in allowed:
+                raise ValueError('Dimension axis order requires three distinct supported axes')
+            positions=re.split(r'\s*[x×]\s*',simple['sequence'])
+            coordinate=NUMBER+r'(?:\s*[-–—]\s*'+NUMBER+r')?'
+            if len(positions)!=3 or any(re.fullmatch(coordinate,p) is None for p in positions):
+                raise ValueError('Three axis labels require exactly three scalar/range coordinates')
+            for position in positions:
+                bounds=[float(n) for n in re.findall(NUMBER,position)]
+                if len(bounds)==2 and bounds[0]>bounds[1]:raise ValueError('Axis dimension range bounds are reversed')
         return 'simple',simple,[simple]
     profile=PROFILE_TEXT.fullmatch(str(value))
     if not profile:raise ValueError('Dimension text requires explicit units and supported geometry labels')
@@ -93,7 +112,7 @@ def convert_length_text(value):
         return re.sub(NUMBER,lambda m:format(to_inches(m[0],unit),'.4f').rstrip('0').rstrip('.'),part['sequence'])+' inches'
     if kind=='simple':
         result=converted(match)
-        for name in ('qualifier','context'):
+        for name in ('qualifier','axis_before','context','axis_after'):
             if match[name]:result+=' '+match[name].strip()
     else:
         result=converted(match)+'; '+', '.join(p['label']+' '+converted(p) for p in parts[1:])+' '+match['axis']

@@ -56,6 +56,60 @@ class DimensionUnitsTests(unittest.TestCase):
         d.validate_dimension_text('10 x 5 inches; front 1 inches, rear 0.5 inches, maximum 1.5 inches thickness')
         d.validate_dimension_text('10 x 5 inches; front 0.5-0.6 inches, rear 1 inches, maximum 1.5 inches thickness')
 
+    def test_explicit_three_axis_orders_and_ranges_survive_conversion(self):
+        pairs=[
+            ('254 x 127 x 12.7–25.4 mm (W x D x H)','10 x 5 x 0.5–1 inches (W x D x H)'),
+            ('254 x 12.7 x 127 mm maximum (W x H x D) (with stand)','10 x 0.5 x 5 inches maximum (W x H x D) (with stand)'),
+            ('25.4 x 12.7 x 2.54 cm nominal (without stand) (L × W × H)','10 x 5 x 1 inches nominal (without stand) (L × W × H)'),
+            ('12.23 x 8.42 x 0.53–0.63 in (W x D x H)','12.23 x 8.42 x 0.53–0.63 inches (W x D x H)'),
+            ('254 x 127 x 25.4 mm (w x d x t)','10 x 5 x 1 inches (w x d x t)'),
+        ]
+        for original,expected in pairs:
+            with self.subTest(original=original):
+                self.assertEqual(d.convert_length_text(original),expected)
+                for slot in ('value','value_candidate'):
+                    d.validate_dimensions({('Product Details','Item Dimensions L x W x Thickness'):{slot:expected}})
+
+    def test_axis_labels_cannot_hide_missing_duplicate_or_ambiguous_geometry(self):
+        invalid=[
+            '10 x 5 inches (W x D x H)',
+            '10 x 5 x 1 x 2 inches (W x D x H)',
+            '10 x 5 x 1 inches (W x W x H)',
+            '10 x 5 x 1 inches (L x D x H)',
+            '10 x 5 x 1 inches (W x H x T)',
+            '10 x 5 x 1 inches (W x D)',
+            '10 x 5 x 1 inches (W x D x Q)',
+            '10 x 5 x 1 inches (W x D x H) (L x W x H)',
+            '10 x 5 x 1 inches (W x D x H) (250 mm chassis)',
+            '10 x 5 x 2–1 inches (W x D x H)',
+            '10 x 5 x 1–2–3 inches (W x D x H)',
+            '10 x 5 x 1 inches (W x D x H) verified',
+        ]
+        for value in invalid:
+            with self.subTest(value=value),self.assertRaises(ValueError):d.validate_dimension_text(value)
+            with self.subTest(conversion=value),self.assertRaises(ValueError):d.convert_length_text(value)
+        with self.assertRaises(ValueError):d.validate_dimension_text('254 x 127 x 25.4 mm (W x D x H)')
+
+    def test_writer_retains_axis_order_and_original_source_without_recertifying_fact(self):
+        with tempfile.TemporaryDirectory() as scratch:
+            root=Path(scratch);data,_,old,ledger=fixture.FCCGuideWriterTests().fixture(root)
+            fact=next(f for f in data['facts'] if f['attribute']=='Item Dimensions L x W x Thickness')
+            original='254 x 12.7–25.4 x 127 mm (W x H x D)'
+            fact.update(status='INPUT_UNVERIFIED',final_value=None,value_candidate=d.convert_length_text(original),
+                value_candidate_source='Synthetic source measurements; original '+original)
+            fact['evidence']={'original_geometry':original,'candidate_rationale':'Synthetic same-order conversion only.',
+                'candidate_missing_confirmation':'Actual chassis variant and measurement remain unverified.'}
+            ledger.write_text(json.dumps(data));write_audit(ledger);before=old.read_bytes();out=root/'axes.xlsx'
+            export.write_workbook(export.ROOT/'assets/listing-workbook-template.xlsx',ledger,out)
+            import openpyxl
+            book=openpyxl.load_workbook(out);sheet=book['Product Details']
+            col=next(c.column for c in sheet[1] if c.value==fact['attribute'])
+            self.assertIsNone(sheet.cell(3,col).value)
+            self.assertEqual(sheet.cell(4,col).value,'INPUT_UNVERIFIED')
+            self.assertEqual(sheet.cell(6,col).value,'10 x 0.5–1 x 5 inches (W x H x D)')
+            self.assertIn(original,sheet.cell(7,col).value);book.close()
+            self.assertEqual(old.read_bytes(),before)
+
     def test_profiles_reject_metric_residue_missing_units_and_ambiguous_labels(self):
         invalid=[
             '10 x 5 inches; front 12.7 mm, rear 1 inches, maximum 1.5 inches thickness',
