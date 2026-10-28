@@ -31,6 +31,8 @@ The helper screens JSON/text and every XLSX XML/relationship part, including hid
 
 Known numeric serials are checked in JSON numeric values as well as strings, including exact decimal/exponent representations and nested values. JSON decimals are parsed without binary floating-point rounding. Findings contain only locations and reason codes, never matched serial values. This does not recover identifiers already truncated or rounded by an earlier system; retain the actual private known-value inventory and inspect ambiguous source transformations.
 
+A normal HTTP(S) website path such as Dell's `/support/home/en-us/` is not a local Unix home directory. This syntax distinction does not exempt known private values, credentials, signed/serial URLs, Windows/file/UNC paths, standalone Unix paths or paths embedded in query strings/fragments. It does not certify a page's access, factual support or public sharing.
+
 ## Product directory and receipt
 
 For new production deliveries, the supported CLI also requires `--production-contract` and `--contract-sha256` under [production guardrails](production-guardrails.md). It checks actual file changes, product/configuration, style bytes, run ID and roles, then runs workbook/image gates before storage verification. Retain the digest independently before edits. Storage-only API receipts do not substitute for production checks.

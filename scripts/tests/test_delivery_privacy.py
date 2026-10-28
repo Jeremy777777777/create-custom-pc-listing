@@ -77,6 +77,23 @@ class DeliveryPrivacyTests(unittest.TestCase):
         with self.assertRaises(ValueError):
             privacy.share_readbacks(data, ['SYNTHETIC-PRIVATE-123'])
 
+    def test_public_home_routes_do_not_hide_real_local_paths_or_identifiers(self):
+        source='https://www.dell.com/support/home/en-us/product-support/product/model/docs'
+        self.assertFalse(privacy.findings({'source':source}))
+        for value in (source+'; /home/private/source.json',
+                      source+'; C:/Users/private/source.json',
+                      source+'?path=/home/private/source.json',
+                      source+'#path=/Users/private/source.json',
+                      'https://example.test/C:/Users/private/source.json',
+                      'https://example.test/?path=%252Fhome%252Fprivate%252Fsource.json',
+                      source+'; file:///home/private/source.json',
+                      source+'; \\\\private\\source.json'):
+            with self.subTest(value=value):
+                self.assertTrue(any(f['code']=='LOCAL_PRIVATE_PATH'
+                                    for f in privacy.findings({'source':value})))
+        self.assertTrue(privacy.findings({'source':source},['product-support']))
+        self.assertTrue(privacy.findings({'source':source+'?serial=PRIVATE'}))
+
     def test_original_xlsx_provider_view_preserves_file_identity(self):
         data = self.fixture()
         item = data['files'][0]

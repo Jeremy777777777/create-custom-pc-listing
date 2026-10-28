@@ -55,6 +55,27 @@ def private_values(values):
     return tuple(decoded(v).casefold() for v in values)
 
 
+def local_path_found(value):
+    """Remote /home/... URL routes are not local Unix home directories."""
+    remote_paths = []
+    for match in URL.finditer(value):
+        try:
+            url = urlsplit(match.group())
+            if url.scheme not in {'http', 'https'} or not url.hostname:
+                continue
+            start = match.start() + len(url.scheme) + 3 + len(url.netloc)
+            remote_paths.append((start, start + len(url.path)))
+        except ValueError:
+            continue
+    for match in LOCAL_PATH.finditer(value):
+        unix_home = match.group().lower().startswith(('/users/', '/home/'))
+        if unix_home and any(start <= match.start() and match.end() <= end
+                             for start, end in remote_paths):
+            continue
+        return True
+    return False
+
+
 def findings(payload, known_private_values=()):
     """Return locations/codes only, never the sensitive field name or value."""
     needles = private_values(list(known_private_values))
@@ -64,7 +85,7 @@ def findings(payload, known_private_values=()):
         value = decoded(value)
         if any(needle in value.casefold() for needle in needles):
             found.add((location, 'KNOWN_PRIVATE_VALUE'))
-        if LOCAL_PATH.search(value):
+        if local_path_found(value):
             found.add((location, 'LOCAL_PRIVATE_PATH'))
         for match in URL.finditer(value):
             try:
