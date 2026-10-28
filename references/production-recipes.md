@@ -1,5 +1,7 @@
 # Current production recipes and slot layouts
 
+For verified Mini PCs, use [M/MG recipes and the Mini PC slot plan](mini-pc-design-system.md). Record designSeries MINI_PC, a separate audience, M family/MG continuation, profile, accessory treatment and source/fact IDs in the versioned recipe. The existing approved_style_id and approved_supporting_gallery_pack fields accept the selected M/MG identifiers after user approval. No new workbook fields or approval bypass are introduced. MAIN uses the desktop graphic-safe-zone/package-package exception; no LCD, monitor or head breakout. Explicit Gaming positioning retains its required six categories. Family lists below remain applicable to other branches.
+
 Apply catalog policy and image-spec first. This is a construction guide, not an approved per-product geometric template. Rebuild within the current approved direction; never copy prior product facts or claim a production pack exists from these instructions alone.
 
 ## Versioned product recipe

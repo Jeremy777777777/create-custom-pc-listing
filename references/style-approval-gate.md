@@ -1,5 +1,7 @@
 # Style approval and fidelity
 
+Mini PC proposals first follow [M01–M03 / MG01–MG03](mini-pc-design-system.md), separately recording audience, actual accessory treatment and approved desktop safe zones. Present actual-product MAIN and representative PT continuation; the 2026-10-28 request to study references and add a series does not approve a product preview. M01 is a recommendation only; explicit Gaming crossover requirements remain applicable. Other form factors retain the proposal routing below.
+
 For new Gaming proposals, apply [Natural Gaming design](gaming-natural-design.md): G17/A17/GG17 is the product-led default, with G18–G21 as natural alternatives. This 2026-10-22 user decision replaces generic mecha, neon and cinematic defaults below. Existing product-specific approvals remain scoped; six-category enhanced MAIN, clipping, truthful hardware and actual visual review remain required.
 
 Use [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for the policy and [image-spec.md](image-spec.md) for content boundaries. This gate concerns direction approval, not a second approval to upload requested corrections. Apply its 2026-10-20 desktop/AIO keyboard-and-mouse requirement to previews and reviews; older no-external-device wording below excludes those two required inputs for these form factors. Apply the catalog policy’s ACTUAL_SUPPLIED or SAME_BRAND_REPRESENTATIVE treatment and review against its selected references; representative styling does not verify supplied accessory specifications.

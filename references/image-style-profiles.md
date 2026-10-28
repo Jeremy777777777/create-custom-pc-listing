@@ -1,17 +1,22 @@
 # Image style profiles
 
+Verified standalone Mini PCs first use the independent [M/MG design system](mini-pc-design-system.md), with M01/MG01 as the first proposal recommendation and M02/MG02 or M03/MG03 as alternatives. Keep audience separate; Windows Pro does not automatically select Business. The families are available choices, not approved product styles.
+
 For new Gaming proposals, apply [Natural Gaming design](gaming-natural-design.md): G17/A17/GG17 is the product-led default, with G18–G21 as natural alternatives. This 2026-10-22 user decision replaces generic mecha, neon and cinematic defaults below. Existing product-specific approvals remain scoped; six-category enhanced MAIN, clipping, truthful hardware and actual visual review remain required.
 
 Profiles affect palette/type/visual hierarchy, not [catalog policy](confirmed-catalog-defaults.md), accurate hardware, fixed slots or Windows identities. MAIN-STRICT remains white and unadorned. Both enhanced candidates share a family with task-adapted LCD composition. Business uses distinct lockup/package; others package/package. Desktop/AIO full-product views include keyboard and mouse using the [catalog accessory treatment](confirmed-catalog-defaults.md); no other external-device imagery or outside-LCD MAIN information.
 
 | Profile | Visual language | Typical fit |
 | --- | --- | --- |
+| mini-pc-clean-studio-v1 | Bright white/mist studio, large exact chassis, restrained teal and flat editorial modules | Mini PC M01/MG01; default proposal |
+| mini-pc-soft-desktop-v1 | Warm neutral desktop, soft daylight and believable chassis/input-device scale | Mini PC M02/MG02 |
+| mini-pc-technical-studio-v1 | Restrained graphite PT scenes, clear material edges, ice-blue detail leaders | Mini PC M03/MG03; MAIN exterior remains white |
 | natural-gaming-editorial-v1 | Accurate product photography, soft natural light, matte cards, restrained palette | G17–G21; see gaming-natural-design.md |
 | navy-technical-v1 | Navy/white, precise lines and high-contrast simple modules | Technical clarity and specification reading |
 | feature-led-studio-v1 | Bright studio depth, large product and restrained feature hierarchy | Modern lifestyle/product storytelling |
 | graphite-business-v1 | Graphite/navy corporate depth, prominent exact product, purposeful screen imagery, direct feature copy | Business Laptop B17/BG17 only; [reference-driven design system](business-graphite-design-system.md), white MAIN exterior and PT06 |
 
-Choose against verified product positioning and current assets. Record profile, G/B family/continuation, palette, required/forbidden motifs and versioned recipe in approved style lock. Wallpapers may vary by task, with coherent color/visual language. Profiles cannot replace G/C/A or B family direction. See [conversion-hero-styles.md](conversion-hero-styles.md) for layout motifs and [style-approval-gate.md](style-approval-gate.md) for material changes.
+Choose against verified product positioning and current assets. Record profile, M/G/B family/continuation, palette, required/forbidden motifs and versioned recipe in approved style lock. Wallpapers may vary by task, with coherent color/visual language. Profiles cannot replace M/MG, G/C/A or B family direction. See [conversion-hero-styles.md](conversion-hero-styles.md) for layout motifs and [style-approval-gate.md](style-approval-gate.md) for material changes.
 
 ## Current recipe and desktop applicability
 

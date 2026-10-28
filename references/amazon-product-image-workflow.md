@@ -1,5 +1,7 @@
 # Image production workflow
 
+For a verified standalone Mini PC, route first to [mini-pc-design-system.md](mini-pc-design-system.md): M01–M03 with matching MG01–MG03, separate evidence-supported audience and product-specific preview approval. This is the Mini PC branch of step 3; non-Mini-PC routing stays as below. Apply existing desktop keyboard/mouse and DESKTOP_GRAPHIC_SAFE_ZONE rules; explicit Gaming crossover requirements remain applicable. The [reference study](mini-pc-reference-study.md) supplies design observations, not product facts or asset rights.
+
 Active decision, 2026-10-06: the user approved all three conflicting-rule replacements. Apply [faithful reproduction of the official original computer](faithful-product-reproduction.md) and the catalog policy for every MAIN/PT slot. AI must reproduce the actual exact-model machine; mismatched or unverified hardware cannot pass.
 
 1. Read [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md), current product-fact record and [image-spec.md](image-spec.md). Identify exact base SKU, internal VL ID, verified assets and current statuses. Historical generated files are excluded from ordinary runs; consult only for an explicitly requested historical comparison.

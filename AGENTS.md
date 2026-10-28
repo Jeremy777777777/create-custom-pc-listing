@@ -1,5 +1,7 @@
 # Listing development and testing
 
+For verified standalone Mini PCs, use the separate [Mini PC M/MG series](references/mini-pc-design-system.md) and its [GMKtec/GEEKOM reference study](references/mini-pc-reference-study.md) before choosing a style. Keep form factor/design series separate from audience and Amazon attributes. M01 is the first proposal recommendation, not user approval; product previews still require explicit user judgment. Preserve current accessory, safe-zone, inch-unit, evidence and delivery rules.
+
 For supplied computer IDs, follow [ERP lookup](references/erp-internal-id-lookup.md) before requesting a detail URL. New Gaming proposals use [natural design](references/gaming-natural-design.md), default G17. Outputs/supporting records are retained only in Google Drive; remove temporary local caches after verified upload under [Drive delivery](references/google-drive-delivery.md).
 
 Read [SKILL.md](SKILL.md) and the applicable current references before changing Listing text, workbooks, images or workflow rules.

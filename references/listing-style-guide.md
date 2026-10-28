@@ -1,5 +1,7 @@
 # MegaPC listing writing guide
 
+Mini PC copy additionally follows [the independent Mini PC series](mini-pc-design-system.md#listing-copy-and-research): use Mini PC identity, actual base configuration and useful verified connections; never substitute a built-in display or generic Gaming/AI claim. Keep the exact warranty, five-bullet structure and Description HTML below. Compact size does not itself prove silent operation, low system power, portability, 24/7 reliability or gaming performance.
+
 Apply [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) first. This guide controls expression, not product facts. Write original English from the verified base configuration; competitor pages are market references only.
 
 ## Title

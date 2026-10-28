@@ -1,5 +1,7 @@
 # Supporting gallery creative continuation
 
+Mini PC uses M01→MG01, M02→MG02 or M03→MG03 under [mini-pc-design-system.md](mini-pc-design-system.md), before the audience-only routing below. Continue the selected studio/desktop/technical language through the fixed PT01–PT08 meanings; do not add monitors, extra devices or repeated configuration posters. Existing user-approved product locks stay scoped.
+
 For new Gaming proposals, apply [Natural Gaming design](gaming-natural-design.md): G17/A17/GG17 is the product-led default, with G18–G21 as natural alternatives. This 2026-10-22 user decision replaces generic mecha, neon and cinematic defaults below. Existing product-specific approvals remain scoped; six-category enhanced MAIN, clipping, truthful hardware and actual visual review remain required.
 
 Apply [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for fixed PT ownership and semantic review, [image-spec.md](image-spec.md) for physical output and [style-approval-gate.md](style-approval-gate.md) for approval. Continuation packs define palette/texture/motifs only. Desktop/AIO full-product views include keyboard and mouse using the [catalog accessory treatment](confirmed-catalog-defaults.md); older computer-only wording below applies to laptops and excludes these two required inputs for desktops/AIOs. Other external devices, accessory props, repeated specifications and seller warranty/service advertising remain prohibited.
