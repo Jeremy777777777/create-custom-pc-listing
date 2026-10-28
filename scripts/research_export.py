@@ -160,8 +160,6 @@ def validate_ledger(data):
             check_fcc_lookup(fact)
     from research_audit import validate as audit_research
     audit_research(data)
-    from memory_rate_basis import validate as validate_memory_rate_basis
-    validate_memory_rate_basis(data)
     return facts
 
 
@@ -171,6 +169,10 @@ def project(data, field_keys, mode='draft', separate_candidates=True):
     if data.get('amazon_selection') and not separate_candidates:
         raise ValueError('Amazon selection review requires the seven-row workbook layout')
     facts = validate_ledger(data)
+    # Historical reuse validates the previous ledger's structure without
+    # exporting its known defects. Every current projection remains gated.
+    from memory_rate_basis import validate as validate_memory_rate_basis
+    validate_memory_rate_basis(data)
     expected = list(field_keys)
     mapped = {(f['sheet'], f['attribute']): facts[f['selected_fact']] for f in data['fields']}
     if len(expected) != len(set(expected)) or set(mapped) != set(expected):

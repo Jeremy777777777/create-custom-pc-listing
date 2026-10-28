@@ -1,5 +1,6 @@
 """Synthetic research-rate versus observed Amazon-clock boundary regressions."""
 import copy
+import hashlib
 import json
 import sys
 import tempfile
@@ -63,6 +64,36 @@ class MemoryTransferRateTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'transfer-to-clock'):
                 export.write_workbook(export.ROOT/'assets/listing-workbook-template.xlsx',ledger,output)
             self.assertFalse(output.exists());self.assertEqual(ledger.read_bytes(),before)
+
+    def test_known_old_candidate_can_be_read_as_history_but_never_projected(self):
+        from research_audit import legacy_reuse
+        with tempfile.TemporaryDirectory() as tmp:
+            root=Path(tmp);data,_,_,_=self.fixture(root)
+            changed=[]
+            for name,value in (('Memory Clock Speed',4.2665),('Memory Clock Speed Unit','GHz')):
+                f=next(f for f in data['facts'] if f['sheet']=='Product Details' and f['attribute']==name)
+                f.update(status='INPUT_UNVERIFIED',final_value=None,value_candidate=value,
+                         value_candidate_source='https://example.test/synthetic-memory')
+                f['evidence']={'candidate_rationale':'DDR8533MT/s divided by2 suggests4.2665GHz clock',
+                               'candidate_missing_confirmation':'Actual runtime unmeasured'}
+                changed.append(f['id'])
+            raw=json.dumps(data).encode();current=copy.deepcopy(data)
+            for f in current['facts']:
+                if f['id'] in changed:
+                    f['value_candidate']=8533 if f['attribute']=='Memory Clock Speed' else 'MT/s'
+            retained=next(f['id'] for f in data['facts'] if f['attribute']=='Model Number')
+            review=dict(productId=data['productId'],configurationId=data['configurationId'],
+                previousLedgerSha256=hashlib.sha256(raw).hexdigest(),baselineReference='https://example.test/archive',
+                reviewer='Synthetic reviewer',reviewed_date='2026-01-01',impact_review='Fix clock candidates only',
+                fields=[dict(factId=retained,basis='Whole unchanged identity record',dependencyFactIds=[])])
+            legacy_reuse(current,[retained],raw,review)
+            self.assertEqual(json.dumps(data).encode(),raw)
+            with self.assertRaisesRegex(ValueError,'transfer-to-clock'):
+                export.project(data,[(m['sheet'],m['attribute']) for m in data['fields']])
+            changed_history=copy.deepcopy(current)
+            next(f for f in changed_history['facts'] if f['id']==retained)['source']='Changed source'
+            with self.assertRaisesRegex(ValueError,'changed'):
+                legacy_reuse(changed_history,[retained],raw,review)
 
     def test_research_exception_is_opt_in_and_does_not_hide_wrong_cpu(self):
         with tempfile.TemporaryDirectory() as tmp:
