@@ -64,10 +64,20 @@ def positive(value, text_allowed=False):
 def validate_dimension_copy(text):
     """Catch explicit metric/feet size claims, preserving connector/model names."""
     text=re.sub(r'<[^>]+>',' ',str(text))
-    other=r'(?:mm|cm|meters?|metres?|millimet(?:er|re)s?|centimet(?:er|re)s?|feet|foot|ft)\b'
+    labels=r'(?:length|width|height|depth|thickness|bezel|diagonal|dimensions?|key\s*travel|key\s*pitch)'
+    # "1 x 3.5mm audio jack" is a count and named connector, not geometry.
+    # An explicit preceding dimensions/width/etc label keeps geometry checkable.
+    connector_count=r'\b[1-9]\d*\s*[x×]\s*(?:2\.5|3\.5|6\.35)\s*mm(?=\s*\(?\s*(?:(?:global|universal)\s+)?(?:audio|headphone|headset|microphone|combo|trrs|trs|jack)\b)'
+    def connector(match):
+        prefix=text[max(0,match.start()-50):match.start()]
+        return match[0] if re.search(r'\b'+labels+r'\s*(?::|=|of|is)?\s*$',prefix,re.I) else 'NAMED_AUDIO_CONNECTOR_COUNT'
+    text=re.sub(connector_count,connector,text,flags=re.I)
+    other=r'(?:mm|cm|m|meters?|metres?|millimet(?:er|re)s?|centimet(?:er|re)s?|feet|foot|ft)\b'
     tuple_claim=NUMBER+r'\s*(?:x|×)\s*'+NUMBER+r'(?:\s*(?:x|×)\s*'+NUMBER+r')?\s*'+other
-    labelled=r'\b(?:length|width|height|depth|thickness|bezel|diagonal|dimensions?)\s*(?::|=|of|is)?\s*'+NUMBER+r'\s*'+other
-    if re.search(tuple_claim+'|'+labelled,text,re.I):raise ValueError('Physical dimension copy must use inches')
+    repeated_units=NUMBER+r'\s*'+other+r'\s*(?:x|×|by)\s*'+NUMBER+r'(?:\s*'+other+r')?'
+    labelled=r'\b'+labels+r'\s*(?::|=|of|is)?\s*'+NUMBER+r'\s*'+other
+    trailing_label=NUMBER+r'\s*'+other+r'\s*'+labels+r'\b'
+    if re.search('|'.join((tuple_claim,repeated_units,labelled,trailing_label)),text,re.I):raise ValueError('Physical dimension copy must use inches')
 
 
 def validate_dimensions(projected):
@@ -87,8 +97,9 @@ def validate_dimensions(projected):
             if value is not None:
                 match=INCH_TEXT.fullmatch(str(value))
                 if not match or not positive(match[1],text_allowed=True):raise ValueError('Dimension text must explicitly use inches: '+key[1])
-    for key,record in projected.items():
-        if key[0]=='Product Details' and key[1] in {'Item Name','Bullet Point','Product Description'}:
-            for name in ('value','value_candidate'):
-                if record.get(name) is not None:validate_dimension_copy(record[name])
+    # Geometry can also occur in pointing-device/keyboard and other descriptions.
+    # Never scan Source rows: quoted original measurements retain their units.
+    for record in projected.values():
+        for name in ('value','value_candidate'):
+            if isinstance(record.get(name),str):validate_dimension_copy(record[name])
     return {'state':'INCH_DIMENSIONS_CHECK_PASS','unit':UNIT,'scope':'PHYSICAL_LINEAR_OUTPUTS_NOT_SOURCE_EVIDENCE'}

@@ -48,6 +48,36 @@ class DimensionUnitsTests(unittest.TestCase):
         for text in ['Dimensions:10 x5 x1 inches','M.2 2280 SSD;3.5mm audio;1920 x1200 pixels','Weight:1.59kg;60Hz']:
             d.validate_dimension_copy(text)
 
+    def test_descriptive_geometry_is_checked_in_formal_and_candidate_rows(self):
+        for field,text in [('Notebook Pointing Device Description','Touchpad,115 x80 mm'),('Touchpad Feature','115 mm x 80 mm touchpad'),('Keyboard Description','Key travel:1.5 mm'),('Keyboard Description','1.5mm key travel')]:
+            for slot in ('value','value_candidate'):
+                with self.subTest(field=field,slot=slot),self.assertRaisesRegex(ValueError,'inches'):
+                    d.validate_dimensions({('Product Details',field):{slot:text}})
+        data={('Product Details','Touchpad Feature'):{'value':'Touchpad,4.5276 x3.1496 inches','source':'Original115 x80mm','value_candidate_source':'Original115 mm x80 mm'}}
+        before=copy.deepcopy(data);d.validate_dimensions(data);self.assertEqual(data,before)
+
+    def test_named_connector_count_does_not_hide_explicit_geometry(self):
+        for text in ['1 x3.5mm audio jack','2 x 3.5 mm headphone jacks','1x3.5mm (headphone/microphone) combo;M.2 2280;2x2 Wi-Fi','1 x 3.5mm global headset jack, input and output','1 x3.5mm universal audio jack']:
+            d.validate_dimension_copy(text)
+            d.validate_dimensions({('Product Details','Hardware Interface'):{'value':text}})
+        for text in ['Dimensions:2 x3.5mm audio jack body','Width:2 x3.5mm jack body','Touchpad115 mm by80 mm','Height:0.25 m']:
+            with self.subTest(text=text),self.assertRaisesRegex(ValueError,'inches'):d.validate_dimension_copy(text)
+
+    def test_writer_rejects_metric_description_without_mutating_original(self):
+        with tempfile.TemporaryDirectory() as scratch:
+            root=Path(scratch);data,_,old,ledger=fixture.FCCGuideWriterTests().fixture(root)
+            fact=next(f for f in data['facts'] if f['attribute']=='Touchpad Feature')
+            fact.update(status='VERIFIED',final_value='Touchpad,115 x80 mm')
+            ledger.write_text(json.dumps(data));write_audit(ledger);before=old.read_bytes();out=root/'blocked.xlsx'
+            with self.assertRaisesRegex(ValueError,'inches'):export.write_workbook(export.ROOT/'assets/listing-workbook-template.xlsx',ledger,out)
+            self.assertFalse(out.exists());self.assertEqual(old.read_bytes(),before)
+            fact['evidence']={'original_geometry':'115 x80 mm','conversion':'Each axis divided by25.4'}
+            fact['final_value']='Touchpad,'+d.convert_length_text('115 x80 mm')
+            ledger.write_text(json.dumps(data));write_audit(ledger);export.write_workbook(export.ROOT/'assets/listing-workbook-template.xlsx',ledger,out)
+            import openpyxl
+            book=openpyxl.load_workbook(out);sheet=book['Product Details'];col=next(c.column for c in sheet[1] if c.value=='Touchpad Feature')
+            self.assertEqual(sheet.cell(3,col).value,'Touchpad,4.5276 x3.1496 inches');book.close()
+
     def test_real_writer_rejects_metric_and_accepts_converted_ledger(self):
         with tempfile.TemporaryDirectory() as scratch:
             root=Path(scratch);data,_,old,ledger=fixture.FCCGuideWriterTests().fixture(root)
