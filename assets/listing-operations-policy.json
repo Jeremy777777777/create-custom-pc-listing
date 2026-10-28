@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "effectiveDate": "2026-10-26",
+  "effectiveDate": "2026-10-27",
   "authority": {
     "source": "User acceptance of the scoped research-friction recommendations, with style approval expressly retained by the user",
     "userInstruction": "风格审批还是靠我来判断，其余的修改可以进行优化，帮我进行优化然后写入项目",
@@ -102,6 +102,18 @@
     "missingRunnerAuthorizationDoesNotBlockIndependentResearch": true
   },
   "reviewRejection": "STOP_AFFECTED_ACTION_REVIEW_EXACT_REASON_NEVER_BYPASS",
+  "browserAccessRecovery": {
+    "trigger": "AGENT_TAB_STUCK_ON_ORDINARY_NETWORK_ERROR_PAGE",
+    "sameSelectedBrowserOnly": true,
+    "knownAuthorizedNonSensitiveHTTPSReferenceOnly": true,
+    "maxFreshTabAttemptsPerTarget": 1,
+    "toolStateFailureIsSourceHTTPFailure": false,
+    "retainOriginalFailureAndActualRecoveryEvidence": true,
+    "requireFreshReadableMatchingContentBeforeOpened": true,
+    "revalidateDependentCandidateDispositionsAfterRecovery": true,
+    "cannotBypassSecurityWarningsAuthenticationCAPTCHAOrReviewRejection": true,
+    "reference": "references/research-operations-preflight.md"
+  },
   "research": {
     "start": "TARGET_LINKED_SERIAL_THEN_OFFICIAL_BOM_PARTS",
     "fallback": "EXACT_OFFICIAL_MODEL_THEN_ERP_THEN_AMAZON_AND_DEEP_SEARCH",
