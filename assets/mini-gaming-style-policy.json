@@ -18,6 +18,17 @@
   "gameDepictionPurposes": ["GENRE_CONTEXT", "VERIFIED_PLAYABILITY", "BENCHMARK"],
   "performanceClaims": "CURRENT_CONFIGURATION_EVIDENCE_REQUIRED",
   "previewApproval": "PRODUCT_SPECIFIC_USER_JUDGMENT",
+  "approvedGamingExecution": {
+    "productId": "VL-1221",
+    "approvedAtLocalDate": "2026-10-29",
+    "reference": "https://drive.google.com/drive/folders/1P80_DieiRhOHkjlM13LzQyTS3WfQh7TD",
+    "layoutBrief": "assets/gaming-approved-editorial-template.json",
+    "enhancedMainSpecificationBackground": "ARTWORK_VISIBLE_NO_BLACK_RECTANGLE_OR_BOTTOM_BAND",
+    "enhancedMainContrast": "FLAT_LABELS_WITH_LOCAL_TEXT_EDGE_OR_SHADOW_IF_NEEDED",
+    "physicalBezelAndWindowsAsset": "PRESERVE",
+    "ptInformationCards": "ALLOWED",
+    "approvalScope": "VL-1221 replacement authorized; other products require their own preview judgment"
+  },
   "retroactiveGalleryMigration": false,
   "physicalDimensionUnit": "Inches",
   "visualReviewWidths": ["NATIVE", 400, 200],
