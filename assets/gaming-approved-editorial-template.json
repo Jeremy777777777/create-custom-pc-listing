@@ -1,0 +1,45 @@
+{
+  "schemaVersion": 1,
+  "profile": "gaming-real-game-editorial-v1",
+  "family": "G22",
+  "referenceKind": "USER_APPROVED_VISUAL_EXECUTION_NOT_PRODUCT_FACTS",
+  "referenceProduct": "VL-1221",
+  "referenceFolder": "https://drive.google.com/drive/folders/1P80_DieiRhOHkjlM13LzQyTS3WfQh7TD",
+  "authority": "references/mini-gaming-real-source-workflow.md#approved-gaming-execution-vl-1221--user-decision-2026-10-29",
+  "tokens": {
+    "background": ["#0D0E14", "#271019"],
+    "accent": "#F34A5F",
+    "heading": "#F7F6F4",
+    "secondary": "#C6C1C5",
+    "lightDetailBackground": "#F5F6F8",
+    "typography": "Bold italic headline; quiet aligned secondary copy; installed licensed fonts or appropriate licensed equivalents",
+    "frames": "Thin restrained crimson rules; related proof cards permitted on PT pages",
+    "spacing": "Clear page title, one dominant product/detail/portfolio arrangement, readable grouped proof; adapt to native source quality"
+  },
+  "enhancedMain": {
+    "physicalProduct": "ORIGINAL_NATIVE_PHOTOGRAPHY",
+    "scope": "G22 enhanced candidates only; strict MAIN and other series retain their own rules",
+    "specificationBackground": "NONE_ARTWORK_REMAINS_VISIBLE",
+    "rejected": ["Broad black specification rectangle", "Opaque lower screen band", "Replacement semi-transparent black information panel", "Outside-LCD decoration"],
+    "contrast": "Flat labels with local text-edge stroke/shadow; clear crop or repositioning before adding a panel",
+    "preserve": ["Six applicable core identities", "Genuine Windows edition asset", "Native physical bezel", "Measured LCD or standalone-desktop graphic safe zone"]
+  },
+  "pages": [
+    {"slot": "PT01", "question": "Why choose this gaming machine?", "layout": "Large native product plus dedicated-graphics or other verified buying-reason groups"},
+    {"slot": "PT02", "question": "Which gaming worlds?", "layout": "Original game-art/logo panels plus readable names and dominant actual product", "purpose": "GENRE_CONTEXT unless separate current-unit evidence supports more"},
+    {"slot": "PT03", "question": "What configuration is supplied?", "layout": "Sole full CPU/GPU/RAM/internal SSD/OS overview, original applicable brand asset and qualified processor illustration"},
+    {"slot": "PT04", "question": "How does the actual display/form suit my setup?", "layout": "Native front/side/material view plus related verified display or footprint proof"},
+    {"slot": "PT05", "question": "How do the hardware choices serve different roles?", "layout": "Native alternate view; distinct memory/storage or evidenced-workload explanation; justified secondary fact reuse"},
+    {"slot": "PT06", "question": "How do I control it?", "layout": "Native keyboard/touchpad/dial detail appropriate to the actual product; optional light detail page"},
+    {"slot": "PT07", "question": "What other evidenced feature helps?", "layout": "Actual applicable camera/voice, expansion/access or cooling theme; no invented structure"},
+    {"slot": "PT08", "question": "Can I connect my setup?", "layout": "Actual opposing port views, short correctly matched numbered leaders, concise protocol/count legend"}
+  ],
+  "constraints": [
+    "Original downloaded/supplied game pictures and logos; no AI lookalikes or redrawn marks",
+    "Only verified applicable sold-unit copy; no borrowed CPU, mode, FPS or entitlement claims",
+    "Protect hardware geometry, genuine brand marks, game logos/names and factual text from overlap",
+    "Current logo geometry, native/400/200px review, source rights and delivery checks still apply",
+    "Other products require their own style preview; no automatic retroactive gallery replacement",
+    "This brief contains no product images or downloaded game binaries"
+  ]
+}
