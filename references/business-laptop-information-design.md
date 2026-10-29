@@ -1,6 +1,6 @@
 # Business Laptop information design — user decision 2026-10-29
 
-Read [universal image production](universal-image-production.md) first. That shared layer owns the production mechanics and reusable assets; this document owns Business Laptop content architecture. The user's subsequent approval of the six VL-1223/VL-1271 previews authorizes their scoped current-slot replacement, with the actual approval and image hashes recorded in product evidence. It does not approve other products automatically.
+Read [universal image production](universal-image-production.md) first. That shared layer owns the production mechanics and reusable assets; this document owns Business Laptop content architecture. The user's 2026-10-29 screenshot clarification selects the earlier rich office-scene direction for VL-1223/VL-1271 and corrects the later parameter-card substitution. Bind the actual selected reference and correction request in product evidence. It does not approve other products automatically.
 
 Apply to Business Laptop planning, generation and revision, across B/BG families. The user reviewed Amazon ASIN [B01N4C1TH4](https://www.amazon.com/dp/B01N4C1TH4) and requested fuller, more useful information design after comparing VL-1223 and VL-1271. The page observed on 2026-10-29 showed ThinkPad L16, despite the supplied URL slug mentioning E16. It is an organization reference, never hardware evidence for our products.
 
@@ -24,6 +24,8 @@ Do not let an empty required field become a generic slogan. Source the missing u
 Use a compact buyer-benefit headline, prominent accurate hardware and grouped proof. Technical pages commonly support 3–6 meaningful proof units, with a number/type, a short use explanation, and a matching detail or icon where useful. This is a planning target, not a quota or a reason to shrink text. A large title and repeated full laptop with one isolated number is usually insufficient.
 
 Vary compositions: product plus grouped modules, front display, keyboard/camera detail, true side views and one purposeful office scene. Reuse palette, typography, line weights and brand treatment rather than one title/product/footer grid. Keep working documents coherent and unbranded unless applicable software identity is confirmed. Avoid meaningless charts or decorative performance bars.
+
+When a user selects the rich office composition, retain its natural photographic environment, large product, compact side proof and lower native-detail panels. Keep the approved product palette (VL-1223 B05 pale gray/navy; VL-1271 B17 graphite/navy). Accurate native hardware, downloaded brand marks and deterministic copy must fit this composition; they do not justify discarding it. PT06 retains its white-background native input-detail treatment with a full hierarchy of useful callouts rather than reverting to a sparse table. Use the user's selected image as the comparison reference, not an intervening unrequested rebuild.
 
 Inspect the actual image at full resolution, approximately 400px mobile width and 200px thumbnail. At 200px the topic and product should be evident; at 400px principal values and module labels should read. Subordinate detail can require zoom. Reflow or remove weak content before reducing text below readable size. Do not claim measured density/coverage percentages without actually measuring and explaining their meaning.
 
