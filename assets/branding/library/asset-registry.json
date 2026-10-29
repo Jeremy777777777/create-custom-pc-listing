@@ -1,0 +1,203 @@
+{
+  "schemaVersion": 1,
+  "authorization": {
+    "status": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29",
+    "scope": "Accurate catalog product marketing using existing hardware and software brand assets; direct user confirmation that brand authorization is resolved.",
+    "softwareEntitlementSeparate": true
+  },
+  "assets": [
+    {
+      "id": "amd-corporate-white",
+      "file": "amd-corporate-white.svg",
+      "brand": "AMD",
+      "identity": "AMD corporate",
+      "sourcePage": "https://www.amd.com/en/partner/browse-by-resource/marketing-materials.html",
+      "url": "https://www.amd.com/content/dam/code/images/header/amd-header-logo.svg",
+      "kind": "HARDWARE_BRAND",
+      "match": {
+        "cpuBrand": "AMD"
+      },
+      "path": "assets/branding/library/amd-corporate-white.svg",
+      "sha256": "637d36ef706c905033ec2de7023b78918bfd2c4e740ad108e2c34461fa17b820",
+      "byteLength": 924,
+      "contentType": "image/svg+xml",
+      "retrievedAtUtc": "2026-10-29T15:48:04.046Z",
+      "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29",
+      "status": "AVAILABLE_ORIGINAL"
+    },
+    {
+      "id": "intel-core-ultra-7",
+      "file": "intel-core-ultra-7.png",
+      "brand": "Intel",
+      "identity": "Core Ultra 7",
+      "sourcePage": "https://www.intel.com/content/www/us/en/newsroom/news/intel-announces-major-brand-update-upcoming-meteor-lake-launch.html",
+      "url": "https://www.intel.com/content/dam/www/central-libraries/us/en/images/2023-09/core-ultra-7-badge-highrez.png",
+      "kind": "CPU_FAMILY_BADGE",
+      "match": {
+        "cpuBrand": "Intel",
+        "cpuFamily": "Core Ultra",
+        "cpuTier": "7"
+      },
+      "path": "assets/branding/library/intel-core-ultra-7.png",
+      "sha256": "7c6c8a23ec52d4cca1497ad82c4d1bbd4f82c6feaa1b2ba4bbfeff89646be86e",
+      "byteLength": 241781,
+      "contentType": "image/png",
+      "retrievedAtUtc": "2026-10-29T15:48:04.193Z",
+      "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29",
+      "status": "AVAILABLE_ORIGINAL"
+    },
+    {
+      "id": "windows-11-official",
+      "file": "windows-11-official.png",
+      "brand": "Microsoft",
+      "identity": "Windows 11",
+      "sourcePage": "https://news.microsoft.com/june-24-2021/",
+      "url": "https://msftstories.thesourcemediaassets.com/sites/612/2021/06/Windows-11-Logo-1000x404.png",
+      "kind": "OS_IDENTITY",
+      "match": {
+        "osFamily": "Windows 11"
+      },
+      "path": "assets/branding/library/windows-11-official.png",
+      "sha256": "6cbe028e90bbeb2758c8f43592f1fbe9354b13d484655ea8025f75f0abe7b5b8",
+      "byteLength": 78969,
+      "contentType": "image/png",
+      "retrievedAtUtc": "2026-10-29T15:48:04.235Z",
+      "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29",
+      "status": "AVAILABLE_ORIGINAL"
+    },
+    {
+      "id": "microsoft-word-fy26",
+      "file": "microsoft-word-fy26.svg",
+      "brand": "Microsoft",
+      "identity": "Word FY26",
+      "sourcePage": "https://www.microsoft.com/en-us/microsoft-365",
+      "url": "https://www.microsoft.com/content/dam/microsoft/bade/images/icons/en-us/m365-app-icons-fy26/Word-Icon-FY26.svg",
+      "kind": "SOFTWARE_IDENTITY",
+      "match": {
+        "software": "Word",
+        "entitlementRequired": true
+      },
+      "status": "LIBRARY_ONLY_REQUIRES_PRODUCT_ENTITLEMENT",
+      "path": "assets/branding/library/microsoft-word-fy26.svg",
+      "sha256": "02bf3ae7245c5f4288e5135a31aa27c458e39ae431dc93d2d8847e5a7c123fdf",
+      "byteLength": 3867,
+      "contentType": "image/svg+xml",
+      "retrievedAtUtc": "2026-10-29T15:48:03.970Z",
+      "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29"
+    },
+    {
+      "id": "microsoft-excel-fy26",
+      "file": "microsoft-excel-fy26.svg",
+      "brand": "Microsoft",
+      "identity": "Excel FY26",
+      "sourcePage": "https://www.microsoft.com/en-us/microsoft-365",
+      "url": "https://www.microsoft.com/content/dam/microsoft/bade/images/icons/en-us/m365-app-icons-fy26/Excel-Icon-FY26.svg",
+      "kind": "SOFTWARE_IDENTITY",
+      "match": {
+        "software": "Excel",
+        "entitlementRequired": true
+      },
+      "status": "LIBRARY_ONLY_REQUIRES_PRODUCT_ENTITLEMENT",
+      "path": "assets/branding/library/microsoft-excel-fy26.svg",
+      "sha256": "ff01cdad545c6f1c0bff371c1f1758ad228174520c718c679bd454f6b4fcacf8",
+      "byteLength": 4928,
+      "contentType": "image/svg+xml",
+      "retrievedAtUtc": "2026-10-29T15:48:04.079Z",
+      "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29"
+    },
+    {
+      "id": "microsoft-powerpoint-fy26",
+      "file": "microsoft-powerpoint-fy26.svg",
+      "brand": "Microsoft",
+      "identity": "PowerPoint FY26",
+      "sourcePage": "https://www.microsoft.com/en-us/microsoft-365",
+      "url": "https://www.microsoft.com/content/dam/microsoft/bade/images/icons/en-us/m365-app-icons-fy26/PowerPoint-Icon-FY26.svg",
+      "kind": "SOFTWARE_IDENTITY",
+      "match": {
+        "software": "PowerPoint",
+        "entitlementRequired": true
+      },
+      "status": "LIBRARY_ONLY_REQUIRES_PRODUCT_ENTITLEMENT",
+      "path": "assets/branding/library/microsoft-powerpoint-fy26.svg",
+      "sha256": "9bdf04481c14b24f419bad93903daff9884ad5a4b957a77241ddc0294ce5b423",
+      "byteLength": 6088,
+      "contentType": "image/svg+xml",
+      "retrievedAtUtc": "2026-10-29T15:48:04.193Z",
+      "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29"
+    },
+    {
+      "id": "microsoft-onenote-fy26",
+      "file": "microsoft-onenote-fy26.svg",
+      "brand": "Microsoft",
+      "identity": "OneNote FY26",
+      "sourcePage": "https://www.microsoft.com/en-us/microsoft-365",
+      "url": "https://www.microsoft.com/content/dam/microsoft/bade/images/icons/en-us/m365-app-icons-fy26/OneNote-Icon-FY26.svg",
+      "kind": "SOFTWARE_IDENTITY",
+      "match": {
+        "software": "OneNote",
+        "entitlementRequired": true
+      },
+      "status": "LIBRARY_ONLY_REQUIRES_PRODUCT_ENTITLEMENT",
+      "path": "assets/branding/library/microsoft-onenote-fy26.svg",
+      "sha256": "81b19719c18dd2889f19aacc2238139d819f97653d0582a9638f107cf7a2e491",
+      "byteLength": 3472,
+      "contentType": "image/svg+xml",
+      "retrievedAtUtc": "2026-10-29T15:48:04.106Z",
+      "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29"
+    },
+    {
+      "id": "microsoft-copilot-fy26",
+      "file": "microsoft-copilot-fy26.svg",
+      "brand": "Microsoft",
+      "identity": "Microsoft 365 Copilot FY26",
+      "sourcePage": "https://www.microsoft.com/en-us/microsoft-365",
+      "url": "https://www.microsoft.com/content/dam/microsoft/bade/images/icons/en-us/m365-app-icons-fy26/Copilot-Icon-FY26.svg",
+      "kind": "SOFTWARE_IDENTITY",
+      "match": {
+        "software": "Microsoft 365 Copilot",
+        "entitlementRequired": true
+      },
+      "status": "LIBRARY_ONLY_REQUIRES_PRODUCT_ENTITLEMENT",
+      "path": "assets/branding/library/microsoft-copilot-fy26.svg",
+      "sha256": "f16fdf8123d9dc4597561bfc62cebf5bc43262a1301d9acd470c4914e6dd1e1f",
+      "byteLength": 2849,
+      "contentType": "image/svg+xml",
+      "retrievedAtUtc": "2026-10-29T15:48:04.086Z",
+      "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29"
+    },
+    {
+      "id": "windows-11-pro-approved-lockup",
+      "path": "assets/branding/windows-11-pro-lockup.png",
+      "identity": "Windows 11 Pro lockup",
+      "purpose": "LOCKUP",
+      "brand": "Microsoft",
+      "kind": "OS_IDENTITY",
+      "match": {
+        "osEdition": "Windows 11 Pro"
+      },
+      "sha256": "3a70dbe456a1c2478d46fa0105b3e89b0097854be78fbc0bd4c1888e019a5586",
+      "byteLength": 254440,
+      "contentType": "image/png",
+      "status": "AVAILABLE_APPROVED_MASTER",
+      "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29",
+      "provenanceReference": "Existing approved catalog Windows 11 Pro master; retained original bytes, no invented official download URL."
+    },
+    {
+      "id": "windows-11-pro-approved-package",
+      "path": "assets/branding/windows-11-pro-package.png",
+      "identity": "Windows 11 Pro graphic package",
+      "purpose": "GRAPHIC_PACKAGE",
+      "brand": "Microsoft",
+      "kind": "OS_IDENTITY",
+      "match": {
+        "osEdition": "Windows 11 Pro"
+      },
+      "sha256": "6f9dc54bdbf084ebe11fb06ec85d610de8ebf766d4ead7781ff5898d6e5c7380",
+      "byteLength": 834157,
+      "contentType": "image/png",
+      "status": "AVAILABLE_APPROVED_MASTER",
+      "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29",
+      "provenanceReference": "Existing approved catalog Windows 11 Pro master; retained original bytes, no invented official download URL."
+    }
+  ]
+}

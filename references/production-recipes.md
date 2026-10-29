@@ -1,5 +1,7 @@
 # Current production recipes and slot layouts
 
+Business Laptop update 2026-10-29: [information-design planning](business-laptop-information-design.md) replaces older Business Laptop sparse callout limits, mandatory generic PT05 and automatic rejection of useful secondary fact reuse. Create a claim/detail/brand-bound slot plan before rendering. All series reuse [original brand masters](reusable-brand-assets.md), with registry hashes and actual applicability in the recipe. Existing product fidelity, MAIN boundaries, style approval and current-byte QA remain.
+
 For verified Mini PCs, use [M/MG recipes and the Mini PC slot plan](mini-pc-design-system.md). Record designSeries MINI_PC, a separate audience, M family/MG continuation, profile, accessory treatment and source/fact IDs in the versioned recipe. The existing approved_style_id and approved_supporting_gallery_pack fields accept the selected M/MG identifiers after user approval. No new workbook fields or approval bypass are introduced. MAIN uses the desktop graphic-safe-zone/package-package exception; no LCD, monitor or head breakout. Explicit Gaming positioning retains its required six categories. Family lists below remain applicable to other branches.
 
 Apply catalog policy and image-spec first. This is a construction guide, not an approved per-product geometric template. Rebuild within the current approved direction; never copy prior product facts or claim a production pack exists from these instructions alone.

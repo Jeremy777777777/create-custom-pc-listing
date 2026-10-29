@@ -1,5 +1,7 @@
 # Catalog Brand Authorization Policy
 
+User amendment 2026-10-29: the user explicitly confirmed authorization for familiar hardware/software marks (including AMD, Intel, Windows and Office) and requested their downloaded original files be stored and reused. Apply [reusable-brand-assets.md](reusable-brand-assets.md); record `USER_CONFIRMED_BRAND_ASSETS_2026_10_29`. This supersedes the older separate-authorization gate below for these catalog hardware/software identities only. Correct component/tier/edition selection and any software inclusion/paid entitlement remain separate factual requirements; do not manufacture them from brand permission. Game/character/stock-media rights remain outside this amendment.
+
 ## Seller authorization assertion
 
 MegaPC / J-Tech Digital has explicitly confirmed that it holds the applicable reseller, partner, or written brand-asset permissions for every OEM brand sold in its catalog. For this workflow, record this seller-provided assertion as:

@@ -1,2 +1,4 @@
 *.json text eol=lf
+assets/branding/library/*.svg -text
+assets/branding/library/*.png -text
 "product generated photo/**/workbook-snapshots/**" -text

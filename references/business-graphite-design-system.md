@@ -1,5 +1,7 @@
 # B17 / BG17 — Graphite Business, Feature in Focus
 
+Apply [Business Laptop information design](business-laptop-information-design.md), user decision 2026-10-29. It replaces this document's older 2–3-callout cap, generic task-flow default and rigid secondary-fact overlap rejection for Business Laptops. Retain graphite appearance, white PT06, actual detail evidence, one full configuration page and product-specific preview approval. Use [downloaded original brand assets](reusable-brand-assets.md).
+
 Use this reference for Business Laptop B17/BG17 planning, generation and review. Scope: laptops only; it does not change Gaming, Student, General, AIO or standalone-desktop recipes. Apply [catalog policy](confirmed-catalog-defaults.md), [image specification](image-spec.md), [production recipes](production-recipes.md) and [style approval](style-approval-gate.md) first.
 
 ## Approved visual direction and source of truth
