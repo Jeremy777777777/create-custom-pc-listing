@@ -198,6 +198,25 @@
       "status": "AVAILABLE_APPROVED_MASTER",
       "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29",
       "provenanceReference": "Existing approved catalog Windows 11 Pro master; retained original bytes, no invented official download URL."
+    },
+    {
+      "id": "nvidia-corporate-horizontal",
+      "file": "nvidia-corporate-horizontal.svg",
+      "brand": "NVIDIA",
+      "identity": "NVIDIA corporate",
+      "sourcePage": "https://www.nvidia.com/en-us/about-nvidia/legal-info/logo-brand-usage/",
+      "url": "https://www.nvidia.com/content/nvidiaGDC/us/en_US/about-nvidia/legal-info/logo-brand-usage/_jcr_content/root/responsivegrid/nv_container_392921705/nv_container_412055486/nv_image.coreimg.svg/1776076920317/nvidia-logo-horz.svg",
+      "kind": "HARDWARE_BRAND",
+      "match": {
+        "gpuBrand": "NVIDIA"
+      },
+      "path": "assets/branding/library/nvidia-corporate-horizontal.svg",
+      "sha256": "4325ea0c4078941bce84b2b1c6f045c3daf36de44cfc4c89ac5c49186f4874e8",
+      "byteLength": 2783,
+      "contentType": "image/svg+xml",
+      "retrievedAtUtc": "2026-10-29T21:18:47.653Z",
+      "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29",
+      "status": "AVAILABLE_ORIGINAL"
     }
   ]
 }
