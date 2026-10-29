@@ -1,0 +1,23 @@
+{
+  "schemaVersion": 1,
+  "designSeries": "BUSINESS_LAPTOP",
+  "scope": "Content architecture for B/BG laptops; palette, hardware, claims and approval remain product-specific.",
+  "productionMethod": ["native verified hardware and details", "original scene/screen artwork", "deterministic English copy", "genuine applicable brand assets"],
+  "slots": [
+    {"file":"MAIN-STRICT.jpg","theme":"Complete actual product on white","boundary":"PRODUCT_ONLY","proof":"Native full product and neutral screen; no added marketing, Windows asset or accessories."},
+    {"file":"MAIN-ENHANCED-FRONT-CANDIDATE.png","theme":"Installed configuration inside the real front LCD","boundary":"LCD_ONLY","proof":"Exact product, fitted screen artwork, one genuine Windows treatment and applicable component identity."},
+    {"file":"MAIN-ENHANCED-THREE-QUARTER-CANDIDATE.png","theme":"Independent real angle with fitted information","boundary":"LCD_ONLY","proof":"Native supported angle, independently measured LCD, distinct fixed Windows treatment; no manufactured resolution."},
+    {"file":"PT01.png","theme":"Purchase reason","boundary":"SUPPORTING","proof":"Large accurate product with a few compatible screen/input or other verified proof points; no Windows or full specification table."},
+    {"file":"PT02.png","theme":"Purposeful daily work","boundary":"SUPPORTING","proof":"Distinct original use scene and coherent task screen, with related display/typing/connectivity proof; no implied app bundle."},
+    {"file":"PT03.png","theme":"Installed performance and configuration","boundary":"SUPPORTING","proof":"The sole complete CPU/GPU/RAM/internal SSD/OS overview, original component/OS assets and concise uses."},
+    {"file":"PT04.png","theme":"Screen experience","boundary":"SUPPORTING","proof":"Group exact sold-panel size, resolution, ratio, touch, refresh, surface and named gamut only when verified."},
+    {"file":"PT05.png","theme":"Memory and storage explained","boundary":"SUPPORTING","proof":"Explain installed working memory versus saved internal storage, fixed/slot facts and useful work examples. An evidenced form relationship may replace this theme."},
+    {"file":"PT06.png","theme":"Everyday inputs and controls","boundary":"SUPPORTING","proof":"White-background native keyboard/touchpad/control details; accurate layout, backlight status and applicable camera/privacy facts."},
+    {"file":"PT07.png","theme":"Remaining mobility or collaboration question","boundary":"SUPPORTING","proof":"Combine related verified battery, weight, camera, microphone, privacy or wireless facts; no invented runtime or security promises."},
+    {"file":"PT08.png","theme":"Physical connectivity","boundary":"SUPPORTING","proof":"Actual relevant left/right connector views with leaders to real openings, correct counts/types/functions and verified wireless footer."}
+  ],
+  "reviewScalesPx": ["NATIVE",400,200],
+  "completion": "A requested full series accounts for all eleven files, including exact carried-forward images; a pilot alone is incomplete.",
+  "approval": "Per-product USER approval; this profile grants none.",
+  "rebuild": "Self-contained editable masters or complete hashed source dependencies plus portable commands; preserve approved bytes explicitly."
+}

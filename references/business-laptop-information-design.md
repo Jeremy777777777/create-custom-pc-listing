@@ -1,5 +1,7 @@
 # Business Laptop information design — user decision 2026-10-29
 
+For the accepted complete-series result and repeatable execution commands, use [the production playbook](business-laptop-production-playbook.md) and [eleven-slot profile](../assets/business-laptop-series-profile.json). The user accepted both complete VL-1223/VL-1271 series and requested maintained GitHub/Drive instructions plus tests. Validate coverage and exact preserved bytes with `scripts/business_laptop_series.py`; keep actual generation, style/visual review and delivery as separate stages.
+
 Read [universal image production](universal-image-production.md) first. That shared layer owns the production mechanics and reusable assets; this document owns Business Laptop content architecture. The user's 2026-10-29 screenshot clarification selects the earlier rich office-scene direction for VL-1223/VL-1271 and corrects the later parameter-card substitution. Bind the actual selected reference and correction request in product evidence. It does not approve other products automatically.
 
 Apply to Business Laptop planning, generation and revision, across B/BG families. The user reviewed Amazon ASIN [B01N4C1TH4](https://www.amazon.com/dp/B01N4C1TH4) and requested fuller, more useful information design after comparing VL-1223 and VL-1271. The page observed on 2026-10-29 showed ThinkPad L16, despite the supplied URL slug mentioning E16. It is an organization reference, never hardware evidence for our products.

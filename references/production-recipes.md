@@ -22,17 +22,17 @@ Recipe fields: canvas [actual_width,actual_height], formFactor, boundaryMode, ex
 | --- | --- | --- |
 | MAIN-STRICT | Accurate complete computer centered on white, neutral contact shadow | No added marketing/Windows/OEM overlays |
 | Enhanced FRONT | Exact-model front original or fidelity-reviewed AI layer, strong family scene, legible subordinate cards, one Windows identity | Integrated LCD clipping; desktop approved graphic safe zone |
-| Enhanced ANGLE | Matching three-quarter original or official-reference-supported fidelity-reviewed AI chassis, independently fitted information layers | No perspective warp of Windows asset; no invented angle |
-| PT01 | Large accurate hero, one benefit headline and up to three short subordinate reasons | No full config grid or Windows treatment |
+| Enhanced ANGLE | Matching three-quarter original or official-reference-supported fidelity-reviewed AI chassis, independently fitted information layers | Preserve original Windows geometry in screen artwork; accepted Business Laptop LCD artwork may be projected coherently as one plane into the actual screen. No independent logo skew/stretch or invented angle; other series retain their applicable fit gates |
+| PT01 | Large accurate hero and compatible verified reasons; Business Laptop uses its grouped proof plan, other generic layouts use up to three subordinate reasons | No full config grid or Windows treatment |
 | PT02 | Natural computer-use scene, product readable, one task-specific verified message | Neutral furniture/anonymous person allowed, no extra equipment |
 | PT03 | Ordered complete base CPU/GPU/RAM/SSD/OS modules, readable values and accurate computer | Sole full configuration page; no selectable capacities |
 | PT04 | Product display/form view with concise display or dimension leaders | Avoid input/port recap; no invented size comparisons |
-| PT05 | Original abstract task flow with 2–3 relationships and restrained computer view | Explain practical relationships, not another capacity table |
-| PT06 | White background, accurately sourced input/control closeups and minimal labels | Keyboard/touchpad/controls only; no packout or invented/altered keys; AI input details must pass faithful-product-reproduction.md |
-| PT07 | One remaining verified value, accurate detail view and concise proof | No seller warranty promotion or spec recap |
+| PT05 | Business Laptop: explain installed working memory versus saved internal storage and verified fixed/slot limits; evidenced form relationship may substitute. Other generic layouts use original task relationships; selected Mini/Gaming packs use their scoped plan | Useful explanation with justified secondary reuse; never another full configuration table or optional capacity choices |
+| PT06 | White background, accurately sourced input/control closeups and readable labels; Business Laptop may group related verified camera/privacy details | No packout or invented/altered keys; AI input details must pass faithful-product-reproduction.md |
+| PT07 | Business Laptop: coherent remaining mobility/collaboration question with related proof; other generic layouts use a remaining verified value | No seller warranty promotion or repeated full specification poster |
 | PT08 | Accurate physical side/front/back port views, leaders to real openings, concise type/function labels | Verify side/count/location; wireless footer only if verified |
 
-When PT07 has no unused defensible fact, use an accurate restrained product/task atmosphere image with no new factual claim; explicitly record manual semantic review rather than inventing a fact or percentage. PT logos retain required visible bounds/spacing. Do not put contact sheets or masters among the 11 top-level final image slots.
+For generic packs, when PT07 has no unused defensible fact, use an accurate restrained product/task atmosphere image with no new factual claim; Business Laptop first combines useful evidence under its remaining buyer question, permitting justified secondary reuse. Record actual semantic review rather than inventing a fact or percentage. PT logos retain required visible bounds/spacing. Do not put contact sheets or masters among the 11 top-level final image slots. The [Business Laptop playbook](business-laptop-production-playbook.md) supplies complete-series planning/rebuild/delivery steps.
 
 ## Family continuation
 

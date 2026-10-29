@@ -22,7 +22,7 @@ B17 is an additive selectable direction, not a replacement default. The user exp
 - Enhanced MAIN exterior stays pure white. Marketing scene/text/Windows pixels and effects stay inside the accurate LCD.
 - BG17 functional PT pages use dark atmospheric depth, readable white type and restrained feature dividers. PT02 uses natural office light; PT06 retains the required white input-detail background. Dark styling never overrides a slot boundary.
 - Screen content is part of the explanation: display images demonstrate visual character, performance images show coherent original work windows, collaboration images show an original meeting use case. It is not wallpaper repeated through every slot.
-- One direct buyer-benefit headline, usually 3–7 English words; at most one short explanatory sentence. Use 2–3 major callouts except the complete PT03 configuration and physical PT08 map.
+- One direct buyer-benefit headline, usually 3–7 English words, with a short useful explanation. Group related verified proof under the current Business Laptop information plan; commonly 3–6 meaningful units where useful, with no fixed callout cap or requirement to fill space.
 - Vary layouts according to the topic: front/angle hero, over-shoulder use, detail crop, form views or side map. Reuse fonts, accent, line weight and hierarchy rather than an identical title/product/footer grid.
 - Remove internal production wording, style names, QA terms, decorative page numbers and vague filler. Do not write “verified platform”, “final delivered edition”, “original work canvas” or “no subscription implied” by default in customer art. Any necessary entitlement disclosure must describe the actual pictured claim plainly.
 - OEM marks use existing official-asset rules and measured spacing. Generated marks in the approved previews are not production sources. No neon circuitry, gaming effects, excessive cards or background that obscures chassis edges.
@@ -36,7 +36,7 @@ Build an adaptation record before prompting:
 | Product identity | Exact brand/model/color, installed configuration, source views, fact-record path/hash |
 | Hero strength | Choose the strongest verified buyer-relevant feature; do not default to OLED, touch, AI or 360° |
 | Display type | OLED only if verified; IPS/TN/other LCD use truthful color/detail/space copy, with exact available facts |
-| Form factor | Convertible may show sourced working positions in PT05; clamshell uses task relationships without invented hinges |
+| Form factor | Convertible may show evidenced working positions in PT05; clamshell normally explains installed memory/storage under the Business Laptop plan, without invented hinges |
 | Performance | Use the actual CPU/RAM/internal SSD; work-window visuals are illustrative, not benchmarks or software bundles |
 | Collaboration | Use only verified camera/mic/privacy/access details; omit unsupported IR, fingerprint or certifications |
 | Input and mobility | Accurate keyboard/touchpad/control sources; dimensions/weight belong in PT04 if useful and verified |
@@ -75,16 +75,16 @@ Fixed ownership is unchanged. Put each primary fact in its owner slot and includ
 
 | Slot | Visual treatment | Primary contribution |
 | --- | --- | --- |
-| PT01 | Dark graphite, large exact product, concise high-level work benefit; distinct from MAIN and other PT headlines | One verified purchase reason allocated here; no full config or Windows. If PT04 owns display and PT05 owns flexibility, do not repeat them in PT01 |
+| PT01 | Dark graphite, large exact product, concise high-level work benefit and compatible proof; distinct from MAIN and other PT headlines | No full config or Windows. Concise display/input proof may recur when it supports the purchase question; dedicated pages own deeper explanations |
 | PT02 | Natural anonymous user operating the readable computer, original coherent document/chart/presentation content | Relevant task/use scene. No peripheral/device props or proprietary subscription implication |
 | PT03 | Graphite performance layout; CPU/RAM/SSD receive strongest emphasis, GPU/OS and verified NPU secondary; original working windows | Sole complete base configuration. Avoid six equal-size giant cards or unsupported speed promises |
 | PT04 | Large display/front view, vivid original scene with clear tonal detail, compact feature row; optional sourced overall dimensions | Display/form facts. For verified OLED, match the approved display reference; do not claim OLED for LCD models |
-| PT05 | Compact group of accurately sourced working positions or original 2–3-step task relationships; labels close to corresponding view | Hardware/task relationships. Convertible modes only if verified and assigned here; clamshell does not gain 360° |
-| PT06 | White, dominant accurately sourced keyboard/touchpad/control closeups, minimal nearby labels | Input details; no full-computer view replacing the detail evidence |
-| PT07 | Graphite, one unused verified value explained with accurate local proof; meeting + privacy details only when available and allocated | Remaining unique buyer value; no repeated configuration, warranty promotion or invented security |
+| PT05 | Explain installed memory versus internal storage with useful examples and verified fixed/slot limits, or show an evidenced form relationship; labels close to corresponding proof | Purposeful secondary reuse adds explanation. Convertible modes only if verified; clamshell does not gain 360° or a mandatory generic three-step workflow |
+| PT06 | White, dominant accurately sourced keyboard/touchpad/control closeups, nearby readable labels and grouped applicable input/camera/privacy proof | Input details; no full-computer view replacing the detail evidence |
+| PT07 | Graphite, a coherent remaining mobility/collaboration question explained with related actual proof | Purposeful secondary facts may support the question; no repeated full configuration, warranty promotion or invented security |
 | PT08 | Readable dark-gray or contrast-adjusted true side views, direct leaders and concise labels, optional verified wireless footer | Real connector map; preserve actual openings and avoid detached numbered lookup if direct labels fit |
 
-Use an unused value or product/task atmosphere fallback according to catalog policy when a slot has no defensible fact. Do not force three claims into every image. A rich screen visual illustrates a use/visual character, not an objective comparative display or performance measurement.
+When a topic lacks defensible content, first combine related verified evidence under a useful remaining buyer question. Retain an honest atmosphere fallback if no supported theme can be formed. Do not force a claim count into every image. A rich screen visual illustrates a use/visual character, not an objective comparative display or performance measurement.
 
 ## Reproducible production
 
