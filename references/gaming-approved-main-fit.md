@@ -1,6 +1,6 @@
 # Gaming MAIN fit to the current accepted example
 
-For new Gaming proposals, apply [Natural Gaming design](gaming-natural-design.md): G17/A17/GG17 is the product-led default, with G18–G21 as natural alternatives. This 2026-10-22 user decision replaces generic mecha, neon and cinematic defaults below. Existing product-specific approvals remain scoped; six-category enhanced MAIN, clipping, truthful hardware and actual visual review remain required.
+For new Gaming proposals, use [original-media gaming editorial design](mini-gaming-real-source-workflow.md): default G22/A22/GG22, with G17–G21 natural alternatives. This changes artwork/information routing, not the integrated-screen geometry or product-scoped reference exceptions below. Preserve real hardware, current approval and all MAIN boundaries.
 
 Existing VL-1221 product-specific visual reference: [approved.png](../assets/gaming-main-reference/vl1221-amazon-approved-20261002/approved.png); normalized initial layout: [recipe.json](../assets/gaming-main-reference/vl1221-amazon-approved-20261002/recipe.json). The user confirms Amazon accepted this exact VL-1221 image and requests its use as a successful example. Approval is user-reported and image-specific, not general Amazon eligibility for future products.
 

@@ -1,12 +1,12 @@
 # Gaming enhanced MAIN — current reference-driven production
 
-For new Gaming proposals, apply [Natural Gaming design](gaming-natural-design.md): G17/A17/GG17 is the product-led default, with G18–G21 as natural alternatives. This 2026-10-22 user decision replaces generic mecha, neon and cinematic defaults below. Existing product-specific approvals remain scoped; six-category enhanced MAIN, clipping, truthful hardware and actual visual review remain required.
+For new Gaming proposals, use [original-media gaming editorial design](mini-gaming-real-source-workflow.md): G22/A22/GG22 is the default proposal, with genuine game artwork and original logos, a dominant accurate product and grouped nonrepetitive information. G17–G21 remain [natural alternatives](gaming-natural-design.md). This 2026-10-29 user decision changes proposal routing, not existing product approvals, MAIN boundaries, accessory treatment or factual/visual QA.
 
 Read [gaming-approved-main-fit.md](gaming-approved-main-fit.md) and the current approved reference/normalized recipe before building Gaming MAIN. The user has approved the supplied VL-1221 image as the current successful example. Its acceptance is user-confirmed for that image, not independently checked or transferred to a new SKU.
 
 ## 1. Current composition and reference
 
-Default SCREEN_ONLY: natural G17 product-led artwork behind six restrained readable graphical cards; a character is optional, accurate dominant front computer, white exterior and neutral shadow. DISPLAY/CPU flank the hero above; GPU/RAM/SSD/OS occupy the lower tier with cyan/orange/lime/cyan/purple/blue accents. All character/card/brand/effect pixels stay inside the real LCD. Use current measured masks and approximate normalized anchors; do not copy 1254px coordinates or require 8–10% top clearance. Adapt square-canvas margins to exact source geometry. Head-only/TOP breakout is an optional separately approved direction.
+Default integrated-screen SCREEN_ONLY: selected G22 original covered game artwork behind six restrained readable graphical cards (or the explicitly selected natural alternative); a character is optional, accurate dominant front computer, white exterior and neutral shadow. DISPLAY/CPU flank the hero above; GPU/RAM/SSD/OS occupy the lower tier with cyan/orange/lime/cyan/purple/blue accents. All character/card/brand/effect pixels stay inside the real LCD. Use current measured masks and approximate normalized anchors; do not copy 1254px coordinates or require 8–10% top clearance. Adapt square-canvas margins to exact source geometry. Head-only/TOP breakout is an optional separately approved direction.
 
 The exact supplied 1237×937 front is imported without altering bytes under approved-slot-exception.json. New generated files follow image-spec.md's Amazon-based size policy from sufficiently detailed sources. Keep existing style approval and verify current product facts; no reference values transfer to other products.
 

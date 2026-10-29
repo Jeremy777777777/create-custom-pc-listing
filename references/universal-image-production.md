@@ -1,5 +1,7 @@
 # Universal image production — user confirmation 2026-10-29
 
+Mini PC and Gaming content routing — 2026-10-29: [original-media information design](mini-gaming-real-source-workflow.md) owns M04/MG04 and G22/A22/GG22, including the named original-game portfolio and grouped technical explanations. It shares the production foundations here, not Business Laptop’s page narratives. Its pack-specific PT02/PT05/PT06 amendments do not change other series or catalog MAIN/accessory boundaries.
+
 Apply this shared production layer to every Listing design series. Then apply only the matching form-factor/design-series rules. The user approved the VL-1223/VL-1271 information-layout previews and requested that future production preserve the distinction between universal rules and Business Laptop rules. That approval covers these products' shown layouts; it is not automatic style approval for other products.
 
 ## Rule routing

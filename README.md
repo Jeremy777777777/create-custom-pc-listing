@@ -1,8 +1,10 @@
 # MegaPC Custom PC listing and image workflow
 
+User decision 2026-10-29: [Mini PC and Gaming original-media workflow](references/mini-gaming-real-source-workflow.md) fully defines real product/game sources, original game logos plus readable names, buyer-question planning, rich related proof without repeated specification posters, layered production, mobile QA and verified in-place delivery. Gaming-focused Mini PC proposals use M04/MG04; new Gaming PC proposals use G22/A22/GG22. Existing approvals remain scoped; other Mini PC choices and Business Laptop architecture stay independent.
+
 2026-10-28 own-brand addition: [MegaPC manufactured Mini PCs](references/megapc-own-brand-mini-pc.md) use a separate explicit product-copy route. ERP supplies exact sold configuration; original supplied material fills missing physical/interface facts. Excel uses ERP VD identifiers, and own-brand copy omits Custom, Created Using and upgrade/seal narratives. Existing customized third-party products retain their rules.
 
-2026-10-28 Mini PC series: [M01–M03 / MG01–MG03 design system](references/mini-pc-design-system.md) and [GMKtec/GEEKOM visual reference study](references/mini-pc-reference-study.md). Verified Mini PCs receive independent style routing alongside Business and Gaming, with bright studio, soft desktop and restrained technical options. This adds style choices; each actual product preview still requires user approval.
+2026-10-28 Mini PC series: [M01–M04 / MG01–MG04 design system](references/mini-pc-design-system.md) and [GMKtec/GEEKOM visual reference study](references/mini-pc-reference-study.md). Verified Mini PCs receive independent style routing alongside Business and Gaming, with bright studio, soft desktop and restrained technical options. This adds style choices; each actual product preview still requires user approval.
 
 Current execution: start from the target-linked serial/service tag and official BOM/parts, then fill gaps through exact-model official research, ERP and Amazon. [Research traces](references/research-trace-contract.md) require a best-supported candidate decision after exhausted technical research; candidates remain separate from confirmed facts. Same-brand representative keyboard/mouse references follow [catalog policy](references/confirmed-catalog-defaults.md), including Amazon similar-listing visual references when official pairing is unclear. Exact accessory SKU absence alone does not block production. [Drive release checks](references/drive-release-checks.md) cover folder chains, per-file privacy, concurrent-change detection and prior Drive-ledger continuity. Style approval remains the user's decision.
 
@@ -52,6 +54,7 @@ Workflow changes follow [GitHub → Drive synchronization](references/github-dri
 | Image generation and slot adjustment | [amazon-product-image-workflow.md](references/amazon-product-image-workflow.md) |
 | File/QA/GitHub contract | [final-image-delivery-contract.md](references/final-image-delivery-contract.md) |
 | Current image slot template | [image-manifest-template.md](product%20generated%20photo/image-manifest-template.md) |
+| Mini PC / Gaming original-media information design | [Complete source-to-replacement workflow](references/mini-gaming-real-source-workflow.md), [planning template](assets/mini-gaming-information-plan-template.json), [style routing policy](assets/mini-gaming-style-policy.json) |
 | Reference-driven Business Laptop B17/BG17 | [Graphite Business design system](references/business-graphite-design-system.md) |
 | Business defaults/approval decisions (existing rules retained) | [Policy decisions](references/business-graphite-policy-decisions.md) |
 | Workbook template | [listing-workbook-template.xlsx](assets/listing-workbook-template.xlsx) |

@@ -1,5 +1,7 @@
 # Catalog Brand Authorization Policy
 
+Game-media decision 2026-10-29: for the covered MegaPC advertising scope, retain the seller’s explicit existing assertion that original game artwork/logos are authorized and supporting documents will be supplied to Amazon if requested. Record `SELLER_CONFIRMED_AUTHORIZATION` and the actual source/scope; documents are seller-held, not independently inspected. The user extends this original-media method to Gaming PC. Apply [the source and composition workflow](mini-gaming-real-source-workflow.md) without asking the same authorization question again. This is separate from hardware/software marks and does not establish endorsements, software inclusion or public-repository redistribution permission.
+
 User amendment 2026-10-29: the user explicitly confirmed authorization for familiar hardware/software marks (including AMD, Intel, Windows and Office) and requested their downloaded original files be stored and reused. Apply [reusable-brand-assets.md](reusable-brand-assets.md); record `USER_CONFIRMED_BRAND_ASSETS_2026_10_29`. This supersedes the older separate-authorization gate below for these catalog hardware/software identities only. Correct component/tier/edition selection and any software inclusion/paid entitlement remain separate factual requirements; do not manufacture them from brand permission. Game/character/stock-media rights remain outside this amendment.
 
 ## Seller authorization assertion

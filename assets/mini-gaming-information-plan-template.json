@@ -1,0 +1,178 @@
+{
+  "schemaVersion": 1,
+  "state": "TEMPLATE_NOT_A_COMPLETED_PLAN",
+  "reference": "references/mini-gaming-real-source-workflow.md",
+  "productId": null,
+  "configurationId": null,
+  "ledgerSha256": null,
+  "workflowCommit": null,
+  "designSeries": null,
+  "family": null,
+  "profile": null,
+  "styleApproval": {
+    "status": "PENDING",
+    "source": null,
+    "recordedAtUtc": null
+  },
+  "accessoryTreatment": null,
+  "gameAuthorization": {
+    "basis": "SELLER_CONFIRMED_AUTHORIZATION",
+    "scope": null,
+    "source": null,
+    "documents": "SELLER_HELD_NOT_INDEPENDENTLY_INSPECTED"
+  },
+  "selectedSlots": [],
+  "retainedGallerySha256": {},
+  "sourceAssets": [],
+  "images": [
+    {
+      "file": "PT01.png",
+      "buyerQuestion": "Why choose this machine?",
+      "headline": null,
+      "primaryTheme": "Product hero and buying reasons",
+      "visualProof": "PRODUCT_HERO",
+      "fullConfigurationOverview": false,
+      "claims": [],
+      "brandAssetIds": [],
+      "gamePanels": [],
+      "recipePath": null,
+      "recipeSha256": null,
+      "sourceAssetIds": [],
+      "inspectionNotes": null
+    },
+    {
+      "file": "PT02.png",
+      "buyerQuestion": "Which gaming worlds does this setup speak to?",
+      "headline": null,
+      "primaryTheme": "Original named game portfolio",
+      "visualProof": "NAMED_GAME_PORTFOLIO",
+      "fullConfigurationOverview": false,
+      "claims": [],
+      "brandAssetIds": [],
+      "gamePanels": [],
+      "recipePath": null,
+      "recipeSha256": null,
+      "sourceAssetIds": [],
+      "inspectionNotes": null
+    },
+    {
+      "file": "PT03.png",
+      "buyerQuestion": "What configuration is supplied?",
+      "headline": null,
+      "primaryTheme": "Exact installed configuration",
+      "visualProof": "CONFIGURATION",
+      "fullConfigurationOverview": true,
+      "claims": [],
+      "brandAssetIds": [],
+      "gamePanels": [],
+      "recipePath": null,
+      "recipeSha256": null,
+      "sourceAssetIds": [],
+      "inspectionNotes": null
+    },
+    {
+      "file": "PT04.png",
+      "buyerQuestion": "How does the real form or display fit?",
+      "headline": null,
+      "primaryTheme": "Actual form or display detail",
+      "visualProof": "FORM_DISPLAY",
+      "fullConfigurationOverview": false,
+      "claims": [],
+      "brandAssetIds": [],
+      "gamePanels": [],
+      "recipePath": null,
+      "recipeSha256": null,
+      "sourceAssetIds": [],
+      "inspectionNotes": null
+    },
+    {
+      "file": "PT05.png",
+      "buyerQuestion": "How do hardware choices support useful tasks?",
+      "headline": null,
+      "primaryTheme": "Evidence-backed hardware or task relationships",
+      "visualProof": "HARDWARE_TASK_RELATIONSHIP",
+      "fullConfigurationOverview": false,
+      "claims": [],
+      "brandAssetIds": [],
+      "gamePanels": [],
+      "recipePath": null,
+      "recipeSha256": null,
+      "sourceAssetIds": [],
+      "inspectionNotes": null
+    },
+    {
+      "file": "PT06.png",
+      "buyerQuestion": "How do I control or interact with it?",
+      "headline": null,
+      "primaryTheme": "Verified controls and input",
+      "visualProof": "CONTROLS_INPUT",
+      "fullConfigurationOverview": false,
+      "claims": [],
+      "brandAssetIds": [],
+      "gamePanels": [],
+      "recipePath": null,
+      "recipeSha256": null,
+      "sourceAssetIds": [],
+      "inspectionNotes": null
+    },
+    {
+      "file": "PT07.png",
+      "buyerQuestion": "What useful access, expansion or cooling is implemented?",
+      "headline": null,
+      "primaryTheme": "Remaining applicable detail",
+      "visualProof": "ACCESS_EXPANSION_COOLING",
+      "fullConfigurationOverview": false,
+      "claims": [],
+      "brandAssetIds": [],
+      "gamePanels": [],
+      "recipePath": null,
+      "recipeSha256": null,
+      "sourceAssetIds": [],
+      "inspectionNotes": null
+    },
+    {
+      "file": "PT08.png",
+      "buyerQuestion": "Can I connect what I need?",
+      "headline": null,
+      "primaryTheme": "Actual physical port map",
+      "visualProof": "PORTS",
+      "fullConfigurationOverview": false,
+      "claims": [],
+      "brandAssetIds": [],
+      "gamePanels": [],
+      "recipePath": null,
+      "recipeSha256": null,
+      "sourceAssetIds": [],
+      "inspectionNotes": null
+    }
+  ],
+  "checks": {
+    "structure": "NOT_RUN",
+    "factualReview": "NOT_REVIEWED",
+    "visualReview": "NOT_REVIEWED",
+    "semanticReview": "NOT_REVIEWED",
+    "productDelivery": "NOT_STARTED",
+    "workflowBackup": "NOT_ASSESSED"
+  },
+  "fillInstructions": {
+    "claim": {
+      "text": "Actual English customer copy",
+      "factIds": [
+        "Canonical current applicable ledger fact ID"
+      ],
+      "role": "PRIMARY or SECONDARY",
+      "reuseReason": "Required for secondary reuse; describe new buyer purpose"
+    },
+    "gamePanel": {
+      "gameId": "Exact title/version ID",
+      "displayName": "Correct English game name",
+      "artAssetId": "Original game-art source ID",
+      "logoAssetId": "Original logo source ID or original embedded-logo asset ID",
+      "logoTreatment": "ORIGINAL_EMBEDDED or ORIGINAL_SEPARATE",
+      "purpose": "GENRE_CONTEXT or evidence-backed VERIFIED_PLAYABILITY/BENCHMARK",
+      "protectedAreas": [],
+      "performanceEvidence": null
+    },
+    "sourceAsset": "Use the required provenance, native-byte, rights-scope, Drive and derivative fields in the reference. Replace instructions with actual records; blanks do not pass."
+  }
+}
