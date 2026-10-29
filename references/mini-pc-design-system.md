@@ -1,5 +1,7 @@
 # Mini PC design system — 2026-10-28
 
+Current 2026-10-29 amendment: gaming-focused Mini PCs use M04/MG04 under [the complete original-media workflow](mini-gaming-real-source-workflow.md), including original game art/logos, readable game names and rich grouped proof with useful secondary reuse. Its slot table supersedes older generic PT02, PT05, PT06 and sparse callout limits below only for M04/MG04. M01–M03 remain alternatives. Existing product approvals and the two-product chassis-only exception stay scoped.
+
 For seller-confirmed MegaPC manufacture, first apply [own-brand Mini PC routing](megapc-own-brand-mini-pc.md). Physical style remains M/MG; sales copy is original MegaPC product copy, with ERP VD identity/configuration and no Custom/Created Using/upgrade narrative.
 
 The user requested a separate Mini PC listing series after studying the supplied GMKtec seller catalog and GEEKOM Amazon store. This adds the M/MG design family alongside Business B/BG and Gaming G/A/GG. It authorizes maintaining the style library, not approving a particular product preview. Read [observed competitor references](mini-pc-reference-study.md) for the actual sample and its limits.
@@ -13,16 +15,17 @@ The series communicates a compact, carefully made desktop with useful verified c
 | Series | Primary visual story | Composition emphasis |
 | --- | --- | --- |
 | Business B/BG | Professional task and work context | Existing Business family and its applicable screen/brand treatments |
-| Gaming G/A/GG | Evidence-supported play and performance | Existing natural Gaming families and required Gaming cards |
+| Gaming G/A/GG | Evidence-supported play and performance | Original-media G22 plus natural alternatives and required Gaming cards |
 | Mini PC M/MG | Compact form, material finish, everyday usability and actual I/O | Large accurate chassis, generous negative space, selective detail crops and compact editorial modules |
 
 ## M families and gallery continuation
 
-The palettes and names below are original proposed MegaPC design tokens, not measured competitor colors or user-approved product styles. M01 is the first proposal recommendation; approval is still product-specific. Choose one family per gallery rather than alternating themes across slots.
+The palettes and names below are original proposed MegaPC design tokens, not measured competitor colors or user-approved product styles. M01 is the general-purpose proposal recommendation; M04 is the gaming-focused recommendation. Approval is still product-specific. Choose one family per gallery rather than alternating themes across slots.
 
 | Family / continuation / profile | Direction and palette | Execution and fit |
 | --- | --- | --- |
-| M01 / MG01 / mini-pc-clean-studio-v1 | Compact Precision; white `#FFFFFF`, mist `#F2F5F7`, ink `#18222B`, restrained teal `#147D92` | Default proposal: bright studio, realistic contact shadow, large front/three-quarter chassis, subtle material closeups, thin leaders and simple flat modules. Suitable for a clear general Mini PC identity; retain the actual chassis color. |
+| M04 / MG04 / mini-pc-real-game-editorial-v1 | Original-media Gaming Editorial; graphite/burgundy, restrained red frames, white bold type | Gaming-focused proposal: real dominant chassis, downloaded covered original game art and logos, clear game captions and related technical proof groups. See the complete source, slot, QA and replacement workflow above. MAIN exterior stays white. |
+| M01 / MG01 / mini-pc-clean-studio-v1 | Compact Precision; white `#FFFFFF`, mist `#F2F5F7`, ink `#18222B`, restrained teal `#147D92` | General-purpose proposal: bright studio, realistic contact shadow, large front/three-quarter chassis, subtle material closeups, thin leaders and simple flat modules. Suitable for a clear general Mini PC identity; retain the actual chassis color. |
 | M02 / MG02 / mini-pc-soft-desktop-v1 | Everyday Desktop; warm white `#F7F4EF`, stone `#E5E1DA`, ink `#24282C`, muted blue `#547B91` | Natural desk/furniture and soft daylight, quieter copy, believable keyboard/mouse scale. Suitable for verified home/office positioning; no monitor or extra accessory props. |
 | M03 / MG03 / mini-pc-technical-studio-v1 | Precision Dark; graphite `#171C22`, slate `#2C3540`, white `#F6F8FA`, soft ice blue `#71B7C8` | Restrained dark PT backgrounds, readable chassis edges and one technical detail per page. Suitable when connections or verified hardware details justify emphasis. No gold spectacle, neon fog, gaming characters or invented luminous hardware. MAIN exterior stays white. |
 

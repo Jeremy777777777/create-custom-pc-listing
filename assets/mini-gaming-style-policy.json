@@ -1,0 +1,26 @@
+{
+  "schemaVersion": 1,
+  "decisionDate": "2026-10-29",
+  "reference": "references/mini-gaming-real-source-workflow.md",
+  "defaultsForNewProposals": {
+    "gamingFocusedMiniPc": {"series": "MINI_PC", "family": "M04", "gallery": "MG04", "profile": "mini-pc-real-game-editorial-v1"},
+    "gamingPc": {"family": "G22", "skin": "A22", "gallery": "GG22", "profile": "gaming-real-game-editorial-v1"},
+    "generalPurposeMiniPc": {"family": "M01", "gallery": "MG01"}
+  },
+  "method": "ORIGINAL_MEDIA_DETERMINISTIC_COMPOSITE",
+  "finalGameAssets": "ORIGINAL_ART_AND_ORIGINAL_LOGO_WITH_READABLE_GAME_NAME",
+  "gameAuthorizationBasis": "SELLER_CONFIRMED_AUTHORIZATION",
+  "authorizationDocuments": "SELLER_HELD_NOT_INDEPENDENTLY_INSPECTED",
+  "authorizationScope": "Covered original game media for authorized MegaPC advertising; not public redistribution or endorsement",
+  "fullConfigurationOwner": "PT03.png",
+  "primaryFactOwners": "ONE_PAGE_PER_CANONICAL_FACT_MEANING_AND_SCOPE",
+  "secondaryFactReuse": "ALLOWED_WITH_DISTINCT_BUYER_PURPOSE_AND_REUSE_REASON",
+  "gameDepictionPurposes": ["GENRE_CONTEXT", "VERIFIED_PLAYABILITY", "BENCHMARK"],
+  "performanceClaims": "CURRENT_CONFIGURATION_EVIDENCE_REQUIRED",
+  "previewApproval": "PRODUCT_SPECIFIC_USER_JUDGMENT",
+  "retroactiveGalleryMigration": false,
+  "physicalDimensionUnit": "Inches",
+  "visualReviewWidths": ["NATIVE", 400, 200],
+  "businessLaptopArchitectureChanged": false,
+  "publicationAuthorized": false
+}

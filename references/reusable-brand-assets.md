@@ -1,5 +1,7 @@
 # Universal original brand-asset library — user decision 2026-10-29
 
+For Mini PC M04 and Gaming G22 game art/logos, use [the separate original-media source workflow](mini-gaming-real-source-workflow.md). Reuse covered actual originals and exact game identities with source/hash/rights scope; do not infer game rights from this hardware/software registry or commit game binaries under an ad-only assertion.
+
 This library is part of [universal image production](universal-image-production.md), shared across design series. Business Laptop page narratives and density targets remain in their separate series document.
 
 The user explicitly confirmed that brand authorization is resolved and requested downloaded reusable logos instead of generating familiar marks repeatedly. Apply across Listing design series, including hardware brands, processor/GPU families, Windows, Office/Microsoft 365 and other applicable software identities. Record `USER_CONFIRMED_BRAND_ASSETS_2026_10_29`; do not reopen routine authorization questions covered by this assertion. Game/character/stock-media rights remain separate.

@@ -1,5 +1,7 @@
 # Product image specification
 
+For selected M04/MG04 and G22/A22/GG22, apply [original-media information design](mini-gaming-real-source-workflow.md) and complete its claim/source plan before rendering. Original game pictures AND original logos with readable game names replace AI game lookalikes. Its scoped PT02 game portfolio, flexible evidence-rich PT05 and actual-control PT06 override the older generic layouts below only for this pack. Preserve one complete PT03, MAIN boundaries, inch units, actual-product/accessory rules, current-hash QA and scoped Drive replacement. This method uses sourced native media and deterministic assembly; do not route it through a whole-image AI redraw.
+
 Apply [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) as the single policy authority. All images accurately depict the verified base computer. Use current product-fact records, commercial-use source evidence and the approved style lock; historical gallery files are excluded from ordinary runs; consult only for an explicitly requested historical comparison, never for current QA or approval.
 
 ## Deliverables and ownership
@@ -44,7 +46,7 @@ Enhanced exterior is pure white and neutral contact shadow. Business marketing g
 
 Additional OEM logos are required in each PT, outside the computer silhouette; approved transparent asset, original visible geometry/colors, catalog spacing/thumbnail measurements, schema 3 current asset/master/final hashes. Never remove authentic factory chassis marks. Generated logo-free masters preserve existing genuine product marks. No old badge, placeholder or second logo remains beneath the deterministic overlay. Generic neutral-background removal may only flood-fill verified background connected to the edges and must preserve the artwork; prefer genuine transparent originals.
 
-People require seller-owned/licensed/original synthetic sources. No real identity/endorsement, protected game character or copied software UI. Synthetic photoreal people follow applicable `contains-synthetic-performer` metadata rules and manual face/hand/contact QA. Only neutral scene context is allowed, without extra device/accessory depictions.
+People require seller-owned/licensed/original synthetic sources. No real identity/endorsement or copied software UI. Covered original game characters/art/logos in M04/G22 follow the separately recorded seller-confirmed scope and original-media workflow, not a generated lookalike. Synthetic photoreal people follow applicable `contains-synthetic-performer` metadata rules and manual face/hand/contact QA. Only neutral scene context is allowed, without extra device/accessory depictions.
 
 ## Review and status
 
