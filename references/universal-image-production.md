@@ -14,6 +14,8 @@ Apply this shared production layer to every Listing design series. Then apply on
 
 Current explicit user instructions govern scope. The existing image specification, evidence chain, accessory rules, strict/enhanced MAIN boundaries and production/delivery checks remain authoritative. This page routes them; it does not create a competing acceptance system.
 
+Resolve old/new approval conflicts using [latest applicable approval precedence](style-approval-gate.md#latest-applicable-approval-takes-precedence--user-decision-2026-10-29) before freezing composition or preserved slots. A newer explicit USER-selected/approved version governs the overlapping scope; superseded examples/locks remain historical rather than competing constraints.
+
 ## Shared production method
 
 1. Observe current product facts, applicable ledger, exact source assets, style approval and current Drive versions. Plan the actual buyer-facing claims before rendering; record their fact IDs, scope and qualifiers. Omit unresolved claims rather than inventing content to fill space.

@@ -103,6 +103,8 @@ For Gaming laptops/AIOs with an integrated display, the six enhanced-MAIN catego
 
 ## Approval migration
 
+User decision 2026-10-29: when old image approval conflicts with the newer USER-selected/approved version for the same scope, the newer decision governs under [the style approval gate](style-approval-gate.md). An older approval, migrated lock or frozen-reference example cannot veto that supersession. Preserve its evidence as history; retain nonconflicting choices and bind the next revision to the controlling version.
+
 Read the current product's style-lock.json when present. A migrated style direction preserves its recorded approval, not historical image QA, asset rights or an unbuilt recipe. APPROVED with recipeStatus REBUILD_REQUIRED permits rebuilding that same direction without asking for style approval again. Measured geometry and current-byte review still require actual work; material direction changes follow the approval gate.
 
 ## Current Gaming reference — 2026-10-02

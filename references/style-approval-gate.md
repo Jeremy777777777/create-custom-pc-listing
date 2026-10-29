@@ -1,5 +1,11 @@
 # Style approval and fidelity
 
+## Latest applicable approval takes precedence — user decision 2026-10-29
+
+The user states: “旧版图的认可如果和新版冲突的话，以新版为准”. For the same product/reference and overlapping image scope, the latest explicit USER instruction or USER-selected/approved version supersedes conflicting earlier image approval, style locks, reference examples and preservation instructions. Apply a clear newer decision directly; do not ask the user to approve it again merely because an older image was once approved. Nonconflicting earlier choices remain applicable.
+
+Determine precedence from the user's instruction/approval sequence and explicitly identified versions, not file modification time or an automatically generated candidate. Record the controlling message/version, affected slots and superseded references, with actual IDs/hashes when available. Keep older approvals and coherent files as history; they cannot force a return to the old layout or block the newer requested result. PRESERVE refers to the latest applicable approved bytes for that scope, not the oldest approved file. Reflect a genuine supersession in the next product lock, recipe and frozen revision scope before edits. This priority rule does not fabricate factual/visual QA or approve an unselected candidate.
+
 Mini PC proposals first follow [M01–M04 / MG01–MG04](mini-pc-design-system.md), separately recording audience, actual accessory treatment and approved desktop safe zones. Present actual-product MAIN and representative PT continuation; the 2026-10-28 request to study references and add a series does not approve a product preview. M04 is the gaming-focused recommendation and M01 the general-purpose alternative; neither is product approval; explicit Gaming crossover requirements remain applicable. Other form factors retain the proposal routing below.
 
 For new Gaming proposals, use [original-media gaming editorial design](mini-gaming-real-source-workflow.md): G22/A22/GG22 is the default proposal, with genuine game artwork and original logos, a dominant accurate product and grouped nonrepetitive information. G17–G21 remain [natural alternatives](gaming-natural-design.md). This 2026-10-29 user decision changes proposal routing, not existing product approvals, MAIN boundaries, accessory treatment or factual/visual QA.
