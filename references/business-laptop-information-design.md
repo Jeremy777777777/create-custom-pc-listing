@@ -33,6 +33,8 @@ Inspect the actual image at full resolution, approximately 400px mobile width an
 
 The eleven-file delivery contract remains: three MAIN alternatives and PT01–PT08. Preserve untouched MAIN bytes during a supporting-image revision.
 
+Full-series clarification — user decision 2026-10-29: the user liked the six completed VL-1223/VL-1271 PT03/PT04/PT06 images and explicitly requested that the remaining series follow the reference listing's complete information design. Preserve those six exact image bytes. Complete the remaining three MAIN alternatives plus PT01/PT02/PT05/PT07/PT08 for each product, using the accepted palette, authentic media and rich buyer-question narrative. A previously scoped pilot is not completion of an explicitly requested whole series. Apply density across the sequence through meaningful facts, details and use explanations; vary composition instead of turning every page into the same parameter grid. MAIN-STRICT remains product-only white, and enhanced MAIN marketing remains inside the real LCD under existing boundaries. Reference specifications, optional capacities and comparison claims never transfer to our products.
+
 | Slot | Buyer question and useful content |
 | --- | --- |
 | PT01 | Why consider this computer? One strong purchase theme with a few compatible verified proof points. No full configuration table or Windows overlay. |
