@@ -1,5 +1,7 @@
 # Business Graphite policy decisions — resolved 2026-10-05
 
+2026-10-29 amendment: the user-approved [Business Laptop information design](business-laptop-information-design.md) and [complete-series playbook](business-laptop-production-playbook.md) replace the older strict secondary-fact prohibition below. Concise screen/input proof may support PT01 and related pages when the dedicated page owns the deeper explanation. The two declined default/approval overrides remain declined: B17 is optional and new products still require their own style preview approval.
+
 This records the user's explicit answers for the 2026-10-05 workflow update. The outcomes are also recorded in the single authority, [catalog policy](confirmed-catalog-defaults.md). The visual direction is approved; both proposed policy overrides were declined.
 
 | ID | Current rule | Proposed change | Status |
@@ -14,7 +16,7 @@ B17/BG17 is now an optional supported laptop style, with the existing per-produc
 - Reference previews are 1254px generated concepts; final output follows image-spec.md's Amazon-based size policy, with exact product pixels and deterministic official assets. Approval of appearance does not authorize generated chassis/brand replacements.
 - MAIN-STRICT stays product-only white; both enhanced MAIN choices stay white outside LCD and retain distinct Windows modes.
 - PT06 remains white and focused on input details; dark atmosphere applies only where the slot permits it.
-- PT03 still owns the complete base configuration among PT images. PT01 high-level copy must not duplicate display/convertible claims owned by PT04/PT05. Plan unique primary facts rather than relaxing deduplication.
+- PT03 still owns the complete base configuration among PT images. Under the 2026-10-29 amendment, PT01 may use concise screen/input/form proof with a distinct purchase purpose; PT04/PT05 own deeper explanations. Record PRIMARY/SECONDARY roles and actual reuse rationale rather than rejecting all recurrence.
 - Existing B16/BG16 and other product locks remain unchanged; this task modifies workflow guidance/reference assets, not canonical product images or product QA.
 - Listing/Excel, warranty, publication, brand rights and non-Business audiences keep their current rules.
 

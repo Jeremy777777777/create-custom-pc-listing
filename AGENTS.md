@@ -1,5 +1,7 @@
 # Listing development and testing
 
+User acceptance 2026-10-29: repeated Business Laptop production follows [the complete-series playbook](references/business-laptop-production-playbook.md) and `scripts/business_laptop_series.py`. Its eleven-slot profile carries the accepted information architecture; exact product facts, style approval and preserved-byte hashes remain product-specific. Run its coverage/input checks alongside existing production/gallery/Drive gates. A pilot is not a completed full-series request.
+
 User decision 2026-10-29: [Mini PC and Gaming original-media workflow](references/mini-gaming-real-source-workflow.md) fully defines real product/game sources, original game logos plus readable names, buyer-question planning, rich related proof without repeated specification posters, layered production, mobile QA and verified in-place delivery. Gaming-focused Mini PC proposals use M04/MG04; new Gaming PC proposals use G22/A22/GG22. Existing approvals remain scoped; other Mini PC choices and Business Laptop architecture stay independent.
 
 Apply [universal image production](references/universal-image-production.md) to every series, then only the matching series rules. Business Laptop information architecture is a separate layer; its page narratives/density target must not become catalog-wide defaults. Final production separates verified native hardware, scene/screen artwork, deterministic text and original brand assets, with portable source recipes and scoped current-file replacement after explicit approval.

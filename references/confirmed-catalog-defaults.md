@@ -64,12 +64,12 @@ Gaming front on integrated-display computers defaults to the current SCREEN_ONLY
 | PT02 | Verified use scene |
 | PT03 | Sole full base CPU/GPU/RAM/SSD/OS configuration page |
 | PT04 | Display and overall form, dimensions/weight if verified |
-| PT05 | Task flow and hardware relationships, not repeated model/capacity tables |
-| PT06 | White-background computer input details: keyboard, touchpad and controls |
-| PT07 | One remaining verified value; no seller warranty/service advertising or configuration recap |
+| PT05 | Business Laptop: installed memory/storage explanation or evidenced form relationship with purposeful secondary reuse; other series use their applicable task/technical plan. No repeated complete model/configuration table |
+| PT06 | White-background computer input details: keyboard, touchpad and controls; Business Laptop may group applicable verified camera/privacy details |
+| PT07 | Business Laptop: remaining mobility/collaboration question with related verified proof; other generic packs use a remaining verified value. No seller warranty/service advertising or complete configuration recap |
 | PT08 | Accurate physical port map plus verified wireless/connectivity |
 
-Style libraries provide motifs, not alternative slot assignments. Wallpapers/UI may vary by slot while palette, visual language and approved family remain consistent. A fact has one primary PT owner. Before production list canonical fact IDs per slot. For each PT pair define `overlap = shared primary fact IDs / min(primary fact count A, primary fact count B)`; pairs with zero facts require manual review, not a fabricated percentage. Exclude only OEM identity/model/navigation labels, not vague task claims automatically. Equivalent claims count as the same ID. Overlap above 20% requires reallocation. OCR supports but does not replace human semantic review. If reliable fact mapping is unavailable, record `MANUAL_REVIEW` with rationale and no numeric percentage. Never generate a PASS without actually reviewing current files.
+Style libraries provide motifs, not alternative slot assignments. Wallpapers/UI may vary by slot while palette, visual language and approved family remain consistent. A fact has one primary PT owner. Before production list canonical fact IDs per slot. Business Laptop uses its [claim-role plan](business-laptop-information-design.md): review each page's distinct purpose and explicitly justified secondary reuse, without a numerical rejection solely for that reuse. Selected Mini/Gaming original-media packs use their own scoped amendments. For remaining generic packs, define `overlap = shared primary fact IDs / min(primary fact count A, primary fact count B)`; pairs with zero facts require manual review, not a fabricated percentage. Exclude only OEM identity/model/navigation labels, not vague task claims automatically. Equivalent claims count as the same ID; generic-pack overlap above 20% requires reallocation. OCR supports but does not replace human semantic review. If reliable fact mapping is unavailable, record `MANUAL_REVIEW` with rationale and no numeric percentage. Never generate a PASS without actually reviewing current files.
 
 ## Logo and style controls
 

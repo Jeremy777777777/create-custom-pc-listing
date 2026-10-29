@@ -29,4 +29,6 @@ Current explicit user instructions govern scope. The existing image specificatio
 
 Before a Business Laptop run, read this shared method and [business-laptop-information-design.md](business-laptop-information-design.md). Use the product-specific eight-slot information plan; the CPU/RAM/SSD/OS overview has one primary home, while later pages may reuse a fact to add a distinct explanation. The 3–6 proof-unit planning target and the B/BG page narratives belong to Business Laptop, not the universal layer.
 
+Repeat the accepted full series with [the Business Laptop playbook](business-laptop-production-playbook.md) and its coverage planner. That profile is series-specific; the universal method retains facts, source layers, genuine assets, actual QA and verified delivery for every series.
+
 For an approved preview replacement, record the actual user message, preview IDs/hashes and corresponding final slot IDs. Routine factual/legibility/asset corrections remain within the approved direction; a material new direction follows the existing style gate. Preserve the original preview as approval evidence and keep the current formal image entry unambiguous.
