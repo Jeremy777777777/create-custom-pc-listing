@@ -4,6 +4,8 @@ Use after [universal production](universal-image-production.md) and [Business La
 
 ## Accepted visual anchors
 
+Apply [latest applicable approval precedence](style-approval-gate.md) when references conflict. The accepted complete VL-1223/VL-1271 series is the controlling reference over conflicting older previews or partial-gallery approval. For future revisions, a newer explicit USER selection/approval supersedes this reference within its stated scope. Old PRESERVE examples never override that newer decision.
+
 Inspect the applicable actual reference before prompting: [VL-1223 complete series](https://drive.google.com/file/d/1YJ0vBh_P9V-o-3-adPiC0TpRoZtKNNbY/view) and [VL-1271 complete series](https://drive.google.com/file/d/1_ZZyHzpfeqy-gVsdFKhwcf6eb5VHMj72/view). Full editable sources remain in their existing product `90_SOURCE/production/business-complete-series-20261029` folders: [LG](https://drive.google.com/drive/folders/1ZIOEv7wEG6rzAkLOweYOoLFqrkVQeQPb), [Lenovo](https://drive.google.com/drive/folders/1cUQSS3SUj-5JHvhnznBxgzOD9d9Szz0T). Treat these as composition/production examples, not transferable claims, coordinates or approval for another product. Retrieve exact product-specific source IDs from their recipes and restore aliases only when needed. Do not commit product pictures or recipes to GitHub.
 
 ## Repeatable production
