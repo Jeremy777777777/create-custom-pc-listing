@@ -1,0 +1,29 @@
+# Universal image production — user confirmation 2026-10-29
+
+Apply this shared production layer to every Listing design series. Then apply only the matching form-factor/design-series rules. The user approved the VL-1223/VL-1271 information-layout previews and requested that future production preserve the distinction between universal rules and Business Laptop rules. That approval covers these products' shown layouts; it is not automatic style approval for other products.
+
+## Rule routing
+
+| Layer | Applies to | Owns |
+| --- | --- | --- |
+| Universal production | Every product and design series | Exact sellable facts, authentic hardware, original reusable brand assets, deterministic final text/logo composition, source provenance, actual QA, scoped revision and verified Drive delivery. |
+| Business Laptop | Evidence-supported Business laptops using B/BG families | [Business Laptop information design](business-laptop-information-design.md): eight-slot buyer questions, grouped related proof, meaningful secondary reuse, screen/input/ports detail, readable information density and the selected B/BG palette. |
+| Other series | Matching Gaming, Mini PC, desktop/AIO or other actual route | Their existing approved recipes and series rules. Business Laptop slot narratives and density targets do not automatically transfer. |
+
+Current explicit user instructions govern scope. The existing image specification, evidence chain, accessory rules, strict/enhanced MAIN boundaries and production/delivery checks remain authoritative. This page routes them; it does not create a competing acceptance system.
+
+## Shared production method
+
+1. Observe current product facts, applicable ledger, exact source assets, style approval and current Drive versions. Plan the actual buyer-facing claims before rendering; record their fact IDs, scope and qualifiers. Omit unresolved claims rather than inventing content to fill space.
+2. Reuse applicable originals from the [universal brand library](reusable-brand-assets.md). Download and register a missing genuine asset once, then reuse it. Keep component family/tier and software edition/applicability distinct. The user's brand-authorization assertion is already recorded.
+3. Separate artwork layers: exact hardware/native detail crops; original scene or screen art where needed; final English text; original OEM/chip/OS/software marks. Use image generation for original scenes or faithful candidate imagery, then freeze verified layers. Reject invented keys, chassis, connectors or generated final brand lettering. Source hardware pixels are preferred when candidate fidelity cannot be established.
+4. Compose final labels and original logos deterministically. Preserve proportions and document alpha-bound crops/conversions. Retain clear space, measured placement/protected zones and actual native detail resolution. Check the applicable existing logo geometry and image-size gates; approval of the general layout does not waive factual or technical corrections.
+5. Save self-contained editable layers or all required original dependencies, the production recipe, asset/source hashes and per-slot claims. Product recipes use explicit input/output/workflow paths or portable relative paths; do not depend on an expired temporary checkout or signed download link. A flat screenshot alone is not a complete editable production source.
+6. Inspect actual final bytes at full resolution, approximately 400px width and 200px thumbnail. Verify exact copy, qualifiers, hardware detail, familiar mark integrity, principal-number readability and the contribution of each revised page. Automated checks supplement this inspection; they do not supply visual or USER approval.
+7. After explicit product-style approval, promote only the authorized slots. Archive the observed previous coherent files/reviews, retain stable current Drive IDs, update hash-bound scoped QA and the current manifest/status, then read back bytes and role parent chains. Keep unchanged slots untouched and do not report a full-gallery PASS for a subset replacement. Follow [production guardrails](production-guardrails.md) and [Drive release checks](drive-release-checks.md).
+
+## Business Laptop handoff
+
+Before a Business Laptop run, read this shared method and [business-laptop-information-design.md](business-laptop-information-design.md). Use the product-specific eight-slot information plan; the CPU/RAM/SSD/OS overview has one primary home, while later pages may reuse a fact to add a distinct explanation. The 3–6 proof-unit planning target and the B/BG page narratives belong to Business Laptop, not the universal layer.
+
+For an approved preview replacement, record the actual user message, preview IDs/hashes and corresponding final slot IDs. Routine factual/legibility/asset corrections remain within the approved direction; a material new direction follows the existing style gate. Preserve the original preview as approval evidence and keep the current formal image entry unambiguous.

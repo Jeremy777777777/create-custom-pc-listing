@@ -1,5 +1,7 @@
 # Business Laptop information design — user decision 2026-10-29
 
+Read [universal image production](universal-image-production.md) first. That shared layer owns the production mechanics and reusable assets; this document owns Business Laptop content architecture. The user's subsequent approval of the six VL-1223/VL-1271 previews authorizes their scoped current-slot replacement, with the actual approval and image hashes recorded in product evidence. It does not approve other products automatically.
+
 Apply to Business Laptop planning, generation and revision, across B/BG families. The user reviewed Amazon ASIN [B01N4C1TH4](https://www.amazon.com/dp/B01N4C1TH4) and requested fuller, more useful information design after comparing VL-1223 and VL-1271. The page observed on 2026-10-29 showed ThinkPad L16, despite the supplied URL slug mentioning E16. It is an organization reference, never hardware evidence for our products.
 
 This decision supersedes older Business Laptop instructions that prescribe only 2–3 callouts, rigid single-fact pages, a mandatory generic three-step PT05, or numerical rejection solely because a useful secondary fact recurs. Preserve factual verification, one complete configuration page, base sold capacities, actual product fidelity, Windows placement, style approval and Drive delivery. Other design series retain their existing rules.
