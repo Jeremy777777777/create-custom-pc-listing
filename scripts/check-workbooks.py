@@ -69,6 +69,7 @@ def template_topology(path):
 def check_output(path, topology, manufacturer=None, listing_mode=None):
     book = openpyxl.load_workbook(path, data_only=False)
     try:
+        source_only_projection_checked = False
         if book.sheetnames != list(topology):
             raise ValueError(f'{path}: sheets/order changed')
         for sheet in book:
@@ -92,7 +93,17 @@ def check_output(path, topology, manufacturer=None, listing_mode=None):
                     if any(sheet.cell(r,c).data_type == 'f' for r in (3,4,5,6,7)):
                         raise ValueError('Formula cannot be used in workbook research rows')
                     if (candidate.value is None) != (candidate_source.value is None):
-                        raise ValueError('Candidate requires paired source')
+                        # A recorded no-candidate disposition or unit-qualified
+                        # hardware recommendation may legitimately occupy row 7
+                        # alone. Authenticate its exact projection from the scoped
+                        # ledger; a free-form note/prefix is never an exemption.
+                        ledger_path = path.parent/'research-ledger.json'
+                        if candidate.value is not None or not ledger_path.is_file():
+                            raise ValueError('Candidate requires paired source or a scoped projected disposition')
+                        if not source_only_projection_checked:
+                            from research_export import load_ledger, verify_workbook
+                            verify_workbook(book, load_ledger(ledger_path))
+                            source_only_projection_checked = True
                     if candidate.value is not None:
                         if (sheet.cell(3,c).value is not None or sheet.cell(4,c).value in ('VERIFIED','NOT_APPLICABLE')
                                 or not isinstance(candidate_source.value,str) or not candidate_source.value.strip()):
