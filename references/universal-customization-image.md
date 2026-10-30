@@ -25,7 +25,7 @@ Customer-facing copy is English. Default headline: **Choose Your Memory and Stor
 
 ## Composition
 
-Use two clearly distinguished RAM / SSD groups with large capacity labels and a short caption per tier. The accurate product remains a visual anchor. Fixed RAM uses a compact locked-memory summary plus four SSD choices. Layout, palette and imagery adapt to the approved Business/Gaming/Mini PC series; a common content contract does not impose one visual style on every product. Keep the page focused on selection, not another CPU/GPU/OS specification poster.
+Use two clearly distinguished RAM / SSD groups with large capacity labels and a short caption per tier. Product presence follows the selected series and the explanatory purpose; it is optional. Business Laptop PT05 is product-free: use distinct capacity/use illustrations and a compact fixed-memory note. Fixed RAM uses a compact locked-memory summary plus four SSD choices. Layout, palette and imagery adapt to the approved Business/Gaming/Mini PC series; a common content contract does not impose one visual style on every product. Keep the page focused on selection, not another CPU/GPU/OS specification poster.
 
 Do not invent DIMM slots, user-accessible memory, component internals, fitted drive brands or motherboard geometry. Original component pictures need actual applicability; a generic explanatory illustration must be identified as such. Do not make another full specification table, repeat every PT03 fact or repeat the option matrix across the whole gallery. The selected installed RAM/SSD may recur as qualified base context with a recorded secondary purpose.
 

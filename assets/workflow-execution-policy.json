@@ -2,14 +2,135 @@
   "schemaVersion": 1,
   "authority": "USER_CONFIRMED_WORKFLOW_OPTIMIZATION_2026_10_30",
   "workflow": "references/current-workflow.md",
-  "sync": {"defaultMode": "MANUAL_CONNECTED", "automaticRequiredForProduction": false, "githubIsSourceOfTruth": true},
-  "delivery": {"executionModes": ["CONNECTOR", "LOCAL", "BROWSER", "MIXED"], "partialAllowed": true, "unrequestedImagesRequiredLocally": false},
+  "sync": {
+    "defaultMode": "MANUAL_CONNECTED",
+    "automaticRequiredForProduction": false,
+    "githubIsSourceOfTruth": true
+  },
+  "delivery": {
+    "executionModes": [
+      "CONNECTOR",
+      "LOCAL",
+      "BROWSER",
+      "MIXED"
+    ],
+    "partialAllowed": true,
+    "unrequestedImagesRequiredLocally": false
+  },
   "imageReview": {
-    "shared": {"version": 1, "facts": "Exact product and sold applicability", "marks": "Original applicable brands; accurate hardware", "copy": "English buyer copy without internal markers"},
-    "main": {"version": 1, "boundary": "Applicable actual LCD/desktop safe zone; strict MAIN product-only"},
-    "supporting": {"version": 1, "boundary": "Series-specific informative composition; original OEM semantic integration"},
-    "BUSINESS_LAPTOP": {"version": 1, "rule": "Current-gallery photographic hierarchy; researched RAM branch and explicit SSD choices"},
-    "GAMING": {"version": 1, "rule": "Approved explanatory composition with subordinate original OEM mark"},
-    "MINI_PC": {"version": 1, "rule": "Applicable M/MG series; own-brand and representative accessories remain separately scoped"}
+    "shared": {
+      "version": 1,
+      "facts": "Exact product and sold applicability",
+      "marks": "Original applicable brands; accurate hardware",
+      "copy": "English buyer copy without internal markers",
+      "sourceBindings": [
+        {
+          "path": "references/customer-facing-image-content.md",
+          "sha256": "554f9f5ed65cef661bbf1a5c8ead8037152a07eafad02ba30b838ed3ed18e5fc"
+        },
+        {
+          "path": "references/faithful-product-reproduction.md",
+          "sha256": "8250428c65218300271447a8cf5352f8c2da465abf92e282c96a89e5aab04541"
+        }
+      ]
+    },
+    "main": {
+      "version": 1,
+      "boundary": "Applicable actual LCD/desktop safe zone; strict MAIN product-only",
+      "sourceBindings": [
+        {
+          "path": "references/image-spec.md",
+          "section": "### Enhanced MAIN boundaries",
+          "sha256": "d7dd73a0b94f5f66b956dee3e478f8544a12fe083367a2ffc583f6cae515d475"
+        }
+      ]
+    },
+    "supporting": {
+      "version": 1,
+      "boundary": "Series-specific informative composition; original OEM semantic integration",
+      "sourceBindings": [
+        {
+          "path": "references/universal-customization-image.md",
+          "sha256": "c3c134ec4fd184fa18dee4f854ff25c354e4bb2a1bc22fcdd3566035b2ccbb1e"
+        },
+        {
+          "path": "references/customization-options-policy.md",
+          "sha256": "0131a3a487e5a24ded9c105ffd964de8ad6f130c7ad68bb8bd1ac6bb559c3f91"
+        },
+        {
+          "path": "references/image-spec.md",
+          "section": "### Supporting OEM placement",
+          "sha256": "77889b272c0e701062c55a6970324dd848ef77a115165d13d2713366cf339196"
+        }
+      ]
+    },
+    "BUSINESS_LAPTOP": {
+      "version": 1,
+      "rule": "Current-gallery photographic hierarchy; researched RAM branch and explicit SSD choices",
+      "sourceBindings": {
+        "main": [
+          {
+            "path": "references/business-daylight-enhanced-main.md",
+            "sha256": "1250a42b7997f73b409abdd5314ced7927d0e992645e556dd3dbc8648cb93a45"
+          }
+        ],
+        "supporting": [
+          {
+            "path": "references/business-laptop-reference-adaptation.md",
+            "sha256": "c35a2672176a822832cad14ca661536c39eb09affc9b7fa89f475ac89e700482"
+          },
+          {
+            "path": "references/business-laptop-information-design.md",
+            "sha256": "c1a0c871a3852251fcb1794ce704e4b616a68105899052823b6417496ed24ee6"
+          }
+        ]
+      }
+    },
+    "GAMING": {
+      "version": 1,
+      "rule": "Approved explanatory composition with subordinate original OEM mark",
+      "sourceBindings": {
+        "main": [
+          {
+            "path": "references/gaming-enhanced-main-approved-layout.md",
+            "sha256": "5aed712b2b74f988a61af008985f2d3f3975e99dbe15a8a8c55b87f12d7cd49d"
+          },
+          {
+            "path": "assets/gaming-enhanced-main-prompt-template.md",
+            "sha256": "63eba258c135bc82fe2200ad91ffc5f5f6ffbb0d4ae9a30a2e338fab15c66967"
+          }
+        ],
+        "supporting": [
+          {
+            "path": "references/gaming-visual-explanation.md",
+            "sha256": "db05770977765ca250e0d474ad5ac144ab8888a5b290408a34e20874d0d14827"
+          },
+          {
+            "path": "assets/gaming-approved-editorial-template.json",
+            "sha256": "2eaa7aeb234ff6089d9f58ea5e9bf950cfe6e3dbfeba5ecb25534b151510d61f"
+          }
+        ]
+      }
+    },
+    "MINI_PC": {
+      "version": 1,
+      "rule": "Applicable M/MG series; own-brand and representative accessories remain separately scoped",
+      "sourceBindings": {
+        "main": [
+          {
+            "path": "references/mini-pc-design-system.md",
+            "section": "## MAIN and catalog boundaries",
+            "sha256": "4b34cfa0b520a3c56a984c837c811fe9978371767a3e3d4fc82e6abd74600e3a"
+          }
+        ],
+        "supporting": [
+          {
+            "path": "references/mini-pc-design-system.md",
+            "section": "## Fixed slot plan for Mini PC",
+            "sha256": "70926bcc67bf600a2fc5a4db7b81cb9a33457a559c5d044a5beb28b4d853252d"
+          }
+        ]
+      }
+    }
   }
 }

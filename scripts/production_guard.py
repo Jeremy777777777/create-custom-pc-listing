@@ -67,6 +67,14 @@ def validate_contract(contract):
     if not isinstance(allowed, list) or not allowed or len(allowed) != len(set(allowed)) or not isinstance(outputs, dict) or not outputs:
         raise ValueError('Nonempty exact change and output inventories required')
     for name in allowed: relative(name)
+    image_fact_scope = contract.get('imageFactUpdate')
+    if image_fact_scope is not None:
+        from image_fact_update import FILES, MODES as IMAGE_MODES, declaration
+        if contract['mode'] not in IMAGE_MODES or not contract.get('selectedSlots'):
+            raise ValueError('Image fact update requires an actual image production scope')
+        declaration(image_fact_scope['scope'])
+        if not FILES <= set(outputs) or any(outputs[n] != 'RESEARCH' for n in FILES):
+            raise ValueError('Image fact updates deliver the canonical facts/ledger pair as RESEARCH')
     for name, role in outputs.items():
         relative(name)
         if role not in ROLES: raise ValueError('Unknown output role')
@@ -82,7 +90,7 @@ def validate_contract(contract):
                   outputs.get(name[:-len('.research-summary.json')] + '.xlsx') == role)))
             if not workbook and not dependency:
                 raise ValueError('Research/listing role requires a current XLSX or its exact canonical dependency')
-            if dependency and not any('/' not in n and n.endswith('.xlsx') and
+            if dependency and not (image_fact_scope is not None and name in {'product-facts.json','research-ledger.json'}) and not any('/' not in n and n.endswith('.xlsx') and
                     r in {'RESEARCH', 'LISTING'} for n, r in outputs.items()):
                 raise ValueError('Canonical research dependency needs a contracted workbook')
     slots = contract.get('selectedSlots', [])
@@ -95,7 +103,9 @@ def validate_contract(contract):
     if contract['mode'] == 'IMAGE_ADJUSTMENT_WORKFLOW' and not slots:
         raise ValueError('Image adjustment needs explicit requested slots')
     if contract['mode'] in {'IMAGE_ONLY_WORKFLOW', 'IMAGE_ADJUSTMENT_WORKFLOW', 'CONCEPT_ONLY'}:
-        if any(Path(n).suffix.lower() in {'.xlsx', '.xls', '.xlsm'} for n in allowed) or any(r in {'RESEARCH','LISTING'} for r in outputs.values()):
+        if (any(Path(n).suffix.lower() in {'.xlsx', '.xls', '.xlsm'} for n in allowed)
+                or any(r in {'RESEARCH','LISTING'} and not (image_fact_scope is not None and r=='RESEARCH'
+                       and n in {'product-facts.json','research-ledger.json'}) for n,r in outputs.items())):
             raise ValueError('This mode cannot recreate or change workbooks')
     if contract['mode'] == 'CONCEPT_ONLY' and (slots or any(n in NAMES for n in allowed) or any(r not in {'CONCEPT','SOURCE','QA'} for r in outputs.values())):
         raise ValueError('Concepts cannot become canonical completed outputs')
@@ -118,6 +128,9 @@ def validate_contract(contract):
 def capture(product, request):
     """Call after observing old bytes, before edits. Request comes from actual scope."""
     product = Path(product).resolve()
+    if 'imageFactUpdate' in request:
+        from image_fact_update import capture as capture_facts
+        request = {**request, 'imageFactUpdate': capture_facts(product, request['imageFactUpdate'])}
     contract = {**request, 'schemaVersion': 1, 'productId': product.name,
                 'createdAtUtc': datetime.now(timezone.utc).isoformat(),
                 'workflowSha': workflow(), 'baseline': inventory(product)}
@@ -168,6 +181,9 @@ def verify(product, contract_path, expected_sha256, planned_files=None):
     selected = set(planned_files) if planned_files is not None else set(contract['outputs'])
     if not selected or not selected <= set(contract['outputs']): raise ValueError('Delivery exceeds contracted outputs')
     results = {}
+    if contract.get('imageFactUpdate') is not None:
+        from image_fact_update import check as check_facts
+        results['imageFactUpdate'] = check_facts(product, contract['imageFactUpdate'])
     for name in sorted(selected):
         role = contract['outputs'][name]
         if role in {'RESEARCH', 'LISTING'} and Path(name).suffix.lower() == '.xlsx':

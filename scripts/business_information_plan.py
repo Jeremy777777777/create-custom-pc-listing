@@ -153,10 +153,28 @@ def check(plan, ledger, ledger_sha256, registry, require_presentation=False):
     if plan.get("ledgerSha256") != ledger_sha256:
         raise ValueError("Plan does not bind the current ledger bytes")
     rows = plan.get("images", [])
-    if len(rows) != 8 or {r.get("file") for r in rows} != SLOTS:
-        raise ValueError("Plan must cover PT01-PT08 exactly once")
-    if {r["file"] for r in rows if r.get("fullConfigurationOverview")} != {"PT03.png"}:
+    selected = plan.get('selectedSlots')
+    if (selected is not None and (not isinstance(selected, list) or not selected
+            or not all(isinstance(n, str) for n in selected) or len(selected) != len(set(selected))
+            or not set(selected) <= SLOTS)):
+        raise ValueError('Select unique Business supporting slots')
+    expected = SLOTS if selected is None else set(selected)
+    if len(rows) != len(expected) or {r.get("file") for r in rows} != expected:
+        raise ValueError("Plan must cover PT01-PT08 exactly once" if selected is None
+                         else 'Plan must exactly match selectedSlots')
+    if {r["file"] for r in rows if r.get("fullConfigurationOverview")} != ({"PT03.png"} & expected):
         raise ValueError("PT03 must be the only complete configuration overview")
+    retained = plan.get('retainedContext', [])
+    if not isinstance(retained, list):
+        raise ValueError('Retained Business context must be observed records')
+    seen = set()
+    for row in retained:
+        if (row.get('file') not in SLOTS - expected or row['file'] in seen
+                or not re.fullmatch('[0-9a-f]{64}', row.get('sha256', ''))
+                or not isinstance(row.get('evidenceReference'), str) or not row['evidenceReference'].strip()
+                or not isinstance(row.get('presentation'), dict)):
+            raise ValueError('Retained context requires unique unselected slots, actual hashes and evidence')
+        seen.add(row['file'])
     facts = {f["id"]: f for f in ledger["facts"]}
     assets = {a["id"]: a for a in registry["assets"]}
     owners = {}
@@ -202,10 +220,26 @@ def check(plan, ledger, ledger_sha256, registry, require_presentation=False):
             if file == "PT01.png" and assets[key].get("kind") == "OS_IDENTITY":
                 raise ValueError("PT01 cannot repeat Windows treatment")
     presentation = check_presentation(plan, ledger, registry, require_presentation)
+    if retained:
+        from copy import deepcopy
+        combined = deepcopy(plan)
+        combined['images'] += retained
+        # Coverage context is not a new approval of old claims or image bytes.
+        check_storyboard(combined, ledger)
+        screen_ids = set()
+        for row in combined['images']:
+            screen = row['presentation'].get('screen', {})
+            if screen.get('shown'):
+                if screen.get('contentId') in screen_ids and not screen.get('reuseReason', '').strip():
+                    raise ValueError('Retained/selected screen reuse needs its distinct buyer-purpose reason')
+                screen_ids.add(screen.get('contentId'))
     return {"state": "PLAN_DECLARATIONS_CHECKED", "productId": plan["productId"],
             "presentationReview": presentation,
             "imageCount": len(rows), "actualCopyFactReview": "REQUIRED", "visualQa": "NOT_ASSESSED",
-            "styleApproval": plan.get("styleApprovalStatus", "PENDING"), "productionApprovalGranted": False}
+            "styleApproval": plan.get("styleApprovalStatus", "PENDING"), "productionApprovalGranted": False,
+            "scope": 'FULL_SUPPORTING' if expected == SLOTS else 'SELECTED_SUPPORTING',
+            "contextSlots": sorted(seen), "unloadedContextSlots": sorted(SLOTS - expected - seen),
+            "logoPlacementPolicy": 'SEMANTIC_OEM_INTEGRATION_V1'}
 
 
 def main():

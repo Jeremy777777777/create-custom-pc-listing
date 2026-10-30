@@ -103,6 +103,8 @@ def logo_geometry(plan,cfg,logo,size):
     vw,vh=bbox[2]-bbox[0],bbox[3]-bbox[1]
     zones=cfg.get('protectedZones',[])
     semantic=plan.get('placementPolicy')=='SEMANTIC_OEM_INTEGRATION_V1'
+    if cfg.get('productVisibility')=='NONE' and not semantic:
+        raise ValueError('Product-free OEM placement requires semantic primary-content protection')
     if semantic:
         if (cfg.get('anchor') not in {'BRAND_CORNER','PRODUCT_IDENTITY','FEATURE_HEADER'}
                 or not isinstance(cfg.get('purpose'),str) or not cfg['purpose'].strip()

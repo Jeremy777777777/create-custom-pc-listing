@@ -36,7 +36,7 @@ def validate_image_plan_copy(plan):
                 text(item)
         elif isinstance(value, dict):
             for key in ('headline', 'subtitle', 'caption', 'label', 'text', 'capacity',
-                        'typicalUse', 'selectionNote', 'useQualification', 'customerCopy'):
+                        'typicalUse', 'selectionNote', 'useQualification', 'customerCopy', 'customerLabel'):
                 if key in value:
                     text(value[key])
     for key in ('headline', 'subtitle', 'caption', 'customerCopy', 'selectionNote', 'useQualification'):
@@ -57,6 +57,12 @@ def validate_image_plan_copy(plan):
         text(visual.get('exactCopy', []))
         for mapping in visual.get('labelToVisualMap', []):
             text(mapping.get('label'))
+        # Explicit rendered-copy fields in nested presentation records. Source
+        # IDs, research notes and storyboard rationale remain internal metadata.
+        presentation = row.get('presentation', {})
+        text(presentation.get('customerCopy', []))
+        text(presentation.get('screen', {}).get('customerCopy', []))
+        text(presentation.get('storyboard', {}).get('accessoryTreatment', {}))
 
 
 def main():

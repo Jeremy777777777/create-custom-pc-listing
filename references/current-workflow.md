@@ -60,6 +60,10 @@ scripts/workflow_run.py 支持 CONNECTOR、LOCAL、BROWSER 和 MIXED；不再要
 
 路径检查拒绝真正的符号链接、目录联接和越界路径；正常 OneDrive 云占位属性本身不构成拒绝理由。未经观察的来源和未提供的证据不能由工具补造。
 
+图片任务需要补充事实时，可在冻结请求中声明 imageFactUpdate，列明 fields、productPaths 和实际 basis，按 RESEARCH 角色交付 product-facts.json 与 research-ledger.json 两份当前记录，不要求生成 Excel。检查约束到声明的技术字段和叶子路径，保留实际研究轨迹、身份、硬件一致性、尺寸与 Drive 隐私／历史校验；回执明确现有 Excel 保留原字节、尚未依据更新事实重验。详见生产冻结规范。
+
+Business 单图设计计划用 selectedSlots 指定请求槽位，images 只提供对应页面。可用 retainedContext 提供旧页面哈希、证据和 presentation，检查视角／内容关系；未知上下文单独列出，不编造完整图集通过。完整系列工具仍要求完整计划。
+
 ## 单图审核及继承
 
 新审核优先使用 schemaVersion 4 的单图复核，加 dependencies.scopeVersion=2。对应 style-lock 使用 scopeVersion=2：
@@ -75,11 +79,15 @@ scripts/workflow_run.py 支持 CONNECTOR、LOCAL、BROWSER 和 MIXED；不再要
 
 ## OEM Logo 的整合
 
-新 Gaming 附图把一枚原始、适用的 OEM 标识整合进品牌区、产品身份旁或特征标题旁。先确定主视觉，再选择空白区域；它说明电脑品牌，不把电脑 OEM 当成图示芯片的制造商。保留原有真实机身标记。
+新 Business／Gaming 附图及适用的无电脑说明页把一枚原始、适用的 OEM 标识整合进品牌区、产品身份旁或特征标题旁。先确定主视觉，再选择空白区域；它说明电脑品牌，不把电脑 OEM 当成图示芯片的制造商。保留原有真实机身标记。
 
 规划填写 oemLogoPlacement 的原始素材路径／哈希、anchor、purpose、SECONDARY 阅读优先级与保护内容。实际放置使用 placementPolicy=SEMANTIC_OEM_INTEGRATION_V1；允许没有电脑的解释页使用真实主视觉／标题保护区，而非伪造 PRODUCT_SILHOUETTE 区。
 
 保持原比例、原颜色、透明素材和与实际内容的间距。新语义化分支在 200px 缩略图上，标识长边至少12px、至多画布长边12%；实际可辨认度仍须看图。旧布局的20px标准保留给旧分支。不要为了满足标识而把丰富照片改成模板参数板。MAIN 的实际 LCD／安全区规则独立保留。
+
+## 规则内容与审核绑定
+
+imageReview 各适用分支使用 sourceBindings 固定实际规则文件／章节和 SHA256。只改相关视觉规范而没有更新绑定时，生产与 CI 都会拒绝。维护规则后运行 scripts/image_policy_sources.py refresh --repo .，检查差异，再运行 check；此操作只维护政策，不改产品图片或旧审核。绑定按系列和 MAIN／附图范围选择，不加载手动同步等无关流程文字。旧提交保留旧来源哈希，不替换为当前文档。
 
 ## 手动同步是当前正常方式
 

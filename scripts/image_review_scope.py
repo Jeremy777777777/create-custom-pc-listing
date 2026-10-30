@@ -33,9 +33,16 @@ def style_projection(directory, slot, style, policy_text=None):
         policy = json.loads(raw)
     rules = policy['imageReview']
     kind = 'main' if slot in g.MAIN else 'supporting'
-    relevant = {key: rules[key] for key in ('shared', kind, series)}
+    relevant = {key: dict(rules[key]) for key in ('shared', kind, series)}
+    for rule in relevant.values():
+        if isinstance(rule.get('sourceBindings'), dict):
+            rule['sourceBindings'] = rule['sourceBindings'].get(kind, [])
     result = {'styleLock': {'shared': style['shared'], 'slot': item},
               'imagePolicy': relevant}
+    from image_policy_sources import selected_sources
+    sources = selected_sources(policy, series, kind, root, historical=policy_text is not None)
+    if sources is not None:
+        result['imagePolicySources'] = sources
     recipe = item.get('recipePath')
     if recipe:
         from pathlib import PurePosixPath

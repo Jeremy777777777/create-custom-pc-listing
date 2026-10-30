@@ -41,6 +41,8 @@ def inputs(product, information_plan, repo, require_presentation=False):
     if configuration and configuration != ledger.get('configurationId'):
         raise ValueError('Product cache and sold configuration differ')
     info = brand_assets.read(path)
+    if {r.get('file') for r in info.get('images', [])} != business_information_plan.SLOTS:
+        raise ValueError('Full Business series requires the complete supporting information plan')
     registry = brand_assets.read(repo / brand_assets.REGISTRY)
     brand_assets.verify(repo, registry)
     claim_check = business_information_plan.check(info, ledger, digest(p/'research-ledger.json'), registry, require_presentation)

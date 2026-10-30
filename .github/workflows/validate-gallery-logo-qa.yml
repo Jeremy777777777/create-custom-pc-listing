@@ -15,6 +15,8 @@ jobs:
           python-version: '3.12'
       - run: python -m pip install -r scripts/requirements.txt
       - run: python -m unittest discover -s scripts/tests -v
+      - name: Verify image rule sources match scoped policy
+        run: python scripts/image_policy_sources.py check --repo .
       - name: Verify reusable original brand assets
         run: python scripts/brand_assets.py verify --repo .
       - name: Keep final product outputs in Google Drive

@@ -28,3 +28,7 @@ partial-update-qa schemaVersion=5保留：selectedSlots、known galleryInventory
 ## 旧记录
 
 既有schemaVersion3全局复核及schemaVersion4旧dependencies保持旧绑定与兼容检查。它们不会自动获得新范围保护或被补造PASS；迁移时为实际修改范围重新复核，不要求重画无关图片，也不改写历史证据。
+
+## Rule-source linkage
+
+sourceBindings in the applicable shared, MAIN/supporting and series branch pin exact maintained files or Markdown sections to SHA256. Current binding verifies these bytes before accepting a review; CI also checks every configured source. Refresh only during workflow maintenance with `python scripts/image_policy_sources.py refresh --repo .`, inspect the scope/hash diff, then run `check`. Applicable source/hash changes affect that scope even if a manual numeric version was not bumped. Source sections keep unrelated MAIN/supporting changes independent. Historical policy records use their original committed source pins; source-less legacy-v2 payloads retain their exact older hash shape. No review is automatically refreshed or approved.
