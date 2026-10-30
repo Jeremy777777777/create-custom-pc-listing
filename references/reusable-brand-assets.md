@@ -1,5 +1,7 @@
 # Universal original brand-asset library — user decision 2026-10-29
 
+Gaming PT current direction: [visual explanation](gaming-visual-explanation.md) owns G22/A22/GG22 PT01–PT08 appearance, generation and per-page standards (`gaming-visual-explanation-v2`). Supply the approved image references; let the page subject determine visual dominance. Named-game source rules remain; technical/task concept generation is allowed. Older Gaming families are explicit opt-in, not default fallbacks. MAIN, Mini PC and Business rules stay independently scoped.
+
 For Mini PC M04 and Gaming G22 game art/logos, use [the separate original-media source workflow](mini-gaming-real-source-workflow.md). Reuse covered actual originals and exact game identities with source/hash/rights scope; do not infer game rights from this hardware/software registry or commit game binaries under an ad-only assertion.
 
 This library is part of [universal image production](universal-image-production.md), shared across design series. Business Laptop page narratives and density targets remain in their separate series document.
