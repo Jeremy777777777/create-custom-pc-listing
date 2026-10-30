@@ -1,0 +1,74 @@
+"""Check Gaming v2 planning inputs, never aesthetic quality or product acceptance."""
+import argparse
+import json
+from pathlib import Path
+
+PROFILE = 'gaming-visual-explanation-v2'
+SLOTS = {f'PT{i:02}.png' for i in range(1, 9)}
+
+
+def nonempty(value):
+    return isinstance(value, str) and bool(value.strip())
+
+
+def check(plan, registry):
+    if plan.get('designSeries') != 'GAMING' or plan.get('family') != 'G22':
+        raise ValueError('This checker applies only to GAMING G22 PT plans; other series use their own rules')
+    if plan.get('methodProfile') != PROFILE or registry.get('methodProfile') != PROFILE:
+        raise ValueError('Gaming visual-explanation methodProfile must match the reference registry')
+    selected = plan.get('selectedSlots', [])
+    if not selected or len(set(selected)) != len(selected) or not set(selected) <= SLOTS:
+        raise ValueError('Select unique PT01-PT08 filenames; MAIN has separate planning')
+    if not nonempty(plan.get('productId')) or not nonempty(plan.get('configurationId')):
+        raise ValueError('Actual productId and configurationId required')
+    known = {r['driveFileId']: r['sha256'] for r in registry['references']}
+    rows = plan.get('images', [])
+    for slot in selected:
+        matching = [row for row in rows if row.get('file') == slot]
+        if len(matching) != 1:
+            raise ValueError(slot + ': exactly one page plan required')
+        row = matching[0]
+        visual = row.get('visualExplanation', {})
+        for field in ('subject', 'buyerUnderstanding', 'mainVisual', 'composition'):
+            if not nonempty(visual.get(field)):
+                raise ValueError(slot + ': missing visualExplanation.' + field)
+        for field in ('actualProductSourceIds', 'exactCopy', 'avoid', 'selectedCompositionInvariants'):
+            items = visual.get(field)
+            if not isinstance(items, list) or not items or not all(nonempty(x) for x in items):
+                raise ValueError(slot + ': nonempty ' + field + ' required')
+        refs = visual.get('referenceImageIds')
+        hashes = visual.get('referenceImageSha256', {})
+        if not isinstance(refs, list) or not refs or len(set(refs)) != len(refs):
+            raise ValueError(slot + ': actual selected reference IDs required')
+        for ref in refs:
+            if ref not in known or hashes.get(ref) != known[ref]:
+                raise ValueError(slot + ': reference ID/hash does not match approved registry')
+        mappings = visual.get('labelToVisualMap')
+        if not isinstance(mappings, list) or not mappings:
+            raise ValueError(slot + ': label-to-visual mapping required')
+        for mapping in mappings:
+            if not isinstance(mapping, dict) or not all(nonempty(mapping.get(k)) for k in ('label', 'visual')):
+                raise ValueError(slot + ': each mapping needs label and visual')
+        if row.get('primaryTheme') == 'Product hero and buying reasons' or row.get('visualProof') == 'PRODUCT_HERO':
+            raise ValueError(slot + ': replace the shared Mini PC product-hero seed with Gaming subject-led planning')
+    return {'state': 'GAMING_VISUAL_PLAN_INPUTS_CHECKED', 'methodProfile': PROFILE,
+            'selectedSlots': selected, 'visualQuality': 'REQUIRES_ACTUAL_IMAGE_REVIEW',
+            'referenceBytes': 'RETRIEVE_AND_HASH_CHECK_BEFORE_GENERATION',
+            'productFacts': 'SEPARATE_APPLICABLE_EVIDENCE_REQUIRED', 'userApproval': 'NOT_GRANTED_BY_THIS_CHECK'}
+
+
+def main():
+    parser = argparse.ArgumentParser(description=__doc__)
+    parser.add_argument('--plan', required=True)
+    parser.add_argument('--repo', type=Path, required=True)
+    args = parser.parse_args()
+    plan = json.loads(Path(args.plan).read_text())
+    registry = json.loads((args.repo / 'assets/gaming-visual-reference-registry.json').read_text())
+    try:
+        print(json.dumps(check(plan, registry), indent=2))
+    except (ValueError, KeyError, TypeError) as error:
+        parser.exit(1, str(error) + '\n')
+
+
+if __name__ == '__main__':
+    main()
