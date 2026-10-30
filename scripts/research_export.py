@@ -200,7 +200,10 @@ def project(data, field_keys, mode='draft', separate_candidates=True):
             if not separate_candidates:
                 raise ValueError('Candidate metadata requires the seven-row workbook layout')
             evidence = fact['evidence']
-            advisory_source = ('MOST_LIKELY_CANDIDATE — NOT CONFIRMED; ' + fact['value_candidate_source']
+            candidate_label = ('QUALIFIED_REFERENCE — NOT CONFIRMED; '
+                               if evidence.get('candidate_basis') in {'OEM_MAXIMUM', 'FACTORY_ONLY', 'FAMILY_CAPABILITY'}
+                               else 'MOST_LIKELY_CANDIDATE — NOT CONFIRMED; ')
+            advisory_source = (candidate_label + fact['value_candidate_source']
                                + '; Rationale: ' + evidence['candidate_rationale']
                                + '; Missing confirmation: ' + evidence['candidate_missing_confirmation'])
         if mode == 'export':
@@ -241,6 +244,8 @@ def project(data, field_keys, mode='draft', separate_candidates=True):
         from dimension_units import validate_dimensions
         validate_dimensions(projected)
     projected, _ = project_if_bound(data, projected, mode)
+    from candidate_coverage import review_projection
+    review_projection(data, projected)
     return projected
 
 
@@ -293,6 +298,9 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
     if any(p.casefold() == 'workbook-snapshots' for p in workbook.resolve().parts):
         raise ValueError('Cannot write historical workbook snapshots')
     data = load_ledger(ledger)
+    if external_fcc(data):
+        from candidate_coverage import require_current
+        require_current(data)
     from serial_research import validate_serial_research
     validate_serial_research(data, required=True, full_research=True)
     if stage == 'LISTING_DRAFT':
@@ -567,6 +575,16 @@ def write_summary(output, result, workbook, ledger=None):
     summary['artifactRole'] = 'RESEARCH_COVERAGE_SUMMARY'
     summary['productFactsBindingVersion'] = 1
     summary['workbookFile'] = resolve_workbook_path(workbook).name
+    if ledger is not None:
+        candidate_data = load_ledger(ledger)
+        if candidate_data.get('candidate_coverage_version') == 1:
+            from candidate_coverage import review_projection
+            candidate_book = openpyxl.load_workbook(workbook)
+            try:
+                candidate_projection = verify_workbook(candidate_book, candidate_data)
+                summary['candidateCoverage'] = review_projection(candidate_data, candidate_projection, required=True)
+            finally:
+                candidate_book.close()
     if 'researchTrace' in result:
         summary['researchTrace'] = result['researchTrace']
         summary['researchTraceSchemaVersion'] = 2
@@ -633,6 +651,9 @@ def main():
         if args.write_workbook:
             if not external_fcc(load_ledger(args.ledger)) and not args.legacy_fcc_workbook:
                 raise ValueError('New listing workbooks require fcc_management=ERP_INVENTORY; FCC lookup is a separate task')
+            from candidate_coverage import require_current
+            if not args.legacy_fcc_workbook:
+                require_current(load_ledger(args.ledger))
             from research_audit import validate as audit_research
             trace_result = audit_research(load_ledger(args.ledger), required=True,
                 previous_bytes=args.previous_ledger.read_bytes() if args.previous_ledger else None,

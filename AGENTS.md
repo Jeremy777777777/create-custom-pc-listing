@@ -14,6 +14,8 @@ Read [the current execution router](references/current-workflow.md), [SKILL.md](
 
 ## Research and copy
 
+- New Research Review / Listing Draft generation enforces [Value/candidate completeness](references/value-candidate-completeness.md). Every blank formal Value needs a sourced visible candidate or a concrete visible no-candidate disposition and follow-up; plain TBD/empty candidate rows cannot silently pass new generation. Never fabricate a candidate or turn an OEM maximum into exact actual weight.
+
 - Use [exact-ID ERP lookup](references/erp-internal-id-lookup.md) to establish identity. Research target-linked serial/service tags, official as-built/parts and exact OEM product sources under [the evidence chain](references/evidence-chain-and-deep-research.md) and [research traces](references/research-trace-contract.md). Compare matching FACTORY/CURRENT_UNIT/SOLD_BASE/PLATFORM_CAPABILITY scopes.
 - Image-only work reuses verified current facts and researches only missing image-required facts. Keep incomplete, unavailable, conflicting, candidate and verified outcomes distinct. Honest partial review delivery is allowed.
 - Apply [customization copy and RAM research](references/customization-options-policy.md): seller-confirmed capacity choices, actual replaceability and exact DDR/LPDDR generation. Numeric attributes remain actual base configuration. Own-brand uses [its separate route](references/megapc-own-brand-mini-pc.md).

@@ -155,6 +155,17 @@ def check_research_summaries(root, product_id=None):
         if not isinstance(summary,dict) or summary.get('artifactRole')!='RESEARCH_COVERAGE_SUMMARY':
             raise ValueError('Invalid research summary artifact role: '+str(path))
         ledger=path.parent/'research-ledger.json';data=load_ledger(ledger)
+        if data.get('candidate_coverage_version') == 1:
+            import openpyxl
+            from candidate_coverage import review_projection
+            from research_export import verify_workbook
+            candidate_book = openpyxl.load_workbook(resolve_workbook_path(path.parent/summary['workbookFile']))
+            try:
+                candidate_projection = verify_workbook(candidate_book, data)
+                if summary.get('candidateCoverage') != review_projection(data, candidate_projection, required=True):
+                    raise ValueError('Candidate coverage summary is missing or stale')
+            finally:
+                candidate_book.close()
         check_product_location(path,data['productId'])
         if summary.get('productId')!=data['productId'] or summary.get('configurationId')!=data['configurationId']:
             raise ValueError('Research summary product/configuration is stale: '+str(path))

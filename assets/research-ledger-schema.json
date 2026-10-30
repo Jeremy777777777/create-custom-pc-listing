@@ -6,6 +6,7 @@
   "additionalProperties": false,
   "properties": {
     "schemaVersion": {"const": 1},
+    "candidate_coverage_version": {"const": 1},
     "productId": {"type": "string", "pattern": "\\S"},
     "configurationId": {"type": "string", "pattern": "\\S"},
     "fcc_management": {"const": "ERP_INVENTORY", "description": "New listing ledgers delegate FCC lookup to an explicit private task and ERP Listing Inventory."},
