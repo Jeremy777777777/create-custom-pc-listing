@@ -489,7 +489,8 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
         manufacturer = product['identity'].get('oemBrand')
         if not manufacturer:
             raise ValueError('Listing workbook requires OEM brand for existing copy checks')
-    checks.check_output(workbook, checks.template_topology(template), manufacturer, ledger_path=ledger)
+    # Preserve semantic unit/copy checks before the final exact projection audit.
+    checks.check_output(workbook, checks.template_topology(template), manufacturer, ledger_path=ledger, verify_projection=False)
     if mode == 'export' and (not product_id or not configuration_id):
         raise ValueError('Export requires explicit target product ID and configuration ID')
     if product_id is not None and product_id != data['productId']:

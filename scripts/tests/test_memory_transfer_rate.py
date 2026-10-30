@@ -44,10 +44,14 @@ class MemoryTransferRateTests(unittest.TestCase):
             book=openpyxl.load_workbook(output);sheet=book['Product Details']
             col={c.value:c.column for c in sheet[1]}
             self.assertIsNone(sheet.cell(3,col['Memory Speed']).value)
-            self.assertIsNone(sheet.cell(6,col['Memory Speed']).value)
+            self.assertIn('8533 MT/s',sheet.cell(6,col['Memory Speed']).value)
+            self.assertIn('AMAZON ENTRY UNCONFIRMED',sheet.cell(6,col['Memory Speed']).value)
+            self.assertEqual(book.active.title,'Candidate Review')
+            self.assertEqual(book.active['B5'].value,'8533 MT/s')
             self.assertIn('8533',sheet.cell(5,col['Memory Speed']).value)
             self.assertIsNone(sheet.cell(3,col['Memory Speed Unit']).value)
-            self.assertEqual(sheet.cell(6,col['Memory Speed Unit']).value,'MHz')
+            self.assertIn('MT/s',sheet.cell(6,col['Memory Speed Unit']).value)
+            self.assertNotIn('MHz',sheet.cell(6,col['Memory Speed Unit']).value)
             sheet.cell(3,col['Memory Speed']).value=8533
             with self.assertRaisesRegex(ValueError,'differs'):export.verify_workbook(book,data)
             book.close()

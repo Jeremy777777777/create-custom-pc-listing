@@ -94,6 +94,26 @@ def apply(data, projected):
         reviews.append({'sheet': key[0], 'attribute': key[1], 'review': review,
                         'visibleNote': record['value_candidate_source'],
                         'amazonNumericCandidate': record.get('value_candidate')})
+    selected = {(m['sheet'], m['attribute']): facts[m['selected_fact']] for m in data.get('fields', [])}
+    for key, record in projected.items():
+        fact = facts[record['fact_id']]
+        if (record.get('candidate_display') is not None or record.get('value') is not None
+                or record.get('value_candidate') is not None or record.get('status') != 'INPUT_UNVERIFIED'
+                or fact['status'] != 'VERIFIED' or fact.get('final_value') is None):
+            continue
+        unit_fact = selected.get((key[0], key[1] + ' Unit'), {})
+        unit = unit_fact.get('value_candidate', unit_fact.get('final_value'))
+        original = {'value': fact['final_value'], 'source': fact['source'], 'scope': fact.get('fact_scope')}
+        if unit is not None:
+            original['unit'] = unit
+        record['hardware_reference'] = original
+        record['candidate_display'] = display(original) + ' | RESEARCH ONLY | AMAZON ENTRY UNCONFIRMED'
+        record['value_candidate_source'] = ('VERIFIED HARDWARE REFERENCE: ' + display(original)
+            + '; recorded scope=' + str(original['scope']) + '; source=' + fact['source']
+            + '; AMAZON ENTRY UNCONFIRMED; ' + record['source'])
+        unit_record = projected.get((key[0], key[1] + ' Unit'))
+        if unit is not None and unit_record is not None and unit_record.get('value') is None:
+            unit_record['candidate_display'] = str(unit) + ' | RESEARCH UNIT; AMAZON MAPPING UNRESOLVED'
     return reviews
 
 
