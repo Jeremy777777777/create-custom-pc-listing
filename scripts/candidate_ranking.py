@@ -55,7 +55,8 @@ def recommendation_note(review):
     options = review['options']
     if review['decision'] == 'RECOMMENDED':
         primary = next(o for o in options if o['id'] == review['primary_id'])
-        note = 'RECOMMENDED HARDWARE CANDIDATE: ' + display(primary) + ' (' + primary['confidence'] + ' confidence; NOT CONFIRMED). '
+        label = 'QUALIFIED OEM MAXIMUM REFERENCE: ' if primary.get('basis') == 'OEM_MAXIMUM' else 'RECOMMENDED HARDWARE CANDIDATE: '
+        note = label + display(primary) + ' (' + primary['confidence'] + ' confidence; NOT CONFIRMED). '
     else:
         note = 'TIED HARDWARE CANDIDATES: ' + ' / '.join(display(o) for o in options) + ' (NOT CONFIRMED). '
     note += 'Comparison: ' + review['comparison'] + '; Missing confirmation: ' + review['missing_confirmation']
