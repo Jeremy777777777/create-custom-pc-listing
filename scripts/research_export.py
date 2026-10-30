@@ -244,6 +244,8 @@ def project(data, field_keys, mode='draft', separate_candidates=True):
         from dimension_units import validate_dimensions
         validate_dimensions(projected)
     projected, _ = project_if_bound(data, projected, mode)
+    from candidate_ranking import apply as apply_candidate_ranking
+    apply_candidate_ranking(data, projected)
     from candidate_coverage import review_projection
     review_projection(data, projected)
     return projected
@@ -577,7 +579,7 @@ def write_summary(output, result, workbook, ledger=None):
     summary['workbookFile'] = resolve_workbook_path(workbook).name
     if ledger is not None:
         candidate_data = load_ledger(ledger)
-        if candidate_data.get('candidate_coverage_version') == 1:
+        if candidate_data.get('candidate_coverage_version') in (1, 2):
             from candidate_coverage import review_projection
             candidate_book = openpyxl.load_workbook(workbook)
             try:

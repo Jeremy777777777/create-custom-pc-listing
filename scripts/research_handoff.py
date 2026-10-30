@@ -155,7 +155,7 @@ def check_research_summaries(root, product_id=None):
         if not isinstance(summary,dict) or summary.get('artifactRole')!='RESEARCH_COVERAGE_SUMMARY':
             raise ValueError('Invalid research summary artifact role: '+str(path))
         ledger=path.parent/'research-ledger.json';data=load_ledger(ledger)
-        if data.get('candidate_coverage_version') == 1:
+        if data.get('candidate_coverage_version') in (1, 2):
             import openpyxl
             from candidate_coverage import review_projection
             from research_export import verify_workbook

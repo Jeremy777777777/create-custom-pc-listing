@@ -10,13 +10,13 @@ def text(value):
 
 
 def require_current(data):
-    if data.get('candidate_coverage_version') != 1:
-        raise ValueError('New workbook generation requires candidate_coverage_version: 1 and per-field candidate review')
+    if data.get('candidate_coverage_version') != 2:
+        raise ValueError('New workbook generation requires candidate_coverage_version: 2 and comparative candidate review')
 
 
 def review_projection(data, projected, required=False):
     """Check exact projected coverage; expose gap explanations, never fabricate research."""
-    strict = required or data.get('candidate_coverage_version') == 1
+    strict = required or data.get('candidate_coverage_version') in (1, 2)
     facts = {f['id']: f for f in data['facts']}
     counts = Counter()
     unresolved = []
@@ -37,6 +37,15 @@ def review_projection(data, projected, required=False):
                 raise ValueError('Candidate needs visible source and qualification: ' + str(key))
             decision = 'SELECTED'
         else:
+            from candidate_ranking import assess
+            ranked = assess(fact)
+            if ranked is not None and text(record.get('value_candidate_source')):
+                decision = 'HARDWARE_REFERENCE_WITHHELD_FROM_AMAZON_NUMBER'
+                counts[decision] += 1
+                unresolved.append({'sheet': key[0], 'attribute': key[1], 'decision': decision,
+                                   'candidate': None, 'hardwareRecommendation': ranked,
+                                   'explanation': record['value_candidate_source']})
+                continue
             review = evidence.get('candidate_review')
             if review is None and not strict:
                 counts['UNREVIEWED_LEGACY'] += 1

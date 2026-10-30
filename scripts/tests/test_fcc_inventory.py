@@ -79,7 +79,7 @@ class InventoryTests(unittest.TestCase):
             root=Path(scratch)
             data,fact,previous,ledger=FCCGuideWriterTests().fixture(root)
             data['fcc_management']=f.EXTERNAL_MODE
-            data['candidate_coverage_version']=1
+            data['candidate_coverage_version']=2
             for key in ('evidence','recommended_candidate','evidence_scope','authorization_route'):
                 fact.pop(key,None)
             fact.update(status='TBD',final_value=None,source=f.DISPOSITION)

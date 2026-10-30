@@ -60,7 +60,9 @@ Confirm the canonical internal ID before writing `product generated photo/<inter
 
 ## 2. Research and field validation
 
-Apply [Value/candidate completeness](references/value-candidate-completeness.md) to every new Research Review and Listing Draft. The supported CLI requires candidate_coverage_version: 1. Confirmed values must project into Value; unresolved fields need visible sourced candidates or explicit reviewed no-candidate dispositions in row 7. Recheck actual saved bytes and coverage summaries; never deliver silent TBD/blank pairs or invent candidates to fill them.
+Apply [Value/candidate completeness](references/value-candidate-completeness.md) to every new Research Review and Listing Draft. The supported CLI requires candidate_coverage_version: 2. Confirmed values must project into Value; unresolved fields need visible sourced candidates or explicit reviewed no-candidate dispositions in row 7. Recheck actual saved bytes and coverage summaries; never deliver silent TBD/blank pairs or invent candidates to fill them.
+
+The current new-generation marker is candidate_coverage_version: 2 under that reference: compare supported candidates, record the primary/alternatives and missing discriminator, and keep the original hardware recommendation visible even when Amazon unit projection withholds a number. Product implementation requires updating and byte-verifying the actual workbook, not only changing workflow rules.
 
 Start with the target-linked serial/service tag and its official as-built/BOM/part numbers. Then fill gaps through exact-model official search, ERP reconciliation and Amazon leads. Apply [research trace contract](references/research-trace-contract.md) to new workbook generation. After exhausted technical research, provide the strongest defensible candidate with source, ranking rationale and missing confirmation; no-support/tied cases remain explicit. No candidate enters formal Value or customer claims before verification.
 
