@@ -36,7 +36,23 @@
       "Genuine Windows edition asset",
       "Native physical bezel",
       "Measured LCD or standalone-desktop graphic safe zone"
-    ]
+    ],
+    "methodProfile": "gaming-enhanced-main-artwork-brand-hierarchy-v1",
+    "authority": "references/gaming-enhanced-main-approved-layout.md",
+    "promptTemplate": "assets/gaming-enhanced-main-prompt-template.md",
+    "referenceDriveFileId": "1_y2z-KjhPN4lMGirjHjJtyXf5pRKc1iW",
+    "referenceSha256": "d1ed16ffa9a9878bd09a46b435329a11e632f391112a38f486b573cf63b6ed9a",
+    "primaryAnchors": {
+      "cpu": "UPPER_RIGHT",
+      "gpuAndModel": "LOWER_RIGHT",
+      "displayHz": "LOWER_LEFT"
+    },
+    "secondary": "RAM_SSD_ONE_COMPACT_WINDOWS_IDENTITY_LOWER_MIDDLE",
+    "mandatoryCardCount": null,
+    "mandatoryCardSkin": false,
+    "mandatoryWindowsPackage": false,
+    "fullPageProposalsAllowed": true,
+    "refinement": "PRESERVE_SELECTED_COMPOSITION_REFINE_FACTS_HARDWARE_AND_GENUINE_MARKS"
   },
   "pages": [
     {

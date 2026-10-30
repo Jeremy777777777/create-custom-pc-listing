@@ -14,7 +14,8 @@
       "skin": "A22",
       "gallery": "GG22",
       "profile": "gaming-real-game-editorial-v1",
-      "methodProfile": "gaming-visual-explanation-v2"
+      "methodProfile": "gaming-visual-explanation-v2",
+      "enhancedMainMethodProfile": "gaming-enhanced-main-artwork-brand-hierarchy-v1"
     },
     "generalPurposeMiniPc": {
       "family": "M01",
@@ -47,7 +48,14 @@
     "ptInformationCards": "ALLOWED",
     "approvalScope": "VL-1221 replacement authorized; other products require their own preview judgment",
     "ptAppearanceSupersededBy": "gaming-visual-explanation-v2",
-    "enhancedMainScopeUnchanged": true
+    "enhancedMainScopeUnchanged": false,
+    "enhancedMainRefinement": {
+      "date": "2026-10-30",
+      "referenceDriveFileId": "1_y2z-KjhPN4lMGirjHjJtyXf5pRKc1iW",
+      "authority": "references/gaming-enhanced-main-approved-layout.md",
+      "mandatorySixCardDefaultsRetired": true,
+      "compactOriginalWindowsIdentityAllowed": true
+    }
   },
   "retroactiveGalleryMigration": false,
   "physicalDimensionUnit": "Inches",
@@ -72,5 +80,11 @@
     "dimensionalTechnicalConceptsAllowed": true,
     "fullPageProposalsAllowed": true,
     "scope": "GAMING G22 PT01-PT08 ONLY; not Mini PC M04 or MAIN"
+  },
+  "gamingMainGenerationPermissions": {
+    "scope": "GAMING_INTEGRATED_DISPLAY_ENHANCED_MAIN",
+    "fullPageProposalsAllowed": true,
+    "finalProduction": "PRESERVE_SELECTED_COMPOSITION_REFINE_VERIFIED_HARDWARE_ORIGINAL_GAME_ART_GENUINE_MARKS_AND_EXACT_TEXT",
+    "promptTemplate": "assets/gaming-enhanced-main-prompt-template.md"
   }
 }
