@@ -68,6 +68,11 @@ def validate_contract(contract):
         raise ValueError('Nonempty exact change and output inventories required')
     for name in allowed: relative(name)
     image_fact_scope = contract.get('imageFactUpdate')
+    if contract.get('listingRevision') is not None:
+        if contract['mode']!='FULL_LISTING_WORKFLOW' or image_fact_scope is not None:
+            raise ValueError('Scoped Listing revision requires its separate Listing production stage')
+        if contract['listingRevision'].get('schemaVersion')!=1:
+            raise ValueError('Frozen Listing revision declaration required')
     if image_fact_scope is not None:
         from image_fact_update import FILES, MODES as IMAGE_MODES, declaration
         if contract['mode'] not in IMAGE_MODES or not contract.get('selectedSlots'):
@@ -131,6 +136,9 @@ def capture(product, request):
     if 'imageFactUpdate' in request:
         from image_fact_update import capture as capture_facts
         request = {**request, 'imageFactUpdate': capture_facts(product, request['imageFactUpdate'])}
+    if 'listingRevision' in request:
+        from listing_draft import capture_revision
+        request={**request,'listingRevision':capture_revision(product,request['listingRevision'])}
     contract = {**request, 'schemaVersion': 1, 'productId': product.name,
                 'createdAtUtc': datetime.now(timezone.utc).isoformat(),
                 'workflowSha': workflow(), 'baseline': inventory(product)}
@@ -183,7 +191,8 @@ def verify(product, contract_path, expected_sha256, planned_files=None):
     results = {}
     if any(contract['outputs'][name] == 'LISTING' for name in selected):
         from listing_draft import check_delivery as check_draft_delivery
-        draft_bundle = check_draft_delivery(product, selected, contract['outputs'])
+        draft_bundle = check_draft_delivery(product, selected, contract['outputs'],
+                    contract_outputs=contract['outputs'],revision=contract.get('listingRevision'))
         if draft_bundle is not None:
             results['listingDraftBundle'] = draft_bundle
     if contract.get('imageFactUpdate') is not None:
@@ -235,6 +244,7 @@ def verify(product, contract_path, expected_sha256, planned_files=None):
             'contractSha256': expected_sha256, 'workflowSha': contract['workflowSha'],
             'changedFiles': changed, 'files': {n:actual[n] for n in sorted(selected)}, 'checks': results,
             'styleApproval': 'USER_REFERENCE_BOUND' if slots else 'NOT_NEEDED_FOR_THIS_DELIVERY',
+            'contractedOutputs':contract['outputs'],
             'qualityScope': 'STRUCTURE_AND_SUPPLIED_REVIEW_EVIDENCE_ONLY',
             'publicationStatus': 'NOT_AUTHORIZED_BY_THIS_CHECK'}
 

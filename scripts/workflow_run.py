@@ -56,6 +56,9 @@ def create(run, product, task_id, run_id, request_reference, mode, workflow_sha)
     if (mode not in MODES or not re.fullmatch(ID, task_id) or not re.fullmatch(ID, run_id)
             or not request_reference.strip() or not re.fullmatch('[0-9a-f]{40}', workflow_sha)):
         raise ValueError('Actual request, task/run IDs, execution mode and workflow SHA required')
+    from production_guard import workflow
+    if workflow()!=workflow_sha:
+        raise ValueError('Run the task from its clean pinned workflow checkout; requested SHA differs')
     facts = read(Path(product)/'product-facts.json')
     if product_id(facts) != Path(product).name:
         raise ValueError('Exact product identity differs from its directory')

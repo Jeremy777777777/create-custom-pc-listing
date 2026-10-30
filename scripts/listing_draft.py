@@ -7,7 +7,8 @@ import argparse
 import hashlib
 from html import escape
 import json
-from pathlib import Path
+from pathlib import Path, PurePosixPath
+import re
 import subprocess
 import sys
 
@@ -160,8 +161,10 @@ def _context(product, template):
     return data, projected
 
 
-def _inputs(product, template):
-    revision = subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
+def _inputs(product, template, generation_sha=None):
+    revision = generation_sha or subprocess.check_output(['git', 'rev-parse', 'HEAD'], cwd=ROOT, text=True).strip()
+    if not isinstance(revision, str) or not re.fullmatch('[0-9a-f]{40}', revision):
+        raise ValueError('Actual generation workflow SHA required')
     return {'workflowSha': revision, 'template': digest(template), **{n: digest(Path(product)/n) for n in
             ('research-ledger.json', 'product-facts.json', 'reference-audit.json')}}
 
@@ -220,12 +223,15 @@ def verify(product, template=None):
     template = Path(template or ROOT/'assets/listing-workbook-template.xlsx')
     data, projected = _context(product, template)
     report = read(product/REPORT)
+    generation_sha = report.get('inputs', {}).get('workflowSha')
+    if not isinstance(generation_sha, str) or not re.fullmatch('[0-9a-f]{40}', generation_sha):
+        raise ValueError('Draft bundle generation workflow provenance is missing')
     names = expected_names(data['productId'])
     if (report.get('schemaVersion') != 1 or report.get('artifactRole') != 'LISTING_DRAFT_BUNDLE'
             or report.get('generationState') != 'DRAFT_BUNDLE_GENERATED'
             or report.get('publicationStatus') != 'NOT_EXECUTED'
             or report.get('productId') != data['productId'] or report.get('configurationId') != data['configurationId']
-            or report.get('workbooks') != names or report.get('inputs') != _inputs(product, template)
+            or report.get('workbooks') != names or report.get('inputs') != _inputs(product, template, generation_sha)
             or report.get('readiness') != readiness(data, projected)):
         raise ValueError('Draft bundle inputs, identity or readiness are stale')
     expected = {HTML, *(n for name in names.values() for n in (name, str(Path(name).with_suffix('.research-summary.json'))))}
@@ -251,18 +257,97 @@ def verify(product, template=None):
     return {'state': 'DRAFT_BUNDLE_SAVED_BYTES_CHECK_PASS', 'productId': data['productId'],
             'files': sorted([*expected, REPORT]), 'fieldCount': len(projected),
             'readiness': report['readiness'], 'deliveryState': 'NOT_VERIFIED_BY_THIS_CHECK',
-            'publicationStatus': 'NOT_EXECUTED'}
+            'publicationStatus': 'NOT_EXECUTED', 'generationWorkflowSha': generation_sha,
+            'verificationWorkflowSha': subprocess.check_output(['git','rev-parse','HEAD'],cwd=ROOT,text=True).strip()}
 
 
-def check_delivery(product, selected, roles):
+def _revision_file(product, name):
+    if (not isinstance(name, str) or not name or '\\' in name or ':' in name
+            or PurePosixPath(name).is_absolute() or any(p in ('', '.', '..') for p in name.split('/'))):
+        raise ValueError('Revision source requires an exact product-relative path')
+    root = Path(product).resolve(); path = (root/name).resolve()
+    if not path.is_relative_to(root) or not path.is_file():
+        raise ValueError('Revision baseline source is absent or outside product')
+    return path
+
+
+def capture_revision(product, request):
+    """Freeze an explicitly requested local revision and its genuine reuse inputs."""
+    from image_fact_update import project_unchanged, mask_product
+    if not isinstance(request,dict):
+        raise ValueError('Scoped Listing revision requires an explicit declaration')
+    fields, paths = request.get('fields'), request.get('productPaths')
+    if (not isinstance(fields, list) or not fields
+            or any(not isinstance(f, list) or len(f)!=2 or not all(isinstance(v,str) and v.strip() for v in f) for f in fields)
+            or len({tuple(f) for f in fields})!=len(fields) or not isinstance(paths,list)
+            or any(not isinstance(p,str) or not p.startswith('/') or p=='/' or '//' in p for p in paths)
+            or len(set(paths))!=len(paths)
+            or type(request.get('serialResearchUpdate',False)) is not bool
+            or not all(isinstance(request.get(k),str) and request[k].strip() for k in ('baselineReference','basis'))):
+        raise ValueError('Scoped Listing revision requires exact fields/paths and actual baseline/basis')
+    previous = _revision_file(product,request['previousLedgerPath'])
+    reuse = _revision_file(product,request['reuseReviewPath'])
+    data = read(previous)
+    current = export.load_ledger(Path(product)/'research-ledger.json')
+    if any(data.get(k)!=current[k] for k in ('productId','configurationId')):
+        raise ValueError('Listing revision baseline identity differs')
+    project_unchanged(data,{tuple(f) for f in fields})
+    facts = read(Path(product)/'product-facts.json'); mask_product(facts,paths)
+    return {'schemaVersion':1,'scope':request,'previousLedgerSha256':digest(previous),
+            'reuseReviewSha256':digest(reuse),'baselineProductFacts':facts}
+
+
+def check_revision(product, frozen, roles):
+    from image_fact_update import check_research_scope, mask_product
+    if not isinstance(frozen,dict) or frozen.get('schemaVersion')!=1:
+        raise ValueError('Frozen scoped Listing revision required')
+    scope=frozen['scope']; previous=_revision_file(product,scope['previousLedgerPath'])
+    reuse=_revision_file(product,scope['reuseReviewPath'])
+    if digest(previous)!=frozen['previousLedgerSha256'] or digest(reuse)!=frozen['reuseReviewSha256']:
+        raise ValueError('Listing revision baseline/reuse evidence changed')
+    data=export.load_ledger(Path(product)/'research-ledger.json'); old=read(previous)
+    fields={tuple(f) for f in scope['fields']}
+    try:
+        check_research_scope(old,data,fields,scope.get('serialResearchUpdate',False))
+    except ValueError as error:
+        raise ValueError('Listing research changed outside its declared revision: '+str(error)) from error
+    if mask_product(read(Path(product)/'product-facts.json'),scope['productPaths']) != mask_product(frozen['baselineProductFacts'],scope['productPaths']):
+        raise ValueError('Listing product metadata changed outside its declared revision')
+    trace=audit_research(data,required=True,previous_bytes=previous.read_bytes(),reuse=read(reuse))
+    workbooks=[n for n,r in roles.items() if r=='LISTING' and n.endswith('.xlsx')]
+    if not workbooks:
+        raise ValueError('A Listing revision needs an actual Listing workbook')
+    required={'research-ledger.json','product-facts.json','reference-audit.json'}
+    for name in workbooks:
+        summary=str(Path(name).with_suffix('.research-summary.json')); required.update((name,summary))
+        if read(Path(product)/summary).get('researchTrace')!=trace:
+            raise ValueError('Scoped Listing summary must bind the actual previous ledger/reuse review')
+    if not required<=set(roles):
+        raise ValueError('Scoped Listing contract omits workbook or current dependencies')
+    return {'state':'SCOPED_LISTING_REVISION_CHECKED','files':sorted(required),
+            'baselineReference':scope['baselineReference'],'researchTrace':trace,
+            'retainedWorkbookState':'UNCHANGED_NOT_REVALIDATED_AGAINST_REVISED_FACTS',
+            'fullBundlePass':False}
+
+
+def check_delivery(product, selected, roles, contract_outputs=None, revision=None):
     """Guard current full-draft bundles at the existing production/delivery boundary."""
     data = read(Path(product)/'research-ledger.json')
-    if data.get('listing_draft_contract_version') != 1 or not any(roles[n] == 'LISTING' for n in selected):
+    if not any(roles[n] == 'LISTING' for n in selected):
+        return None
+    if revision is not None:
+        return check_revision(product,revision,contract_outputs or roles)
+    if data.get('listing_draft_contract_version') != 1:
         return None
     result = verify(product)
     required = {*result['files'], 'research-ledger.json', 'product-facts.json', 'reference-audit.json'}
-    if not required <= set(selected):
-        raise ValueError('Full draft delivery omits bundle files/dependencies: ' + ', '.join(sorted(required-set(selected))))
+    declared=set(selected) if contract_outputs is None else set(contract_outputs)
+    if not required <= declared:
+        raise ValueError('Full draft delivery omits bundle files/dependencies: ' + ', '.join(sorted(required-declared)))
+    if not set(selected)<=declared:
+        raise ValueError('Batch exceeds the frozen full Draft contract')
+    result={**result,'deliveryScope':'FULL_BUNDLE' if required<=set(selected) else 'BATCH',
+            'remainingContractedFiles':sorted(required-set(selected))}
     return result
 
 

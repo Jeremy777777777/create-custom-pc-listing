@@ -100,6 +100,50 @@ def verify(product, upload_plan, readbacks, destinations, context=None):
             'publicationStatus': 'NOT_ASSESSED', 'files': results}
 
 
+def complete(product, contract_path, contract_sha256, receipt_paths):
+    """Accumulate exact-run production-bound receipts; no upload or remote lock."""
+    from production_guard import verify as production_verify
+    production=production_verify(product,contract_path,contract_sha256)
+    contract=read(contract_path)
+    if production['mode']=='CONCEPT_ONLY' or not receipt_paths:
+        raise ValueError('Actual production receipts required for completion')
+    expected=production['files']; received={}; evidence=[]
+    for path in receipt_paths:
+        receipt=read(path); bound=receipt.get('productionScope',{})
+        if (receipt.get('artifactRole')!='DRIVE_DELIVERY_RECEIPT'
+                or receipt.get('deliveryState')!='DRIVE_DELIVERY_VERIFIED'
+                or receipt.get('productId')!=contract['productId'] or receipt.get('runId')!=contract['runId']
+                or receipt.get('productionState')!='SCOPED_PRODUCTION_AND_DRIVE_CHECKS_PASS'
+                or bound.get('contractSha256')!=contract_sha256
+                or (receipt.get('destinationPrivacyContext') or {}).get('state')!='DESTINATION_AND_PRIVACY_RECORDS_CHECKED'):
+            raise ValueError('Completion requires same-run, scope/privacy-verified batch receipts')
+        utc(receipt['verifiedAtUtc'])
+        rows=receipt.get('files',[])
+        if not rows or len({r['relativePath'] for r in rows})!=len(rows):
+            raise ValueError('Completion batch has empty or duplicate files')
+        for row in rows:
+            name=row['relativePath']
+            if (name not in expected or row.get('sha256')!=expected[name]
+                    or bound.get('files',{}).get(name)!=row['sha256']
+                    or not row.get('fileId') or not row.get('parentFolderId') or not row.get('verifiedBy')):
+                raise ValueError('Batch file is outside the contract or stale')
+            prior=received.get(name)
+            if prior and any(prior.get(k)!=row.get(k) for k in ('sha256','fileId','parentFolderId')):
+                raise ValueError('Conflicting batch versions require reconciliation')
+            received[name]=row
+        evidence.append({'sha256':hashlib.sha256(Path(path).read_bytes()).hexdigest(),
+                         'files':sorted(r['relativePath'] for r in rows)})
+    missing=sorted(set(expected)-set(received))
+    return {'schemaVersion':1,'artifactRole':'DRIVE_CONTRACT_COMPLETION_RECEIPT',
+            'productId':contract['productId'],'runId':contract['runId'],'contractSha256':contract_sha256,
+            'deliveryState':'DRIVE_DELIVERY_PARTIAL' if missing else 'DRIVE_DELIVERY_VERIFIED',
+            'allContractedOutputsVerified':not missing,'remainingContractedFiles':missing,
+            'verifiedAtUtc':datetime.now(timezone.utc).isoformat(),'files':[received[n] for n in sorted(received)],
+            'batchEvidence':evidence,'productionScope':production,
+            'verificationScope':'SUPPLIED_VERIFIED_BATCH_RECEIPTS_NOT_A_FRESH_PROVIDER_READ',
+            'publicationStatus':'NOT_ASSESSED'}
+
+
 def main():
     parser = argparse.ArgumentParser(description=__doc__)
     commands = parser.add_subparsers(dest='command', required=True)
@@ -110,7 +154,9 @@ def main():
     for flag in ('plan', 'readbacks', 'destinations'):
         check.add_argument('--' + flag, required=True)
     check.add_argument('--context', required=True, help='Observed product folder chain and per-file privacy screens')
-    for command in (make, check):
+    finish=commands.add_parser('complete')
+    finish.add_argument('--receipt',action='append',required=True,help='Existing verified production-bound batch receipt')
+    for command in (make, check, finish):
         command.add_argument('--product', required=True)
         command.add_argument('--output', required=True)
         command.add_argument('--production-contract', required=True, help='Pre-edit scope contract retained in the run record')
@@ -129,6 +175,8 @@ def main():
         if {f['relativePath']:f['sha256'] for f in result['files']}!=production['files']:
             raise ValueError('Files changed between production check and upload planning')
         result['productionScope']=production
+    elif args.command=='complete':
+        result=complete(args.product,args.production_contract,args.contract_sha256,args.receipt)
     else:
         from production_guard import verify as production_verify
         upload_plan=read(args.plan)
@@ -143,6 +191,9 @@ def main():
         result=verify(args.product,upload_plan,read(args.readbacks),read(args.destinations),read(args.context))
         result['productionScope']=production
         result['productionState']='SCOPED_PRODUCTION_AND_DRIVE_CHECKS_PASS'
+        result['deliveryScope']='CONTRACT' if set(production['files'])==set(contract['outputs']) else 'BATCH'
+        result['allContractedOutputsVerified']=set(production['files'])==set(contract['outputs'])
+        result['remainingContractedFiles']=sorted(set(contract['outputs'])-set(production['files']))
     output.parent.mkdir(parents=True, exist_ok=True)
     output.write_text(json.dumps(result, indent=2) + '\n', encoding='utf-8')
     print(result.get('deliveryState', result.get('state')))

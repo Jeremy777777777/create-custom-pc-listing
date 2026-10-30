@@ -96,3 +96,11 @@ imageReview 各适用分支使用 sourceBindings 固定实际规则文件／章�
 GitHub 修改先检查、提交、推送，再手动更新 Drive 当前 source 对应文件；替换旧副本前归档，读回字节与 Git blob 核对，保存带提交 SHA 的范围回执。此方式可以正常完成本任务，不以自动备份未启用为阻塞。
 
 自动 GitHub runner 同步仅保留显式 workflow_dispatch。没有配置其凭据不影响当前手动生产，不宣称全量自动快照、CURRENT 发布或未来自动同步已经启用。
+
+## 范围生产补充
+
+单图 scopeVersion 2 只要求本图声明字段、单位和必要商品身份已验证，未使用的 CPU 等未知状态不构成同页阻塞。图片补研究可以保留旧记录并添加／改选声明字段的事实，也可以创建声明叶子的缺失父结构；未声明内容仍受冻结保护。
+
+完整新 Draft 和已有商品局部修订分别处理。局部修订显式使用 listingRevision，绑定前一账本／复用审查和声明字段，保留无关工作簿；完整新 Draft 的全套要求仍不变。分批上传使用同一完整合同，每批验收实际文件，再用 drive_delivery.py complete 累积回执。缺件、错 run、旧哈希或冲突 file ID 不能成为整项完成。
+
+每个生产 run 在记录 SHA 的独立干净目录／managed worktree 执行。workflow_run.py create 验证该 SHA 与实际执行 checkout 一致。Draft 的生成版本与当前验收版本分别保留，避免仅因无关规则提交而重复生成不变的 Excel；真实事实、模板、文案、候选与字节检查仍按当前规则执行。

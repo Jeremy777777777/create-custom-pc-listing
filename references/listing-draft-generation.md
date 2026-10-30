@@ -45,8 +45,14 @@ Listing 阶段始终检查完整文案，不依赖调用者记得加可选 copy 
 
 ## 交付完成的条件
 
-按既有 production_guard 冻结范围，完整新 Draft 的 outputs 必须包括两份工作簿、两份 summary、候选 HTML、bundle、账本、产品事实和 reference audit。`listing_draft.check_delivery` 已接入实际生产验收；漏文件不能通过。其通过只证明本地文件和已记录依据一致，不证明来源真实或平台可发布。
+按既有 production_guard 冻结范围，完整新 Draft 的 outputs 必须包括两份工作簿、两份 summary、候选 HTML、bundle、账本、产品事实和 reference audit。`listing_draft.check_delivery` 已接入实际生产验收；漏文件不能通过。分批交付时完整 outputs 只在冻结合同中声明一次，每批只验收／上传该批文件；使用 drive_delivery.py complete 汇总同一合同的实际回执，缺件不能声明整项完成。其通过只证明本地文件和已记录依据一致，不证明来源真实或平台可发布。
 
 按既有 Drive 授权保留原 coherent 版本，复用实际 product folder 和 file IDs，上传原始 XLSX，核对真实字节／父目录；最后更新当前链接／完成记录并清理本次已交付缓存。直到实际交付验证完成，bundle 的 `NOT_UPLOADED` 只是生成时状态，不自动变成已上传。独立记录产品交付、研究剩余项、工作流备份和图片状态。图片风格仍由用户决定，Seller Central 不自动发布。
 
 以后只需请求“为 <内部 ID> 生成 Listing Draft”；执行者自动应用本入口，无须用户再次提醒候选值、代际、单位、Research Review 或交付核对。
+
+## 已有商品局部修订与版本来源
+
+明确的局部修订使用生产合同 listingRevision：声明字段、产品叶子路径、真实前一账本、影响／复用审查及其来源。按 production-guardrails.md 的路径生成单份 Draft 和 summary，并交付当前 ledger/facts/reference audit；不重新生成未请求的 Research Review，不让旧全套 bundle 冒充新全套通过。
+
+bundle 的 inputs.workflowSha 是实际生成版本，保留不变。verify 仍使用当前校验器检查当前事实、模板、候选、文案和全部保存字节，另返回 verificationWorkflowSha；无关工作流提交本身不会要求重写工作簿。真实输入／保存字节／适用规则检查失败仍拒绝。每个生产 run 使用独立干净工作目录或 managed worktree，固定到请求记录的 SHA，期间不要合并无关规则；生产合同仍严格绑定其实际执行版本。

@@ -226,7 +226,8 @@ class SemanticBrandAndCopy(unittest.TestCase):
 class ConnectorRun(unittest.TestCase):
     def setup_run(self, root, mode='CONNECTOR'):
         p=simple_product(root);run=root/'run'
-        runs.create(run,p,'TASK-TEST','RUN-TEST','Synthetic user instruction',mode,'a'*40)
+        with patch.object(guard,'workflow',return_value='a'*40):
+            runs.create(run,p,'TASK-TEST','RUN-TEST','Synthetic user instruction',mode,'a'*40)
         evidence=root/'tool-evidence.json'
         g.write(evidence,{'source':mode,'outcome':'SUCCEEDED','notes':'Synthetic connector receipt only','id':'synthetic-file'})
         return p,run,evidence

@@ -17,9 +17,14 @@ def selected_facts(ledger):
     return {(field['sheet'],field['attribute']):facts[field['selected_fact']] for field in ledger['fields']}
 
 
-def hardware_projection(ledger,product=None):
+def hardware_projection(ledger,product=None,required_fields=None):
     """Bind selected hardware facts, not offer values, research notes or factory alternatives."""
     selected=selected_facts(ledger)
+    if required_fields is not None:
+        required = set(required_fields)
+        if not required <= set(selected):
+            raise ValueError('Required image fields must be selected ledger fields')
+        selected = {key: row for key, row in selected.items() if key in required}
     for (sheet,field),fact in selected.items():
         if sheet=='Product Details' and field in STORAGE_FIELDS: check_nominal_storage_basis(fact)
     if product is not None:
@@ -28,7 +33,19 @@ def hardware_projection(ledger,product=None):
         base=product.get('selectedBaseConfiguration',{})
         if isinstance(base,dict) and base.get('id') and base['id']!=ledger['configurationId']:
             raise ValueError('Image research belongs to another configuration')
-        check_image_cache(selected,product)
+        scoped_product = product
+        if required_fields is not None:
+            scoped_product = copy.deepcopy(product)
+            fields = {field for _, field in selected}
+            if not fields & {'CPU Model', 'CPU Model Number', 'CPU Model Manufacturer'}:
+                scoped_product.pop('cpu', None)
+                identity = scoped_product.get('identity')
+                if isinstance(identity, dict):
+                    for key in ('cpu', 'cpuModelNumber', 'cpuFieldAliases'):
+                        identity.pop(key, None)
+            if not fields & STORAGE_FIELDS:
+                scoped_product.pop('internalStorage', None)
+        check_image_cache(selected,scoped_product)
     keys=('id','status','final_value','fact_scope','configurationId','source',
           'applies_to_sold_configuration','transfer_basis')
     projection={'productId':ledger['productId'],'configurationId':ledger['configurationId'],
@@ -36,7 +53,8 @@ def hardware_projection(ledger,product=None):
                         for (sheet,field),fact in sorted(selected.items())
                         if sheet=='Product Details' and field not in NON_IMAGE_FIELDS]}
     from research_handoff import storage_dependency_projection
-    dependencies=storage_dependency_projection(ledger)
+    dependencies=(storage_dependency_projection(ledger) if required_fields is None
+                  or any(field in STORAGE_FIELDS for _,field in selected) else None)
     if dependencies is not None: projection['storageDependencies']=dependencies
     bases={field:fact['evidence']['capacity_basis'] for (sheet,field),fact in selected.items()
            if sheet=='Product Details' and field in STORAGE_FIELDS and 'capacity_basis' in fact.get('evidence',{})}

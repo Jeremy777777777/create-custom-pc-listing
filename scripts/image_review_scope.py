@@ -92,16 +92,19 @@ def binding(directory, slot, dependencies, policy_text=None):
             or style.get('style_approval_status', style.get('status')) != 'APPROVED'):
         raise ValueError('Scoped image review requires matching product/ledger and approved style')
     selected = selected_facts(ledger)
-    hardware = hardware_projection(ledger, facts)  # Retain cache/ledger coherence checks.
     requested = {tuple(key) for key in fields}
     if any(key not in selected for key in requested):
         raise ValueError('Image dependency is not a selected ledger field')
+    if version == 2 and any(selected[key]['status'] not in {'VERIFIED','NOT_APPLICABLE'} for key in requested):
+        raise ValueError('Unresolved depicted image field: '+', '.join(field for sheet,field in sorted(requested)
+                         if selected[(sheet,field)]['status'] not in {'VERIFIED','NOT_APPLICABLE'}))
     required = requested | {key for key in selected if key[0] == 'Product Details' and key[1] in IDENTITY_FIELDS}
     # Unit facts are cheap to include and affect the meaning of any named value.
     for sheet, field in list(required):
         for key in selected:
             if key[0] == sheet and key[1].startswith(field) and key[1].endswith(' Unit'):
                 required.add(key)
+    hardware = hardware_projection(ledger, facts, required_fields=required if version == 2 else None)
     projection = [{'sheet': sheet, 'attribute': field,
                    **{k: selected[(sheet, field)][k] for k in FACT_KEYS if k in selected[(sheet, field)]},
                    'capacityBasis': selected[(sheet, field)].get('evidence', {}).get('capacity_basis')}

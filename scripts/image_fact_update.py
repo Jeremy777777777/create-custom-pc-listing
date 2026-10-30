@@ -17,7 +17,9 @@ def read(path):
 
 def declaration(value):
     from product_metadata import NON_IMAGE_FIELDS
-    if not isinstance(value, dict) or set(value) != {'fields', 'productPaths', 'basis'}:
+    if (not isinstance(value, dict) or not {'fields','productPaths','basis'} <= set(value)
+            or not set(value) <= {'fields','productPaths','basis','serialResearchUpdate'}
+            or type(value.get('serialResearchUpdate',False)) is not bool):
         raise ValueError('Image fact scope requires fields, productPaths and actual basis')
     fields, paths = value['fields'], value['productPaths']
     if (not isinstance(fields, list) or not fields
@@ -35,16 +37,26 @@ def declaration(value):
 
 def mask_product(data, paths):
     data = copy.deepcopy(data)
+    def remove(node, parts):
+        key = parts[0]
+        if key not in node:
+            return
+        value = node[key]
+        if len(parts) == 1:
+            if isinstance(value, (dict, list)):
+                raise ValueError('Image fact product paths must identify exact scalar leaves')
+            del node[key]
+        elif value is None:
+            del node[key]  # An explicitly unknown parent can acquire the declared leaf.
+        elif isinstance(value, dict):
+            remove(value, parts[1:])
+            if not value:
+                del node[key]
+        else:
+            raise ValueError('Image fact product parent must be an object or absent')
     for path in paths:
         parts = [s.replace('~1', '/').replace('~0', '~') for s in path[1:].split('/')]
-        item = data
-        for part in parts[:-1]:
-            if not isinstance(item, dict) or part not in item:
-                raise ValueError('Image fact product parent missing')
-            item = item[part]
-        if not isinstance(item, dict) or isinstance(item.get(parts[-1]), (dict, list)):
-            raise ValueError('Image fact product paths must identify exact scalar leaves')
-        item.pop(parts[-1], None)
+        remove(data, parts)
     return data
 
 
@@ -53,11 +65,38 @@ def project_unchanged(data, fields):
     selected = selected_facts(data)
     if any(key not in selected for key in fields):
         raise ValueError('Image fact scope must use existing selected ledger fields')
-    ids = {selected[key]['id'] for key in fields}
     result = copy.deepcopy(data)
     result['fields'] = [f for f in result['fields'] if (f['sheet'], f['attribute']) not in fields]
-    result['facts'] = [f for f in result['facts'] if f['id'] not in ids]
+    result['facts'] = [f for f in result['facts'] if (f['sheet'], f['attribute']) not in fields]
     return result
+
+
+def check_research_scope(before, current, fields, serial_update=False):
+    """Permit new evidence inside declared fields, preserving other facts/units."""
+    old=project_unchanged(before,fields); new=project_unchanged(current,fields)
+    if not {f['id'] for f in before['facts']} <= {f['id'] for f in current['facts']}:
+        raise ValueError('Preserve prior fact records when adding scoped research evidence')
+    if serial_update:
+        prior=old.pop('serial_research',{}); actual=new.pop('serial_research',{})
+        if prior and not actual:
+            raise ValueError('Preserve the recorded serial-research outcome')
+        facts={f['id']:f for f in current['facts']}
+        permitted={key for key,f in facts.items() if (f['sheet'],f['attribute']) in fields}
+        units={u['unit_evidence_alias']:u for u in actual.get('units',[])}
+        retained_ids=set()
+        for unit in prior.get('units',[]):
+            kept=units.get(unit['unit_evidence_alias'])
+            if (not kept or any(kept.get(k)!=v for k,v in unit.items() if k!='fact_ids')
+                    or not set(unit['fact_ids'])<=set(kept['fact_ids'])):
+                raise ValueError('Preserve prior serial-unit evidence in scoped research')
+            retained_ids.update(unit['fact_ids'])
+        linked={key for u in units.values() for key in u['fact_ids']}
+        if not linked <= permitted | retained_ids:
+            raise ValueError('New serial evidence links facts outside declared fields')
+        if not set(actual.get('resolved_fact_ids',[])) <= permitted | set(prior.get('resolved_fact_ids',[])):
+            raise ValueError('Serial resolutions exceed scoped research')
+    if old!=new:
+        raise ValueError('Research changed outside declared image fields or revision fields')
 
 
 def capture(product, scope):
@@ -87,11 +126,17 @@ def check(product, frozen):
             or facts.get('selectedBaseConfiguration', {}).get('id') != previous.get('selectedBaseConfiguration', {}).get('id')):
         raise ValueError('Image fact update cannot change product/configuration identity')
     fields = {tuple(f) for f in scope['fields']}
-    if project_unchanged(ledger, fields) != project_unchanged(before, fields):
-        raise ValueError('Research changed outside declared image fields')
+    check_research_scope(before,ledger,fields,scope.get('serialResearchUpdate',False))
     if mask_product(facts, scope['productPaths']) != mask_product(previous, scope['productPaths']):
         raise ValueError('Product facts changed outside declared image paths')
-    hardware_projection(ledger, facts)
+    required = fields | {(m['sheet'], m['attribute']) for m in ledger['fields']
+                         if m['sheet'] == 'Product Details' and m['attribute'] in
+                         {'Manufacturer', 'Model Name', 'Model Number', 'Color', 'Form Factor'}}
+    for sheet, field in list(required):
+        required.update((m['sheet'], m['attribute']) for m in ledger['fields']
+                        if m['sheet'] == sheet and m['attribute'].startswith(field)
+                        and m['attribute'].endswith(' Unit'))
+    hardware_projection(ledger, facts, required_fields=required)
     scoped = {**ledger, 'fields': [f for f in ledger['fields'] if (f['sheet'], f['attribute']) in fields]}
     trace = trace_check(scoped, required=True)
     selected = selected_facts(ledger)

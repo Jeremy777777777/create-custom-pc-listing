@@ -32,3 +32,9 @@ partial-update-qa schemaVersion=5保留：selectedSlots、known galleryInventory
 ## Rule-source linkage
 
 sourceBindings in the applicable shared, MAIN/supporting and series branch pin exact maintained files or Markdown sections to SHA256. Current binding verifies these bytes before accepting a review; CI also checks every configured source. Refresh only during workflow maintenance with `python scripts/image_policy_sources.py refresh --repo .`, inspect the scope/hash diff, then run `check`. Applicable source/hash changes affect that scope even if a manual numeric version was not bumped. Source sections keep unrelated MAIN/supporting changes independent. Historical policy records use their original committed source pins; source-less legacy-v2 payloads retain their exact older hash shape. No review is automatically refreshed or approved.
+
+## Actual scoped cache validation
+
+For scopeVersion 2, cache coherence and verification apply to declared fact dependencies, their paired units and necessary manufacturer/model/colour/form-factor identity fields. An unresolved CPU or SSD not shown or depended on by this page does not block a port/option page; current ledger structure and exact product/configuration checks still run. Declared data conflicts remain errors. Legacy global reviews retain their existing whole-cache contract.
+
+A new v2 review cannot declare an unresolved visible hardware field as approved: requested fields must be VERIFIED or evidenced NOT_APPLICABLE. This does not force unrelated unknown fields into the page or turn a PARTIAL research handoff into a product-image PASS.

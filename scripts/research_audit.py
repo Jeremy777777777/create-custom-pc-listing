@@ -32,7 +32,9 @@ def validate_summary_trace(data, recorded):
         raise ValueError('Research trace summary disagrees with current ledger coverage')
     reuse = recorded.get('legacyReuse')
     if reuse is not None:
-        missing = {f['id'] for f in data['facts'] if not f.get('evidence', {}).get('research_trace')}
+        from fcc_inventory import is_external_field
+        missing = {f['id'] for f in data['facts'] if not is_external_field(data,f)
+                   and not f.get('evidence', {}).get('research_trace')}
         missing &= {m['selected_fact'] for m in data['fields']}
         if (not isinstance(reuse, dict) or not isinstance(reuse.get('retainedFactIds'), list)
                 or set(reuse['retainedFactIds']) != missing or len(reuse['retainedFactIds']) != len(missing)
