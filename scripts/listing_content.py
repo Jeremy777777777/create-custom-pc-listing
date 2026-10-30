@@ -1,6 +1,7 @@
 """Formal export content checks; drafts keep unresolved evidence without invented values."""
 import math
 import re
+from customer_visible_content import validate_customer_text
 from product_metadata import cpu_text,cpu_aliases,cpu_field_matches,check_base_storage_medium
 from capacity_units import capacity_units,MEMORY_CAPACITY_UNITS,STORAGE_CAPACITY_UNITS,scaled_capacity,CAPACITY_NUMBER,capacity_number
 
@@ -124,6 +125,11 @@ def validate_listing(projected, product, definitions=None,storage_total_gb=None,
     from dimension_units import validate_dimensions
     validate_dimensions(projected)
     values = {field:record['value'] for (sheet,field),record in projected.items() if sheet=='Product Details'}
+    for field in ('Item Name', 'Bullet Point', 'Product Description', 'Generic Keyword',
+                  'Special Feature', 'Included Components', 'Model Name', 'Model Number'):
+        value = values.get(field)
+        if isinstance(value, str):
+            validate_customer_text(value)
     for key,record in projected.items():
         value=record['value']
         if value is None: continue

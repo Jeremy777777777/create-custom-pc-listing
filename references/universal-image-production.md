@@ -1,5 +1,8 @@
 # Universal image production — user confirmation 2026-10-29
 
+User decision 2026-10-30: [customer-facing images and copy](customer-facing-image-content.md) applies to every series and future output. No internal page eyebrows, fixed fine-print footers/dividers, ERP IDs or preview/version labels in artwork or customer copy. Keep buyer headlines and verified feature labels; status stays in records. Check customer copy before generation and inspect actual rendered pixels before delivery.
+
+
 Gaming PT current direction: [visual explanation](gaming-visual-explanation.md) owns G22/A22/GG22 PT01–PT08 appearance, generation and per-page standards (`gaming-visual-explanation-v2`). Supply the approved image references; let the page subject determine visual dominance. Named-game source rules remain; technical/task concept generation is allowed. Older Gaming families are explicit opt-in, not default fallbacks. MAIN, Mini PC and Business rules stay independently scoped.
 
 User decision 2026-10-29: for new complete customized galleries, the [universal RAM/SSD choice page](universal-customization-image.md) owns PT05 across Business, Gaming, Mini PC and other form factors. Show every seller-approved tier with a useful short caption; fixed RAM retains actual capacity/type without RAM choices. This overrides older PT05 installed-only/no-option/task-only prescriptions while retaining the eleven-file set, PT03 base configuration, current style approval and unchanged-slot boundaries.

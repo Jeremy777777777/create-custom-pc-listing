@@ -2,6 +2,7 @@
 import argparse
 import json
 from pathlib import Path
+from customer_visible_content import validate_customer_text
 
 PROFILE = 'gaming-visual-explanation-v2'
 SLOTS = {f'PT{i:02}.png' for i in range(1, 9)}
@@ -43,12 +44,15 @@ def check(plan, registry):
         for ref in refs:
             if ref not in known or hashes.get(ref) != known[ref]:
                 raise ValueError(slot + ': reference ID/hash does not match approved registry')
+        for copy in visual['exactCopy']:
+            validate_customer_text(copy)
         mappings = visual.get('labelToVisualMap')
         if not isinstance(mappings, list) or not mappings:
             raise ValueError(slot + ': label-to-visual mapping required')
         for mapping in mappings:
             if not isinstance(mapping, dict) or not all(nonempty(mapping.get(k)) for k in ('label', 'visual')):
                 raise ValueError(slot + ': each mapping needs label and visual')
+            validate_customer_text(mapping['label'])
         if row.get('primaryTheme') == 'Product hero and buying reasons' or row.get('visualProof') == 'PRODUCT_HERO':
             raise ValueError(slot + ': replace the shared Mini PC product-hero seed with Gaming subject-led planning')
     return {'state': 'GAMING_VISUAL_PLAN_INPUTS_CHECKED', 'methodProfile': PROFILE,

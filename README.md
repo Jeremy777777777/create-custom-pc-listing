@@ -1,5 +1,8 @@
 # MegaPC Custom PC listing and image workflow
 
+User decision 2026-10-30: [customer-facing images and copy](references/customer-facing-image-content.md) applies to every series and future output. No internal page eyebrows, fixed fine-print footers/dividers, ERP IDs or preview/version labels in artwork or customer copy. Keep buyer headlines and verified feature labels; status stays in records. Check customer copy before generation and inspect actual rendered pixels before delivery.
+
+
 Gaming PT current design: [visual-explanation standards](references/gaming-visual-explanation.md), [eight-page layout brief](assets/gaming-approved-editorial-template.json) and [four user-selected VL-1221 reference images](assets/gaming-visual-reference-registry.json). Plan the explanatory subject before generation, pass the actual reference image, and preserve selected depth/composition during refinement. New plans run `scripts/gaming_visual_plan.py`; other series and MAIN stay separate.
 
 User refinement 2026-10-29: [subject-first Business storyboards](references/business-laptop-reference-adaptation.md#subject-first-storyboard-and-actual-views) choose the page subject before a computer: real varied angles, native details, scenes, product-free choices or evidenced accessories. PT01-PT08 use a full front view at most once; PT05 omits the laptop and explains options through distinct use illustrations with a compact fixed-memory note. New production requires storyboard contract version 2; actual-source and contact-sheet review remain mandatory.
