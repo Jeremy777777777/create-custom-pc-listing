@@ -27,7 +27,7 @@ class FCCIntegrationEdgeTests(unittest.TestCase):
 
     def cli(self, ledger, out, *extra):
         args = ['research_export.py', '--ledger', str(ledger), '--workbook', str(out),
-                '--write-workbook', '--stage', 'RESEARCH_REVIEW', *map(str, extra)]
+                '--write-workbook', '--legacy-fcc-workbook', '--stage', 'RESEARCH_REVIEW', *map(str, extra)]
         with patch.object(sys, 'argv', args), contextlib.redirect_stdout(io.StringIO()), contextlib.redirect_stderr(io.StringIO()):
             r.main()
 

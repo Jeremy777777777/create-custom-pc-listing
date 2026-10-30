@@ -158,7 +158,7 @@ class CustomizationTests(unittest.TestCase):
                 write_audit(ledger)
                 output = root/'TEST_LISTING_DRAFT.xlsx'
                 command = [sys.executable, str(export.ROOT/'scripts/research_export.py'), '--ledger', str(ledger),
-                           '--workbook', str(output), '--write-workbook', '--stage', 'LISTING_DRAFT']
+                           '--workbook', str(output), '--write-workbook', '--legacy-fcc-workbook', '--stage', 'LISTING_DRAFT']
                 result = subprocess.run(command, capture_output=True, text=True, encoding='utf-8')
                 self.assertEqual(result.returncode, 0, result.stderr)
                 checked = export.run(export.ROOT/'assets/listing-workbook-template.xlsx', ledger, output,

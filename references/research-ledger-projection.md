@@ -1,10 +1,13 @@
 # Scoped ledger, workbook projection and export evidence check — 2026-10-14
 
+**2026-10-30 FCC routing:** [Standalone FCC workflow](fcc-research-workflow.md) supersedes older FCC lookup/workbook instructions in this document. Only an explicit `FCC_LOOKUP_ONLY` task researches FCC; results and used serials go to private ERP Listing Inventory, not Listing Research/Draft. New listing ledgers use `fcc_management: ERP_INVENTORY` and the neutral blank FCC disposition. Non-FCC research and compliance remain unchanged. Any old FCC projection examples below apply only to historical records.
+
+
 Apply [serial-number-product-research.md](serial-number-product-research.md), [research-attribute-coverage.md](research-attribute-coverage.md) and the FCC-specific reference. Research drafts may contain honest unresolved fields; export evidence checks are a separate stage, not a prerequisite for doing research or delivering a draft.
 
 ## Generate Excel from a scoped ledger
 
-After performing the OEM/FCC research and recording its evidence, create a new staged workbook from the canonical template:
+After performing the applicable non-FCC product research and recording its evidence, create a new staged workbook from the canonical template:
 
 New generation also requires the exact-ledger-bound [browser reference audit](workbook-reference-contract.md). The writer installs literal source text with native hyperlinks; new export and production delivery enforce opened-source evidence and panel consistency. Missing audits on old read-only workbooks remain explicitly unassessed. Keep the reference audit with the product QA evidence and reconstruct it beside the ledger when validating a Drive working copy.
 
@@ -12,7 +15,7 @@ New generation also requires the exact-ledger-bound [browser reference audit](wo
 & $listingPython -X utf8 scripts/research_export.py --ledger "product generated photo/PRODUCT-ID/research-ledger.json" --workbook "product generated photo/PRODUCT-ID/PRODUCT-ID_RESEARCH_REVIEW_v2.xlsx" --write-workbook --mode draft --stage RESEARCH_REVIEW
 ```
 
-Resolve `$listingPython` to the dedicated listing-testing interpreter as described in the testing reference. The ledger must cover every template field; unresolved fields keep null final values and honest Status/Source. New FCC facts require the updated guide's `evidence.lookup_outcome`; confirmed-unit facts require the documented module/installation/FCC/date evidence. Driver-only or selected-supported-option IDs remain research candidates.
+Resolve `$listingPython` to the dedicated listing-testing interpreter as described in the testing reference. The ledger must cover every template field; unresolved fields keep null final values and honest Status/Source. New ledgers set `fcc_management: ERP_INVENTORY` and use the blank FCC handoff specified in the standalone workflow. FCC lookup outcomes and candidates are not recorded here.
 
 The writer copies the canonical workbook's sheets, headers, definitions, validations and styles, writes Value/Status/Source and the two review-only candidate rows, formats the FCC ID as text, and applies the guide's green/red progress colors. It validates a temporary workbook before creating the requested output, refuses existing filenames and snapshot destinations, and leaves the ledger/template unchanged. In canonical product folders it also rejects stale current sibling workbooks before creating another stage. Use immutable snapshots to archive previous revisions with their genuine original ledger/template before changing the current ledger.
 

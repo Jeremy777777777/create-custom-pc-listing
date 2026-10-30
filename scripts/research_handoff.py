@@ -25,10 +25,13 @@ def check_product_location(workbook,product_id,product=None):
 
 
 def coverage_summary(data,projected):
+    from fcc_inventory import is_external_field
     from serial_research import serial_research_summary
     facts={f['id']:f for f in data['facts']}
     sheets={};unresolved=[]
     for (sheet,attribute),record in projected.items():
+        if is_external_field(data, facts[record['fact_id']]):
+            continue  # Explicit external task, not a missing listing-research follow-up.
         counts=sheets.setdefault(sheet,Counter({s:0 for s in STATUSES}))
         counts[record['status']]+=1
         if record['status'] in ('VERIFIED','NOT_APPLICABLE'): continue
@@ -43,6 +46,7 @@ def coverage_summary(data,projected):
                 'missing':[key for key in ('nextAction','owner') if not isinstance(r[key],str) or not r[key].strip()]}
                 for r in unresolved if any(not isinstance(r[k],str) or not r[k].strip() for k in ('nextAction','owner'))],
             'serialResearch':serial_research_summary(data),
+            'fccManagement':data.get('fcc_management','LEGACY_WORKBOOK'),
             'factualReadinessAssessed':False}
 
 

@@ -140,7 +140,7 @@ class FCCGuideWriterTests(unittest.TestCase):
             write_audit(ledger)
             out = root/'new.xlsx'
             command = [sys.executable, str(r.ROOT/'scripts/research_export.py'), '--ledger', str(ledger),
-                       '--workbook', str(out), '--write-workbook', '--stage', 'RESEARCH_REVIEW']
+                       '--workbook', str(out), '--write-workbook', '--legacy-fcc-workbook', '--stage', 'RESEARCH_REVIEW']
             completed = subprocess.run(command, capture_output=True, text=True, encoding='utf-8')
             self.assertEqual(completed.returncode, 0, completed.stderr)
             summary = json.loads(out.with_suffix('.research-summary.json').read_text(encoding='utf-8'))

@@ -140,7 +140,7 @@ class ProductionRevisionTests(unittest.TestCase):
             from reference_fixtures import write_audit
             write_audit(ledger)
             out = root/'updated.xlsx'
-            args = ['research_export', '--write-workbook', '--ledger', str(ledger), '--workbook', str(out),
+            args = ['research_export', '--write-workbook', '--legacy-fcc-workbook', '--ledger', str(ledger), '--workbook', str(out),
                     '--previous-ledger', str(prior), '--research-reuse', str(reviewed)]
             with patch.object(sys, 'argv', args), contextlib.redirect_stdout(io.StringIO()): export.main()
             self.assertTrue(out.is_file())
@@ -153,7 +153,7 @@ class ProductionRevisionTests(unittest.TestCase):
             self.assertEqual(summary['workbookSha256'], hashlib.sha256(out.read_bytes()).hexdigest())
             # The same revision without a bound baseline still cannot skip the audit.
             blocked = root/'blocked.xlsx'
-            args = ['research_export', '--write-workbook', '--ledger', str(ledger), '--workbook', str(blocked)]
+            args = ['research_export', '--write-workbook', '--legacy-fcc-workbook', '--ledger', str(ledger), '--workbook', str(blocked)]
             with patch.object(sys, 'argv', args), contextlib.redirect_stderr(io.StringIO()), self.assertRaises(SystemExit): export.main()
             self.assertFalse(blocked.exists())
 

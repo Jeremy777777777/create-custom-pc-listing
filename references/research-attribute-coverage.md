@@ -1,5 +1,8 @@
 # Product Attribute Research Coverage
 
+**2026-10-30 FCC routing:** [Standalone FCC workflow](fcc-research-workflow.md) supersedes older FCC lookup/workbook instructions in this document. Only an explicit `FCC_LOOKUP_ONLY` task researches FCC; results and used serials go to private ERP Listing Inventory, not Listing Research/Draft. New listing ledgers use `fcc_management: ERP_INVENTORY` and the neutral blank FCC disposition. Non-FCC research and compliance remain unchanged. Any old FCC projection examples below apply only to historical records.
+
+
 Customized listing research additionally follows [RAM replaceability/type and seller options](customization-options-policy.md). Record exact DDR/LPDDR family/generation and replaceability; capacity choices are confirmed seller policy, not a platform-maximum research prerequisite. Retain installed base numeric facts separately.
 See [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for the active seller/base-configuration policy.
 
