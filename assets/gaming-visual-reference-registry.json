@@ -1,0 +1,57 @@
+{
+  "schemaVersion": 1,
+  "methodProfile": "gaming-visual-explanation-v2",
+  "referenceProduct": "VL-1221",
+  "scope": "Gaming PT appearance, not transferable hardware facts",
+  "approvalSource": "Current conversation: user accepted PT03, then PT01/PT05/PT07, and explicitly requested all proposed workflow changes plus replacement of the three latest images.",
+  "referenceFolderId": "1nrdBPIqKxghhmY2ZDB5St6AYEqXxuFQs",
+  "referenceFolderUrl": "https://drive.google.com/drive/folders/1nrdBPIqKxghhmY2ZDB5St6AYEqXxuFQs",
+  "requestedCurrentReplacement": [
+    "PT01.png",
+    "PT05.png",
+    "PT07.png"
+  ],
+  "pt03CurrentReplacementAuthorized": false,
+  "references": [
+    {
+      "slot": "PT01",
+      "driveFileId": "1Wx19lGkwiG2Bc-_aPb1JXArm7xOQfZ3-",
+      "driveUrl": "https://drive.google.com/file/d/1Wx19lGkwiG2Bc-_aPb1JXArm7xOQfZ3-/view",
+      "sha256": "0ca68a29b78b47c326de6291249dcd689d580daf3bcae5427dd7e8d72dac5402",
+      "size": 2563551,
+      "kind": "USER_SELECTED_GENERATED_APPEARANCE_REFERENCE",
+      "productionQa": "NOT_ESTABLISHED_BY_STYLE_SELECTION",
+      "previewLabelRetained": true
+    },
+    {
+      "slot": "PT03",
+      "driveFileId": "1XHW6lqb7TM1S6LVCcx5QCd3YxqKOO0mO",
+      "driveUrl": "https://drive.google.com/file/d/1XHW6lqb7TM1S6LVCcx5QCd3YxqKOO0mO/view",
+      "sha256": "998d5968afff793f73d696acaed8ed173ff00b9039ed676577d54c0e215df336",
+      "size": 2611747,
+      "kind": "USER_SELECTED_GENERATED_APPEARANCE_REFERENCE",
+      "productionQa": "NOT_ESTABLISHED_BY_STYLE_SELECTION",
+      "previewLabelRetained": true
+    },
+    {
+      "slot": "PT05",
+      "driveFileId": "1WRcAjn6BCe_fIUGh2z0K4w3HVzsaUt1_",
+      "driveUrl": "https://drive.google.com/file/d/1WRcAjn6BCe_fIUGh2z0K4w3HVzsaUt1_/view",
+      "sha256": "57ea27b1cc00947454c57032eca8bd463b72e8fa488165b4b85dbb6e36282fec",
+      "size": 2365106,
+      "kind": "USER_SELECTED_GENERATED_APPEARANCE_REFERENCE",
+      "productionQa": "NOT_ESTABLISHED_BY_STYLE_SELECTION",
+      "previewLabelRetained": true
+    },
+    {
+      "slot": "PT07",
+      "driveFileId": "1NCe-Rd5i8Q1Ift4n6QeMTlQr1aOPc8x6",
+      "driveUrl": "https://drive.google.com/file/d/1NCe-Rd5i8Q1Ift4n6QeMTlQr1aOPc8x6/view",
+      "sha256": "4f2be14fe3a51960d002781b5421acb3d782f2e6aa35b6806e47ce8d73c2d73d",
+      "size": 2090329,
+      "kind": "USER_SELECTED_GENERATED_APPEARANCE_REFERENCE",
+      "productionQa": "NOT_ESTABLISHED_BY_STYLE_SELECTION",
+      "previewLabelRetained": true
+    }
+  ]
+}

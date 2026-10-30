@@ -1,5 +1,5 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "state": "TEMPLATE_NOT_A_COMPLETED_PLAN",
   "reference": "references/mini-gaming-real-source-workflow.md",
   "productId": null,
@@ -38,7 +38,23 @@
       "recipePath": null,
       "recipeSha256": null,
       "sourceAssetIds": [],
-      "inspectionNotes": null
+      "inspectionNotes": null,
+      "visualExplanation": {
+        "requiredFor": "GAMING_G22_PT_V2",
+        "subject": null,
+        "buyerUnderstanding": null,
+        "mainVisual": null,
+        "composition": null,
+        "labelToVisualMap": [],
+        "referenceImageIds": [],
+        "referenceImageSha256": {},
+        "actualProductSourceIds": [],
+        "illustrativeElements": [],
+        "exactCopy": [],
+        "avoid": [],
+        "selectedCompositionInvariants": [],
+        "native400And200Review": null
+      }
     },
     {
       "file": "PT02.png",
@@ -53,7 +69,23 @@
       "recipePath": null,
       "recipeSha256": null,
       "sourceAssetIds": [],
-      "inspectionNotes": null
+      "inspectionNotes": null,
+      "visualExplanation": {
+        "requiredFor": "GAMING_G22_PT_V2",
+        "subject": null,
+        "buyerUnderstanding": null,
+        "mainVisual": null,
+        "composition": null,
+        "labelToVisualMap": [],
+        "referenceImageIds": [],
+        "referenceImageSha256": {},
+        "actualProductSourceIds": [],
+        "illustrativeElements": [],
+        "exactCopy": [],
+        "avoid": [],
+        "selectedCompositionInvariants": [],
+        "native400And200Review": null
+      }
     },
     {
       "file": "PT03.png",
@@ -68,7 +100,23 @@
       "recipePath": null,
       "recipeSha256": null,
       "sourceAssetIds": [],
-      "inspectionNotes": null
+      "inspectionNotes": null,
+      "visualExplanation": {
+        "requiredFor": "GAMING_G22_PT_V2",
+        "subject": null,
+        "buyerUnderstanding": null,
+        "mainVisual": null,
+        "composition": null,
+        "labelToVisualMap": [],
+        "referenceImageIds": [],
+        "referenceImageSha256": {},
+        "actualProductSourceIds": [],
+        "illustrativeElements": [],
+        "exactCopy": [],
+        "avoid": [],
+        "selectedCompositionInvariants": [],
+        "native400And200Review": null
+      }
     },
     {
       "file": "PT04.png",
@@ -83,7 +131,23 @@
       "recipePath": null,
       "recipeSha256": null,
       "sourceAssetIds": [],
-      "inspectionNotes": null
+      "inspectionNotes": null,
+      "visualExplanation": {
+        "requiredFor": "GAMING_G22_PT_V2",
+        "subject": null,
+        "buyerUnderstanding": null,
+        "mainVisual": null,
+        "composition": null,
+        "labelToVisualMap": [],
+        "referenceImageIds": [],
+        "referenceImageSha256": {},
+        "actualProductSourceIds": [],
+        "illustrativeElements": [],
+        "exactCopy": [],
+        "avoid": [],
+        "selectedCompositionInvariants": [],
+        "native400And200Review": null
+      }
     },
     {
       "file": "PT05.png",
@@ -98,7 +162,23 @@
       "recipePath": null,
       "recipeSha256": null,
       "sourceAssetIds": [],
-      "inspectionNotes": null
+      "inspectionNotes": null,
+      "visualExplanation": {
+        "requiredFor": "GAMING_G22_PT_V2",
+        "subject": null,
+        "buyerUnderstanding": null,
+        "mainVisual": null,
+        "composition": null,
+        "labelToVisualMap": [],
+        "referenceImageIds": [],
+        "referenceImageSha256": {},
+        "actualProductSourceIds": [],
+        "illustrativeElements": [],
+        "exactCopy": [],
+        "avoid": [],
+        "selectedCompositionInvariants": [],
+        "native400And200Review": null
+      }
     },
     {
       "file": "PT06.png",
@@ -113,7 +193,23 @@
       "recipePath": null,
       "recipeSha256": null,
       "sourceAssetIds": [],
-      "inspectionNotes": null
+      "inspectionNotes": null,
+      "visualExplanation": {
+        "requiredFor": "GAMING_G22_PT_V2",
+        "subject": null,
+        "buyerUnderstanding": null,
+        "mainVisual": null,
+        "composition": null,
+        "labelToVisualMap": [],
+        "referenceImageIds": [],
+        "referenceImageSha256": {},
+        "actualProductSourceIds": [],
+        "illustrativeElements": [],
+        "exactCopy": [],
+        "avoid": [],
+        "selectedCompositionInvariants": [],
+        "native400And200Review": null
+      }
     },
     {
       "file": "PT07.png",
@@ -128,7 +224,23 @@
       "recipePath": null,
       "recipeSha256": null,
       "sourceAssetIds": [],
-      "inspectionNotes": null
+      "inspectionNotes": null,
+      "visualExplanation": {
+        "requiredFor": "GAMING_G22_PT_V2",
+        "subject": null,
+        "buyerUnderstanding": null,
+        "mainVisual": null,
+        "composition": null,
+        "labelToVisualMap": [],
+        "referenceImageIds": [],
+        "referenceImageSha256": {},
+        "actualProductSourceIds": [],
+        "illustrativeElements": [],
+        "exactCopy": [],
+        "avoid": [],
+        "selectedCompositionInvariants": [],
+        "native400And200Review": null
+      }
     },
     {
       "file": "PT08.png",
@@ -143,7 +255,23 @@
       "recipePath": null,
       "recipeSha256": null,
       "sourceAssetIds": [],
-      "inspectionNotes": null
+      "inspectionNotes": null,
+      "visualExplanation": {
+        "requiredFor": "GAMING_G22_PT_V2",
+        "subject": null,
+        "buyerUnderstanding": null,
+        "mainVisual": null,
+        "composition": null,
+        "labelToVisualMap": [],
+        "referenceImageIds": [],
+        "referenceImageSha256": {},
+        "actualProductSourceIds": [],
+        "illustrativeElements": [],
+        "exactCopy": [],
+        "avoid": [],
+        "selectedCompositionInvariants": [],
+        "native400And200Review": null
+      }
     }
   ],
   "checks": {
@@ -173,8 +301,20 @@
       "protectedAreas": [],
       "performanceEvidence": null
     },
-    "sourceAsset": "Use the required provenance, native-byte, rights-scope, Drive and derivative fields in the reference. Replace instructions with actual records; blanks do not pass."
+    "sourceAsset": "Use the required provenance, native-byte, rights-scope, Drive and derivative fields in the reference. Replace instructions with actual records; blanks do not pass.",
+    "visualExplanation": "For Gaming v2 fill every selected page before generation. Retrieve and pass actual approved images; distinguish style reference, actual product and fact inputs. Each key claim maps to a visual. User-selected exact bytes record source hashes and incomplete layered-source/production checks honestly."
   },
   "customizationImagePlanPath": null,
-  "customizationImagePlanSha256": null
+  "customizationImagePlanSha256": null,
+  "methodProfile": null,
+  "gamingVisualExplanationStandard": "references/gaming-visual-explanation.md",
+  "gamingReferenceRegistry": "assets/gaming-visual-reference-registry.json",
+  "gamingOverrides": {
+    "methodProfile": "gaming-visual-explanation-v2",
+    "PT01": {
+      "primaryTheme": "Strongest verified buying reason explained visually",
+      "visualProof": "SUBJECT_LED_VISUAL_EXPLANATION"
+    },
+    "checker": "scripts/gaming_visual_plan.py"
+  }
 }
