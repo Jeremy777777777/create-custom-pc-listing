@@ -148,7 +148,8 @@ def validate(data, audit, ledger_bytes=None, book=None):
         links[(fact['sheet'], fact['attribute'])] = primary
     panel_check(data)
     if book is not None:
-        for sheet in book:
+        from candidate_review import data_sheets
+        for sheet in data_sheets(book):
             for column in range(2, sheet.max_column + 1):
                 key = (sheet.title, sheet.cell(1, column).value)
                 for row_index in (5, 7):

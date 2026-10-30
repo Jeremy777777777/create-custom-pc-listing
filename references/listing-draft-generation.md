@@ -15,6 +15,7 @@
 - 已确认且适用于当前售卖配置：写正式 Value、Status、Source，并做 Amazon 上下文和单位映射。
 - 未确认但有依据：比较可支持的方案，写优先候选、备选、定性把握、来源、优先理由和还缺什么确认；真实并列不强制选择。不要把空白字段一律改成 pending 来逃避候选研究。
 - Amazon 没有精确选项：保留真实硬件事实；提供实际观察到的最接近选项和差异。原单位数值继续出现在候选说明中，不把 MT/s 改标 MHz，不把最大值改成实测值。
+- 用户底线优先：打开工作簿必须立即看到最可能的有依据候选。默认打开首个 Candidate Review 页，单位受限候选优先显示；原字段第6行也直接显示数值、原单位和未确认标记。单位冲突只阻止机器数值映射和正式 Value，不得让审阅候选再次留空。没有依据不编造，真实并列不强行选主候选，最大值仍明确标记参考上限。
 - 真正无依据／受阻／未完成：明确是哪一个字段、查过什么、剩余路线及下一步。仅在适用研究已完成时写 Not found。卖家输入仍单独保留，不编价格／数量，也不因此停止技术研究。
 
 所有资料写进现有单一 scoped ledger，沿用 `research_trace`、`candidate_assessment`、`candidate_review`。新完整生成设置 `candidate_coverage_version: 2`、`listing_draft_contract_version: 1`、`fcc_management: ERP_INVENTORY`。FCC 仍是独立明确请求，不在 Listing 中恢复查询。

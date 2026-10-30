@@ -77,11 +77,20 @@ def apply(data, projected):
         if fact['status'] in {'VERIFIED', 'NOT_APPLICABLE'}:
             raise ValueError('A candidate comparison cannot turn into a confirmed fact')
         note = recommendation_note(review)
-        # Keep the formal/numeric output blank when its Amazon unit is incompatible.
-        # Show the original hardware number WITH ITS OWN UNIT in the explanation.
+        # A withheld Amazon number must never hide the human review candidate.
+        # This literal display text is not a projected numeric entry or conversion.
+        if record.get('value_candidate') is None:
+            primary = next((o for o in review['options'] if o['id'] == review.get('primary_id')), None)
+            value = display(primary) if primary else ' / '.join(display(o) for o in review['options'])
+            record['candidate_display'] = value + ' | NOT CONFIRMED | RESEARCH ONLY'
+            if primary and primary.get('unit'):
+                unit_record = projected.get((key[0], key[1] + ' Unit'))
+                if unit_record is not None:
+                    unit_record['candidate_display'] = str(primary['unit']) + ' | RESEARCH UNIT; AMAZON MAPPING UNRESOLVED'
         previous = record.get('value_candidate_source')
-        record['value_candidate_source'] = note + (('; AMAZON FIELD PROJECTION: ' + previous) if previous else
-            '; Amazon numeric candidate remains withheld where its paired unit/basis is incompatible or unresolved.')
+        if not previous or not previous.startswith(note):
+            record['value_candidate_source'] = note + (('; AMAZON FIELD PROJECTION: ' + previous) if previous else
+                '; Amazon numeric candidate remains withheld where its paired unit/basis is incompatible or unresolved.')
         reviews.append({'sheet': key[0], 'attribute': key[1], 'review': review,
                         'visibleNote': record['value_candidate_source'],
                         'amazonNumericCandidate': record.get('value_candidate')})

@@ -89,7 +89,16 @@ class DraftBundleTests(unittest.TestCase):
                 speed=next(c.column for c in b['Product Details'][1] if c.value=='Memory Speed')
                 s=b['Product Details']
                 self.assertIsNone(s.cell(3,speed).value)
-                self.assertIsNone(s.cell(6,speed).value)
+                self.assertIn('5200 MT/s',s.cell(6,speed).value)
+                self.assertIn('NOT CONFIRMED',s.cell(6,speed).value)
+                unit=next(c.column for c in s[1] if c.value=='Memory Speed Unit')
+                self.assertIn('MT/s',s.cell(6,unit).value)
+                self.assertNotIn('MHz',s.cell(6,unit).value)
+                self.assertEqual(b.sheetnames[0],'Candidate Review')
+                self.assertEqual(b.active.title,'Candidate Review')
+                self.assertEqual(b.active['A5'].value,'Memory Speed')
+                self.assertEqual(b.active['B5'].value,'5200 MT/s')
+                self.assertIn('NOT CONFIRMED',b.active['C5'].value)
                 self.assertIn('5200 MT/s',s.cell(7,speed).value)
                 self.assertIn('4400 MT/s',s.cell(7,speed).value)
                 self.assertNotIn('2600 MHz',s.cell(7,speed).value)
@@ -172,6 +181,31 @@ class DraftBundleTests(unittest.TestCase):
             with self.assertRaisesRegex(ValueError,'saved bytes'):draft.verify(root)
             (root/'TEST-PC_RESEARCH_REVIEW.xlsx').unlink()
             with self.assertRaises((ValueError, OSError)):draft.verify(root)
+
+    def test_opening_candidate_and_row_six_cannot_be_hidden_or_cleared(self):
+        from candidate_review import SHEET
+        with tempfile.TemporaryDirectory() as scratch:
+            root=Path(scratch);data,ledger=self.fixture(root);draft.build(root)
+            for mutation in ('candidate', 'summary', 'opening', 'unit', 'hidden'):
+                b=openpyxl.load_workbook(root/'TEST-PC_LISTING_DRAFT.xlsx');s=b['Product Details']
+                col=next(c.column for c in s[1] if c.value=='Memory Speed')
+                if mutation=='candidate':s.cell(6,col).value=None
+                elif mutation=='summary':b[SHEET]['B5']='2600 MHz'
+                elif mutation=='opening':b.active=1
+                elif mutation=='hidden':b[SHEET].sheet_state='hidden';b.active=1
+                else:
+                    unit=next(c.column for c in s[1] if c.value=='Memory Speed Unit')
+                    s.cell(6,unit,'MHz')
+                with self.subTest(mutation=mutation),self.assertRaises(ValueError):export.verify_workbook(b,data)
+                b.close()
+
+    def test_visible_reference_still_cannot_export_as_confirmed(self):
+        with tempfile.TemporaryDirectory() as scratch:
+            root=Path(scratch);data,ledger=self.fixture(root);draft.build(root)
+            book=openpyxl.load_workbook(root/'TEST-PC_LISTING_DRAFT.xlsx')
+            with self.assertRaisesRegex(ValueError,'Export blocked'):
+                export.verify_workbook(book,data,mode='export')
+            book.close()
 
     def test_template_plan_enumerates_definitions_without_inventing_facts(self):
         report=draft.plan(export.ROOT/'assets/listing-workbook-template.xlsx')
