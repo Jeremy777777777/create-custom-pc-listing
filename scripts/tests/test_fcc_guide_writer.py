@@ -51,8 +51,11 @@ class FCCGuideWriterTests(unittest.TestCase):
             self.assertEqual(result['result'], 'DRAFT_PROJECTION_PASS')
             book = openpyxl.load_workbook(output)
             template = openpyxl.load_workbook(r.ROOT/'assets/listing-workbook-template.xlsx')
-            self.assertEqual(book.sheetnames, template.sheetnames)
-            for sheet in book:
+            from candidate_review import data_sheets
+            self.assertEqual([s.title for s in data_sheets(book)], template.sheetnames)
+            self.assertEqual(book.sheetnames[0], 'Candidate Review')
+            self.assertEqual(book.active.title, 'Candidate Review')
+            for sheet in data_sheets(book):
                 for row in (1, 2):
                     self.assertEqual([c.value for c in sheet[row]], [c.value for c in template[sheet.title][row]])
                 self.assertEqual(str(sheet.data_validations), str(template[sheet.title].data_validations))
