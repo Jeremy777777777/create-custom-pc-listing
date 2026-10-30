@@ -14,6 +14,8 @@ Read [the current execution router](references/current-workflow.md), [SKILL.md](
 
 ## Research and copy
 
+- Full new Listing/Excel requests use [the default draft generation entry](references/listing-draft-generation.md): enumerate actual template Definitions, complete independent research and comparative candidates, then run listing_draft.py build/verify for both workbooks and visible recommendations. New full ledgers declare listing_draft_contract_version: 1; production verifies the complete bundle. Do not wait for field-by-field user corrections. Scoped research/image requests remain scoped.
+
 - New Research Review / Listing Draft generation enforces [Value/candidate completeness](references/value-candidate-completeness.md). Every blank formal Value needs a sourced visible candidate or a concrete visible no-candidate disposition and follow-up; plain TBD/empty candidate rows cannot silently pass new generation. Never fabricate a candidate or turn an OEM maximum into exact actual weight.
 
 - Candidate coverage v2 additionally requires comparative, evidence-backed primary/alternative recommendations. Units/schema withholding must preserve the hardware value with its own unit visibly in row 7. When a user requests missing product information to be implemented, update and verify the actual product deliverable; a rules-only push is not completion.

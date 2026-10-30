@@ -2,6 +2,16 @@
   "schemaVersion": 1,
   "authority": "USER_CONFIRMED_WORKFLOW_OPTIMIZATION_2026_10_30",
   "workflow": "references/current-workflow.md",
+  "listingDraft": {
+    "defaultEntry": "scripts/listing_draft.py",
+    "contractVersion": 1,
+    "candidateCoverageVersion": 2,
+    "reference": "references/listing-draft-generation.md",
+    "commands": ["plan", "build", "verify"],
+    "bothWorkbookStagesRequiredForFullNewRequest": true,
+    "scopedResearchAndImageModesPreserved": true,
+    "publicationAutomatic": false
+  },
   "sync": {
     "defaultMode": "MANUAL_CONNECTED",
     "automaticRequiredForProduction": false,

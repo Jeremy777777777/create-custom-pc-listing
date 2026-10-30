@@ -181,6 +181,11 @@ def verify(product, contract_path, expected_sha256, planned_files=None):
     selected = set(planned_files) if planned_files is not None else set(contract['outputs'])
     if not selected or not selected <= set(contract['outputs']): raise ValueError('Delivery exceeds contracted outputs')
     results = {}
+    if any(contract['outputs'][name] == 'LISTING' for name in selected):
+        from listing_draft import check_delivery as check_draft_delivery
+        draft_bundle = check_draft_delivery(product, selected, contract['outputs'])
+        if draft_bundle is not None:
+            results['listingDraftBundle'] = draft_bundle
     if contract.get('imageFactUpdate') is not None:
         from image_fact_update import check as check_facts
         results['imageFactUpdate'] = check_facts(product, contract['imageFactUpdate'])

@@ -364,6 +364,8 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
         from copy import copy
         from openpyxl.styles import PatternFill
         for sheet in book:
+            sheet.row_dimensions[6].height = max(sheet.row_dimensions[6].height or 15, 30)
+            sheet.row_dimensions[7].height = max(sheet.row_dimensions[7].height or 15, 120)
             for col in range(2, sheet.max_column + 1):
                 key = (sheet.title, sheet.cell(1, col).value)
                 field = projected[key]
@@ -371,6 +373,10 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
                                   (6, 'value_candidate'), (7, 'value_candidate_source')):
                     cell = sheet.cell(row, col)
                     cell.value = field[name]
+                    alignment = copy(cell.alignment)
+                    alignment.vertical = 'top'
+                    alignment.wrap_text = True
+                    cell.alignment = alignment
                     # Evidence text beginning '=' must stay text, never executable Excel formulas.
                     if isinstance(field[name], str):
                         cell.data_type = 's'
@@ -487,7 +493,7 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
             raise ValueError('Product facts identity/configuration differs from export target')
     book = openpyxl.load_workbook(workbook, data_only=False)
     try:
-        if mode == 'export' or check_copy:
+        if mode == 'export' or check_copy or listing_stage:
             from listing_content import validate_listing
             from capacity_units import STORAGE_FIELDS,check_nominal_storage_basis
             selected={f['id']:f for f in data['facts']}
@@ -655,7 +661,11 @@ def main():
                 raise ValueError('New listing workbooks require fcc_management=ERP_INVENTORY; FCC lookup is a separate task')
             from candidate_coverage import require_current
             if not args.legacy_fcc_workbook:
-                require_current(load_ledger(args.ledger))
+                new_data = load_ledger(args.ledger)
+                require_current(new_data)
+                if (args.stage == 'LISTING_DRAFT' and not args.research_reuse
+                        and new_data.get('listing_draft_contract_version') != 1):
+                    raise ValueError('New full Listing Draft requires listing_draft_contract_version: 1; use listing_draft.py build/verify')
             from research_audit import validate as audit_research
             trace_result = audit_research(load_ledger(args.ledger), required=True,
                 previous_bytes=args.previous_ledger.read_bytes() if args.previous_ledger else None,

@@ -54,6 +54,8 @@ Use the candidate properties and paired-row validation in candidate-review-rows.
 
 ## Acceptance and current delivery
 
+For new full generation, use [the unified draft generation entry](listing-draft-generation.md) and listing_draft_contract_version: 1. Its plan enumerates the current template, build creates both stage workbooks and visible candidate explanations, and verify repeats saved-byte/copy/summary checks. Listing-stage validation always runs the existing copy checks. The bundle is required at production handoff; source research and final Drive readback remain independent substantive steps.
+
 Before delivery, validate current ledger-to-template projection, candidate/source pairs and rationale/missing-proof, copy presence/format/warranty, identity, configuration scopes and numeric units. Review the actual workbook's long copy and evidence for readability. Structure tests cannot authenticate product facts, visual quality, licences or Amazon eligibility. Do not add an export gate that forces unresolved research into false certainty; honest drafts may remain PARTIAL.
 
 Keep a single current `03_RESEARCH/FINAL` per product, reuse its known IDs and preserve superseded coherent bytes in the existing archive. Keep one current Listing Draft under `01_LISTING` and link it from the current research entry/summary. Independent run records remain under `30_RUNS`; do not create dated sibling FINAL deliveries. Upload original individual XLSX and selected evidence, read back actual IDs, parents, MIME, size and available byte checksums, then update current links and scoped delivery receipts. GitHub receives reusable workflow changes only.

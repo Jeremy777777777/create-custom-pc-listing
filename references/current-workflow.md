@@ -35,6 +35,8 @@
 
 ## 从准备到交付
 
+完整 Listing／Excel 请求默认执行 [完整 Draft 生成入口](listing-draft-generation.md)：先以 listing_draft.py plan 枚举实际模板字段和缺口，独立完成研究／候选比较及原创文案，再以 build 一次生成 Research Review、Listing Draft、两份 summary、全字段候选说明和 bundle；verify 后进入既有生产／Drive 验收。研究-only 或图片-only 仍保留其实际范围。新完整 ledger 使用 listing_draft_contract_version: 1；不依赖用户逐项截图补漏。
+
 新 Research Review／Listing Draft 必须执行 [Value／候补完整性](value-candidate-completeness.md)：逐字段确认正式 Value；未确认时在工作簿候补行给出有来源、有适用范围和待确认事项的候补值。确实无法给出单一候补时，候补说明行必须写明无依据／并列／待研究／访问受阻／卖家输入及下一步，不能只留空或标 TBD。研究未完成不得以说明齐全冒充研究完成。
 
 1. 读取当前商品事实、现有完成状态、请求范围和实际来源，记录 GitHub SHA。规则以 GitHub 为维护源；Drive 保留可读副本和商品成果。
