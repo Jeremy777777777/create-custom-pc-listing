@@ -37,6 +37,13 @@ def review_projection(data, projected, required=False):
                 raise ValueError('Candidate needs visible source and qualification: ' + str(key))
             decision = 'SELECTED'
         else:
+            if record.get('hardware_reference') and text(record.get('candidate_display')):
+                decision = 'HARDWARE_REFERENCE_WITHHELD_FROM_AMAZON_NUMBER'
+                counts[decision] += 1
+                unresolved.append({'sheet':key[0], 'attribute':key[1], 'decision':decision,
+                    'candidate':None, 'candidateDisplay':record['candidate_display'],
+                    'hardwareReference':record['hardware_reference'], 'explanation':record['value_candidate_source']})
+                continue
             from candidate_ranking import assess
             ranked = assess(fact)
             if ranked is not None and text(record.get('value_candidate_source')):

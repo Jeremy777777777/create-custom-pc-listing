@@ -27,7 +27,10 @@ def rows(data, projected):
         if is_external_field(data, fact):
             continue
         ranked = assess(fact)
-        if ranked:
+        if record.get('hardware_reference'):
+            value = display(record['hardware_reference'])
+            meaning, priority = 'Recorded hardware reference; AMAZON ENTRY UNCONFIRMED; ' + str(record['hardware_reference'].get('scope')), 0
+        elif ranked:
             options = ranked['options']
             primary = next((o for o in options if o['id'] == ranked.get('primary_id')), None)
             value = display(primary) if primary else ' / '.join(display(o) for o in options)

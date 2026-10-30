@@ -66,7 +66,7 @@ def template_topology(path):
     finally:
         book.close()
 
-def check_output(path, topology, manufacturer=None, listing_mode=None, ledger_path=None):
+def check_output(path, topology, manufacturer=None, listing_mode=None, ledger_path=None, verify_projection=True):
     ledger_path = Path(ledger_path) if ledger_path else path.parent/'research-ledger.json'
     book = openpyxl.load_workbook(path, data_only=False)
     try:
@@ -131,7 +131,8 @@ def check_output(path, topology, manufacturer=None, listing_mode=None, ledger_pa
                 facts_path=path.parent/'product-facts.json'
                 product=json.loads(facts_path.read_text(encoding='utf-8-sig')) if facts_path.exists() else None
                 check_product_location(path,ledger.get('productId'),product)
-                verify_workbook(book, ledger, mode='draft')
+                if verify_projection:
+                    verify_workbook(book, ledger, mode='draft')
             elif not isinstance(ledger, list):
                 raise ValueError('Research ledger must be a legacy array or scoped object')
     finally:
