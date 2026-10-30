@@ -1,5 +1,7 @@
 # PC research through ERP serials and OEM factory configurations
 
+Customized listing research additionally follows [RAM replaceability/type and seller options](customization-options-policy.md). Record exact DDR/LPDDR family/generation and replaceability; capacity choices are confirmed seller policy, not a platform-maximum research prerequisite. Retain installed base numeric facts separately.
+
 User-approved research method — 2026-10-14. The 2026-10-26 user clarification makes serial lookup the primary starting route for PC attribute research, not only FCC lookup. Apply during FULL_LISTING_WORKFLOW and when missing product facts need research. In image-only work, use it only for missing image-required facts; do not expand a targeted edit into unrelated research.
 
 2026-10-26 update: [official evidence chain and deep research](evidence-chain-and-deep-research.md) governs source priority and completion. Official serial lookup plus exact-product website search > ERP > Amazon; matching official research governs conflicts. The initial ERP lookup below discovers identity/serials only. A failed serial outcome is not completion of every attribute's research, and missing serials do not excuse skipping official product search or targeted deep research.

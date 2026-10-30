@@ -227,8 +227,12 @@ def validate_listing(projected, product, definitions=None,storage_total_gb=None,
     storage_allowed={'ssd':{d['capacityGB'] for d in devices if d['medium']=='ssd'},
                      'hdd':{d['capacityGB'] for d in devices if d['medium']=='hdd'},
                      'storage':{d['capacityGB'] for d in devices}|{total},'total_storage':{total}}
+    copy_values = values
+    if product.get('customization') is not None:
+        from customization_policy import validate_copy
+        copy_values = {**values, **validate_copy(values, product)}
     for field in ('Item Name','Bullet Point','Product Description'):
-        text=values.get(field,'')
+        text=copy_values.get(field,'')
         if not isinstance(text,str): raise ValueError('Expected listing text: '+field)
         for capacity,kind in capacity_mentions(text,detailed_storage=True):
             if kind in storage_allowed:

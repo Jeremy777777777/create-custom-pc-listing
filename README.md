@@ -21,7 +21,7 @@ The workflow produces research and base-configuration listing workbooks, plus an
 ## Confirmed rules
 
 - All catalog computers are customized; titles use **MegaPC Custom**.
-- Excel describes **the base sold configuration only**, including its title, bullets and description. No selectable RAM/SSD lists.
+- Numeric Excel attributes describe the base sold configuration only. Customized titles, bullets and descriptions show [SSD and RAM customization choices](references/customization-options-policy.md): SSD 512GB / 1TB / 2TB / 4TB; replaceable RAM 8GB / 16GB / 32GB / 64GB with exact researched type; fixed RAM actual capacity/type. Do not filter seller choices by hardware maximum.
 - Final delivered OS is **Windows 11 Pro**; licence/activation/publication eligibility remain separate operational checks.
 - Warranty is bullet 1 and appears identically in Description's final Warranty and Disclosure section and the workbook Warranty Description. Replace the brand token only:
 

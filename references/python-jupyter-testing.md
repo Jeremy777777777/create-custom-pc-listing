@@ -13,7 +13,7 @@ At the start of a Listing run, select and verify the intended interpreter before
 
 ## Apply checks to the requested scope
 
-- **Text and Excel:** inspect generated title length, base configuration, bullet structure, required warranty text, worksheet mappings and current workbook structure against the active rules. Python can find structural inconsistencies; it cannot verify an unsupported product claim. Use existing validators where available and write narrowly scoped checks for the actual copy when needed.
+- **Text and Excel:** inspect generated title length, required customization options and researched RAM branch/type, base numeric configuration, bullet structure, required warranty text, worksheet mappings and current workbook structure against the active rules. Python can find structural inconsistencies; it cannot verify an unsupported product claim. Use existing validators where available and write narrowly scoped checks for the actual copy when needed.
 - **Images:** use Pillow and the current gallery scripts for decoded dimensions/formats, hashes, masks/layout measurements, slot completeness and current-byte evidence. Review actual output separately for geometry, facts, spelling, style and source rights. This preference does not authorize Python to replace the required image-generation tool for AI image editing.
 - **Workflow changes:** run the repository unit tests, relevant workbook/gallery checks and skill validation where applicable. Do not claim Notebook smoke tests alone validate Listing content.
 

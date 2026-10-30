@@ -1,5 +1,7 @@
 # Serial-first research trace and candidate decision — 2026-10-26
 
+Customized listing research additionally follows [RAM replaceability/type and seller options](customization-options-policy.md). Record exact DDR/LPDDR family/generation and replaceability; capacity choices are confirmed seller policy, not a platform-maximum research prerequisite. Retain installed base numeric facts separately.
+
 The [evidence chain](evidence-chain-and-deep-research.md) owns research authority and stopping decisions. This contract records their execution inside each selected fact's existing `evidence.research_trace`; it creates no second ledger or workbook columns. New full research requires one trace per selected field. A bounded revision may retain unchanged legacy fields through the explicit reuse review below. Existing read-only checks retain legacy compatibility and validate any traces supplied. The Python projection/writer APIs remain lower-level helpers; they do not replace the CLI's audit.
 
 Each trace has `version:1`, `field_class` and a field-specific `reason`. Classify by the actual Definition: `TECHNICAL`, `SELLER_INPUT`, `SELLER_POLICY` or `DERIVED_COPY`. Nontechnical fields require `basis` identifying the actual seller source, missing input, policy or verified source-fact IDs. Do not misclassify a technical fact to avoid research. Classification and sources still require substantive review.

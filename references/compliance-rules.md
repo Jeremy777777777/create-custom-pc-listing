@@ -8,9 +8,9 @@ Before workbook-based marketplace export or saved publication, run the mandatory
 
 Export also requires explicit LISTING_DRAFT stage, current canonical template/hash and mandatory OEM/copy/warranty validation independently of filename. Research Review and [historical snapshots](workbook-stage-snapshots.md) cannot confer publication eligibility. Do not use a smaller alternate template to reduce field coverage.
 
-- Exact `MegaPC Custom` title prefix, OEM model identified via Created Using, accurate base RAM/SSD only, Win 11 Pro ending, appropriate title length.
+- Exact `MegaPC Custom` title prefix, OEM model identified via Created Using, required seller SSD choices and researched replaceable/fixed RAM wording under [customization policy](customization-options-policy.md), Win 11 Pro ending, appropriate title length. Numeric attributes retain actual base capacities.
 - Bullet 1, Description's final Warranty and Disclosure section and Warranty Description use the identical mandatory OEM/MegaPC wording, with verified OEM brand substituted. Seller policy is already confirmed; do not reopen coverage or invent terms.
-- Actual RAM/storage modification disclosure is accurate; all computers are customized. No invented upgrade options, CPU/GPU/screen customization or software bundle. Fixed Windows 11 Pro is the sold system, not a selectable software customization.
+- Actual RAM/storage modification disclosure is accurate; all computers are customized. Use the confirmed RAM/SSD choices under customization-options-policy.md after researching RAM replaceability and exact type; do not invent CPU/GPU/screen customization or software bundles. Fixed Windows 11 Pro is the sold system, not a selectable software customization.
 - Exact SKU facts and evidence are consistent. Complete template coverage includes unresolved seller fields explicitly, not guessed values.
 - Check program enrollment, required customization documentation, MFN/FBA eligibility, GTIN/new ASIN requirements and channel rules against current applicable account guidance. Any actual policy restriction is recorded in `AMAZON_ELIGIBILITY`; user policy does not constitute Amazon approval. Do not require an extra user approval merely to research/write the confirmed configuration.
 - Original copy and properly licensed assets; competitor wording/artwork/UI/reviews are not reused.

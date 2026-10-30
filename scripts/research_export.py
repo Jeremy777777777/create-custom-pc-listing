@@ -284,6 +284,10 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
     data = load_ledger(ledger)
     from serial_research import validate_serial_research
     validate_serial_research(data, required=True, full_research=True)
+    if stage == 'LISTING_DRAFT':
+        from customization_policy import research as customization_research
+        product_file = workbook.parent/'product-facts.json'
+        customization_research(json.loads(product_file.read_text(encoding='utf-8-sig')), data, required=True)
     from research_handoff import check_product_location
     check_product_location(workbook, data['productId'])
     book = openpyxl.load_workbook(template)
@@ -479,6 +483,10 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
             validate_listing(factual_projection,product,definitions,storage_total_gb=storage['totalGB'] if storage else None,storage_configuration=storage,
                              allow_research_transfer_rate='amazon_selection' in data)
         projected = verify_workbook(book, data, mode)
+        if listing_stage and product.get('customization') is not None:
+            from customization_policy import validate_copy as validate_customization_copy
+            validate_customization_copy({field: record['value'] for (sheet, field), record in projected.items()
+                                        if sheet == 'Product Details'}, product)
     finally:
         book.close()
     for name, path in (('workbook', workbook), ('ledger', ledger), ('template', template)):

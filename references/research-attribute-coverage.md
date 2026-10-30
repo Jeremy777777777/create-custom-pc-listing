@@ -1,4 +1,6 @@
 # Product Attribute Research Coverage
+
+Customized listing research additionally follows [RAM replaceability/type and seller options](customization-options-policy.md). Record exact DDR/LPDDR family/generation and replaceability; capacity choices are confirmed seller policy, not a platform-maximum research prerequisite. Retain installed base numeric facts separately.
 See [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for the active seller/base-configuration policy.
 
 **2026-10-26 evidence decision:** apply [官网优先证据链与深搜](evidence-chain-and-deep-research.md) automatically. 官网 serial 查询＋准确产品搜索 > ERP > Amazon；产品信息冲突以匹配官网研究为准。该规则取代旧的 ERP-first 技术事实优先级，逐字段保留研究路径与裁决依据。

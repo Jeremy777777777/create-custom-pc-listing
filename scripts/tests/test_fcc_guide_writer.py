@@ -28,6 +28,8 @@ class FCCGuideWriterTests(unittest.TestCase):
                               'reviewed_date': '2026-10-16'})
         if status == 'INPUT_UNVERIFIED':
             fact['recommended_candidate'] = 'TEST-MODULE-ID'
+        from test_customization_policy import configure
+        configure(data, json.loads((root/'product-facts.json').read_text(encoding='utf-8')))
         ledger.write_text(json.dumps(data), encoding='utf-8')
         from reference_fixtures import write_audit
         write_audit(ledger)

@@ -67,7 +67,19 @@ def check_metadata_consistency(selected,product,require_verified=False):
         if not require_verified and fact['status']!='VERIFIED': return
         if fact['status']!='VERIFIED' or normalizer(cached)!=normalizer(fact['final_value']):
             raise ValueError('Image cache/research conflict or unresolved selected fact: '+field)
-    for field,value in [('Manufacturer',identity.get('oemBrand')),('Model Number',identity.get('oemModel')),
+    # Preserve the existing Drive fix: the legacy cache may identify the verified
+    # commercial name or model number. Explicit role-specific caches stay exact.
+    cached_model=identity.get('oemModel')
+    model_facts=[selected[('Product Details',field)] for field in ('Model Name','Model Number')
+                 if ('Product Details',field) in selected]
+    verified_models=[f for f in model_facts if f['status']=='VERIFIED']
+    if cached_model is not None and model_facts:
+        matched=any(text(cached_model)==text(f['final_value']) for f in verified_models)
+        if not matched and (require_verified or verified_models):
+            raise ValueError('Image cache/research conflict or unresolved selected fact: Model Name / Model Number')
+    for field,value in [('Manufacturer',identity.get('oemBrand')),
+                        ('Model Name',identity.get('oemModelName')),
+                        ('Model Number',identity.get('oemModelNumber')),
                         ('Operating System',product.get('os'))]: compare(field,value)
     compare('Resolution',display.get('resolution'),resolution_dimensions)
     compare('Display Refresh Rate in Hertz',display.get('refreshHz'),number)
@@ -210,6 +222,14 @@ def listing_view(raw,ledger):
         if type(base.get(key)) not in (int,float) or base[key]<=0: missing.append('selectedBaseConfiguration.'+key)
     if missing: raise ValueError('PRODUCT_METADATA_REQUIRED: '+ '; '.join(missing))
     check_metadata_consistency(selected,view)
+    from customization_policy import research as customization_research
+    customization = customization_research(view, ledger)
+    if customization is not None:
+        if 'customization' in raw and raw['customization'] != customization:
+            raise ValueError('Product customization cache disagrees with selected RAM research')
+        view['customization'] = customization
+    elif 'customization' in raw:
+        raise ValueError('Product customization cache has no selected RAM research binding')
     return view,{'format':'STRUCTURED' if isinstance(raw.get('identity'),dict) else 'LEGACY_READ_ONLY_ADAPTER',
                  'derivedFromSelectedFacts':provenance,'rawProductFactsRewritten':False}
 

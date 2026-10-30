@@ -34,7 +34,10 @@ class MemoryTransferRateTests(unittest.TestCase):
 
     def test_saved_bound_draft_retains_transfer_rate_and_withholds_numeric(self):
         with tempfile.TemporaryDirectory() as tmp:
-            root=Path(tmp);data,ledger,_,_=self.fixture(root);before=ledger.read_bytes();output=root/'TEST_LISTING_DRAFT.xlsx'
+            root=Path(tmp);data,ledger,product,_=self.fixture(root);output=root/'TEST_LISTING_DRAFT.xlsx'
+            from test_customization_policy import configure
+            configure(data,product,False,'LPDDR5X')
+            ledger.write_text(json.dumps(data),encoding='utf-8');write_audit(ledger);before=ledger.read_bytes()
             export.write_workbook(export.ROOT/'assets/listing-workbook-template.xlsx',ledger,output,stage='LISTING_DRAFT')
             result=export.run(export.ROOT/'assets/listing-workbook-template.xlsx',ledger,output,'draft',stage='LISTING_DRAFT',check_copy=True)
             self.assertEqual(result['result'],'DRAFT_PROJECTION_PASS');self.assertEqual(ledger.read_bytes(),before)
