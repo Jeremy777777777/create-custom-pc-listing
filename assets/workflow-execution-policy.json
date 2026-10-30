@@ -28,6 +28,17 @@
     "unrequestedImagesRequiredLocally": false
   },
   "imageReview": {
+    "customization": {
+      "version": 1,
+      "scope": "Customized PT05 and declared RAM dependencies only",
+      "facts": "Installed RAM, unit, exact memory family, replaceability and original customization research evidence",
+      "sourceBindings": [
+        {
+          "path": "references/customization-options-policy.md",
+          "sha256": "0131a3a487e5a24ded9c105ffd964de8ad6f130c7ad68bb8bd1ac6bb559c3f91"
+        }
+      ]
+    },
     "shared": {
       "version": 1,
       "facts": "Exact product and sold applicability",

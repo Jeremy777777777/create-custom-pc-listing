@@ -51,6 +51,16 @@ def write(path, data):
     Path(path).write_text(json.dumps(data, ensure_ascii=False, indent=2)+'\n', encoding='utf-8', newline='\n')
 
 
+def delivery_batches(data):
+    """Read old single-plan manifests without rewriting their released evidence."""
+    if 'deliveryBatches' in data:
+        return data['deliveryBatches']
+    if data['deliveryState'] == 'STAGED_NOT_UPLOADED':
+        return [{'batchId':'batch-001', 'path':'delivery-plan.json',
+                 'sha256':data.get('deliveryPlanSha256')}]
+    return []
+
+
 def create(run, product, task_id, run_id, request_reference, mode, workflow_sha):
     from product_identity import product_id
     if (mode not in MODES or not re.fullmatch(ID, task_id) or not re.fullmatch(ID, run_id)
@@ -117,6 +127,30 @@ def validate(run, product=None):
     if data['deliveryState']=='STAGED_NOT_UPLOADED':
         if sha(safe_file(run,'delivery-plan.json')) != data.get('deliveryPlanSha256'):
             raise ValueError('Released delivery plan changed')
+        batches = delivery_batches(data)
+        if (not isinstance(batches,list) or not batches
+                or len({str(b.get('batchId','')).casefold() for b in batches})!=len(batches)
+                or len({b.get('path') for b in batches})!=len(batches)):
+            raise ValueError('Unique released delivery batches required')
+        contract_sha = data.get('deliveryContractSha256')
+        for index, batch in enumerate(batches):
+            batch_id = batch.get('batchId','')
+            if not isinstance(batch_id,str) or not re.fullmatch(ID,batch_id):
+                raise ValueError('Exact safe delivery batch ID required')
+            expected_path = 'delivery-plan.json' if index==0 else 'delivery-plans/'+batch_id+'.json'
+            if batch.get('path')!=expected_path or sha(safe_file(run,expected_path))!=batch.get('sha256'):
+                raise ValueError('Released delivery plan changed')
+            plan = read(safe_file(run,expected_path)); scope = plan.get('productionScope',{})
+            if (plan.get('artifactRole')!='DRIVE_UPLOAD_PLAN' or plan.get('runId')!=data['runId']
+                    or plan.get('productId')!=data['productId'] or scope.get('workflowSha')!=data['workflowSha']
+                    or scope.get('runId')!=data['runId']
+                    or not re.fullmatch('[0-9a-f]{64}',scope.get('contractSha256',''))):
+                raise ValueError('Released batch differs from its run/production contract')
+            contract_sha = contract_sha or scope['contractSha256']
+            if scope['contractSha256']!=contract_sha:
+                raise ValueError('Delivery batches must share the same frozen contract')
+    elif data.get('deliveryBatches') or data.get('deliveryContractSha256'):
+        raise ValueError('Unstaged run cannot contain released delivery batches')
     if product is not None:
         from product_identity import product_id
         if data['productId'] != Path(product).name or product_id(read(Path(product)/'product-facts.json')) != data['productId']:
@@ -158,7 +192,7 @@ def record_evidence(run, evidence_path, acceptance_reference=None):
     return validate(run)
 
 
-def stage(run, product, contract_path, contract_sha256, files):
+def stage(run, product, contract_path, contract_sha256, files, batch_id=None):
     import production_guard
     import drive_delivery
     data = validate(run, product)
@@ -169,19 +203,41 @@ def stage(run, product, contract_path, contract_sha256, files):
     contract = read(contract_path)
     if contract['runId'] != data['runId'] or contract['workflowSha'] != data['workflowSha']:
         raise ValueError('Run differs from its actual frozen production contract')
+    batches = delivery_batches(data)
+    if batches:
+        first = read(safe_file(run,batches[0]['path']))
+        if first['productionScope']['contractSha256']!=contract_sha256:
+            raise ValueError('Delivery batches must share the same frozen contract')
+    if batch_id is None:
+        index = len(batches)+1
+        existing = {b['batchId'].casefold() for b in batches}
+        while ('batch-'+str(index).zfill(3)).casefold() in existing:
+            index += 1
+        batch_id = 'batch-'+str(index).zfill(3)
+    if not isinstance(batch_id,str) or not re.fullmatch(ID,batch_id):
+        raise ValueError('Exact safe delivery batch ID required')
+    if any(b['batchId'].casefold()==batch_id.casefold() for b in batches):
+        raise ValueError('Delivery batch ID already released; use a distinct batch ID')
     production = production_guard.verify(product, contract_path, contract_sha256, files)
     if production['mode'] == 'CONCEPT_ONLY':
         raise ValueError('Concepts cannot become canonical delivery through a run wrapper')
     plan = drive_delivery.plan(product, data['runId'], files)
     if {r['relativePath']: r['sha256'] for r in plan['files']} != production['files']:
         raise ValueError('Production bytes changed while staging')
-    plan.update(taskId=data['taskId'], executionMode=data['execution']['mode'], productionScope=production)
-    output = safe_file(run, 'delivery-plan.json')
+    relative = 'delivery-plan.json' if not batches else 'delivery-plans/'+batch_id+'.json'
+    plan.update(taskId=data['taskId'], executionMode=data['execution']['mode'], productionScope=production,
+                batchId=batch_id, planRelativePath=relative)
+    output = safe_file(run, relative)
     if output.exists():
-        raise ValueError('Use a new stage/run instead of overwriting a released plan')
-    write(output, plan)
+        raise ValueError('Released delivery plan already exists; preserve it and use a new batch ID')
+    output.parent.mkdir(parents=True,exist_ok=True)
+    with output.open('x',encoding='utf-8',newline='\n') as handle:
+        handle.write(json.dumps(plan,ensure_ascii=False,indent=2)+'\n')
     data['deliveryState'] = 'STAGED_NOT_UPLOADED'
-    data['deliveryPlanSha256'] = sha(output)
+    if not batches:
+        data['deliveryPlanSha256'] = sha(output)
+    data['deliveryContractSha256'] = contract_sha256
+    data['deliveryBatches'] = [*batches, {'batchId':batch_id,'path':relative,'sha256':sha(output)}]
     write(Path(run)/'run-manifest.json', data)
     return plan
 
@@ -201,6 +257,7 @@ def main():
     parser.add_argument('--production-contract', type=Path)
     parser.add_argument('--contract-sha256')
     parser.add_argument('--file', action='append')
+    parser.add_argument('--batch-id', help='Optional unique batch ID inside the same frozen run')
     args = parser.parse_args()
     try:
         if args.command == 'create':
@@ -213,11 +270,13 @@ def main():
         elif args.command == 'stage':
             if not all((args.product,args.production_contract,args.contract_sha256,args.file)):
                 parser.error('stage requires product, frozen contract/digest and explicit files')
-            result = stage(args.run,args.product,args.production_contract,args.contract_sha256,args.file)
+            result = stage(args.run,args.product,args.production_contract,args.contract_sha256,args.file,args.batch_id)
         else:
             result = validate(args.run,args.product)
         print(json.dumps({'state':result.get('state',result.get('deliveryState','RUN_STRUCTURE_CHECKED')),
-                          'runId':result['runId'],'scope':'SUPPLIED_EVIDENCE_AND_LOCAL_STRUCTURE_ONLY'}))
+                          'runId':result['runId'],'batchId':result.get('batchId'),
+                          'planRelativePath':result.get('planRelativePath'),
+                          'scope':'SUPPLIED_EVIDENCE_AND_LOCAL_STRUCTURE_ONLY'}))
     except (ValueError, OSError, KeyError, TypeError) as error:
         parser.exit(1,str(error)+'\n')
 

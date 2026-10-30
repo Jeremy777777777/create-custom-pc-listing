@@ -107,7 +107,7 @@ def complete(product, contract_path, contract_sha256, receipt_paths):
     contract=read(contract_path)
     if production['mode']=='CONCEPT_ONLY' or not receipt_paths:
         raise ValueError('Actual production receipts required for completion')
-    expected=production['files']; received={}; evidence=[]
+    expected=production['files']; received={}; remote_paths={}; evidence=[]
     for path in receipt_paths:
         receipt=read(path); bound=receipt.get('productionScope',{})
         if (receipt.get('artifactRole')!='DRIVE_DELIVERY_RECEIPT'
@@ -130,6 +130,10 @@ def complete(product, contract_path, contract_sha256, receipt_paths):
             prior=received.get(name)
             if prior and any(prior.get(k)!=row.get(k) for k in ('sha256','fileId','parentFolderId')):
                 raise ValueError('Conflicting batch versions require reconciliation')
+            other=remote_paths.get(row['fileId'])
+            if other is not None and other!=name:
+                raise ValueError('Drive file ID reused for different contracted outputs: '+other+' / '+name)
+            remote_paths[row['fileId']]=name
             received[name]=row
         evidence.append({'sha256':hashlib.sha256(Path(path).read_bytes()).hexdigest(),
                          'files':sorted(r['relativePath'] for r in rows)})

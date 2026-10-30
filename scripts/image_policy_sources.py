@@ -38,9 +38,9 @@ def source_bytes(root, row):
     return text.encode('utf-8')
 
 
-def selected_sources(policy, series, kind, root, historical=False):
+def selected_sources(policy, series, kind, root, historical=False, extra_keys=()):
     rows = []
-    for key in ('shared', kind, series):
+    for key in ('shared', kind, series, *extra_keys):
         sources = policy['imageReview'][key].get('sourceBindings', [])
         rows.extend(sources.get(kind, []) if isinstance(sources, dict) else sources)
     if not rows:

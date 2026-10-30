@@ -11,7 +11,7 @@ FACT_KEYS = ('id', 'status', 'final_value', 'fact_scope', 'configurationId', 'so
 SCOPED_POLICY = 'assets/workflow-execution-policy.json'
 
 
-def style_projection(directory, slot, style, policy_text=None):
+def style_projection(directory, slot, style, policy_text=None, customization=False):
     """V2 binds shared design plus this slot; delivery settings and other slots are irrelevant."""
     import gallery_engine as g
     if style.get('scopeVersion') != 2 or not isinstance(style.get('shared'), dict) or not style['shared']:
@@ -34,13 +34,20 @@ def style_projection(directory, slot, style, policy_text=None):
     rules = policy['imageReview']
     kind = 'main' if slot in g.MAIN else 'supporting'
     relevant = {key: dict(rules[key]) for key in ('shared', kind, series)}
+    extra_keys = ()
+    if customization and 'customization' in rules:
+        if rules['customization'].get('version') != 1:
+            raise ValueError('Unknown customization image binding version')
+        relevant['customization'] = dict(rules['customization'])
+        extra_keys = ('customization',)
     for rule in relevant.values():
         if isinstance(rule.get('sourceBindings'), dict):
             rule['sourceBindings'] = rule['sourceBindings'].get(kind, [])
     result = {'styleLock': {'shared': style['shared'], 'slot': item},
               'imagePolicy': relevant}
     from image_policy_sources import selected_sources
-    sources = selected_sources(policy, series, kind, root, historical=policy_text is not None)
+    sources = selected_sources(policy, series, kind, root, historical=policy_text is not None,
+                               extra_keys=extra_keys)
     if sources is not None:
         result['imagePolicySources'] = sources
     recipe = item.get('recipePath')
@@ -117,7 +124,22 @@ def binding(directory, slot, dependencies, policy_text=None):
         payload['storageDependencies'] = hardware.get('storageDependencies')
         payload['storageCapacityBasis'] = hardware.get('storageCapacityBasis')
     if version == 2:
-        payload.update(style_projection(directory, slot, style, policy_text))
+        ram_fields = {'RAM Memory Installed', 'RAM Memory Installed Size Unit', 'RAM Memory Technology'}
+        from listing_mode import resolve, CUSTOM
+        customization = (resolve(facts) == CUSTOM and
+                         (slot == 'PT05.png' or any(sheet == 'Product Details' and field in ram_fields
+                                                  for sheet, field in required)))
+        style_data = style_projection(directory, slot, style, policy_text, customization=customization)
+        payload.update(style_data)
+        if 'customization' in style_data['imagePolicy']:
+            # Bind researched replaceability/type and its sources, not only the
+            # installed GB value. Missing evidence remains explicit, never READY.
+            payload['customizationFacts'] = [
+                {'sheet': sheet, 'attribute': field,
+                 **{k: row[k] for k in FACT_KEYS if k in row},
+                 'customizationRam': row.get('evidence', {}).get('customization_ram')}
+                for (sheet, field), row in sorted(selected.items())
+                if sheet == 'Product Details' and field in ram_fields]
         return hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(',', ':'), ensure_ascii=False).encode()).hexdigest()
     payload['styleLock'] = style
     recipe = style.get('recipePath')

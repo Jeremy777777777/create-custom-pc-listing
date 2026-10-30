@@ -38,3 +38,9 @@ sourceBindings in the applicable shared, MAIN/supporting and series branch pin e
 For scopeVersion 2, cache coherence and verification apply to declared fact dependencies, their paired units and necessary manufacturer/model/colour/form-factor identity fields. An unresolved CPU or SSD not shown or depended on by this page does not block a port/option page; current ledger structure and exact product/configuration checks still run. Declared data conflicts remain errors. Legacy global reviews retain their existing whole-cache contract.
 
 A new v2 review cannot declare an unresolved visible hardware field as approved: requested fields must be VERIFIED or evidenced NOT_APPLICABLE. This does not force unrelated unknown fields into the page or turn a PARTIAL research handoff into a product-image PASS.
+
+## Customization evidence binding
+
+Current customized PT05 reviews additionally bind the selected RAM installed value/unit, exact memory technology and the complete evidence.customization_ram record, including replaceability, type, research status, sources and review date. Other slots receive this dependency only when their declared facts use RAM installed/type/unit. Changing fixed versus replaceable RAM therefore invalidates the dependent review even if the installed GB value is unchanged. Missing research stays explicitly missing and must be resolved through the ordinary customization plan/research checks before making its claims.
+
+The imageReview.customization policy and its source hashes are included only for those dependent slots; unrelated port reviews remain unchanged. Historical policy without this branch retains its original hash shape and historical meaning. Do not recalculate an old review into a current PASS or regenerate unrequested images.

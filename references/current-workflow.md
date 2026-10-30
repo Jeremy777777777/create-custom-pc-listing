@@ -51,6 +51,8 @@
 
 scripts/workflow_run.py 支持 CONNECTOR、LOCAL、BROWSER 和 MIXED；不再要求连接器任务提供虚构的 browser-result 成功状态。create 创建任务记录；record 接收已经发生、经过清理的执行证据；validate 检查记录和证据字节；stage 复用冻结合同与既有生产／Drive 检查，输出尚未上传的计划。
 
+同一 run／冻结合同可多次 stage，按 --batch-id 指定唯一批次，未指定则自动编号。首批保留 delivery-plan.json，后续计划放 delivery-plans/<batch-id>.json；run-manifest 的 deliveryBatches 保存每批路径和哈希。已发布计划与执行证据不可覆盖，合同或实际生产范围改变仍使用 successor run。CLI 返回本批 planRelativePath；每批用自己的计划调用 Drive verify，最终仍由 drive_delivery.py complete 汇总真实回执，不把准备计划当成已上传。
+
 示例命令：
 
     python scripts/workflow_run.py create --run <new-run-folder> --product <product-folder> --task-id <task-id> --run-id <production-run-id> --request-reference <actual-user-request> --mode CONNECTOR --workflow-sha <commit>
@@ -102,5 +104,7 @@ GitHub 修改先检查、提交、推送，再手动更新 Drive 当前 source �
 单图 scopeVersion 2 只要求本图声明字段、单位和必要商品身份已验证，未使用的 CPU 等未知状态不构成同页阻塞。图片补研究可以保留旧记录并添加／改选声明字段的事实，也可以创建声明叶子的缺失父结构；未声明内容仍受冻结保护。
 
 完整新 Draft 和已有商品局部修订分别处理。局部修订显式使用 listingRevision，绑定前一账本／复用审查和声明字段，保留无关工作簿；完整新 Draft 的全套要求仍不变。分批上传使用同一完整合同，每批验收实际文件，再用 drive_delivery.py complete 累积回执。缺件、错 run、旧哈希或冲突 file ID 不能成为整项完成。
+
+不同合同文件不得在跨批次汇总时共用一个 Drive file ID；重复核对同一文件只在 ID、父目录和当前哈希一致时允许。定制 PT05 与实际使用 RAM 信息的其它图片还绑定 RAM 可更换性、准确系列和原始研究证据；仅保持安装容量不变，不能继续沿用已经过期的选项说明审核。
 
 每个生产 run 在记录 SHA 的独立干净目录／managed worktree 执行。workflow_run.py create 验证该 SHA 与实际执行 checkout 一致。Draft 的生成版本与当前验收版本分别保留，避免仅因无关规则提交而重复生成不变的 Excel；真实事实、模板、文案、候选与字节检查仍按当前规则执行。
