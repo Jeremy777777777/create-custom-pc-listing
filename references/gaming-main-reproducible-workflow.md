@@ -1,6 +1,8 @@
 # Gaming enhanced MAIN — current reference-driven production
 
-For new Gaming proposals, use [original-media gaming editorial design](mini-gaming-real-source-workflow.md): G22/A22/GG22 is the default proposal, with genuine game artwork and original logos, a dominant accurate product and grouped nonrepetitive information. G17–G21 remain [natural alternatives](gaming-natural-design.md). This 2026-10-29 user decision changes proposal routing, not existing product approvals, MAIN boundaries, accessory treatment or factual/visual QA.
+Gaming PT current direction: [visual explanation](gaming-visual-explanation.md) owns G22/A22/GG22 PT01–PT08 appearance, generation and per-page standards (`gaming-visual-explanation-v2`). Supply the approved image references; let the page subject determine visual dominance. Named-game source rules remain; technical/task concept generation is allowed. Older Gaming families are explicit opt-in, not default fallbacks. MAIN, Mini PC and Business rules stay independently scoped.
+
+For new Gaming proposals, use [original-media gaming editorial design](mini-gaming-real-source-workflow.md): G22/A22/GG22 is the default proposal, with genuine game artwork and original logos, an accurate product anchor and subject-led visual explanations for PT. G17–G21 remain [explicit opt-in alternatives](gaming-natural-design.md). This 2026-10-29 user decision changes proposal routing, not existing product approvals, MAIN boundaries, accessory treatment or factual/visual QA.
 
 Read [gaming-approved-main-fit.md](gaming-approved-main-fit.md) and the current approved reference/normalized recipe before building Gaming MAIN. The user has approved the supplied VL-1221 image as the current successful example. Its acceptance is user-confirmed for that image, not independently checked or transferred to a new SKU.
 

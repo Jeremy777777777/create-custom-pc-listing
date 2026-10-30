@@ -1,5 +1,7 @@
 # Natural Gaming design — user decision 2026-10-22
 
+Gaming PT current direction: [visual explanation](gaming-visual-explanation.md) owns G22/A22/GG22 PT01–PT08 appearance, generation and per-page standards (`gaming-visual-explanation-v2`). Supply the approved image references; let the page subject determine visual dominance. Named-game source rules remain; technical/task concept generation is allowed. Older Gaming families are explicit opt-in, not default fallbacks. MAIN, Mini PC and Business rules stay independently scoped.
+
 Current proposal amendment 2026-10-29: default Gaming proposals now use G22/A22/GG22 [original-media gaming editorial design](mini-gaming-real-source-workflow.md), adapting the approved Mini PC method with genuine game art/logos, readable game names and rich nonrepetitive related proof. This document retains G17–G21 as available natural alternatives; it no longer selects the catalog-wide default. Keep exact product identity, applicable accessory rules and product-specific previews.
 
 When a natural G17–G21 alternative is selected, use its natural product-led direction. The user found the previous Gaming imagery too obviously AI-generated and exaggerated. This replaces the generic G04/mecha default, mandatory cinematic subject and old reference's decorative treatment. Existing exact-product approvals and frozen imports remain scoped to those products; do not automatically redraw their images during workflow maintenance.

@@ -1,13 +1,27 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 2,
   "decisionDate": "2026-10-29",
   "reference": "references/mini-gaming-real-source-workflow.md",
   "defaultsForNewProposals": {
-    "gamingFocusedMiniPc": {"series": "MINI_PC", "family": "M04", "gallery": "MG04", "profile": "mini-pc-real-game-editorial-v1"},
-    "gamingPc": {"family": "G22", "skin": "A22", "gallery": "GG22", "profile": "gaming-real-game-editorial-v1"},
-    "generalPurposeMiniPc": {"family": "M01", "gallery": "MG01"}
+    "gamingFocusedMiniPc": {
+      "series": "MINI_PC",
+      "family": "M04",
+      "gallery": "MG04",
+      "profile": "mini-pc-real-game-editorial-v1"
+    },
+    "gamingPc": {
+      "family": "G22",
+      "skin": "A22",
+      "gallery": "GG22",
+      "profile": "gaming-real-game-editorial-v1",
+      "methodProfile": "gaming-visual-explanation-v2"
+    },
+    "generalPurposeMiniPc": {
+      "family": "M01",
+      "gallery": "MG01"
+    }
   },
-  "method": "ORIGINAL_MEDIA_DETERMINISTIC_COMPOSITE",
+  "method": "SERIES_SCOPED",
   "finalGameAssets": "ORIGINAL_ART_AND_ORIGINAL_LOGO_WITH_READABLE_GAME_NAME",
   "gameAuthorizationBasis": "SELLER_CONFIRMED_AUTHORIZATION",
   "authorizationDocuments": "SELLER_HELD_NOT_INDEPENDENTLY_INSPECTED",
@@ -15,7 +29,11 @@
   "fullConfigurationOwner": "PT03.png",
   "primaryFactOwners": "ONE_PAGE_PER_CANONICAL_FACT_MEANING_AND_SCOPE",
   "secondaryFactReuse": "ALLOWED_WITH_DISTINCT_BUYER_PURPOSE_AND_REUSE_REASON",
-  "gameDepictionPurposes": ["GENRE_CONTEXT", "VERIFIED_PLAYABILITY", "BENCHMARK"],
+  "gameDepictionPurposes": [
+    "GENRE_CONTEXT",
+    "VERIFIED_PLAYABILITY",
+    "BENCHMARK"
+  ],
   "performanceClaims": "CURRENT_CONFIGURATION_EVIDENCE_REQUIRED",
   "previewApproval": "PRODUCT_SPECIFIC_USER_JUDGMENT",
   "approvedGamingExecution": {
@@ -27,11 +45,32 @@
     "enhancedMainContrast": "FLAT_LABELS_WITH_LOCAL_TEXT_EDGE_OR_SHADOW_IF_NEEDED",
     "physicalBezelAndWindowsAsset": "PRESERVE",
     "ptInformationCards": "ALLOWED",
-    "approvalScope": "VL-1221 replacement authorized; other products require their own preview judgment"
+    "approvalScope": "VL-1221 replacement authorized; other products require their own preview judgment",
+    "ptAppearanceSupersededBy": "gaming-visual-explanation-v2",
+    "enhancedMainScopeUnchanged": true
   },
   "retroactiveGalleryMigration": false,
   "physicalDimensionUnit": "Inches",
-  "visualReviewWidths": ["NATIVE", 400, 200],
+  "visualReviewWidths": [
+    "NATIVE",
+    400,
+    200
+  ],
   "businessLaptopArchitectureChanged": false,
-  "publicationAuthorized": false
+  "publicationAuthorized": false,
+  "seriesMethods": {
+    "MINI_PC_M04": "ORIGINAL_MEDIA_DETERMINISTIC_COMPOSITE",
+    "GAMING_G22_PT": "GENERATED_VISUAL_EXPLANATION_WITH_COMPOSITION_PRESERVING_REFINEMENT"
+  },
+  "gamingPtStandard": "references/gaming-visual-explanation.md",
+  "gamingPtMethodProfile": "gaming-visual-explanation-v2",
+  "gamingReferenceRegistry": "assets/gaming-visual-reference-registry.json",
+  "namedGamesRequireOriginalMedia": true,
+  "olderGamingFamilies": "EXPLICIT_OPT_IN_ONLY",
+  "gamingPtGenerationPermissions": {
+    "originalUnnamedGamingTaskScenesAllowed": true,
+    "dimensionalTechnicalConceptsAllowed": true,
+    "fullPageProposalsAllowed": true,
+    "scope": "GAMING G22 PT01-PT08 ONLY; not Mini PC M04 or MAIN"
+  }
 }
