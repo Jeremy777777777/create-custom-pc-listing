@@ -1,28 +1,12 @@
-# Gaming graphical configuration cards
+# Gaming brand hierarchy and optional legacy card motifs
 
-Gaming PT current direction: [visual explanation](gaming-visual-explanation.md) owns G22/A22/GG22 PT01–PT08 appearance, generation and per-page standards (`gaming-visual-explanation-v2`). Supply the approved image references; let the page subject determine visual dominance. Named-game source rules remain; technical/task concept generation is allowed. Older Gaming families are explicit opt-in, not default fallbacks. MAIN, Mini PC and Business rules stay independently scoped.
+Current integrated-display enhanced MAIN follows [the approved artwork/brand hierarchy](gaming-enhanced-main-approved-layout.md) and [reusable prompt](../assets/gaming-enhanced-main-prompt-template.md). CPU/GPU/Hz form three primary anchors; RAM/SSD/one compact Windows identity remain subordinate. Six categories describe content, not six compulsory containers. Original brands and final type are refined without flattening the selected composition.
 
-For new Gaming proposals, use [original-media gaming editorial design](mini-gaming-real-source-workflow.md): G22/A22/GG22 is the default proposal, with genuine game artwork and original logos, an accurate product anchor and subject-led visual explanations for PT. G17–G21 remain [explicit opt-in alternatives](gaming-natural-design.md). This 2026-10-29 user decision changes proposal routing, not existing product approvals, MAIN boundaries, accessory treatment or factual/visual QA.
-
-Apply [catalog policy](confirmed-catalog-defaults.md), [image-spec.md](image-spec.md) and [gaming-main-reproducible-workflow.md](gaming-main-reproducible-workflow.md). Each enhanced MAIN has six graphical cards built from frozen approved layers and base facts: DISPLAY/CPU/GPU/RAM/SSD/OS for integrated-display computers, FORM FACTOR/CPU/GPU/RAM/SSD/OS for standalone desktops. LCD/internal-component pictograms represent capabilities; do not depict standalone external monitors or peripheral products. CPU/GPU/Windows assets require approved originals and rights; do not generate their marks. Text-only category labels are not graphical assets. PT01 does not copy six-card full configuration or Windows identity.
-
-## C layout motifs
-
-C01–C06 can arrange/group six cards differently but cannot omit their applicable categories. Integrated-display computers use DISPLAY / CPU / GPU / RAM / SSD / OS; standalone desktops use FORM FACTOR / CPU / GPU / RAM / SSD / OS under the catalog's desktop mapping. FORM FACTOR uses an accurate chassis silhouette and verified dimensions or form-factor name, never a monitor or screen-size claim. Record the mapping in recipe.json and fact ownership. Card/effect pixels stay LCD-contained for integrated displays and within the approved graphic safe zone for desktops; MAIN exterior stays white. Card shape/skin is driven by matching G→A; use a versioned approved recipe with icon/text usable bounds, coordinates, z-order and reading path.
-
-| ID | Composition motif |
-| --- | --- |
-| C01 Command Deck | Lower deck of graphical modules with complete OS identity |
-| C02 Split Power Rails | Narrow left/right stacks leaving subject space |
-| C03 Holographic Corner Stack | Offset translucent modules and clear LCD negative space |
-| C04 Core Orbit | Partial node orbit with separate complete OS card |
-| C05 Performance Matrix | Ordered graphical module grid below hero |
-| C06 Prism Blade Stack | Diagonal module stack, no skew of fixed Windows artwork |
-| C07 Six Spatial Asset Cards | Six depth cards in LCD; default DISPLAY/CPU above, GPU/RAM/SSD/OS below per current SCREEN_ONLY reference; adapt measured zones to target LCD |
+The former mandatory C01–C07 arrangement selection, fixed C07 topology and per-category skin/color rules are retired for this method. Old frozen approvals remain evidence only. The catalog below is available solely when an explicit new request selects a legacy card treatment; it cannot become an automatic fallback or block a whole-image proposal. PT follows gaming-visual-explanation.md. Standalone PCs retain separately approved safe-zone/category rules.
 
 ## A card skins
 
-Default bind Gxx→Axx. Material skin change follows style approval. Theme names describe design, not product facts.
+Legacy optional motifs only when the user expressly requests a card style. No default G→A skin binding applies to the current enhanced MAIN. Theme names are not product facts.
 
 | Asset style | 默认绑定 | 卡片视觉语言 |
 | --- | --- | --- |
@@ -46,11 +30,3 @@ Default bind Gxx→Axx. Material skin change follows style approval. Theme names
 所有 A style 共用以下不可变规则：卡片中的文字和数字必须来自确定性排版资产；商标使用获准源文件；Logo 不得被生成、重画、变形、改色或重新拼字；卡片必须在 100% 与 200 px 缩略图通过可读性检查。
 
 Record each card's asset/source hashes, outer and usable bounds, icon/text fit, LCD mask and current final review. Logo scales are proportional; transparent padding may be removed but visible artwork never cropped. Windows identity remains complete, planar and proportional. Final typography/brand assets are deterministic, not image-generated. Missing graphical assets require sourcing rather than silent text-only fallback.
-
-## Current recipe and desktop applicability
-
-Use [production-recipes.md](production-recipes.md) for slot layouts, layer requirements and rebuild procedure. Read the current product style-lock.json first; preserve approved direction while rebuilding missing recipes, without inheriting old QA. Universal LCD/SCREEN_ONLY and lockup/package instructions above apply to integrated-screen computers. Standalone towers/SFF/mini PCs use the catalog policy's DESKTOP_GRAPHIC_SAFE_ZONE exception with package/package, accurate chassis layers and an approved versioned safe-zone recipe; no monitor, invented LCD or head breakout.
-
-## Current Gaming reference — 2026-10-02
-
-For Gaming enhanced MAIN, apply [gaming-approved-main-fit.md](gaming-approved-main-fit.md) before any older generic head-breakout, top-clearance or reference-exclusion instructions. SCREEN_ONLY six-card composition is now the integrated-screen default; HEAD_ONLY is an optional separately approved variation. The exact VL-1221 front supplied and approved by the user is a hash-bound 1237×937 import exception, not a full-gallery PASS or a reusable exception for other files. New generations follow the current Amazon-based size policy in image-spec.md and independently verified product facts.

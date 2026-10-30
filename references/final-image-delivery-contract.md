@@ -36,9 +36,9 @@ Generation and requested revisions authorize Google Drive upload unless user req
 
 A previous delivery record certifies only its recorded bytes/version and scope. After editing, create evidence and a Drive receipt for the new bytes rather than using the old record. Historical GitHub receipts remain historical. Publication eligibility for MAIN-STRICT/enhanced candidates remains independent.
 
-## Current Gaming reference — 2026-10-02
+## Current Gaming reference — 2026-10-30
 
-For Gaming enhanced MAIN, apply [gaming-approved-main-fit.md](gaming-approved-main-fit.md) before any older generic head-breakout, top-clearance or reference-exclusion instructions. SCREEN_ONLY six-card composition is now the integrated-screen default; HEAD_ONLY is an optional separately approved variation. The exact VL-1221 front supplied and approved by the user is a hash-bound 1237×937 import exception, not a full-gallery PASS or a reusable exception for other files. New generations follow the current Amazon-based size policy in image-spec.md and independently verified product facts.
+For Gaming integrated-display enhanced MAIN, follow [the approved artwork/brand hierarchy](gaming-enhanced-main-approved-layout.md) and its reusable prompt: original game art and a clear character, three dominant CPU/GPU/Hz anchors, smaller RAM/SSD/one compact Windows identity, accurate dominant product on white and LCD containment. Do not reinstate six card boxes, fixed old card positions/colors or a mandatory Windows retail package. Whole-image proposals precede composition-preserving production refinement. Old frozen imports retain only their exact-file evidence/size exceptions; they are not current appearance templates.
 # Current validation refinement — 2026-10-14
 
 Apply [workflow validation boundaries](workflow-validation-boundaries.md) for the shared geometry gate, mandatory supplied reviewInputsSha256, UTC review metadata, staged finalization and frozen-import lifecycle. New scoped-ledger reviews use [per-image dependency bindings](image-review-dependencies.md); version 3 retains its global binding. Historical reviews lacking bindings remain preserved but cannot authorize new changed-slot delivery. Compute bindings at actual review time; never refresh old PASS records automatically.

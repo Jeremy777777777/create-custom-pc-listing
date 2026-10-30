@@ -25,7 +25,7 @@ Recipe fields: canvas [actual_width,actual_height], formFactor, boundaryMode, ex
 | Slot | Composition and reading order | Information boundary |
 | --- | --- | --- |
 | MAIN-STRICT | Accurate complete computer centered on white, neutral contact shadow | No added marketing/Windows/OEM overlays |
-| Enhanced FRONT | Exact-model front original or fidelity-reviewed AI layer, strong family scene, legible subordinate cards, one Windows identity | Integrated LCD clipping; desktop approved graphic safe zone |
+| Enhanced FRONT | Exact-model front original or fidelity-reviewed AI layer, strong family scene, Gaming artwork/brand hierarchy or the matching other-series layout, one applicable Windows identity | Integrated LCD clipping; desktop approved graphic safe zone |
 | Enhanced ANGLE | Matching three-quarter original or official-reference-supported fidelity-reviewed AI chassis, independently fitted information layers | Preserve original Windows geometry in screen artwork; accepted Business Laptop LCD artwork may be projected coherently as one plane into the actual screen. No independent logo skew/stretch or invented angle; other series retain their applicable fit gates |
 | PT01 | Large accurate hero and compatible verified reasons; Business Laptop uses its grouped proof plan, other generic layouts use up to three subordinate reasons | No full config grid or Windows treatment |
 | PT02 | Natural computer-use scene, product readable, one task-specific verified message | Neutral furniture/anonymous person allowed, no extra equipment |
@@ -40,11 +40,11 @@ For generic packs, when PT07 has no unused defensible fact, use an accurate rest
 
 ## Family continuation
 
-Gaming recipe.json must record `configurationCardCategories`: DISPLAY/CPU/GPU/RAM/SSD/OS for integrated-display computers, FORM FACTOR/CPU/GPU/RAM/SSD/OS for standalone desktops. The desktop FORM FACTOR card uses chassis imagery and verified dimensions or form-factor name, with fact IDs and source; it does not depict a monitor. Follow the catalog's 2026-10-14 mapping before generic Display-card descriptions.
+Gaming recipe.json must record `configurationCardCategories`: DISPLAY/CPU/GPU/RAM/SSD/OS as content coverage for integrated-display computers, not mandatory card geometry; FORM FACTOR/CPU/GPU/RAM/SSD/OS for standalone desktops. The desktop FORM FACTOR card uses chassis imagery and verified dimensions or form-factor name, with fact IDs and source; it does not depict a monitor. Follow the catalog's 2026-10-14 mapping before generic Display-card descriptions.
 
 Use the Gxx/Axx/GGxx and Bxx/BGxx motif descriptions as palette/material rules. Keep a coherent visual language while adapting subjects and layouts. Gaming v2 does not require uniform cards; dimensional materials, purposeful lighting and different explanatory scenes carry continuity. B07 collaboration uses soft-blue links; B08 graphite/cobalt technical drafting; B09 navy/silver ordered modules; B10 charcoal/blue-purple AI abstraction; B11 graphite/blue-green privacy layers; B12 blue-gray city horizon; B13 restrained scenic depth; B14 cyan city networks; B15 neutral architectural geometry; B16 paper layers/color blocks/technical grids. These motifs never prove software entitlements or hardware claims.
 
-Gaming uses the chosen G scene and matching A material across six enhanced-MAIN cards, then GG palette/motifs on PT. Enhanced MAIN no-head scenes stay within LCD; desktop MAIN has no breakout. PT technical/task concepts may extend outside a depicted LCD under Gaming v2. B01/BG01 can use generic original office abstractions without Office inclusion. Software-branded graphics/claims require separate verified rights/entitlements.
+Gaming integrated-display enhanced MAIN uses original selected game art and the approved brand/label hierarchy, without compulsory A-style card skins; GG palette/motifs continue on PT. Enhanced MAIN no-head scenes stay within LCD; desktop MAIN has no breakout. PT technical/task concepts may extend outside a depicted LCD under Gaming v2. B01/BG01 can use generic original office abstractions without Office inclusion. Software-branded graphics/claims require separate verified rights/entitlements.
 
 ## Rebuild and correction
 
@@ -53,9 +53,9 @@ Business Laptop B17/BG17 additionally follows [business-graphite-design-system.m
 1. Read current facts and migrated approval. List missing exact views/layers/masks and acquire them autonomously within rights rules.
 2. Create clean exact-product layers and family scene/card layers; keep final text/logos deterministic. Establish current preview/reference and measured recipe; do not load excluded historical images as a fallback.
 3. Render, inspect 100%/200px and verify semantic ownership, geometry, licenses and style. Fix only failed layers; never manufacture review PASS.
-4. Freeze approved current inputs. Re-run identical inputs and compare pixels/hashes; Gaming enhanced-MAIN RAM-only change must affect only its card content before restoring actual facts. Gaming PT uses its approved visual/label dependency map instead of a mandatory card model.
+4. Freeze approved current inputs. Re-run identical inputs and compare pixels/hashes; Gaming enhanced-MAIN RAM-only change must affect only its affected label region before restoring actual facts. Gaming PT uses its approved visual/label dependency map instead of a mandatory card model.
 5. Same-slot updates retain other canonical bytes and follow partial acceptance when the gallery is quarantined. A rebuilt recipe alone does not clear historical gallery status.
 
-## Current Gaming reference — 2026-10-02
+## Current Gaming reference — 2026-10-30
 
-For Gaming enhanced MAIN, apply [gaming-approved-main-fit.md](gaming-approved-main-fit.md) before any older generic head-breakout, top-clearance or reference-exclusion instructions. SCREEN_ONLY six-card composition is now the integrated-screen default; HEAD_ONLY is an optional separately approved variation. The exact VL-1221 front supplied and approved by the user is a hash-bound 1237×937 import exception, not a full-gallery PASS or a reusable exception for other files. New generations follow the current Amazon-based size policy in image-spec.md and independently verified product facts.
+For Gaming integrated-display enhanced MAIN, follow [the approved artwork/brand hierarchy](gaming-enhanced-main-approved-layout.md) and its reusable prompt: original game art and a clear character, three dominant CPU/GPU/Hz anchors, smaller RAM/SSD/one compact Windows identity, accurate dominant product on white and LCD containment. Do not reinstate six card boxes, fixed old card positions/colors or a mandatory Windows retail package. Whole-image proposals precede composition-preserving production refinement. Old frozen imports retain only their exact-file evidence/size exceptions; they are not current appearance templates.
