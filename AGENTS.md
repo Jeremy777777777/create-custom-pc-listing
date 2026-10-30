@@ -1,5 +1,8 @@
 # Listing development and testing
 
+Gaming enhanced MAIN — user decision 2026-10-30: use [the approved artwork/brand hierarchy](references/gaming-enhanced-main-approved-layout.md) and [the reusable prompt](assets/gaming-enhanced-main-prompt-template.md). G22 integrated-display proposals use original game artwork, CPU upper right, GPU/model lower right, Hz lower left and subordinate RAM/SSD/one compact Windows identity. Whole-image proposals are allowed; preserve selected composition during genuine-asset/factual refinement. Mandatory six-card skins/topology and package-sized Windows defaults are removed for this method. Other series, strict MAIN and standalone-desktop boundaries remain separate.
+
+
 User decision 2026-10-30: [customer-facing images and copy](references/customer-facing-image-content.md) applies to every series and future output. No internal page eyebrows, fixed fine-print footers/dividers, ERP IDs or preview/version labels in artwork or customer copy. Keep buyer headlines and verified feature labels; status stays in records. Check customer copy before generation and inspect actual rendered pixels before delivery.
 
 

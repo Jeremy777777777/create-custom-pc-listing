@@ -1,5 +1,8 @@
 # MegaPC Custom PC listing and image workflow
 
+Gaming enhanced MAIN — user decision 2026-10-30: use [the approved artwork/brand hierarchy](references/gaming-enhanced-main-approved-layout.md) and [the reusable prompt](assets/gaming-enhanced-main-prompt-template.md). G22 integrated-display proposals use original game artwork, CPU upper right, GPU/model lower right, Hz lower left and subordinate RAM/SSD/one compact Windows identity. Whole-image proposals are allowed; preserve selected composition during genuine-asset/factual refinement. Mandatory six-card skins/topology and package-sized Windows defaults are removed for this method. Other series, strict MAIN and standalone-desktop boundaries remain separate.
+
+
 User decision 2026-10-30: [customer-facing images and copy](references/customer-facing-image-content.md) applies to every series and future output. No internal page eyebrows, fixed fine-print footers/dividers, ERP IDs or preview/version labels in artwork or customer copy. Keep buyer headlines and verified feature labels; status stays in records. Check customer copy before generation and inspect actual rendered pixels before delivery.
 
 
@@ -40,7 +43,7 @@ The workflow produces research and base-configuration listing workbooks, plus an
 
 - Images show **the computer only**, with no additional devices/accessories, pack-out or contextual peripheral silhouettes. PT02 may use people/furniture to explain use.
 - Final slots follow the [Amazon-based size policy](references/image-spec.md), not a fixed square resolution. Preserve geometry; do not enlarge low-resolution sources to claim required fidelity.
-- Business enhanced MAIN defaults to **front Windows lockup and three-quarter package**, both inside LCD; an approved safe-zone swap is allowed, but the treatments must remain distinct. Gaming uses one fixed package per enhanced choice. MAIN-STRICT and PT01 omit Windows graphic treatments.
+- Business enhanced MAIN defaults to **front Windows lockup and three-quarter package**, both inside LCD; an approved safe-zone swap is allowed, but the treatments must remain distinct. Gaming integrated-display enhanced choices use one compact genuine Windows edition identity; no mandatory package-sized block. MAIN-STRICT and PT01 omit Windows graphic treatments.
 - Requested same-product/same-slot fixes authorize canonical replacement after internal QA. Style changes follow the current approval gate.
 
 ## Active files
