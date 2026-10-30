@@ -316,5 +316,25 @@
       "visualProof": "SUBJECT_LED_VISUAL_EXPLANATION"
     },
     "checker": "scripts/gaming_visual_plan.py"
+  },
+  "customerFacingContent": {
+    "authority": "references/customer-facing-image-content.md",
+    "internalEyebrow": false,
+    "fixedFooter": false,
+    "footerDivider": false,
+    "internalProductIdVisible": false,
+    "previewOrVersionStatusVisible": false,
+    "preserveBuyerHeadlineAndVerifiedLabels": true,
+    "qualificationPlacement": "READABLE_NEAR_RELEVANT_FEATURE_ONLY",
+    "promptAvoid": [
+      "internal page header",
+      "page-slot label",
+      "ERP/internal product ID",
+      "preview/version status",
+      "tiny boilerplate footer",
+      "footer divider",
+      "watermark"
+    ],
+    "rasterReview": "NATIVE_400PX_200PX_REQUIRED_NOT_PROVEN_BY_TEXT_CHECK"
   }
 }

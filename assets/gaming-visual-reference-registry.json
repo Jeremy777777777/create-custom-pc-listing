@@ -3,7 +3,7 @@
   "methodProfile": "gaming-visual-explanation-v2",
   "referenceProduct": "VL-1221",
   "scope": "Gaming PT appearance, not transferable hardware facts",
-  "approvalSource": "Current conversation: user accepted PT03, then PT01/PT05/PT07, and explicitly requested all proposed workflow changes plus replacement of the three latest images.",
+  "approvalSource": "Current conversation: user accepted PT03, then PT01/PT05/PT07, and explicitly requested all proposed workflow changes plus replacement of the three latest images. Latest 2026-10-30 instruction approves redesigned PT03 replacement and global header/footer cleanup.",
   "referenceFolderId": "1nrdBPIqKxghhmY2ZDB5St6AYEqXxuFQs",
   "referenceFolderUrl": "https://drive.google.com/drive/folders/1nrdBPIqKxghhmY2ZDB5St6AYEqXxuFQs",
   "requestedCurrentReplacement": [
@@ -11,7 +11,7 @@
     "PT05.png",
     "PT07.png"
   ],
-  "pt03CurrentReplacementAuthorized": false,
+  "pt03CurrentReplacementAuthorized": true,
   "references": [
     {
       "slot": "PT01",
@@ -53,5 +53,7 @@
       "productionQa": "NOT_ESTABLISHED_BY_STYLE_SELECTION",
       "previewLabelRetained": true
     }
-  ]
+  ],
+  "customerFacingContentAuthority": "references/customer-facing-image-content.md",
+  "referenceDecorationPolicy": "Original reference bytes are immutable selection evidence. Internal headers/footers/status/IDs in them are superseded and must never be copied into new customer-facing output."
 }
