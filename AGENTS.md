@@ -1,6 +1,8 @@
 # Listing development and testing
 
-User decision 2026-10-29: [customization copy and RAM research](references/customization-options-policy.md) supersedes base-only customized title/bullet/description rules. Research actual RAM replaceability and exact DDR/LPDDR family/generation. SSD choices: 512GB / 1TB / 2TB / 4TB; replaceable RAM: 8GB / 16GB / 32GB / 64GB; fixed RAM: actual capacity/type. Do not filter confirmed choices by platform maximum. Numeric fields remain actual base values; own-brand and image routes stay separately scoped. Use the updated writer and content checks.
+User decision 2026-10-29: [Universal image customization](references/universal-customization-image.md) adds the dedicated PT05 RAM/SSD options and per-tier use page across customized design series. Research RAM replaceability/type, keep fixed RAM fixed, label choices separately from installed base facts, build/check its supporting plan and retain product-specific style approval. Update GitHub first, then verified Drive source copies.
+
+User decision 2026-10-29: [customization copy and RAM research](references/customization-options-policy.md) supersedes base-only customized title/bullet/description rules. Research actual RAM replaceability and exact DDR/LPDDR family/generation. SSD choices: 512GB / 1TB / 2TB / 4TB; replaceable RAM: 8GB / 16GB / 32GB / 64GB; fixed RAM: actual capacity/type. Do not filter confirmed choices by platform maximum. Numeric fields remain actual base values; own-brand remains separately scoped. Customized images now apply the universal PT05 option/use page. Use the updated writer and content checks.
 
 User decision 2026-10-29: [latest applicable image approval](references/style-approval-gate.md) governs conflicts with older approvals for the same scope. Superseded references/locks stay historical and cannot force the old result; preserve only the latest applicable approved bytes, while retaining nonconflicting decisions.
 

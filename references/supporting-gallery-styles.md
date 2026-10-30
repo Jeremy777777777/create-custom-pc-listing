@@ -1,5 +1,7 @@
 # Supporting gallery creative continuation
 
+User decision 2026-10-29: for new complete customized galleries, the [universal RAM/SSD choice page](universal-customization-image.md) owns PT05 across Business, Gaming, Mini PC and other form factors. Show every seller-approved tier with a useful short caption; fixed RAM retains actual capacity/type without RAM choices. This overrides older PT05 installed-only/no-option/task-only prescriptions while retaining the eleven-file set, PT03 base configuration, current style approval and unchanged-slot boundaries.
+
 Mini PC uses gaming-focused M04→MG04 or M01→MG01, M02→MG02 and M03→MG03 alternatives under [mini-pc-design-system.md](mini-pc-design-system.md), before the audience-only routing below. M04/MG04 uses the original-media workflow’s scoped slot amendments; other choices continue the selected studio/desktop/technical language through the fixed PT01–PT08 meanings; do not add monitors, extra devices or repeated configuration posters. Existing user-approved product locks stay scoped.
 
 For new Gaming proposals, use [original-media gaming editorial design](mini-gaming-real-source-workflow.md): G22/A22/GG22 is the default proposal, with genuine game artwork and original logos, a dominant accurate product and grouped nonrepetitive information. G17–G21 remain [natural alternatives](gaming-natural-design.md). This 2026-10-29 user decision changes proposal routing, not existing product approvals, MAIN boundaries, accessory treatment or factual/visual QA.

@@ -1,5 +1,7 @@
 # MegaPC Custom PC listing and image workflow
 
+User decision 2026-10-29: [Universal image customization](references/universal-customization-image.md) adds the dedicated PT05 RAM/SSD options and per-tier use page across customized design series. Research RAM replaceability/type, keep fixed RAM fixed, label choices separately from installed base facts, build/check its supporting plan and retain product-specific style approval. Update GitHub first, then verified Drive source copies.
+
 User decision 2026-10-29: [Mini PC and Gaming original-media workflow](references/mini-gaming-real-source-workflow.md) fully defines real product/game sources, original game logos plus readable names, buyer-question planning, rich related proof without repeated specification posters, layered production, mobile QA and verified in-place delivery. Gaming-focused Mini PC proposals use M04/MG04; new Gaming PC proposals use G22/A22/GG22. Existing approvals remain scoped; other Mini PC choices and Business Laptop architecture stay independent.
 
 2026-10-28 own-brand addition: [MegaPC manufactured Mini PCs](references/megapc-own-brand-mini-pc.md) use a separate explicit product-copy route. ERP supplies exact sold configuration; original supplied material fills missing physical/interface facts. Excel uses ERP VD identifiers, and own-brand copy omits Custom, Created Using and upgrade/seal narratives. Existing customized third-party products retain their rules.

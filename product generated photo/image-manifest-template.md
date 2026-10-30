@@ -69,7 +69,7 @@ Record synthetic/licensed-person source and required metadata, LCD/product/head 
 | PT02 | Use scene, computer only | | | | |
 | PT03 | Full base CPU/GPU/RAM/SSD/OS | | | | |
 | PT04 | Display/overall form | | | | |
-| PT05 | Hardware/task relationships | | | | |
+| PT05 | Customized: RAM/SSD options and per-tier uses; fixed RAM actual capacity/type. Other routes retain applicable hardware/task relationships | | | | |
 | PT06 | Keyboard/touchpad/input on white | | | | |
 | PT07 | Remaining verified value, no seller warranty advertising | | | | |
 | PT08 | Real physical port map and connectivity | | | | |

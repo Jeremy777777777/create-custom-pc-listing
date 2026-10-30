@@ -1,5 +1,7 @@
 # Universal image production — user confirmation 2026-10-29
 
+User decision 2026-10-29: for new complete customized galleries, the [universal RAM/SSD choice page](universal-customization-image.md) owns PT05 across Business, Gaming, Mini PC and other form factors. Show every seller-approved tier with a useful short caption; fixed RAM retains actual capacity/type without RAM choices. This overrides older PT05 installed-only/no-option/task-only prescriptions while retaining the eleven-file set, PT03 base configuration, current style approval and unchanged-slot boundaries.
+
 Mini PC and Gaming content routing — 2026-10-29: [original-media information design](mini-gaming-real-source-workflow.md) owns M04/MG04 and G22/A22/GG22, including the named original-game portfolio and grouped technical explanations. It shares the production foundations here, not Business Laptop’s page narratives. Its pack-specific PT02/PT05/PT06 amendments do not change other series or catalog MAIN/accessory boundaries.
 
 Apply this shared production layer to every Listing design series. Then apply only the matching form-factor/design-series rules. The user requested separate universal and Business Laptop rules. On 2026-10-29 the user clarified with an attached Lenovo office-scene screenshot that the intended visual direction was the earlier rich scene composition, rather than the later flat parameter-card rebuild. Preserve that correction in these two products' approval evidence; do not cite the earlier ambiguous approval as approval of the substituted card layouts. No approval transfers to other products.
@@ -15,6 +17,10 @@ Apply this shared production layer to every Listing design series. Then apply on
 Current explicit user instructions govern scope. The existing image specification, evidence chain, accessory rules, strict/enhanced MAIN boundaries and production/delivery checks remain authoritative. This page routes them; it does not create a competing acceptance system.
 
 Resolve old/new approval conflicts using [latest applicable approval precedence](style-approval-gate.md#latest-applicable-approval-takes-precedence--user-decision-2026-10-29) before freezing composition or preserved slots. A newer explicit USER-selected/approved version governs the overlapping scope; superseded examples/locks remain historical rather than competing constraints.
+
+## Universal customization page
+
+For customized products, follow [the dedicated PT05 choice-page design](universal-customization-image.md) before series-specific content planning. Its four SSD tiers and researched replaceable/fixed RAM branches are universal content; layout still follows the selected style. Keep the choice page distinct from PT03 installed configuration. Build and check the hash-bound supporting plan with `scripts/image_customization_plan.py`; this checks declarations, not a rendered image or approval.
 
 ## Shared production method
 

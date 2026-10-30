@@ -1,5 +1,7 @@
 # Mini PC design system — 2026-10-28
 
+User decision 2026-10-29: for new complete customized galleries, the [universal RAM/SSD choice page](universal-customization-image.md) owns PT05 across Business, Gaming, Mini PC and other form factors. Show every seller-approved tier with a useful short caption; fixed RAM retains actual capacity/type without RAM choices. This overrides older PT05 installed-only/no-option/task-only prescriptions while retaining the eleven-file set, PT03 base configuration, current style approval and unchanged-slot boundaries.
+
 Current 2026-10-29 amendment: gaming-focused Mini PCs use M04/MG04 under [the complete original-media workflow](mini-gaming-real-source-workflow.md), including original game art/logos, readable game names and rich grouped proof with useful secondary reuse. Its slot table supersedes older generic PT02, PT05, PT06 and sparse callout limits below only for M04/MG04. M01–M03 remain alternatives. Existing product approvals and the two-product chassis-only exception stay scoped.
 
 For seller-confirmed MegaPC manufacture, first apply [own-brand Mini PC routing](megapc-own-brand-mini-pc.md). Physical style remains M/MG; sales copy is original MegaPC product copy, with ERP VD identity/configuration and no Custom/Created Using/upgrade narrative.
@@ -57,7 +59,7 @@ The current [catalog accessory treatment](confirmed-catalog-defaults.md) still r
 | PT02 | Natural compact desk scene, paired inputs and one appropriate daily task message | Furniture/anonymous person only within catalog boundaries; no extra devices |
 | PT03 | Ordered installed CPU/GPU/RAM/internal SSD/OS modules and accurate chassis | Sole complete base configuration page; no maximum/optional tiers masquerading as installed |
 | PT04 | Accurate form, footprint and sourced dimensions, measured inch leaders when verified | No built-in screen claims; no missing dimension guesses; otherwise use verified form/finish |
-| PT05 | Original 2–3-stage abstract task relationship, such as open / organize / continue | Use supported benefits, not a second spec grid, copied app UI or performance guarantee |
+| PT05 | Customized Mini PC: universal RAM/SSD option tiers and uses, with researched fixed/replaceable RAM treatment; own-brand retains its independent route | Distinguish choices from installed totals; no invented internals, copied app UI or performance guarantee |
 | PT06 | White-background keyboard/mouse/control detail with the recorded accessory treatment | No unverified wireless/model labels; no port-map takeover |
 | PT07 | One unused verified value, e.g. supported maintenance access or evidenced material/cooling detail | No invented exploded assembly, temperature/dB/energy number or seller warranty advertising; use a claim-free product atmosphere if no fact remains |
 | PT08 | Supported front/back/side views, thin leaders ending at actual openings and legible labels | Verify count/location/type and each USB-C function; wireless only if evidenced. No external-device network diagram |

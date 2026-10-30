@@ -87,9 +87,9 @@
     },
     {
       "file": "PT05.png",
-      "buyerQuestion": "How do hardware choices support useful tasks?",
+      "buyerQuestion": "Which RAM and SSD options fit my needs?",
       "headline": null,
-      "primaryTheme": "Evidence-backed hardware or task relationships",
+      "primaryTheme": "Customized: universal capacity choices and per-tier illustrative uses; own-brand retains applicable hardware/task relationships",
       "visualProof": "HARDWARE_TASK_RELATIONSHIP",
       "fullConfigurationOverview": false,
       "claims": [],
@@ -174,5 +174,7 @@
       "performanceEvidence": null
     },
     "sourceAsset": "Use the required provenance, native-byte, rights-scope, Drive and derivative fields in the reference. Replace instructions with actual records; blanks do not pass."
-  }
+  },
+  "customizationImagePlanPath": null,
+  "customizationImagePlanSha256": null
 }

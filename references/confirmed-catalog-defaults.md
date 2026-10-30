@@ -64,7 +64,7 @@ Gaming front on integrated-display computers defaults to the current SCREEN_ONLY
 | PT02 | Verified use scene |
 | PT03 | Sole full base CPU/GPU/RAM/SSD/OS configuration page |
 | PT04 | Display and overall form, dimensions/weight if verified |
-| PT05 | Business Laptop: installed memory/storage explanation or evidenced form relationship with purposeful secondary reuse; other series use their applicable task/technical plan. No repeated complete model/configuration table |
+| PT05 | Customized products across all series: [RAM/SSD options and per-tier uses](universal-customization-image.md), with researched fixed/replaceable RAM branch. Choices remain distinct from installed configuration; no repeated complete CPU/GPU/OS table. Own-brand keeps its independent route |
 | PT06 | White-background computer input details: keyboard, touchpad and controls; Business Laptop may group applicable verified camera/privacy details |
 | PT07 | Business Laptop: remaining mobility/collaboration question with related verified proof; other generic packs use a remaining verified value. No seller warranty/service advertising or complete configuration recap |
 | PT08 | Accurate physical port map plus verified wireless/connectivity |

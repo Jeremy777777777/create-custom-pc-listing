@@ -1,6 +1,6 @@
 # Customization in title, bullets and description — user decision 2026-10-29
 
-This current explicit seller decision replaces the former base-only restriction for **CUSTOMIZED_OEM listing copy**. It applies to Item Name, Bullet Point and Product Description. The seller confirmed that the following are its available choices; do not ask again or research platform maximum capacity to reduce these lists. The separate MEGAPC_OWN_BRAND route and image recipes retain their existing scope.
+This current explicit seller decision replaces the former base-only restriction for **CUSTOMIZED_OEM listing copy**. It applies to Item Name, Bullet Point and Product Description. The seller confirmed that the following are its available choices; do not ask again or research platform maximum capacity to reduce these lists. The separate MEGAPC_OWN_BRAND route remains independent. The later [universal image extension](universal-customization-image.md) applies these choices and per-tier uses to PT05 across customized design series.
 
 ## Required customer copy
 
@@ -37,6 +37,6 @@ This is an illustrative shape, not evidence for a product. Preserve actual searc
 
 Use `customization_policy.copy_texts(listing_view(product, ledger)[0])` to compose the original English copy around the researched fragments. Copy facts remain derived from the same ledger. The existing full content validator masks only exact labelled standard option phrases, then continues installed-capacity, storage medium, CPU, VRAM and numeric checks on the remaining claims. Arbitrary unsupported lists or incorrect DDR/LPDDR versions fail.
 
-Read-only legacy workbooks without this annotation remain explicitly historical/base-only; they do not gain current-policy compliance. Do not rewrite existing product deliveries or image galleries during this workflow maintenance. Apply the new policy when generating or explicitly revising customized listing copy. Own-brand products retain their independent copy and sold-capacity rules.
+Read-only legacy workbooks without this annotation remain explicitly historical/base-only; they do not gain current-policy compliance. Do not rewrite existing product deliveries or image galleries during workflow maintenance; the image extension applies to new complete customized series or explicitly scoped PT05/full-gallery revisions. Apply the new policy when generating or explicitly revising customized listing copy. Own-brand products retain their independent copy and sold-capacity rules.
 
 Run the complete repository unit suite plus `scripts/tests/test_customization_policy.py`. The regression fixtures are explicitly synthetic, never claims that a real product was researched. They cover DDR4/DDR5 replacement, LPDDR4X/LPDDR5/LPDDR5X fixed memory, unknown/conflicting evidence, wrong types/lists, seller choices despite a smaller documented maximum, saved workbook generation/readback, legacy compatibility and the separate own-brand route.
