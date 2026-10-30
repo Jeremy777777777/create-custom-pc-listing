@@ -8,6 +8,42 @@ IDENTITY_KEYS = ('internalId', 'productId', 'identity', 'brand', 'manufacturer',
 IDENTITY_FIELDS = {'Manufacturer', 'Model Number', 'Model Name', 'Color', 'Form Factor'}
 FACT_KEYS = ('id', 'status', 'final_value', 'fact_scope', 'configurationId', 'source',
              'applies_to_sold_configuration', 'transfer_basis')
+SCOPED_POLICY = 'assets/workflow-execution-policy.json'
+
+
+def style_projection(directory, slot, style, policy_text=None):
+    """V2 binds shared design plus this slot; delivery settings and other slots are irrelevant."""
+    import gallery_engine as g
+    if style.get('scopeVersion') != 2 or not isinstance(style.get('shared'), dict) or not style['shared']:
+        raise ValueError('V2 review requires explicit shared and per-slot style')
+    item = style.get('slots', {}).get(slot)
+    if (not isinstance(item, dict) or item.get('status') != 'APPROVED'
+            or not isinstance(item.get('approvalReference'), str) or not item['approvalReference'].strip()):
+        raise ValueError('Selected slot requires its actual USER approval reference')
+    series = style['shared'].get('designSeries')
+    if series not in {'BUSINESS_LAPTOP', 'GAMING', 'MINI_PC'}:
+        raise ValueError('Shared style needs the actual designSeries')
+    root = Path(g.__file__).resolve().parents[1]
+    if policy_text is None:
+        policy = g.read(root/SCOPED_POLICY)
+    else:
+        raw = policy_text.get('__scopedImagePolicy__')
+        if not isinstance(raw, str):
+            raise ValueError('Historical v2 review requires the exact committed scoped image policy')
+        policy = json.loads(raw)
+    rules = policy['imageReview']
+    kind = 'main' if slot in g.MAIN else 'supporting'
+    relevant = {key: rules[key] for key in ('shared', kind, series)}
+    result = {'styleLock': {'shared': style['shared'], 'slot': item},
+              'imagePolicy': relevant}
+    recipe = item.get('recipePath')
+    if recipe:
+        from pathlib import PurePosixPath
+        part = PurePosixPath(recipe)
+        if part.is_absolute() or '..' in part.parts or '\\' in recipe or ':' in recipe:
+            raise ValueError('Selected recipe must use a safe relative path')
+        result['recipe'] = g.read(root/recipe if recipe.startswith('assets/') else Path(directory)/recipe)
+    return result
 
 
 def pointer(data, path):
@@ -32,6 +68,9 @@ def binding(directory, slot, dependencies, policy_text=None):
     p = Path(directory)
     if slot not in g.NAMES or not isinstance(dependencies, dict):
         raise ValueError('Per-image dependency declaration required')
+    version = dependencies.get('scopeVersion', 1)
+    if version not in (1, 2):
+        raise ValueError('Unknown image dependency scope version')
     fields, paths = dependencies.get('fields'), dependencies.get('productPaths')
     if (not isinstance(fields, list) or not all(isinstance(key, list) and len(key) == 2
             and all(isinstance(v, str) and v.strip() for v in key) for key in fields)
@@ -62,11 +101,15 @@ def binding(directory, slot, dependencies, policy_text=None):
                   for sheet, field in sorted(required)]
     identity = {key: facts[key] for key in IDENTITY_KEYS if key in facts}
     identity['configurationId'] = ledger['configurationId']
-    payload = {'slot': slot, 'dependencies': dependencies, 'identity': identity, 'styleLock': style,
+    payload = {'slot': slot, 'dependencies': dependencies, 'identity': identity,
                'selectedFacts': projection, 'productValues': {path: pointer(facts, path) for path in sorted(paths)}}
     if any(field in STORAGE_FIELDS for _, field in required):
         payload['storageDependencies'] = hardware.get('storageDependencies')
         payload['storageCapacityBasis'] = hardware.get('storageCapacityBasis')
+    if version == 2:
+        payload.update(style_projection(directory, slot, style, policy_text))
+        return hashlib.sha256(json.dumps(payload, sort_keys=True, separators=(',', ':'), ensure_ascii=False).encode()).hexdigest()
+    payload['styleLock'] = style
     recipe = style.get('recipePath')
     root = Path(g.__file__).resolve().parents[1]
     if recipe:
@@ -88,3 +131,5 @@ def agree(directory):
             other = entries.get(row['file'])
             if other is None or any(other.get(key) != row.get(key) for key in ('dependencies', 'reviewInputsSha256')):
                 raise ValueError('Visual/semantic image dependency declarations disagree')
+            if row.get('dependencies', {}).get('scopeVersion') == 2 and other.get('customerText') != row.get('customerText'):
+                raise ValueError('Visual/semantic rendered-copy declarations disagree')

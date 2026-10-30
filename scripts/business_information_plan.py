@@ -146,6 +146,8 @@ def check_presentation(plan, ledger, registry, required=False):
 
 
 def check(plan, ledger, ledger_sha256, registry, require_presentation=False):
+    from customer_visible_content import validate_image_plan_copy
+    validate_image_plan_copy(plan)
     if plan.get("productId") != ledger.get("productId") or plan.get("configurationId") != ledger.get("configurationId"):
         raise ValueError("Plan and ledger identity/configuration differ")
     if plan.get("ledgerSha256") != ledger_sha256:

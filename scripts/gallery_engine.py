@@ -102,7 +102,14 @@ def logo_geometry(plan,cfg,logo,size):
     if not bbox or alpha.getextrema()[0]==255: raise ValueError('Use approved transparent asset with visible ink')
     vw,vh=bbox[2]-bbox[0],bbox[3]-bbox[1]
     zones=cfg.get('protectedZones',[])
-    if not zones or not any(str(z.get('label','')).startswith('PRODUCT_SILHOUETTE') for z in zones): raise ValueError('Missing product silhouette protection')
+    semantic=plan.get('placementPolicy')=='SEMANTIC_OEM_INTEGRATION_V1'
+    if semantic:
+        if (cfg.get('anchor') not in {'BRAND_CORNER','PRODUCT_IDENTITY','FEATURE_HEADER'}
+                or not isinstance(cfg.get('purpose'),str) or not cfg['purpose'].strip()
+                or cfg.get('readingPriority')!='SECONDARY'
+                or not zones or not any(str(z.get('label','')).startswith('PRIMARY_') for z in zones)):
+            raise ValueError('Semantic OEM needs purpose, subordinate anchor and actual primary-content protection')
+    elif not zones or not any(str(z.get('label','')).startswith('PRODUCT_SILHOUETTE') for z in zones): raise ValueError('Missing product silhouette protection')
     box=rect(cfg); w,h=box[2]-box[0],box[3]-box[1]
     if abs(w/h-vw/vh)/(vw/vh)>.02: raise ValueError('Logo aspect ratio mismatch after alpha trimming')
     gap=check_separation(box,zones,size,max(int(plan.get('minimumClearancePx',0)),int(plan.get('minimumComponentSeparationPx',0))))
@@ -110,8 +117,10 @@ def logo_geometry(plan,cfg,logo,size):
     wide=plan.get('logoVisibilityMode')=='ASPECT_RATIO_WORDMARK'
     if wide and (max(vw,vh)/min(vw,vh)<=2.4 or not plan.get('logoAssetSourceUrl')): raise ValueError('Invalid official wordmark branch')
     scale=200/max(size)
-    if max(w,h)*scale<20 or max(w,h)>.12*max(size): raise ValueError('Logo visible long edge threshold')
-    if min(w,h)*scale<(20*min(vw,vh)/max(vw,vh) if wide else 10): raise ValueError('Logo visible short edge threshold')
+    minimum_long=12 if semantic else 20
+    if max(w,h)*scale<minimum_long or max(w,h)>.12*max(size): raise ValueError('Logo visible long edge threshold')
+    minimum_short=(minimum_long*min(vw,vh)/max(vw,vh) if wide or semantic else 10)
+    if min(w,h)*scale<minimum_short: raise ValueError('Logo visible short edge threshold')
     return gap
 
 POLICY_INPUTS=('confirmed-catalog-defaults.md','image-spec.md','final-image-delivery-contract.md','faithful-product-reproduction.md','workflow-validation-boundaries.md')
@@ -193,6 +202,13 @@ def review_record(report,names,directory,preserve_unbound_research=False,trusted
             trusted=trusted_policy_binding.get(name) if isinstance(trusted_policy_binding,dict) else None
             if entry.get('reviewInputsSha256') not in (slot_binding(directory,name,entry.get('dependencies')),trusted) or not entry.get('reviewInputsSha256'):
                 raise ValueError('Per-image facts/style/recipe/policy binding stale or absent: '+name)
+            if entry.get('dependencies',{}).get('scopeVersion')==2:
+                from customer_visible_content import validate_customer_text
+                texts=entry.get('customerText')
+                if (not isinstance(texts,list) or not all(isinstance(t,str) and t.strip() for t in texts)
+                        or not texts and name!='MAIN-STRICT.jpg'):
+                    raise ValueError('Current image review requires the actual rendered customerText')
+                for text in texts: validate_customer_text(text)
         if entry.get('sha256','').lower()!=digest(Path(directory)/name) or entry.get('result')!='PASS' or not isinstance(entry.get('notes'),str) or not entry['notes'].strip(): raise ValueError(f'Stale or incomplete evidence: {name}')
     return report
 
@@ -313,7 +329,7 @@ def finalize(directory,asset,brand,contact,size=None,skip=False,slots=None):
         selected_pt=[n for n in selected if n in PT]
         for n in NAMES:
             if (p/n).exists(): shutil.copyfile(p/n,staging/n)
-            elif n not in selected_pt: raise ValueError('Missing retained gallery slot: '+n)
+            elif n not in selected_pt and (not slots or n in selected): raise ValueError('Missing retained gallery slot: '+n)
         if selected_pt:
             (staging/'unbranded').mkdir()
             for n in selected_pt: shutil.copyfile(p/'unbranded'/n,staging/'unbranded'/n)
@@ -353,13 +369,47 @@ def accept(directory,brand=None,slots=None):
             status.pop(key,None)
         write(p/'delivery-status.json',status)
 
+def gallery_inventory(p, selected=()):
+    """Use cached bytes plus frozen, evidence-linked remote records; never invent absent images."""
+    p=Path(p)
+    local={n:digest(p/n) for n in NAMES if (p/n).is_file()}
+    frozen={}
+    baseline=p/'gallery-baseline.json'
+    if baseline.exists():
+        data=read(baseline)
+        if data.get('schemaVersion')!=1 or data.get('productId')!=p.name or not isinstance(data.get('images'),dict):
+            raise ValueError('Invalid frozen gallery baseline')
+        import re
+        from observation_time import utc
+        for name,row in data['images'].items():
+            if name not in NAMES or not isinstance(row,dict) or not re.fullmatch('[0-9a-f]{64}',row.get('sha256','')):
+                raise ValueError('Invalid frozen gallery image/hash')
+            if name not in local:
+                if not all(isinstance(row.get(k),str) and row[k].strip() for k in
+                           ('driveFileId','parentFolderId','observedAtUtc','evidenceReference')):
+                    raise ValueError('Remote-only image needs actual Drive baseline evidence')
+                utc(row['observedAtUtc'])
+            if name in local and name not in selected and local[name]!=row['sha256']:
+                raise ValueError('Unrequested retained image differs from frozen baseline: '+name)
+            frozen[name]=row['sha256']
+    return {**frozen,**local}
+
+
+def gallery_coverage(p, inventory):
+    local=[n for n in NAMES if (Path(p)/n).is_file()]
+    return {'localFiles':local,'knownRemoteOnly':[n for n in inventory if n not in local],
+            'unavailableInThisRun':[n for n in NAMES if n not in inventory]}
+
+
 def partial_checks(p,slots,brand=None,preserve_unbound_research=False):
     if not slots or any(n not in NAMES for n in slots) or len(set(slots))!=len(slots): raise ValueError('Invalid partial scope')
     evidence(p/'visual-review.json',slots,p,preserve_unbound_research); evidence(p/'semantic-review.json',slots,p,preserve_unbound_research)
     from image_review_scope import agree
     agree(p)
-    inventory={n:digest(p/n) for n in NAMES}
-    if read(p/'semantic-review.json').get('galleryInventorySha256')!=inventory: raise ValueError('Partial semantic review must bind all current gallery bytes')
+    inventory=gallery_inventory(p,slots)
+    if not set(slots)<=set(inventory) or any(not (p/n).is_file() for n in slots):
+        raise ValueError('Selected image bytes must be available for actual review')
+    if read(p/'semantic-review.json').get('galleryInventorySha256')!=inventory: raise ValueError('Partial semantic review must bind the known current gallery inventory')
     selected_pt=[n for n in slots if n in PT]
     if selected_pt:
         qa=read(p/'logo-qa.json'); plan=read(p/'logo-placement.json')
@@ -367,7 +417,6 @@ def partial_checks(p,slots,brand=None,preserve_unbound_research=False):
         if qa.get('placementPlanSha256')!=digest(p/'logo-placement.json'): raise ValueError('Partial logo plan stale')
         logo=load(p/qa['logoAssetPath']); box=logo.getchannel('A').getbbox()
         if not box or digest(p/qa['logoAssetPath'])!=qa.get('logoAssetSha256'): raise ValueError('Partial logo asset stale')
-        vw,vh=box[2]-box[0],box[3]-box[1]
         for n in selected_pt:
             entries=[e for e in qa['images'] if e['file']==n]
             if len(entries)!=1 or entries[0].get('geometryGate')!='PASS' or entries[0].get('finalImageSha256')!=inventory[n] or not entries[0].get('commandRecord') or not entries[0].get('unbrandedSourceSha256'): raise ValueError('Partial logo evidence incomplete')
@@ -383,55 +432,78 @@ def partial_checks(p,slots,brand=None,preserve_unbound_research=False):
             if im.mode=='RGBA' and im.getchannel('A').getextrema()[0]!=255: raise ValueError('Partial final image must have an opaque background')
     return inventory
 
+
+def retained_reviews(p,slots):
+    """Preserve each still-valid record independently; one unavailable record cannot erase others."""
+    reports=[read(p/name) for name in ('partial-update-qa.json','final-image-qa.json') if (p/name).exists()]
+    records={}
+    for previous in reversed(reports): records.update(previous.get('retainedReviewEvidence',{}))
+    inventory=gallery_inventory(p,slots)
+    valid={}
+    for name in inventory:
+        if name in slots or not (p/name).is_file(): continue
+        proof={}
+        for kind in ('visual-review.json','semantic-review.json'):
+            if kind=='semantic-review.json' and name not in PT: continue
+            candidates=[]
+            for previous in reports:
+                record=previous.get('reviewEvidence',{}).get(kind)
+                if record and any(e.get('file')==name for e in record.get('images',[])):
+                    candidates.append({**record,'images':[e for e in record['images'] if e.get('file')==name]})
+            if records.get(name,{}).get(kind): candidates.append(records[name][kind])
+            for record in candidates:
+                try: review_record(record,[name],p)
+                except (ValueError,KeyError,OSError): continue
+                proof[kind]=record
+                break
+            if kind not in proof: break
+        required={'visual-review.json'}|({'semantic-review.json'} if name in PT else set())
+        if set(proof)==required: valid[name]=proof
+    return valid
+
+
 def accept_partial(p,slots,brand=None):
     inventory=partial_checks(p,slots,brand)
     status=read(p/'delivery-status.json') if (p/'delivery-status.json').exists() else {}
     legacy=status.get('galleryState')=='LEGACY_QUARANTINED'
     retained=retained_reviews(p,slots) if not legacy else {}
-    write(p/'partial-update-qa.json',{'schemaVersion':4,'result':'PARTIAL_UPDATE_REVIEWED','deliveryScope':'PARTIAL_UPDATE','retainedLegacyGallery':legacy,'fullGalleryPass':False,'selectedSlots':slots,'images':[{'file':n,'sha256':inventory[n]} for n in slots],'galleryInventorySha256':inventory,'visualReviewSha256':digest(p/'visual-review.json'),'semanticReviewSha256':digest(p/'semantic-review.json'),'logoQaSha256':digest(p/'logo-qa.json') if any(n in PT for n in slots) else None,
-                                      'retainedReviewState':'LEGACY_QUARANTINED' if legacy else 'VERIFIED_UNCHANGED' if retained else 'UNVERIFIED',
+    other=set(inventory)-set(slots)
+    state=('LEGACY_QUARANTINED' if legacy else
+           'VERIFIED_UNCHANGED' if other and set(retained)==other else
+           'PARTIALLY_VERIFIED' if retained else 'UNVERIFIED')
+    states={n:('VERIFIED_UNCHANGED' if n in retained else
+               'REMOTE_BYTES_RECORDED_REVIEW_NOT_LOADED' if not (p/n).is_file() else
+               'PRIOR_REVIEW_ABSENT_OR_INPUTS_CHANGED') for n in other}
+    write(p/'partial-update-qa.json',{'schemaVersion':5,'result':'PARTIAL_UPDATE_REVIEWED','deliveryScope':'PARTIAL_UPDATE','retainedLegacyGallery':legacy,'fullGalleryPass':False,'selectedSlots':slots,'images':[{'file':n,'sha256':inventory[n]} for n in slots],'galleryInventorySha256':inventory,'galleryCoverage':gallery_coverage(p,inventory),'visualReviewSha256':digest(p/'visual-review.json'),'semanticReviewSha256':digest(p/'semantic-review.json'),'logoQaSha256':digest(p/'logo-qa.json') if any(n in PT for n in slots) else None,
+                                      'retainedReviewState':state,'retainedReviewStates':states,
                                       'retainedReviewEvidence':retained,
                                       'reviewEvidence':{name:read(p/name) for name in ('visual-review.json','semantic-review.json')}})
     if (p/'delivery-status.json').exists():
         status=read(p/'delivery-status.json')
         status.update(galleryState='LEGACY_QUARANTINED' if legacy else 'SCOPED_REVIEWED',deliveryScope='PARTIAL_UPDATE',currentQaPass=False,
-                      deliveryState='READY_FOR_SCOPED_DRIVE_DELIVERY',selectedSlots=slots,
-                      reason='Selected slots reviewed; retained evidence has its own recorded state. No new full-gallery PASS.',
+                      deliveryState='READY_FOR_SCOPED_DRIVE_DELIVERY',selectedSlots=slots,selectedSlotsQaPass=True,
+                      galleryCoverage=gallery_coverage(p,inventory),retainedReviewStates=states,
+                      reason='Only selected slots reviewed; unchanged per-image reviews retained where their exact dependencies still match. Missing/unloaded images do not block scoped delivery. No full-gallery PASS.',
                       nextRun='Upload selected slots and evidence to Google Drive; verify actual remote bytes for this scope.')
         for key in ('verifiedRemoteCommit','githubDeliveryVerifiedAtUtc','remoteDeliveryRecord','driveDeliveryReceipt','driveDeliveryVerifiedAtUtc'): status.pop(key,None)
         write(p/'delivery-status.json',status)
 
-def retained_reviews(p,slots):
-    """Carry real per-slot review records forward; missing/stale proof stays unverified."""
-    previous=next((read(p/name) for name in ('partial-update-qa.json','final-image-qa.json') if (p/name).exists()),{})
-    records=dict(previous.get('retainedReviewEvidence',{}))
-    for name in NAMES:
-        if name in slots: continue
-        proof={}
-        for kind in ('visual-review.json','semantic-review.json'):
-            if kind=='semantic-review.json' and name not in PT: continue
-            record=previous.get('reviewEvidence',{}).get(kind)
-            if record and any(e.get('file')==name for e in record.get('images',[])):
-                record={**record,'images':[e for e in record['images'] if e.get('file')==name]}
-            else:
-                record=records.get(name,{}).get(kind)
-            if not record: return {}
-            try: review_record(record,[name],p)
-            except (ValueError,KeyError,OSError): return {}
-            proof[kind]=record
-        records[name]=proof
-    return {name:records[name] for name in NAMES if name not in slots}
 
 def validate_partial(p,changed,preserve_unbound_research=False):
     report=read(p/'partial-update-qa.json'); slots=report.get('selectedSlots',[])
-    if report.get('schemaVersion',0)<3 or report.get('result')!='PARTIAL_UPDATE_REVIEWED' or report.get('deliveryScope')!='PARTIAL_UPDATE' or (report.get('schemaVersion')==3 and report.get('retainedLegacyGallery')!=True) or report.get('fullGalleryPass')!=False or not set(changed).issubset(set(slots)): raise ValueError('Missing current partial update receipt')
-    if report.get('schemaVersion')==4:
-        retained=report.get('retainedReviewState')
-        if retained not in ('LEGACY_QUARANTINED','VERIFIED_UNCHANGED','UNVERIFIED') or report.get('retainedLegacyGallery')!=(retained=='LEGACY_QUARANTINED'):
-            raise ValueError('Inconsistent retained gallery state')
-        if retained=='VERIFIED_UNCHANGED' and not retained_reviews(p,slots):
-            raise ValueError('Retained review evidence stale')
+    if report.get('schemaVersion') not in (3,4,5) or report.get('result')!='PARTIAL_UPDATE_REVIEWED' or report.get('deliveryScope')!='PARTIAL_UPDATE' or (report.get('schemaVersion')==3 and report.get('retainedLegacyGallery')!=True) or report.get('fullGalleryPass')!=False or not set(changed).issubset(set(slots)): raise ValueError('Missing current partial update receipt')
     inventory=partial_checks(p,slots,preserve_unbound_research=preserve_unbound_research)
+    if report.get('schemaVersion',0)>=4:
+        retained=report.get('retainedReviewState')
+        if retained not in ('LEGACY_QUARANTINED','VERIFIED_UNCHANGED','PARTIALLY_VERIFIED','UNVERIFIED') or report.get('retainedLegacyGallery')!=(retained=='LEGACY_QUARANTINED'):
+            raise ValueError('Inconsistent retained gallery state')
+        valid=retained_reviews(p,slots)
+        if retained=='VERIFIED_UNCHANGED' and (not valid or set(valid)!=set(inventory)-set(slots)):
+            raise ValueError('Retained review evidence stale')
+        if retained=='PARTIALLY_VERIFIED' and (not valid or set(report.get('retainedReviewEvidence',{}))!=set(valid)):
+            raise ValueError('Partial retained review evidence stale')
+    if report.get('schemaVersion')==5 and report.get('galleryCoverage')!=gallery_coverage(p,inventory):
+        raise ValueError('Partial gallery coverage stale')
     if report.get('galleryInventorySha256')!=inventory or {e['file']:e['sha256'] for e in report.get('images',[])}!={n:inventory[n] for n in slots}: raise ValueError('Partial receipt stale')
     for filename,key in [('visual-review.json','visualReviewSha256'),('semantic-review.json','semanticReviewSha256')]:
         if report.get(key)!=digest(p/filename): raise ValueError('Partial review binding stale')
@@ -441,8 +513,13 @@ def validate_partial(p,changed,preserve_unbound_research=False):
 def contact_sheet(directory,out):
     canvas=Image.new('RGB',(1200,1664),(238,244,251)); draw=ImageDraw.Draw(canvas)
     for i,n in enumerate(NAMES):
-        im=load(Path(directory)/n); im.thumbnail((370,370)); x=(i%3)*400+15; y=(i//3)*416+10
-        canvas.paste(im.convert('RGB'),(x,y)); draw.text((x,y+378),n,fill=(15,35,70))
+        x=(i%3)*400+15; y=(i//3)*416+10
+        if (Path(directory)/n).is_file():
+            im=load(Path(directory)/n); im.thumbnail((370,370))
+            canvas.paste(im.convert('RGB'),(x,y))
+        else:
+            draw.text((x+20,y+160),'NOT LOADED IN THIS SCOPED RUN',fill=(90,105,120))
+        draw.text((x,y+378),n,fill=(15,35,70))
     save(canvas,out)
 
 def crop(src,out,x,y,w,h):
@@ -623,7 +700,7 @@ def preserve_prior_policy_gallery(root,p,base):
     # Later pushes use an immediate base that may already contain the amended
     # policy. Find the matching *committed ancestor* policy rather than assuming
     # every subsequent push starts immediately before that amendment.
-    policy_paths=['references/'+name for name in POLICY_INPUTS]
+    policy_paths=['references/'+name for name in POLICY_INPUTS]+['assets/workflow-execution-policy.json']
     # A valid historical review must not expire after sixteen unrelated policy
     # revisions. Search committed ancestors; the exact input binding and unchanged
     # byte checks below still decide eligibility, not the age of the review.
@@ -633,6 +710,12 @@ def preserve_prior_policy_gallery(root,p,base):
         try:
             policy={name:subprocess.check_output(['git','show',policy_ref+':references/'+name],cwd=root,stderr=subprocess.DEVNULL).decode('utf-8-sig') for name in POLICY_INPUTS}
         except subprocess.CalledProcessError: continue
+        if scoped and any(row.get('dependencies',{}).get('scopeVersion')==2 for row in visual['images']):
+            try:
+                policy['__scopedImagePolicy__']=subprocess.check_output(
+                    ['git','show',policy_ref+':assets/workflow-execution-policy.json'],
+                    cwd=root,stderr=subprocess.DEVNULL).decode('utf-8-sig')
+            except subprocess.CalledProcessError: continue
         if scoped:
             recorded={row['file']:row.get('reviewInputsSha256') for row in visual['images']}
             if all(recorded[row['file']]==slot_binding(p,row['file'],row.get('dependencies'),policy_text=policy) for row in visual['images']):

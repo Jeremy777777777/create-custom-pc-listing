@@ -58,12 +58,14 @@ def build(product, ledger, product_sha256, ledger_sha256):
         'selectionNote': ('Choose one RAM and one SSD option; only your selected configuration is supplied.'
                           if replaceable else 'RAM is fixed. Choose one SSD option; only your selected configuration is supplied.'),
         'useQualification': 'Use examples are illustrative; results depend on the workload and other hardware.',
-        'visualBrief': 'Two clear RAM/SSD groups, prominent capacities, one short use caption per tier and an accurate product anchor; fixed RAM uses one locked-memory summary plus four SSD choices. Adapt the approved series palette and layout.',
+        'visualBrief': 'Two clear RAM/SSD groups, prominent capacities and one short use caption per tier; fixed RAM uses one fixed-memory summary plus four SSD choices. Choose explanatory tier illustrations before any product anchor. Business Laptop PT05 is product-free. Adapt the approved series palette and layout.',
         'reviewWidthsPx': [400, 200], 'visualQa': 'NOT_ASSESSED', 'productionApprovalGranted': False,
     }
 
 
 def check(plan, product, ledger, product_sha256, ledger_sha256):
+    from customer_visible_content import validate_image_plan_copy
+    validate_image_plan_copy(plan)
     expected = build(product, ledger, product_sha256, ledger_sha256)
     if plan != expected:
         raise ValueError('Customization image plan differs from current inputs, options or universal PT05 contract')

@@ -159,5 +159,22 @@
       "watermark"
     ],
     "rasterReview": "NATIVE_400PX_200PX_REQUIRED_NOT_PROVEN_BY_TEXT_CHECK"
+  },
+  "oemIntegration": {
+    "policy": "SEMANTIC_OEM_INTEGRATION_V1",
+    "scope": "New Gaming supporting pages",
+    "originalAssetRequired": true,
+    "readingPriority": "SECONDARY",
+    "anchors": [
+      "BRAND_CORNER",
+      "PRODUCT_IDENTITY",
+      "FEATURE_HEADER"
+    ],
+    "protect": [
+      "actual hardware",
+      "primary explanatory visual",
+      "customer-facing headline and parameters"
+    ],
+    "workflow": "references/current-workflow.md"
   }
 }

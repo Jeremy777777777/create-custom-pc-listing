@@ -1,21 +1,24 @@
-name: Back up GitHub workflow to Google Drive
+name: Optional manual runner backup to Google Drive
 
 on:
-  push:
-    branches: ['**']
-  workflow_run:
-    workflows: ['Validate workflow and retained product fixtures']
-    branches: [main]
-    types: [completed]
+  # User-selected default is manual connected-tool synchronization.
+  # Do not trigger credential failures on every push or validation completion.
   workflow_dispatch:
+    inputs:
+      publish_current:
+        description: Publish a fully validated main snapshot explicitly
+        type: boolean
+        default: false
+      validation_run_id:
+        description: Actual successful validation run ID when publishing
+        type: string
+        required: false
 
 permissions:
   contents: read
   actions: read
 
-# Keep distinct pushes queued instead of replacing the previous pending backup.
-# GitHub permits up to 100 pending jobs with queue:max; canceled/failed runs must
-# be rerun before claiming the corresponding commit is backed up.
+# Serialize explicitly requested manual runner backups.
 concurrency:
   group: github-drive-repository-sync
   cancel-in-progress: false
@@ -23,12 +26,6 @@ concurrency:
 
 jobs:
   sync:
-    if: >-
-      github.event_name != 'workflow_run' ||
-      (github.event.workflow_run.event == 'push' &&
-       github.event.workflow_run.head_branch == 'main' &&
-       github.event.workflow_run.head_repository.full_name == github.repository &&
-       github.event.workflow_run.conclusion == 'success')
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -41,7 +38,7 @@ jobs:
           persist-credentials: false
       - uses: actions/checkout@v4
         with:
-          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
+          ref: ${{ github.sha }}
           path: source
           fetch-depth: 1
           persist-credentials: false
@@ -57,13 +54,13 @@ jobs:
           GOOGLE_DRIVE_CLIENT_SECRET: ${{ secrets.GOOGLE_DRIVE_CLIENT_SECRET }}
           GOOGLE_DRIVE_REFRESH_TOKEN: ${{ secrets.GOOGLE_DRIVE_REFRESH_TOKEN }}
           GITHUB_TOKEN: ${{ github.token }}
-          SOURCE_COMMIT: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.sha }}
-          SOURCE_BRANCH: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_branch || github.ref_name }}
-          SOURCE_EVENT: ${{ github.event_name }}
-          VALIDATION_RUN_ID: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.id || '' }}
+          SOURCE_COMMIT: ${{ github.sha }}
+          SOURCE_BRANCH: ${{ github.ref_name }}
+          PROMOTE_CURRENT: ${{ inputs.publish_current }}
+          VALIDATION_RUN_ID: ${{ inputs.validation_run_id }}
         run: |
           args=()
-          if [ "$SOURCE_EVENT" = "workflow_run" ]; then
+          if [ "$PROMOTE_CURRENT" = "true" ]; then
             args+=(--promote --ci-run-id "$VALIDATION_RUN_ID")
           fi
           python engine/scripts/github_drive_sync.py \

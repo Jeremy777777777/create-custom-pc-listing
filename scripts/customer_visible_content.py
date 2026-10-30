@@ -9,7 +9,7 @@ from pathlib import Path
 
 
 PATTERNS = (
-    (r'\b(?:VL|VD)\s*-\s*\d+\b', 'internal product ID'),
+    (r'\b(?:VL|VD|VA|PL)\s*-\s*\d+\b', 'internal product ID'),
     (r'\b(?:STYLE\s+PREVIEW|NOT\s+A\s+FINAL\s+LISTING\s+IMAGE)\b', 'production status'),
     (r'\bPT\s*0?[1-8]\b', 'internal page slot'),
     (r'(?m)^\s*0?[1-8]\s*/\s*\S', 'page-navigation eyebrow'),
@@ -19,10 +19,44 @@ PATTERNS = (
 def validate_customer_text(text):
     if not isinstance(text, str):
         raise ValueError('Customer copy must be text')
+    if re.search(r'[\u3400-\u9fff]', text):
+        raise ValueError('Customer-visible content must be English')
     normalized = text.translate(str.maketrans({c: '-' for c in '\u2010\u2011\u2012\u2013\u2014\u2212\uff0d'}))
     for pattern, reason in PATTERNS:
         if re.search(pattern, normalized, re.I):
             raise ValueError('Customer-visible content contains ' + reason)
+
+def validate_image_plan_copy(plan):
+    """Check declared rendered copy only; internal IDs, source notes and questions are metadata."""
+    def text(value):
+        if isinstance(value, str):
+            validate_customer_text(value)
+        elif isinstance(value, list):
+            for item in value:
+                text(item)
+        elif isinstance(value, dict):
+            for key in ('headline', 'subtitle', 'caption', 'label', 'text', 'capacity',
+                        'typicalUse', 'selectionNote', 'useQualification', 'customerCopy'):
+                if key in value:
+                    text(value[key])
+    for key in ('headline', 'subtitle', 'caption', 'customerCopy', 'selectionNote', 'useQualification'):
+        if key in plan:
+            text(plan[key])
+    for group in ('ram', 'ssd'):
+        if group in plan:
+            text(plan[group])
+            for tier in plan[group].get('tiers', []):
+                text(tier)
+    for row in plan.get('images', []):
+        for key in ('headline', 'subtitle', 'caption', 'customerCopy'):
+            if key in row:
+                text(row[key])
+        for claim in row.get('claims', []):
+            text(claim.get('text'))
+        visual = row.get('visualExplanation', {})
+        text(visual.get('exactCopy', []))
+        for mapping in visual.get('labelToVisualMap', []):
+            text(mapping.get('label'))
 
 
 def main():

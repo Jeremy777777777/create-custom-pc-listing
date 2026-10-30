@@ -1,43 +1,30 @@
-# GitHub → Google Drive workflow synchronization
+# GitHub → Drive：当前使用手动连接器同步
 
-GitHub is the maintained workflow source. Drive holds readable workflow copies, commit backups, and separately delivered product outputs. Synchronization is one-way; editing a Drive copy does not update GitHub. The existing Drive `00_AI_README.md` remains the baseline and is not rewritten by this integration.
+用户决定：2026-10-30，暂时使用手动同步。执行入口见 [current-workflow.md](current-workflow.md)，配置见 [workflow-execution-policy.json](../assets/workflow-execution-policy.json)。GitHub 是规则／代码维护源，Drive 是可读副本与商品成果存储。
 
-## Every workflow update
+## 每次规则更新
 
-1. Edit and test the current GitHub checkout, then commit and push. Local unsaved/uncommitted experiments are not backed up.
-2. `Back up GitHub workflow to Google Drive` archives every pushed branch commit as individual original files under `90_ARCHIVE/WORKFLOW_SNAPSHOTS/<full-commit-SHA>/files/`, preserving relative paths. `SNAPSHOT.json` records file IDs, sizes, hashes and readback times. History and previously tracked product outputs are retained here for recovery only.
-3. After `Validate workflow and retained product fixtures` succeeds for the current main commit, the sync workflow verifies its backup and stages a versioned current copy under `10_WORKFLOWS/GITHUB_CURRENT/<SHA>/`. Reusable templates and `*-schema.json` in `assets/`, plus the explicitly included product image manifest template, go under `80_TEMPLATES/GITHUB_CURRENT/<SHA>/` with their relative paths preserved. The product output directory's reusable root README is also included as a workflow document; individual product directories remain excluded.
-4. Only after all selected current files pass readback does `10_WORKFLOWS/GITHUB_CURRENT/CURRENT.json` switch to that commit and identify both current version folders. Use this pointer rather than assuming a folder with the newest timestamp is complete. Historical/product output trees are excluded from the current workflow view. Prior version folders and archive snapshots remain intact; deleted Git paths disappear from the new current manifest without deleting old Drive evidence.
-5. Inspect the Actions result and its `drive-sync-result-<run-id>` artifact. A push backup alone is not current-version publication. Failed, canceled, or overflowed queued runs must be rerun; GitHub's queue retains at most 100 pending runs. Manual dispatch backs up the selected commit; rerun the successful main validation workflow to trigger current publication.
+1. 更新当前分支对应规则和实际执行代码，完成适用检查，提交并推送 GitHub。
+2. 读取既有 Drive baseline README、实际 source 目录和上次范围回执。按相对路径复用对应 file ID；新增文件先查目标目录。
+3. 把被替换的旧文件保存到既有90_ARCHIVE下本次版本目录。维护相对路径，保留旧回执，不删除历史事实。
+4. 将本次准确提交的 changed files 手动上传到10_WORKFLOWS/source对应位置；模板仍放其已确认位置。
+5. 读取远端父目录、名称、MIME、大小、实际下载字节或可信提供商校验值，并与本次 Git blob／SHA256 比对。
+6. 在99_ADMIN保存提交绑定的回执，标记 WORKFLOW_CHANGED_FILES_BACKUP_VERIFIED，明确文件清单、实际 ID、字节校验、旧版本归档和范围。只有实际验证过全量文件时才能声称全量备份。
 
-The sync reads the exact committed Git blobs, including resolved and hash-checked LFS objects. It does not execute archived branch scripts, copy untracked local files, change sharing permissions, delete Drive content, or convert original Excel files to Google Sheets. ZIP uploads and credential/environment files are rejected during planning. Existing unmanaged name collisions stop the run for reconciliation. Identical file content can be copied within Drive; each completed snapshot still has its own expanded file tree.
+手动范围同步不是失败状态，不需要自动 runner 的三项 Secret。没有全量 CURRENT.json 也不阻止商品研究、图片或交付。未来执行者先以 GitHub 精确提交为准，再按范围回执核对本任务所需的 Drive 副本；未备份内容明确标记，不伪造已同步或用旧副本代替新规则。
 
-## Every product generation
+## 每次商品任务
 
-Before research, workbook or image generation, record the workflow commit SHA. Read the Drive baseline and `CURRENT.json`; verify that the selected workflow SHA has a `WORKFLOW_SNAPSHOT_VERIFIED` receipt (`99_ADMIN/github-sync-<SHA>.json`). When a newer workflow is used, commit/push it and wait for synchronization before claiming the workflow backup is complete. A debug branch may have a backup without becoming current. Uncommitted experimentation must be identified explicitly and cannot be described as a synchronized version.
+记录实际 GitHub SHA、手动同步回执范围、商品自己的生产／Drive交付回执。商品图片、Excel、来源与审核分别进入既有20_PRODUCTS角色目录；不能把商品输出提交到 GitHub。Drive可读副本、商品交付、风格认可、生产质量和平台发布分别报告。
 
-After generation, follow [Google Drive delivery](google-drive-delivery.md): Research Review XLSX goes to the product's `03_RESEARCH/FINAL`, Listing Draft XLSX to `01_LISTING`, images to `02_IMAGES`, and evidence/QA to the existing appropriate sections. Record the workflow SHA, snapshot receipt, actual product-delivery receipt and separate sync status in the run record. Generation itself does not commit product outputs or launch GitHub Actions; the operating flow checks the committed workflow's receipt on every generation. If the receipt is absent, report workflow sync as pending/blocked even if product delivery was independently verified. Do not invent an automatic upload or successful archive status.
+## 可选的旧全量 runner
 
-## Activation: required GitHub Actions Secrets
+.github/workflows/sync-workflow-to-drive.yml 现在仅在显式 workflow_dispatch 时执行，不因每次push或CI完成而自动启动。此工具仍可制作90_ARCHIVE/WORKFLOW_SNAPSHOTS下的全量快照；只有经过实际验证的main全量发布才可更新10_WORKFLOWS/GITHUB_CURRENT/CURRENT.json。
 
-The repository integration is implemented, but remains blocked until these repository Secrets are configured in **Settings → Secrets and variables → Actions**:
+需要使用该可选runner时，按组织方式在GitHub Actions Secrets配置 GOOGLE_DRIVE_CLIENT_ID、GOOGLE_DRIVE_CLIENT_SECRET、GOOGLE_DRIVE_REFRESH_TOKEN；凭据只进Secret，不进入代码、Drive、日志或对话。连接器账号不会自动授权runner。缺少凭据时该显式运行仍如实报告 BLOCKED_MISSING_DRIVE_AUTH，不能把它改成成功。没有用户要求时不为当前手动方式重新开启自动触发。
 
-- `GOOGLE_DRIVE_CLIENT_ID`
-- `GOOGLE_DRIVE_CLIENT_SECRET`
-- `GOOGLE_DRIVE_REFRESH_TOKEN`
+## 基线与重试
 
-Use a Google OAuth client with Drive API enabled and an offline refresh token issued for the account that can read/write the existing project folder. The authorization must cover the pre-existing folders and baseline README (a restricted `drive.file` token alone may not cover these existing files). Follow the organization's Google authorization policy. Configure credentials directly in GitHub Secrets; never put them in commits, Drive, logs, product files or chat. The connected chat Drive account does not automatically authorize a GitHub runner. SDK dependencies install only inside the isolated Actions runner.
+assets/github-drive-sync.json保留已确认项目／目标ID和baseline README哈希。写入前核对真实父目录和基线；基线变化要先阅读并解释差异，不通过改校验器绕过。写入结果不确定时先读回，不反复创建同名文件。共享状态保持原样。
 
-Until configured, runs fail explicitly with `BLOCKED_MISSING_DRIVE_AUTH`; they do not silently skip with a successful status. The engine checks missing authorization before inventory planning and emits the missing Secret names and next action without credential values. Missing credentials cannot be repaired by code or by copying the chat connector token; configure them directly through the authorized GitHub/Google setup. After setup, rerun the main validation workflow, wait for its dependent sync, then inspect the actual Drive pointer, snapshot and readback receipt before stating automatic synchronization is active. `--plan-only` creates a local inventory and performs no upload.
-
-## Baseline and recovery
-
-### Connected-tool fallback for a scoped workflow update
-
-If runner credentials are unavailable but the user has authorized Drive backup through connected tools, back up the exact committed changed workflow files as individual files under the existing `10_WORKFLOWS/source` relative paths. Read the baseline and existing destination IDs first, preserve replaced bytes under `90_ARCHIVE`, and save a commit-bound receipt in `99_ADMIN` with paths, actual IDs/parents/MIME/size, hashes and remote readback results. Reuse stable source IDs; publish new rules alongside their relative-path references. Follow the baseline task/run handoff for the requested scope; do not manufacture a product identity for a repository-wide update if a product-bound tool cannot represent it. Record that tool limitation explicitly in the workflow maintenance record.
-
-Label this result `WORKFLOW_CHANGED_FILES_BACKUP_VERIFIED` only after verification, list the selected paths and exclusions, and retain `BLOCKED_MISSING_DRIVE_AUTH` for runner automation. This is a scoped readable backup, not a full `WORKFLOW_SNAPSHOT_VERIFIED` snapshot or publication of `GITHUB_CURRENT/CURRENT.json`. Do not create a sealed snapshot receipt, change the current pointer or mark future automatic synchronization active from this fallback. Future runs must report the exact backup scope until the ordinary integration is activated.
-
-`assets/github-drive-sync.json` pins the existing folder IDs and normalized baseline README hash. Every live run checks the destination folders still belong to the project root and checks the baseline before any upload. A changed baseline blocks synchronization. Read it, explain any required differences to the user in advance, then update the reviewed configuration; never bypass the check merely to get a green run.
-
-`99_ADMIN/github-sync-objects.json` is the managed content index. Commit-specific receipts and sealed manifests are immutable. Retrying an incomplete upload reads back known IDs before accepting success and reuses the same managed commit namespace. A failure during current staging leaves the previous `CURRENT.json` in place. Reconcile damaged/moved files rather than changing old evidence to pass a check. Backup success establishes stored bytes only; product facts, visual QA, rights and Amazon publication remain separate.
+带SHA的旧快照、旧范围回执和既有CURRENT记录保持历史原义；当前手动模式不把它们追认为全量或自动运行成功。

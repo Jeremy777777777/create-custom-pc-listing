@@ -86,5 +86,22 @@
     "fullPageProposalsAllowed": true,
     "finalProduction": "PRESERVE_SELECTED_COMPOSITION_REFINE_VERIFIED_HARDWARE_ORIGINAL_GAME_ART_GENUINE_MARKS_AND_EXACT_TEXT",
     "promptTemplate": "assets/gaming-enhanced-main-prompt-template.md"
+  },
+  "oemIntegration": {
+    "policy": "SEMANTIC_OEM_INTEGRATION_V1",
+    "scope": "New Gaming supporting pages",
+    "originalAssetRequired": true,
+    "readingPriority": "SECONDARY",
+    "anchors": [
+      "BRAND_CORNER",
+      "PRODUCT_IDENTITY",
+      "FEATURE_HEADER"
+    ],
+    "protect": [
+      "actual hardware",
+      "primary explanatory visual",
+      "customer-facing headline and parameters"
+    ],
+    "workflow": "references/current-workflow.md"
   }
 }

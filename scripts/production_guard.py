@@ -134,6 +134,8 @@ def check_scope(product, contract):
     if product.name != contract['productId']: raise ValueError('Wrong product for this production contract')
     actual = inventory(product)
     before = contract['baseline']
+    if 'gallery-baseline.json' in before and actual.get('gallery-baseline.json') != before['gallery-baseline.json']:
+        raise ValueError('Frozen gallery baseline changed; observe a new revision in a successor run')
     if set(before) - set(actual): raise ValueError('Baseline files deleted; preserve prior files outside this production run')
     changed = {name for name in actual if actual[name] != before.get(name)}
     if not changed <= set(contract['allowedChanges']):
