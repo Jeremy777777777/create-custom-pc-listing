@@ -43,7 +43,8 @@ def review_projection(data, projected, required=False):
                 decision = 'HARDWARE_REFERENCE_WITHHELD_FROM_AMAZON_NUMBER'
                 counts[decision] += 1
                 unresolved.append({'sheet': key[0], 'attribute': key[1], 'decision': decision,
-                                   'candidate': None, 'hardwareRecommendation': ranked,
+                                   'candidate': None, 'candidateDisplay': record.get('candidate_display'),
+                                   'hardwareRecommendation': ranked,
                                    'explanation': record['value_candidate_source']})
                 continue
             review = evidence.get('candidate_review')

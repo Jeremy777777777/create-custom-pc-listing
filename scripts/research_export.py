@@ -252,7 +252,8 @@ def project(data, field_keys, mode='draft', separate_candidates=True):
 
 
 def workbook_fields(book):
-    return [(sheet.title, cell.value) for sheet in book for cell in list(sheet[1])[1:]]
+    from candidate_review import data_sheets
+    return [(sheet.title, cell.value) for sheet in data_sheets(book) for cell in list(sheet[1])[1:]]
 
 
 def same_cell_value(actual, expected):
@@ -265,7 +266,9 @@ def same_cell_value(actual, expected):
 
 
 def verify_workbook(book, data, mode='draft'):
-    layouts = [tuple(sheet.cell(r, 1).value for r in (6, 7)) for sheet in book]
+    from candidate_review import data_sheets, cell_value, verify as verify_review, SHEET
+    sheets = data_sheets(book)
+    layouts = [tuple(sheet.cell(r, 1).value for r in (6, 7)) for sheet in sheets]
     modern = all(labels == ('Value Candidate', 'Value Candidate Source') for labels in layouts)
     legacy = all(labels == (None, None) for labels in layouts)
     if not modern and not legacy:
@@ -276,15 +279,17 @@ def verify_workbook(book, data, mode='draft'):
     rows = ((3, 'value'), (4, 'status'), (5, 'source'))
     if modern:
         rows += ((6, 'value_candidate'), (7, 'value_candidate_source'))
-    for sheet in book:
+    for sheet in sheets:
         for column in range(2, sheet.max_column + 1):
             key = (sheet.title, sheet.cell(1, column).value)
             field = result[key]
-            if not all(same_cell_value(sheet.cell(row, column).value, field[name])
+            if not all(same_cell_value(sheet.cell(row, column).value,
+                           cell_value(field, SHEET in book.sheetnames) if row == 6 else field[name])
                        for row, name in rows):
                 raise ValueError('Workbook differs from scoped ledger projection: ' + str(key))
             if any(sheet.cell(row, column).data_type == 'f' for row, _ in rows):
                 raise ValueError('Formula cannot be exported: ' + str(key))
+    verify_review(book, data, result)
     return result
 
 
@@ -364,7 +369,7 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
         from copy import copy
         from openpyxl.styles import PatternFill
         for sheet in book:
-            sheet.row_dimensions[6].height = max(sheet.row_dimensions[6].height or 15, 30)
+            sheet.row_dimensions[6].height = max(sheet.row_dimensions[6].height or 15, 60)
             sheet.row_dimensions[7].height = max(sheet.row_dimensions[7].height or 15, 120)
             for col in range(2, sheet.max_column + 1):
                 key = (sheet.title, sheet.cell(1, col).value)
@@ -372,13 +377,14 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
                 for row, name in ((3, 'value'), (4, 'status'), (5, 'source'),
                                   (6, 'value_candidate'), (7, 'value_candidate_source')):
                     cell = sheet.cell(row, col)
-                    cell.value = field[name]
+                    from candidate_review import cell_value
+                    cell.value = cell_value(field, True) if row == 6 else field[name]
                     alignment = copy(cell.alignment)
                     alignment.vertical = 'top'
                     alignment.wrap_text = True
                     cell.alignment = alignment
                     # Evidence text beginning '=' must stay text, never executable Excel formulas.
-                    if isinstance(field[name], str):
+                    if isinstance(cell.value, str):
                         cell.data_type = 's'
                 if key == FCC_KEY:
                     sheet.cell(6, col).number_format = '@'
@@ -402,6 +408,8 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
                     cell = sheet.cell(row, col)
                     targets = urls(cell.value)
                     cell.hyperlink = (reference_result['links'][key] if row == 5 else targets[0]) if targets else None
+        from candidate_review import write as write_review
+        write_review(book, data, projected)
         validate_references(data, reference_audit, ledger.read_bytes(), book)
         with tempfile.NamedTemporaryFile(prefix='.' + workbook.stem + '-', suffix='.xlsx',
                                          dir=workbook.parent, delete=False) as handle:
@@ -481,7 +489,7 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
         manufacturer = product['identity'].get('oemBrand')
         if not manufacturer:
             raise ValueError('Listing workbook requires OEM brand for existing copy checks')
-    checks.check_output(workbook, checks.template_topology(template), manufacturer)
+    checks.check_output(workbook, checks.template_topology(template), manufacturer, ledger_path=ledger)
     if mode == 'export' and (not product_id or not configuration_id):
         raise ValueError('Export requires explicit target product ID and configuration ID')
     if product_id is not None and product_id != data['productId']:
@@ -500,8 +508,9 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
             for mapping in data['fields']:
                 if mapping['sheet']=='Product Details' and mapping['attribute'] in STORAGE_FIELDS:
                     check_nominal_storage_basis(selected[mapping['selected_fact']])
+            from candidate_review import data_sheets
             definitions={(sheet.title,sheet.cell(1,c).value):sheet.cell(2,c).value
-                         for sheet in book for c in range(2,sheet.max_column+1)}
+                         for sheet in data_sheets(book) for c in range(2,sheet.max_column+1)}
             storage=internal_storage_configuration(data)
             # Schema formatting must not hide a contradictory underlying hardware fact.
             factual_data = dict(data)

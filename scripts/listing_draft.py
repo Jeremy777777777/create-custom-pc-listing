@@ -243,6 +243,12 @@ def verify(product, template=None):
     if (product/HTML).read_text(encoding='utf-8') != render_recommendations(data, projected):
         raise ValueError('Candidate recommendations differ from current ledger projection')
     for stage, name in names.items():
+        from candidate_review import verify as verify_review
+        book = openpyxl.load_workbook(product/name)
+        try:
+            verify_review(book, data, projected, required=True)
+        finally:
+            book.close()
         result = export.run(template, product/'research-ledger.json', product/name, 'draft',
                             data['productId'], data['configurationId'], stage, check_copy=stage == 'LISTING_DRAFT')
         summary = read((product/name).with_suffix('.research-summary.json'))

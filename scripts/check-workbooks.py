@@ -66,13 +66,18 @@ def template_topology(path):
     finally:
         book.close()
 
-def check_output(path, topology, manufacturer=None, listing_mode=None):
+def check_output(path, topology, manufacturer=None, listing_mode=None, ledger_path=None):
+    ledger_path = Path(ledger_path) if ledger_path else path.parent/'research-ledger.json'
     book = openpyxl.load_workbook(path, data_only=False)
     try:
         source_only_projection_checked = False
-        if book.sheetnames != list(topology):
+        from candidate_review import data_sheets
+        sheets = data_sheets(book)
+        if len(sheets) != len(book.worksheets) and not ledger_path.is_file():
+            raise ValueError('Candidate Review requires its scoped research ledger')
+        if [s.title for s in sheets] != list(topology):
             raise ValueError(f'{path}: sheets/order changed')
-        for sheet in book:
+        for sheet in sheets:
             rows, labels = topology[sheet.title]
             if sheet.max_row < 5 or sheet.max_column != len(rows[0]):
                 raise ValueError(f'{path}: {sheet.title} template dimensions changed')
@@ -97,7 +102,6 @@ def check_output(path, topology, manufacturer=None, listing_mode=None):
                         # hardware recommendation may legitimately occupy row 7
                         # alone. Authenticate its exact projection from the scoped
                         # ledger; a free-form note/prefix is never an exemption.
-                        ledger_path = path.parent/'research-ledger.json'
                         if candidate.value is not None or not ledger_path.is_file():
                             raise ValueError('Candidate requires paired source or a scoped projected disposition')
                         if not source_only_projection_checked:
@@ -119,7 +123,6 @@ def check_output(path, topology, manufacturer=None, listing_mode=None):
                     raise ValueError('Copy mode differs from product facts')
                 listing_mode = observed_mode
             validate_workbook_copy(book, manufacturer, listing_mode)
-        ledger_path = path.parent/'research-ledger.json'
         if ledger_path.exists():
             ledger = json.loads(ledger_path.read_text(encoding='utf-8-sig'))
             if isinstance(ledger, dict):
