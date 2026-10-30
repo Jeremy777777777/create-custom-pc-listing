@@ -1,5 +1,7 @@
 # Universal image production — user confirmation 2026-10-29
 
+User decision 2026-10-30: [Business daylight photographic enhanced MAIN](business-daylight-enhanced-main.md) reproduces the approved VL-1223 effect: match the current gallery, retain a real complete laptop, daylight LCD photograph, navy/blue hierarchy, semantic icons, original marks and explicit researched RAM/SSD options. Its documented original Windows alpha derivative and restrained LCD bottom fade are permitted; it supersedes conflicting older abstract/card/base-only/all-text-at-200px rules within this Business MAIN scope. Replace only the requested frontal slot; latest USER approval is authoritative.
+
 User decision 2026-10-30: [customer-facing images and copy](customer-facing-image-content.md) applies to every series and future output. No internal page eyebrows, fixed fine-print footers/dividers, ERP IDs or preview/version labels in artwork or customer copy. Keep buyer headlines and verified feature labels; status stays in records. Check customer copy before generation and inspect actual rendered pixels before delivery.
 
 

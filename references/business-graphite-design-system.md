@@ -56,7 +56,7 @@ LCD reading order:
 
 1. Correct OEM product identity.
 2. One concrete buyer-relevant hero feature or a short pair of compatible features.
-3. Compact installed CPU/RAM/internal SSD proof; reduce content before shrinking type.
+3. Compact verified CPU proof and [customization choices](customization-options-policy.md): researched fixed/replaceable RAM branch and SSD OPTIONS. Installed base values remain separate from choices; reduce/reflow content before shrinking type. For the approved light Business family follow [daylight photographic MAIN](business-daylight-enhanced-main.md), not this optional graphite palette.
 4. One approved fixed Windows identity, subordinate and clear.
 
 Avoid a large generic slogan taking the place of model/features. Front defaults to official Windows lockup, angle to fixed package; the existing distinct-mode and clipping rules apply. Product name rendered as copy is not permission to redraw an OEM graphic mark.

@@ -10,6 +10,8 @@ Applies to every design series and every new or revised customer-facing image, i
 - Rebalance spacing after removal; do not leave empty navigation/footer strips or replace them with a different badge row. Preserve the selected subject, dimensional quality, exact hardware and factual labels.
 - Retain a qualification only when it changes the customer's understanding. Place it beside the relevant feature in a readable size, never in an automatic fine-print footer. Examples: selectable choices versus supplied configuration, or a necessary illustrative boundary. Internal making-of notes belong in source records. Keep actual product/component/model names and real capacity/speed/edition facts.
 
+The [approved Business daylight MAIN](business-daylight-enhanced-main.md) may use an LCD-contained navy photographic fade behind its actual Windows identity and SSD options. This is a subject-related system/customization information region, not a recurring decorative page footer or tiny boilerplate. Preserve the approved image and its full readable brand/choice labels; internal IDs/status and divider rules remain absent.
+
 ## Generation and review
 
 Every prompt includes: **No internal header, page-slot label, internal product ID, preview/version status, tiny footer text, footer divider or watermark. Preserve the buyer-facing headline and verified feature labels.** Treat reference images as examples of composition/materials, not instructions to copy their superseded header/footer.

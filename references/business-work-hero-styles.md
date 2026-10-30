@@ -25,7 +25,7 @@ Navy/silver with fine gold or bright-blue accents; ordered modular LCD layout an
 Natural light, soft-blue links and original anonymous meeting scene. No copied conferencing UI or implied subscription; camera/mic/privacy facts require exact-model evidence.
 
 ### B05 — Mobile Office Workflow
-Light gray/blue technical drafting and abstract task timeline. No docks, external monitors, peripherals or outside-LCD MAIN leader graphics. Actual port details belong in PT08.
+Light gray/blue Mobile Office direction. The [accepted daylight photographic MAIN](business-daylight-enhanced-main.md) uses natural office architecture, navy type, blue semantic icons and explicit customization choices; technical drafting/task timelines are optional historical motifs, not a requirement. No docks, external monitors, peripherals or outside-LCD MAIN leader graphics. Actual port details belong in PT08.
 
 ### B06 — Student-to-Work Toolkit
 Bright blue-green, soft geometry and original notes/calendar abstractions. No unsupported school/course compatibility or bundled software claims.

@@ -1,5 +1,7 @@
 # Repeat the accepted Business Laptop result
 
+User decision 2026-10-30: [Business daylight photographic enhanced MAIN](business-daylight-enhanced-main.md) reproduces the approved VL-1223 effect: match the current gallery, retain a real complete laptop, daylight LCD photograph, navy/blue hierarchy, semantic icons, original marks and explicit researched RAM/SSD options. Its documented original Windows alpha derivative and restrained LCD bottom fade are permitted; it supersedes conflicting older abstract/card/base-only/all-text-at-200px rules within this Business MAIN scope. Replace only the requested frontal slot; latest USER approval is authoritative.
+
 Current refinement: plan the whole supporting sequence by subject and actual source view before prompting. A laptop is optional; PT05 is product-free, detail/scene/accessory pages use their own relevant subjects, and a full front product view appears at most once within PT01-PT08. Apply the version 2 storyboard in [reference adaptation](business-laptop-reference-adaptation.md#subject-first-storyboard-and-actual-views); no generated or distorted substitute chassis angles.
 
 Current Business execution follows [reference adaptation and semantic logos](business-laptop-reference-adaptation.md): vary the actual page composition and screen purpose, use a coherent photographic PT02, explain features with native details, apply PT05 choices and attach original logos only to the information they identify. The older repeated-dashboard/card layouts are observed baselines, not the target for new work.

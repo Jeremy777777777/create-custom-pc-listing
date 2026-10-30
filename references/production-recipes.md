@@ -25,7 +25,8 @@ Recipe fields: canvas [actual_width,actual_height], formFactor, boundaryMode, ex
 | Slot | Composition and reading order | Information boundary |
 | --- | --- | --- |
 | MAIN-STRICT | Accurate complete computer centered on white, neutral contact shadow | No added marketing/Windows/OEM overlays |
-| Enhanced FRONT | Exact-model front original or fidelity-reviewed AI layer, strong family scene, Gaming artwork/brand hierarchy or the matching other-series layout, one applicable Windows identity | Integrated LCD clipping; desktop approved graphic safe zone |
+| Enhanced FRONT | Exact-model real/fidelity-reviewed product; Gaming follows its current artwork/brand hierarchy; Business follows current-gallery photographic daylight composition, semantic feature icons, researched RAM and explicit SSD options, original CPU/Windows marks and permitted restrained bottom fade. Cards are not mandatory | Actual LCD clipping; [Business daylight workflow](business-daylight-enhanced-main.md); desktop keeps its graphic safe zone |
+
 | Enhanced ANGLE | Matching three-quarter original or official-reference-supported fidelity-reviewed AI chassis, independently fitted information layers | Preserve original Windows geometry in screen artwork; accepted Business Laptop LCD artwork may be projected coherently as one plane into the actual screen. No independent logo skew/stretch or invented angle; other series retain their applicable fit gates |
 | PT01 | Large accurate hero and compatible verified reasons; Business Laptop uses its grouped proof plan, other generic layouts use up to three subordinate reasons | No full config grid or Windows treatment |
 | PT02 | Natural computer-use scene, product readable, one task-specific verified message | Neutral furniture/anonymous person allowed, no extra equipment |

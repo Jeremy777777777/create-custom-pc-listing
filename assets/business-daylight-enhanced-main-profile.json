@@ -1,0 +1,53 @@
+{
+  "schemaVersion": 1,
+  "id": "business-daylight-enhanced-main-v1",
+  "scope": "BUSINESS_LAPTOP_ENHANCED_MAIN",
+  "rule": "CURRENT_PRODUCT_GALLERY_STYLE_PLUS_APPROVED_PHOTOGRAPHIC_MAIN_HIERARCHY",
+  "reference": {
+    "driveId": "1SJHJvqknZ3FvSCD6ygELUQ3HL05Rhz6i",
+    "sha256": "6591f667ddd269d149c320fbb48d45e1941fae859bf8adc6f2c869f1da6779a0",
+    "sourceFolderId": "1_YBV7NjJ67gHscUqVxI3FgvY1_IsGFl9"
+  },
+  "workflow": "references/business-daylight-enhanced-main.md",
+  "visual": {
+    "palette": [
+      "#173f53",
+      "#2f86b4",
+      "#55778b",
+      "pale gray"
+    ],
+    "scene": "Original daylight office architecture; natural light, glass and quiet pale wall",
+    "type": "Arial-family editable navy hierarchy",
+    "layout": "Complete real laptop on white; actual LCD-contained photo, semantic feature icons, original CPU and Windows marks; restrained navy bottom fade allowed",
+    "noMandatoryCards": true,
+    "noMandatorySquare": true
+  },
+  "customization": {
+    "ssdLabel": "SSD OPTIONS",
+    "ssdChoices": [
+      "512GB",
+      "1TB",
+      "2TB",
+      "4TB"
+    ],
+    "ramResearch": [
+      "replaceability",
+      "exact family/generation"
+    ],
+    "replaceableRamChoices": [
+      "8GB",
+      "16GB",
+      "32GB",
+      "64GB"
+    ],
+    "fixedRam": "Actual researched capacity/type; no RAM alternatives",
+    "filterByPlatformMaximum": false
+  },
+  "review": {
+    "native": "Exact text, true hardware, marks, boundaries",
+    "mobile400": "Principal values and choices",
+    "thumbnail200": "Model, silhouette and hierarchy; secondary text may require zoom",
+    "manualRequired": true
+  },
+  "approval": "Latest actual USER selection controls its stated product/slot scope; no new-product automatic approval"
+}
