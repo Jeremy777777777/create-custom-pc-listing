@@ -5,6 +5,10 @@ description: "Create MegaPC Custom PC research and base-configuration listing wo
 
 # MegaPC Custom PC workflow
 
+User decision 2026-10-30: [customer-facing images and copy](references/customer-facing-image-content.md) applies to every series and future output. No internal page eyebrows, fixed fine-print footers/dividers, ERP IDs or preview/version labels in artwork or customer copy. Keep buyer headlines and verified feature labels; status stays in records. Check customer copy before generation and inspect actual rendered pixels before delivery.
+
+
+
 User-approved Gaming PT refinement: [Gaming visual explanation](references/gaming-visual-explanation.md) replaces old G22 product-dominance, flat chip/configuration-card, mandatory white PT06, and per-page extra OEM-logo defaults. Read its eight page standards and supply the actual approved PT01/PT03/PT05/PT07 reference images before generating. Allow dimensional technical concepts and full-page proposals; preserve selected composition during factual/logo refinement. G22 identifiers remain; methodProfile is `gaming-visual-explanation-v2`. Run `scripts/gaming_visual_plan.py` on the completed selected-page plan before new generation. Other series and MAIN rules are unchanged.
 
 User refinement 2026-10-29: [subject-first Business storyboards](references/business-laptop-reference-adaptation.md#subject-first-storyboard-and-actual-views) choose the page subject before a computer: real varied angles, native details, scenes, product-free choices or evidenced accessories. PT01-PT08 use a full front view at most once; PT05 omits the laptop and explains options through distinct use illustrations with a compact fixed-memory note. New production requires storyboard contract version 2; actual-source and contact-sheet review remain mandatory.
