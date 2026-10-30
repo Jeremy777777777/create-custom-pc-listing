@@ -28,3 +28,7 @@ Run `python scripts/brand_assets.py verify --repo .` to check registered bytes a
 Reusable originals, registry, selector and workflow instructions are workflow assets maintained in GitHub, with a verified readable connected-Drive backup under the existing workflow source tree. Product-specific composites and recipes stay in their established product/run/source folders. Upload expanded individual files, preserve prior originals/versions, reuse current IDs, verify bytes/parents and record the exact backup scope. No product gallery or private evidence enters the GitHub library.
 
 The initial registry contains official AMD corporate identity, Intel Core Ultra 7, Windows 11, Microsoft app SVGs and existing approved Windows Pro masters. It is an extensible starting set, not a claim that every market logo has been acquired. Official app versions may change; retain prior versions and select the identity that applies to the intended product/use.
+
+## Business Laptop semantic placement
+
+Apply [the current Business logo and layout contract](business-laptop-reference-adaptation.md). Record the original asset, related verified facts, semantic anchor, purpose and secondary reading priority. OEM identity stays in a quiet brand corner; CPU/GPU/OS identify their corresponding information groups. PT05 uses the required OEM identity without unrelated component/software badges. Validate declarations and inspect actual final logo/label/port clear space separately.

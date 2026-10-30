@@ -1,5 +1,7 @@
 # Repeat the accepted Business Laptop result
 
+Current Business execution follows [reference adaptation and semantic logos](business-laptop-reference-adaptation.md): vary the actual page composition and screen purpose, use a coherent photographic PT02, explain features with native details, apply PT05 choices and attach original logos only to the information they identify. The older repeated-dashboard/card layouts are observed baselines, not the target for new work.
+
 Use after [universal production](universal-image-production.md) and [Business Laptop information design](business-laptop-information-design.md). The user approved the complete VL-1223/VL-1271 series on 2026-10-29 and requested this repeatable process. The eleven-slot [profile](../assets/business-laptop-series-profile.json) is an executable planning brief, not a universal palette or a source of hardware facts.
 
 ## Accepted visual anchors

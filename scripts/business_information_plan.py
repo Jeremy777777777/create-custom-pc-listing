@@ -11,9 +11,87 @@ import brand_assets
 
 
 SLOTS = {f"PT{i:02d}.png" for i in range(1, 9)}
+LAYOUTS = dict(zip((f'PT{i:02d}.png' for i in range(1, 9)),
+    ('PRODUCT_HERO', 'LIFESTYLE_PHOTO', 'CONFIGURATION_COMPOSITE', 'DISPLAY_FOCUS',
+     'OPTIONS_COMPARISON', 'INPUT_DETAIL', 'FEATURE_DETAIL', 'PORT_MAP')))
+LOGO_ANCHORS = {'OEM': 'BRAND_CORNER', 'CPU': 'PROCESSOR_GROUP', 'GPU': 'GRAPHICS_GROUP',
+                'OS': 'SYSTEM_GROUP', 'SOFTWARE': 'SOFTWARE_GROUP'}
 
 
-def check(plan, ledger, ledger_sha256, registry):
+def check_presentation(plan, ledger, registry, required=False):
+    """Check reference-adaptation declarations, not actual visual quality or truth."""
+    review = plan.get('businessDesignReview')
+    if review is None:
+        if required: raise ValueError('New Business production requires the reference-adaptation design review')
+        return {'state': 'LEGACY_PRESENTATION_NOT_ASSESSED'}
+    if (not isinstance(review, dict) or review.get('schemaVersion') != 1
+            or not all(isinstance(review.get(k), str) and review[k].strip()
+                       for k in ('referenceUrl', 'observedDate', 'lessonAndAdaptation'))):
+        raise ValueError('Business design review needs the observed reference and actual adaptation')
+    from datetime import date
+    observed = date.fromisoformat(review['observedDate'])
+    if observed.isoformat() != review['observedDate'] or observed > date.today():
+        raise ValueError('Invalid reference observation date')
+    facts = {f['id']: f for f in ledger['facts']}
+    assets = {a['id']: a for a in registry['assets']}
+    screens = []
+    for row in plan['images']:
+        name = row['file']; item = row.get('presentation', {})
+        if item.get('layoutFamily') != LAYOUTS[name]:
+            raise ValueError(name+': use its distinct buyer-question layout family')
+        if (not isinstance(item.get('visualSourceIds'), list) or not item['visualSourceIds']
+                or not all(isinstance(v, str) and v.strip() for v in item['visualSourceIds'])
+                or not isinstance(item.get('proofPurpose'), str) or not item['proofPurpose'].strip()):
+            raise ValueError(name+': actual visual sources and their explanatory purpose required')
+        screen = item.get('screen', {})
+        if type(screen.get('shown')) is not bool:
+            raise ValueError(name+': explicit screen visibility required')
+        if screen['shown']:
+            if not all(isinstance(screen.get(k), str) and screen[k].strip() for k in ('contentId', 'purpose')):
+                raise ValueError(name+': screen content must serve its page')
+            if screen['contentId'] in screens and not screen.get('reuseReason', '').strip():
+                raise ValueError(name+': repeated screen artwork needs a distinct buyer-purpose reason')
+            screens.append(screen['contentId'])
+        if name == 'PT02.png' and not item.get('sceneAction', '').strip():
+            raise ValueError('PT02 needs a coherent person/task/product use scene')
+        placements = item.get('logoAssignments', [])
+        ids = [p.get('assetId') for p in placements]
+        if len(ids) != len(set(ids)) or set(ids) != set(row.get('brandAssetIds', [])):
+            raise ValueError(name+': every selected logo needs one semantic placement')
+        claim_ids = {key for c in row['claims'] for key in c['factIds']}
+        for placement in placements:
+            role = placement.get('role')
+            if (role not in LOGO_ANCHORS or placement.get('anchor') != LOGO_ANCHORS[role]
+                    or placement.get('readingPriority') != 'SECONDARY'
+                    or not placement.get('purpose', '').strip()):
+                raise ValueError(name+': logo needs a subordinate, meaning-related anchor')
+            if name == 'PT05.png' and role != 'OEM':
+                raise ValueError('PT05 is a capacity-choice page, not a CPU/GPU/OS logo panel')
+            related = placement.get('relatedFactIds', [])
+            if not related or any(k not in facts or facts[k].get('status') != 'VERIFIED' for k in related):
+                raise ValueError(name+': logo must explain verified applicable facts')
+            if role != 'OEM' and not set(related) <= claim_ids:
+                raise ValueError(name+': logo facts must belong to its page content')
+            asset = assets.get(placement['assetId'], {})
+            kinds = {'OEM': {'OEM_BRAND', 'HARDWARE_BRAND'},
+                     'CPU': {'CPU_FAMILY_BADGE', 'HARDWARE_BRAND'},
+                     'GPU': {'GPU_FAMILY_BADGE', 'GPU_BRAND', 'HARDWARE_BRAND'},
+                     'OS': {'OS_IDENTITY'}, 'SOFTWARE': {'SOFTWARE_IDENTITY'}}
+            if asset.get('kind') not in kinds[role]:
+                raise ValueError(name+': original logo kind does not match its semantic role')
+            fields = ' '.join(str(facts[k].get('attribute', '')) for k in related)
+            pattern = {'OEM': r'Manufacturer|Brand', 'CPU': r'CPU|Processor',
+                       'GPU': r'GPU|Graphics', 'OS': r'Operating System',
+                       'SOFTWARE': r'Software|License|Entitlement'}[role]
+            if not re.search(pattern, fields, re.I):
+                raise ValueError(name+': logo role does not match the referenced hardware/software fact')
+    if len(screens) >= 3 and len(set(screens)) == 1:
+        raise ValueError('A full Business series cannot repeat one screen composition on every visible-screen page')
+    return {'state': 'BUSINESS_PRESENTATION_DECLARATIONS_CHECKED',
+            'actualRenderedLayoutReview': 'REQUIRED', 'visualQa': 'NOT_ASSESSED'}
+
+
+def check(plan, ledger, ledger_sha256, registry, require_presentation=False):
     if plan.get("productId") != ledger.get("productId") or plan.get("configurationId") != ledger.get("configurationId"):
         raise ValueError("Plan and ledger identity/configuration differ")
     if plan.get("ledgerSha256") != ledger_sha256:
@@ -67,7 +145,9 @@ def check(plan, ledger, ledger_sha256, registry):
                 raise ValueError(f"{file}: incompatible/absent brand asset {key}")
             if file == "PT01.png" and assets[key].get("kind") == "OS_IDENTITY":
                 raise ValueError("PT01 cannot repeat Windows treatment")
+    presentation = check_presentation(plan, ledger, registry, require_presentation)
     return {"state": "PLAN_DECLARATIONS_CHECKED", "productId": plan["productId"],
+            "presentationReview": presentation,
             "imageCount": len(rows), "actualCopyFactReview": "REQUIRED", "visualQa": "NOT_ASSESSED",
             "styleApproval": plan.get("styleApprovalStatus", "PENDING"), "productionApprovalGranted": False}
 
@@ -82,7 +162,7 @@ def main():
     registry = brand_assets.read(Path(a.repo) / brand_assets.REGISTRY)
     brand_assets.verify(a.repo, registry)
     print(json.dumps(check(brand_assets.read(a.plan), json.loads(raw.decode("utf-8-sig")),
-                           hashlib.sha256(raw).hexdigest(), registry), indent=2))
+                           hashlib.sha256(raw).hexdigest(), registry, require_presentation=True), indent=2))
 
 
 if __name__ == "__main__":

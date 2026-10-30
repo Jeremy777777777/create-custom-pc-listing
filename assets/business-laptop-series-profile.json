@@ -19,5 +19,10 @@
   "reviewScalesPx": ["NATIVE",400,200],
   "completion": "A requested full series accounts for all eleven files, including exact carried-forward images; a pilot alone is incomplete.",
   "approval": "Per-product USER approval; this profile grants none.",
-  "rebuild": "Self-contained editable masters or complete hashed source dependencies plus portable commands; preserve approved bytes explicitly."
+  "rebuild": "Self-contained editable masters or complete hashed source dependencies plus portable commands; preserve approved bytes explicitly.",
+  "businessDesignContract": "references/business-laptop-reference-adaptation.md",
+  "newProductionRequiresDesignReview": true,
+  "compositionFamilies": {"PT01.png": "PRODUCT_HERO", "PT02.png": "LIFESTYLE_PHOTO", "PT03.png": "CONFIGURATION_COMPOSITE", "PT04.png": "DISPLAY_FOCUS", "PT05.png": "OPTIONS_COMPARISON", "PT06.png": "INPUT_DETAIL", "PT07.png": "FEATURE_DETAIL", "PT08.png": "PORT_MAP"},
+  "logoHierarchy": "Theme, product/detail and useful facts precede subordinate semantic logos; OEM brand corner, component marks beside their applicable information; PT05 OEM only.",
+  "screenDirection": "Purpose-specific original screen contents; do not repeat one project dashboard across the series."
 }

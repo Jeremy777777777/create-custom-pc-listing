@@ -31,7 +31,7 @@ All 11 final images meet the Amazon-based size policy below, using sRGB, high-qu
 | PT02.png | Relevant original use scene; desktops/AIOs include keyboard and mouse using the [catalog accessory treatment](confirmed-catalog-defaults.md); no other devices |
 | PT03.png | Sole complete base CPU/GPU/RAM/SSD/OS page |
 | PT04.png | Display and overall form, not keyboard/touchpad or ports |
-| PT05.png | Business Laptop: explain installed memory/storage or an evidenced form relationship with useful secondary reuse; other series follow their applicable task/technical plan. No duplicate full configuration page |
+| PT05.png | Customized products: universal RAM/SSD choice page with per-tier uses and researched fixed/replaceable RAM treatment. Other routes retain their applicable hardware/task explanation. No duplicate full configuration page |
 | PT06.png | White-background input details: laptop keyboard/touchpad or desktop/AIO keyboard and mouse using the [catalog accessory treatment](confirmed-catalog-defaults.md); no retail packaging |
 | PT07.png | Business Laptop: coherent remaining mobility/collaboration question with related verified proof; other generic series use an unused verified value. No seller warranty/service advertising |
 | PT08.png | Physical port map and accurate connectivity, no external devices |

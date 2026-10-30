@@ -1,5 +1,7 @@
 # MegaPC Custom PC listing and image workflow
 
+User decision 2026-10-29: [Business Laptop reference adaptation and semantic logo placement](references/business-laptop-reference-adaptation.md) applies the five discussed composition/screen/scene/feature/customization improvements to Business Laptop first. New plan CLI runs require the versioned design review, purpose-specific screens, distinct page layouts and meaning-related subordinate original logos; retain actual product preview judgment and scoped updates.
+
 User decision 2026-10-29: [Universal image customization](references/universal-customization-image.md) adds the dedicated PT05 RAM/SSD options and per-tier use page across customized design series. Research RAM replaceability/type, keep fixed RAM fixed, label choices separately from installed base facts, build/check its supporting plan and retain product-specific style approval. Update GitHub first, then verified Drive source copies.
 
 User decision 2026-10-29: [Mini PC and Gaming original-media workflow](references/mini-gaming-real-source-workflow.md) fully defines real product/game sources, original game logos plus readable names, buyer-question planning, rich related proof without repeated specification posters, layered production, mobile QA and verified in-place delivery. Gaming-focused Mini PC proposals use M04/MG04; new Gaming PC proposals use G22/A22/GG22. Existing approvals remain scoped; other Mini PC choices and Business Laptop architecture stay independent.

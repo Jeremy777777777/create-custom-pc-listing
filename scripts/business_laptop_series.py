@@ -31,7 +31,7 @@ def contained(root, relative):
     return result
 
 
-def inputs(product, information_plan, repo):
+def inputs(product, information_plan, repo, require_presentation=False):
     p, repo = Path(product), Path(repo)
     path = contained(p, information_plan)
     facts, ledger, style = (brand_assets.read(p / name) for name in INPUTS)
@@ -43,7 +43,7 @@ def inputs(product, information_plan, repo):
     info = brand_assets.read(path)
     registry = brand_assets.read(repo / brand_assets.REGISTRY)
     brand_assets.verify(repo, registry)
-    claim_check = business_information_plan.check(info, ledger, digest(p/'research-ledger.json'), registry)
+    claim_check = business_information_plan.check(info, ledger, digest(p/'research-ledger.json'), registry, require_presentation)
     profile = brand_assets.read(repo / PROFILE)
     rows = profile.get('slots', [])
     if profile.get('designSeries') != 'BUSINESS_LAPTOP' or len(rows) != 11 or {r.get('file') for r in rows} != set(NAMES):
@@ -53,19 +53,20 @@ def inputs(product, information_plan, repo):
     return ledger, style, info, profile, bound, claim_check
 
 
-def build(product, information_plan, workflow_sha, request_reference, preserve=(), repo=ROOT):
+def build(product, information_plan, workflow_sha, request_reference, preserve=(), repo=ROOT, require_presentation=False):
     p = Path(product)
     if not re.fullmatch('[0-9a-f]{40}', workflow_sha) or not request_reference.strip():
         raise ValueError('Exact workflow commit and actual request reference required')
     preserve = list(preserve)
     if len(set(preserve)) != len(preserve) or not set(preserve) <= set(NAMES):
         raise ValueError('Preserve only unique canonical image names')
-    ledger, style, info, profile, bound, _ = inputs(p, information_plan, repo)
+    ledger, style, info, profile, bound, _ = inputs(p, information_plan, repo, require_presentation)
     # This is a planning inventory. Production still uses the existing frozen contract.
     return {'schemaVersion': 1, 'artifactRole': 'BUSINESS_LAPTOP_SERIES_PLAN',
             'productId': p.name, 'configurationId': ledger['configurationId'],
             'workflowSha': workflow_sha, 'requestReference': request_reference,
             'scope': 'FULL_SERIES', 'informationPlanPath': information_plan,
+            'presentationContractVersion': 1 if require_presentation else None,
             'profilePath': PROFILE, 'profileSha256': digest(Path(repo)/PROFILE),
             'inputSha256': bound,
             'slots': [{'file': n, 'action': 'PRESERVE' if n in preserve else 'PRODUCE',
@@ -81,7 +82,7 @@ def check(plan, product, repo=ROOT):
         raise ValueError('Complete Business Laptop plan required')
     if not re.fullmatch('[0-9a-f]{40}', plan.get('workflowSha', '')) or not plan.get('requestReference', '').strip():
         raise ValueError('Missing workflow/request binding')
-    ledger, style, _, _, bound, claim_check = inputs(p, plan['informationPlanPath'], repo)
+    ledger, style, _, _, bound, claim_check = inputs(p, plan['informationPlanPath'], repo, plan.get('presentationContractVersion') == 1)
     if plan.get('productId') != p.name or plan.get('configurationId') != ledger['configurationId']:
         raise ValueError('Series identity/configuration differs')
     if plan.get('profilePath') != PROFILE or plan.get('profileSha256') != digest(Path(repo)/PROFILE) or plan.get('inputSha256') != bound:
@@ -132,13 +133,15 @@ def main():
         output, product = Path(args.output).resolve(), Path(args.product).resolve()
         if output.exists() or output.is_relative_to(product):
             raise ValueError('New output outside canonical product directory required')
-        result = build(product, args.information_plan, workflow(), args.request_reference, args.preserve, args.repo)
+        result = build(product, args.information_plan, workflow(), args.request_reference, args.preserve, args.repo, require_presentation=True)
         check(result, product, args.repo)
         output.parent.mkdir(parents=True, exist_ok=True)
         output.write_text(json.dumps(result, ensure_ascii=False, indent=2)+'\n', encoding='utf-8')
         print('BUSINESS_SERIES_PLAN_WRITTEN_NOT_APPROVED')
     else:
         plan = brand_assets.read(args.plan)
+        if plan.get('presentationContractVersion') != 1:
+            raise ValueError('New Business production requires the current reference-adaptation plan')
         if plan.get('workflowSha') != workflow():
             raise ValueError('Selected workflow changed; reconcile the series plan')
         print(json.dumps(check(plan, args.product, args.repo), indent=2))

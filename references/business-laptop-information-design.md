@@ -1,5 +1,7 @@
 # Business Laptop information design — user decision 2026-10-29
 
+Current Business execution follows [reference adaptation and semantic logos](business-laptop-reference-adaptation.md): vary the actual page composition and screen purpose, use a coherent photographic PT02, explain features with native details, apply PT05 choices and attach original logos only to the information they identify. The older repeated-dashboard/card layouts are observed baselines, not the target for new work.
+
 User decision 2026-10-29: for new complete customized galleries, the [universal RAM/SSD choice page](universal-customization-image.md) owns PT05 across Business, Gaming, Mini PC and other form factors. Show every seller-approved tier with a useful short caption; fixed RAM retains actual capacity/type without RAM choices. This overrides older PT05 installed-only/no-option/task-only prescriptions while retaining the eleven-file set, PT03 base configuration, current style approval and unchanged-slot boundaries.
 
 For the accepted complete-series result and repeatable execution commands, use [the production playbook](business-laptop-production-playbook.md) and [eleven-slot profile](../assets/business-laptop-series-profile.json). The user accepted both complete VL-1223/VL-1271 series and requested maintained GitHub/Drive instructions plus tests. Validate coverage and exact preserved bytes with `scripts/business_laptop_series.py`; keep actual generation, style/visual review and delivery as separate stages.
