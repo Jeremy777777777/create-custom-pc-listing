@@ -7,7 +7,7 @@ import re
 
 from customization_policy import research, fragments
 from listing_mode import resolve, CUSTOM
-from product_metadata import listing_view
+from product_metadata import selected_facts, hardware_projection
 
 VERSION = 'universal-customization-image-v1'
 RAM_TIERS = (
@@ -28,14 +28,59 @@ def digest(raw):
     return hashlib.sha256(raw).hexdigest()
 
 
+def research_view(product, ledger):
+    """PT05 uses researched RAM and seller choices, without unrelated CPU/SSD gates."""
+    from product_identity import product_id
+    from capacity_units import capacity_units, scaled_capacity
+    if product_id(product) != ledger['productId']:
+        raise ValueError('Customization image product identity mismatch')
+    base=product.get('selectedBaseConfiguration',{})
+    if base.get('id') and base['id']!=ledger['configurationId']:
+        raise ValueError('Customization image configuration mismatch')
+    info=research(product,ledger,required=True)
+    if info is None:
+        raise ValueError('Own-brand products retain their independent route')
+    selected=selected_facts(ledger)
+    key=('Product Details','RAM Memory Installed')
+    unit_key=('Product Details','RAM Memory Installed Size Unit')
+    ram,unit=selected.get(key),selected.get(unit_key)
+    units=capacity_units(key[1])
+    if (not ram or not unit or unit['status']!='VERIFIED'
+            or type(ram['final_value']) not in (int,float) or ram['final_value']<=0
+            or str(unit['final_value']).strip().casefold() not in units):
+        raise ValueError('Customization image requires verified installed RAM and its capacity unit')
+    amount=scaled_capacity(ram['final_value'],units[str(unit['final_value']).strip().casefold()])
+    hardware_projection(ledger,product,required_fields={key,unit_key})
+    if 'customization' in product and product['customization']!=info:
+        raise ValueError('Product customization cache disagrees with selected RAM research')
+    return {'customization':info,'selectedBaseConfiguration':{'id':ledger['configurationId'],'ramGB':amount}}
+
+
+def production_check(directory):
+    """Mandatory current PT05 research gate; no raster or style approval implied."""
+    from research_export import load_ledger
+    directory=Path(directory)
+    product=json.loads((directory/'product-facts.json').read_text(encoding='utf-8-sig'))
+    if resolve(product)!=CUSTOM:
+        return {'state':'OWN_BRAND_SEPARATE_ROUTE','file':'PT05.png'}
+    path=directory/'research-ledger.json'
+    if not path.is_file():
+        raise ValueError('Customized PT05 requires its current RAM research ledger')
+    view=research_view(product,load_ledger(path))
+    labels=fragments(view)
+    return {'state':'CUSTOMIZATION_RESEARCH_CHECK_PASS','file':'PT05.png',
+            'replaceable':view['customization']['replaceable'],
+            'memoryType':view['customization']['memoryType'],'expectedLabels':labels,
+            'visualQa':'SEPARATE_ACTUAL_REVIEW_REQUIRED'}
+
+
 def build(product, ledger, product_sha256, ledger_sha256):
     for value in (product_sha256, ledger_sha256):
         if not re.fullmatch('[0-9a-f]{64}', str(value)):
             raise ValueError('Actual product/ledger SHA256 bindings required')
     if resolve(product) != CUSTOM:
         raise ValueError('Own-brand products retain their independent route; customization page is not automatic')
-    research(product, ledger, required=True)
-    view = listing_view(product, ledger)[0]
+    view = research_view(product, ledger)
     info = view['customization']
     parts = fragments(view)
     replaceable = info['replaceable']

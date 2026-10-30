@@ -11,7 +11,7 @@ FACT_KEYS = ('id', 'status', 'final_value', 'fact_scope', 'configurationId', 'so
 SCOPED_POLICY = 'assets/workflow-execution-policy.json'
 
 
-def style_projection(directory, slot, style, policy_text=None, customization=False):
+def style_projection(directory, slot, style, policy_text=None, customization=False, dimensions=False):
     """V2 binds shared design plus this slot; delivery settings and other slots are irrelevant."""
     import gallery_engine as g
     if style.get('scopeVersion') != 2 or not isinstance(style.get('shared'), dict) or not style['shared']:
@@ -40,6 +40,11 @@ def style_projection(directory, slot, style, policy_text=None, customization=Fal
             raise ValueError('Unknown customization image binding version')
         relevant['customization'] = dict(rules['customization'])
         extra_keys = ('customization',)
+    if dimensions and 'dimensions' in rules:
+        if rules['dimensions'].get('version') != 1:
+            raise ValueError('Unknown dimension image binding version')
+        relevant['dimensions'] = dict(rules['dimensions'])
+        extra_keys += ('dimensions',)
     for rule in relevant.values():
         if isinstance(rule.get('sourceBindings'), dict):
             rule['sourceBindings'] = rule['sourceBindings'].get(kind, [])
@@ -106,6 +111,21 @@ def binding(directory, slot, dependencies, policy_text=None):
         raise ValueError('Unresolved depicted image field: '+', '.join(field for sheet,field in sorted(requested)
                          if selected[(sheet,field)]['status'] not in {'VERIFIED','NOT_APPLICABLE'}))
     required = requested | {key for key in selected if key[0] == 'Product Details' and key[1] in IDENTITY_FIELDS}
+    from dimension_units import dimension_dependencies, PAIRS, TEXT_FIELDS, validate_dimensions
+    dimension_fields = set(PAIRS) | {(key[0],unit) for key,unit in PAIRS.items()} | TEXT_FIELDS
+    has_dimensions = bool(requested & dimension_fields)
+    # Historical policy retains its exact old payload. Current reviews use the
+    # explicit mapping, not a naming-prefix guess, for dimension dependencies.
+    current_dimensions = version == 2 and (policy_text is None or 'dimensions' in
+        json.loads(policy_text.get('__scopedImagePolicy__','{}')).get('imageReview',{}))
+    if current_dimensions:
+        expanded = dimension_dependencies(requested)
+        if not expanded <= set(selected):
+            raise ValueError('Dimension dependency requires its exact value/unit pair')
+        if any(selected[key]['status'] not in {'VERIFIED','NOT_APPLICABLE'} for key in expanded & dimension_fields):
+            raise ValueError('Unresolved depicted dimension or paired unit')
+        required.update(expanded)
+        validate_dimensions({key:{'value':selected[key]['final_value']} for key in expanded})
     # Unit facts are cheap to include and affect the meaning of any named value.
     for sheet, field in list(required):
         for key in selected:
@@ -129,7 +149,8 @@ def binding(directory, slot, dependencies, policy_text=None):
         customization = (resolve(facts) == CUSTOM and
                          (slot == 'PT05.png' or any(sheet == 'Product Details' and field in ram_fields
                                                   for sheet, field in required)))
-        style_data = style_projection(directory, slot, style, policy_text, customization=customization)
+        style_data = style_projection(directory, slot, style, policy_text,
+                                      customization=customization, dimensions=has_dimensions)
         payload.update(style_data)
         if 'customization' in style_data['imagePolicy']:
             # Bind researched replaceability/type and its sources, not only the

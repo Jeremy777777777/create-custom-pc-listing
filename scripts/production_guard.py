@@ -228,6 +228,9 @@ def verify(product, contract_path, expected_sha256, planned_files=None):
                              'marketplaceExportAssessed':False, 'coverageSummary': result['coverageSummary']}
     slots = [n for n in contract.get('selectedSlots',[]) if n in selected]
     if slots:
+        if 'PT05.png' in slots:
+            from image_customization_plan import production_check as check_customization
+            results['customizationImage'] = check_customization(product)
         import gallery_engine as gallery
         if contract['mode'] == 'IMAGE_ADJUSTMENT_WORKFLOW':
             report = read(product/'partial-update-qa.json')

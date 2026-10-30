@@ -33,6 +33,10 @@ Capture freezes the actual prior parsed facts/ledger inside the private run cont
 
 Excel bytes stay unchanged. The production receipt reports UNCHANGED_NOT_REVALIDATED_AGAINST_UPDATED_FACTS and lists preserved workbooks; previous workbook summaries/approvals do not certify the changed ledger. A later workbook task uses the current ledger and ordinary projection/summary checks. Honest unresolved research never becomes a visible image claim.
 
+Physical size checks in this branch cover the declared fields plus their explicit value/unit pairs. All new/revised physical measurements use inches after an actual conversion, including customer-visible size captions. Unchanged old dimensions outside that scope are marked UNCHANGED_NOT_REVALIDATED; they neither block an unrelated port update nor become approved by it. Full workbook dimension checks remain complete.
+
+Every actual customized PT05 output runs image_customization_plan.production_check at this production boundary, including legacy review schemas. A missing ledger, incomplete/conflicting RAM customization evidence, wrong exact type, invalid unit or inconsistent installed RAM fails before gallery acceptance can authorize delivery. The shared PT05 research view checks only relevant RAM/configuration inputs and the confirmed seller choices, so unrelated unresolved CPU/installed SSD facts do not become new blockers. Own-brand products keep their independent path. Actual image review and user style authorization remain required.
+
 ## Check outputs and delivery
 
 ```text

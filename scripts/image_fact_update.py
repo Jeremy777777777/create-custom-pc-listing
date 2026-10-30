@@ -113,7 +113,7 @@ def check(product, frozen):
     from product_identity import product_id
     from product_metadata import hardware_projection, selected_facts
     from research_audit import validate as trace_check
-    from dimension_units import validate_dimensions
+    from dimension_units import validate_dimensions, dimension_dependencies
     if not isinstance(frozen, dict) or frozen.get('schemaVersion') != 1:
         raise ValueError('Frozen image fact baseline required')
     scope = declaration(frozen['scope'])
@@ -129,7 +129,8 @@ def check(product, frozen):
     check_research_scope(before,ledger,fields,scope.get('serialResearchUpdate',False))
     if mask_product(facts, scope['productPaths']) != mask_product(previous, scope['productPaths']):
         raise ValueError('Product facts changed outside declared image paths')
-    required = fields | {(m['sheet'], m['attribute']) for m in ledger['fields']
+    dimension_scope = dimension_dependencies(fields)
+    required = dimension_scope | {(m['sheet'], m['attribute']) for m in ledger['fields']
                          if m['sheet'] == 'Product Details' and m['attribute'] in
                          {'Manufacturer', 'Model Name', 'Model Number', 'Color', 'Form Factor'}}
     for sheet, field in list(required):
@@ -143,9 +144,11 @@ def check(product, frozen):
     # Include paired units so an image-only update cannot relabel centimetres.
     validate_dimensions({key: {'value': row['final_value'],
                          **({'value_candidate': row['value_candidate']} if 'value_candidate' in row else {})}
-                         for key, row in selected.items()})
+                         for key, row in selected.items() if key in dimension_scope})
     return {'state': 'SCOPED_IMAGE_FACT_UPDATE_CHECKED', 'fields': scope['fields'],
             'productPaths': scope['productPaths'], 'researchTrace': trace,
+            'dimensionScope': 'DECLARED_FIELDS_AND_EXPLICIT_UNIT_PAIRS',
+            'untouchedDimensions': 'UNCHANGED_NOT_REVALIDATED',
             'workbookState': 'UNCHANGED_NOT_REVALIDATED_AGAINST_UPDATED_FACTS',
             'unchangedWorkbooks': sorted(p.name for p in product.glob('*.xlsx')),
             'factualAuthentication': 'ACTUAL_SOURCE_REVIEW_REQUIRED', 'publicationStatus': 'NOT_ASSESSED'}

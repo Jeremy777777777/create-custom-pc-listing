@@ -1,5 +1,13 @@
 # Physical dimensions in inches — user decision 2026-10-27
 
+User reaffirmed on 2026-10-30: all newly produced or revised physical size outputs use inches. Convert the value from its actual source unit before writing; never relabel centimetres or millimetres as Inches. Source/evidence quotations retain their original units for verification.
+
+Current image review uses the explicit numeric pairs below in both directions: naming a size also binds its unit, and revising a unit also checks its associated value. The value and unit must have applicable verified/not-applicable status, and a depicted numeric size requires the literal Inches unit. Unit source/status changes invalidate the dependent review. The dimensions policy/source binding applies only to pages that depend on dimensions; historical policy retains its original hash shape.
+
+All actual customer-copy entry points also check physical measurements, including bare metric/feet captions and screen-size labels. Standard audio-connector names such as 3.5mm audio jack remain technical designations, while an explicitly labelled body measurement still requires inches. Actual pixel inspection remains necessary.
+
+For imageFactUpdate, check only the declared fields and their explicit dimension value/unit pairs. New or changed dimensions in that scope must satisfy the inch rule. Unchanged dimensions elsewhere remain unassessed and cannot block a port-only update or receive a new approval. Full/new workbook generation and full export continue checking all applicable dimensions.
+
 All new physical length/width/height/depth/thickness measurements use inches in Research Review, Listing Draft, candidate rows, customer copy and image dimension labels. This includes chassis dimensions, package dimensions, screen diagonal and bezel thickness. Paired workbook unit fields contain **Inches**; self-contained dimension strings say **inches**. Preserve canonical field names/Definitions and axis order. This overrides older examples/defaults using mm/cm/feet for physical dimensions.
 
 Retain original source values, units, URL, excerpt, configuration/scope and date in evidence. Convert before finalizing the scoped ledger and its reference-audit hashes. Unit conversion does not establish a new measurement, sold-unit applicability, package size or confirmation status. Keep unresolved values blank and candidates unconfirmed. Source quotations/evidence keep their units. Component/interface names such as M.2 2280 and 3.5mm audio remain recognizable technical designations; image pixel dimensions, resolution, weight, electrical and storage/frequency units retain their own meanings.

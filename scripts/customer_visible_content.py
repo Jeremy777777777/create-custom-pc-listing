@@ -25,6 +25,8 @@ def validate_customer_text(text):
     for pattern, reason in PATTERNS:
         if re.search(pattern, normalized, re.I):
             raise ValueError('Customer-visible content contains ' + reason)
+    from dimension_units import validate_dimension_copy
+    validate_dimension_copy(normalized)
 
 def validate_image_plan_copy(plan):
     """Check declared rendered copy only; internal IDs, source notes and questions are metadata."""

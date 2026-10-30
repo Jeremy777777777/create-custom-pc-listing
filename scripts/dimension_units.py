@@ -18,6 +18,15 @@ PAIRS={
 }
 TEXT_FIELDS={('Product Details','Item Dimensions L x W x Thickness'),
              ('Product Details','Screen Bezel Thickness'),('Offer','Item Package Dimensions')}
+def dimension_dependencies(fields):
+    """Keep explicit value/unit pairs together, including unit-only revisions."""
+    result=set(fields)
+    for key,unit in PAIRS.items():
+        pair={key,(key[0],unit)}
+        if result & pair:result.update(pair)
+    return result
+
+
 NUMBER=r'(?:\d+(?:\.\d+)?|\.\d+)'
 SEQUENCE=NUMBER+r'(?:\s*(?:x|×|[-–—])\s*'+NUMBER+r')*'
 LENGTH_UNIT=r'(?:[A-Za-z]+\.?|["″])'
@@ -131,7 +140,7 @@ def positive(value, text_allowed=False):
 def validate_dimension_copy(text):
     """Catch explicit metric/feet size claims, preserving connector/model names."""
     text=re.sub(r'<[^>]+>',' ',str(text))
-    labels=r'(?:length|width|height|depth|thickness|bezel|diagonal|dimensions?|key\s*travel|key\s*pitch)'
+    labels=r'(?:length|width|height|depth|thickness|bezel|diagonal|dimensions?|screen(?:\s+size)?|display(?:\s+size)?|key\s*travel|key\s*pitch)'
     # "1 x 3.5mm audio jack" is a count and named connector, not geometry.
     # An explicit preceding dimensions/width/etc label keeps geometry checkable.
     connector_count=r'\b[1-9]\d*\s*[x×]\s*(?:2\.5|3\.5|6\.35)\s*mm(?=\s*\(?\s*(?:(?:global|universal)\s+)?(?:audio|headphone|headset|microphone|combo|trrs|trs|jack)\b)'
@@ -139,13 +148,19 @@ def validate_dimension_copy(text):
         prefix=text[max(0,match.start()-50):match.start()]
         return match[0] if re.search(r'\b'+labels+r'\s*(?::|=|of|is)?\s*$',prefix,re.I) else 'NAMED_AUDIO_CONNECTOR_COUNT'
     text=re.sub(connector_count,connector,text,flags=re.I)
+    # A standard connector name is not a chassis measurement, including when
+    # no port count is shown. Explicit geometry labels retain normal checks.
+    connector_name=r'\b(?:2\.5|3\.5|6\.35)\s*mm(?=\s*\(?\s*(?:(?:global|universal)\s+)?(?:audio|headphone|headset|microphone|combo|trrs|trs|jack)\b)'
+    text=re.sub(connector_name,connector,text,flags=re.I)
     other=r'(?:mm|cm|m|meters?|metres?|millimet(?:er|re)s?|centimet(?:er|re)s?|feet|foot|ft)\b'
     tuple_claim=NUMBER+r'\s*(?:x|×)\s*'+NUMBER+r'(?:\s*(?:x|×)\s*'+NUMBER+r')?\s*'+other
     repeated_units=NUMBER+r'\s*'+other+r'\s*(?:x|×|by)\s*'+NUMBER+r'(?:\s*'+other+r')?'
     labelled=r'\b'+labels+r'\s*(?::|=|of|is)?\s*'+NUMBER+r'\s*'+other
     positioned=r'\b'+labels+r'\s+(?:front|rear|minimum|maximum|nominal)\s*:?\s*'+NUMBER+r'\s*'+other
     trailing_label=NUMBER+r'\s*'+other+r'\s*'+labels+r'\b'
-    if re.search('|'.join((tuple_claim,repeated_units,labelled,positioned,trailing_label)),text,re.I):raise ValueError('Physical dimension copy must use inches')
+    standalone=r'(?<![\w.])'+NUMBER+r'\s*-?\s*(?:mm|cm|meters?|metres?|millimet(?:er|re)s?|centimet(?:er|re)s?|feet|foot|ft)\b'
+    spaced_meter=r'(?<![\w.])'+NUMBER+r'\s+m\b'
+    if re.search('|'.join((tuple_claim,repeated_units,labelled,positioned,trailing_label,standalone,spaced_meter)),text,re.I):raise ValueError('Physical dimension copy must use inches')
 
 
 def validate_dimensions(projected):
