@@ -2,11 +2,13 @@
 
 ## Scope and precedence
 
-The user selected the generated VL-1221 PT03, then explicitly accepted PT01, PT05 and PT07: “这三张图就是我想要得效果”. The subsequent instruction authorizes updating all proposed rules and replacing **PT01/PT05/PT07 only** in Drive with those selected bytes. PT03 is a reusable approved appearance reference, not an instruction to replace the current PT03. Record the exact approval and assets in [the reference registry](../assets/gaming-visual-reference-registry.json).
+The user selected the generated VL-1221 PT03, then explicitly accepted PT01, PT05 and PT07. The initial delivery replaced PT01/PT05/PT07. On 2026-10-30 the user additionally approved the redesigned PT03, requested its cleaned replacement, and applied [customer-facing content](customer-facing-image-content.md) across all images and future copy. Preserve original selection evidence in [the registry](../assets/gaming-visual-reference-registry.json), but do not copy its superseded headers/footers.
 
 Apply this reference before older G22 PT composition rules. Keep G22/A22/GG22 identifiers for compatibility and use `methodProfile: gaming-visual-explanation-v2`. This changes Gaming PT01–PT08; it does not migrate Mini PC/Business recipes, alter any MAIN rule, approve other products or turn style acceptance into factual/marketplace QA. G01–G21/GG01–GG21 remain explicit opt-in alternatives, never automatic fallbacks for this direction.
 
 ## Core standard
+
+Every page follows [customer-facing content](customer-facing-image-content.md): no internal page eyebrow, fixed footer/divider, internal product ID or preview/version label. Keep meaningful main headlines, verified component labels and readable necessary qualifications beside the feature. Production status belongs outside the artwork.
 
 **Turn the page's selling point into a visual explanation. Choose the subject and explanatory image before arranging text. Use pictures and words together to explain the feature, component, relationship or use.**
 
@@ -53,7 +55,7 @@ Inspect native resolution, about 400px width and 200px thumbnail. Record substan
 
 Compare the corrected image against the exact selected image; record differences. Factual/technical corrections do not authorize aesthetic regression. Automated structure/storage checks cannot decide these visual questions.
 
-When the user explicitly requests that **already generated and selected bytes** replace existing images, adopt exactly those bytes under the authorized slots; do not silently regenerate, remove a preview footer, redraw marks or relabel a flattened image as editable layers. Record this as `USER_APPROVED_BYTES_ADOPTION`, with selection hashes, residual preview text, illustrative/generated assets and incomplete layered-source/production QA disclosed. A preview label retained in accepted bytes does not make the image publication-reviewed. Preserve earlier current bytes, replace stable Drive IDs, verify downloaded originals, and retain separate style, byte-delivery, production-QA and publication statuses. Do not edit validators or manufacture PASS records to accept the images.
+When the user explicitly requests that **already generated and selected bytes** replace existing images, adopt exactly those bytes under the authorized slots unless the latest explicit instruction authorizes an edit. The 2026-10-30 cleanup explicitly authorizes header/footer removal; retain the unedited selection and record the cleaned output hash. Do not silently redesign, redraw marks or relabel a flattened image as editable layers. Record this as `USER_APPROVED_BYTES_ADOPTION`, with selection hashes, residual preview text, illustrative/generated assets and incomplete layered-source/production QA disclosed. A preview label retained in accepted bytes does not make the image publication-reviewed. Preserve earlier current bytes, replace stable Drive IDs, verify downloaded originals, and retain separate style, byte-delivery, production-QA and publication statuses. Do not edit validators or manufacture PASS records to accept the images.
 
 ## Retired defaults and unchanged boundaries
 
