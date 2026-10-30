@@ -624,7 +624,10 @@ def preserve_prior_policy_gallery(root,p,base):
     # policy. Find the matching *committed ancestor* policy rather than assuming
     # every subsequent push starts immediately before that amendment.
     policy_paths=['references/'+name for name in POLICY_INPUTS]
-    revisions=subprocess.check_output(['git','log','--max-count=16','--format=%H',base,'--',*policy_paths],cwd=root,text=True).splitlines()
+    # A valid historical review must not expire after sixteen unrelated policy
+    # revisions. Search committed ancestors; the exact input binding and unchanged
+    # byte checks below still decide eligibility, not the age of the review.
+    revisions=subprocess.check_output(['git','log','--format=%H',base,'--',*policy_paths],cwd=root,text=True).splitlines()
     matched=None
     for policy_ref in [base]+[revision+'^' for revision in revisions]:
         try:

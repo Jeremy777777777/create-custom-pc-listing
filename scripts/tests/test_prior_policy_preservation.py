@@ -80,6 +80,24 @@ class PreservationTests(unittest.TestCase):
             self.assertEqual(result['policyCommit'],original);self.assertFalse(result['currentPolicyQa'])
             validate.assert_called_once_with(self.p,trusted_policy_binding='trusted-old-binding',preserve_unbound_research=False)
 
+    def test_matching_policy_survives_more_than_sixteen_amendments(self):
+        original=self.base
+        for number in range(18):
+            (self.root/'references/image-spec.md').write_text('policy revision '+str(number),encoding='utf-8')
+            self.git('add','.');self.git('commit','-qm','policy amendment '+str(number))
+        self.base=self.git('rev-parse','HEAD').strip()
+        def binding(directory,include_research=True,policy_text=None):
+            return 'trusted-old-binding' if policy_text==self.policy else 'new-policy-binding'
+        with patch.object(g,'review_inputs',side_effect=binding),patch.object(g,'validate') as validate:
+            result=g.preserve_prior_policy_gallery(self.root,self.p,self.base)
+            self.assertEqual(result['policyCommit'],original);self.assertFalse(result['currentPolicyQa'])
+            validate.assert_called_once_with(self.p,trusted_policy_binding='trusted-old-binding',preserve_unbound_research=False)
+        # Age never excuses an unexplained binding, even with a long history.
+        with patch.object(g,'review_inputs',return_value='unexplained'),patch.object(g,'validate') as validate:
+            with self.assertRaisesRegex(ValueError,'does not match trusted-base'):
+                g.preserve_prior_policy_gallery(self.root,self.p,self.base)
+            validate.assert_not_called()
+
     def test_scoped_reviews_preserve_only_unchanged_trusted_bytes(self):
         import image_review_scope as scope
         entry={'file':'PT01.png','dependencies':{'fields':[['Product Details','Model Number']],
