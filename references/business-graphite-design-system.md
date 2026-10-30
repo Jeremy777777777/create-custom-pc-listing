@@ -1,5 +1,7 @@
 # B17 / BG17 — Graphite Business, Feature in Focus
 
+Current refinement: plan the whole supporting sequence by subject and actual source view before prompting. A laptop is optional; PT05 is product-free, detail/scene/accessory pages use their own relevant subjects, and a full front product view appears at most once within PT01-PT08. Apply the version 2 storyboard in [reference adaptation](business-laptop-reference-adaptation.md#subject-first-storyboard-and-actual-views); no generated or distorted substitute chassis angles.
+
 Current Business execution follows [reference adaptation and semantic logos](business-laptop-reference-adaptation.md): vary the actual page composition and screen purpose, use a coherent photographic PT02, explain features with native details, apply PT05 choices and attach original logos only to the information they identify. The older repeated-dashboard/card layouts are observed baselines, not the target for new work.
 
 Apply [Business Laptop information design](business-laptop-information-design.md), user decision 2026-10-29. It replaces this document's older 2–3-callout cap, generic task-flow default and rigid secondary-fact overlap rejection for Business Laptops. Retain graphite appearance, white PT06, actual detail evidence, one full configuration page and product-specific preview approval. Use [downloaded original brand assets](reusable-brand-assets.md).

@@ -20,7 +20,7 @@ class BusinessReferenceTests(unittest.TestCase):
             {'id': 'lg-original', 'kind': 'HARDWARE_BRAND', 'match': {'oemBrand': 'LG'}},
             {'id': 'intel-original', 'kind': 'CPU_FAMILY_BADGE', 'match': {'cpuBrand': 'Intel'}}]}
         self.plan['brandContext'] = {'oemBrand': 'LG', 'cpuBrand': 'Intel'}
-        self.plan['businessDesignReview'] = {'schemaVersion': 1,
+        self.plan['businessDesignReview'] = {'schemaVersion': 2,
             'referenceUrl': 'https://www.amazon.com/dp/B01N4C1TH4', 'observedDate': '2026-10-29',
             'lessonAndAdaptation': 'SYNTHETIC: distinct native detail, scene and option layouts with purposeful screen art.'}
         for i, row in enumerate(self.plan['images'], 1):
@@ -31,6 +31,15 @@ class BusinessReferenceTests(unittest.TestCase):
                 'sceneAction': 'Synthetic person prepares a document on the actual laptop',
                 'logoAssignments': [{'assetId': 'lg-original', 'role': 'OEM', 'anchor': 'BRAND_CORNER',
                                      'readingPriority': 'SECONDARY', 'relatedFactIds': ['1'], 'purpose': 'Identify the manufacturer'}]}
+        shots = [('WHOLE_PRODUCT','FULL','FRONT'), ('USAGE_SCENE','PARTIAL','SCENE'),
+                 ('WHOLE_PRODUCT','FULL','THREE_QUARTER'), ('SCREEN_DETAIL','PARTIAL','DETAIL'),
+                 ('OPTIONS_GUIDE','NONE','NONE'), ('PRODUCT_DETAIL','PARTIAL','DETAIL'),
+                 ('PRODUCT_DETAIL','PARTIAL','DETAIL'), ('PRODUCT_DETAIL','PARTIAL','SIDE')]
+        for row, (subject, visibility, framing) in zip(self.plan['images'], shots):
+            item = row['presentation']
+            item['storyboard'] = {'subject': subject, 'productVisibility': visibility, 'framing': framing,
+                'productViewId': item['visualSourceIds'][0] if visibility != 'NONE' else None,
+                'productPresenceReason': 'Synthetic: choose a subject to explain this page, not repeat the hero'}
         row = self.plan['images'][2]
         row['brandAssetIds'].append('intel-original')
         row['presentation']['logoAssignments'].append({'assetId': 'intel-original', 'role': 'CPU',
@@ -108,6 +117,49 @@ class BusinessReferenceTests(unittest.TestCase):
         with self.assertRaisesRegex(ValueError, 'reference-adaptation'):
             series_fixture.b.build(fixture.p, 'information.json', 'a'*40, 'Synthetic full series request',
                                    repo=fixture.repo, require_presentation=True)
+
+    def test_missing_storyboard_is_rejected(self):
+        self.plan['images'][0]['presentation'].pop('storyboard')
+        with self.assertRaisesRegex(ValueError, 'storyboard'): self.check()
+
+    def test_full_front_view_cannot_repeat_under_different_source_ids(self):
+        self.plan['images'][2]['presentation']['storyboard']['framing'] = 'FRONT'
+        with self.assertRaisesRegex(ValueError, 'front product view'): self.check()
+
+    def test_same_full_product_view_cannot_be_relabelled_as_another_angle(self):
+        item = self.plan['images'][2]['presentation']
+        item['visualSourceIds'].append('SYNTHETIC-SOURCE-1')
+        item['storyboard']['productViewId'] = 'SYNTHETIC-SOURCE-1'
+        with self.assertRaisesRegex(ValueError, 'same full-product'): self.check()
+
+    def test_visible_angle_requires_its_actual_declared_source(self):
+        self.plan['images'][0]['presentation']['storyboard']['productViewId'] = 'INVENTED-ANGLE'
+        with self.assertRaisesRegex(ValueError, 'source-linked'): self.check()
+
+    def test_pt05_is_product_free_and_cannot_have_a_screen(self):
+        item = self.plan['images'][4]['presentation']
+        item['storyboard'].update(productVisibility='FULL', framing='SIDE', productViewId=item['visualSourceIds'][0])
+        with self.assertRaisesRegex(ValueError, 'PT05'): self.check()
+        item['storyboard'].update(productVisibility='NONE', framing='NONE', productViewId=None)
+        item['screen'].update(shown=True)
+        with self.assertRaisesRegex(ValueError, 'product-free'): self.check()
+
+    def test_accessory_page_requires_supply_label_and_verified_package_facts(self):
+        item = self.plan['images'][6]['presentation']
+        item['screen']['shown'] = False
+        item['storyboard'].update(subject='ACCESSORIES', productVisibility='NONE', framing='NONE', productViewId=None)
+        with self.assertRaisesRegex(ValueError, 'accessory storyboard'): self.check()
+        item['storyboard']['accessoryTreatment'] = {'supplyStatus':'NOT_INCLUDED',
+                                                   'customerLabel':'Accessories shown are not included.'}
+        self.check()
+        item['storyboard']['accessoryTreatment'].update(supplyStatus='INCLUDED', factIds=['1'])
+        with self.assertRaisesRegex(ValueError, 'package facts'): self.check()
+
+    def test_version_one_remains_diagnostic_only_for_new_production(self):
+        self.plan['businessDesignReview']['schemaVersion'] = 1
+        result = b.check(self.plan, self.ledger, 'actual', self.registry)
+        self.assertEqual(result['presentationReview']['storyboardReview']['state'], 'LEGACY_STORYBOARD_NOT_ASSESSED')
+        with self.assertRaisesRegex(ValueError, 'version 2 storyboard'): self.check()
 
 
 if __name__ == '__main__': unittest.main()

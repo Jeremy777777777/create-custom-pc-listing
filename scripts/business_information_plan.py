@@ -16,6 +16,56 @@ LAYOUTS = dict(zip((f'PT{i:02d}.png' for i in range(1, 9)),
      'OPTIONS_COMPARISON', 'INPUT_DETAIL', 'FEATURE_DETAIL', 'PORT_MAP')))
 LOGO_ANCHORS = {'OEM': 'BRAND_CORNER', 'CPU': 'PROCESSOR_GROUP', 'GPU': 'GRAPHICS_GROUP',
                 'OS': 'SYSTEM_GROUP', 'SOFTWARE': 'SOFTWARE_GROUP'}
+SUBJECTS = {'WHOLE_PRODUCT', 'PRODUCT_DETAIL', 'SCREEN_DETAIL', 'USAGE_SCENE',
+            'OPTIONS_GUIDE', 'ACCESSORIES'}
+
+
+def check_storyboard(plan, ledger):
+    """Require explicit subject/visibility decisions before rendering new pages."""
+    full_views = set(); front_pages = []
+    facts = {f['id']: f for f in ledger['facts']}
+    for row in plan['images']:
+        name = row['file']; item = row['presentation']; shot = item.get('storyboard', {})
+        if (shot.get('subject') not in SUBJECTS
+                or shot.get('productVisibility') not in {'FULL', 'PARTIAL', 'NONE'}
+                or not isinstance(shot.get('productPresenceReason'), str)
+                or not shot['productPresenceReason'].strip()):
+            raise ValueError(name+': storyboard needs its subject, product visibility and buyer-purpose reason')
+        visibility = shot['productVisibility']; framing = shot.get('framing')
+        if visibility == 'NONE':
+            if framing != 'NONE' or shot.get('productViewId') or item['screen']['shown']:
+                raise ValueError(name+': product-free storyboard cannot declare a product view or screen')
+        else:
+            if (framing not in {'FRONT', 'THREE_QUARTER', 'SIDE', 'REAR', 'DETAIL', 'SCENE'}
+                    or not isinstance(shot.get('productViewId'), str)
+                    or shot['productViewId'] not in item['visualSourceIds']):
+                raise ValueError(name+': visible product needs its actual source-linked framing/view')
+            if visibility == 'FULL':
+                if shot['productViewId'] in full_views:
+                    raise ValueError('Do not repeat the same full-product view across supporting pages')
+                full_views.add(shot['productViewId'])
+                if framing == 'FRONT': front_pages.append(name)
+        if name == 'PT05.png' and (shot['subject'] != 'OPTIONS_GUIDE' or visibility != 'NONE'):
+            raise ValueError('PT05 must explain the choices without another laptop image')
+        treatment = shot.get('accessoryTreatment')
+        if shot['subject'] == 'ACCESSORIES' or treatment is not None:
+            if (not isinstance(treatment, dict)
+                    or treatment.get('supplyStatus') not in {'INCLUDED', 'NOT_INCLUDED', 'CONTEXT_ONLY'}
+                    or not isinstance(treatment.get('customerLabel'), str)
+                    or not treatment['customerLabel'].strip()):
+                raise ValueError(name+': accessory storyboard must state supply status and customer label')
+            if treatment['supplyStatus'] == 'INCLUDED':
+                ids = treatment.get('factIds', [])
+                claims = {key for claim in row['claims'] for key in claim['factIds']}
+                if not ids or not set(ids) <= claims or any(
+                        key not in facts or facts[key].get('status') != 'VERIFIED'
+                        or not re.search(r'Included|Accessor|Bundl|Package Contents',
+                                         str(facts[key].get('attribute', '')), re.I) for key in ids):
+                    raise ValueError(name+': included accessories need verified page-linked package facts')
+    if len(front_pages) > 1:
+        raise ValueError('Use a full front product view at most once across PT01-PT08')
+    return {'state': 'STORYBOARD_DECLARATIONS_CHECKED', 'fullFrontSupportingPages': front_pages,
+            'actualSourceAngleAndSequenceReview': 'REQUIRED', 'visualQa': 'NOT_ASSESSED'}
 
 
 def check_presentation(plan, ledger, registry, required=False):
@@ -24,10 +74,12 @@ def check_presentation(plan, ledger, registry, required=False):
     if review is None:
         if required: raise ValueError('New Business production requires the reference-adaptation design review')
         return {'state': 'LEGACY_PRESENTATION_NOT_ASSESSED'}
-    if (not isinstance(review, dict) or review.get('schemaVersion') != 1
+    if (not isinstance(review, dict) or review.get('schemaVersion') not in (1, 2)
             or not all(isinstance(review.get(k), str) and review[k].strip()
                        for k in ('referenceUrl', 'observedDate', 'lessonAndAdaptation'))):
         raise ValueError('Business design review needs the observed reference and actual adaptation')
+    if required and review['schemaVersion'] != 2:
+        raise ValueError('New Business production requires the version 2 storyboard review')
     from datetime import date
     observed = date.fromisoformat(review['observedDate'])
     if observed.isoformat() != review['observedDate'] or observed > date.today():
@@ -87,7 +139,9 @@ def check_presentation(plan, ledger, registry, required=False):
                 raise ValueError(name+': logo role does not match the referenced hardware/software fact')
     if len(screens) >= 3 and len(set(screens)) == 1:
         raise ValueError('A full Business series cannot repeat one screen composition on every visible-screen page')
-    return {'state': 'BUSINESS_PRESENTATION_DECLARATIONS_CHECKED',
+    storyboard = (check_storyboard(plan, ledger) if review['schemaVersion'] == 2
+                  else {'state': 'LEGACY_STORYBOARD_NOT_ASSESSED'})
+    return {'state': 'BUSINESS_PRESENTATION_DECLARATIONS_CHECKED', 'storyboardReview': storyboard,
             'actualRenderedLayoutReview': 'REQUIRED', 'visualQa': 'NOT_ASSESSED'}
 
 

@@ -66,7 +66,7 @@ def build(product, information_plan, workflow_sha, request_reference, preserve=(
             'productId': p.name, 'configurationId': ledger['configurationId'],
             'workflowSha': workflow_sha, 'requestReference': request_reference,
             'scope': 'FULL_SERIES', 'informationPlanPath': information_plan,
-            'presentationContractVersion': 1 if require_presentation else None,
+            'presentationContractVersion': 2 if require_presentation else None,
             'profilePath': PROFILE, 'profileSha256': digest(Path(repo)/PROFILE),
             'inputSha256': bound,
             'slots': [{'file': n, 'action': 'PRESERVE' if n in preserve else 'PRODUCE',
@@ -82,7 +82,7 @@ def check(plan, product, repo=ROOT):
         raise ValueError('Complete Business Laptop plan required')
     if not re.fullmatch('[0-9a-f]{40}', plan.get('workflowSha', '')) or not plan.get('requestReference', '').strip():
         raise ValueError('Missing workflow/request binding')
-    ledger, style, _, _, bound, claim_check = inputs(p, plan['informationPlanPath'], repo, plan.get('presentationContractVersion') == 1)
+    ledger, style, _, _, bound, claim_check = inputs(p, plan['informationPlanPath'], repo, plan.get('presentationContractVersion') == 2)
     if plan.get('productId') != p.name or plan.get('configurationId') != ledger['configurationId']:
         raise ValueError('Series identity/configuration differs')
     if plan.get('profilePath') != PROFILE or plan.get('profileSha256') != digest(Path(repo)/PROFILE) or plan.get('inputSha256') != bound:
@@ -140,7 +140,7 @@ def main():
         print('BUSINESS_SERIES_PLAN_WRITTEN_NOT_APPROVED')
     else:
         plan = brand_assets.read(args.plan)
-        if plan.get('presentationContractVersion') != 1:
+        if plan.get('presentationContractVersion') != 2:
             raise ValueError('New Business production requires the current reference-adaptation plan')
         if plan.get('workflowSha') != workflow():
             raise ValueError('Selected workflow changed; reconcile the series plan')

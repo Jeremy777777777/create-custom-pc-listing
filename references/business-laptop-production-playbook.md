@@ -1,5 +1,7 @@
 # Repeat the accepted Business Laptop result
 
+Current refinement: plan the whole supporting sequence by subject and actual source view before prompting. A laptop is optional; PT05 is product-free, detail/scene/accessory pages use their own relevant subjects, and a full front product view appears at most once within PT01-PT08. Apply the version 2 storyboard in [reference adaptation](business-laptop-reference-adaptation.md#subject-first-storyboard-and-actual-views); no generated or distorted substitute chassis angles.
+
 Current Business execution follows [reference adaptation and semantic logos](business-laptop-reference-adaptation.md): vary the actual page composition and screen purpose, use a coherent photographic PT02, explain features with native details, apply PT05 choices and attach original logos only to the information they identify. The older repeated-dashboard/card layouts are observed baselines, not the target for new work.
 
 Use after [universal production](universal-image-production.md) and [Business Laptop information design](business-laptop-information-design.md). The user approved the complete VL-1223/VL-1271 series on 2026-10-29 and requested this repeatable process. The eleven-slot [profile](../assets/business-laptop-series-profile.json) is an executable planning brief, not a universal palette or a source of hardware facts.
@@ -13,7 +15,7 @@ Inspect the applicable actual reference before prompting: [VL-1223 complete seri
 ## Repeatable production
 
 1. Establish the current workflow commit, exact product identity/configuration, current ledger, style lock and current Drive IDs. Apply Universal first; then this Business Laptop brief. New products retain their own preview approval. For these two products the complete series is accepted; same-family corrections preserve that approval. A workflow update does not itself request an image replacement.
-2. Prepare all eight supporting-page buyer questions and verified final claims in `business-information-plan.json`. Bind the exact ledger bytes, canonical fact IDs, PRIMARY/SECONDARY roles, useful reuse rationale and applicable original brand IDs. Use the profile's varied proof types. Keep PT03 the sole complete configuration page. Confirm photo/panel/keyboard/ports against the sold unit; never transfer the examples' RAM, SSD, backlight, ports or battery claims.
+2. Prepare all eight supporting-page buyer questions and verified final claims in `business-information-plan.json`. Bind the exact ledger bytes, canonical fact IDs, PRIMARY/SECONDARY roles, useful reuse rationale and applicable original brand IDs. Before prompting, complete version 2 subject/visibility/source-view storyboards and review the proposed sequence for repeated full front views. PT05 is a product-free choice/use guide; do not solve variety merely by changing backgrounds. Use the profile's varied proof types. Keep PT03 the sole complete configuration page. Confirm photo/panel/keyboard/ports against the sold unit; never transfer the examples' RAM, SSD, backlight, ports or battery claims.
 3. Account for all eleven files before rendering. For a continuation, hash approved slots as PRESERVE and produce every remaining slot. This planning helper supplements the existing production contract; it never expands authorization, renders images, grants style approval or accepts quality:
 
    ```text

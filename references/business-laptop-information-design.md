@@ -1,5 +1,7 @@
 # Business Laptop information design — user decision 2026-10-29
 
+Current refinement: plan the whole supporting sequence by subject and actual source view before prompting. A laptop is optional; PT05 is product-free, detail/scene/accessory pages use their own relevant subjects, and a full front product view appears at most once within PT01-PT08. Apply the version 2 storyboard in [reference adaptation](business-laptop-reference-adaptation.md#subject-first-storyboard-and-actual-views); no generated or distorted substitute chassis angles.
+
 Current Business execution follows [reference adaptation and semantic logos](business-laptop-reference-adaptation.md): vary the actual page composition and screen purpose, use a coherent photographic PT02, explain features with native details, apply PT05 choices and attach original logos only to the information they identify. The older repeated-dashboard/card layouts are observed baselines, not the target for new work.
 
 User decision 2026-10-29: for new complete customized galleries, the [universal RAM/SSD choice page](universal-customization-image.md) owns PT05 across Business, Gaming, Mini PC and other form factors. Show every seller-approved tier with a useful short caption; fixed RAM retains actual capacity/type without RAM choices. This overrides older PT05 installed-only/no-option/task-only prescriptions while retaining the eleven-file set, PT03 base configuration, current style approval and unchanged-slot boundaries.
