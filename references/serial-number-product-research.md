@@ -1,5 +1,8 @@
 # PC research through ERP serials and OEM factory configurations
 
+**2026-10-30 FCC routing:** [Standalone FCC workflow](fcc-research-workflow.md) supersedes older FCC lookup/workbook instructions in this document. Only an explicit `FCC_LOOKUP_ONLY` task researches FCC; results and used serials go to private ERP Listing Inventory, not Listing Research/Draft. New listing ledgers use `fcc_management: ERP_INVENTORY` and the neutral blank FCC disposition. Non-FCC research and compliance remain unchanged. Any old FCC projection examples below apply only to historical records.
+
+
 Customized listing research additionally follows [RAM replaceability/type and seller options](customization-options-policy.md). Record exact DDR/LPDDR family/generation and replaceability; capacity choices are confirmed seller policy, not a platform-maximum research prerequisite. Retain installed base numeric facts separately.
 
 User-approved research method — 2026-10-14. The 2026-10-26 user clarification makes serial lookup the primary starting route for PC attribute research, not only FCC lookup. Apply during FULL_LISTING_WORKFLOW and when missing product facts need research. In image-only work, use it only for missing image-required facts; do not expand a targeted edit into unrelated research.

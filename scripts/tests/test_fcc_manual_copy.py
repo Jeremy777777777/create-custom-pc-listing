@@ -23,7 +23,9 @@ class FCCManualCopyTests(unittest.TestCase):
             with self.subTest(source=name):
                 snapshots = record.get('sourceSnapshotPaths', {})
                 self.assertEqual(snapshots, {'references/research-ledger-projection.md':
-                    'references/manuals/source-snapshots/2026-10-21/research-ledger-projection.md'})
+                    'references/manuals/source-snapshots/2026-10-21/research-ledger-projection.md',
+                    'references/fcc-research-workflow.md':
+                    'references/manuals/source-snapshots/2026-10-21/fcc-research-workflow.md'})
                 self.assertEqual(record.get('bindingScope'), 'ORIGINAL_2026_10_21_READING_COPY_NOT_CURRENT_EXECUTION')
                 self.assertEqual(hashlib.sha256((ROOT/snapshots.get(name, name)).read_text(encoding='utf-8').encode('utf-8')).hexdigest(),
                                  sha, 'Reconcile and review the Word reading copy; do not merely refresh hashes')

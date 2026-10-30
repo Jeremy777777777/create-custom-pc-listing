@@ -1,5 +1,8 @@
 # Confirmed catalog policy — 2026-10-02
 
+**2026-10-30 FCC routing:** [Standalone FCC workflow](fcc-research-workflow.md) supersedes older FCC lookup/workbook instructions in this document. Only an explicit `FCC_LOOKUP_ONLY` task researches FCC; results and used serials go to private ERP Listing Inventory, not Listing Research/Draft. New listing ledgers use `fcc_management: ERP_INVENTORY` and the neutral blank FCC disposition. Non-FCC research and compliance remain unchanged. Any old FCC projection examples below apply only to historical records.
+
+
 User decision 2026-10-30: [Business daylight photographic enhanced MAIN](business-daylight-enhanced-main.md) reproduces the approved VL-1223 effect: match the current gallery, retain a real complete laptop, daylight LCD photograph, navy/blue hierarchy, semantic icons, original marks and explicit researched RAM/SSD options. Its documented original Windows alpha derivative and restrained LCD bottom fade are permitted; it supersedes conflicting older abstract/card/base-only/all-text-at-200px rules within this Business MAIN scope. Replace only the requested frontal slot; latest USER approval is authoritative.
 
 Gaming PT current direction: [visual explanation](gaming-visual-explanation.md) owns G22/A22/GG22 PT01–PT08 appearance, generation and per-page standards (`gaming-visual-explanation-v2`). Supply the approved image references; let the page subject determine visual dominance. Named-game source rules remain; technical/task concept generation is allowed. Older Gaming families are explicit opt-in, not default fallbacks. MAIN, Mini PC and Business rules stay independently scoped.

@@ -11,7 +11,8 @@
     "references/workbook-stage-snapshots.md": "09eb920b4bc2d100c413cf629c1d551e8876b398fbde114ab0cb57eb8e1aa9e3"
   },
   "sourceSnapshotPaths": {
-    "references/research-ledger-projection.md": "references/manuals/source-snapshots/2026-10-21/research-ledger-projection.md"
+    "references/research-ledger-projection.md": "references/manuals/source-snapshots/2026-10-21/research-ledger-projection.md",
+    "references/fcc-research-workflow.md": "references/manuals/source-snapshots/2026-10-21/fcc-research-workflow.md"
   },
   "bindingScope": "ORIGINAL_2026_10_21_READING_COPY_NOT_CURRENT_EXECUTION"
 }

@@ -1,4 +1,38 @@
-# FCC lookup and workbook mapping
+# Standalone FCC lookup → ERP Listing Inventory
+
+User decision 2026-10-30 supersedes the automatic full-listing lookup and workbook mapping below.
+
+## Active workflow
+
+1. Run FCC research only when the user separately assigns it. Mode: `FCC_LOOKUP_ONLY`. A listing creation, Research Review, Listing Draft or image request does not trigger FCC lookup. Existing research/draft files are historical; do not rewrite them unless requested.
+2. Use the user's desktop **FCC ID Lookup Manual 整理版.docx** (original document remains on the desktop; see its identity/hash in [manual maintenance](manuals/README.md)) as the lookup method. It governs the brand-specific serial → OEM as-built hardware/part → exact full module suffix → official FCC grant chain. Preserve host SDoC vs radio certification, factory vs current/sold unit, replacement and batch limits. The older frozen reading copy below is historical where it conflicts with the user's manual/current routing.
+3. Read the current private **ERP Listing Inventory / Listing Tracker**; match the exact **Virtual SKU** once. Do not join by model substring, store listing or position. Duplicate SKU matches block the write pending reconciliation. Preserve other rows, links, formulas and complete existing search trace. Scope an individual unit/batch result explicitly; do not imply that one serial confirms every unit of a virtual SKU.
+4. Use exactly these inventory columns:
+
+| Column | Meaning |
+| --- | --- |
+| FCC ID（已确认） | Exact unit/batch and module/grant chain established, with confirmation basis and applicability in search trace. Blank otherwise. |
+| FCC ID 候选 | Strongest defensible, **not confirmed** identifier when full confirmation is unavailable. Explain ranking, qualitative confidence and missing proof in trace. A user-selected supported option remains labeled as such; do not relabel it a ranked winner. |
+| 使用过的 Serial Number | Only actual serial/service tags used for lookup, deduplicated. Preserve ERP aliases where normalization matters. Do not copy an unused sample list. |
+| FCC ID 搜索足迹 | Date, exact SKU/model, queried serial provenance, OEM/FCC URLs, exact part/module, result/outcome, factory/current/sold scope, confidence, limitations, alternatives and next evidence. Append dated research history without silently replacing it. |
+
+5. If no candidate is defensible, leave identifier columns blank and explain why. Tied candidates stay unranked in trace; never invent a winner. Factory no-WLAN or host SDoC is an outcome in trace, not an FCC identifier or evidence of no later radio. Keep confirmed and unconfirmed values distinguishable; migration of old model-only or selected-option IDs must use the candidate column.
+6. Raw serials and serial-bearing URLs belong only in the private inventory and explicitly authorized private evidence. No actual unit records in GitHub or reusable workflow Drive source. `scripts/fcc_inventory.py` validates a private record and emits an exact-SKU update plan outside the repository; it does not perform research, authenticate evidence, write Drive or publish to Amazon. Re-read the saved inventory and verify each changed cell after the actual authorized write.
+
+## New listing workbook contract
+
+Set `fcc_management: ERP_INVENTORY` in every new listing ledger. Preserve the canonical FCC template field with a neutral `TBD`, null final value, no candidates/evidence and source exactly:
+
+`MANAGED_SEPARATELY_IN_ERP_LISTING_INVENTORY; FCC_LOOKUP_ONLY task; not assessed in this listing workbook`
+
+This is a routing disposition, not a research result or a claim that FCC is inapplicable. The writer leaves both Value and candidate rows blank and does not demand FCC lookup evidence or add an FCC research follow-up. All other attribute, serial-research, source-audit, copy and compliance checks still apply. Receipts expose `fccManagement` and `fccPublicationAssessed: false`; an export evidence check is not permission to publish or evidence that FCC compliance was assessed. Any later marketplace publication must separately review applicable inventory evidence and compliance; no automatic candidate promotion.
+
+Unmarked historical ledgers retain their previous strict checks. `--legacy-fcc-workbook` exists only for explicitly requested historical reproduction, never normal new listing creation. It does not weaken legacy FCC verification. Historical snapshots/manual hashes stay unchanged.
+
+## Historical workbook mapping (pre-2026-10-30)
+
+The remainder documents the prior implementation and evidence distinctions; it is not a trigger to research FCC during listing creation or store FCC results in new listing workbooks.
+
 
 **2026-10-21 user layout update:** [Candidate review rows](candidate-review-rows.md) supersede older five-row and candidate-in-Value instructions for newly generated workbooks. All three sheets now place candidates/source in rows 6/7 below Source; formal Value remains blank until confirmed. Preserve original historical bytes.
 

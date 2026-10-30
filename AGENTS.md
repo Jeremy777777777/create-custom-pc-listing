@@ -1,5 +1,8 @@
 # Listing development and testing
 
+**User decision — 2026-10-30:** FCC research is an independently requested `FCC_LOOKUP_ONLY` task. Follow [standalone FCC / ERP inventory](references/fcc-research-workflow.md). Do not research or store FCC identifiers, candidates, raw serials or lookup evidence in new Listing Research / Draft workbooks. Other product-attribute and serial-first research remains required.
+
+
 User decision 2026-10-30: [Business daylight photographic enhanced MAIN](references/business-daylight-enhanced-main.md) reproduces the approved VL-1223 effect: match the current gallery, retain a real complete laptop, daylight LCD photograph, navy/blue hierarchy, semantic icons, original marks and explicit researched RAM/SSD options. Its documented original Windows alpha derivative and restrained LCD bottom fade are permitted; it supersedes conflicting older abstract/card/base-only/all-text-at-200px rules within this Business MAIN scope. Replace only the requested frontal slot; latest USER approval is authoritative.
 
 Gaming enhanced MAIN — user decision 2026-10-30: use [the approved artwork/brand hierarchy](references/gaming-enhanced-main-approved-layout.md) and [the reusable prompt](assets/gaming-enhanced-main-prompt-template.md). G22 integrated-display proposals use original game artwork, CPU upper right, GPU/model lower right, Hz lower left and subordinate RAM/SSD/one compact Windows identity. Whole-image proposals are allowed; preserve selected composition during genuine-asset/factual refinement. Mandatory six-card skins/topology and package-sized Windows defaults are removed for this method. Other series, strict MAIN and standalone-desktop boundaries remain separate.

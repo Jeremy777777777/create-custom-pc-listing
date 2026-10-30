@@ -104,11 +104,16 @@ def legacy_reuse(data, missing, previous_bytes, review):
 
 
 def validate(data, required=False, previous_bytes=None, reuse=None):
+    from fcc_inventory import is_external_field, validate_stub
     facts = {f['id']: f for f in data['facts']}
     checked, missing = 0, []
     for mapping in data['fields']:
         fact = facts[mapping['selected_fact']]
         evidence = fact.get('evidence', {})
+        if is_external_field(data, fact):
+            validate_stub(fact)
+            checked += 1
+            continue
         trace = evidence.get('research_trace')
         if trace is None:
             missing.append(fact['id'])

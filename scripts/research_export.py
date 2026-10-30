@@ -9,6 +9,7 @@ from pathlib import Path
 import openpyxl
 from jsonschema import Draft202012Validator
 from research_values import check_fcc_id_value
+from fcc_inventory import external as external_fcc, is_external_field, validate_stub
 
 ROOT = Path(__file__).resolve().parents[1]
 FCC_KEY = ('Safety&Compliance', 'FCC ID')
@@ -104,6 +105,8 @@ def validate_ledger(data):
     validate_serial_research(data)
     facts = {}
     for fact in data['facts']:
+        if is_external_field(data, fact):
+            validate_stub(fact)
         if fact['id'] in facts:
             raise ValueError('Duplicate fact ID: ' + fact['id'])
         if fact['status'] not in ('VERIFIED', 'NOT_APPLICABLE') and fact['final_value'] is not None:
@@ -146,6 +149,9 @@ def validate_ledger(data):
             raise ValueError('Missing or mismatched selected fact: ' + str(key))
         if fact['configurationId'] != data['configurationId']:
             raise ValueError('Selected fact belongs to another configuration: ' + str(key))
+        if is_external_field(data, fact):
+            validate_stub(fact)
+            continue
         allowed = {'SOLD_BASE', 'PLATFORM_CAPABILITY'} if key in CAPABILITY_FIELDS else {'SOLD_BASE'}
         if fact['fact_scope'] not in allowed:
             raise ValueError('Selected field requires sold/capability evidence, not factory/current-unit facts: ' + str(key))
@@ -180,6 +186,11 @@ def project(data, field_keys, mode='draft', separate_candidates=True):
     projected = {}
     for key in expected:
         fact = mapped[key]
+        if is_external_field(data, fact):
+            projected[key] = {'value': None, 'status': 'TBD', 'source': fact['source'],
+                              'value_candidate': None, 'value_candidate_source': None,
+                              'fact_id': fact['id'], 'fact_scope': fact['fact_scope']}
+            continue
         candidate = fact.get('recommended_candidate')
         advisory = fact.get('value_candidate')
         advisory_source = None
@@ -308,7 +319,7 @@ def write_workbook(template, ledger, workbook, mode='draft', product_id=None,
         selected = validate_ledger(data)
         fcc = next((selected[f['selected_fact']] for f in data['fields']
                     if (f['sheet'], f['attribute']) == FCC_KEY), None)
-        if fcc and not fcc.get('evidence', {}).get('lookup_outcome'):
+        if fcc and not external_fcc(data) and not fcc.get('evidence', {}).get('lookup_outcome'):
             raise ValueError('New FCC workbook requires guide lookup_outcome metadata')
         if workbook.parent.parent.name == 'product generated photo':
             from research_handoff import check_research_summaries
@@ -511,6 +522,8 @@ def run(template, ledger, workbook, mode, product_id=None, configuration_id=None
             'templateSha256': input_hashes['template'],
             'stage': stage or ('LISTING_DRAFT' if listing_stage else 'RESEARCH_REVIEW'),
             'amazonEligibilityAssessed': False, 'metadataView': metadata_report,
+            'fccManagement': 'ERP_INVENTORY' if external_fcc(data) else 'LEGACY_WORKBOOK',
+            'fccPublicationAssessed': False,
             'coverageSummary':coverage_summary(data,projected),
             'fields': [{'sheet': k[0], 'attribute': k[1], **v} for k,v in projected.items()]}
 
@@ -605,6 +618,8 @@ def main():
                         help='Export requires explicit LISTING_DRAFT; filenames cannot grant export eligibility')
     parser.add_argument('--summary-output',type=Path,help='Write a standalone research coverage JSON after successful checking')
     parser.add_argument('--write-workbook', action='store_true', help='Create a new Excel from the scoped ledger, then validate it')
+    parser.add_argument('--legacy-fcc-workbook', action='store_true',
+                        help='Explicit historical reproduction only; new runs use fcc_management=ERP_INVENTORY')
     parser.add_argument('--previous-workbook', type=Path, help='Preserve FCC coloring from a current workbook or checked same-product snapshot')
     parser.add_argument('--previous-ledger', type=Path, help='Observed previous scoped ledger for a bounded legacy revision')
     parser.add_argument('--research-reuse', type=Path, help='Hash-bound applicability review for unchanged legacy fields')
@@ -616,6 +631,8 @@ def main():
         if bool(args.previous_ledger) != bool(args.research_reuse):
             raise ValueError('--previous-ledger and --research-reuse require each other')
         if args.write_workbook:
+            if not external_fcc(load_ledger(args.ledger)) and not args.legacy_fcc_workbook:
+                raise ValueError('New listing workbooks require fcc_management=ERP_INVENTORY; FCC lookup is a separate task')
             from research_audit import validate as audit_research
             trace_result = audit_research(load_ledger(args.ledger), required=True,
                 previous_bytes=args.previous_ledger.read_bytes() if args.previous_ledger else None,
