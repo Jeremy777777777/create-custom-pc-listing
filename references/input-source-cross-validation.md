@@ -1,9 +1,11 @@
 # Input Sources and Cross-Validation
 
+2026-11-16 用户决定：每次产品研究必须执行 [Best Buy 检索、交叉验证及补充信息研究](bestbuy-research.md)，不能因官网／ERP 已有值而跳过。它是中等优先级辅助来源，低于匹配官网及目标关联 ERP，先于 Amazon／其它零售商线索；不覆盖自有品牌 ERP 主导分支。记录本次真实检索、准确型号／料号、逐字段比较、补充线索，以及无精确匹配／访问受阻等结果。下文内部输入模式仅决定身份／业务输入，不豁免这项外部必查；零售商不能独立确认技术事实。
+
 用户于 2026-10-22 指定默认 [ERP internal-ID lookup](erp-internal-id-lookup.md)：进入 virtual computers 的 All 页面，在顶部 Search 输入 internal ID，回车后打开精确匹配的产品详情。internal ID 本身足够启动定位，不应先要求用户再给详情 URL；不能推算 ERP 数字 ID。
 See [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for the active seller/base-configuration policy.
 
-2026-10-26 产品证据优先级见 [官网证据链与深搜](evidence-chain-and-deep-research.md)：官网 serial 查询及精确产品搜索 > ERP > Amazon，信息冲突以匹配官网研究为准。先查 ERP 取得身份不改变该顺序；内部来源交叉验证不能取代官网研究。缺失字段须完成适用 deep search 后才可写未找到。
+产品证据优先级见 [官网证据链与深搜](evidence-chain-and-deep-research.md)（2026-10-26，2026-11-16 补充 Best Buy）：官网 serial 查询及精确产品搜索 > 目标关联 ERP > Best Buy（每次必查，中等优先级）> Amazon／其它零售商线索，信息冲突以匹配官网研究为准，自有品牌保留 ERP 主导分支。先查 ERP 取得身份不改变该顺序；内部来源交叉验证不能取代官网研究。缺失字段须完成适用 deep search 后才可写未找到。
 
 
 本参考规定如何把 MyStore ERP 与 Listing Status Tracker 作为可选输入及互相核验来源。它们都是卖家内部来源，但承担的业务角色不同；两边出现不同值时，不能简单选择较新、较完整或更有利于销售的一边。

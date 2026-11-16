@@ -6,7 +6,7 @@
 
 执行 `python scripts/listing_draft.py plan --product <staged-product-folder> --output <new-worklist.json>`。尚无产品目录时省略 `--product`。它从实际 canonical template 读取每个字段及 Definition，当前为 294 项，列出已有状态、候选、研究轨迹和未完成来源路线；它不做网络查询、不伪造结果，也不自动将所有字段判为技术项或卖家项。
 
-执行者必须按 Definition 分类并完成独立研究：目标关联 serial/BOM／官方精确型号与组件 → ERP 当前配置核对 → Amazon 精确变体与适用深查。先复用该产品仍有效的研究；不得将另一产品值、历史候选或通用默认值当作新产品事实。按字段的实际缺口继续，不在只完成 CPU/RAM/SSD 后停止。
+执行者必须按 Definition 分类并完成独立研究：目标关联 serial/BOM／官方精确型号与组件 → ERP 当前配置核对 → [Best Buy 每次必查、交叉验证及补充检索](bestbuy-research.md) → Amazon 精确变体与适用深查。Best Buy 是中等优先级辅助证据，即使前面资料齐全或复用旧研究，本次仍须实际搜索；记录准确身份、比较结果及未匹配／受阻限制，不能把零售商信息单独提升为确认事实。先复用该产品仍有效的研究；不得将另一产品值、历史候选或通用默认值当作新产品事实。按字段的实际缺口继续，不在只完成 CPU/RAM/SSD 后停止。
 
 研究重点包括：准确 CPU 型号及官方代际；内存类型、实际运行速率和模块额定值；真实机身 Form Factor；电池 pack、cell、Wh、chemistry、净重／上限及数量的区别；显示屏原生规格；接口／无线／尺寸和配件。通用维度仍由既有模板和专门政策决定，不硬编码某个型号的代际、4400/5200 或 190g。
 

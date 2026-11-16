@@ -18,7 +18,7 @@
 
 | 分支 | 当前规范 |
 | --- | --- |
-| 精确 ID／研究 | [ERP 入口](erp-internal-id-lookup.md)、[官方证据链](evidence-chain-and-deep-research.md)、[研究轨迹](research-trace-contract.md) |
+| 精确 ID／研究 | [ERP 入口](erp-internal-id-lookup.md)、[官方证据链](evidence-chain-and-deep-research.md)、[每次必查 Best Buy：交叉验证与补充检索](bestbuy-research.md)、[研究轨迹](research-trace-contract.md) |
 | 单独 FCC 查询 | [FCC／ERP 库存](fcc-research-workflow.md)，独立于 Listing 研究／图片 |
 | 定制文案／内存研究 | [Customization](customization-options-policy.md)、[文案格式](listing-style-guide.md) |
 | MegaPC 自有品牌 | [独立自有品牌分支](megapc-own-brand-mini-pc.md) |

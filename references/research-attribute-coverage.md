@@ -6,7 +6,7 @@
 Customized listing research additionally follows [RAM replaceability/type and seller options](customization-options-policy.md). Record exact DDR/LPDDR family/generation and replaceability; capacity choices are confirmed seller policy, not a platform-maximum research prerequisite. Retain installed base numeric facts separately.
 See [confirmed-catalog-defaults.md](confirmed-catalog-defaults.md) for the active seller/base-configuration policy.
 
-**2026-10-26 evidence decision:** apply [官网优先证据链与深搜](evidence-chain-and-deep-research.md) automatically. 官网 serial 查询＋准确产品搜索 > ERP > Amazon；产品信息冲突以匹配官网研究为准。该规则取代旧的 ERP-first 技术事实优先级，逐字段保留研究路径与裁决依据。
+**2026-10-26 evidence decision, amended 2026-11-16:** apply [官网优先证据链与深搜](evidence-chain-and-deep-research.md) automatically. 官网 serial 查询＋准确产品搜索 > 目标关联 ERP > [Best Buy（每次必查，中等优先级）](bestbuy-research.md) > Amazon／其它零售商线索；产品信息冲突以匹配官网研究为准，自有品牌保留 ERP 主导分支。即使官网／ERP 资料齐全，每次产品研究仍须执行 Best Buy 检索，用于逐字段交叉验证和补充信息；记录真实查询／比较、未匹配和访问限制。该规则取代旧的 ERP-first 技术事实优先级，逐字段保留研究路径与裁决依据。
 
 **2026-10-21 user layout update:** [Candidate review rows](candidate-review-rows.md) supersede older five-row and candidate-in-Value instructions for newly generated workbooks. All three sheets now place candidates/source in rows 6/7 below Source; formal Value remains blank until confirmed. Preserve original historical bytes.
 

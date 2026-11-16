@@ -14,6 +14,8 @@ Read [the current execution router](references/current-workflow.md), [SKILL.md](
 
 ## Research and copy
 
+- Every product-research run must perform [Best Buy search, cross-validation and supplemental retrieval](references/bestbuy-research.md), including when OEM/ERP facts are already available. Best Buy is medium-priority supporting evidence below matching official/target-linked ERP evidence. Record actual queries, dates, matches/comparisons or no-match/access limits; prior research does not waive this run's search. Pure visual edits without research retain their scope.
+
 - Full new Listing/Excel requests use [the default draft generation entry](references/listing-draft-generation.md): enumerate actual template Definitions, complete independent research and comparative candidates, then run listing_draft.py build/verify for both workbooks and visible recommendations. New full ledgers declare listing_draft_contract_version: 1; production verifies the complete bundle. Do not wait for field-by-field user corrections. Scoped research/image requests remain scoped.
 
 - New Research Review / Listing Draft generation enforces [Value/candidate completeness](references/value-candidate-completeness.md). Every blank formal Value needs a sourced visible candidate or a concrete visible no-candidate disposition and follow-up; plain TBD/empty candidate rows cannot silently pass new generation. Never fabricate a candidate or turn an OEM maximum into exact actual weight.
