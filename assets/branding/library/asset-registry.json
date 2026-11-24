@@ -198,6 +198,101 @@
       "status": "AVAILABLE_APPROVED_MASTER",
       "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29",
       "provenanceReference": "Existing approved catalog Windows 11 Pro master; retained original bytes, no invented official download URL."
+    },
+    {
+      "id": "dell-native-bezel-mark-source",
+      "file": "dell-native-bezel-mark-source.png",
+      "brand": "Dell",
+      "identity": "Dell original native bezel mark source",
+      "kind": "HARDWARE_BRAND",
+      "match": {
+        "oemBrand": "Dell",
+        "assetPurpose": "SOURCE_ONLY"
+      },
+      "path": "assets/branding/library/dell-native-bezel-mark-source.png",
+      "sha256": "c06b6c1b6169a7db37e24d993f00e0ed404ecf5c2d74fc522e11d57b854f8a1d",
+      "byteLength": 18300,
+      "contentType": "image/png",
+      "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29",
+      "status": "AVAILABLE_ORIGINAL",
+      "sourcePage": "https://www.dell.com/support/product-details/en-us/product/latitude-15-3520-laptop/overview",
+      "url": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/latitude-notebooks/15-3520/media-gallery/peripherals_latop_latitude_3520_gallery_3.psd?chrss=full&fmt=pjpg&hei=2291&imwidth=5000&pscan=auto&qlt=100%2C1&resMode=sharp2&scl=1&size=3339%2C2291&wid=3339",
+      "originalImageSha256": "d9d31827ca31a027a8825424d86390233732ee380558ba1209747f75d3b1c5fb",
+      "cropBox": [
+        1580,
+        1680,
+        1755,
+        1745
+      ],
+      "provenanceReference": "Actual original Dell bezel mark crop; no tracing, type replacement or recoloring."
+    },
+    {
+      "id": "dell-native-white-wordmark",
+      "file": "dell-native-white-wordmark.png",
+      "brand": "Dell",
+      "identity": "Dell native white wordmark",
+      "kind": "OEM_BRAND",
+      "match": {
+        "oemBrand": "Dell"
+      },
+      "path": "assets/branding/library/dell-native-white-wordmark.png",
+      "sha256": "badde5e380e023b45768947ab2b0a0f360bba418f3c118e178083a22d6fc8c17",
+      "byteLength": 18621,
+      "contentType": "image/png",
+      "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29",
+      "status": "AVAILABLE_PROPORTIONATE_DERIVATIVE",
+      "sourcePage": "https://www.dell.com/support/product-details/en-us/product/latitude-15-3520-laptop/overview",
+      "url": "https://i.dell.com/is/image/DellContent/content/dam/ss2/product-images/dell-client-products/notebooks/latitude-notebooks/15-3520/media-gallery/peripherals_latop_latitude_3520_gallery_3.psd?chrss=full&fmt=pjpg&hei=2291&imwidth=5000&pscan=auto&qlt=100%2C1&resMode=sharp2&scl=1&size=3339%2C2291&wid=3339",
+      "originalImageSha256": "d9d31827ca31a027a8825424d86390233732ee380558ba1209747f75d3b1c5fb",
+      "cropBox": [
+        1580,
+        1680,
+        1755,
+        1745
+      ],
+      "provenanceReference": "Actual original Dell bezel mark crop; no tracing, type replacement or recoloring.",
+      "parentSha256": "c06b6c1b6169a7db37e24d993f00e0ed404ecf5c2d74fc522e11d57b854f8a1d",
+      "derivation": "gallery_engine.remove_background(tolerance=42): edge-connected verified neutral dark-gray background only; original RGB white mark pixels retained. Crop/alpha edges visually inspected."
+    },
+    {
+      "id": "intel-corporate-svg",
+      "file": "intel-corporate.svg",
+      "brand": "Intel",
+      "identity": "Intel corporate identity",
+      "kind": "HARDWARE_BRAND",
+      "match": {
+        "cpuBrand": "Intel"
+      },
+      "path": "assets/branding/library/intel-corporate.svg",
+      "sha256": "6d81b3bb7b058be27062fda520b5aaf23402db709af3d62d8593a39cad715fca",
+      "byteLength": 2308,
+      "contentType": "image/svg+xml",
+      "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29",
+      "status": "AVAILABLE_ORIGINAL",
+      "sourcePage": "https://www.intel.com/content/www/us/en/homepage.html",
+      "url": "https://www.intel.com/content/dam/logos/intel-header-logo.svg",
+      "provenanceReference": "Actual public official Intel corporate SVG returned HTTP 200; homepage HTML access returned HTTP 403. Corporate identity only, no Core Ultra/Evo/vPro implication."
+    },
+    {
+      "id": "intel-corporate",
+      "file": "intel-corporate.png",
+      "brand": "Intel",
+      "identity": "Intel corporate identity",
+      "kind": "HARDWARE_BRAND",
+      "match": {
+        "cpuBrand": "Intel"
+      },
+      "path": "assets/branding/library/intel-corporate.png",
+      "sha256": "14efd31ba81738eb0c707d4a886120719417fc30d001d114beea74091ba9855a",
+      "byteLength": 9135,
+      "contentType": "image/png",
+      "authorization": "USER_CONFIRMED_BRAND_ASSETS_2026_10_29",
+      "status": "AVAILABLE_PROPORTIONATE_DERIVATIVE",
+      "sourcePage": "https://www.intel.com/content/www/us/en/homepage.html",
+      "url": "https://www.intel.com/content/dam/logos/intel-header-logo.svg",
+      "provenanceReference": "Actual public official Intel corporate SVG returned HTTP 200; homepage HTML access returned HTTP 403. Corporate identity only, no Core Ultra/Evo/vPro implication.",
+      "parentSha256": "6d81b3bb7b058be27062fda520b5aaf23402db709af3d62d8593a39cad715fca",
+      "derivation": "Proportionate SVG rasterization by resvg_py at width 800; original vector colors/shapes retained."
     }
   ]
 }
